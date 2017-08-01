@@ -1,16 +1,109 @@
 <!DOCTYPE html>
 <html>
-    <title>l7ssha</title>
-<body style="text-align: center;">
-    Web page not working for short time. <br>
-    Download links here <br>
-    <br>
+    <title>l7ssha Dev</title>
 
-    <a href="https://drive.google.com/open?id=0B-0LJw5vit_oSTdEZEtJUjd4Y1U">RR 6.0</a> <br>
-    <a href="https://drive.google.com/open?id=0B-0LJw5vit_odVBkUEVhbVpYUXM">RR 5.1</a> <br>
-    <a href="https://drive.google.com/open?id=0B-0LJw5vit_oc05KclNuZ1h6d2s">Flyme</a> <br>
-    <a href="https://drive.google.com/open?id=0B-0LJw5vit_ocTkwc0Q5eWNubjA">BlissPop</a> <br>
-    <a href="https://drive.google.com/open?id=0B-0LJw5vit_oZWdtQkFqaVRld1k">AICP</a> <br>
+    <script src="deps/js/bootstrap.min.js"></script>
+    <script src="deps/js/jquery-3.2.1.min.js"></script>
+    <script src="deps/l7ssha.js"></script>
 
+    <link rel="stylesheet" href="deps/css/bootstrap.min.css">
+    <link rel="stylesheet" href="deps/css/font-awesome.min.css">
+    <link rel="stylesheet" href="deps/l7ssha.css">
+
+<body>
+    <nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse mb-4">
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand" href="#">l7ssha.pl </a>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">ConfKr</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Android</a>
+            </li>
+          </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="jumbotron">
+          <h1>l7ssha Dev</h1>
+          <h4>Simple simplicity</h4>
+        </div>
+    </div>
+
+    <section id="confkr">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-12 my-2">
+              <h3>ConfKr <small style="font-size: 0.7em">Opening and editing config files in simplest way. Powered by C#</small></h3> 
+            </div>
+            <div class="col-lg-8 my-2"> 
+              <p>ConfKr is simple config file parser. It works on layout:</p>
+              <code>
+                delimiter (=) <br>
+                !-- Comment <br>
+                <br>
+                Key (=) value <br>
+                Key (=) value  <br>
+              </code> <br>
+              <p> Where <code>(=)</code> is your desired delimiter, which you must set on top of the file. 
+                  <br>This is a comment syntax: (there is no multi line comments) <code>!-- COMMENT HERE </code> </p>
+            </div>
+          </div>
+        </div>
+    </section>
+
+    <section id="android"> 
+        <div class="container">
+            <div class="row justify-content-md-center">
+              <div id="rr6" class="col-lg-6" style="padding: 10px">
+                <h3>Resurrection Remix 6.0 <small>6.0.1 | 2016/11/07</small> </h3>
+                <h5>Bugs:</h5>
+                <p>
+                  - Camera freezes at HDR <br/>
+                  - Youtube in browser dont work<br/>
+                  - Mass Storage sometimes crashes
+                  - Magnetic Sensor<br/>
+                  - IRDa Port
+                </p>
+                <br>
+                <a href="https://drive.google.com/open?id=0B-0LJw5vit_oSTdEZEtJUjd4Y1U" target="_blank" class="btn btn-md btn-info"> <span class="fa fa-download"></span> &nbsp; DOWNLOAD RR6.0 </a>
+              </div>
+
+              <div id="flyme" class="col-lg-6" style="padding: 10px;">
+                  <h3>FlymeOS <small>6.0.1 | 2017/06/09</small></h3>
+                  <h5>Bugs:</h5>
+                  <p>
+                    - Shitty view in camera, but photos looks good <br/>
+                    - Flickering wallpaper during locking<br/>
+                    - Mass Storage sometimes crashes<br/>
+                    - Shitty front camera <br/>
+                    - Magnetic Sensor<br/>
+                    - IRDa Port
+                  </p>
+                  <br>
+                  <a href="https://drive.google.com/open?id=0B-0LJw5vit_oSTdEZEtJUjd4Y1U" target="_blank" class="btn btn-md btn-info"> <span class="fa fa-download"></span> &nbsp; DOWNLOAD FLYME </a>
+              </div>
+
+              <div class="col-lg-12" style="padding: 10px; padding-top: 40px">
+                <div class="row my-2">
+                  <div class="col-7 my-1"><h4>Android Ice Cold Project <small>5.1.1 | 2016/08/25</small></h4></div> <div class="col-4"><a href="https://drive.google.com/open?id=0B-0LJw5vit_oZWdtQkFqaVRld1k" target="_blank" class="btn btn-md btn-info btn-block"> <span class="fa fa-download"></span> &nbsp; DOWNLOAD AICP </a></div>
+
+                  <div class="col-7 my-1"><h4>BlissPop <small>5.1.1 | 2016/09/20</small></h4></div> <div class="col-4"><a href="https://drive.google.com/open?id=0B-0LJw5vit_ocTkwc0Q5eWNubjA" target="_blank" class="btn btn-md btn-info btn-block"> <span class="fa fa-download"></span> &nbsp; DOWNLOAD Bliss </a></div>
+                  
+                  <div class="col-7 my-1"><h4>Ressurection Remix 5.1 <small>5.1.1 | 2016/08/04</small></h4></div> <div class="col-4"><a href="https://drive.google.com/open?id=0B-0LJw5vit_odVBkUEVhbVpYUXM" target="_blank" class="btn btn-md btn-info btn-block"> <span class="fa fa-download"></span> &nbsp; DOWNLOAD RR5.1 </a> </div>
+                </div>
+              </div>
+            </div>
+        </div>
+    </section>
+    
 </body>
 </html>
