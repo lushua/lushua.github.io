@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html>
     <title>l7ssha Dev</title>
+    <meta charset="UTF-8">
+    <meta author="Szymon l7ssha Uglis">
+    <meta tags="l7ssha, android, AICP, resurrection, config, ConfKr, C#, .NET">
 
-    <script src="deps/js/bootstrap.min.js"></script>
-    <script src="deps/js/jquery-3.2.1.min.js"></script>
-    <script src="deps/l7ssha.js"></script>
+    <link rel="icon" href="deps/img/favicon.ico">
 
-    <link rel="stylesheet" href="deps/css/bootstrap.min.css">
-    <link rel="stylesheet" href="deps/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="deps/l7ssha.css">
 
 <body>
@@ -32,8 +33,8 @@
     </nav>
 
     <div class="container">
-        <div class="jumbotron">
-          <h1>l7ssha Dev</h1>
+        <div class="jumbotron bg-image">
+          <h1><i class="fa fa-diamond" aria-hidden="true"></i> l7ssha Dev</h1>
           <h4>Simple simplicity</h4>
         </div>
     </div>
@@ -44,7 +45,7 @@
             <div class="col-lg-12 my-2">
               <h3>ConfKr <small style="font-size: 0.7em">Opening and editing config files in simplest way. Powered by C#</small></h3> 
             </div>
-            <div class="col-lg-8 my-2"> 
+            <div class="col-lg-12 my-2"> 
               <p>ConfKr is simple config file parser. It works on layout:</p>
 
               <code>
@@ -55,7 +56,12 @@
               </code><br>
 
               <p> Where <code>(=)</code> is your desired delimiter, which you must set on top of the file. 
-                  <br>This is a comment syntax: (there is no multi line comments) <code>!-- COMMENT HERE </code> </p>
+                  <br>This is a comment syntax: (there is no multi line comments) <code>!-- COMMENT HERE </code> <br>
+                  <br> To get values use indexer <code> string value = config[string key] </code> <br>or Get method <code> string value = config.Get(string value) </code>
+                </p>
+              <div class="row my-3">
+                <a href="ConfKr/" class="btn btn-primary col-6"><i class="fa fa-book" aria-hidden="true"></i> Dig into</a> <a href="ConfKr/download" class="btn btn-info col-6"><span class="fa fa-download"></span>Download</a>
+              </div>
             </div>
           </div>
         </div>
@@ -72,7 +78,9 @@
                   - Youtube in browser dont work<br/>
                   - Mass Storage sometimes crashes
                   - Magnetic Sensor<br/>
-                  - IRDa Port
+                  - IRDa Port <br>
+                  <br>
+                  <br>
                 </p>
                 <br>
                 <a href="https://drive.google.com/open?id=0B-0LJw5vit_oSTdEZEtJUjd4Y1U" target="_blank" class="btn btn-md btn-info"> <span class="fa fa-download"></span> &nbsp; DOWNLOAD RR6.0 </a>
@@ -105,6 +113,13 @@
             </div>
         </div>
     </section>
+
+    <footer class="text-center my-5">
+      <p>Szymon 'l7ssha' Uglis 2017</p>
+    </footer>
     
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
+    <script src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
+
 </body>
 </html>

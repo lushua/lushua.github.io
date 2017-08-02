@@ -1,14 +1,21 @@
 /* line 1, l7ssha.sass */
 body {
   min-height: 75rem;
+  overflow-x: hidden;
 }
 
-/* line 4, l7ssha.sass */
+/* line 5, l7ssha.sass */
 #android {
   background-color: yellow;
 }
 
-/* line 7, l7ssha.sass */
+/* line 8, l7ssha.sass */
 #confkr {
   background-color: lightgreen;
+}
+
+/* line 11, l7ssha.sass */
+.bg-image {
+  background-image: url("../deps/img/1.png");
+  color: white;
 }
