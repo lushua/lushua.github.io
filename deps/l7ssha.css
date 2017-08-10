@@ -15,6 +15,16 @@ body {
 }
 
 /* line 11, l7ssha.sass */
+#sharpgitstat {
+  background-color: orange;
+}
+
+/* line 14, l7ssha.sass */
+#cplus {
+  background-color: lightblue;
+}
+
+/* line 17, l7ssha.sass */
 .bg-image {
   background-image: url("../deps/img/1.png");
   color: white;
