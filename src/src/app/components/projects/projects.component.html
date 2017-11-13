@@ -1,0 +1,18 @@
+<div class="container">
+    <section *ngFor="let proj of projectdata" id="{{proj.title | lowercase }}">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-12 my-2">
+              <h3>{{proj.title}} <small style="font-size: 0.7em">{{proj.motd}}</small></h3>
+            </div>
+            <div class="col-lg-12 my-2">
+              <p>{{proj.desc}}</p>
+  
+              <div class="row my-3">
+                <a href="{{proj.githref}}" class="btn btn-primary col-6"><i class="fa fa-book" aria-hidden="true"></i> Visit {{proj.title}} on GitHub!</a>
+              </div>
+            </div>
+          </div>
+        </div>
+    </section>
+</div>>

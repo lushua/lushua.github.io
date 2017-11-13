@@ -1,0 +1,15 @@
+<div class="container">
+    <div class="jumbotron bg-image">
+      <h1><i class="fa fa-diamond" aria-hidden="true"></i> {{title}}</h1>
+      <h4>{{motd}}</h4>
+    </div>
+</div>
+
+<main class="container">
+  <section *ngFor="let sect of sections" class="row text-center">
+    <div class="col-4 sectionhref">
+      <h2><a routerLink="{{sect.href}}">{{sect.title}}</a></h2>
+    </div>
+    <div class="col-8"><p><b>{{sect.desc}}</b></p></div>
+  </section>
+</main>

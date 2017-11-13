@@ -1,0 +1,7 @@
+.sectionhref a {
+    color: black !important;
+}
+sectionhref a:hover {
+    color: rgb(55, 54, 70) !important;
+    text-decoration: none !important;
+}
