@@ -6,10 +6,10 @@
 </div>
 
 <main class="container">
-  <section *ngFor="let sect of sections" class="row text-center">
+  <section *ngFor="let sect of sections" class="row">
     <div class="col-lg-4 col-sm-12 sectionhref">
-      <h2><a routerLink="{{sect.href}}">{{sect.title}}</a></h2>
+      <h2 style="padding-left: 10px"><a routerLink="{{sect.href}}">{{sect.title}}</a></h2>
     </div>
-    <div class="col-lg-8 col-sm-12"><p><b>{{sect.desc}}</b></p></div>
+    <div class="col-lg-8 col-sm-12 text-center"><p><b>{{sect.desc}}</b></p></div>
   </section>
 </main>
