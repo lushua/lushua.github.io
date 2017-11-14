@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Title } from '@angular/platform-browser';
+import { ABOUTME } from '../../data/aboutmeData';
 
 @Component({
   selector: 'app-about',
@@ -8,6 +9,7 @@ import { Title } from '@angular/platform-browser';
   encapsulation: ViewEncapsulation.None
 })
 export class AboutComponent implements OnInit {
+  aboutme = ABOUTME;
 
   public constructor(private titleService: Title ) { }
 

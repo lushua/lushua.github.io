@@ -4,11 +4,9 @@
       <img class="img img-fluid rounded" src="https://avatars1.githubusercontent.com/u/23033957?s=460&v=4">
     </div>
     <div class="col-lg-8 col-md-12">
-      <p>
-          Whats up, I'm Simon, I'm 17 years old and I'm in 2st class of high school. <br>
-          In Programming I've interested for 4 years. The first language I learned was C#. <br>
-          I like motorcycles, cycling and gaming for sure. 
-      </p>
+      <div *ngFor="let line of aboutme">
+        {{line}} <br>
+      </div>
       <h3>My skills:</h3>
       <div>
           <div style="margin:5px" class="progress">
