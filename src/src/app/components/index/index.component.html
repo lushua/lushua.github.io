@@ -7,9 +7,9 @@
 
 <main class="container">
   <section *ngFor="let sect of sections" class="row text-center">
-    <div class="col-4 sectionhref">
+    <div class="col-lg-4 col-sm-12 sectionhref">
       <h2><a routerLink="{{sect.href}}">{{sect.title}}</a></h2>
     </div>
-    <div class="col-8"><p><b>{{sect.desc}}</b></p></div>
+    <div class="col-lg-8 col-sm-12"><p><b>{{sect.desc}}</b></p></div>
   </section>
 </main>
