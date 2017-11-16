@@ -9,15 +9,13 @@ import { AboutComponent } from './components/about/about.component';
 import { CppComponent } from './components/cpp/cpp.component';
 import { Routes, RouterModule } from '@angular/router';
 import { IndexComponent } from './components/index/index.component';
-import { ChatComponent } from './components/chat/chat.component';
 
 const routes: Routes = [
   { path: '', component: IndexComponent },
   { path: 'about', component: AboutComponent },
   { path: 'projects', component: ProjectsComponent },
   { path: 'roms', component: RomsComponent },
-  { path: 'cpp', component: CppComponent },
-  { path: 'chat', component: ChatComponent }
+  { path: 'cpp', component: CppComponent }
 ];
 
 @NgModule({
@@ -27,8 +25,7 @@ const routes: Routes = [
     ProjectsComponent,
     AboutComponent,
     CppComponent,
-    IndexComponent,
-    ChatComponent
+    IndexComponent
   ],
   imports: [
     BrowserModule,
