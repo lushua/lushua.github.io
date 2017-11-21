@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { SECTIONSDATA } from '../../data/sectionsData';
 import { Title } from '@angular/platform-browser';
+import { MOTDS } from '../../data/motdsData';
 
 @Component({
   selector: 'app-index',
@@ -11,11 +12,11 @@ import { Title } from '@angular/platform-browser';
 export class IndexComponent implements OnInit {
 
   title = 'l7ssha Dev';
-  motd = 'It can\' go simpler anymore';
+  motd = MOTDS[Math.floor(Math.random() * MOTDS.length)];
   sections = SECTIONSDATA;
 
   public constructor(private titleService: Title ) { }
-  
+
   public setTitle( newTitle: string) {
     this.titleService.setTitle( newTitle );
   }
