@@ -8,6 +8,7 @@ import { Title } from '@angular/platform-browser';
   styleUrls: ['./roms.component.css'],
   encapsulation: ViewEncapsulation.None
 })
+
 export class RomsComponent implements OnInit {
 
   romsdata = ROMSDATA;
