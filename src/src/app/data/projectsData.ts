@@ -8,6 +8,13 @@ export class Project {
 
 export const PROJECTSDATA: Project[] = [
     {
+        id: 0,
+        title: 'TagInserter',
+        motd: 'VS Code? HTML? Np..',
+        desc: 'VS Code extension for HTML that inserts html tag within selected text',
+        githref: 'https://github.com/l7ssha/TagInserter'
+    },
+    {
         id: 1,
         title: 'SharpGitStat',
         motd: 'Fatching GitHubAPI status in easiest way. Powered by C# and JSON.NET',
@@ -38,5 +45,13 @@ export const PROJECTSDATA: Project[] = [
         // tslint:disable-next-line:max-line-length
         desc: 'MCCLI means Muli-Component Command Line Interface. It has modular design - you can write clean modules with routes enabled. It has modding API for easy extenions building.',
         githref: 'https://github.com/l7ssha/MCCLI'
+    },
+    {
+        id: 5,
+        title: 'StrawpollNET',
+        motd: 'Small thing to create and fetch polls from strawpoll.me',
+        // tslint:disable-next-line:max-line-length
+        desc: 'Smart way to integrate strawpoll into your app. This lib  has easy and rich set of features for interacting with strawwpoll API',
+        githref: 'https://github.com/l7ssha/StrawPollNET'
     }
 ];

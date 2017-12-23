@@ -5,3 +5,32 @@ sectionhref a:hover {
     color: rgb(55, 54, 70) !important;
     text-decoration: none !important;
 }
+
+.bg-image {
+    background-image: url("../../../assets/img/1.png");
+    color: white;
+}
+
+.btn-social {
+    display: inline-block;
+    height: 30px;
+    width: 30px;
+    border: 2px solid white;
+    border-radius: 100%;
+    text-align: center;
+    font-size: 15px;
+    line-height: 25px;
+    text-decoration: none;
+}
+.btn-social:hover {
+    color: white;
+}
+
+.btn-outline {
+    color: white;
+    font-size: 15px;
+    border: solid 2px white;
+    background: transparent;
+    margin-left: 5px;
+    margin-top: 5px;
+}
