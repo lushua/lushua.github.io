@@ -2,6 +2,7 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { SECTIONSDATA } from '../../data/sectionsData';
 import { Title } from '@angular/platform-browser';
 import { MOTDS } from '../../data/motdsData';
+import { POSTSDATA } from '../../data/postsData';
 
 @Component({
   selector: 'app-index',
@@ -14,6 +15,7 @@ export class IndexComponent implements OnInit {
   title = 'l7ssha Dev';
   motd = MOTDS[Math.floor(Math.random() * MOTDS.length)];
   sections = SECTIONSDATA;
+  posts = POSTSDATA;
 
   public constructor(private titleService: Title ) { }
 

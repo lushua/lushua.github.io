@@ -1,6 +1,66 @@
 /* You can add global styles to this file, and also import other style files */
 
-body {
+html {
     overflow-x: hidden;
     color: white;
+}
+
+.sectionhref a {
+    color: black !important;
+}
+sectionhref a:hover {
+    color: rgb(55, 54, 70) !important;
+    text-decoration: none !important;
+}
+
+.bg-image {
+    background-image: url("assets/img/1.png");
+    color: white;
+}
+
+.btn-social {
+    display: inline-block;
+    height: 30px;
+    width: 30px;
+    border: 2px solid white;
+    border-radius: 100%;
+    text-align: center;
+    font-size: 15px;
+    line-height: 25px;
+    text-decoration: none;
+}
+.btn-social:hover {
+    color: white;
+}
+
+.btn-outline {
+    color: white;
+    font-size: 15px;
+    border: solid 2px white;
+    background: transparent;
+    margin-left: 5px;
+    margin-top: 5px;
+}
+
+.news {
+    text-align: center;
+}
+
+.node p {
+    font-size: 1.1em;
+}
+
+.news .node {
+    margin: 5px;
+    padding: 5px;
+}
+
+.news h3 a {
+    text-decoration: none;
+    color: black;
+}
+
+.news h3 a:hover {
+    text-decoration: none;
+    color: red;
 }

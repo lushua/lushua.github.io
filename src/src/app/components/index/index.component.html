@@ -27,10 +27,21 @@
 </div>
 
 <main class="container">
-  <section *ngFor="let sect of sections" class="row">
-    <div class="col-lg-4 col-sm-12 sectionhref">
-      <h2 style="padding-left: 10px"><a routerLink="{{sect.href}}">{{sect.title}}</a></h2>
-    </div>
-    <div class="col-lg-8 col-sm-12 text-center"><p><b>{{sect.desc}}</b></p></div>
-  </section>
+    <section *ngFor="let sect of sections" class="row">
+        <div class="col-lg-4 col-sm-12 sectionhref">
+        <h2 style="padding-left: 10px"><a routerLink="{{sect.href}}">{{sect.title}}</a></h2>
+        </div>
+        <div class="col-lg-8 col-sm-12 text-center"><p><b>{{sect.desc}}</b></p></div>
+    </section>
+
+    <br>
+    <hr style="border-top: 3px solid black; width: 70%">
+    <br>
+    
+    <div class="news">
+        <div *ngFor="let post of posts" id="{{post.id}}" class="node">
+            <h3><a href="{{post.link}}">{{post.title}}</a></h3>
+            <p> {{post.body}} </p>
+        </div>
+    </div> 
 </main>
