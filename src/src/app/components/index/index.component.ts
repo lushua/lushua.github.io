@@ -15,7 +15,7 @@ export class IndexComponent implements OnInit {
   title = 'l7ssha Dev';
   motd = MOTDS[Math.floor(Math.random() * MOTDS.length)];
   sections = SECTIONSDATA;
-  posts = POSTSDATA;
+  posts = POSTSDATA.reverse();
 
   public constructor(private titleService: Title ) { }
 
