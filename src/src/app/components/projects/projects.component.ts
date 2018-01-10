@@ -13,6 +13,16 @@ export class ProjectsComponent implements OnInit {
   title = 'Live projects';
   projectdata = PROJECTSDATA;
 
+  color_classes: string[] = [
+    'btn-primary',
+    'btn-success',
+    'btn-warning',
+    'btn-danger',
+    'btn-secondary',
+    'btn-info',
+    'btn-dark'
+  ];
+
   public constructor(private titleService: Title ) { }
 
   public setTitle( newTitle: string) {
@@ -21,6 +31,10 @@ export class ProjectsComponent implements OnInit {
 
   ngOnInit() {
     this.setTitle('l7ssha Dev - Projects');
+  }
+
+  public getColor() {
+    return this.color_classes[Math.floor(Math.random() * this.color_classes.length)];
   }
 
 }

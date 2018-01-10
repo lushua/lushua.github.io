@@ -8,6 +8,14 @@ export class Project {
 
 export const PROJECTSDATA: Project[] = [
     {
+        id: -1,
+        title: 'TheGuardian API Wrapper',
+        motd: 'Give me some news, please',
+        // tslint:disable-next-line:max-line-length
+        desc: 'Easy, simple, fast wrapper for TheGuardian webpage and service. Gives simple models for robust workflow. It has official support!',
+        githref: 'https://github.com/l7ssha/GuardianNet'
+    },
+    {
         id: 0,
         title: 'TagInserter',
         motd: 'VS Code? HTML? Np..',
@@ -53,5 +61,21 @@ export const PROJECTSDATA: Project[] = [
         // tslint:disable-next-line:max-line-length
         desc: 'Smart way to integrate strawpoll into your app. This lib  has easy and rich set of features for interacting with strawwpoll API',
         githref: 'https://github.com/l7ssha/StrawPollNET'
+    },
+    {
+        id: 6,
+        title: 'lColors - C++ Console Colors library',
+        // tslint:disable-next-line:max-line-length
+        desc: 'lColors is my first C++ attempt. I\'ve written this library as my \"Hello World\" to C++. Time ago a introduced it to my github and do small changes. Feel free to fork.',
+        motd: '',
+        githref: 'https://github.com/lushua/lColors'
+    },
+    {
+        id: 7,
+        title: 'Game Engine - C++ 2D engine',
+        // tslint:disable-next-line:max-line-length
+        desc: 'It\'s a 2D "game engine", but I didn\'t created any game with it. It uses a OpenGL and SDL, also irrKlang as sound engine. In free time. I\'ll compile it and push to github. For now its somewhere in my computer',
+        motd: '',
+        githref: ''
     }
 ];

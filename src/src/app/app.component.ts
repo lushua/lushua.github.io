@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SectionData, SECTIONSDATA } from './data/sectionsData';
 import { Routes } from '@angular/router';
-import { CppComponent } from './components/cpp/cpp.component';
 import { Title } from '@angular/platform-browser';
 
 @Component({

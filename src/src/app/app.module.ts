@@ -6,7 +6,6 @@ import { AppRoutingModule } from './/app-routing.module';
 import { RomsComponent } from './components/roms/roms.component';
 import { ProjectsComponent } from './components/projects/projects.component';
 import { AboutComponent } from './components/about/about.component';
-import { CppComponent } from './components/cpp/cpp.component';
 import { Routes, RouterModule } from '@angular/router';
 import { IndexComponent } from './components/index/index.component';
 
@@ -15,7 +14,6 @@ const routes: Routes = [
   { path: 'about', component: AboutComponent },
   { path: 'projects', component: ProjectsComponent },
   { path: 'roms', component: RomsComponent },
-  { path: 'cpp', component: CppComponent }
 ];
 
 @NgModule({
@@ -24,7 +22,6 @@ const routes: Routes = [
     RomsComponent,
     ProjectsComponent,
     AboutComponent,
-    CppComponent,
     IndexComponent
   ],
   imports: [
