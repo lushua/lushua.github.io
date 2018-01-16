@@ -1,0 +1,101 @@
+body, html {
+    overflow-x: hidden;
+    background-color: black;
+    color: white;
+    font-family: monospace;
+    font-size: 1em;
+}
+
+div.row {
+    margin: 10px;
+}
+
+a {
+    text-decoration: none;
+    color: whitesmoke;
+    text-align: left;
+}
+
+a:hover {
+    text-decoration: none;
+    color: gray;
+}
+
+.post-node {
+    margin-left: 5px;
+    margin-bottom: 10px;
+}
+
+.page-node {
+    margin-top: 20px;
+}
+
+hr {
+	border-top: 4px double white;
+}
+
+.header {
+    display: inline;
+    color: wheat;
+}
+
+.header:hover {
+    color: whitesmoke;
+}
+
+.inproj-btn {
+    color: gold;
+}
+
+.inproj-btn:hover {
+    color: green;
+}
+
+.post-node p {
+    padding: 0;
+    margin: 0;
+    font-size: 1.2em;
+    color: antiquewhite;
+}
+
+@media only screen and (min-width: 800px) {
+    #index  {
+        position: fixed;
+        text-align: left !important;
+        height: 100%;
+    }
+
+    a {
+        display: block;
+    }
+}
+
+#links a {
+    display: inline;
+}
+
+#skills p {
+    font-size: 1.3em;
+}
+
+.skill-node {
+    padding-left: 10px;
+    display: block;
+}
+
+.skill-node2 {
+    padding-left: 15px;
+    display: block;
+}
+
+.skill-csharp {
+    color: green;
+}
+
+.skill-nodejs {
+    color: yellow;
+}
+
+.skill-lua {
+    color: lightblue;
+}

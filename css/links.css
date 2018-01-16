@@ -1,0 +1,44 @@
+.projects-btn{
+    color: wheat;
+}
+
+.projects-btn:hover{
+    color: black;
+    background-color: wheat;
+}
+
+.redmi-btn {
+    color: cyan
+}
+
+.redmi-btn:hover{
+    color: black;
+    background-color: cyan;
+}
+
+.witryny-btn {
+    color: red;
+}
+
+.witryny-btn:hover{
+    color: white;
+    background-color: red;
+}
+
+.about-btn {
+    color: greenyellow;
+}
+
+.about-btn:hover {
+    color: black;
+    background-color: greenyellow;
+}
+
+.home-btn {
+    color: green;
+}
+
+.home-btn:hover {
+    color: white;
+    background-color: green;
+}
