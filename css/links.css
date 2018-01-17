@@ -72,3 +72,14 @@
 .skill-lua {
     color: lightblue;
 }
+
+
+.latest-btn {
+    color: plum;
+    display: inline;
+}
+
+.latest-btn:hover {
+    color: black;
+    background-color: plum;
+}
