@@ -42,3 +42,33 @@
     color: white;
     background-color: green;
 }
+
+#links a {
+    display: inline;
+}
+
+#skills p {
+    font-size: 1.3em;
+}
+
+.skill-node {
+    padding-left: 10px;
+    display: block;
+}
+
+.skill-node2 {
+    padding-left: 15px;
+    display: block;
+}
+
+.skill-csharp {
+    color: green;
+}
+
+.skill-nodejs {
+    color: yellow;
+}
+
+.skill-lua {
+    color: lightblue;
+}

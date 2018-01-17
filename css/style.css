@@ -26,10 +26,6 @@ a:hover {
     margin-bottom: 10px;
 }
 
-.page-node {
-    margin-top: 20px;
-}
-
 hr {
 	border-top: 4px double white;
 }
@@ -40,15 +36,18 @@ hr {
 }
 
 .header:hover {
-    color: whitesmoke;
+    background-color: wheat;
+    color: black;
 }
 
 .inproj-btn {
+    display: inline-flex;
     color: gold;
 }
 
 .inproj-btn:hover {
-    color: green;
+    color: black;
+    background-color: gold;
 }
 
 .post-node p {
@@ -69,33 +68,6 @@ hr {
         display: block;
     }
 }
-
-#links a {
-    display: inline;
-}
-
-#skills p {
-    font-size: 1.3em;
-}
-
-.skill-node {
-    padding-left: 10px;
+.img {
     display: block;
-}
-
-.skill-node2 {
-    padding-left: 15px;
-    display: block;
-}
-
-.skill-csharp {
-    color: green;
-}
-
-.skill-nodejs {
-    color: yellow;
-}
-
-.skill-lua {
-    color: lightblue;
 }
