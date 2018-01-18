@@ -4,11 +4,11 @@
 
 .projects-btn:hover{
     color: black;
-    background-color: wheat;
+    background-color: white;
 }
 
 .redmi-btn {
-    color: cyan
+    color: cyan;
 }
 
 .redmi-btn:hover{
@@ -73,6 +73,9 @@
     color: lightblue;
 }
 
+.skill-java {
+    color: orange;
+}
 
 .latest-btn {
     color: plum;
