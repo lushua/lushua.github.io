@@ -94,3 +94,12 @@
 .skill-linux {
     color: white;
 }
+
+.linkedin-btn {
+    color: magenta;
+}
+
+.linkedin-btn:hover {
+    color: black;
+    background-color: magenta;
+}
