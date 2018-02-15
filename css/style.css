@@ -26,6 +26,10 @@ a:hover {
     margin-bottom: 10px;
 }
 
+.right-bar {
+    margin: 0 auto;
+}
+
 hr {
 	border-top: 4px double white;
 }
