@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>l7ssha Dev</title>
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../css/style.css">
+        <link rel="stylesheet" href="../css/links.css">
+        <link rel="stylesheet" href="sys.css">
+
+        <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+        <meta property="og:site_name" content="l7ssha Dev">
+        <meta property="og:title" content="l7ssha Dev">
+        <meta property="og:description" content="l7ssha Dev - some linux stuff">
+        <meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/a/af/Tux.png">
+        <meta property="og:image:width" content="200">
+        <meta property="og:image:height" content="200">
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="https://l7ssha.pl/">
+    </head>
+    <body>
+        <div class="container">
+            <h1>Systemy Operacyjne - Linux</h1>
+            <p class="p_head">Skonfguruj system Linux, wykorzystując użytkownika Administrator z hasłem xxxx</p>
+
+            <ol type="a">
+                <li> W katalogu domowym użytkownika Administrator załóż katalog "egzamin_linux"
+                    <p>
+                        <code>$ mkdir ~/egazmin_linux</code> <br>
+                        <code>$ md ~/egazmin_linux</code>
+                    </p>
+                </li>
+
+                <li> Zmien uprawnienia do katalogu na wartosci liczbowe 541
+                    <p>
+                        <code>$ (sudo) chmod 541 ~/egazmin_linux</code>
+                    </p>
+                </li>
+
+                <li> Sprawdz ilosc partycji na dysku twardym, i zapisz ich liczbe
+                    <p>
+                        <code>$ sudo fdisk -l</code> <br>
+                        <code>$ sudo lsblk</code>
+                    </p>
+                </li>
+
+                <li> Znajdz najwiekszy plik w folderze /bin
+                    <p>
+                        <code>$ find /bin -type f -exec du -Sh {} + | sort -rh | head -n 5</code> <br>
+                            <span class="expl">
+                                find - komenda do wyszukiwania plikow (-type = typ wyszukowanie, -exec = wywołanie funkcji)<br>
+                                du - wylicznie wielkosci pliku <br>
+                                sort - sortowanie (-rh = porownanie na podstawie wielkosci)<br>
+                                head - ograniczenie wynikow poprzednich komend (-n = ilosc wyswietlonych plikow)<br>
+                            </span>
+                            <br>
+                        <code>$ du -hs * | sort -rh | head -5</code> <br>
+                        <span class="expl">Wyswietlenie najwiekszych katalogow</span>
+                    </p>
+                </li>
+
+                <li> Zmien datę systemową na 25 stycznia 2018 oraz godzine 22:50
+                    <p>
+                        <code>$ sudo date +%Y%m%d -s "20120418"</code> <br>
+                        <code>$ sudo date +%T -s "11:14:00"</code>
+                    </p>
+                </li>
+            </ol>
+
+            <br>
+            <hr>
+            <br>
+
+            <ol type="a">
+                <li> Znajdz dane dotyczace numeru wersji kernelu
+                    <p>
+                        <code>$ uname -a</code> <br>
+                    </p>
+                </li>
+                <li> Wyszukaj w katalogu domowym ukryte pliki
+                    <p>
+                        <code>$ ls -la</code> <br>
+                    </p>
+                </li>
+                <li> W katalogu domowym użytkownika Administrator załóż katalog "egzamin_linux"
+                    <p>
+                        <code>$ mkdir ~/egazmin_linux</code> <br>
+                        <code>$ md ~/egazmin_linux</code>
+                    </p>
+                </li>
+                <li> Zmien wlasciciela katalogu na uzytkownika root
+                    <p>
+                        <code>$ chown root egzamin_linux</code> <br>
+                    </p>
+                </li>
+                <li> Zaloz uzytkownika o nazwie egzamin, ktorego katalog domowy bedzie znajdowal sie w katalogu glownym
+                    <p>
+                        <code>$ useradd -m -d /egzamin egzamin</code> <br>
+                        <code>$ passwd egzamin</code>
+                    </p>
+                </li>
+                <li> Zmien domyslna powloke dla uzytkownika egzamin na sh
+                    <p>
+                        <code>$ chsh -l</code> Wyswietlenie dostepnych powlok <br>
+                        <code>$ chsh -s /bin/sh egzamin</code>
+                    </p>
+                </li>
+            </ol>
+
+            <br>
+            <hr>
+            <br>
+
+            <p class="p_head">Użyte komendy</p>
+            <ul>
+                <li><a href="http://man.he.net/?topic=mkdir&section=all" target="_blank">mkdir</a></li>
+                <li><a href="http://man.he.net/?topic=chmod&section=all" target="_blank">chmod</a></li>
+                <li><a href="http://man.he.net/?topic=fdisk&section=all" target="_blank">fdisk</a></li>
+                <li><a href="http://man.he.net/?topic=lsblk&section=all" target="_blank">lsblk</a></li>
+                <li><a href="http://man.he.net/?topic=find&section=all" target="_blank">find</a></li>
+                <li><a href="http://man.he.net/?topic=du&section=all" target="_blank">du</a></li>
+                <li><a href="http://man.he.net/?topic=sort&section=all" target="_blank">sort</a></li>
+                <li><a href="http://man.he.net/?topic=head&section=all" target="_blank">head</a></li>
+                <li><a href="http://man.he.net/?topic=date&section=all" target="_blank">date</a></li>
+                <li><a href="http://man.he.net/?topic=uname&section=all" target="_blank">uname</a></li>
+                <li><a href="http://man.he.net/?topic=ls&section=all" target="_blank">ls</a></li>
+                <li><a href="http://man.he.net/?topic=chown&section=all" target="_blank">chown</a></li>
+                <li><a href="http://man.he.net/?topic=useradd&section=all" target="_blank">useradd</a></li>
+                <li><a href="http://man.he.net/?topic=passwd&section=all" target="_blank">passwd</a></li>
+                <li><a href="http://man.he.net/?topic=chsh&section=all" target="_blank">chsh</a></li>
+            </ul>
+        </div>
+    </body>
+</html>

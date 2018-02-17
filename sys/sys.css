@@ -1,0 +1,25 @@
+body {
+    padding: 10px;
+}
+
+.container h1 {
+    text-align: center;
+}
+
+.p_head {
+    font-size: 1.2em;
+    color: red;
+}
+
+li {
+    font-size: 1.2em;
+}
+
+.expl {
+    padding-left: 30px;
+    display: inline-block;
+}
+
+ul li {
+    display: inline-block;
+}
