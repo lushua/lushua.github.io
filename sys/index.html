@@ -25,7 +25,7 @@
     <body>
         <div class="container">
             <h1>Systemy Operacyjne - Linux</h1>
-            <p class="p_head">Skonfguruj system Linux, wykorzystując użytkownika Administrator z hasłem xxxx</p>
+            <p class="p_head">Skonfiguruj system Linux, wykorzystując użytkownika Administrator z hasłem xxxx</p>
 
             <ol type="a">
                 <li> W katalogu domowym użytkownika Administrator załóż katalog "egzamin_linux"
@@ -35,35 +35,35 @@
                     </p>
                 </li>
 
-                <li> Zmien uprawnienia do katalogu na wartosci liczbowe 541
+                <li> Zmień uprawnienia do katalogu na wartości liczbowe 541
                     <p>
                         <code>$ (sudo) chmod 541 ~/egazmin_linux</code>
                     </p>
                 </li>
 
-                <li> Sprawdz ilosc partycji na dysku twardym, i zapisz ich liczbe
+                <li> Sprawdź ilość partycji na dysku twardym, i zapisz ich liczbę
                     <p>
                         <code>$ sudo fdisk -l</code> <br>
                         <code>$ sudo lsblk</code>
                     </p>
                 </li>
 
-                <li> Znajdz najwiekszy plik w folderze /bin
+                <li> Znajdź największy plik w folderze /bin
                     <p>
                         <code>$ find /bin -type f -exec du -Sh {} + | sort -rh | head -n 5</code> <br>
                             <span class="expl">
-                                find - komenda do wyszukiwania plikow (-type = typ wyszukowanie, -exec = wywołanie funkcji)<br>
-                                du - wylicznie wielkosci pliku <br>
-                                sort - sortowanie (-rh = porownanie na podstawie wielkosci)<br>
-                                head - ograniczenie wynikow poprzednich komend (-n = ilosc wyswietlonych plikow)<br>
+                                find - komenda do wyszukiwania plików (-type = typ wyszukiwanie, -exec = wywołanie funkcji)<br>
+                                du - wyliczenie wielkości pliku <br>
+                                sort - sortowanie (-rh = porównanie na podstawie wielkości)<br>
+                                head - ograniczenie wyników poprzednich komend (-n = ilość wyświetlonych plików)<br>
                             </span>
                             <br>
                         <code>$ du -hs * | sort -rh | head -5</code> <br>
-                        <span class="expl">Wyswietlenie najwiekszych katalogow</span>
+                        <span class="expl">Wyświetlenie największych katalogów</span>
                     </p>
                 </li>
 
-                <li> Zmien datę systemową na 25 stycznia 2018 oraz godzine 22:50
+                <li> Zmień datę systemową na 25 stycznia 2018 oraz godzinę 22:50
                     <p>
                         <code>$ sudo date +%Y%m%d -s "20120418"</code> <br>
                         <code>$ sudo date +%T -s "11:14:00"</code>
@@ -76,7 +76,7 @@
             <br>
 
             <ol type="a">
-                <li> Znajdz dane dotyczace numeru wersji kernelu
+                <li> Znajdź dane dotyczące numeru wersji kernelu
                     <p>
                         <code>$ uname -a</code> <br>
                     </p>
@@ -92,18 +92,18 @@
                         <code>$ md ~/egazmin_linux</code>
                     </p>
                 </li>
-                <li> Zmien wlasciciela katalogu na uzytkownika root
+                <li> Zmień właściciela katalogu na użytkownika root
                     <p>
                         <code>$ chown root egzamin_linux</code> <br>
                     </p>
                 </li>
-                <li> Zaloz uzytkownika o nazwie egzamin, ktorego katalog domowy bedzie znajdowal sie w katalogu glownym
+                <li> Załóż użytkownika o nazwie egzamin, którego katalog domowy będzie znajdował sie w katalogu głównym
                     <p>
                         <code>$ useradd -m -d /egzamin egzamin</code> <br>
                         <code>$ passwd egzamin</code>
                     </p>
                 </li>
-                <li> Zmien domyslna powloke dla uzytkownika egzamin na sh
+                <li> Zmień domyślna powłokę dla użytkownika egzamin na sh
                     <p>
                         <code>$ chsh -l</code> Wyswietlenie dostepnych powlok <br>
                         <code>$ chsh -s /bin/sh egzamin</code>
