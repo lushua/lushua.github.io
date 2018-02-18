@@ -1,2 +1,7 @@
 *.min.css
-settings.json
+.vscode/
+
+materialy.aux
+materialy.f*
+materialy.syn*
+materialy.log

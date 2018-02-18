@@ -11,7 +11,7 @@
         <link rel="stylesheet" href="../css/links.css">
         <link rel="stylesheet" href="sys.css">
 
-        <link rel="icon" type="image/x-icon" href="favicon.ico">
+        <link rel="icon" type="image/x-icon" href="../favicon.ico">
 
         <meta property="og:site_name" content="l7ssha Dev">
         <meta property="og:title" content="l7ssha Dev">
@@ -58,7 +58,7 @@
                                 head - ograniczenie wyników poprzednich komend (-n = ilość wyświetlonych plików)<br>
                             </span>
                             <br>
-                        <code>$ du -hs * | sort -rh | head -5</code> <br>
+                        <code>$ du -hs * | sort -rh | head -n 5</code> <br>
                         <span class="expl">Wyświetlenie największych katalogów</span>
                     </p>
                 </li>
@@ -105,7 +105,7 @@
                 </li>
                 <li> Zmień domyślna powłokę dla użytkownika egzamin na sh
                     <p>
-                        <code>$ chsh -l</code> Wyswietlenie dostepnych powlok <br>
+                        <code>$ chsh -l</code> - Wyswietlenie dostepnych powlok <br>
                         <code>$ chsh -s /bin/sh egzamin</code>
                     </p>
                 </li>
@@ -115,8 +115,49 @@
             <hr>
             <br>
 
-            <p class="p_head">Użyte komendy</p>
+            <ol type="a">
+                <li> Klawisz odtwarza dzwięk
+                    <p>
+                        <code>$ paplay /home/john/macros/file.ogg</code> - Dla sterownika PulseAudio <br>
+                        <code>$ aplay /full-path-to/audio-file.wav</code> - Dla sterownika Alsa
+                    </p>
+                    Unity Control Center → Keyboard → Shortcuts → Custom
+                </li>
+
+                <li> Zmień nazwę komputera
+                    <p>
+                        <code>$ sudo nano /etc/hostname</code> <br>
+                        <code>$ sudo vi /etc/hostname</code>
+                    </p>
+                </li>
+
+                <li> Zarchiwizuj folder Obrazy
+                    <p>
+                        <code>$ gzip -r Obrazy</code> - Kompresowanie folderu <br>
+                        <code>$ gzip file.java</code> - Kompresowanie pliku <br>
+                        <code>$ gzip -r Obrazy</code> - Dekompresja archiwum
+                    </p>
+                </li>
+            </ol>
+
+            <br>
+            <hr>
+            <br>
+
             <ul>
+                <li> man - informacje na temat komend
+                    <p>
+                        <code>$ man [komenda]</code>
+                    </p>
+                </li>
+            </ul>
+
+            <br>
+            <hr>
+            <br>
+
+            <p class="p_head">Użyte komendy</p>
+            <ul class="spis">
                 <li><a href="http://man.he.net/?topic=mkdir&section=all" target="_blank">mkdir</a></li>
                 <li><a href="http://man.he.net/?topic=chmod&section=all" target="_blank">chmod</a></li>
                 <li><a href="http://man.he.net/?topic=fdisk&section=all" target="_blank">fdisk</a></li>
@@ -132,6 +173,7 @@
                 <li><a href="http://man.he.net/?topic=useradd&section=all" target="_blank">useradd</a></li>
                 <li><a href="http://man.he.net/?topic=passwd&section=all" target="_blank">passwd</a></li>
                 <li><a href="http://man.he.net/?topic=chsh&section=all" target="_blank">chsh</a></li>
+                <li><a href="http://man.he.net/?topic=man&section=all" target="_blank">man</a></li>
             </ul>
         </div>
     </body>

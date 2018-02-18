@@ -19,7 +19,10 @@ li {
     padding-left: 30px;
     display: inline-block;
 }
-
-ul li {
+.spis li {
     display: inline-block;
+}
+
+ul li::before {
+    color: white;
 }
