@@ -1,199 +1,185 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>l7ssha Dev</title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>l7ssha Dev</title>
 
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css">
-        <link rel="stylesheet" href="../css/style.css">
-        <link rel="stylesheet" href="../css/links.css">
-        <link rel="stylesheet" href="sys.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/links.css">
+    <link rel="stylesheet" href="sys.css">
 
-        <link rel="icon" type="image/x-icon" href="../favicon.ico">
+    <link rel="icon" type="image/x-icon" href="../favicon.ico">
 
-        <meta property="og:site_name" content="l7ssha Dev">
-        <meta property="og:title" content="l7ssha Dev">
-        <meta property="og:description" content="l7ssha Dev - some linux stuff">
-        <meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/a/af/Tux.png">
-        <meta property="og:image:width" content="200">
-        <meta property="og:image:height" content="200">
-        <meta property="og:type" content="website">
-        <meta property="og:url" content="https://l7ssha.pl/">
-    </head>
-    <body>
-        <div class="container">
-            <h1>Systemy Operacyjne - Linux</h1>
-            <p class="p_head">Skonfiguruj system Linux, wykorzystując użytkownika Administrator z hasłem xxxx</p>
+    <meta property="og:site_name" content="l7ssha Dev">
+    <meta property="og:title" content="l7ssha Dev">
+    <meta property="og:description" content="l7ssha Dev - some linux stuff">
+    <meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/a/af/Tux.png">
+    <meta property="og:image:width" content="200">
+    <meta property="og:image:height" content="200">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://l7ssha.pl/">
+</head>
+<body>
+    <div class="container">
+        <h1>Systemy Operacyjne - Linux</h1>
+        <p class="p_head">Skonfiguruj system Linux, wykorzystując użytkownika Administrator z hasłem xxxx</p>
 
-            <ol type="a">
-                <li> W katalogu domowym użytkownika Administrator załóż katalog "egzamin_linux"
-                    <p>
-                        <code>$ mkdir ~/egazmin_linux</code> <br>
-                        <code>$ md ~/egazmin_linux</code>
-                    </p>
-                </li>
+        <ol type="a">
+            <li> W katalogu domowym użytkownika Administrator załóż katalog "egzamin_linux"
+                <p>
+                    <code>$ mkdir ~/egazmin_linux</code> <br>
+                    <code>$ md ~/egazmin_linux</code>
+                </p>
+            </li>
 
-                <li> Zmień uprawnienia do katalogu na wartości liczbowe 541
-                    <p>
-                        <code>$ (sudo) chmod 541 ~/egazmin_linux</code>
-                    </p>
-                </li>
+            <li> Zmień uprawnienia do katalogu na wartości liczbowe 541
+                <p> <code>$ (sudo) chmod 541 ~/egazmin_linux</code> </p>
+            </li>
 
-                <li> Sprawdź ilość partycji na dysku twardym, i zapisz ich liczbę
-                    <p>
-                        <code>$ sudo fdisk -l</code> <br>
-                        <code>$ sudo lsblk</code>
-                    </p>
-                </li>
+            <li> Sprawdź ilość partycji na dysku twardym, i zapisz ich liczbę
+                <p>
+                    <code>$ sudo fdisk -l</code> <br>
+                    <code>$ sudo lsblk</code>
+                </p>
+            </li>
 
-                <li> Znajdź największy plik w folderze /bin
-                    <p>
-                        <code>$ find /bin -type f -exec du -Sh {} + | sort -rh | head -n 5</code> <br>
-                            <span class="expl">
-                                find - komenda do wyszukiwania plików (-type = typ wyszukiwanie, -exec = wywołanie funkcji)<br>
-                                du - wyliczenie wielkości pliku <br>
-                                sort - sortowanie (-rh = porównanie na podstawie wielkości)<br>
-                                head - ograniczenie wyników poprzednich komend (-n = ilość wyświetlonych plików)<br>
-                            </span>
-                            <br>
-                        <code>$ du -hs * | sort -rh | head -n 5</code> <br>
-                        <span class="expl">Wyświetlenie największych katalogów</span>
-                    </p>
-                </li>
+            <li> Znajdź największy plik w folderze /bin
+                <p>
+                    <code>$ find /bin -type f -exec du -Sh {} + | sort -rh | head -n 5</code> <br>
+                        <span class="expl">
+                            find - komenda do wyszukiwania plików (-type = typ wyszukiwanie, -exec = wywołanie funkcji)<br>
+                            du - wyliczenie wielkości pliku <br>
+                            sort - sortowanie (-rh = porównanie na podstawie wielkości)<br>
+                            head - ograniczenie wyników poprzednich komend (-n = ilość wyświetlonych plików)<br>
+                        </span>
+                        <br>
+                    <code>$ du -hs * | sort -rh | head -n 5</code> <br>
+                    <span class="expl">Wyświetlenie największych katalogów</span>
+                </p>
+            </li>
 
-                <li> Zmień datę systemową na 25 stycznia 2018 oraz godzinę 22:50
-                    <p>
-                        <code>$ sudo date +%Y%m%d -s "20120418"</code> <br>
-                        <code>$ sudo date +%T -s "11:14:00"</code>
-                    </p>
-                </li>
-            </ol>
+            <li> Zmień datę systemową na 25 stycznia 2018 oraz godzinę 22:50
+                <p>
+                    <code>$ sudo date +%Y%m%d -s "20120418"</code> <br>
+                    <code>$ sudo date +%T -s "11:14:00"</code>
+                </p>
+            </li>
+        </ol>
 
-            <br>
-            <hr>
-            <br>
+        <br>
+        <hr>
+        <br>
 
-            <ol type="a">
-                <li> Znajdź dane dotyczące numeru wersji kernelu
-                    <p>
-                        <code>$ uname -a</code> <br>
-                    </p>
-                </li>
-                <li> Wyszukaj w katalogu domowym ukryte pliki
-                    <p>
-                        <code>$ ls -la</code> <br>
-                    </p>
-                </li>
-                <li> W katalogu domowym użytkownika Administrator załóż katalog "egzamin_linux"
-                    <p>
-                        <code>$ mkdir ~/egazmin_linux</code> <br>
-                        <code>$ md ~/egazmin_linux</code>
-                    </p>
-                </li>
-                <li> Zmień właściciela katalogu na użytkownika root
-                    <p>
-                        <code>$ chown root egzamin_linux</code> <br>
-                    </p>
-                </li>
-                <li> Załóż użytkownika o nazwie egzamin, którego katalog domowy będzie znajdował sie w katalogu głównym
-                    <p>
-                        <code>$ useradd -m -d /egzamin egzamin</code> <br>
-                        <code>$ passwd egzamin</code>
-                    </p>
-                </li>
-                <li> Zmień domyślna powłokę dla użytkownika egzamin na sh
-                    <p>
-                        <code>$ chsh -l</code> - Wyswietlenie dostepnych powlok <br>
-                        <code>$ chsh -s /bin/sh egzamin</code>
-                    </p>
-                </li>
-            </ol>
+        <ol type="a">
+            <li> Znajdź dane dotyczące numeru wersji kernelu
+                <p> <code>$ uname -a</code> </p>
+            </li>
+            <li> Wyszukaj w katalogu domowym ukryte pliki
+                <p> <code>$ ls -la</code> </p>
+            </li>
+            <li> W katalogu domowym użytkownika Administrator załóż katalog "egzamin_linux"
+                <p>
+                    <code>$ mkdir ~/egazmin_linux</code> <br>
+                    <code>$ md ~/egazmin_linux</code>
+                </p>
+            </li>
+            <li> Zmień właściciela katalogu na użytkownika root
+                <p> <code>$ chown root egzamin_linux</code> <br> </p>
+            </li>
+            <li> Załóż użytkownika o nazwie egzamin, którego katalog domowy będzie znajdował sie w katalogu głównym
+                <p>
+                    <code>$ useradd -m -d /egzamin egzamin</code> <br>
+                    <code>$ passwd egzamin</code>
+                </p>
+            </li>
+            <li> Zmień domyślna powłokę dla użytkownika egzamin na sh
+                <p>
+                    <code>$ chsh -l</code> - Wyswietlenie dostepnych powlok <br>
+                    <code>$ chsh -s /bin/sh egzamin</code>
+                </p>
+            </li>
+        </ol>
 
-            <br>
-            <hr>
-            <br>
+        <br>
+        <hr>
+        <br>
 
-            <ol type="a">
-                <li> Klawisz odtwarza dzwięk
-                    <p>
-                        <code>$ paplay /home/john/macros/file.ogg</code> - Dla sterownika PulseAudio <br>
-                        <code>$ aplay /full-path-to/audio-file.wav</code> - Dla sterownika Alsa
-                    </p>
-                    Unity Control Center → Keyboard → Shortcuts → Custom
-                </li>
+        <ol type="a">
+            <li> Klawisz odtwarza dzwięk
+                <p>
+                    <code>$ paplay /home/john/macros/file.ogg</code> - Dla sterownika PulseAudio <br>
+                    <code>$ aplay /full-path-to/audio-file.wav</code> - Dla sterownika Alsa
+                </p>
+                Unity Control Center → Keyboard → Shortcuts → Custom
+            </li>
 
-                <li> Zmień nazwę komputera
-                    <p>
-                        <code>$ sudo nano /etc/hostname</code> <br>
-                        <code>$ sudo vi /etc/hostname</code>
-                    </p>
-                </li>
+            <li> Zmień nazwę komputera
+                <p>
+                    <code>$ sudo nano /etc/hostname</code> <br>
+                    <code>$ sudo vi /etc/hostname</code>
+                </p>
+            </li>
 
-                <li> Zarchiwizuj folder Obrazy
-                    <p>
-                        <code>$ gzip -r Obrazy</code> - Kompresowanie folderu <br>
-                        <code>$ gzip file.java</code> - Kompresowanie pliku <br>
-                        <code>$ gzip -r Obrazy</code> - Dekompresja archiwum
-                    </p>
-                </li>
-            </ol>
+            <li> Zarchiwizuj folder Obrazy
+                <p>
+                    <code>$ gzip -r Obrazy</code> - Kompresowanie folderu <br>
+                    <code>$ gzip file.java</code> - Kompresowanie pliku <br>
+                    <code>$ gzip -r Obrazy</code> - Dekompresja archiwum
+                </p>
+            </li>
+        </ol>
 
-            <br>
-            <hr>
-            <br>
+        <br>
+        <hr>
+        <br>
 
-            <ul>
-                <li> Szyfrowanie za pomocą gpg
-                    <p>
-                        <code>$ gpg --full-gen-key </code> <br>
-                        <code>$ gpg -r [email] -f [file]</code> - Podajemy email, który uzyliśmy do wygenerowania pary kluczy
-                    </p>
-                </li>
-            </ul>
+        <ul>
+            <li> <p> <code>Ctrl + C</code> Anulowanie aktualnie wpisanej komendy w terminalu </p> </li>
+            <li> <p> <code>Ctrl + Z</code> Aktualnie włączona "komenda", program zostaje przeniesiony do tła. Wyłaczenie terminala wyłacza program, proces </p> </li>
+            <li> <p> <code>Ctrl + <-/-> </code> Przeniesienie o jedno słowo </p> </li>
+            <li> <p> <code>Ctrl + Shift + V/C</code> Odpowiedniki <code>Ctrl + C/V</code> w terminalu </p> </li>
+        </ul>
 
-            <br>
-            <hr>
-            <br>
+        <br>
+        <hr>
+        <br>
 
-            <ul>
-                <li> man - informacje na temat komend
-                    <p>
-                        <code>$ man [komenda]</code>
-                    </p>
-                </li>
-                <li> cat - wyświetlenie zawartości pliku bez otwierania
-                    <p>
-                        <code>$ cat [plik]</code>
-                    </p>
-                </li>
-            </ul>
+        <ul>
+            <li> man - informacje na temat komend
+                <p> <code>$ man [komenda]</code></p>
+            </li>
+            <li> cat - wyświetlenie zawartości pliku bez otwierania
+                <p> <code>$ cat [plik]</code> </p>
+            </li>
+        </ul>
 
-            <br>
-            <hr>
-            <br>
+        <br>
+        <hr>
+        <br>
 
-            <p class="p_head">Użyte komendy</p>
-            <ul class="spis">
-                <li><a href="http://man.he.net/?topic=mkdir&section=all" target="_blank">mkdir</a></li>
-                <li><a href="http://man.he.net/?topic=chmod&section=all" target="_blank">chmod</a></li>
-                <li><a href="http://man.he.net/?topic=fdisk&section=all" target="_blank">fdisk</a></li>
-                <li><a href="http://man.he.net/?topic=lsblk&section=all" target="_blank">lsblk</a></li>
-                <li><a href="http://man.he.net/?topic=find&section=all" target="_blank">find</a></li>
-                <li><a href="http://man.he.net/?topic=du&section=all" target="_blank">du</a></li>
-                <li><a href="http://man.he.net/?topic=sort&section=all" target="_blank">sort</a></li>
-                <li><a href="http://man.he.net/?topic=head&section=all" target="_blank">head</a></li>
-                <li><a href="http://man.he.net/?topic=date&section=all" target="_blank">date</a></li>
-                <li><a href="http://man.he.net/?topic=uname&section=all" target="_blank">uname</a></li>
-                <li><a href="http://man.he.net/?topic=ls&section=all" target="_blank">ls</a></li>
-                <li><a href="http://man.he.net/?topic=chown&section=all" target="_blank">chown</a></li>
-                <li><a href="http://man.he.net/?topic=useradd&section=all" target="_blank">useradd</a></li>
-                <li><a href="http://man.he.net/?topic=passwd&section=all" target="_blank">passwd</a></li>
-                <li><a href="http://man.he.net/?topic=chsh&section=all" target="_blank">chsh</a></li>
-                <li><a href="http://man.he.net/?topic=man&section=all" target="_blank">man</a></li>
-                <li><a href="http://man.he.net/?topic=cat&section=all" target="_blank">cat</a></li>
-            </ul>
-        </div>
-    </body>
+        <p class="p_head">Użyte komendy</p>
+        <ul class="spis">
+            <li><a href="http://man.he.net/?topic=mkdir&section=all" target="_blank">mkdir</a></li>
+            <li><a href="http://man.he.net/?topic=chmod&section=all" target="_blank">chmod</a></li>
+            <li><a href="http://man.he.net/?topic=fdisk&section=all" target="_blank">fdisk</a></li>
+            <li><a href="http://man.he.net/?topic=lsblk&section=all" target="_blank">lsblk</a></li>
+            <li><a href="http://man.he.net/?topic=find&section=all" target="_blank">find</a></li>
+            <li><a href="http://man.he.net/?topic=du&section=all" target="_blank">du</a></li>
+            <li><a href="http://man.he.net/?topic=sort&section=all" target="_blank">sort</a></li>
+            <li><a href="http://man.he.net/?topic=head&section=all" target="_blank">head</a></li>
+            <li><a href="http://man.he.net/?topic=date&section=all" target="_blank">date</a></li>
+            <li><a href="http://man.he.net/?topic=uname&section=all" target="_blank">uname</a></li>
+            <li><a href="http://man.he.net/?topic=ls&section=all" target="_blank">ls</a></li>
+            <li><a href="http://man.he.net/?topic=chown&section=all" target="_blank">chown</a></li>
+            <li><a href="http://man.he.net/?topic=useradd&section=all" target="_blank">useradd</a></li>
+            <li><a href="http://man.he.net/?topic=passwd&section=all" target="_blank">passwd</a></li>
+            <li><a href="http://man.he.net/?topic=chsh&section=all" target="_blank">chsh</a></li>
+            <li><a href="http://man.he.net/?topic=man&section=all" target="_blank">man</a></li>
+            <li><a href="http://man.he.net/?topic=cat&section=all" target="_blank">cat</a></li>
+        </ul>
+    </div>
+</body>
 </html>
