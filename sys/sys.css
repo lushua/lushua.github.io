@@ -26,3 +26,13 @@ li {
 ul li::before {
     color: white;
 }
+
+.zrd {
+    color: yellowgreen;
+    display: inline-block;
+}
+
+.zrd:hover {
+    color: black;
+    background-color: yellowgreen;
+}
