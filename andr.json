@@ -1,4 +1,21 @@
 {
-  "name": "Szymon",
-  "username": "l7ssha"
+  "name": "Szymon Uglis",
+  "username": "l7ssha",
+  "projects": [
+    {
+      "title": "TheGuardian API Wrapper",
+      "desc": "Easy, simple, fast wrapper for TheGuardian webpage and service. Gives simple models for robust workflow. It has official support!",
+      "href": "https://github.com/l7ssha/GuardianNet"
+    },
+    {
+      "title": "TagInserter",
+      "desc": "VS Code extension for HTML that inserts html tag within selected text",
+      "href": "https://github.com/l7ssha/TagInserter"
+    },
+    {
+      "title": "SharpGitStat",
+      "desc": "SharpGitStat is easiest way to get status and human messages from githubAPI status. All you had to do is create an api object and use 2 methods to fetch data!",
+      "href": "https://github.com/l7ssha/SharpGitStat"
+    }
+  ]
 }
