@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="API docs for the Client class from the discord library, for the Dart programming language.">
+  <title>Client class - discord library - Dart API</title>
+  <!-- required because all the links are pseudo-absolute -->
+  <base href="..">
+
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500,400i,400,300|Source+Sans+Pro:400,300,700" rel="stylesheet">
+  <link rel="stylesheet" href="static-assets/github.css">
+  <link rel="stylesheet" href="static-assets/styles.css">
+  <link rel="icon" href="static-assets/favicon.png">
+
+</head>
+
+<body>
+
+<div id="overlay-under-drawer"></div>
+
+<header id="title">
+  <button id="sidenav-left-toggle" type="button">&nbsp;</button>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="index.html">nyxx</a></li>
+    <li><a href="discord/discord-library.html">discord</a></li>
+    <li class="self-crumb">Client class</li>
+  </ol>
+  <div class="self-name">Client</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<main>
+
+  <div class="col-xs-6 col-sm-3 col-md-2 sidebar sidebar-offcanvas-left">
+    <h5>discord library</h5>
+    <ol>
+      <li class="section-title"><a href="discord/discord-library.html#classes">Classes</a></li>
+      <li><a href="discord/Attachment-class.html">Attachment</a></li>
+      <li><a href="discord/BeforeHttpRequestSendEvent-class.html">BeforeHttpRequestSendEvent</a></li>
+      <li><a href="discord/Channel-class.html">Channel</a></li>
+      <li><a href="discord/ChannelCreateEvent-class.html">ChannelCreateEvent</a></li>
+      <li><a href="discord/ChannelDeleteEvent-class.html">ChannelDeleteEvent</a></li>
+      <li><a href="discord/ChannelUpdateEvent-class.html">ChannelUpdateEvent</a></li>
+      <li><a href="discord/Client-class.html">Client</a></li>
+      <li><a href="discord/ClientOAuth2Application-class.html">ClientOAuth2Application</a></li>
+      <li><a href="discord/ClientOptions-class.html">ClientOptions</a></li>
+      <li><a href="discord/ClientUser-class.html">ClientUser</a></li>
+      <li><a href="discord/Command-class.html">Command</a></li>
+      <li><a href="discord/Commands-class.html">Commands</a></li>
+      <li><a href="discord/DisconnectEvent-class.html">DisconnectEvent</a></li>
+      <li><a href="discord/DMChannel-class.html">DMChannel</a></li>
+      <li><a href="discord/Embed-class.html">Embed</a></li>
+      <li><a href="discord/EmbedProvider-class.html">EmbedProvider</a></li>
+      <li><a href="discord/EmbedThumbnail-class.html">EmbedThumbnail</a></li>
+      <li><a href="discord/Game-class.html">Game</a></li>
+      <li><a href="discord/GroupDMChannel-class.html">GroupDMChannel</a></li>
+      <li><a href="discord/Guild-class.html">Guild</a></li>
+      <li><a href="discord/GuildBanAddEvent-class.html">GuildBanAddEvent</a></li>
+      <li><a href="discord/GuildBanRemoveEvent-class.html">GuildBanRemoveEvent</a></li>
+      <li><a href="discord/GuildChannel-class.html">GuildChannel</a></li>
+      <li><a href="discord/GuildCreateEvent-class.html">GuildCreateEvent</a></li>
+      <li><a href="discord/GuildDeleteEvent-class.html">GuildDeleteEvent</a></li>
+      <li><a href="discord/GuildMemberAddEvent-class.html">GuildMemberAddEvent</a></li>
+      <li><a href="discord/GuildMemberRemoveEvent-class.html">GuildMemberRemoveEvent</a></li>
+      <li><a href="discord/GuildMemberUpdateEvent-class.html">GuildMemberUpdateEvent</a></li>
+      <li><a href="discord/GuildUnavailableEvent-class.html">GuildUnavailableEvent</a></li>
+      <li><a href="discord/GuildUpdateEvent-class.html">GuildUpdateEvent</a></li>
+      <li><a href="discord/Http-class.html">Http</a></li>
+      <li><a href="discord/HttpBucket-class.html">HttpBucket</a></li>
+      <li><a href="discord/HttpErrorEvent-class.html">HttpErrorEvent</a></li>
+      <li><a href="discord/HttpRequest-class.html">HttpRequest</a></li>
+      <li><a href="discord/HttpResponse-class.html">HttpResponse</a></li>
+      <li><a href="discord/HttpResponseEvent-class.html">HttpResponseEvent</a></li>
+      <li><a href="discord/ICommand-class.html">ICommand</a></li>
+      <li><a href="discord/Invite-class.html">Invite</a></li>
+      <li><a href="discord/InviteChannel-class.html">InviteChannel</a></li>
+      <li><a href="discord/InviteGuild-class.html">InviteGuild</a></li>
+      <li><a href="discord/Member-class.html">Member</a></li>
+      <li><a href="discord/Message-class.html">Message</a></li>
+      <li><a href="discord/MessageDeleteEvent-class.html">MessageDeleteEvent</a></li>
+      <li><a href="discord/MessageEvent-class.html">MessageEvent</a></li>
+      <li><a href="discord/MessageUpdateEvent-class.html">MessageUpdateEvent</a></li>
+      <li><a href="discord/OAuth2Application-class.html">OAuth2Application</a></li>
+      <li><a href="discord/OAuth2Guild-class.html">OAuth2Guild</a></li>
+      <li><a href="discord/OAuth2Info-class.html">OAuth2Info</a></li>
+      <li><a href="discord/Permissions-class.html">Permissions</a></li>
+      <li><a href="discord/PresenceUpdateEvent-class.html">PresenceUpdateEvent</a></li>
+      <li><a href="discord/RatelimitEvent-class.html">RatelimitEvent</a></li>
+      <li><a href="discord/RawEvent-class.html">RawEvent</a></li>
+      <li><a href="discord/ReadyEvent-class.html">ReadyEvent</a></li>
+      <li><a href="discord/Role-class.html">Role</a></li>
+      <li><a href="discord/RoleCreateEvent-class.html">RoleCreateEvent</a></li>
+      <li><a href="discord/RoleDeleteEvent-class.html">RoleDeleteEvent</a></li>
+      <li><a href="discord/RoleUpdateEvent-class.html">RoleUpdateEvent</a></li>
+      <li><a href="discord/Shard-class.html">Shard</a></li>
+      <li><a href="discord/TextChannel-class.html">TextChannel</a></li>
+      <li><a href="discord/TypingEvent-class.html">TypingEvent</a></li>
+      <li><a href="discord/User-class.html">User</a></li>
+      <li><a href="discord/Util-class.html">Util</a></li>
+      <li><a href="discord/VoiceChannel-class.html">VoiceChannel</a></li>
+      <li><a href="discord/Webhook-class.html">Webhook</a></li>
+    
+    
+    
+    
+    
+    
+      <li class="section-title"><a href="discord/discord-library.html#exceptions">Exceptions</a></li>
+      <li><a href="discord/ClientNotReadyError-class.html">ClientNotReadyError</a></li>
+      <li><a href="discord/HttpError-class.html">HttpError</a></li>
+      <li><a href="discord/InvalidShardError-class.html">InvalidShardError</a></li>
+      <li><a href="discord/InvalidTokenError-class.html">InvalidTokenError</a></li>
+      <li><a href="discord/NotSetupError-class.html">NotSetupError</a></li>
+    </ol>
+  </div>
+
+  <div class="col-xs-12 col-sm-9 col-md-8 main-content">
+    <h1>Client class</h1>
+
+    <section class="desc markdown">
+      <p>The base class.
+It contains all of the methods.</p>
+    </section>
+    
+
+    <section class="summary offset-anchor" id="constructors">
+      <h2>Constructors</h2>
+
+      <dl class="constructor-summary-list">
+        <dt id="Client" class="callable">
+          <span class="name"><a href="discord/Client/Client.html">Client</a></span><span class="signature">(<span class="parameter" id="-param-_token"><span class="type-annotation">String</span> <span class="parameter-name">_token</span>, [</span> <span class="parameter" id="-param-_options"><span class="type-annotation"><a href="discord/ClientOptions-class.html">ClientOptions</a></span> <span class="parameter-name">_options</span></span> ])</span>
+        </dt>
+        <dd>
+          Creates and logs in a new client.
+        </dd>
+      </dl>
+    </section>
+
+    <section class="summary offset-anchor" id="instance-properties">
+      <h2>Properties</h2>
+
+      <dl class="properties">
+        <dt id="app" class="property">
+          <span class="name"><a href="discord/Client/app.html">app</a></span>
+          <span class="signature">&#8596; <a href="discord/ClientOAuth2Application-class.html">ClientOAuth2Application</a></span>
+        </dt>
+        <dd>
+          The bot's OAuth2 app.
+          <div class="features">read / write</div>
+</dd>
+        <dt id="beforeHttpRequestSend" class="property">
+          <span class="name"><a href="discord/Client/beforeHttpRequestSend.html">beforeHttpRequestSend</a></span>
+          <span class="signature">&#8596; Stream<span class="signature">&lt;<wbr><span class="type-parameter"><a href="discord/BeforeHttpRequestSendEvent-class.html">BeforeHttpRequestSendEvent</a></span>&gt;</span></span>
+        </dt>
+        <dd>
+          Emitted before all HTTP requests are sent. (You can edit them) <a href="discord/Client/beforeHttpRequestSend.html">[...]</a>
+          <div class="features">read / write</div>
+</dd>
+        <dt id="channels" class="property">
+          <span class="name"><a href="discord/Client/channels.html">channels</a></span>
+          <span class="signature">&#8596; Map<span class="signature">&lt;<wbr><span class="type-parameter">String</span>, <span class="type-parameter">dynamic</span>&gt;</span></span>
+        </dt>
+        <dd>
+          All of the channels the bot is in.
+          <div class="features">read / write</div>
+</dd>
+        <dt id="guilds" class="property">
+          <span class="name"><a href="discord/Client/guilds.html">guilds</a></span>
+          <span class="signature">&#8596; Map<span class="signature">&lt;<wbr><span class="type-parameter">String</span>, <span class="type-parameter"><a href="discord/Guild-class.html">Guild</a></span>&gt;</span></span>
+        </dt>
+        <dd>
+          All of the guilds the bot is in.
+          <div class="features">read / write</div>
+</dd>
+        <dt id="http" class="property">
+          <span class="name"><a href="discord/Client/http.html">http</a></span>
+          <span class="signature">&#8596; <a href="discord/Http-class.html">Http</a></span>
+        </dt>
+        <dd>
+          The HTTP client.
+          <div class="features">read / write</div>
+</dd>
+        <dt id="onChannelCreate" class="property">
+          <span class="name"><a href="discord/Client/onChannelCreate.html">onChannelCreate</a></span>
+          <span class="signature">&#8596; Stream<span class="signature">&lt;<wbr><span class="type-parameter"><a href="discord/ChannelCreateEvent-class.html">ChannelCreateEvent</a></span>&gt;</span></span>
+        </dt>
+        <dd>
+          Emitted when a channel is created.
+          <div class="features">read / write</div>
+</dd>
+        <dt id="onChannelDelete" class="property">
+          <span class="name"><a href="discord/Client/onChannelDelete.html">onChannelDelete</a></span>
+          <span class="signature">&#8596; Stream<span class="signature">&lt;<wbr><span class="type-parameter"><a href="discord/ChannelDeleteEvent-class.html">ChannelDeleteEvent</a></span>&gt;</span></span>
+        </dt>
+        <dd>
+          Emitted when a channel is deleted.
+          <div class="features">read / write</div>
+</dd>
+        <dt id="onChannelUpdate" class="property">
+          <span class="name"><a href="discord/Client/onChannelUpdate.html">onChannelUpdate</a></span>
+          <span class="signature">&#8596; Stream<span class="signature">&lt;<wbr><span class="type-parameter"><a href="discord/ChannelUpdateEvent-class.html">ChannelUpdateEvent</a></span>&gt;</span></span>
+        </dt>
+        <dd>
+          Emitted when a channel is updated.
+          <div class="features">read / write</div>
+</dd>
+        <dt id="onDisconnect" class="property">
+          <span class="name"><a href="discord/Client/onDisconnect.html">onDisconnect</a></span>
+          <span class="signature">&#8596; Stream<span class="signature">&lt;<wbr><span class="type-parameter"><a href="discord/DisconnectEvent-class.html">DisconnectEvent</a></span>&gt;</span></span>
+        </dt>
+        <dd>
+          Emitted when a shard is disconnected from the websocket.
+          <div class="features">read / write</div>
+</dd>
+        <dt id="onGuildBanAdd" class="property">
+          <span class="name"><a href="discord/Client/onGuildBanAdd.html">onGuildBanAdd</a></span>
+          <span class="signature">&#8596; Stream<span class="signature">&lt;<wbr><span class="type-parameter"><a href="discord/GuildBanAddEvent-class.html">GuildBanAddEvent</a></span>&gt;</span></span>
+        </dt>
+        <dd>
+          Emitted when a member is banned.
+          <div class="features">read / write</div>
+</dd>
+        <dt id="onGuildBanRemove" class="property">
+          <span class="name"><a href="discord/Client/onGuildBanRemove.html">onGuildBanRemove</a></span>
+          <span class="signature">&#8596; Stream<span class="signature">&lt;<wbr><span class="type-parameter"><a href="discord/GuildBanRemoveEvent-class.html">GuildBanRemoveEvent</a></span>&gt;</span></span>
+        </dt>
+        <dd>
+          Emitted when a user is unbanned.
+          <div class="features">read / write</div>
+</dd>
+        <dt id="onGuildCreate" class="property">
+          <span class="name"><a href="discord/Client/onGuildCreate.html">onGuildCreate</a></span>
+          <span class="signature">&#8596; Stream<span class="signature">&lt;<wbr><span class="type-parameter"><a href="discord/GuildCreateEvent-class.html">GuildCreateEvent</a></span>&gt;</span></span>
+        </dt>
+        <dd>
+          Emitted when the client joins a guild.
+          <div class="features">read / write</div>
+</dd>
+        <dt id="onGuildDelete" class="property">
+          <span class="name"><a href="discord/Client/onGuildDelete.html">onGuildDelete</a></span>
+          <span class="signature">&#8596; Stream<span class="signature">&lt;<wbr><span class="type-parameter"><a href="discord/GuildDeleteEvent-class.html">GuildDeleteEvent</a></span>&gt;</span></span>
+        </dt>
+        <dd>
+          Emitted when the client leaves a guild.
+          <div class="features">read / write</div>
+</dd>
+        <dt id="onGuildMemberAdd" class="property">
+          <span class="name"><a href="discord/Client/onGuildMemberAdd.html">onGuildMemberAdd</a></span>
+          <span class="signature">&#8596; Stream<span class="signature">&lt;<wbr><span class="type-parameter"><a href="discord/GuildMemberAddEvent-class.html">GuildMemberAddEvent</a></span>&gt;</span></span>
+        </dt>
+        <dd>
+          Emitted when a member joins a guild.
+          <div class="features">read / write</div>
+</dd>
+        <dt id="onGuildMemberRemove" class="property">
+          <span class="name"><a href="discord/Client/onGuildMemberRemove.html">onGuildMemberRemove</a></span>
+          <span class="signature">&#8596; Stream<span class="signature">&lt;<wbr><span class="type-parameter"><a href="discord/GuildMemberRemoveEvent-class.html">GuildMemberRemoveEvent</a></span>&gt;</span></span>
+        </dt>
+        <dd>
+          Emitted when a user leaves a guild.
+          <div class="features">read / write</div>
+</dd>
+        <dt id="onGuildMemberUpdate" class="property">
+          <span class="name"><a href="discord/Client/onGuildMemberUpdate.html">onGuildMemberUpdate</a></span>
+          <span class="signature">&#8596; Stream<span class="signature">&lt;<wbr><span class="type-parameter"><a href="discord/GuildMemberUpdateEvent-class.html">GuildMemberUpdateEvent</a></span>&gt;</span></span>
+        </dt>
+        <dd>
+          Emitted when a member is updated.
+          <div class="features">read / write</div>
+</dd>
+        <dt id="onGuildUnavailable" class="property">
+          <span class="name"><a href="discord/Client/onGuildUnavailable.html">onGuildUnavailable</a></span>
+          <span class="signature">&#8596; Stream<span class="signature">&lt;<wbr><span class="type-parameter"><a href="discord/GuildUnavailableEvent-class.html">GuildUnavailableEvent</a></span>&gt;</span></span>
+        </dt>
+        <dd>
+          Emitted when a guild becomes unavailable.
+          <div class="features">read / write</div>
+</dd>
+        <dt id="onGuildUpdate" class="property">
+          <span class="name"><a href="discord/Client/onGuildUpdate.html">onGuildUpdate</a></span>
+          <span class="signature">&#8596; Stream<span class="signature">&lt;<wbr><span class="type-parameter"><a href="discord/GuildUpdateEvent-class.html">GuildUpdateEvent</a></span>&gt;</span></span>
+        </dt>
+        <dd>
+          Emitted when a guild is updated..
+          <div class="features">read / write</div>
+</dd>
+        <dt id="onHttpError" class="property">
+          <span class="name"><a href="discord/Client/onHttpError.html">onHttpError</a></span>
+          <span class="signature">&#8596; Stream<span class="signature">&lt;<wbr><span class="type-parameter"><a href="discord/HttpErrorEvent-class.html">HttpErrorEvent</a></span>&gt;</span></span>
+        </dt>
+        <dd>
+          Emitted when a HTTP request failed.
+          <div class="features">read / write</div>
+</dd>
+        <dt id="onHttpResponse" class="property">
+          <span class="name"><a href="discord/Client/onHttpResponse.html">onHttpResponse</a></span>
+          <span class="signature">&#8596; Stream<span class="signature">&lt;<wbr><span class="type-parameter"><a href="discord/HttpResponseEvent-class.html">HttpResponseEvent</a></span>&gt;</span></span>
+        </dt>
+        <dd>
+          Emitted when a successful HTTP response is received.
+          <div class="features">read / write</div>
+</dd>
+        <dt id="onMessage" class="property">
+          <span class="name"><a href="discord/Client/onMessage.html">onMessage</a></span>
+          <span class="signature">&#8596; Stream<span class="signature">&lt;<wbr><span class="type-parameter"><a href="discord/MessageEvent-class.html">MessageEvent</a></span>&gt;</span></span>
+        </dt>
+        <dd>
+          Emitted when a message is received.
+          <div class="features">read / write</div>
+</dd>
+        <dt id="onMessageDelete" class="property">
+          <span class="name"><a href="discord/Client/onMessageDelete.html">onMessageDelete</a></span>
+          <span class="signature">&#8596; Stream<span class="signature">&lt;<wbr><span class="type-parameter"><a href="discord/MessageDeleteEvent-class.html">MessageDeleteEvent</a></span>&gt;</span></span>
+        </dt>
+        <dd>
+          Emitted when a message is deleted.
+          <div class="features">read / write</div>
+</dd>
+        <dt id="onMessageUpdate" class="property">
+          <span class="name"><a href="discord/Client/onMessageUpdate.html">onMessageUpdate</a></span>
+          <span class="signature">&#8596; Stream<span class="signature">&lt;<wbr><span class="type-parameter"><a href="discord/MessageUpdateEvent-class.html">MessageUpdateEvent</a></span>&gt;</span></span>
+        </dt>
+        <dd>
+          Emitted when a message is edited.
+          <div class="features">read / write</div>
+</dd>
+        <dt id="onPresenceUpdate" class="property">
+          <span class="name"><a href="discord/Client/onPresenceUpdate.html">onPresenceUpdate</a></span>
+          <span class="signature">&#8596; Stream<span class="signature">&lt;<wbr><span class="type-parameter"><a href="discord/PresenceUpdateEvent-class.html">PresenceUpdateEvent</a></span>&gt;</span></span>
+        </dt>
+        <dd>
+          Emitted when a member's presence is changed.
+          <div class="features">read / write</div>
+</dd>
+        <dt id="onRatelimited" class="property">
+          <span class="name"><a href="discord/Client/onRatelimited.html">onRatelimited</a></span>
+          <span class="signature">&#8596; Stream<span class="signature">&lt;<wbr><span class="type-parameter"><a href="discord/RatelimitEvent-class.html">RatelimitEvent</a></span>&gt;</span></span>
+        </dt>
+        <dd>
+          Sent when the client is ratelimited, either by the ratelimit handler itself,
+or when a 429 is received.
+          <div class="features">read / write</div>
+</dd>
+        <dt id="onRaw" class="property">
+          <span class="name"><a href="discord/Client/onRaw.html">onRaw</a></span>
+          <span class="signature">&#8596; Stream<span class="signature">&lt;<wbr><span class="type-parameter"><a href="discord/RawEvent-class.html">RawEvent</a></span>&gt;</span></span>
+        </dt>
+        <dd>
+          Emitted when a raw packet is received from the websocket connection.
+          <div class="features">read / write</div>
+</dd>
+        <dt id="onReady" class="property">
+          <span class="name"><a href="discord/Client/onReady.html">onReady</a></span>
+          <span class="signature">&#8596; Stream<span class="signature">&lt;<wbr><span class="type-parameter"><a href="discord/ReadyEvent-class.html">ReadyEvent</a></span>&gt;</span></span>
+        </dt>
+        <dd>
+          Emitted when the client is ready.
+          <div class="features">read / write</div>
+</dd>
+        <dt id="onRoleCreate" class="property">
+          <span class="name"><a href="discord/Client/onRoleCreate.html">onRoleCreate</a></span>
+          <span class="signature">&#8596; Stream<span class="signature">&lt;<wbr><span class="type-parameter"><a href="discord/RoleCreateEvent-class.html">RoleCreateEvent</a></span>&gt;</span></span>
+        </dt>
+        <dd>
+          Emitted when a role is created.
+          <div class="features">read / write</div>
+</dd>
+        <dt id="onRoleDelete" class="property">
+          <span class="name"><a href="discord/Client/onRoleDelete.html">onRoleDelete</a></span>
+          <span class="signature">&#8596; Stream<span class="signature">&lt;<wbr><span class="type-parameter"><a href="discord/RoleDeleteEvent-class.html">RoleDeleteEvent</a></span>&gt;</span></span>
+        </dt>
+        <dd>
+          Emitted when a role is deleted.
+          <div class="features">read / write</div>
+</dd>
+        <dt id="onRoleUpdate" class="property">
+          <span class="name"><a href="discord/Client/onRoleUpdate.html">onRoleUpdate</a></span>
+          <span class="signature">&#8596; Stream<span class="signature">&lt;<wbr><span class="type-parameter"><a href="discord/RoleUpdateEvent-class.html">RoleUpdateEvent</a></span>&gt;</span></span>
+        </dt>
+        <dd>
+          Emitted when a role is updated.
+          <div class="features">read / write</div>
+</dd>
+        <dt id="onTyping" class="property">
+          <span class="name"><a href="discord/Client/onTyping.html">onTyping</a></span>
+          <span class="signature">&#8596; Stream<span class="signature">&lt;<wbr><span class="type-parameter"><a href="discord/TypingEvent-class.html">TypingEvent</a></span>&gt;</span></span>
+        </dt>
+        <dd>
+          Emitted when a user starts typing.
+          <div class="features">read / write</div>
+</dd>
+        <dt id="ready" class="property">
+          <span class="name"><a href="discord/Client/ready.html">ready</a></span>
+          <span class="signature">&#8596; bool</span>
+        </dt>
+        <dd>
+          Whether or not the client is ready.
+          <div class="features">read / write</div>
+</dd>
+        <dt id="shards" class="property">
+          <span class="name"><a href="discord/Client/shards.html">shards</a></span>
+          <span class="signature">&#8596; Map<span class="signature">&lt;<wbr><span class="type-parameter">int</span>, <span class="type-parameter"><a href="discord/Shard-class.html">Shard</a></span>&gt;</span></span>
+        </dt>
+        <dd>
+          The client's internal shards.
+          <div class="features">read / write</div>
+</dd>
+        <dt id="uptime" class="property">
+          <span class="name"><a href="discord/Client/uptime.html">uptime</a></span>
+          <span class="signature">&#8594; Duration</span>
+        </dt>
+        <dd>
+          The client's uptime.
+          <div class="features">read-only</div>
+</dd>
+        <dt id="user" class="property">
+          <span class="name"><a href="discord/Client/user.html">user</a></span>
+          <span class="signature">&#8596; <a href="discord/ClientUser-class.html">ClientUser</a></span>
+        </dt>
+        <dd>
+          The logged in user.
+          <div class="features">read / write</div>
+</dd>
+        <dt id="users" class="property">
+          <span class="name"><a href="discord/Client/users.html">users</a></span>
+          <span class="signature">&#8596; Map<span class="signature">&lt;<wbr><span class="type-parameter">String</span>, <span class="type-parameter"><a href="discord/User-class.html">User</a></span>&gt;</span></span>
+        </dt>
+        <dd>
+          All of the users the bot can see. Does not always have offline users
+without forceFetchUsers enabled.
+          <div class="features">read / write</div>
+</dd>
+        <dt id="version" class="property">
+          <span class="name"><a href="discord/Client/version.html">version</a></span>
+          <span class="signature">&#8596; String</span>
+        </dt>
+        <dd>
+          The current version.
+          <div class="features">read / write</div>
+</dd>
+        <dt id="hashCode" class="property inherited">
+          <span class="name"><a href="discord/Client/hashCode.html">hashCode</a></span>
+          <span class="signature">&#8594; int</span>
+        </dt>
+        <dd class="inherited">
+          The hash code for this object. <a href="discord/Client/hashCode.html">[...]</a>
+          <div class="features">read-only, inherited</div>
+</dd>
+        <dt id="runtimeType" class="property inherited">
+          <span class="name"><a href="discord/Client/runtimeType.html">runtimeType</a></span>
+          <span class="signature">&#8594; Type</span>
+        </dt>
+        <dd class="inherited">
+          A representation of the runtime type of the object.
+          <div class="features">read-only, inherited</div>
+</dd>
+      </dl>
+    </section>
+
+    <section class="summary offset-anchor" id="instance-methods">
+      <h2>Methods</h2>
+      <dl class="callables">
+        <dt id="destroy" class="callable">
+          <span class="name"><a href="discord/Client/destroy.html">destroy</a></span><span class="signature">(<wbr>)
+            <span class="returntype parameter">&#8594; Future<span class="signature">&lt;<wbr><span class="type-parameter">Null</span>&gt;</span></span>
+          </span>
+        </dt>
+        <dd>
+          Destroys the websocket connection, and all streams.
+          
+</dd>
+        <dt id="getInvite" class="callable">
+          <span class="name"><a href="discord/Client/getInvite.html">getInvite</a></span><span class="signature">(<wbr><span class="parameter" id="getInvite-param-code"><span class="type-annotation">String</span> <span class="parameter-name">code</span></span>)
+            <span class="returntype parameter">&#8594; Future<span class="signature">&lt;<wbr><span class="type-parameter"><a href="discord/Invite-class.html">Invite</a></span>&gt;</span></span>
+          </span>
+        </dt>
+        <dd>
+          Gets an <a href="discord/Invite-class.html">Invite</a> object. <a href="discord/Client/getInvite.html">[...]</a>
+          
+</dd>
+        <dt id="getOAuth2Info" class="callable">
+          <span class="name"><a href="discord/Client/getOAuth2Info.html">getOAuth2Info</a></span><span class="signature">(<wbr><span class="parameter" id="getOAuth2Info-param-app"><span class="type-annotation">dynamic</span> <span class="parameter-name">app</span></span>)
+            <span class="returntype parameter">&#8594; Future<span class="signature">&lt;<wbr><span class="type-parameter"><a href="discord/OAuth2Info-class.html">OAuth2Info</a></span>&gt;</span></span>
+          </span>
+        </dt>
+        <dd>
+          Gets an <a href="discord/OAuth2Info-class.html">OAuth2Info</a> object. <a href="discord/Client/getOAuth2Info.html">[...]</a>
+          
+</dd>
+        <dt id="getUser" class="callable">
+          <span class="name"><a href="discord/Client/getUser.html">getUser</a></span><span class="signature">(<wbr><span class="parameter" id="getUser-param-user"><span class="type-annotation">dynamic</span> <span class="parameter-name">user</span></span>)
+            <span class="returntype parameter">&#8594; Future<span class="signature">&lt;<wbr><span class="type-parameter"><a href="discord/User-class.html">User</a></span>&gt;</span></span>
+          </span>
+        </dt>
+        <dd>
+          Gets a <a href="discord/User-class.html">User</a> object. <a href="discord/Client/getUser.html">[...]</a>
+          
+</dd>
+        <dt id="noSuchMethod" class="callable inherited">
+          <span class="name"><a href="discord/Client/noSuchMethod.html">noSuchMethod</a></span><span class="signature">(<wbr><span class="parameter" id="noSuchMethod-param-invocation"><span class="type-annotation">Invocation</span> <span class="parameter-name">invocation</span></span>)
+            <span class="returntype parameter">&#8594; dynamic</span>
+          </span>
+        </dt>
+        <dd class="inherited">
+          Invoked when a non-existent method or property is accessed. <a href="discord/Client/noSuchMethod.html">[...]</a>
+          <div class="features">inherited</div>
+</dd>
+        <dt id="toString" class="callable inherited">
+          <span class="name"><a href="discord/Client/toString.html">toString</a></span><span class="signature">(<wbr>)
+            <span class="returntype parameter">&#8594; String</span>
+          </span>
+        </dt>
+        <dd class="inherited">
+          Returns a string representation of this object.
+          <div class="features">inherited</div>
+</dd>
+      </dl>
+    </section>
+
+    <section class="summary offset-anchor inherited" id="operators">
+      <h2>Operators</h2>
+      <dl class="callables">
+        <dt id="operator ==" class="callable inherited">
+          <span class="name"><a href="discord/Client/operator_equals.html">operator ==</a></span><span class="signature">(<wbr><span class="parameter" id="==-param-other"><span class="type-annotation">dynamic</span> <span class="parameter-name">other</span></span>)
+            <span class="returntype parameter">&#8594; bool</span>
+          </span>
+        </dt>
+        <dd class="inherited">
+          The equality operator. <a href="discord/Client/operator_equals.html">[...]</a>
+          <div class="features">inherited</div>
+</dd>
+      </dl>
+    </section>
+
+
+
+
+  </div> <!-- /.main-content -->
+
+  <div class="col-xs-6 col-sm-6 col-md-2 sidebar sidebar-offcanvas-right">
+    <ol>
+      <li class="section-title"><a href="discord/Client-class.html#constructors">Constructors</a></li>
+      <li><a href="discord/Client/Client.html">Client</a></li>
+    
+      <li class="section-title">
+        <a href="discord/Client-class.html#instance-properties">Properties</a>
+      </li>
+      <li><a href="discord/Client/app.html">app</a></li>
+      <li><a href="discord/Client/beforeHttpRequestSend.html">beforeHttpRequestSend</a></li>
+      <li><a href="discord/Client/channels.html">channels</a></li>
+      <li><a href="discord/Client/guilds.html">guilds</a></li>
+      <li><a href="discord/Client/http.html">http</a></li>
+      <li><a href="discord/Client/onChannelCreate.html">onChannelCreate</a></li>
+      <li><a href="discord/Client/onChannelDelete.html">onChannelDelete</a></li>
+      <li><a href="discord/Client/onChannelUpdate.html">onChannelUpdate</a></li>
+      <li><a href="discord/Client/onDisconnect.html">onDisconnect</a></li>
+      <li><a href="discord/Client/onGuildBanAdd.html">onGuildBanAdd</a></li>
+      <li><a href="discord/Client/onGuildBanRemove.html">onGuildBanRemove</a></li>
+      <li><a href="discord/Client/onGuildCreate.html">onGuildCreate</a></li>
+      <li><a href="discord/Client/onGuildDelete.html">onGuildDelete</a></li>
+      <li><a href="discord/Client/onGuildMemberAdd.html">onGuildMemberAdd</a></li>
+      <li><a href="discord/Client/onGuildMemberRemove.html">onGuildMemberRemove</a></li>
+      <li><a href="discord/Client/onGuildMemberUpdate.html">onGuildMemberUpdate</a></li>
+      <li><a href="discord/Client/onGuildUnavailable.html">onGuildUnavailable</a></li>
+      <li><a href="discord/Client/onGuildUpdate.html">onGuildUpdate</a></li>
+      <li><a href="discord/Client/onHttpError.html">onHttpError</a></li>
+      <li><a href="discord/Client/onHttpResponse.html">onHttpResponse</a></li>
+      <li><a href="discord/Client/onMessage.html">onMessage</a></li>
+      <li><a href="discord/Client/onMessageDelete.html">onMessageDelete</a></li>
+      <li><a href="discord/Client/onMessageUpdate.html">onMessageUpdate</a></li>
+      <li><a href="discord/Client/onPresenceUpdate.html">onPresenceUpdate</a></li>
+      <li><a href="discord/Client/onRatelimited.html">onRatelimited</a></li>
+      <li><a href="discord/Client/onRaw.html">onRaw</a></li>
+      <li><a href="discord/Client/onReady.html">onReady</a></li>
+      <li><a href="discord/Client/onRoleCreate.html">onRoleCreate</a></li>
+      <li><a href="discord/Client/onRoleDelete.html">onRoleDelete</a></li>
+      <li><a href="discord/Client/onRoleUpdate.html">onRoleUpdate</a></li>
+      <li><a href="discord/Client/onTyping.html">onTyping</a></li>
+      <li><a href="discord/Client/ready.html">ready</a></li>
+      <li><a href="discord/Client/shards.html">shards</a></li>
+      <li><a href="discord/Client/uptime.html">uptime</a></li>
+      <li><a href="discord/Client/user.html">user</a></li>
+      <li><a href="discord/Client/users.html">users</a></li>
+      <li><a href="discord/Client/version.html">version</a></li>
+      <li class="inherited"><a href="discord/Client/hashCode.html">hashCode</a></li>
+      <li class="inherited"><a href="discord/Client/runtimeType.html">runtimeType</a></li>
+    
+      <li class="section-title"><a href="discord/Client-class.html#instance-methods">Methods</a></li>
+      <li><a href="discord/Client/destroy.html">destroy</a></li>
+      <li><a href="discord/Client/getInvite.html">getInvite</a></li>
+      <li><a href="discord/Client/getOAuth2Info.html">getOAuth2Info</a></li>
+      <li><a href="discord/Client/getUser.html">getUser</a></li>
+      <li class="inherited"><a href="discord/Client/noSuchMethod.html">noSuchMethod</a></li>
+      <li class="inherited"><a href="discord/Client/toString.html">toString</a></li>
+    
+      <li class="section-title inherited"><a href="discord/Client-class.html#operators">Operators</a></li>
+      <li class="inherited"><a href="discord/Client/operator_equals.html">operator ==</a></li>
+    
+    
+    
+    </ol>
+  </div><!--/.sidebar-offcanvas-->
+
+</main>
+
+<footer>
+  <span class="no-break">
+    nyxx 0.16.0
+  </span>
+
+</footer>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="static-assets/typeahead.bundle.min.js"></script>
+<script src="static-assets/highlight.pack.js"></script>
+<script src="static-assets/URI.js"></script>
+<script src="static-assets/script.js"></script>
+
+
+</body>
+
+</html>

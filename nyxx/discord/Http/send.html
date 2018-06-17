@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="API docs for the send method from the Http class, for the Dart programming language.">
+  <title>send method - Http class - discord library - Dart API</title>
+  <!-- required because all the links are pseudo-absolute -->
+  <base href="../..">
+
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500,400i,400,300|Source+Sans+Pro:400,300,700" rel="stylesheet">
+  <link rel="stylesheet" href="static-assets/github.css">
+  <link rel="stylesheet" href="static-assets/styles.css">
+  <link rel="icon" href="static-assets/favicon.png">
+
+</head>
+
+<body>
+
+<div id="overlay-under-drawer"></div>
+
+<header id="title">
+  <button id="sidenav-left-toggle" type="button">&nbsp;</button>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="index.html">nyxx</a></li>
+    <li><a href="discord/discord-library.html">discord</a></li>
+    <li><a href="discord/Http-class.html">Http</a></li>
+    <li class="self-crumb">send method</li>
+  </ol>
+  <div class="self-name">send</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<main>
+
+  <div class="col-xs-6 col-sm-3 col-md-2 sidebar sidebar-offcanvas-left">
+    <h5>Http class</h5>
+    <ol>
+    
+      <li class="section-title">
+        <a href="discord/Http-class.html#instance-properties">Properties</a>
+      </li>
+      <li><a href="discord/Http/buckets.html">buckets</a></li>
+      <li><a href="discord/Http/headers.html">headers</a></li>
+      <li class="inherited"><a href="discord/Http/hashCode.html">hashCode</a></li>
+      <li class="inherited"><a href="discord/Http/runtimeType.html">runtimeType</a></li>
+    
+      <li class="section-title"><a href="discord/Http-class.html#instance-methods">Methods</a></li>
+      <li><a href="discord/Http/send.html">send</a></li>
+      <li class="inherited"><a href="discord/Http/noSuchMethod.html">noSuchMethod</a></li>
+      <li class="inherited"><a href="discord/Http/toString.html">toString</a></li>
+    
+      <li class="section-title inherited"><a href="discord/Http-class.html#operators">Operators</a></li>
+      <li class="inherited"><a href="discord/Http/operator_equals.html">operator ==</a></li>
+    
+    
+    
+    </ol>
+  </div><!--/.sidebar-offcanvas-->
+
+  <div class="col-xs-12 col-sm-9 col-md-8 main-content">
+    <h1>send method</h1>
+
+    <section class="multi-line-signature">
+      <span class="returntype">Future<span class="signature">&lt;<wbr><span class="type-parameter"><a href="discord/HttpResponse-class.html">HttpResponse</a></span>&gt;</span></span>
+      <span class="name ">send</span>
+(<wbr><span class="parameter" id="send-param-method"><span class="type-annotation">String</span> <span class="parameter-name">method</span>, </span> <span class="parameter" id="send-param-path"><span class="type-annotation">String</span> <span class="parameter-name">path</span>, {</span> <span class="parameter" id="send-param-body"><span class="type-annotation">dynamic</span> <span class="parameter-name">body</span>, </span> <span class="parameter" id="send-param-queryParams"><span class="type-annotation">Map<span class="signature">&lt;<wbr><span class="type-parameter">String</span>, <span class="type-parameter">String</span>&gt;</span></span> <span class="parameter-name">queryParams</span>, </span> <span class="parameter" id="send-param-beforeReady"><span class="type-annotation">bool</span> <span class="parameter-name">beforeReady</span>: <span class="default-value">false</span>, </span> <span class="parameter" id="send-param-headers"><span class="type-annotation">Map<span class="signature">&lt;<wbr><span class="type-parameter">String</span>, <span class="type-parameter">String</span>&gt;</span></span> <span class="parameter-name">headers</span>: <span class="default-value">const {}</span></span> })
+    </section>
+    <section class="desc markdown">
+      <p>Sends a HTTP request.</p>
+    </section>
+    
+    <section class="summary source-code" id="source">
+      <h2><span>Implementation</span> </h2>
+      <pre class="language-dart"><code class="language-dart">Future&lt;HttpResponse&gt; send(String method, String path,
+    {dynamic body,
+    Map&lt;String, String&gt; queryParams,
+    bool beforeReady: false,
+    Map&lt;String, String&gt; headers: const {}}) async {
+  if (_client is Client &amp;&amp; !this._client.ready &amp;&amp; !beforeReady)
+    throw new ClientNotReadyError();
+
+  HttpRequest request = new HttpRequest._new(this, method, path, queryParams,
+      new Map.from(this.headers)..addAll(headers), body);
+
+  await for (HttpResponse r in request.stream) {
+    if (!r.aborted &amp;&amp; r.status &gt;= 200 &amp;&amp; r.status &lt; 300) {
+      if (_client != null) new HttpResponseEvent._new(_client, r);
+      return r;
+    } else {
+      if (_client != null) new HttpErrorEvent._new(_client, r);
+      throw new HttpError._new(r);
+    }
+  }
+  return null;
+}</code></pre>
+    </section>
+
+  </div> <!-- /.main-content -->
+
+  <div class="col-xs-6 col-sm-6 col-md-2 sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+
+</main>
+
+<footer>
+  <span class="no-break">
+    nyxx 0.16.0
+  </span>
+
+</footer>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="static-assets/typeahead.bundle.min.js"></script>
+<script src="static-assets/highlight.pack.js"></script>
+<script src="static-assets/URI.js"></script>
+<script src="static-assets/script.js"></script>
+
+
+</body>
+
+</html>
