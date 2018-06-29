@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="API docs for the setPresence method from the Shard class, for the Dart programming language.">
+  <title>setPresence method - Shard class - nyxx library - Dart API</title>
+  <!-- required because all the links are pseudo-absolute -->
+  <base href="../..">
+
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500,400i,400,300|Source+Sans+Pro:400,300,700" rel="stylesheet">
+  <link rel="stylesheet" href="static-assets/github.css">
+  <link rel="stylesheet" href="static-assets/styles.css">
+  <link rel="icon" href="static-assets/favicon.png">
+
+</head>
+
+<body>
+
+<div id="overlay-under-drawer"></div>
+
+<header id="title">
+  <button id="sidenav-left-toggle" type="button">&nbsp;</button>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="index.html">nyxx</a></li>
+    <li><a href="nyxx/nyxx-library.html">nyxx</a></li>
+    <li><a href="nyxx/Shard-class.html">Shard</a></li>
+    <li class="self-crumb">setPresence method</li>
+  </ol>
+  <div class="self-name">setPresence</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<main>
+
+  <div class="col-xs-6 col-sm-3 col-md-2 sidebar sidebar-offcanvas-left">
+    <h5>Shard class</h5>
+    <ol>
+    
+      <li class="section-title">
+        <a href="nyxx/Shard-class.html#instance-properties">Properties</a>
+      </li>
+      <li><a href="nyxx/Shard/guilds.html">guilds</a></li>
+      <li><a href="nyxx/Shard/id.html">id</a></li>
+      <li><a href="nyxx/Shard/onDisconnect.html">onDisconnect</a></li>
+      <li><a href="nyxx/Shard/onReady.html">onReady</a></li>
+      <li><a href="nyxx/Shard/ready.html">ready</a></li>
+      <li class="inherited"><a href="nyxx/Shard/hashCode.html">hashCode</a></li>
+      <li class="inherited"><a href="nyxx/Shard/runtimeType.html">runtimeType</a></li>
+    
+      <li class="section-title"><a href="nyxx/Shard-class.html#instance-methods">Methods</a></li>
+      <li><a href="nyxx/Shard/guildSync.html">guildSync</a></li>
+      <li><a href="nyxx/Shard/send.html">send</a></li>
+      <li><a href="nyxx/Shard/setPresence.html">setPresence</a></li>
+      <li class="inherited"><a href="nyxx/Shard/noSuchMethod.html">noSuchMethod</a></li>
+      <li class="inherited"><a href="nyxx/Shard/toString.html">toString</a></li>
+    
+      <li class="section-title inherited"><a href="nyxx/Shard-class.html#operators">Operators</a></li>
+      <li class="inherited"><a href="nyxx/Shard/operator_equals.html">operator ==</a></li>
+    
+    
+    
+    </ol>
+  </div><!--/.sidebar-offcanvas-->
+
+  <div class="col-xs-12 col-sm-9 col-md-8 main-content">
+    <h1>setPresence method</h1>
+
+    <section class="multi-line-signature">
+      <span class="returntype">void</span>
+      <span class="name ">setPresence</span>
+(<wbr>{<span class="parameter" id="setPresence-param-status"><span class="type-annotation">String</span> <span class="parameter-name">status</span>: <span class="default-value">null</span>, </span> <span class="parameter" id="setPresence-param-afk"><span class="type-annotation">bool</span> <span class="parameter-name">afk</span>: <span class="default-value">false</span>, </span> <span class="parameter" id="setPresence-param-activity"><span class="parameter-name">activity</span>: <span class="default-value">null</span></span> })
+    </section>
+    <section class="desc markdown">
+      <p>Updates the presence for this shard.</p>
+    </section>
+    
+    <section class="summary source-code" id="source">
+      <h2><span>Implementation</span> </h2>
+      <pre class="language-dart"><code class="language-dart">void setPresence({String status: null, bool afk: false, activity: null}) {
+  if (activity == null)
+    activity = {
+      &#39;name&#39;: null,
+      &#39;type&#39;: 0,
+      &#39;url&#39;: null,
+    };
+
+  Map&lt;String, dynamic&gt; packet = {
+    &#39;afk&#39;: afk,
+    &#39;since&#39;: null,
+    &#39;status&#39;: status,
+    &#39;game&#39;: {
+      &#39;name&#39;: activity != null ? activity[&#39;name&#39;] : null,
+      &#39;type&#39;: activity != null ? activity[&#39;type&#39;] : 0,
+      &#39;url&#39;: activity != null ? activity[&#39;url&#39;] : null
+    }
+  };
+
+  this.send(&quot;STATUS_UPDATE&quot;, packet);
+}</code></pre>
+    </section>
+
+  </div> <!-- /.main-content -->
+
+  <div class="col-xs-6 col-sm-6 col-md-2 sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+
+</main>
+
+<footer>
+  <span class="no-break">
+    nyxx 0.19.0
+  </span>
+
+</footer>
+
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="static-assets/typeahead.bundle.min.js"></script>
+<script src="static-assets/highlight.pack.js"></script>
+<script src="static-assets/URI.js"></script>
+<script src="static-assets/script.js"></script>
+
+
+</body>
+
+</html>

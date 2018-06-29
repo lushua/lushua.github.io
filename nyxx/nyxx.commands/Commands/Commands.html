@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="API docs for the Commands constructor from the Class Commands class from the nyxx.commands library, for the Dart programming language.">
+  <title>Commands constructor - Commands class - nyxx.commands library - Dart API</title>
+  <!-- required because all the links are pseudo-absolute -->
+  <base href="../..">
+
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500,400i,400,300|Source+Sans+Pro:400,300,700" rel="stylesheet">
+  <link rel="stylesheet" href="static-assets/github.css">
+  <link rel="stylesheet" href="static-assets/styles.css">
+  <link rel="icon" href="static-assets/favicon.png">
+
+</head>
+
+<body>
+
+<div id="overlay-under-drawer"></div>
+
+<header id="title">
+  <button id="sidenav-left-toggle" type="button">&nbsp;</button>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="index.html">nyxx</a></li>
+    <li><a href="nyxx.commands/nyxx.commands-library.html">nyxx.commands</a></li>
+    <li><a href="nyxx.commands/Commands-class.html">Commands</a></li>
+    <li class="self-crumb">Commands constructor</li>
+  </ol>
+  <div class="self-name">Commands</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<main>
+
+  <div class="col-xs-6 col-sm-3 col-md-2 sidebar sidebar-offcanvas-left">
+    <h5>Commands class</h5>
+    <ol>
+      <li class="section-title"><a href="nyxx.commands/Commands-class.html#constructors">Constructors</a></li>
+      <li><a href="nyxx.commands/Commands/Commands.html">Commands</a></li>
+    
+      <li class="section-title">
+        <a href="nyxx.commands/Commands-class.html#instance-properties">Properties</a>
+      </li>
+      <li><a href="nyxx.commands/Commands/commandNotFoundEvent.html">commandNotFoundEvent</a></li>
+      <li><a href="nyxx.commands/Commands/cooldownEvent.html">cooldownEvent</a></li>
+      <li><a href="nyxx.commands/Commands/forAdminOnlyEvent.html">forAdminOnlyEvent</a></li>
+      <li><a href="nyxx.commands/Commands/helpDirect.html">helpDirect</a></li>
+      <li><a href="nyxx.commands/Commands/ignoreBots.html">ignoreBots</a></li>
+      <li><a href="nyxx.commands/Commands/prefix.html">prefix</a></li>
+      <li><a href="nyxx.commands/Commands/requiredPermissionEvent.html">requiredPermissionEvent</a></li>
+      <li class="inherited"><a href="nyxx.commands/Commands/hashCode.html">hashCode</a></li>
+      <li class="inherited"><a href="nyxx.commands/Commands/runtimeType.html">runtimeType</a></li>
+    
+      <li class="section-title"><a href="nyxx.commands/Commands-class.html#instance-methods">Methods</a></li>
+      <li><a href="nyxx.commands/Commands/add.html">add</a></li>
+      <li><a href="nyxx.commands/Commands/addMany.html">addMany</a></li>
+      <li class="inherited"><a href="nyxx.commands/Commands/noSuchMethod.html">noSuchMethod</a></li>
+      <li class="inherited"><a href="nyxx.commands/Commands/toString.html">toString</a></li>
+    
+      <li class="section-title inherited"><a href="nyxx.commands/Commands-class.html#operators">Operators</a></li>
+      <li class="inherited"><a href="nyxx.commands/Commands/operator_equals.html">operator ==</a></li>
+    
+    
+    
+    </ol>
+  </div><!--/.sidebar-offcanvas-left-->
+
+  <div class="col-xs-12 col-sm-9 col-md-8 main-content">
+    <h1>Commands constructor</h1>
+
+    <section class="multi-line-signature">
+      
+      <span class="name ">Commands</span>(<wbr><span class="parameter" id="-param-prefix"><span class="type-annotation">String</span> <span class="parameter-name">prefix</span>, </span> <span class="parameter" id="-param-client"><span class="type-annotation"><a href="nyxx/Client-class.html">Client</a></span> <span class="parameter-name">client</span>, [</span> <span class="parameter" id="-param-_admins"><span class="type-annotation">List<span class="signature">&lt;String&gt;</span></span> <span class="parameter-name">_admins</span>, </span> <span class="parameter" id="-param-gameName"><span class="type-annotation">String</span> <span class="parameter-name">gameName</span></span> ])
+    </section>
+
+    <section class="desc markdown">
+      <p>Creates commands framework handler. Requires prefix to handle commands.</p>
+    </section>
+    
+    <section class="summary source-code" id="source">
+      <h2><span>Implementation</span> </h2>
+      <pre class="language-dart"><code class="language-dart">Commands(this.prefix, Client client, [this._admins, String gameName]) {
+  _commands = [];
+  _cooldownCache = new CooldownCache();
+
+  _commandNotFoundEventController = new StreamController&lt;Message&gt;();
+  _requiredPermissionEventController = new StreamController&lt;Message&gt;();
+  _forAdminOnlyEventController = new StreamController&lt;Message&gt;();
+  _cooldownEventController = new StreamController&lt;Message&gt;();
+
+  commandNotFoundEvent = _commandNotFoundEventController.stream;
+  forAdminOnlyEvent = _forAdminOnlyEventController.stream;
+  requiredPermissionEvent = _forAdminOnlyEventController.stream;
+  cooldownEvent = _cooldownEventController.stream;
+
+  if (gameName != null) client.user.setGame(name: gameName);
+
+  &#47;&#47; Listen to incoming messages and ignore all from bots (if set)
+  client.onMessage.listen((MessageEvent e) async {
+    if (ignoreBots &amp;&amp; e.message.author.bot) return;
+
+    await _dispatch(e);
+  });
+
+  client.onReady.listen((ReadyEvent e) =&gt; print(&quot;[INFO] Bot started!&quot;));
+}</code></pre>
+    </section>
+
+  </div> <!-- /.main-content -->
+
+  <div class="col-xs-6 col-sm-6 col-md-2 sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+
+</main>
+
+<footer>
+  <span class="no-break">
+    nyxx 0.19.0
+  </span>
+
+</footer>
+
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="static-assets/typeahead.bundle.min.js"></script>
+<script src="static-assets/highlight.pack.js"></script>
+<script src="static-assets/URI.js"></script>
+<script src="static-assets/script.js"></script>
+
+
+</body>
+
+</html>
