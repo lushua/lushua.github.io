@@ -88,6 +88,7 @@
       <li><a href="nyxx/InviteGuild-class.html">InviteGuild</a></li>
       <li><a href="nyxx/Member-class.html">Member</a></li>
       <li><a href="nyxx/Message-class.html">Message</a></li>
+      <li><a href="nyxx/MessageChannel-class.html">MessageChannel</a></li>
       <li><a href="nyxx/MessageDeleteEvent-class.html">MessageDeleteEvent</a></li>
       <li><a href="nyxx/MessageEvent-class.html">MessageEvent</a></li>
       <li><a href="nyxx/MessageUpdateEvent-class.html">MessageUpdateEvent</a></li>
@@ -157,10 +158,11 @@
 </dd>
         <dt id="channel" class="property">
           <span class="name"><a href="nyxx/Message/channel.html">channel</a></span>
-          <span class="signature">&#8596; <a href="nyxx/TextChannel-class.html">TextChannel</a></span>
+          <span class="signature">&#8596; <a href="nyxx/MessageChannel-class.html">MessageChannel</a></span>
         </dt>
         <dd>
-          The message's channel.
+          The message's channel. Due many possible channel types This is instance of <code>MessageChannel</code> interface
+which has only <code>send()</code> signature. If you want future informations about Channel cast it.
           <div class="features">read / write</div>
 </dd>
         <dt id="client" class="property">

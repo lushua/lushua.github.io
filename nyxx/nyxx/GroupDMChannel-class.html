@@ -88,6 +88,7 @@
       <li><a href="nyxx/InviteGuild-class.html">InviteGuild</a></li>
       <li><a href="nyxx/Member-class.html">Member</a></li>
       <li><a href="nyxx/Message-class.html">Message</a></li>
+      <li><a href="nyxx/MessageChannel-class.html">MessageChannel</a></li>
       <li><a href="nyxx/MessageDeleteEvent-class.html">MessageDeleteEvent</a></li>
       <li><a href="nyxx/MessageEvent-class.html">MessageEvent</a></li>
       <li><a href="nyxx/MessageUpdateEvent-class.html">MessageUpdateEvent</a></li>
@@ -142,6 +143,12 @@
           <li>GroupDMChannel</li>
         </ul></dd>
 
+        <dt>Implements</dt>
+        <dd>
+          <ul class="comma-separated clazz-relationships">
+            <li><a href="nyxx/MessageChannel-class.html">MessageChannel</a></li>
+          </ul>
+        </dd>
 
 
 
@@ -194,11 +201,11 @@
           <div class="features">read / write, inherited</div>
 </dd>
         <dt id="hashCode" class="property inherited">
-          <span class="name"><a href="nyxx/Channel/hashCode.html">hashCode</a></span>
+          <span class="name"><a href="nyxx/MessageChannel/hashCode.html">hashCode</a></span>
           <span class="signature">&#8594; int</span>
         </dt>
         <dd class="inherited">
-          The hash code for this object. <a href="nyxx/Channel/hashCode.html">[...]</a>
+          The hash code for this object. <a href="nyxx/MessageChannel/hashCode.html">[...]</a>
           <div class="features">read-only, inherited</div>
 </dd>
         <dt id="id" class="property inherited">
@@ -218,7 +225,7 @@
           <div class="features">read / write, inherited</div>
 </dd>
         <dt id="runtimeType" class="property inherited">
-          <span class="name"><a href="nyxx/Channel/runtimeType.html">runtimeType</a></span>
+          <span class="name"><a href="nyxx/MessageChannel/runtimeType.html">runtimeType</a></span>
           <span class="signature">&#8594; Type</span>
         </dt>
         <dd class="inherited">
@@ -258,7 +265,7 @@
           
 </dd>
         <dt id="send" class="callable">
-          <span class="name"><a href="nyxx/GroupDMChannel/send.html">send</a></span><span class="signature">(<wbr>{<span class="parameter" id="send-param-content"><span class="type-annotation">String</span> <span class="parameter-name">content</span>, </span> <span class="parameter" id="send-param-embed"><span class="type-annotation">Map</span> <span class="parameter-name">embed</span>, </span> <span class="parameter" id="send-param-tts"><span class="type-annotation">bool</span> <span class="parameter-name">tts</span>: <span class="default-value">false</span>, </span> <span class="parameter" id="send-param-nonce"><span class="type-annotation">String</span> <span class="parameter-name">nonce</span>, </span> <span class="parameter" id="send-param-disableEveryone"><span class="type-annotation">bool</span> <span class="parameter-name">disableEveryone</span></span> })
+          <span class="name"><a href="nyxx/GroupDMChannel/send.html">send</a></span><span class="signature">(<wbr>{<span class="parameter" id="send-param-content"><span class="type-annotation">String</span> <span class="parameter-name">content</span>, </span> <span class="parameter" id="send-param-embed"><span class="type-annotation"><a href="nyxx/EmbedBuilder-class.html">EmbedBuilder</a></span> <span class="parameter-name">embed</span>, </span> <span class="parameter" id="send-param-tts"><span class="type-annotation">bool</span> <span class="parameter-name">tts</span>: <span class="default-value">false</span>, </span> <span class="parameter" id="send-param-nonce"><span class="type-annotation">String</span> <span class="parameter-name">nonce</span>, </span> <span class="parameter" id="send-param-disableEveryone"><span class="type-annotation">bool</span> <span class="parameter-name">disableEveryone</span></span> })
             <span class="returntype parameter">&#8594; Future<span class="signature">&lt;<a href="nyxx/Message-class.html">Message</a>&gt;</span></span>
           </span>
         </dt>
@@ -312,16 +319,16 @@
           <div class="features">inherited</div>
 </dd>
         <dt id="noSuchMethod" class="callable inherited">
-          <span class="name"><a href="nyxx/Channel/noSuchMethod.html">noSuchMethod</a></span><span class="signature">(<wbr><span class="parameter" id="noSuchMethod-param-invocation"><span class="type-annotation">Invocation</span> <span class="parameter-name">invocation</span></span>)
+          <span class="name"><a href="nyxx/MessageChannel/noSuchMethod.html">noSuchMethod</a></span><span class="signature">(<wbr><span class="parameter" id="noSuchMethod-param-invocation"><span class="type-annotation">Invocation</span> <span class="parameter-name">invocation</span></span>)
             <span class="returntype parameter">&#8594; dynamic</span>
           </span>
         </dt>
         <dd class="inherited">
-          Invoked when a non-existent method or property is accessed. <a href="nyxx/Channel/noSuchMethod.html">[...]</a>
+          Invoked when a non-existent method or property is accessed. <a href="nyxx/MessageChannel/noSuchMethod.html">[...]</a>
           <div class="features">inherited</div>
 </dd>
         <dt id="toString" class="callable inherited">
-          <span class="name"><a href="nyxx/Channel/toString.html">toString</a></span><span class="signature">(<wbr>)
+          <span class="name"><a href="nyxx/MessageChannel/toString.html">toString</a></span><span class="signature">(<wbr>)
             <span class="returntype parameter">&#8594; String</span>
           </span>
         </dt>
@@ -336,12 +343,12 @@
       <h2>Operators</h2>
       <dl class="callables">
         <dt id="operator ==" class="callable inherited">
-          <span class="name"><a href="nyxx/Channel/operator_equals.html">operator ==</a></span><span class="signature">(<wbr><span class="parameter" id="==-param-other"><span class="parameter-name">other</span></span>)
+          <span class="name"><a href="nyxx/MessageChannel/operator_equals.html">operator ==</a></span><span class="signature">(<wbr><span class="parameter" id="==-param-other"><span class="parameter-name">other</span></span>)
             <span class="returntype parameter">&#8594; bool</span>
           </span>
         </dt>
         <dd class="inherited">
-          The equality operator. <a href="nyxx/Channel/operator_equals.html">[...]</a>
+          The equality operator. <a href="nyxx/MessageChannel/operator_equals.html">[...]</a>
           <div class="features">inherited</div>
 </dd>
       </dl>
@@ -363,10 +370,10 @@
       <li><a href="nyxx/GroupDMChannel/recipients.html">recipients</a></li>
       <li class="inherited"><a href="nyxx/Channel/client.html">client</a></li>
       <li class="inherited"><a href="nyxx/Channel/createdAt.html">createdAt</a></li>
-      <li class="inherited"><a href="nyxx/Channel/hashCode.html">hashCode</a></li>
+      <li class="inherited"><a href="nyxx/MessageChannel/hashCode.html">hashCode</a></li>
       <li class="inherited"><a href="nyxx/Channel/id.html">id</a></li>
       <li class="inherited"><a href="nyxx/Channel/raw.html">raw</a></li>
-      <li class="inherited"><a href="nyxx/Channel/runtimeType.html">runtimeType</a></li>
+      <li class="inherited"><a href="nyxx/MessageChannel/runtimeType.html">runtimeType</a></li>
       <li class="inherited"><a href="nyxx/Channel/type.html">type</a></li>
     
       <li class="section-title"><a href="nyxx/GroupDMChannel-class.html#instance-methods">Methods</a></li>
@@ -378,11 +385,11 @@
       <li><a href="nyxx/GroupDMChannel/startTypingLoop.html">startTypingLoop</a></li>
       <li><a href="nyxx/GroupDMChannel/stopTypingLoop.html">stopTypingLoop</a></li>
       <li class="inherited"><a href="nyxx/Channel/delete.html">delete</a></li>
-      <li class="inherited"><a href="nyxx/Channel/noSuchMethod.html">noSuchMethod</a></li>
-      <li class="inherited"><a href="nyxx/Channel/toString.html">toString</a></li>
+      <li class="inherited"><a href="nyxx/MessageChannel/noSuchMethod.html">noSuchMethod</a></li>
+      <li class="inherited"><a href="nyxx/MessageChannel/toString.html">toString</a></li>
     
       <li class="section-title inherited"><a href="nyxx/GroupDMChannel-class.html#operators">Operators</a></li>
-      <li class="inherited"><a href="nyxx/Channel/operator_equals.html">operator ==</a></li>
+      <li class="inherited"><a href="nyxx/MessageChannel/operator_equals.html">operator ==</a></li>
     
     
     

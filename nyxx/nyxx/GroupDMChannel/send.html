@@ -48,10 +48,10 @@
       <li><a href="nyxx/GroupDMChannel/recipients.html">recipients</a></li>
       <li class="inherited"><a href="nyxx/Channel/client.html">client</a></li>
       <li class="inherited"><a href="nyxx/Channel/createdAt.html">createdAt</a></li>
-      <li class="inherited"><a href="nyxx/Channel/hashCode.html">hashCode</a></li>
+      <li class="inherited"><a href="nyxx/MessageChannel/hashCode.html">hashCode</a></li>
       <li class="inherited"><a href="nyxx/Channel/id.html">id</a></li>
       <li class="inherited"><a href="nyxx/Channel/raw.html">raw</a></li>
-      <li class="inherited"><a href="nyxx/Channel/runtimeType.html">runtimeType</a></li>
+      <li class="inherited"><a href="nyxx/MessageChannel/runtimeType.html">runtimeType</a></li>
       <li class="inherited"><a href="nyxx/Channel/type.html">type</a></li>
     
       <li class="section-title"><a href="nyxx/GroupDMChannel-class.html#instance-methods">Methods</a></li>
@@ -63,11 +63,11 @@
       <li><a href="nyxx/GroupDMChannel/startTypingLoop.html">startTypingLoop</a></li>
       <li><a href="nyxx/GroupDMChannel/stopTypingLoop.html">stopTypingLoop</a></li>
       <li class="inherited"><a href="nyxx/Channel/delete.html">delete</a></li>
-      <li class="inherited"><a href="nyxx/Channel/noSuchMethod.html">noSuchMethod</a></li>
-      <li class="inherited"><a href="nyxx/Channel/toString.html">toString</a></li>
+      <li class="inherited"><a href="nyxx/MessageChannel/noSuchMethod.html">noSuchMethod</a></li>
+      <li class="inherited"><a href="nyxx/MessageChannel/toString.html">toString</a></li>
     
       <li class="section-title inherited"><a href="nyxx/GroupDMChannel-class.html#operators">Operators</a></li>
-      <li class="inherited"><a href="nyxx/Channel/operator_equals.html">operator ==</a></li>
+      <li class="inherited"><a href="nyxx/MessageChannel/operator_equals.html">operator ==</a></li>
     
     
     
@@ -78,9 +78,14 @@
     <h1>send method</h1>
 
     <section class="multi-line-signature">
+      <div>
+        <ol class="annotation-list">
+          <li>@override</li>
+        </ol>
+      </div>
       <span class="returntype">Future<span class="signature">&lt;<a href="nyxx/Message-class.html">Message</a>&gt;</span></span>
       <span class="name ">send</span>
-(<wbr>{<span class="parameter" id="send-param-content"><span class="type-annotation">String</span> <span class="parameter-name">content</span>, </span> <span class="parameter" id="send-param-embed"><span class="type-annotation">Map</span> <span class="parameter-name">embed</span>, </span> <span class="parameter" id="send-param-tts"><span class="type-annotation">bool</span> <span class="parameter-name">tts</span>: <span class="default-value">false</span>, </span> <span class="parameter" id="send-param-nonce"><span class="type-annotation">String</span> <span class="parameter-name">nonce</span>, </span> <span class="parameter" id="send-param-disableEveryone"><span class="type-annotation">bool</span> <span class="parameter-name">disableEveryone</span></span> })
+(<wbr>{<span class="parameter" id="send-param-content"><span class="type-annotation">String</span> <span class="parameter-name">content</span>, </span> <span class="parameter" id="send-param-embed"><span class="type-annotation"><a href="nyxx/EmbedBuilder-class.html">EmbedBuilder</a></span> <span class="parameter-name">embed</span>, </span> <span class="parameter" id="send-param-tts"><span class="type-annotation">bool</span> <span class="parameter-name">tts</span>: <span class="default-value">false</span>, </span> <span class="parameter" id="send-param-nonce"><span class="type-annotation">String</span> <span class="parameter-name">nonce</span>, </span> <span class="parameter" id="send-param-disableEveryone"><span class="type-annotation">bool</span> <span class="parameter-name">disableEveryone</span></span> })
     </section>
     <section class="desc markdown">
       <p>Sends a message.</p>
@@ -90,9 +95,10 @@
     
     <section class="summary source-code" id="source">
       <h2><span>Implementation</span> </h2>
-      <pre class="language-dart"><code class="language-dart">Future&lt;Message&gt; send(
+      <pre class="language-dart"><code class="language-dart">@override
+Future&lt;Message&gt; send(
     {String content,
-    Map&lt;dynamic, dynamic&gt; embed,
+    EmbedBuilder embed,
     bool tts: false,
     String nonce,
     bool disableEveryone}) async {
@@ -113,7 +119,7 @@
     &quot;content&quot;: newContent,
     &quot;tts&quot;: tts,
     &quot;nonce&quot;: nonce,
-    &quot;embed&quot;: embed
+    &quot;embed&quot;: embed.build()
   });
   return new Message._new(
       this.client, r.body.asJson() as Map&lt;String, dynamic&gt;);
