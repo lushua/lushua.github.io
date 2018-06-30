@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="API docs for the configureDiscordForVM function from the nyxx.setup library, for the Dart programming language.">
-  <title>configureDiscordForVM function - nyxx.setup library - Dart API</title>
+  <meta name="description" content="API docs for the configureDiscordForBrowser function from the setup.web library, for the Dart programming language.">
+  <title>configureDiscordForBrowser function - setup.web library - Dart API</title>
   <!-- required because all the links are pseudo-absolute -->
   <base href="..">
 
@@ -24,10 +24,10 @@
   <button id="sidenav-left-toggle" type="button">&nbsp;</button>
   <ol class="breadcrumbs gt-separated dark hidden-xs">
     <li><a href="index.html">nyxx</a></li>
-    <li><a href="nyxx.setup/nyxx.setup-library.html">nyxx.setup</a></li>
-    <li class="self-crumb">configureDiscordForVM function</li>
+    <li><a href="setup.web/setup.web-library.html">setup.web</a></li>
+    <li class="self-crumb">configureDiscordForBrowser function</li>
   </ol>
-  <div class="self-name">configureDiscordForVM</div>
+  <div class="self-name">configureDiscordForBrowser</div>
   <form class="search navbar-right" role="search">
     <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
   </form>
@@ -36,13 +36,13 @@
 <main>
 
   <div class="col-xs-6 col-sm-3 col-md-2 sidebar sidebar-offcanvas-left">
-    <h5>nyxx.setup library</h5>
+    <h5>setup.web library</h5>
     <ol>
     
     
     
-      <li class="section-title"><a href="nyxx.setup/nyxx.setup-library.html#functions">Functions</a></li>
-      <li><a href="nyxx.setup/configureDiscordForVM.html">configureDiscordForVM</a></li>
+      <li class="section-title"><a href="setup.web/setup.web-library.html#functions">Functions</a></li>
+      <li><a href="setup.web/configureDiscordForBrowser.html">configureDiscordForBrowser</a></li>
     
     
     
@@ -50,22 +50,23 @@
   </div><!--/.sidebar-offcanvas-left-->
 
   <div class="col-xs-12 col-sm-9 col-md-8 main-content">
-    <h1>configureDiscordForVM function</h1>
+    <h1>configureDiscordForBrowser function</h1>
 
     <section class="multi-line-signature">
         <span class="returntype">void</span>
-        <span class="name ">configureDiscordForVM</span>
+        <span class="name ">configureDiscordForBrowser</span>
 (<wbr>)
     </section>
     <section class="desc markdown">
-      <p>Configures the client to run in Dart VM.</p>
+      <p>Configures the client to run in a browser.</p>
     </section>
     
     <section class="summary source-code" id="source">
       <h2><span>Implementation</span> </h2>
-      <pre class="language-dart"><code class="language-dart">void configureDiscordForVM() {
-  w_transport.globalTransportPlatform = vmTransportPlatform;
-  internals.operatingSystem = Platform.operatingSystem;
+      <pre class="language-dart"><code class="language-dart">void configureDiscordForBrowser() {
+  w_transport.globalTransportPlatform = browserTransportPlatform;
+  internals.operatingSystem = window.navigator.userAgent;
+  internals.browser = true;
   internals.setup = true;
 }</code></pre>
     </section>
