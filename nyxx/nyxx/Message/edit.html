@@ -94,7 +94,7 @@
     <section class="multi-line-signature">
       <span class="returntype">Future<span class="signature">&lt;<a href="nyxx/Message-class.html">Message</a>&gt;</span></span>
       <span class="name ">edit</span>
-(<wbr>{<span class="parameter" id="edit-param-content"><span class="type-annotation">String</span> <span class="parameter-name">content</span>, </span> <span class="parameter" id="edit-param-embed"><span class="type-annotation">Map</span> <span class="parameter-name">embed</span>, </span> <span class="parameter" id="edit-param-tts"><span class="type-annotation">bool</span> <span class="parameter-name">tts</span>: <span class="default-value">false</span>, </span> <span class="parameter" id="edit-param-nonce"><span class="type-annotation">String</span> <span class="parameter-name">nonce</span>, </span> <span class="parameter" id="edit-param-disableEveryone"><span class="type-annotation">bool</span> <span class="parameter-name">disableEveryone</span></span> })
+(<wbr>{<span class="parameter" id="edit-param-content"><span class="type-annotation">String</span> <span class="parameter-name">content</span>, </span> <span class="parameter" id="edit-param-embed"><span class="type-annotation"><a href="nyxx/EmbedBuilder-class.html">EmbedBuilder</a></span> <span class="parameter-name">embed</span>, </span> <span class="parameter" id="edit-param-tts"><span class="type-annotation">bool</span> <span class="parameter-name">tts</span>: <span class="default-value">false</span>, </span> <span class="parameter" id="edit-param-nonce"><span class="type-annotation">String</span> <span class="parameter-name">nonce</span>, </span> <span class="parameter" id="edit-param-disableEveryone"><span class="type-annotation">bool</span> <span class="parameter-name">disableEveryone</span></span> })
     </section>
     <section class="desc markdown">
       <p>Edits the message.</p>
@@ -106,7 +106,7 @@
       <h2><span>Implementation</span> </h2>
       <pre class="language-dart"><code class="language-dart">Future&lt;Message&gt; edit(
     {String content,
-    Map&lt;dynamic, dynamic&gt; embed,
+    EmbedBuilder embed,
     bool tts: false,
     String nonce,
     bool disableEveryone}) async {
@@ -124,7 +124,10 @@
 
   final HttpResponse r = await this.client.http.send(
       &#39;PATCH&#39;, &#39;&#47;channels&#47;${this.channel.id}&#47;messages&#47;${this.id}&#39;,
-      body: &lt;String, dynamic&gt;{&quot;content&quot;: newContent, &quot;embed&quot;: embed});
+      body: &lt;String, dynamic&gt;{
+        &quot;content&quot;: newContent,
+        &quot;embed&quot;: (embed != null ? embed.build() : &quot;&quot;)
+      });
   return new Message._new(
       this.client, r.body.asJson() as Map&lt;String, dynamic&gt;);
 }</code></pre>
@@ -139,7 +142,7 @@
 
 <footer>
   <span class="no-break">
-    nyxx 0.19.0
+    nyxx 0.19.1
   </span>
 
 </footer>

@@ -94,17 +94,17 @@
     <section class="multi-line-signature">
       <span class="returntype">Future<span class="signature">&lt;Null&gt;</span></span>
       <span class="name ">deleteUserReaction</span>
-(<wbr><span class="parameter" id="deleteUserReaction-param-emoji"><span class="type-annotation">String</span> <span class="parameter-name">emoji</span>, </span> <span class="parameter" id="deleteUserReaction-param-userId"><span class="type-annotation">String</span> <span class="parameter-name">userId</span></span>)
+(<wbr><span class="parameter" id="deleteUserReaction-param-emoji"><span class="type-annotation"><a href="nyxx/Emoji-class.html">Emoji</a></span> <span class="parameter-name">emoji</span>, </span> <span class="parameter" id="deleteUserReaction-param-userId"><span class="type-annotation">String</span> <span class="parameter-name">userId</span></span>)
     </section>
     <section class="desc markdown">
-      <p>Deletes reaction of given user. Emoji as ':emoji_name:'</p>
+      <p>Deletes reaction of given user.</p>
     </section>
     
     <section class="summary source-code" id="source">
       <h2><span>Implementation</span> </h2>
-      <pre class="language-dart"><code class="language-dart">Future&lt;Null&gt; deleteUserReaction(String emoji, String userId) async {
+      <pre class="language-dart"><code class="language-dart">Future&lt;Null&gt; deleteUserReaction(Emoji emoji, String userId) async {
   await this.client.http.send(&#39;DELETE&#39;,
-      &quot;&#47;channels&#47;${this.channel.id}&#47;messages&#47;${this.id}&#47;reactions&#47;$emoji&#47;$userId&quot;);
+      &quot;&#47;channels&#47;${this.channel.id}&#47;messages&#47;${this.id}&#47;reactions&#47;${emoji.encode()}&#47;$userId&quot;);
   return null;
 }</code></pre>
     </section>
@@ -118,7 +118,7 @@
 
 <footer>
   <span class="no-break">
-    nyxx 0.19.0
+    nyxx 0.19.1
   </span>
 
 </footer>

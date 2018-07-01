@@ -205,7 +205,13 @@ All fields are optional except of <a href="nyxx/EmbedBuilder/title.html">title</
           <span class="name "><a href="nyxx/Emoji-class.html">Emoji</a></span>
         </dt>
         <dd>
-          Emoji object. Handles Unicode emojis and custom ones. Unicode emoji dont have <a href="nyxx/Emoji/id.html">id</a> and <a href="nyxx/Emoji/name.html">name</a> is emoji.
+          Represents emoji. Subclasses provides abstraction to custom emojis(like <a href="nyxx/GuildEmoji-class.html">GuildEmoji</a>).
+        </dd>
+        <dt id="EmojisUnicode">
+          <span class="name "><a href="nyxx/EmojisUnicode-class.html">EmojisUnicode</a></span>
+        </dt>
+        <dd>
+          List of all Unicode Emojis (not really) :D
         </dd>
         <dt id="Game">
           <span class="name "><a href="nyxx/Game-class.html">Game</a></span>
@@ -254,6 +260,12 @@ All fields are optional except of <a href="nyxx/EmbedBuilder/title.html">title</
         </dt>
         <dd>
           Sent when you leave a guild.
+        </dd>
+        <dt id="GuildEmoji">
+          <span class="name "><a href="nyxx/GuildEmoji-class.html">GuildEmoji</a></span>
+        </dt>
+        <dd>
+          Emoji object. Handles Unicode emojis and custom ones. Unicode emoji dont have <a href="nyxx/GuildEmoji/id.html">id</a> and <a href="nyxx/GuildEmoji/name.html">name</a> is emoji.
         </dd>
         <dt id="GuildMemberAddEvent">
           <span class="name "><a href="nyxx/GuildMemberAddEvent-class.html">GuildMemberAddEvent</a></span>
@@ -352,12 +364,6 @@ All fields are optional except of <a href="nyxx/EmbedBuilder/title.html">title</
         <dd>
           A message.
         </dd>
-        <dt id="MessageChannel">
-          <span class="name "><a href="nyxx/MessageChannel-class.html">MessageChannel</a></span>
-        </dt>
-        <dd>
-          Provides basic abstraction for sending messages.
-        </dd>
         <dt id="MessageDeleteEvent">
           <span class="name "><a href="nyxx/MessageDeleteEvent-class.html">MessageDeleteEvent</a></span>
         </dt>
@@ -424,7 +430,7 @@ or when a 429 is received.
           <span class="name "><a href="nyxx/Reaction-class.html">Reaction</a></span>
         </dt>
         <dd>
-          Reaction object, has partial <a href="nyxx/Emoji-class.html">Emoji</a> object (only id, and name (for unicode emoji 'id' is null))
+          Reaction object, has partial <a href="nyxx/GuildEmoji-class.html">GuildEmoji</a> object (only id, and name (for unicode emoji 'id' is null))
         </dd>
         <dt id="ReadyEvent">
           <span class="name "><a href="nyxx/ReadyEvent-class.html">ReadyEvent</a></span>
@@ -473,6 +479,12 @@ or when a 429 is received.
         </dt>
         <dd>
           Sent when a user starts typing.
+        </dd>
+        <dt id="UnicodeEmoji">
+          <span class="name "><a href="nyxx/UnicodeEmoji-class.html">UnicodeEmoji</a></span>
+        </dt>
+        <dd>
+          Represents unicode emoji. Contains only emoji code.
         </dd>
         <dt id="User">
           <span class="name "><a href="nyxx/User-class.html">User</a></span>
@@ -576,6 +588,7 @@ or <a href="https://www.dartdocs.org/documentation/nyxx/latest/discord.vm/config
       <li><a href="nyxx/EmbedThumbnail-class.html">EmbedThumbnail</a></li>
       <li><a href="nyxx/EmbedVideo-class.html">EmbedVideo</a></li>
       <li><a href="nyxx/Emoji-class.html">Emoji</a></li>
+      <li><a href="nyxx/EmojisUnicode-class.html">EmojisUnicode</a></li>
       <li><a href="nyxx/Game-class.html">Game</a></li>
       <li><a href="nyxx/GroupDMChannel-class.html">GroupDMChannel</a></li>
       <li><a href="nyxx/Guild-class.html">Guild</a></li>
@@ -584,6 +597,7 @@ or <a href="https://www.dartdocs.org/documentation/nyxx/latest/discord.vm/config
       <li><a href="nyxx/GuildChannel-class.html">GuildChannel</a></li>
       <li><a href="nyxx/GuildCreateEvent-class.html">GuildCreateEvent</a></li>
       <li><a href="nyxx/GuildDeleteEvent-class.html">GuildDeleteEvent</a></li>
+      <li><a href="nyxx/GuildEmoji-class.html">GuildEmoji</a></li>
       <li><a href="nyxx/GuildMemberAddEvent-class.html">GuildMemberAddEvent</a></li>
       <li><a href="nyxx/GuildMemberRemoveEvent-class.html">GuildMemberRemoveEvent</a></li>
       <li><a href="nyxx/GuildMemberUpdateEvent-class.html">GuildMemberUpdateEvent</a></li>
@@ -600,7 +614,6 @@ or <a href="https://www.dartdocs.org/documentation/nyxx/latest/discord.vm/config
       <li><a href="nyxx/InviteGuild-class.html">InviteGuild</a></li>
       <li><a href="nyxx/Member-class.html">Member</a></li>
       <li><a href="nyxx/Message-class.html">Message</a></li>
-      <li><a href="nyxx/MessageChannel-class.html">MessageChannel</a></li>
       <li><a href="nyxx/MessageDeleteEvent-class.html">MessageDeleteEvent</a></li>
       <li><a href="nyxx/MessageEvent-class.html">MessageEvent</a></li>
       <li><a href="nyxx/MessageUpdateEvent-class.html">MessageUpdateEvent</a></li>
@@ -620,6 +633,7 @@ or <a href="https://www.dartdocs.org/documentation/nyxx/latest/discord.vm/config
       <li><a href="nyxx/Shard-class.html">Shard</a></li>
       <li><a href="nyxx/TextChannel-class.html">TextChannel</a></li>
       <li><a href="nyxx/TypingEvent-class.html">TypingEvent</a></li>
+      <li><a href="nyxx/UnicodeEmoji-class.html">UnicodeEmoji</a></li>
       <li><a href="nyxx/User-class.html">User</a></li>
       <li><a href="nyxx/Util-class.html">Util</a></li>
       <li><a href="nyxx/VoiceChannel-class.html">VoiceChannel</a></li>
@@ -643,7 +657,7 @@ or <a href="https://www.dartdocs.org/documentation/nyxx/latest/discord.vm/config
 
 <footer>
   <span class="no-break">
-    nyxx 0.19.0
+    nyxx 0.19.1
   </span>
 
 </footer>

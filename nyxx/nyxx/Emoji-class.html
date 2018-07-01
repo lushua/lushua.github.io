@@ -25,7 +25,7 @@
   <ol class="breadcrumbs gt-separated dark hidden-xs">
     <li><a href="index.html">nyxx</a></li>
     <li><a href="nyxx/nyxx-library.html">nyxx</a></li>
-    <li class="self-crumb">Emoji class</li>
+    <li class="self-crumb">Emoji abstract class</li>
   </ol>
   <div class="self-name">Emoji</div>
   <form class="search navbar-right" role="search">
@@ -64,6 +64,7 @@
       <li><a href="nyxx/EmbedThumbnail-class.html">EmbedThumbnail</a></li>
       <li><a href="nyxx/EmbedVideo-class.html">EmbedVideo</a></li>
       <li><a href="nyxx/Emoji-class.html">Emoji</a></li>
+      <li><a href="nyxx/EmojisUnicode-class.html">EmojisUnicode</a></li>
       <li><a href="nyxx/Game-class.html">Game</a></li>
       <li><a href="nyxx/GroupDMChannel-class.html">GroupDMChannel</a></li>
       <li><a href="nyxx/Guild-class.html">Guild</a></li>
@@ -72,6 +73,7 @@
       <li><a href="nyxx/GuildChannel-class.html">GuildChannel</a></li>
       <li><a href="nyxx/GuildCreateEvent-class.html">GuildCreateEvent</a></li>
       <li><a href="nyxx/GuildDeleteEvent-class.html">GuildDeleteEvent</a></li>
+      <li><a href="nyxx/GuildEmoji-class.html">GuildEmoji</a></li>
       <li><a href="nyxx/GuildMemberAddEvent-class.html">GuildMemberAddEvent</a></li>
       <li><a href="nyxx/GuildMemberRemoveEvent-class.html">GuildMemberRemoveEvent</a></li>
       <li><a href="nyxx/GuildMemberUpdateEvent-class.html">GuildMemberUpdateEvent</a></li>
@@ -88,7 +90,6 @@
       <li><a href="nyxx/InviteGuild-class.html">InviteGuild</a></li>
       <li><a href="nyxx/Member-class.html">Member</a></li>
       <li><a href="nyxx/Message-class.html">Message</a></li>
-      <li><a href="nyxx/MessageChannel-class.html">MessageChannel</a></li>
       <li><a href="nyxx/MessageDeleteEvent-class.html">MessageDeleteEvent</a></li>
       <li><a href="nyxx/MessageEvent-class.html">MessageEvent</a></li>
       <li><a href="nyxx/MessageUpdateEvent-class.html">MessageUpdateEvent</a></li>
@@ -108,6 +109,7 @@
       <li><a href="nyxx/Shard-class.html">Shard</a></li>
       <li><a href="nyxx/TextChannel-class.html">TextChannel</a></li>
       <li><a href="nyxx/TypingEvent-class.html">TypingEvent</a></li>
+      <li><a href="nyxx/UnicodeEmoji-class.html">UnicodeEmoji</a></li>
       <li><a href="nyxx/User-class.html">User</a></li>
       <li><a href="nyxx/Util-class.html">Util</a></li>
       <li><a href="nyxx/VoiceChannel-class.html">VoiceChannel</a></li>
@@ -131,85 +133,46 @@
     <h1>Emoji class</h1>
 
     <section class="desc markdown">
-      <p>Emoji object. Handles Unicode emojis and custom ones. Unicode emoji dont have <a href="nyxx/Emoji/id.html">id</a> and <a href="nyxx/Emoji/name.html">name</a> is emoji.</p>
+      <p>Represents emoji. Subclasses provides abstraction to custom emojis(like <a href="nyxx/GuildEmoji-class.html">GuildEmoji</a>).</p>
     </section>
     
+    <section>
+      <dl class="dl-horizontal">
 
+
+
+        <dt>Implemented by</dt>
+        <dd><ul class="comma-separated clazz-relationships">
+          <li><a href="nyxx/GuildEmoji-class.html">GuildEmoji</a></li>
+          <li><a href="nyxx/UnicodeEmoji-class.html">UnicodeEmoji</a></li>
+        </ul></dd>
+
+      </dl>
+    </section>
+
+    <section class="summary offset-anchor" id="constructors">
+      <h2>Constructors</h2>
+
+      <dl class="constructor-summary-list">
+        <dt id="Emoji" class="callable">
+          <span class="name"><a href="nyxx/Emoji/Emoji.html">Emoji</a></span><span class="signature">(<span class="parameter" id="-param-name"><span class="type-annotation">String</span> <span class="parameter-name">name</span></span>)</span>
+        </dt>
+        <dd>
+          
+        </dd>
+      </dl>
+    </section>
 
     <section class="summary offset-anchor" id="instance-properties">
       <h2>Properties</h2>
 
       <dl class="properties">
-        <dt id="animated" class="property">
-          <span class="name"><a href="nyxx/Emoji/animated.html">animated</a></span>
-          <span class="signature">&#8596; bool</span>
-        </dt>
-        <dd>
-          whether this emoji is animated
-          <div class="features">read / write</div>
-</dd>
-        <dt id="client" class="property">
-          <span class="name"><a href="nyxx/Emoji/client.html">client</a></span>
-          <span class="signature">&#8596; <a href="nyxx/Client-class.html">Client</a></span>
-        </dt>
-        <dd>
-          The <code>Client</code> object
-          <div class="features">read / write</div>
-</dd>
-        <dt id="guild" class="property">
-          <span class="name"><a href="nyxx/Emoji/guild.html">guild</a></span>
-          <span class="signature">&#8596; <a href="nyxx/Guild-class.html">Guild</a></span>
-        </dt>
-        <dd>
-          Emoji guild
-          <div class="features">read / write</div>
-</dd>
-        <dt id="id" class="property">
-          <span class="name"><a href="nyxx/Emoji/id.html">id</a></span>
-          <span class="signature">&#8596; String</span>
-        </dt>
-        <dd>
-          Snowflake id of emoji
-          <div class="features">read / write</div>
-</dd>
-        <dt id="managed" class="property">
-          <span class="name"><a href="nyxx/Emoji/managed.html">managed</a></span>
-          <span class="signature">&#8596; bool</span>
-        </dt>
-        <dd>
-          whether this emoji is managed
-          <div class="features">read / write</div>
-</dd>
         <dt id="name" class="property">
           <span class="name"><a href="nyxx/Emoji/name.html">name</a></span>
           <span class="signature">&#8596; String</span>
         </dt>
         <dd>
-          Name of emoji
-          <div class="features">read / write</div>
-</dd>
-        <dt id="raw" class="property">
-          <span class="name"><a href="nyxx/Emoji/raw.html">raw</a></span>
-          <span class="signature">&#8596; Map<span class="signature">&lt;String, dynamic&gt;</span></span>
-        </dt>
-        <dd>
-          The raw object returned by the API
-          <div class="features">read / write</div>
-</dd>
-        <dt id="requireColons" class="property">
-          <span class="name"><a href="nyxx/Emoji/requireColons.html">requireColons</a></span>
-          <span class="signature">&#8596; bool</span>
-        </dt>
-        <dd>
-          whether this emoji must be wrapped in colons
-          <div class="features">read / write</div>
-</dd>
-        <dt id="rolesIds" class="property">
-          <span class="name"><a href="nyxx/Emoji/rolesIds.html">rolesIds</a></span>
-          <span class="signature">&#8596; List<span class="signature">&lt;String&gt;</span></span>
-        </dt>
-        <dd>
-          Roles this emoji is whitelisted to
+          Emojis name.
           <div class="features">read / write</div>
 </dd>
         <dt id="hashCode" class="property inherited">
@@ -231,9 +194,18 @@
       </dl>
     </section>
 
-    <section class="summary offset-anchor inherited" id="instance-methods">
+    <section class="summary offset-anchor" id="instance-methods">
       <h2>Methods</h2>
       <dl class="callables">
+        <dt id="encode" class="callable">
+          <span class="name"><a href="nyxx/Emoji/encode.html">encode</a></span><span class="signature">(<wbr>)
+            <span class="returntype parameter">&#8594; String</span>
+          </span>
+        </dt>
+        <dd>
+          
+          
+</dd>
         <dt id="noSuchMethod" class="callable inherited">
           <span class="name"><a href="nyxx/Emoji/noSuchMethod.html">noSuchMethod</a></span><span class="signature">(<wbr><span class="parameter" id="noSuchMethod-param-invocation"><span class="type-annotation">Invocation</span> <span class="parameter-name">invocation</span></span>)
             <span class="returntype parameter">&#8594; dynamic</span>
@@ -277,23 +249,18 @@
 
   <div class="col-xs-6 col-sm-6 col-md-2 sidebar sidebar-offcanvas-right">
     <ol>
+      <li class="section-title"><a href="nyxx/Emoji-class.html#constructors">Constructors</a></li>
+      <li><a href="nyxx/Emoji/Emoji.html">Emoji</a></li>
     
       <li class="section-title">
         <a href="nyxx/Emoji-class.html#instance-properties">Properties</a>
       </li>
-      <li><a href="nyxx/Emoji/animated.html">animated</a></li>
-      <li><a href="nyxx/Emoji/client.html">client</a></li>
-      <li><a href="nyxx/Emoji/guild.html">guild</a></li>
-      <li><a href="nyxx/Emoji/id.html">id</a></li>
-      <li><a href="nyxx/Emoji/managed.html">managed</a></li>
       <li><a href="nyxx/Emoji/name.html">name</a></li>
-      <li><a href="nyxx/Emoji/raw.html">raw</a></li>
-      <li><a href="nyxx/Emoji/requireColons.html">requireColons</a></li>
-      <li><a href="nyxx/Emoji/rolesIds.html">rolesIds</a></li>
       <li class="inherited"><a href="nyxx/Emoji/hashCode.html">hashCode</a></li>
       <li class="inherited"><a href="nyxx/Emoji/runtimeType.html">runtimeType</a></li>
     
-      <li class="section-title inherited"><a href="nyxx/Emoji-class.html#instance-methods">Methods</a></li>
+      <li class="section-title"><a href="nyxx/Emoji-class.html#instance-methods">Methods</a></li>
+      <li><a href="nyxx/Emoji/encode.html">encode</a></li>
       <li class="inherited"><a href="nyxx/Emoji/noSuchMethod.html">noSuchMethod</a></li>
       <li class="inherited"><a href="nyxx/Emoji/toString.html">toString</a></li>
     
@@ -309,7 +276,7 @@
 
 <footer>
   <span class="no-break">
-    nyxx 0.19.0
+    nyxx 0.19.1
   </span>
 
 </footer>

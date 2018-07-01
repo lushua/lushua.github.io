@@ -64,6 +64,7 @@
       <li><a href="nyxx/EmbedThumbnail-class.html">EmbedThumbnail</a></li>
       <li><a href="nyxx/EmbedVideo-class.html">EmbedVideo</a></li>
       <li><a href="nyxx/Emoji-class.html">Emoji</a></li>
+      <li><a href="nyxx/EmojisUnicode-class.html">EmojisUnicode</a></li>
       <li><a href="nyxx/Game-class.html">Game</a></li>
       <li><a href="nyxx/GroupDMChannel-class.html">GroupDMChannel</a></li>
       <li><a href="nyxx/Guild-class.html">Guild</a></li>
@@ -72,6 +73,7 @@
       <li><a href="nyxx/GuildChannel-class.html">GuildChannel</a></li>
       <li><a href="nyxx/GuildCreateEvent-class.html">GuildCreateEvent</a></li>
       <li><a href="nyxx/GuildDeleteEvent-class.html">GuildDeleteEvent</a></li>
+      <li><a href="nyxx/GuildEmoji-class.html">GuildEmoji</a></li>
       <li><a href="nyxx/GuildMemberAddEvent-class.html">GuildMemberAddEvent</a></li>
       <li><a href="nyxx/GuildMemberRemoveEvent-class.html">GuildMemberRemoveEvent</a></li>
       <li><a href="nyxx/GuildMemberUpdateEvent-class.html">GuildMemberUpdateEvent</a></li>
@@ -88,7 +90,6 @@
       <li><a href="nyxx/InviteGuild-class.html">InviteGuild</a></li>
       <li><a href="nyxx/Member-class.html">Member</a></li>
       <li><a href="nyxx/Message-class.html">Message</a></li>
-      <li><a href="nyxx/MessageChannel-class.html">MessageChannel</a></li>
       <li><a href="nyxx/MessageDeleteEvent-class.html">MessageDeleteEvent</a></li>
       <li><a href="nyxx/MessageEvent-class.html">MessageEvent</a></li>
       <li><a href="nyxx/MessageUpdateEvent-class.html">MessageUpdateEvent</a></li>
@@ -108,6 +109,7 @@
       <li><a href="nyxx/Shard-class.html">Shard</a></li>
       <li><a href="nyxx/TextChannel-class.html">TextChannel</a></li>
       <li><a href="nyxx/TypingEvent-class.html">TypingEvent</a></li>
+      <li><a href="nyxx/UnicodeEmoji-class.html">UnicodeEmoji</a></li>
       <li><a href="nyxx/User-class.html">User</a></li>
       <li><a href="nyxx/Util-class.html">Util</a></li>
       <li><a href="nyxx/VoiceChannel-class.html">VoiceChannel</a></li>
@@ -144,12 +146,6 @@
           <li>TextChannel</li>
         </ul></dd>
 
-        <dt>Implements</dt>
-        <dd>
-          <ul class="comma-separated clazz-relationships">
-            <li><a href="nyxx/MessageChannel-class.html">MessageChannel</a></li>
-          </ul>
-        </dd>
 
 
 
@@ -218,11 +214,11 @@
           <div class="features">read / write, inherited</div>
 </dd>
         <dt id="hashCode" class="property inherited">
-          <span class="name"><a href="nyxx/MessageChannel/hashCode.html">hashCode</a></span>
+          <span class="name"><a href="nyxx/Channel/hashCode.html">hashCode</a></span>
           <span class="signature">&#8594; int</span>
         </dt>
         <dd class="inherited">
-          The hash code for this object. <a href="nyxx/MessageChannel/hashCode.html">[...]</a>
+          The hash code for this object. <a href="nyxx/Channel/hashCode.html">[...]</a>
           <div class="features">read-only, inherited</div>
 </dd>
         <dt id="id" class="property inherited">
@@ -258,7 +254,7 @@
           <div class="features">read / write, inherited</div>
 </dd>
         <dt id="runtimeType" class="property inherited">
-          <span class="name"><a href="nyxx/MessageChannel/runtimeType.html">runtimeType</a></span>
+          <span class="name"><a href="nyxx/Channel/runtimeType.html">runtimeType</a></span>
           <span class="signature">&#8594; Type</span>
         </dt>
         <dd class="inherited">
@@ -415,12 +411,12 @@
           <div class="features">inherited</div>
 </dd>
         <dt id="noSuchMethod" class="callable inherited">
-          <span class="name"><a href="nyxx/MessageChannel/noSuchMethod.html">noSuchMethod</a></span><span class="signature">(<wbr><span class="parameter" id="noSuchMethod-param-invocation"><span class="type-annotation">Invocation</span> <span class="parameter-name">invocation</span></span>)
+          <span class="name"><a href="nyxx/Channel/noSuchMethod.html">noSuchMethod</a></span><span class="signature">(<wbr><span class="parameter" id="noSuchMethod-param-invocation"><span class="type-annotation">Invocation</span> <span class="parameter-name">invocation</span></span>)
             <span class="returntype parameter">&#8594; dynamic</span>
           </span>
         </dt>
         <dd class="inherited">
-          Invoked when a non-existent method or property is accessed. <a href="nyxx/MessageChannel/noSuchMethod.html">[...]</a>
+          Invoked when a non-existent method or property is accessed. <a href="nyxx/Channel/noSuchMethod.html">[...]</a>
           <div class="features">inherited</div>
 </dd>
         <dt id="toString" class="callable inherited">
@@ -439,12 +435,12 @@
       <h2>Operators</h2>
       <dl class="callables">
         <dt id="operator ==" class="callable inherited">
-          <span class="name"><a href="nyxx/MessageChannel/operator_equals.html">operator ==</a></span><span class="signature">(<wbr><span class="parameter" id="==-param-other"><span class="parameter-name">other</span></span>)
+          <span class="name"><a href="nyxx/Channel/operator_equals.html">operator ==</a></span><span class="signature">(<wbr><span class="parameter" id="==-param-other"><span class="parameter-name">other</span></span>)
             <span class="returntype parameter">&#8594; bool</span>
           </span>
         </dt>
         <dd class="inherited">
-          The equality operator. <a href="nyxx/MessageChannel/operator_equals.html">[...]</a>
+          The equality operator. <a href="nyxx/Channel/operator_equals.html">[...]</a>
           <div class="features">inherited</div>
 </dd>
       </dl>
@@ -468,12 +464,12 @@
       <li class="inherited"><a href="nyxx/Channel/client.html">client</a></li>
       <li class="inherited"><a href="nyxx/Channel/createdAt.html">createdAt</a></li>
       <li class="inherited"><a href="nyxx/GuildChannel/guild.html">guild</a></li>
-      <li class="inherited"><a href="nyxx/MessageChannel/hashCode.html">hashCode</a></li>
+      <li class="inherited"><a href="nyxx/Channel/hashCode.html">hashCode</a></li>
       <li class="inherited"><a href="nyxx/Channel/id.html">id</a></li>
       <li class="inherited"><a href="nyxx/GuildChannel/name.html">name</a></li>
       <li class="inherited"><a href="nyxx/GuildChannel/position.html">position</a></li>
       <li class="inherited"><a href="nyxx/Channel/raw.html">raw</a></li>
-      <li class="inherited"><a href="nyxx/MessageChannel/runtimeType.html">runtimeType</a></li>
+      <li class="inherited"><a href="nyxx/Channel/runtimeType.html">runtimeType</a></li>
       <li class="inherited"><a href="nyxx/Channel/type.html">type</a></li>
     
       <li class="section-title"><a href="nyxx/TextChannel-class.html#instance-methods">Methods</a></li>
@@ -492,11 +488,11 @@
       <li><a href="nyxx/TextChannel/startTypingLoop.html">startTypingLoop</a></li>
       <li><a href="nyxx/TextChannel/stopTypingLoop.html">stopTypingLoop</a></li>
       <li class="inherited"><a href="nyxx/Channel/delete.html">delete</a></li>
-      <li class="inherited"><a href="nyxx/MessageChannel/noSuchMethod.html">noSuchMethod</a></li>
+      <li class="inherited"><a href="nyxx/Channel/noSuchMethod.html">noSuchMethod</a></li>
       <li class="inherited"><a href="nyxx/GuildChannel/toString.html">toString</a></li>
     
       <li class="section-title inherited"><a href="nyxx/TextChannel-class.html#operators">Operators</a></li>
-      <li class="inherited"><a href="nyxx/MessageChannel/operator_equals.html">operator ==</a></li>
+      <li class="inherited"><a href="nyxx/Channel/operator_equals.html">operator ==</a></li>
     
     
     
@@ -507,7 +503,7 @@
 
 <footer>
   <span class="no-break">
-    nyxx 0.19.0
+    nyxx 0.19.1
   </span>
 
 </footer>

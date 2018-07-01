@@ -101,7 +101,7 @@
     <h1>getEmoji method</h1>
 
     <section class="multi-line-signature">
-      <span class="returntype">Future<span class="signature">&lt;<a href="nyxx/Emoji-class.html">Emoji</a>&gt;</span></span>
+      <span class="returntype">Future<span class="signature">&lt;<a href="nyxx/GuildEmoji-class.html">GuildEmoji</a>&gt;</span></span>
       <span class="name ">getEmoji</span>
 (<wbr><span class="parameter" id="getEmoji-param-emojiId"><span class="type-annotation">String</span> <span class="parameter-name">emojiId</span></span>)
     </section>
@@ -111,11 +111,11 @@
     
     <section class="summary source-code" id="source">
       <h2><span>Implementation</span> </h2>
-      <pre class="language-dart"><code class="language-dart">Future&lt;Emoji&gt; getEmoji(String emojiId) async {
+      <pre class="language-dart"><code class="language-dart">Future&lt;GuildEmoji&gt; getEmoji(String emojiId) async {
   HttpResponse r =
       await this.client.http.send(&#39;GET&#39;, &quot;&#47;guilds&#47;$id&#47;emojis&#47;$emojiId&quot;);
 
-  return new Emoji._new(
+  return new GuildEmoji._new(
       this.client, r.body.asJson as Map&lt;String, dynamic&gt;, this);
 }</code></pre>
     </section>
@@ -129,7 +129,7 @@
 
 <footer>
   <span class="no-break">
-    nyxx 0.19.0
+    nyxx 0.19.1
   </span>
 
 </footer>

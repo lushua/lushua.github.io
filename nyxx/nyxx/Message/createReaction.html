@@ -94,17 +94,19 @@
     <section class="multi-line-signature">
       <span class="returntype">Future<span class="signature">&lt;Null&gt;</span></span>
       <span class="name ">createReaction</span>
-(<wbr><span class="parameter" id="createReaction-param-emoji"><span class="type-annotation">String</span> <span class="parameter-name">emoji</span></span>)
+(<wbr><span class="parameter" id="createReaction-param-emoji"><span class="type-annotation"><a href="nyxx/Emoji-class.html">Emoji</a></span> <span class="parameter-name">emoji</span></span>)
     </section>
     <section class="desc markdown">
-      <p>Add reaction to message. Emoji as ':emoji_name:'</p>
+      <p>Add reaction to message.</p>
     </section>
     
     <section class="summary source-code" id="source">
       <h2><span>Implementation</span> </h2>
-      <pre class="language-dart"><code class="language-dart">Future&lt;Null&gt; createReaction(String emoji) async {
+      <pre class="language-dart"><code class="language-dart">Future&lt;Null&gt; createReaction(Emoji emoji) async {
+  print(emoji.encode());
+
   await this.client.http.send(&#39;PUT&#39;,
-      &quot;&#47;channels&#47;${this.channel.id}&#47;messages&#47;${this.id}&#47;reactions&#47;$emoji&#47;@me&quot;);
+      &quot;&#47;channels&#47;${this.channel.id}&#47;messages&#47;${this.id}&#47;reactions&#47;${emoji.encode()}&#47;@me&quot;);
   return null;
 }</code></pre>
     </section>
@@ -118,7 +120,7 @@
 
 <footer>
   <span class="no-break">
-    nyxx 0.19.0
+    nyxx 0.19.1
   </span>
 
 </footer>
