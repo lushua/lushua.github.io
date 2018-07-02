@@ -57,8 +57,8 @@
       <li><a href="nyxx/Snowflake/toString.html">toString</a></li>
       <li class="inherited"><a href="nyxx/Snowflake/noSuchMethod.html">noSuchMethod</a></li>
     
-      <li class="section-title inherited"><a href="nyxx/Snowflake-class.html#operators">Operators</a></li>
-      <li class="inherited"><a href="nyxx/Snowflake/operator_equals.html">operator ==</a></li>
+      <li class="section-title"><a href="nyxx/Snowflake-class.html#operators">Operators</a></li>
+      <li><a href="nyxx/Snowflake/operator_equals.html">operator ==</a></li>
     
     
     
@@ -96,7 +96,13 @@ the <code>hashCode</code> method as well to maintain consistency.</p>
     
     <section class="summary source-code" id="source">
       <h2><span>Implementation</span> </h2>
-      <pre class="language-dart"><code class="language-dart">external bool operator ==(other);</code></pre>
+      <pre class="language-dart"><code class="language-dart">bool operator ==(other) {
+  if (other is Snowflake) return other.id == id;
+
+  if (other is String) return other == id;
+
+  return false;
+}</code></pre>
     </section>
 
   </div> <!-- /.main-content -->

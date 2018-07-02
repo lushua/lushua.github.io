@@ -96,7 +96,7 @@ is not a bot.
   if (this.client.user.bot) {
     final String id = Util.resolve(&#39;message&#39;, message);
     DMChannel channel = await getChannel();
-    String channelId = channel.id;
+    String channelId = channel.id.toString();
 
     final HttpResponse r = await this
         .client

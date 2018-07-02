@@ -91,7 +91,7 @@
       <h2><span>Implementation</span> </h2>
       <pre class="language-dart"><code class="language-dart">Future&lt;Null&gt; startTyping() async {
   DMChannel channel = await getChannel();
-  String channelId = channel.id;
+  String channelId = channel.id.toString();
 
   await this.client.http.send(&#39;POST&#39;, &quot;&#47;channels&#47;$channelId&#47;typing&quot;);
   return null;
