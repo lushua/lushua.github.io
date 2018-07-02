@@ -116,10 +116,8 @@
       .client
       .http
       .send(&#39;PATCH&#39;, &quot;&#47;guilds&#47;$id&quot;, body: {&quot;owner_id&quot;: id});
-  final Guild g =
-      new Guild._new(client, r.body.asJson() as Map&lt;String, dynamic&gt;);
 
-  return g;
+  return new Guild._new(client, r.body.asJson() as Map&lt;String, dynamic&gt;);
 }</code></pre>
     </section>
 

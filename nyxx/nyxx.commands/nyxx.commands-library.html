@@ -79,6 +79,26 @@
         <dd>
           Handles caching of cooldown
         </dd>
+        <dt id="InstanceCommandFramework">
+          <span class="name "><a href="nyxx.commands/InstanceCommandFramework-class.html">InstanceCommandFramework</a></span>
+        </dt>
+        <dd>
+          Dispatches commands based on registry. <a href="nyxx.commands/Command-class.html">Command</a> class can only dispatch one command and aliases and dont have suncommand support.
+It's faster than <a href="nyxx.commands/MirrorsCommandFramework-class.html">MirrorsCommandFramework</a> because it isn't searching for matching methods at runtime.
+        </dd>
+        <dt id="MirrorsCommandFramework">
+          <span class="name "><a href="nyxx.commands/MirrorsCommandFramework-class.html">MirrorsCommandFramework</a></span>
+        </dt>
+        <dd>
+          Uses 'dart:mirrors' to find and dispatch commands. First searches in normal mode for matching command and next with 'mirros'
+searches if command has subcommand and possibly runs it. Uses <a href="nyxx.commands/Subcommand-class.html">Subcommand</a> to annotate subcommand function.
+        </dd>
+        <dt id="Subcommand">
+          <span class="name "><a href="nyxx.commands/Subcommand-class.html">Subcommand</a></span>
+        </dt>
+        <dd>
+          Defines new subcommand.
+        </dd>
       </dl>
     </section>
 
@@ -98,6 +118,9 @@
       <li><a href="nyxx.commands/Command-class.html">Command</a></li>
       <li><a href="nyxx.commands/Commands-class.html">Commands</a></li>
       <li><a href="nyxx.commands/CooldownCache-class.html">CooldownCache</a></li>
+      <li><a href="nyxx.commands/InstanceCommandFramework-class.html">InstanceCommandFramework</a></li>
+      <li><a href="nyxx.commands/MirrorsCommandFramework-class.html">MirrorsCommandFramework</a></li>
+      <li><a href="nyxx.commands/Subcommand-class.html">Subcommand</a></li>
     
     
     

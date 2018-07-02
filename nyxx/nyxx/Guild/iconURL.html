@@ -112,7 +112,7 @@
     <section class="summary source-code" id="source">
       <h2><span>Implementation</span> </h2>
       <pre class="language-dart"><code class="language-dart">String iconURL({String format: &#39;webp&#39;, int size: 128}) {
-  if (this.icon == null)
+  if (this.icon != null)
     return &#39;https:&#47;&#47;cdn.${_Constants.host}&#47;icons&#47;${this.id}&#47;${this.icon}.$format?size=$size&#39;;
 
   return null;

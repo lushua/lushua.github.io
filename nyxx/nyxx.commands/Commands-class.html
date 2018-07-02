@@ -25,7 +25,7 @@
   <ol class="breadcrumbs gt-separated dark hidden-xs">
     <li><a href="index.html">nyxx</a></li>
     <li><a href="nyxx.commands/nyxx.commands-library.html">nyxx.commands</a></li>
-    <li class="self-crumb">Commands class</li>
+    <li class="self-crumb">Commands abstract class</li>
   </ol>
   <div class="self-name">Commands</div>
   <form class="search navbar-right" role="search">
@@ -43,6 +43,9 @@
       <li><a href="nyxx.commands/Command-class.html">Command</a></li>
       <li><a href="nyxx.commands/Commands-class.html">Commands</a></li>
       <li><a href="nyxx.commands/CooldownCache-class.html">CooldownCache</a></li>
+      <li><a href="nyxx.commands/InstanceCommandFramework-class.html">InstanceCommandFramework</a></li>
+      <li><a href="nyxx.commands/MirrorsCommandFramework-class.html">MirrorsCommandFramework</a></li>
+      <li><a href="nyxx.commands/Subcommand-class.html">Subcommand</a></li>
     
     
     
@@ -60,6 +63,19 @@
   This class matches and dispatches commands to best matching contexts.</p>
     </section>
     
+    <section>
+      <dl class="dl-horizontal">
+
+
+
+        <dt>Implemented by</dt>
+        <dd><ul class="comma-separated clazz-relationships">
+          <li><a href="nyxx.commands/InstanceCommandFramework-class.html">InstanceCommandFramework</a></li>
+          <li><a href="nyxx.commands/MirrorsCommandFramework-class.html">MirrorsCommandFramework</a></li>
+        </ul></dd>
+
+      </dl>
+    </section>
 
     <section class="summary offset-anchor" id="constructors">
       <h2>Constructors</h2>
@@ -175,6 +191,24 @@ All messages without this prefix will be ignored
           Register many <a href="nyxx.commands/Command-class.html">Command</a> instances.
           
 </dd>
+        <dt id="createHelp" class="callable">
+          <span class="name"><a href="nyxx.commands/Commands/createHelp.html">createHelp</a></span><span class="signature">(<wbr><span class="parameter" id="createHelp-param-requestedUserId"><span class="type-annotation">String</span> <span class="parameter-name">requestedUserId</span></span>)
+            <span class="returntype parameter">&#8594; String</span>
+          </span>
+        </dt>
+        <dd>
+          Creates help String based on registered commands metadata.
+          
+</dd>
+        <dt id="executeCommand" class="callable">
+          <span class="name"><a href="nyxx.commands/Commands/executeCommand.html">executeCommand</a></span><span class="signature">(<wbr><span class="parameter" id="executeCommand-param-msg"><span class="type-annotation"><a href="nyxx/Message-class.html">Message</a></span> <span class="parameter-name">msg</span>, </span> <span class="parameter" id="executeCommand-param-matchedCommand"><span class="type-annotation"><a href="nyxx.commands/Command-class.html">Command</a></span> <span class="parameter-name">matchedCommand</span></span>)
+            <span class="returntype parameter">&#8594; Future<span class="signature">&lt;Null&gt;</span></span>
+          </span>
+        </dt>
+        <dd>
+          Executes command. Left abstract to implement by subclasess wich provides different context.
+          
+</dd>
         <dt id="noSuchMethod" class="callable inherited">
           <span class="name"><a href="nyxx.commands/Commands/noSuchMethod.html">noSuchMethod</a></span><span class="signature">(<wbr><span class="parameter" id="noSuchMethod-param-invocation"><span class="type-annotation">Invocation</span> <span class="parameter-name">invocation</span></span>)
             <span class="returntype parameter">&#8594; dynamic</span>
@@ -237,6 +271,8 @@ All messages without this prefix will be ignored
       <li class="section-title"><a href="nyxx.commands/Commands-class.html#instance-methods">Methods</a></li>
       <li><a href="nyxx.commands/Commands/add.html">add</a></li>
       <li><a href="nyxx.commands/Commands/addMany.html">addMany</a></li>
+      <li><a href="nyxx.commands/Commands/createHelp.html">createHelp</a></li>
+      <li><a href="nyxx.commands/Commands/executeCommand.html">executeCommand</a></li>
       <li class="inherited"><a href="nyxx.commands/Commands/noSuchMethod.html">noSuchMethod</a></li>
       <li class="inherited"><a href="nyxx.commands/Commands/toString.html">toString</a></li>
     
