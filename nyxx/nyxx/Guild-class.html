@@ -80,8 +80,10 @@
       <li><a href="nyxx/GuildUnavailableEvent-class.html">GuildUnavailableEvent</a></li>
       <li><a href="nyxx/GuildUpdateEvent-class.html">GuildUpdateEvent</a></li>
       <li><a href="nyxx/Http-class.html">Http</a></li>
+      <li><a href="nyxx/HttpBase-class.html">HttpBase</a></li>
       <li><a href="nyxx/HttpBucket-class.html">HttpBucket</a></li>
       <li><a href="nyxx/HttpErrorEvent-class.html">HttpErrorEvent</a></li>
+      <li><a href="nyxx/HttpMultipartRequest-class.html">HttpMultipartRequest</a></li>
       <li><a href="nyxx/HttpRequest-class.html">HttpRequest</a></li>
       <li><a href="nyxx/HttpResponse-class.html">HttpResponse</a></li>
       <li><a href="nyxx/HttpResponseEvent-class.html">HttpResponseEvent</a></li>
@@ -114,6 +116,7 @@
       <li><a href="nyxx/User-class.html">User</a></li>
       <li><a href="nyxx/Util-class.html">Util</a></li>
       <li><a href="nyxx/VoiceChannel-class.html">VoiceChannel</a></li>
+      <li><a href="nyxx/VoiceRegion-class.html">VoiceRegion</a></li>
       <li><a href="nyxx/Webhook-class.html">Webhook</a></li>
     
     
@@ -349,6 +352,15 @@
     <section class="summary offset-anchor" id="instance-methods">
       <h2>Methods</h2>
       <dl class="callables">
+        <dt id="addRole" class="callable">
+          <span class="name"><a href="nyxx/Guild/addRole.html">addRole</a></span><span class="signature">(<wbr><span class="parameter" id="addRole-param-user"><span class="type-annotation"><a href="nyxx/User-class.html">User</a></span> <span class="parameter-name">user</span>, </span> <span class="parameter" id="addRole-param-role"><span class="type-annotation"><a href="nyxx/Role-class.html">Role</a></span> <span class="parameter-name">role</span></span>)
+            <span class="returntype parameter">&#8594; Future<span class="signature">&lt;Null&gt;</span></span>
+          </span>
+        </dt>
+        <dd>
+          Adds <a href="nyxx/Role-class.html">Role</a> to <a href="nyxx/User-class.html">User</a>
+          
+</dd>
         <dt id="ban" class="callable">
           <span class="name"><a href="nyxx/Guild/ban.html">ban</a></span><span class="signature">(<wbr><span class="parameter" id="ban-param-id"><span class="type-annotation">String</span> <span class="parameter-name">id</span>, [</span> <span class="parameter" id="ban-param-deleteMessageDays"><span class="type-annotation">int</span> <span class="parameter-name">deleteMessageDays</span> = <span class="default-value">0</span></span> ])
             <span class="returntype parameter">&#8594; Future<span class="signature">&lt;Null&gt;</span></span>
@@ -403,6 +415,15 @@
           Edits the guild.
           
 </dd>
+        <dt id="editGuildEmbed" class="callable">
+          <span class="name"><a href="nyxx/Guild/editGuildEmbed.html">editGuildEmbed</a></span><span class="signature">(<wbr><span class="parameter" id="editGuildEmbed-param-embed"><span class="type-annotation"><a href="nyxx/EmbedBuilder-class.html">EmbedBuilder</a></span> <span class="parameter-name">embed</span></span>)
+            <span class="returntype parameter">&#8594; Future<span class="signature">&lt;<a href="nyxx/Embed-class.html">Embed</a>&gt;</span></span>
+          </span>
+        </dt>
+        <dd>
+          Modify guild embed object
+          
+</dd>
         <dt id="getBans" class="callable">
           <span class="name"><a href="nyxx/Guild/getBans.html">getBans</a></span><span class="signature">(<wbr>)
             <span class="returntype parameter">&#8594; Future<span class="signature">&lt;Map<span class="signature">&lt;String, <a href="nyxx/User-class.html">User</a>&gt;</span>&gt;</span></span>
@@ -421,6 +442,24 @@
           Gets Guild Emoji based on Id
           
 </dd>
+        <dt id="getGuildEmbed" class="callable">
+          <span class="name"><a href="nyxx/Guild/getGuildEmbed.html">getGuildEmbed</a></span><span class="signature">(<wbr>)
+            <span class="returntype parameter">&#8594; Future<span class="signature">&lt;<a href="nyxx/Embed-class.html">Embed</a>&gt;</span></span>
+          </span>
+        </dt>
+        <dd>
+          Get Guil's embed object
+          
+</dd>
+        <dt id="getGuildInvites" class="callable">
+          <span class="name"><a href="nyxx/Guild/getGuildInvites.html">getGuildInvites</a></span><span class="signature">(<wbr>)
+            <span class="returntype parameter">&#8594; Future<span class="signature">&lt;List<span class="signature">&lt;<a href="nyxx/Invite-class.html">Invite</a>&gt;</span>&gt;</span></span>
+          </span>
+        </dt>
+        <dd>
+          
+          
+</dd>
         <dt id="getMember" class="callable">
           <span class="name"><a href="nyxx/Guild/getMember.html">getMember</a></span><span class="signature">(<wbr><span class="parameter" id="getMember-param-member"><span class="parameter-name">member</span></span>)
             <span class="returntype parameter">&#8594; Future<span class="signature">&lt;<a href="nyxx/Member-class.html">Member</a>&gt;</span></span>
@@ -429,6 +468,15 @@
         <dd>
           Gets a <a href="nyxx/Member-class.html">Member</a> object. Adds it to <code>Guild.members</code> if
 not already there. <a href="nyxx/Guild/getMember.html">[...]</a>
+          
+</dd>
+        <dt id="getVoiceRegions" class="callable">
+          <span class="name"><a href="nyxx/Guild/getVoiceRegions.html">getVoiceRegions</a></span><span class="signature">(<wbr>)
+            <span class="returntype parameter">&#8594; Future<span class="signature">&lt;List<span class="signature">&lt;<a href="nyxx/VoiceRegion-class.html">VoiceRegion</a>&gt;</span>&gt;</span></span>
+          </span>
+        </dt>
+        <dd>
+          Returns list of available <a href="nyxx/VoiceChannel-class.html">VoiceChannel</a>s
           
 </dd>
         <dt id="getWebhooks" class="callable">
@@ -568,15 +616,20 @@ not already there. <a href="nyxx/Guild/getMember.html">[...]</a>
       <li class="inherited"><a href="nyxx/Guild/runtimeType.html">runtimeType</a></li>
     
       <li class="section-title"><a href="nyxx/Guild-class.html#instance-methods">Methods</a></li>
+      <li><a href="nyxx/Guild/addRole.html">addRole</a></li>
       <li><a href="nyxx/Guild/ban.html">ban</a></li>
       <li><a href="nyxx/Guild/changeOwner.html">changeOwner</a></li>
       <li><a href="nyxx/Guild/createChannel.html">createChannel</a></li>
       <li><a href="nyxx/Guild/createRole.html">createRole</a></li>
       <li><a href="nyxx/Guild/delete.html">delete</a></li>
       <li><a href="nyxx/Guild/edit.html">edit</a></li>
+      <li><a href="nyxx/Guild/editGuildEmbed.html">editGuildEmbed</a></li>
       <li><a href="nyxx/Guild/getBans.html">getBans</a></li>
       <li><a href="nyxx/Guild/getEmoji.html">getEmoji</a></li>
+      <li><a href="nyxx/Guild/getGuildEmbed.html">getGuildEmbed</a></li>
+      <li><a href="nyxx/Guild/getGuildInvites.html">getGuildInvites</a></li>
       <li><a href="nyxx/Guild/getMember.html">getMember</a></li>
+      <li><a href="nyxx/Guild/getVoiceRegions.html">getVoiceRegions</a></li>
       <li><a href="nyxx/Guild/getWebhooks.html">getWebhooks</a></li>
       <li><a href="nyxx/Guild/iconURL.html">iconURL</a></li>
       <li><a href="nyxx/Guild/leave.html">leave</a></li>
@@ -599,7 +652,7 @@ not already there. <a href="nyxx/Guild/getMember.html">[...]</a>
 
 <footer>
   <span class="no-break">
-    nyxx 0.19.1
+    nyxx 0.20.0
   </span>
 
 </footer>

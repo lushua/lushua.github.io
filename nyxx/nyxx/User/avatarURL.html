@@ -90,7 +90,10 @@
     <section class="summary source-code" id="source">
       <h2><span>Implementation</span> </h2>
       <pre class="language-dart"><code class="language-dart">String avatarURL({String format: &#39;webp&#39;, int size: 128}) {
-  return &#39;https:&#47;&#47;cdn.${_Constants.host}&#47;avatars&#47;${this.id}&#47;${this.avatar}.$format?size=$size&#39;;
+  if (this.id != null)
+    return &#39;https:&#47;&#47;cdn.${_Constants.host}&#47;avatars&#47;${this.id}&#47;${this.avatar}.$format?size=$size&#39;;
+
+  return null;
 }</code></pre>
     </section>
 
@@ -103,7 +106,7 @@
 
 <footer>
   <span class="no-break">
-    nyxx 0.19.1
+    nyxx 0.20.0
   </span>
 
 </footer>
