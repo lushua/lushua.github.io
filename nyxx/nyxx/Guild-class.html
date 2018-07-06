@@ -44,6 +44,7 @@
       <li><a href="nyxx/Channel-class.html">Channel</a></li>
       <li><a href="nyxx/ChannelCreateEvent-class.html">ChannelCreateEvent</a></li>
       <li><a href="nyxx/ChannelDeleteEvent-class.html">ChannelDeleteEvent</a></li>
+      <li><a href="nyxx/ChannelPinsUpdateEvent-class.html">ChannelPinsUpdateEvent</a></li>
       <li><a href="nyxx/ChannelUpdateEvent-class.html">ChannelUpdateEvent</a></li>
       <li><a href="nyxx/Client-class.html">Client</a></li>
       <li><a href="nyxx/ClientOAuth2Application-class.html">ClientOAuth2Application</a></li>
@@ -66,6 +67,7 @@
       <li><a href="nyxx/Emoji-class.html">Emoji</a></li>
       <li><a href="nyxx/EmojisUnicode-class.html">EmojisUnicode</a></li>
       <li><a href="nyxx/Game-class.html">Game</a></li>
+      <li><a href="nyxx/GroupChannel-class.html">GroupChannel</a></li>
       <li><a href="nyxx/GroupDMChannel-class.html">GroupDMChannel</a></li>
       <li><a href="nyxx/Guild-class.html">Guild</a></li>
       <li><a href="nyxx/GuildBanAddEvent-class.html">GuildBanAddEvent</a></li>
@@ -74,6 +76,7 @@
       <li><a href="nyxx/GuildCreateEvent-class.html">GuildCreateEvent</a></li>
       <li><a href="nyxx/GuildDeleteEvent-class.html">GuildDeleteEvent</a></li>
       <li><a href="nyxx/GuildEmoji-class.html">GuildEmoji</a></li>
+      <li><a href="nyxx/GuildEmojisUpdateEvent-class.html">GuildEmojisUpdateEvent</a></li>
       <li><a href="nyxx/GuildMemberAddEvent-class.html">GuildMemberAddEvent</a></li>
       <li><a href="nyxx/GuildMemberRemoveEvent-class.html">GuildMemberRemoveEvent</a></li>
       <li><a href="nyxx/GuildMemberUpdateEvent-class.html">GuildMemberUpdateEvent</a></li>
@@ -92,8 +95,12 @@
       <li><a href="nyxx/InviteGuild-class.html">InviteGuild</a></li>
       <li><a href="nyxx/Member-class.html">Member</a></li>
       <li><a href="nyxx/Message-class.html">Message</a></li>
+      <li><a href="nyxx/MessageChannel-class.html">MessageChannel</a></li>
+      <li><a href="nyxx/MessageDeleteBulkEvent-class.html">MessageDeleteBulkEvent</a></li>
       <li><a href="nyxx/MessageDeleteEvent-class.html">MessageDeleteEvent</a></li>
       <li><a href="nyxx/MessageEvent-class.html">MessageEvent</a></li>
+      <li><a href="nyxx/MessageReactionEvent-class.html">MessageReactionEvent</a></li>
+      <li><a href="nyxx/MessageReactionsRemovedEvent-class.html">MessageReactionsRemovedEvent</a></li>
       <li><a href="nyxx/MessageUpdateEvent-class.html">MessageUpdateEvent</a></li>
       <li><a href="nyxx/OAuth2Application-class.html">OAuth2Application</a></li>
       <li><a href="nyxx/OAuth2Guild-class.html">OAuth2Guild</a></li>
@@ -117,7 +124,11 @@
       <li><a href="nyxx/Util-class.html">Util</a></li>
       <li><a href="nyxx/VoiceChannel-class.html">VoiceChannel</a></li>
       <li><a href="nyxx/VoiceRegion-class.html">VoiceRegion</a></li>
+      <li><a href="nyxx/VoiceServerUpdateEvent-class.html">VoiceServerUpdateEvent</a></li>
+      <li><a href="nyxx/VoiceState-class.html">VoiceState</a></li>
+      <li><a href="nyxx/VoiceStateUpdateEvent-class.html">VoiceStateUpdateEvent</a></li>
       <li><a href="nyxx/Webhook-class.html">Webhook</a></li>
+      <li><a href="nyxx/WebhookUpdateEvent-class.html">WebhookUpdateEvent</a></li>
     
     
     
@@ -172,7 +183,7 @@
 </dd>
         <dt id="channels" class="property">
           <span class="name"><a href="nyxx/Guild/channels.html">channels</a></span>
-          <span class="signature">&#8596; Map<span class="signature">&lt;String, <a href="nyxx/GuildChannel-class.html">GuildChannel</a>&gt;</span></span>
+          <span class="signature">&#8596; Map<span class="signature">&lt;String, <a href="nyxx/Channel-class.html">Channel</a>&gt;</span></span>
         </dt>
         <dd>
           The guild's channels.
@@ -196,7 +207,7 @@
 </dd>
         <dt id="defaultChannel" class="property">
           <span class="name"><a href="nyxx/Guild/defaultChannel.html">defaultChannel</a></span>
-          <span class="signature">&#8596; <a href="nyxx/GuildChannel-class.html">GuildChannel</a></span>
+          <span class="signature">&#8596; <a href="nyxx/Channel-class.html">Channel</a></span>
         </dt>
         <dd>
           The guild's default channel.
@@ -224,6 +235,14 @@
         </dt>
         <dd>
           Guild custom emojis
+          <div class="features">read / write</div>
+</dd>
+        <dt id="features" class="property">
+          <span class="name"><a href="nyxx/Guild/features.html">features</a></span>
+          <span class="signature">&#8596; List<span class="signature">&lt;String&gt;</span></span>
+        </dt>
+        <dd>
+          enabled guild features
           <div class="features">read / write</div>
 </dd>
         <dt id="icon" class="property">
@@ -320,6 +339,22 @@
         </dt>
         <dd>
           The shard that the guild is on.
+          <div class="features">read / write</div>
+</dd>
+        <dt id="splash" class="property">
+          <span class="name"><a href="nyxx/Guild/splash.html">splash</a></span>
+          <span class="signature">&#8596; String</span>
+        </dt>
+        <dd>
+          Splash hash
+          <div class="features">read / write</div>
+</dd>
+        <dt id="systemChannel" class="property">
+          <span class="name"><a href="nyxx/Guild/systemChannel.html">systemChannel</a></span>
+          <span class="signature">&#8596; <a href="nyxx/Channel-class.html">Channel</a></span>
+        </dt>
+        <dd>
+          System channel where system messages are sent
           <div class="features">read / write</div>
 </dd>
         <dt id="verificationLevel" class="property">
@@ -461,7 +496,7 @@
           
 </dd>
         <dt id="getMember" class="callable">
-          <span class="name"><a href="nyxx/Guild/getMember.html">getMember</a></span><span class="signature">(<wbr><span class="parameter" id="getMember-param-member"><span class="parameter-name">member</span></span>)
+          <span class="name"><a href="nyxx/Guild/getMember.html">getMember</a></span><span class="signature">(<wbr><span class="parameter" id="getMember-param-userId"><span class="type-annotation">String</span> <span class="parameter-name">userId</span></span>)
             <span class="returntype parameter">&#8594; Future<span class="signature">&lt;<a href="nyxx/Member-class.html">Member</a>&gt;</span></span>
           </span>
         </dt>
@@ -516,7 +551,7 @@ not already there. <a href="nyxx/Guild/getMember.html">[...]</a>
           
 </dd>
         <dt id="oauth2Authorize" class="callable">
-          <span class="name"><a href="nyxx/Guild/oauth2Authorize.html">oauth2Authorize</a></span><span class="signature">(<wbr><span class="parameter" id="oauth2Authorize-param-app"><span class="parameter-name">app</span>, [</span> <span class="parameter" id="oauth2Authorize-param-permissions"><span class="type-annotation">int</span> <span class="parameter-name">permissions</span> = <span class="default-value">0</span></span> ])
+          <span class="name"><a href="nyxx/Guild/oauth2Authorize.html">oauth2Authorize</a></span><span class="signature">(<wbr><span class="parameter" id="oauth2Authorize-param-userId"><span class="type-annotation">String</span> <span class="parameter-name">userId</span>, [</span> <span class="parameter" id="oauth2Authorize-param-permissions"><span class="type-annotation">int</span> <span class="parameter-name">permissions</span> = <span class="default-value">0</span></span> ])
             <span class="returntype parameter">&#8594; Future<span class="signature">&lt;Null&gt;</span></span>
           </span>
         </dt>
@@ -531,6 +566,15 @@ not already there. <a href="nyxx/Guild/getMember.html">[...]</a>
         </dt>
         <dd>
           Prunes the guild, returns the amount of members pruned.
+          
+</dd>
+        <dt id="splashURL" class="callable">
+          <span class="name"><a href="nyxx/Guild/splashURL.html">splashURL</a></span><span class="signature">(<wbr>{<span class="parameter" id="splashURL-param-format"><span class="type-annotation">String</span> <span class="parameter-name">format</span>: <span class="default-value">'webp'</span>, </span> <span class="parameter" id="splashURL-param-size"><span class="type-annotation">int</span> <span class="parameter-name">size</span>: <span class="default-value">128</span></span> })
+            <span class="returntype parameter">&#8594; String</span>
+          </span>
+        </dt>
+        <dd>
+          
           
 </dd>
         <dt id="toString" class="callable">
@@ -599,6 +643,7 @@ not already there. <a href="nyxx/Guild/getMember.html">[...]</a>
       <li><a href="nyxx/Guild/embedChannelID.html">embedChannelID</a></li>
       <li><a href="nyxx/Guild/embedEnabled.html">embedEnabled</a></li>
       <li><a href="nyxx/Guild/emojis.html">emojis</a></li>
+      <li><a href="nyxx/Guild/features.html">features</a></li>
       <li><a href="nyxx/Guild/icon.html">icon</a></li>
       <li><a href="nyxx/Guild/id.html">id</a></li>
       <li><a href="nyxx/Guild/memberCount.html">memberCount</a></li>
@@ -611,6 +656,8 @@ not already there. <a href="nyxx/Guild/getMember.html">[...]</a>
       <li><a href="nyxx/Guild/region.html">region</a></li>
       <li><a href="nyxx/Guild/roles.html">roles</a></li>
       <li><a href="nyxx/Guild/shard.html">shard</a></li>
+      <li><a href="nyxx/Guild/splash.html">splash</a></li>
+      <li><a href="nyxx/Guild/systemChannel.html">systemChannel</a></li>
       <li><a href="nyxx/Guild/verificationLevel.html">verificationLevel</a></li>
       <li class="inherited"><a href="nyxx/Guild/hashCode.html">hashCode</a></li>
       <li class="inherited"><a href="nyxx/Guild/runtimeType.html">runtimeType</a></li>
@@ -636,6 +683,7 @@ not already there. <a href="nyxx/Guild/getMember.html">[...]</a>
       <li><a href="nyxx/Guild/moveGuildChannel.html">moveGuildChannel</a></li>
       <li><a href="nyxx/Guild/oauth2Authorize.html">oauth2Authorize</a></li>
       <li><a href="nyxx/Guild/prune.html">prune</a></li>
+      <li><a href="nyxx/Guild/splashURL.html">splashURL</a></li>
       <li><a href="nyxx/Guild/toString.html">toString</a></li>
       <li><a href="nyxx/Guild/unban.html">unban</a></li>
       <li class="inherited"><a href="nyxx/Guild/noSuchMethod.html">noSuchMethod</a></li>

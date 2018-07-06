@@ -44,6 +44,7 @@
       <li><a href="nyxx/Channel-class.html">Channel</a></li>
       <li><a href="nyxx/ChannelCreateEvent-class.html">ChannelCreateEvent</a></li>
       <li><a href="nyxx/ChannelDeleteEvent-class.html">ChannelDeleteEvent</a></li>
+      <li><a href="nyxx/ChannelPinsUpdateEvent-class.html">ChannelPinsUpdateEvent</a></li>
       <li><a href="nyxx/ChannelUpdateEvent-class.html">ChannelUpdateEvent</a></li>
       <li><a href="nyxx/Client-class.html">Client</a></li>
       <li><a href="nyxx/ClientOAuth2Application-class.html">ClientOAuth2Application</a></li>
@@ -66,6 +67,7 @@
       <li><a href="nyxx/Emoji-class.html">Emoji</a></li>
       <li><a href="nyxx/EmojisUnicode-class.html">EmojisUnicode</a></li>
       <li><a href="nyxx/Game-class.html">Game</a></li>
+      <li><a href="nyxx/GroupChannel-class.html">GroupChannel</a></li>
       <li><a href="nyxx/GroupDMChannel-class.html">GroupDMChannel</a></li>
       <li><a href="nyxx/Guild-class.html">Guild</a></li>
       <li><a href="nyxx/GuildBanAddEvent-class.html">GuildBanAddEvent</a></li>
@@ -74,6 +76,7 @@
       <li><a href="nyxx/GuildCreateEvent-class.html">GuildCreateEvent</a></li>
       <li><a href="nyxx/GuildDeleteEvent-class.html">GuildDeleteEvent</a></li>
       <li><a href="nyxx/GuildEmoji-class.html">GuildEmoji</a></li>
+      <li><a href="nyxx/GuildEmojisUpdateEvent-class.html">GuildEmojisUpdateEvent</a></li>
       <li><a href="nyxx/GuildMemberAddEvent-class.html">GuildMemberAddEvent</a></li>
       <li><a href="nyxx/GuildMemberRemoveEvent-class.html">GuildMemberRemoveEvent</a></li>
       <li><a href="nyxx/GuildMemberUpdateEvent-class.html">GuildMemberUpdateEvent</a></li>
@@ -92,8 +95,12 @@
       <li><a href="nyxx/InviteGuild-class.html">InviteGuild</a></li>
       <li><a href="nyxx/Member-class.html">Member</a></li>
       <li><a href="nyxx/Message-class.html">Message</a></li>
+      <li><a href="nyxx/MessageChannel-class.html">MessageChannel</a></li>
+      <li><a href="nyxx/MessageDeleteBulkEvent-class.html">MessageDeleteBulkEvent</a></li>
       <li><a href="nyxx/MessageDeleteEvent-class.html">MessageDeleteEvent</a></li>
       <li><a href="nyxx/MessageEvent-class.html">MessageEvent</a></li>
+      <li><a href="nyxx/MessageReactionEvent-class.html">MessageReactionEvent</a></li>
+      <li><a href="nyxx/MessageReactionsRemovedEvent-class.html">MessageReactionsRemovedEvent</a></li>
       <li><a href="nyxx/MessageUpdateEvent-class.html">MessageUpdateEvent</a></li>
       <li><a href="nyxx/OAuth2Application-class.html">OAuth2Application</a></li>
       <li><a href="nyxx/OAuth2Guild-class.html">OAuth2Guild</a></li>
@@ -117,7 +124,11 @@
       <li><a href="nyxx/Util-class.html">Util</a></li>
       <li><a href="nyxx/VoiceChannel-class.html">VoiceChannel</a></li>
       <li><a href="nyxx/VoiceRegion-class.html">VoiceRegion</a></li>
+      <li><a href="nyxx/VoiceServerUpdateEvent-class.html">VoiceServerUpdateEvent</a></li>
+      <li><a href="nyxx/VoiceState-class.html">VoiceState</a></li>
+      <li><a href="nyxx/VoiceStateUpdateEvent-class.html">VoiceStateUpdateEvent</a></li>
       <li><a href="nyxx/Webhook-class.html">Webhook</a></li>
+      <li><a href="nyxx/WebhookUpdateEvent-class.html">WebhookUpdateEvent</a></li>
     
     
     
@@ -177,7 +188,7 @@ It contains all of the methods.</p>
 </dd>
         <dt id="channels" class="property">
           <span class="name"><a href="nyxx/Client/channels.html">channels</a></span>
-          <span class="signature">&#8596; Map<span class="signature">&lt;String, dynamic&gt;</span></span>
+          <span class="signature">&#8596; Map<span class="signature">&lt;String, <a href="nyxx/Channel-class.html">Channel</a>&gt;</span></span>
         </dt>
         <dd>
           All of the channels the bot is in.
@@ -213,6 +224,14 @@ It contains all of the methods.</p>
         </dt>
         <dd>
           Emitted when a channel is deleted.
+          <div class="features">read / write</div>
+</dd>
+        <dt id="onChannelPinsUpdate" class="property">
+          <span class="name"><a href="nyxx/Client/onChannelPinsUpdate.html">onChannelPinsUpdate</a></span>
+          <span class="signature">&#8596; Stream<span class="signature">&lt;<a href="nyxx/ChannelPinsUpdateEvent-class.html">ChannelPinsUpdateEvent</a>&gt;</span></span>
+        </dt>
+        <dd>
+          Emitted when channel's pins are updated.
           <div class="features">read / write</div>
 </dd>
         <dt id="onChannelUpdate" class="property">
@@ -261,6 +280,14 @@ It contains all of the methods.</p>
         </dt>
         <dd>
           Emitted when the client leaves a guild.
+          <div class="features">read / write</div>
+</dd>
+        <dt id="onGuildEmojisUpdate" class="property">
+          <span class="name"><a href="nyxx/Client/onGuildEmojisUpdate.html">onGuildEmojisUpdate</a></span>
+          <span class="signature">&#8596; Stream<span class="signature">&lt;<a href="nyxx/GuildEmojisUpdateEvent-class.html">GuildEmojisUpdateEvent</a>&gt;</span></span>
+        </dt>
+        <dd>
+          Emitted when guild's emojis are changed.
           <div class="features">read / write</div>
 </dd>
         <dt id="onGuildMemberAdd" class="property">
@@ -335,6 +362,38 @@ It contains all of the methods.</p>
           Emitted when a message is deleted.
           <div class="features">read / write</div>
 </dd>
+        <dt id="onMessageDeleteBulk" class="property">
+          <span class="name"><a href="nyxx/Client/onMessageDeleteBulk.html">onMessageDeleteBulk</a></span>
+          <span class="signature">&#8596; Stream<span class="signature">&lt;<a href="nyxx/MessageDeleteBulkEvent-class.html">MessageDeleteBulkEvent</a>&gt;</span></span>
+        </dt>
+        <dd>
+          Emitted when many messages are deleted at once
+          <div class="features">read / write</div>
+</dd>
+        <dt id="onMessageReactionAdded" class="property">
+          <span class="name"><a href="nyxx/Client/onMessageReactionAdded.html">onMessageReactionAdded</a></span>
+          <span class="signature">&#8596; Stream<span class="signature">&lt;<a href="nyxx/MessageReactionEvent-class.html">MessageReactionEvent</a>&gt;</span></span>
+        </dt>
+        <dd>
+          Emitted when a user adds a reaction to a message.
+          <div class="features">read / write</div>
+</dd>
+        <dt id="onMessageReactionRemove" class="property">
+          <span class="name"><a href="nyxx/Client/onMessageReactionRemove.html">onMessageReactionRemove</a></span>
+          <span class="signature">&#8596; Stream<span class="signature">&lt;<a href="nyxx/MessageReactionEvent-class.html">MessageReactionEvent</a>&gt;</span></span>
+        </dt>
+        <dd>
+          Emitted when a user deletes a reaction to a message.
+          <div class="features">read / write</div>
+</dd>
+        <dt id="onMessageReactionsRemoved" class="property">
+          <span class="name"><a href="nyxx/Client/onMessageReactionsRemoved.html">onMessageReactionsRemoved</a></span>
+          <span class="signature">&#8596; Stream<span class="signature">&lt;<a href="nyxx/MessageReactionsRemovedEvent-class.html">MessageReactionsRemovedEvent</a>&gt;</span></span>
+        </dt>
+        <dd>
+          Emitted when a user explicitly removes all reactions from a message.
+          <div class="features">read / write</div>
+</dd>
         <dt id="onMessageUpdate" class="property">
           <span class="name"><a href="nyxx/Client/onMessageUpdate.html">onMessageUpdate</a></span>
           <span class="signature">&#8596; Stream<span class="signature">&lt;<a href="nyxx/MessageUpdateEvent-class.html">MessageUpdateEvent</a>&gt;</span></span>
@@ -406,6 +465,30 @@ or when a 429 is received.
         </dt>
         <dd>
           Emitted when a user starts typing.
+          <div class="features">read / write</div>
+</dd>
+        <dt id="onVoiceServerUpdate" class="property">
+          <span class="name"><a href="nyxx/Client/onVoiceServerUpdate.html">onVoiceServerUpdate</a></span>
+          <span class="signature">&#8596; Stream<span class="signature">&lt;<a href="nyxx/VoiceServerUpdateEvent-class.html">VoiceServerUpdateEvent</a>&gt;</span></span>
+        </dt>
+        <dd>
+          Emitted when a guild's voice server is updated. This is sent when initially connecting to voice, and when the current voice instance fails over to a new server.
+          <div class="features">read / write</div>
+</dd>
+        <dt id="onVoiceStateUpdate" class="property">
+          <span class="name"><a href="nyxx/Client/onVoiceStateUpdate.html">onVoiceStateUpdate</a></span>
+          <span class="signature">&#8596; Stream<span class="signature">&lt;<a href="nyxx/VoiceStateUpdateEvent-class.html">VoiceStateUpdateEvent</a>&gt;</span></span>
+        </dt>
+        <dd>
+          Emittedwhen someone joins/leaves/moves voice channels.
+          <div class="features">read / write</div>
+</dd>
+        <dt id="onWebhookUpdate" class="property">
+          <span class="name"><a href="nyxx/Client/onWebhookUpdate.html">onWebhookUpdate</a></span>
+          <span class="signature">&#8596; Stream<span class="signature">&lt;<a href="nyxx/WebhookUpdateEvent-class.html">WebhookUpdateEvent</a>&gt;</span></span>
+        </dt>
+        <dd>
+          Emitted when a guild channel's webhook is created, updated, or deleted.
           <div class="features">read / write</div>
 </dd>
         <dt id="ready" class="property">
@@ -498,7 +581,7 @@ without forceFetchUsers enabled.
           
 </dd>
         <dt id="getOAuth2Info" class="callable">
-          <span class="name"><a href="nyxx/Client/getOAuth2Info.html">getOAuth2Info</a></span><span class="signature">(<wbr><span class="parameter" id="getOAuth2Info-param-app"><span class="parameter-name">app</span></span>)
+          <span class="name"><a href="nyxx/Client/getOAuth2Info.html">getOAuth2Info</a></span><span class="signature">(<wbr><span class="parameter" id="getOAuth2Info-param-userId"><span class="type-annotation">String</span> <span class="parameter-name">userId</span></span>)
             <span class="returntype parameter">&#8594; Future<span class="signature">&lt;<a href="nyxx/OAuth2Info-class.html">OAuth2Info</a>&gt;</span></span>
           </span>
         </dt>
@@ -507,7 +590,7 @@ without forceFetchUsers enabled.
           
 </dd>
         <dt id="getUser" class="callable">
-          <span class="name"><a href="nyxx/Client/getUser.html">getUser</a></span><span class="signature">(<wbr><span class="parameter" id="getUser-param-user"><span class="parameter-name">user</span></span>)
+          <span class="name"><a href="nyxx/Client/getUser.html">getUser</a></span><span class="signature">(<wbr><span class="parameter" id="getUser-param-userId"><span class="type-annotation">String</span> <span class="parameter-name">userId</span></span>)
             <span class="returntype parameter">&#8594; Future<span class="signature">&lt;<a href="nyxx/User-class.html">User</a>&gt;</span></span>
           </span>
         </dt>
@@ -571,12 +654,14 @@ without forceFetchUsers enabled.
       <li><a href="nyxx/Client/http.html">http</a></li>
       <li><a href="nyxx/Client/onChannelCreate.html">onChannelCreate</a></li>
       <li><a href="nyxx/Client/onChannelDelete.html">onChannelDelete</a></li>
+      <li><a href="nyxx/Client/onChannelPinsUpdate.html">onChannelPinsUpdate</a></li>
       <li><a href="nyxx/Client/onChannelUpdate.html">onChannelUpdate</a></li>
       <li><a href="nyxx/Client/onDisconnect.html">onDisconnect</a></li>
       <li><a href="nyxx/Client/onGuildBanAdd.html">onGuildBanAdd</a></li>
       <li><a href="nyxx/Client/onGuildBanRemove.html">onGuildBanRemove</a></li>
       <li><a href="nyxx/Client/onGuildCreate.html">onGuildCreate</a></li>
       <li><a href="nyxx/Client/onGuildDelete.html">onGuildDelete</a></li>
+      <li><a href="nyxx/Client/onGuildEmojisUpdate.html">onGuildEmojisUpdate</a></li>
       <li><a href="nyxx/Client/onGuildMemberAdd.html">onGuildMemberAdd</a></li>
       <li><a href="nyxx/Client/onGuildMemberRemove.html">onGuildMemberRemove</a></li>
       <li><a href="nyxx/Client/onGuildMemberUpdate.html">onGuildMemberUpdate</a></li>
@@ -586,6 +671,10 @@ without forceFetchUsers enabled.
       <li><a href="nyxx/Client/onHttpResponse.html">onHttpResponse</a></li>
       <li><a href="nyxx/Client/onMessage.html">onMessage</a></li>
       <li><a href="nyxx/Client/onMessageDelete.html">onMessageDelete</a></li>
+      <li><a href="nyxx/Client/onMessageDeleteBulk.html">onMessageDeleteBulk</a></li>
+      <li><a href="nyxx/Client/onMessageReactionAdded.html">onMessageReactionAdded</a></li>
+      <li><a href="nyxx/Client/onMessageReactionRemove.html">onMessageReactionRemove</a></li>
+      <li><a href="nyxx/Client/onMessageReactionsRemoved.html">onMessageReactionsRemoved</a></li>
       <li><a href="nyxx/Client/onMessageUpdate.html">onMessageUpdate</a></li>
       <li><a href="nyxx/Client/onPresenceUpdate.html">onPresenceUpdate</a></li>
       <li><a href="nyxx/Client/onRatelimited.html">onRatelimited</a></li>
@@ -595,6 +684,9 @@ without forceFetchUsers enabled.
       <li><a href="nyxx/Client/onRoleDelete.html">onRoleDelete</a></li>
       <li><a href="nyxx/Client/onRoleUpdate.html">onRoleUpdate</a></li>
       <li><a href="nyxx/Client/onTyping.html">onTyping</a></li>
+      <li><a href="nyxx/Client/onVoiceServerUpdate.html">onVoiceServerUpdate</a></li>
+      <li><a href="nyxx/Client/onVoiceStateUpdate.html">onVoiceStateUpdate</a></li>
+      <li><a href="nyxx/Client/onWebhookUpdate.html">onWebhookUpdate</a></li>
       <li><a href="nyxx/Client/ready.html">ready</a></li>
       <li><a href="nyxx/Client/shards.html">shards</a></li>
       <li><a href="nyxx/Client/uptime.html">uptime</a></li>

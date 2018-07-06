@@ -53,6 +53,7 @@
       <li><a href="nyxx/Guild/embedChannelID.html">embedChannelID</a></li>
       <li><a href="nyxx/Guild/embedEnabled.html">embedEnabled</a></li>
       <li><a href="nyxx/Guild/emojis.html">emojis</a></li>
+      <li><a href="nyxx/Guild/features.html">features</a></li>
       <li><a href="nyxx/Guild/icon.html">icon</a></li>
       <li><a href="nyxx/Guild/id.html">id</a></li>
       <li><a href="nyxx/Guild/memberCount.html">memberCount</a></li>
@@ -65,6 +66,8 @@
       <li><a href="nyxx/Guild/region.html">region</a></li>
       <li><a href="nyxx/Guild/roles.html">roles</a></li>
       <li><a href="nyxx/Guild/shard.html">shard</a></li>
+      <li><a href="nyxx/Guild/splash.html">splash</a></li>
+      <li><a href="nyxx/Guild/systemChannel.html">systemChannel</a></li>
       <li><a href="nyxx/Guild/verificationLevel.html">verificationLevel</a></li>
       <li class="inherited"><a href="nyxx/Guild/hashCode.html">hashCode</a></li>
       <li class="inherited"><a href="nyxx/Guild/runtimeType.html">runtimeType</a></li>
@@ -90,6 +93,7 @@
       <li><a href="nyxx/Guild/moveGuildChannel.html">moveGuildChannel</a></li>
       <li><a href="nyxx/Guild/oauth2Authorize.html">oauth2Authorize</a></li>
       <li><a href="nyxx/Guild/prune.html">prune</a></li>
+      <li><a href="nyxx/Guild/splashURL.html">splashURL</a></li>
       <li><a href="nyxx/Guild/toString.html">toString</a></li>
       <li><a href="nyxx/Guild/unban.html">unban</a></li>
       <li class="inherited"><a href="nyxx/Guild/noSuchMethod.html">noSuchMethod</a></li>
@@ -108,7 +112,7 @@
     <section class="multi-line-signature">
       <span class="returntype">Future<span class="signature">&lt;<a href="nyxx/Member-class.html">Member</a>&gt;</span></span>
       <span class="name ">getMember</span>
-(<wbr><span class="parameter" id="getMember-param-member"><span class="parameter-name">member</span></span>)
+(<wbr><span class="parameter" id="getMember-param-userId"><span class="type-annotation">String</span> <span class="parameter-name">userId</span></span>)
     </section>
     <section class="desc markdown">
       <p>Gets a <a href="nyxx/Member-class.html">Member</a> object. Adds it to <code>Guild.members</code> if
@@ -119,14 +123,14 @@ not already there.</p>
     
     <section class="summary source-code" id="source">
       <h2><span>Implementation</span> </h2>
-      <pre class="language-dart"><code class="language-dart">Future&lt;Member&gt; getMember(dynamic member) async {
-  final String id = Util.resolve(&#39;member&#39;, member);
-
-  if (this.members[member] != null) {
-    return this.members[member];
+      <pre class="language-dart"><code class="language-dart">Future&lt;Member&gt; getMember(String userId) async {
+  if (this.members[userId] != null) {
+    return this.members[userId];
   } else {
-    final HttpResponse r =
-        await this.client.http.send(&#39;GET&#39;, &#39;&#47;guilds&#47;${this.id}&#47;members&#47;$id&#39;);
+    final HttpResponse r = await this
+        .client
+        .http
+        .send(&#39;GET&#39;, &#39;&#47;guilds&#47;${this.id}&#47;members&#47;$userId&#39;);
 
     final Member m = new Member._new(
         this.client, r.body.asJson() as Map&lt;String, dynamic&gt;, this);

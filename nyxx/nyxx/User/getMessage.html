@@ -81,7 +81,7 @@
     <section class="multi-line-signature">
       <span class="returntype">Future<span class="signature">&lt;<a href="nyxx/Message-class.html">Message</a>&gt;</span></span>
       <span class="name ">getMessage</span>
-(<wbr><span class="parameter" id="getMessage-param-message"><span class="parameter-name">message</span></span>)
+(<wbr><span class="parameter" id="getMessage-param-messageId"><span class="type-annotation">String</span> <span class="parameter-name">messageId</span></span>)
     </section>
     <section class="desc markdown">
       <p>Gets a <a href="nyxx/Message-class.html">Message</a> object. Only usable by bot accounts.</p>
@@ -92,16 +92,15 @@ is not a bot.
     
     <section class="summary source-code" id="source">
       <h2><span>Implementation</span> </h2>
-      <pre class="language-dart"><code class="language-dart">Future&lt;Message&gt; getMessage(dynamic message) async {
+      <pre class="language-dart"><code class="language-dart">Future&lt;Message&gt; getMessage(String messageId) async {
   if (this.client.user.bot) {
-    final String id = Util.resolve(&#39;message&#39;, message);
     DMChannel channel = await getChannel();
     String channelId = channel.id.toString();
 
     final HttpResponse r = await this
         .client
         .http
-        .send(&#39;GET&#39;, &#39;&#47;channels&#47;$channelId&#47;messages&#47;$id&#39;);
+        .send(&#39;GET&#39;, &#39;&#47;channels&#47;$channelId&#47;messages&#47;$messageId&#39;);
     return new Message._new(
         this.client, r.body.asJson() as Map&lt;String, dynamic&gt;);
   } else {

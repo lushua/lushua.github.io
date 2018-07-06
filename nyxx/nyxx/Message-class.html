@@ -44,6 +44,7 @@
       <li><a href="nyxx/Channel-class.html">Channel</a></li>
       <li><a href="nyxx/ChannelCreateEvent-class.html">ChannelCreateEvent</a></li>
       <li><a href="nyxx/ChannelDeleteEvent-class.html">ChannelDeleteEvent</a></li>
+      <li><a href="nyxx/ChannelPinsUpdateEvent-class.html">ChannelPinsUpdateEvent</a></li>
       <li><a href="nyxx/ChannelUpdateEvent-class.html">ChannelUpdateEvent</a></li>
       <li><a href="nyxx/Client-class.html">Client</a></li>
       <li><a href="nyxx/ClientOAuth2Application-class.html">ClientOAuth2Application</a></li>
@@ -66,6 +67,7 @@
       <li><a href="nyxx/Emoji-class.html">Emoji</a></li>
       <li><a href="nyxx/EmojisUnicode-class.html">EmojisUnicode</a></li>
       <li><a href="nyxx/Game-class.html">Game</a></li>
+      <li><a href="nyxx/GroupChannel-class.html">GroupChannel</a></li>
       <li><a href="nyxx/GroupDMChannel-class.html">GroupDMChannel</a></li>
       <li><a href="nyxx/Guild-class.html">Guild</a></li>
       <li><a href="nyxx/GuildBanAddEvent-class.html">GuildBanAddEvent</a></li>
@@ -74,6 +76,7 @@
       <li><a href="nyxx/GuildCreateEvent-class.html">GuildCreateEvent</a></li>
       <li><a href="nyxx/GuildDeleteEvent-class.html">GuildDeleteEvent</a></li>
       <li><a href="nyxx/GuildEmoji-class.html">GuildEmoji</a></li>
+      <li><a href="nyxx/GuildEmojisUpdateEvent-class.html">GuildEmojisUpdateEvent</a></li>
       <li><a href="nyxx/GuildMemberAddEvent-class.html">GuildMemberAddEvent</a></li>
       <li><a href="nyxx/GuildMemberRemoveEvent-class.html">GuildMemberRemoveEvent</a></li>
       <li><a href="nyxx/GuildMemberUpdateEvent-class.html">GuildMemberUpdateEvent</a></li>
@@ -92,8 +95,12 @@
       <li><a href="nyxx/InviteGuild-class.html">InviteGuild</a></li>
       <li><a href="nyxx/Member-class.html">Member</a></li>
       <li><a href="nyxx/Message-class.html">Message</a></li>
+      <li><a href="nyxx/MessageChannel-class.html">MessageChannel</a></li>
+      <li><a href="nyxx/MessageDeleteBulkEvent-class.html">MessageDeleteBulkEvent</a></li>
       <li><a href="nyxx/MessageDeleteEvent-class.html">MessageDeleteEvent</a></li>
       <li><a href="nyxx/MessageEvent-class.html">MessageEvent</a></li>
+      <li><a href="nyxx/MessageReactionEvent-class.html">MessageReactionEvent</a></li>
+      <li><a href="nyxx/MessageReactionsRemovedEvent-class.html">MessageReactionsRemovedEvent</a></li>
       <li><a href="nyxx/MessageUpdateEvent-class.html">MessageUpdateEvent</a></li>
       <li><a href="nyxx/OAuth2Application-class.html">OAuth2Application</a></li>
       <li><a href="nyxx/OAuth2Guild-class.html">OAuth2Guild</a></li>
@@ -117,7 +124,11 @@
       <li><a href="nyxx/Util-class.html">Util</a></li>
       <li><a href="nyxx/VoiceChannel-class.html">VoiceChannel</a></li>
       <li><a href="nyxx/VoiceRegion-class.html">VoiceRegion</a></li>
+      <li><a href="nyxx/VoiceServerUpdateEvent-class.html">VoiceServerUpdateEvent</a></li>
+      <li><a href="nyxx/VoiceState-class.html">VoiceState</a></li>
+      <li><a href="nyxx/VoiceStateUpdateEvent-class.html">VoiceStateUpdateEvent</a></li>
       <li><a href="nyxx/Webhook-class.html">Webhook</a></li>
+      <li><a href="nyxx/WebhookUpdateEvent-class.html">WebhookUpdateEvent</a></li>
     
     
     
@@ -164,7 +175,7 @@
 </dd>
         <dt id="channel" class="property">
           <span class="name"><a href="nyxx/Message/channel.html">channel</a></span>
-          <span class="signature">&#8596; dynamic</span>
+          <span class="signature">&#8596; <a href="nyxx/MessageChannel-class.html">MessageChannel</a></span>
         </dt>
         <dd>
           Channel in which message was sent
@@ -264,6 +275,30 @@
         </dt>
         <dd>
           Emitted when the message is deleted, if it is in the channel cache.
+          <div class="features">read / write</div>
+</dd>
+        <dt id="onReactionAdded" class="property">
+          <span class="name"><a href="nyxx/Message/onReactionAdded.html">onReactionAdded</a></span>
+          <span class="signature">&#8596; Stream<span class="signature">&lt;<a href="nyxx/MessageReactionEvent-class.html">MessageReactionEvent</a>&gt;</span></span>
+        </dt>
+        <dd>
+          Emitted when a user adds a reaction to a message.
+          <div class="features">read / write</div>
+</dd>
+        <dt id="onReactionRemove" class="property">
+          <span class="name"><a href="nyxx/Message/onReactionRemove.html">onReactionRemove</a></span>
+          <span class="signature">&#8596; Stream<span class="signature">&lt;<a href="nyxx/MessageReactionEvent-class.html">MessageReactionEvent</a>&gt;</span></span>
+        </dt>
+        <dd>
+          Emitted when a user adds a reaction to a message.
+          <div class="features">read / write</div>
+</dd>
+        <dt id="onReactionsRemoved" class="property">
+          <span class="name"><a href="nyxx/Message/onReactionsRemoved.html">onReactionsRemoved</a></span>
+          <span class="signature">&#8596; Stream<span class="signature">&lt;<a href="nyxx/MessageReactionsRemovedEvent-class.html">MessageReactionsRemovedEvent</a>&gt;</span></span>
+        </dt>
+        <dd>
+          Emitted when a user explicitly removes all reactions from a message.
           <div class="features">read / write</div>
 </dd>
         <dt id="onUpdate" class="property">
@@ -478,6 +513,9 @@
       <li><a href="nyxx/Message/mentions.html">mentions</a></li>
       <li><a href="nyxx/Message/nonce.html">nonce</a></li>
       <li><a href="nyxx/Message/onDelete.html">onDelete</a></li>
+      <li><a href="nyxx/Message/onReactionAdded.html">onReactionAdded</a></li>
+      <li><a href="nyxx/Message/onReactionRemove.html">onReactionRemove</a></li>
+      <li><a href="nyxx/Message/onReactionsRemoved.html">onReactionsRemoved</a></li>
       <li><a href="nyxx/Message/onUpdate.html">onUpdate</a></li>
       <li><a href="nyxx/Message/pinned.html">pinned</a></li>
       <li><a href="nyxx/Message/raw.html">raw</a></li>

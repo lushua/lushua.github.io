@@ -84,6 +84,12 @@
         <dd>
           Sent when a channel is deleted.
         </dd>
+        <dt id="ChannelPinsUpdateEvent">
+          <span class="name "><a href="nyxx/ChannelPinsUpdateEvent-class.html">ChannelPinsUpdateEvent</a></span>
+        </dt>
+        <dd>
+          Fired when channel's pinned messages are updated
+        </dd>
         <dt id="ChannelUpdateEvent">
           <span class="name "><a href="nyxx/ChannelUpdateEvent-class.html">ChannelUpdateEvent</a></span>
         </dt>
@@ -125,7 +131,7 @@ It contains all of the methods.
           <span class="name "><a href="nyxx/DMChannel-class.html">DMChannel</a></span>
         </dt>
         <dd>
-          A private channel.
+          
         </dd>
         <dt id="Embed">
           <span class="name "><a href="nyxx/Embed-class.html">Embed</a></span>
@@ -219,11 +225,17 @@ All fields are optional except of <a href="nyxx/EmbedBuilder/title.html">title</
         <dd>
           A game.
         </dd>
+        <dt id="GroupChannel">
+          <span class="name "><a href="nyxx/GroupChannel-class.html">GroupChannel</a></span>
+        </dt>
+        <dd>
+          
+        </dd>
         <dt id="GroupDMChannel">
           <span class="name "><a href="nyxx/GroupDMChannel-class.html">GroupDMChannel</a></span>
         </dt>
         <dd>
-          A group DM channel.
+          
         </dd>
         <dt id="Guild">
           <span class="name "><a href="nyxx/Guild-class.html">Guild</a></span>
@@ -247,7 +259,7 @@ All fields are optional except of <a href="nyxx/EmbedBuilder/title.html">title</
           <span class="name "><a href="nyxx/GuildChannel-class.html">GuildChannel</a></span>
         </dt>
         <dd>
-          A guild channel.
+          
         </dd>
         <dt id="GuildCreateEvent">
           <span class="name "><a href="nyxx/GuildCreateEvent-class.html">GuildCreateEvent</a></span>
@@ -266,6 +278,12 @@ All fields are optional except of <a href="nyxx/EmbedBuilder/title.html">title</
         </dt>
         <dd>
           Emoji object. Handles Unicode emojis and custom ones. Unicode emoji dont have <a href="nyxx/GuildEmoji/id.html">id</a> and <a href="nyxx/GuildEmoji/name.html">name</a> is emoji.
+        </dd>
+        <dt id="GuildEmojisUpdateEvent">
+          <span class="name "><a href="nyxx/GuildEmojisUpdateEvent-class.html">GuildEmojisUpdateEvent</a></span>
+        </dt>
+        <dd>
+          Fired when emojis are updated
         </dd>
         <dt id="GuildMemberAddEvent">
           <span class="name "><a href="nyxx/GuildMemberAddEvent-class.html">GuildMemberAddEvent</a></span>
@@ -376,6 +394,18 @@ All fields are optional except of <a href="nyxx/EmbedBuilder/title.html">title</
         <dd>
           A message.
         </dd>
+        <dt id="MessageChannel">
+          <span class="name "><a href="nyxx/MessageChannel-class.html">MessageChannel</a></span>
+        </dt>
+        <dd>
+          
+        </dd>
+        <dt id="MessageDeleteBulkEvent">
+          <span class="name "><a href="nyxx/MessageDeleteBulkEvent-class.html">MessageDeleteBulkEvent</a></span>
+        </dt>
+        <dd>
+          Emitted when multiple messages are deleted at once.
+        </dd>
         <dt id="MessageDeleteEvent">
           <span class="name "><a href="nyxx/MessageDeleteEvent-class.html">MessageDeleteEvent</a></span>
         </dt>
@@ -387,6 +417,18 @@ All fields are optional except of <a href="nyxx/EmbedBuilder/title.html">title</
         </dt>
         <dd>
           Sent when a new message is received.
+        </dd>
+        <dt id="MessageReactionEvent">
+          <span class="name "><a href="nyxx/MessageReactionEvent-class.html">MessageReactionEvent</a></span>
+        </dt>
+        <dd>
+          Emitted when a user adds a reaction to a message.
+        </dd>
+        <dt id="MessageReactionsRemovedEvent">
+          <span class="name "><a href="nyxx/MessageReactionsRemovedEvent-class.html">MessageReactionsRemovedEvent</a></span>
+        </dt>
+        <dd>
+          
         </dd>
         <dt id="MessageUpdateEvent">
           <span class="name "><a href="nyxx/MessageUpdateEvent-class.html">MessageUpdateEvent</a></span>
@@ -490,7 +532,7 @@ or when a 429 is received.
           <span class="name "><a href="nyxx/TextChannel-class.html">TextChannel</a></span>
         </dt>
         <dd>
-          A text channel.
+          
         </dd>
         <dt id="TypingEvent">
           <span class="name "><a href="nyxx/TypingEvent-class.html">TypingEvent</a></span>
@@ -520,10 +562,28 @@ or when a 429 is received.
           <span class="name "><a href="nyxx/VoiceChannel-class.html">VoiceChannel</a></span>
         </dt>
         <dd>
-          A guild channel.
+          
         </dd>
         <dt id="VoiceRegion">
           <span class="name "><a href="nyxx/VoiceRegion-class.html">VoiceRegion</a></span>
+        </dt>
+        <dd>
+          
+        </dd>
+        <dt id="VoiceServerUpdateEvent">
+          <span class="name "><a href="nyxx/VoiceServerUpdateEvent-class.html">VoiceServerUpdateEvent</a></span>
+        </dt>
+        <dd>
+          
+        </dd>
+        <dt id="VoiceState">
+          <span class="name "><a href="nyxx/VoiceState-class.html">VoiceState</a></span>
+        </dt>
+        <dd>
+          Used to represent a user's voice connection status.
+        </dd>
+        <dt id="VoiceStateUpdateEvent">
+          <span class="name "><a href="nyxx/VoiceStateUpdateEvent-class.html">VoiceStateUpdateEvent</a></span>
         </dt>
         <dd>
           
@@ -533,6 +593,12 @@ or when a 429 is received.
         </dt>
         <dd>
           A webhook.
+        </dd>
+        <dt id="WebhookUpdateEvent">
+          <span class="name "><a href="nyxx/WebhookUpdateEvent-class.html">WebhookUpdateEvent</a></span>
+        </dt>
+        <dd>
+          
         </dd>
       </dl>
     </section>
@@ -592,6 +658,7 @@ or <a href="https://www.dartdocs.org/documentation/nyxx/latest/discord.vm/config
       <li><a href="nyxx/Channel-class.html">Channel</a></li>
       <li><a href="nyxx/ChannelCreateEvent-class.html">ChannelCreateEvent</a></li>
       <li><a href="nyxx/ChannelDeleteEvent-class.html">ChannelDeleteEvent</a></li>
+      <li><a href="nyxx/ChannelPinsUpdateEvent-class.html">ChannelPinsUpdateEvent</a></li>
       <li><a href="nyxx/ChannelUpdateEvent-class.html">ChannelUpdateEvent</a></li>
       <li><a href="nyxx/Client-class.html">Client</a></li>
       <li><a href="nyxx/ClientOAuth2Application-class.html">ClientOAuth2Application</a></li>
@@ -614,6 +681,7 @@ or <a href="https://www.dartdocs.org/documentation/nyxx/latest/discord.vm/config
       <li><a href="nyxx/Emoji-class.html">Emoji</a></li>
       <li><a href="nyxx/EmojisUnicode-class.html">EmojisUnicode</a></li>
       <li><a href="nyxx/Game-class.html">Game</a></li>
+      <li><a href="nyxx/GroupChannel-class.html">GroupChannel</a></li>
       <li><a href="nyxx/GroupDMChannel-class.html">GroupDMChannel</a></li>
       <li><a href="nyxx/Guild-class.html">Guild</a></li>
       <li><a href="nyxx/GuildBanAddEvent-class.html">GuildBanAddEvent</a></li>
@@ -622,6 +690,7 @@ or <a href="https://www.dartdocs.org/documentation/nyxx/latest/discord.vm/config
       <li><a href="nyxx/GuildCreateEvent-class.html">GuildCreateEvent</a></li>
       <li><a href="nyxx/GuildDeleteEvent-class.html">GuildDeleteEvent</a></li>
       <li><a href="nyxx/GuildEmoji-class.html">GuildEmoji</a></li>
+      <li><a href="nyxx/GuildEmojisUpdateEvent-class.html">GuildEmojisUpdateEvent</a></li>
       <li><a href="nyxx/GuildMemberAddEvent-class.html">GuildMemberAddEvent</a></li>
       <li><a href="nyxx/GuildMemberRemoveEvent-class.html">GuildMemberRemoveEvent</a></li>
       <li><a href="nyxx/GuildMemberUpdateEvent-class.html">GuildMemberUpdateEvent</a></li>
@@ -640,8 +709,12 @@ or <a href="https://www.dartdocs.org/documentation/nyxx/latest/discord.vm/config
       <li><a href="nyxx/InviteGuild-class.html">InviteGuild</a></li>
       <li><a href="nyxx/Member-class.html">Member</a></li>
       <li><a href="nyxx/Message-class.html">Message</a></li>
+      <li><a href="nyxx/MessageChannel-class.html">MessageChannel</a></li>
+      <li><a href="nyxx/MessageDeleteBulkEvent-class.html">MessageDeleteBulkEvent</a></li>
       <li><a href="nyxx/MessageDeleteEvent-class.html">MessageDeleteEvent</a></li>
       <li><a href="nyxx/MessageEvent-class.html">MessageEvent</a></li>
+      <li><a href="nyxx/MessageReactionEvent-class.html">MessageReactionEvent</a></li>
+      <li><a href="nyxx/MessageReactionsRemovedEvent-class.html">MessageReactionsRemovedEvent</a></li>
       <li><a href="nyxx/MessageUpdateEvent-class.html">MessageUpdateEvent</a></li>
       <li><a href="nyxx/OAuth2Application-class.html">OAuth2Application</a></li>
       <li><a href="nyxx/OAuth2Guild-class.html">OAuth2Guild</a></li>
@@ -665,7 +738,11 @@ or <a href="https://www.dartdocs.org/documentation/nyxx/latest/discord.vm/config
       <li><a href="nyxx/Util-class.html">Util</a></li>
       <li><a href="nyxx/VoiceChannel-class.html">VoiceChannel</a></li>
       <li><a href="nyxx/VoiceRegion-class.html">VoiceRegion</a></li>
+      <li><a href="nyxx/VoiceServerUpdateEvent-class.html">VoiceServerUpdateEvent</a></li>
+      <li><a href="nyxx/VoiceState-class.html">VoiceState</a></li>
+      <li><a href="nyxx/VoiceStateUpdateEvent-class.html">VoiceStateUpdateEvent</a></li>
       <li><a href="nyxx/Webhook-class.html">Webhook</a></li>
+      <li><a href="nyxx/WebhookUpdateEvent-class.html">WebhookUpdateEvent</a></li>
     
     
     

@@ -183,6 +183,15 @@
           Delays execution of command and waits for nex matching command based on <code>prefix</code>. Has static timemout of 30 seconds
           
 </dd>
+        <dt id="reply" class="callable">
+          <span class="name"><a href="nyxx.commands/Command/reply.html">reply</a></span><span class="signature">(<wbr>{<span class="parameter" id="reply-param-content"><span class="type-annotation">String</span> <span class="parameter-name">content</span>, </span> <span class="parameter" id="reply-param-embed"><span class="type-annotation"><a href="nyxx/EmbedBuilder-class.html">EmbedBuilder</a></span> <span class="parameter-name">embed</span>, </span> <span class="parameter" id="reply-param-tts"><span class="type-annotation">bool</span> <span class="parameter-name">tts</span>: <span class="default-value">false</span>, </span> <span class="parameter" id="reply-param-nonce"><span class="type-annotation">String</span> <span class="parameter-name">nonce</span>, </span> <span class="parameter" id="reply-param-disableEveryone"><span class="type-annotation">bool</span> <span class="parameter-name">disableEveryone</span></span> })
+            <span class="returntype parameter">&#8594; Future<span class="signature">&lt;<a href="nyxx/Message-class.html">Message</a>&gt;</span></span>
+          </span>
+        </dt>
+        <dd>
+          Reply to messsage which fires command.
+          
+</dd>
         <dt id="run" class="callable">
           <span class="name"><a href="nyxx.commands/Command/run.html">run</a></span><span class="signature">(<wbr>)
             <span class="returntype parameter">&#8594; Future</span>
@@ -255,6 +264,7 @@
     
       <li class="section-title"><a href="nyxx.commands/Command-class.html#instance-methods">Methods</a></li>
       <li><a href="nyxx.commands/Command/delay.html">delay</a></li>
+      <li><a href="nyxx.commands/Command/reply.html">reply</a></li>
       <li><a href="nyxx.commands/Command/run.html">run</a></li>
       <li class="inherited"><a href="nyxx.commands/Command/noSuchMethod.html">noSuchMethod</a></li>
       <li class="inherited"><a href="nyxx.commands/Command/toString.html">toString</a></li>

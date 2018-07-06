@@ -53,6 +53,7 @@
       <li><a href="nyxx/Guild/embedChannelID.html">embedChannelID</a></li>
       <li><a href="nyxx/Guild/embedEnabled.html">embedEnabled</a></li>
       <li><a href="nyxx/Guild/emojis.html">emojis</a></li>
+      <li><a href="nyxx/Guild/features.html">features</a></li>
       <li><a href="nyxx/Guild/icon.html">icon</a></li>
       <li><a href="nyxx/Guild/id.html">id</a></li>
       <li><a href="nyxx/Guild/memberCount.html">memberCount</a></li>
@@ -65,6 +66,8 @@
       <li><a href="nyxx/Guild/region.html">region</a></li>
       <li><a href="nyxx/Guild/roles.html">roles</a></li>
       <li><a href="nyxx/Guild/shard.html">shard</a></li>
+      <li><a href="nyxx/Guild/splash.html">splash</a></li>
+      <li><a href="nyxx/Guild/systemChannel.html">systemChannel</a></li>
       <li><a href="nyxx/Guild/verificationLevel.html">verificationLevel</a></li>
       <li class="inherited"><a href="nyxx/Guild/hashCode.html">hashCode</a></li>
       <li class="inherited"><a href="nyxx/Guild/runtimeType.html">runtimeType</a></li>
@@ -90,6 +93,7 @@
       <li><a href="nyxx/Guild/moveGuildChannel.html">moveGuildChannel</a></li>
       <li><a href="nyxx/Guild/oauth2Authorize.html">oauth2Authorize</a></li>
       <li><a href="nyxx/Guild/prune.html">prune</a></li>
+      <li><a href="nyxx/Guild/splashURL.html">splashURL</a></li>
       <li><a href="nyxx/Guild/toString.html">toString</a></li>
       <li><a href="nyxx/Guild/unban.html">unban</a></li>
       <li class="inherited"><a href="nyxx/Guild/noSuchMethod.html">noSuchMethod</a></li>
@@ -108,7 +112,7 @@
     <section class="multi-line-signature">
       <span class="returntype">Future<span class="signature">&lt;Null&gt;</span></span>
       <span class="name ">oauth2Authorize</span>
-(<wbr><span class="parameter" id="oauth2Authorize-param-app"><span class="parameter-name">app</span>, [</span> <span class="parameter" id="oauth2Authorize-param-permissions"><span class="type-annotation">int</span> <span class="parameter-name">permissions</span> = <span class="default-value">0</span></span> ])
+(<wbr><span class="parameter" id="oauth2Authorize-param-userId"><span class="type-annotation">String</span> <span class="parameter-name">userId</span>, [</span> <span class="parameter" id="oauth2Authorize-param-permissions"><span class="type-annotation">int</span> <span class="parameter-name">permissions</span> = <span class="default-value">0</span></span> ])
     </section>
     <section class="desc markdown">
       <p>Invites a bot to a guild. Only usable by user accounts.</p>
@@ -119,12 +123,10 @@ is a bot.
     
     <section class="summary source-code" id="source">
       <h2><span>Implementation</span> </h2>
-      <pre class="language-dart"><code class="language-dart">Future&lt;Null&gt; oauth2Authorize(dynamic app, [int permissions = 0]) async {
+      <pre class="language-dart"><code class="language-dart">Future&lt;Null&gt; oauth2Authorize(String userId, [int permissions = 0]) async {
   if (!this.client.user.bot) {
-    final String id = Util.resolve(&#39;app&#39;, app);
-
     await this.client.http.send(
-        &#39;POST&#39;, &#39;&#47;oauth2&#47;authorize?client_id=$id&amp;scope=bot&#39;,
+        &#39;POST&#39;, &#39;&#47;oauth2&#47;authorize?client_id=$userId&amp;scope=bot&#39;,
         body: &lt;String, dynamic&gt;{
           &quot;guild_id&quot;: this.id,
           &quot;permissions&quot;: permissions,
