@@ -148,7 +148,12 @@
     <h1>Guild class</h1>
 
     <section class="desc markdown">
-      <p>A guild.</p>
+      <p><a href="nyxx/Guild-class.html">Guild</a> object represents single <code>Discord Server</code> instance.
+Based on bots permissions - can preform operations of <a href="nyxx/Guild-class.html">Guild</a>, <a href="nyxx/User-class.html">User</a>s <a href="nyxx/Role-class.html">Role</a>s and many more.</p>
+<p><a href="nyxx/Guild/channels.html">channels</a> property is Map of <a href="nyxx/Channel-class.html">Channel</a>s but i can be cast to specific Channel subclasses. Example with getting all <a href="nyxx/TextChannel-class.html">TextChannel</a>s in <a href="nyxx/Guild-class.html">Guild</a>:</p>
+<pre class="language-dart"><code class="language-dart">var textChannels = channels.where((channel) =&gt; channel is ITextChannel) as List&lt;TextChannel&gt;;
+</code></pre>
+<p>If you want to get <a href="nyxx/Guild/icon.html">icon</a> or <a href="nyxx/Guild/splash.html">splash</a> of <a href="nyxx/Guild-class.html">Guild</a> use <code>iconURL()</code> method - <a href="nyxx/Guild/icon.html">icon</a> property returns only hash, same as <a href="nyxx/Guild/splash.html">splash</a> property.</p>
     </section>
     
 
@@ -700,7 +705,7 @@ not already there. <a href="nyxx/Guild/getMember.html">[...]</a>
 
 <footer>
   <span class="no-break">
-    nyxx 0.20.0
+    nyxx 0.21.2
   </span>
 
 </footer>

@@ -45,12 +45,12 @@
       <li class="section-title">
         <a href="nyxx/Snowflake-class.html#instance-properties">Properties</a>
       </li>
+      <li><a href="nyxx/Snowflake/hashCode.html">hashCode</a></li>
       <li><a href="nyxx/Snowflake/id.html">id</a></li>
       <li><a href="nyxx/Snowflake/processId.html">processId</a></li>
       <li><a href="nyxx/Snowflake/sequence.html">sequence</a></li>
       <li><a href="nyxx/Snowflake/timestamp.html">timestamp</a></li>
       <li><a href="nyxx/Snowflake/workerId.html">workerId</a></li>
-      <li class="inherited"><a href="nyxx/Snowflake/hashCode.html">hashCode</a></li>
       <li class="inherited"><a href="nyxx/Snowflake/runtimeType.html">runtimeType</a></li>
     
       <li class="section-title"><a href="nyxx/Snowflake-class.html#instance-methods">Methods</a></li>
@@ -74,7 +74,7 @@
         <section class="multi-line-signature">
           <span class="returntype">int</span>
           <span class="name ">hashCode</span>
-  <div class="features">inherited</div>
+  
 </section>
         
         <section class="desc markdown">
@@ -98,12 +98,23 @@ and there are no distribution guarantees.</p>
 it is even technically allowed that all instances have the same hash code,
 but if clashes happen too often, it may reduce the efficiency of hash-based
 data structures like <code>HashSet</code> or <code>HashMap</code>.</p>
-<p>If a subclass overrides <code>hashCode</code>, it should override the
+<p>If a subclass overrides <a href="nyxx/Snowflake/hashCode.html">hashCode</a>, it should override the
 <code>==</code> operator as well to maintain consistency.</p>
 </section>
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span> </h2>
-  <pre class="language-dart"><code class="language-dart">external int get hashCode;</code></pre>
+  <pre class="language-dart"><code class="language-dart">@override
+int get hashCode {
+  int result = 17;
+  result = 37 * result + id.hashCode;
+  result = 37 * result + timestamp.hashCode;
+  result = 37 * result + timestamp.hashCode;
+  result = 37 * result + workerId.hashCode;
+  result = 37 * result + processId.hashCode;
+  result = 37 * result + sequence.hashCode;
+
+  return result;
+}</code></pre>
 </section>
 </section>
         
@@ -116,7 +127,7 @@ data structures like <code>HashSet</code> or <code>HashMap</code>.</p>
 
 <footer>
   <span class="no-break">
-    nyxx 0.20.0
+    nyxx 0.21.2
   </span>
 
 </footer>

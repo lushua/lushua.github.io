@@ -49,6 +49,17 @@
   <div class="col-xs-12 col-sm-9 col-md-8 main-content">
     <h1>nyxx library</h1>
 
+    <section class="desc markdown">
+      <p>Nyxx DISCORD API wrapper for Dart</p>
+<p>Library consists of 2 modules <a href="nyxx/nyxx-library.html">nyxx</a> and <a href="nyxx.commands/nyxx.commands-library.html">nyxx.commands</a>.
+This module (aka library) contains all main nyxx logic:
+<code>/internal</code> - contains internal things like Http and Websocket stack needed for library to work
+<code>/</code> - root path has generic models/objects/stuff which is used everywhere
+<code>/builders</code> - contains classes used to build <a href="nyxx/Embed-class.html">Embed</a>s
+<code>/objects</code> - directory which groups all data classes
+<code>/events</code> - classes used in event dispatching
+<code>/errors</code> - Few errors to report weird behavior</p>
+    </section>
     
     <section class="summary offset-anchor" id="classes">
       <h2>Classes</h2>
@@ -100,8 +111,9 @@
           <span class="name "><a href="nyxx/Client-class.html">Client</a></span>
         </dt>
         <dd>
-          The base class.
-It contains all of the methods.
+          Class representing client - it's place to start with.
+From there you can subscribe to varius <code>Stream</code>s to listen to <a href="https://github.com/l7ssha/nyxx/wiki/EventList">Events</a>
+Rememeber to close <a href="nyxx/Client-class.html">Client</a> before terminating program: <a href="nyxx/Client-class.html">[...]</a>
         </dd>
         <dt id="ClientOAuth2Application">
           <span class="name "><a href="nyxx/ClientOAuth2Application-class.html">ClientOAuth2Application</a></span>
@@ -241,7 +253,8 @@ All fields are optional except of <a href="nyxx/EmbedBuilder/title.html">title</
           <span class="name "><a href="nyxx/Guild-class.html">Guild</a></span>
         </dt>
         <dd>
-          A guild.
+          <a href="nyxx/Guild-class.html">Guild</a> object represents single <code>Discord Server</code> instance.
+Based on bots permissions - can preform operations of <a href="nyxx/Guild-class.html">Guild</a>, <a href="nyxx/User-class.html">User</a>s <a href="nyxx/Role-class.html">Role</a>s and many more. <a href="nyxx/Guild-class.html">[...]</a>
         </dd>
         <dt id="GuildBanAddEvent">
           <span class="name "><a href="nyxx/GuildBanAddEvent-class.html">GuildBanAddEvent</a></span>
@@ -392,7 +405,9 @@ All fields are optional except of <a href="nyxx/EmbedBuilder/title.html">title</
           <span class="name "><a href="nyxx/Message-class.html">Message</a></span>
         </dt>
         <dd>
-          A message.
+          <a href="nyxx/Message-class.html">Message</a> class represents single message. It contains it's Event <code>Stream</code>s.
+<a href="nyxx/Message-class.html">Message</a> among all it's poperties has also backreference to <a href="nyxx/Channel-class.html">Channel</a> from which it was sent, <a href="nyxx/Guild-class.html">Guild</a> and <a href="nyxx/User-class.html">User</a> which sent this message.
+Supports sending files via <code>sendFile()</code> - method can send file or file and use it in embed. Read how to use it <a href="https://github.com/l7ssha/nyxx/wiki/Embeds">here</a>
         </dd>
         <dt id="MessageChannel">
           <span class="name "><a href="nyxx/MessageChannel-class.html">MessageChannel</a></span>
@@ -762,7 +777,7 @@ or <a href="https://www.dartdocs.org/documentation/nyxx/latest/discord.vm/config
 
 <footer>
   <span class="no-break">
-    nyxx 0.20.0
+    nyxx 0.21.2
   </span>
 
 </footer>

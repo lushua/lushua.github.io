@@ -148,7 +148,9 @@
     <h1>Message class</h1>
 
     <section class="desc markdown">
-      <p>A message.</p>
+      <p><a href="nyxx/Message-class.html">Message</a> class represents single message. It contains it's Event <code>Stream</code>s.
+<a href="nyxx/Message-class.html">Message</a> among all it's poperties has also backreference to <a href="nyxx/Channel-class.html">Channel</a> from which it was sent, <a href="nyxx/Guild-class.html">Guild</a> and <a href="nyxx/User-class.html">User</a> which sent this message.
+Supports sending files via <code>sendFile()</code> - method can send file or file and use it in embed. Read how to use it <a href="https://github.com/l7ssha/nyxx/wiki/Embeds">here</a></p>
     </section>
     
 
@@ -274,7 +276,7 @@
           <span class="signature">&#8596; Stream<span class="signature">&lt;<a href="nyxx/MessageDeleteEvent-class.html">MessageDeleteEvent</a>&gt;</span></span>
         </dt>
         <dd>
-          Emitted when the message is deleted, if it is in the channel cache.
+          Emitted when the message is deleted.
           <div class="features">read / write</div>
 </dd>
         <dt id="onReactionAdded" class="property">
@@ -306,7 +308,7 @@
           <span class="signature">&#8596; Stream<span class="signature">&lt;<a href="nyxx/MessageUpdateEvent-class.html">MessageUpdateEvent</a>&gt;</span></span>
         </dt>
         <dd>
-          Emitted when the message is edited, if it is in the channel cache.
+          Emitted when the message is edited.
           <div class="features">read / write</div>
 </dd>
         <dt id="pinned" class="property">
@@ -550,7 +552,7 @@
 
 <footer>
   <span class="no-break">
-    nyxx 0.20.0
+    nyxx 0.21.2
   </span>
 
 </footer>

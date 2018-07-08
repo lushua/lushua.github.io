@@ -45,12 +45,12 @@
       <li class="section-title">
         <a href="nyxx/Snowflake-class.html#instance-properties">Properties</a>
       </li>
+      <li><a href="nyxx/Snowflake/hashCode.html">hashCode</a></li>
       <li><a href="nyxx/Snowflake/id.html">id</a></li>
       <li><a href="nyxx/Snowflake/processId.html">processId</a></li>
       <li><a href="nyxx/Snowflake/sequence.html">sequence</a></li>
       <li><a href="nyxx/Snowflake/timestamp.html">timestamp</a></li>
       <li><a href="nyxx/Snowflake/workerId.html">workerId</a></li>
-      <li class="inherited"><a href="nyxx/Snowflake/hashCode.html">hashCode</a></li>
       <li class="inherited"><a href="nyxx/Snowflake/runtimeType.html">runtimeType</a></li>
     
       <li class="section-title"><a href="nyxx/Snowflake-class.html#instance-methods">Methods</a></li>
@@ -69,6 +69,11 @@
     <h1>operator == method</h1>
 
     <section class="multi-line-signature">
+      <div>
+        <ol class="annotation-list">
+          <li>@override</li>
+        </ol>
+      </div>
       <span class="returntype">bool</span>
       <span class="name ">operator ==</span>
 (<wbr><span class="parameter" id="==-param-other"><span class="parameter-name">other</span></span>)
@@ -91,12 +96,13 @@ either both be true, or both be false.</p></li><li>
 so whether two objects are equal should only change
 if at least one of the objects was modified.</p>
 <p>If a subclass overrides the equality operator it should override
-the <code>hashCode</code> method as well to maintain consistency.</p>
+the <a href="nyxx/Snowflake/hashCode.html">hashCode</a> method as well to maintain consistency.</p>
     </section>
     
     <section class="summary source-code" id="source">
       <h2><span>Implementation</span> </h2>
-      <pre class="language-dart"><code class="language-dart">bool operator ==(other) {
+      <pre class="language-dart"><code class="language-dart">@override
+bool operator ==(other) {
   if (other is Snowflake) return other.id == id;
 
   if (other is String) return other == id;
@@ -114,7 +120,7 @@ the <code>hashCode</code> method as well to maintain consistency.</p>
 
 <footer>
   <span class="no-break">
-    nyxx 0.20.0
+    nyxx 0.21.2
   </span>
 
 </footer>

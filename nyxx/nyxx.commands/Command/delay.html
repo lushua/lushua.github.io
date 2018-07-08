@@ -94,8 +94,10 @@
     if (ensureUser) return i.message.author.id == context.message.author.id;
 
     return true;
-  }).timeout(const Duration(seconds: 30),
-      onTimeout: () =&gt; print(&quot;Timed out&quot;));
+  }).timeout(const Duration(seconds: 30), onTimeout: () {
+    print(&quot;Timed out&quot;);
+    return null;
+  });
 }</code></pre>
     </section>
 
@@ -108,7 +110,7 @@
 
 <footer>
   <span class="no-break">
-    nyxx 0.20.0
+    nyxx 0.21.2
   </span>
 
 </footer>

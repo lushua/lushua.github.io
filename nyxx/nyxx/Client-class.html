@@ -148,8 +148,13 @@
     <h1>Client class</h1>
 
     <section class="desc markdown">
-      <p>The base class.
-It contains all of the methods.</p>
+      <p>Class representing client - it's place to start with.
+From there you can subscribe to varius <code>Stream</code>s to listen to <a href="https://github.com/l7ssha/nyxx/wiki/EventList">Events</a>
+Rememeber to close <a href="nyxx/Client-class.html">Client</a> before terminating program:</p>
+<pre class="language-dart"><code class="language-dart"> bot.destroy();
+</code></pre>
+<p>It closes bot connections to discord servers and makes sure that everything is terminated correctly.
+<a href="nyxx/Client-class.html">Client</a> is also used when creating instance of <a href="nyxx.commands/Commands-class.html">Commands</a> - Commands Framework.</p>
     </section>
     
 
@@ -716,7 +721,7 @@ without forceFetchUsers enabled.
 
 <footer>
   <span class="no-break">
-    nyxx 0.20.0
+    nyxx 0.21.2
   </span>
 
 </footer>
