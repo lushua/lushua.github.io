@@ -82,7 +82,7 @@
       </div>
       <span class="returntype">Future<span class="signature">&lt;Null&gt;</span></span>
       <span class="name ">executeCommand</span>
-(<wbr><span class="parameter" id="executeCommand-param-msg"><span class="type-annotation"><a href="nyxx/Message-class.html">Message</a></span> <span class="parameter-name">msg</span>, </span> <span class="parameter" id="executeCommand-param-matchedCommand"><span class="type-annotation"><a href="nyxx.commands/Command-class.html">Command</a></span> <span class="parameter-name">matchedCommand</span></span>)
+(<wbr><span class="parameter" id="executeCommand-param-msg"><span class="type-annotation"><a href="nyxx/Message-class.html">Message</a></span> <span class="parameter-name">msg</span>, </span> <span class="parameter" id="executeCommand-param-matchedCommand"><span class="type-annotation"><a href="nyxx.commands/AbstractCommand-class.html">AbstractCommand</a></span> <span class="parameter-name">matchedCommand</span></span>)
     </section>
     <section class="desc markdown">
       <p>Executes command. Left abstract to implement by subclasess wich provides different context.</p>
@@ -91,8 +91,9 @@
     <section class="summary source-code" id="source">
       <h2><span>Implementation</span> </h2>
       <pre class="language-dart"><code class="language-dart">@override
-Future&lt;Null&gt; executeCommand(Message msg, Command matchedCommand) async {
-  await matchedCommand.run();
+Future&lt;Null&gt; executeCommand(
+    Message msg, AbstractCommand matchedCommand) async {
+  await (matchedCommand as Command).run();
   return null;
 }</code></pre>
     </section>
@@ -106,7 +107,7 @@ Future&lt;Null&gt; executeCommand(Message msg, Command matchedCommand) async {
 
 <footer>
   <span class="no-break">
-    nyxx 0.21.2
+    nyxx 0.22.1
   </span>
 
 </footer>

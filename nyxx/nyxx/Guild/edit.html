@@ -81,6 +81,7 @@
       <li><a href="nyxx/Guild/delete.html">delete</a></li>
       <li><a href="nyxx/Guild/edit.html">edit</a></li>
       <li><a href="nyxx/Guild/editGuildEmbed.html">editGuildEmbed</a></li>
+      <li><a href="nyxx/Guild/getAuditLogs.html">getAuditLogs</a></li>
       <li><a href="nyxx/Guild/getBans.html">getBans</a></li>
       <li><a href="nyxx/Guild/getEmoji.html">getEmoji</a></li>
       <li><a href="nyxx/Guild/getGuildEmbed.html">getGuildEmbed</a></li>
@@ -112,7 +113,7 @@
     <section class="multi-line-signature">
       <span class="returntype">Future<span class="signature">&lt;<a href="nyxx/Guild-class.html">Guild</a>&gt;</span></span>
       <span class="name ">edit</span>
-(<wbr>{<span class="parameter" id="edit-param-name"><span class="type-annotation">String</span> <span class="parameter-name">name</span>: <span class="default-value">null</span>, </span> <span class="parameter" id="edit-param-verificationLevel"><span class="type-annotation">int</span> <span class="parameter-name">verificationLevel</span>: <span class="default-value">null</span>, </span> <span class="parameter" id="edit-param-notificationLevel"><span class="type-annotation">int</span> <span class="parameter-name">notificationLevel</span>: <span class="default-value">null</span>, </span> <span class="parameter" id="edit-param-afkChannel"><span class="type-annotation"><a href="nyxx/VoiceChannel-class.html">VoiceChannel</a></span> <span class="parameter-name">afkChannel</span>: <span class="default-value">null</span>, </span> <span class="parameter" id="edit-param-afkTimeout"><span class="type-annotation">int</span> <span class="parameter-name">afkTimeout</span>: <span class="default-value">null</span>, </span> <span class="parameter" id="edit-param-icon"><span class="type-annotation">String</span> <span class="parameter-name">icon</span>: <span class="default-value">null</span></span> })
+(<wbr>{<span class="parameter" id="edit-param-name"><span class="type-annotation">String</span> <span class="parameter-name">name</span>: <span class="default-value">null</span>, </span> <span class="parameter" id="edit-param-verificationLevel"><span class="type-annotation">int</span> <span class="parameter-name">verificationLevel</span>: <span class="default-value">null</span>, </span> <span class="parameter" id="edit-param-notificationLevel"><span class="type-annotation">int</span> <span class="parameter-name">notificationLevel</span>: <span class="default-value">null</span>, </span> <span class="parameter" id="edit-param-afkChannel"><span class="type-annotation"><a href="nyxx/VoiceChannel-class.html">VoiceChannel</a></span> <span class="parameter-name">afkChannel</span>: <span class="default-value">null</span>, </span> <span class="parameter" id="edit-param-afkTimeout"><span class="type-annotation">int</span> <span class="parameter-name">afkTimeout</span>: <span class="default-value">null</span>, </span> <span class="parameter" id="edit-param-icon"><span class="type-annotation">String</span> <span class="parameter-name">icon</span>: <span class="default-value">null</span>, </span> <span class="parameter" id="edit-param-auditReason"><span class="type-annotation">String</span> <span class="parameter-name">auditReason</span></span> })
     </section>
     <section class="desc markdown">
       <p>Edits the guild.</p>
@@ -126,20 +127,22 @@
     int notificationLevel: null,
     VoiceChannel afkChannel: null,
     int afkTimeout: null,
-    String icon: null}) async {
-  HttpResponse r =
-      await this.client.http.send(&#39;PATCH&#39;, &quot;&#47;guilds&#47;${this.id}&quot;, body: {
-    &quot;name&quot;: name != null ? name : this.name,
-    &quot;verification_level&quot;: verificationLevel != null
-        ? verificationLevel
-        : this.verificationLevel,
-    &quot;default_message_notifications&quot;: notificationLevel != null
-        ? notificationLevel
-        : this.notificationLevel,
-    &quot;afk_channel_id&quot;: afkChannel != null ? afkChannel : this.afkChannel,
-    &quot;afk_timeout&quot;: afkTimeout != null ? afkTimeout : this.afkTimeout,
-    &quot;icon&quot;: icon != null ? icon : this.icon
-  });
+    String icon: null,
+    String auditReason}) async {
+  HttpResponse r = await this.client.http.send(&#39;PATCH&#39;, &quot;&#47;guilds&#47;${this.id}&quot;,
+      body: {
+        &quot;name&quot;: name != null ? name : this.name,
+        &quot;verification_level&quot;: verificationLevel != null
+            ? verificationLevel
+            : this.verificationLevel,
+        &quot;default_message_notifications&quot;: notificationLevel != null
+            ? notificationLevel
+            : this.notificationLevel,
+        &quot;afk_channel_id&quot;: afkChannel != null ? afkChannel : this.afkChannel,
+        &quot;afk_timeout&quot;: afkTimeout != null ? afkTimeout : this.afkTimeout,
+        &quot;icon&quot;: icon != null ? icon : this.icon
+      },
+      reason: auditReason);
   return new Guild._new(this.client, r.body.asJson() as Map&lt;String, dynamic&gt;);
 }</code></pre>
     </section>
@@ -153,7 +156,7 @@
 
 <footer>
   <span class="no-break">
-    nyxx 0.21.2
+    nyxx 0.22.1
   </span>
 
 </footer>

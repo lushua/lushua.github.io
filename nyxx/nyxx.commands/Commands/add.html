@@ -77,7 +77,7 @@
     <section class="multi-line-signature">
       <span class="returntype">void</span>
       <span class="name ">add</span>
-(<wbr><span class="parameter" id="add-param-command"><span class="type-annotation"><a href="nyxx.commands/Command-class.html">Command</a></span> <span class="parameter-name">command</span></span>)
+(<wbr><span class="parameter" id="add-param-command"><span class="type-annotation"><a href="nyxx.commands/AbstractCommand-class.html">AbstractCommand</a></span> <span class="parameter-name">command</span></span>)
     </section>
     <section class="desc markdown">
       <p>Register new <a href="nyxx.commands/Command-class.html">Command</a> object.</p>
@@ -85,7 +85,7 @@
     
     <section class="summary source-code" id="source">
       <h2><span>Implementation</span> </h2>
-      <pre class="language-dart"><code class="language-dart">void add(Command command) {
+      <pre class="language-dart"><code class="language-dart">void add(AbstractCommand command) {
   _commands.add(command);
   print(&quot;[INFO] Registred command: ${command.name}&quot;);
 }</code></pre>
@@ -100,7 +100,7 @@
 
 <footer>
   <span class="no-break">
-    nyxx 0.21.2
+    nyxx 0.22.1
   </span>
 
 </footer>

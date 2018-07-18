@@ -984,23 +984,36 @@
     <h1>fromShortCode method</h1>
 
     <section class="multi-line-signature">
-      <span class="returntype"><a href="nyxx/UnicodeEmoji-class.html">UnicodeEmoji</a></span>
+      <span class="returntype">Future<span class="signature">&lt;<a href="nyxx/UnicodeEmoji-class.html">UnicodeEmoji</a>&gt;</span></span>
       <span class="name ">fromShortCode</span>
 (<wbr><span class="parameter" id="fromShortCode-param-shortCode"><span class="type-annotation">String</span> <span class="parameter-name">shortCode</span></span>)
+    </section>
+    <section class="desc markdown">
+      <p>Returns <a href="nyxx/Emoji-class.html">Emoji</a> based on shortcode (eg. ":smile:")
+This method can be slow(extremely slow), because it uses mirrors to lookup for matching property in class.
+In future it will be rewritten to map.</p>
     </section>
     
     <section class="summary source-code" id="source">
       <h2><span>Implementation</span> </h2>
-      <pre class="language-dart"><code class="language-dart">UnicodeEmoji fromShortCode(String shortCode) {
-  var mirror = reflectClass(EmojisUnicode);
-
-  for(var v in mirror.declarations.values) {
-    if(v is UnicodeEmoji) {
-      var emoji = v as UnicodeEmoji;
-      if(emoji.code == shortCode)
-        return emoji;
+      <pre class="language-dart"><code class="language-dart">Future&lt;UnicodeEmoji&gt; fromShortCode(String shortCode) {
+  return new Future(() {
+    String normalize(String s) {
+      if (s.startsWith(&quot;:&quot;) &amp;&amp; s.endsWith(&quot;:&quot;)) return s;
+      return &quot;:$s:&quot;;
     }
-  }
+
+    shortCode = normalize(shortCode);
+    var mirror = reflectClass(EmojisUnicode);
+    for (var v in mirror.declarations.values) {
+      if (v is UnicodeEmoji) {
+        var emoji = v as UnicodeEmoji;
+        if (emoji.code == shortCode) return emoji;
+      }
+    }
+
+    return null;
+  });
 }</code></pre>
     </section>
 
@@ -1013,7 +1026,7 @@
 
 <footer>
   <span class="no-break">
-    nyxx 0.21.2
+    nyxx 0.22.1
   </span>
 
 </footer>

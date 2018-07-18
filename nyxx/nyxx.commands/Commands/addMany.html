@@ -77,7 +77,7 @@
     <section class="multi-line-signature">
       <span class="returntype">void</span>
       <span class="name ">addMany</span>
-(<wbr><span class="parameter" id="addMany-param-commands"><span class="type-annotation">List<span class="signature">&lt;<a href="nyxx.commands/Command-class.html">Command</a>&gt;</span></span> <span class="parameter-name">commands</span></span>)
+(<wbr><span class="parameter" id="addMany-param-commands"><span class="type-annotation">List<span class="signature">&lt;<a href="nyxx.commands/AbstractCommand-class.html">AbstractCommand</a>&gt;</span></span> <span class="parameter-name">commands</span></span>)
     </section>
     <section class="desc markdown">
       <p>Register many <a href="nyxx.commands/Command-class.html">Command</a> instances.</p>
@@ -85,7 +85,7 @@
     
     <section class="summary source-code" id="source">
       <h2><span>Implementation</span> </h2>
-      <pre class="language-dart"><code class="language-dart">void addMany(List&lt;Command&gt; commands) {
+      <pre class="language-dart"><code class="language-dart">void addMany(List&lt;AbstractCommand&gt; commands) {
   commands.forEach((c) =&gt; add(c));
 }</code></pre>
     </section>
@@ -99,7 +99,7 @@
 
 <footer>
   <span class="no-break">
-    nyxx 0.21.2
+    nyxx 0.22.1
   </span>
 
 </footer>

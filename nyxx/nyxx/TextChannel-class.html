@@ -40,6 +40,9 @@
     <ol>
       <li class="section-title"><a href="nyxx/nyxx-library.html#classes">Classes</a></li>
       <li><a href="nyxx/Attachment-class.html">Attachment</a></li>
+      <li><a href="nyxx/AuditLog-class.html">AuditLog</a></li>
+      <li><a href="nyxx/AuditLogChange-class.html">AuditLogChange</a></li>
+      <li><a href="nyxx/AuditLogEntry-class.html">AuditLogEntry</a></li>
       <li><a href="nyxx/BeforeHttpRequestSendEvent-class.html">BeforeHttpRequestSendEvent</a></li>
       <li><a href="nyxx/Channel-class.html">Channel</a></li>
       <li><a href="nyxx/ChannelCreateEvent-class.html">ChannelCreateEvent</a></li>
@@ -147,6 +150,10 @@
   <div class="col-xs-12 col-sm-9 col-md-8 main-content">
     <h1>TextChannel class</h1>
 
+    <section class="desc markdown">
+      <p><a href="nyxx/TextChannel-class.html">TextChannel</a> represents single text channel on <a href="nyxx/Guild-class.html">Guild</a>.
+Inhertits from <a href="nyxx/MessageChannel-class.html">MessageChannel</a> and mixes <a href="nyxx/GuildChannel-class.html">GuildChannel</a>.</p>
+    </section>
     
     <section>
       <dl class="dl-horizontal">
@@ -308,7 +315,7 @@
       <h2>Methods</h2>
       <dl class="callables">
         <dt id="createInvite" class="callable">
-          <span class="name"><a href="nyxx/TextChannel/createInvite.html">createInvite</a></span><span class="signature">(<wbr>{<span class="parameter" id="createInvite-param-maxAge"><span class="type-annotation">int</span> <span class="parameter-name">maxAge</span>: <span class="default-value">0</span>, </span> <span class="parameter" id="createInvite-param-maxUses"><span class="type-annotation">int</span> <span class="parameter-name">maxUses</span>: <span class="default-value">0</span>, </span> <span class="parameter" id="createInvite-param-temporary"><span class="type-annotation">bool</span> <span class="parameter-name">temporary</span>: <span class="default-value">false</span>, </span> <span class="parameter" id="createInvite-param-unique"><span class="type-annotation">bool</span> <span class="parameter-name">unique</span>: <span class="default-value">false</span></span> })
+          <span class="name"><a href="nyxx/TextChannel/createInvite.html">createInvite</a></span><span class="signature">(<wbr>{<span class="parameter" id="createInvite-param-maxAge"><span class="type-annotation">int</span> <span class="parameter-name">maxAge</span>: <span class="default-value">0</span>, </span> <span class="parameter" id="createInvite-param-maxUses"><span class="type-annotation">int</span> <span class="parameter-name">maxUses</span>: <span class="default-value">0</span>, </span> <span class="parameter" id="createInvite-param-temporary"><span class="type-annotation">bool</span> <span class="parameter-name">temporary</span>: <span class="default-value">false</span>, </span> <span class="parameter" id="createInvite-param-unique"><span class="type-annotation">bool</span> <span class="parameter-name">unique</span>: <span class="default-value">false</span>, </span> <span class="parameter" id="createInvite-param-auditReason"><span class="type-annotation">String</span> <span class="parameter-name">auditReason</span>: <span class="default-value">""</span></span> })
             <span class="returntype parameter">&#8594; Future<span class="signature">&lt;<a href="nyxx/Invite-class.html">Invite</a>&gt;</span></span>
           </span>
         </dt>
@@ -317,7 +324,7 @@
           
 </dd>
         <dt id="createWebhook" class="callable">
-          <span class="name"><a href="nyxx/TextChannel/createWebhook.html">createWebhook</a></span><span class="signature">(<wbr><span class="parameter" id="createWebhook-param-name"><span class="type-annotation">String</span> <span class="parameter-name">name</span></span>)
+          <span class="name"><a href="nyxx/TextChannel/createWebhook.html">createWebhook</a></span><span class="signature">(<wbr><span class="parameter" id="createWebhook-param-name"><span class="type-annotation">String</span> <span class="parameter-name">name</span>, {</span> <span class="parameter" id="createWebhook-param-auditReason"><span class="type-annotation">String</span> <span class="parameter-name">auditReason</span>: <span class="default-value">""</span></span> })
             <span class="returntype parameter">&#8594; Future<span class="signature">&lt;<a href="nyxx/Webhook-class.html">Webhook</a>&gt;</span></span>
           </span>
         </dt>
@@ -361,6 +368,15 @@
           Gets all of the webhooks for this channel.
           
 </dd>
+        <dt id="toString" class="callable">
+          <span class="name"><a href="nyxx/TextChannel/toString.html">toString</a></span><span class="signature">(<wbr>)
+            <span class="returntype parameter">&#8594; String</span>
+          </span>
+        </dt>
+        <dd>
+          Returns mention to channel
+          
+</dd>
         <dt id="bulkRemoveMessages" class="callable inherited">
           <span class="name"><a href="nyxx/MessageChannel/bulkRemoveMessages.html">bulkRemoveMessages</a></span><span class="signature">(<wbr><span class="parameter" id="bulkRemoveMessages-param-messagesIds"><span class="type-annotation">List<span class="signature">&lt;String&gt;</span></span> <span class="parameter-name">messagesIds</span></span>)
             <span class="returntype parameter">&#8594; Future<span class="signature">&lt;Null&gt;</span></span>
@@ -371,7 +387,7 @@
           <div class="features">inherited</div>
 </dd>
         <dt id="delete" class="callable inherited">
-          <span class="name"><a href="nyxx/Channel/delete.html">delete</a></span><span class="signature">(<wbr>)
+          <span class="name"><a href="nyxx/Channel/delete.html">delete</a></span><span class="signature">(<wbr>{<span class="parameter" id="delete-param-auditReason"><span class="type-annotation">String</span> <span class="parameter-name">auditReason</span>: <span class="default-value">""</span></span> })
             <span class="returntype parameter">&#8594; Future<span class="signature">&lt;Null&gt;</span></span>
           </span>
         </dt>
@@ -462,15 +478,6 @@ Throws an <code>Exception</code> if the HTTP request errored.
           Stops a typing loop if one is running.
           <div class="features">inherited</div>
 </dd>
-        <dt id="toString" class="callable inherited">
-          <span class="name"><a href="nyxx/Channel/toString.html">toString</a></span><span class="signature">(<wbr>)
-            <span class="returntype parameter">&#8594; String</span>
-          </span>
-        </dt>
-        <dd class="inherited">
-          Returns a string representation of this object.
-          <div class="features">inherited</div>
-</dd>
       </dl>
     </section>
 
@@ -524,6 +531,7 @@ Throws an <code>Exception</code> if the HTTP request errored.
       <li><a href="nyxx/TextChannel/getChannelInvites.html">getChannelInvites</a></li>
       <li><a href="nyxx/TextChannel/getPinnedMessages.html">getPinnedMessages</a></li>
       <li><a href="nyxx/TextChannel/getWebhooks.html">getWebhooks</a></li>
+      <li><a href="nyxx/TextChannel/toString.html">toString</a></li>
       <li class="inherited"><a href="nyxx/MessageChannel/bulkRemoveMessages.html">bulkRemoveMessages</a></li>
       <li class="inherited"><a href="nyxx/Channel/delete.html">delete</a></li>
       <li class="inherited"><a href="nyxx/MessageChannel/getMessage.html">getMessage</a></li>
@@ -535,7 +543,6 @@ Throws an <code>Exception</code> if the HTTP request errored.
       <li class="inherited"><a href="nyxx/MessageChannel/startTyping.html">startTyping</a></li>
       <li class="inherited"><a href="nyxx/MessageChannel/startTypingLoop.html">startTypingLoop</a></li>
       <li class="inherited"><a href="nyxx/MessageChannel/stopTypingLoop.html">stopTypingLoop</a></li>
-      <li class="inherited"><a href="nyxx/Channel/toString.html">toString</a></li>
     
       <li class="section-title inherited"><a href="nyxx/TextChannel-class.html#operators">Operators</a></li>
       <li class="inherited"><a href="nyxx/Channel/operator_equals.html">operator ==</a></li>
@@ -549,7 +556,7 @@ Throws an <code>Exception</code> if the HTTP request errored.
 
 <footer>
   <span class="no-break">
-    nyxx 0.21.2
+    nyxx 0.22.1
   </span>
 
 </footer>

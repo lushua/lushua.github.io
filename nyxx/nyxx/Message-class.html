@@ -40,6 +40,9 @@
     <ol>
       <li class="section-title"><a href="nyxx/nyxx-library.html#classes">Classes</a></li>
       <li><a href="nyxx/Attachment-class.html">Attachment</a></li>
+      <li><a href="nyxx/AuditLog-class.html">AuditLog</a></li>
+      <li><a href="nyxx/AuditLogChange-class.html">AuditLogChange</a></li>
+      <li><a href="nyxx/AuditLogEntry-class.html">AuditLogEntry</a></li>
       <li><a href="nyxx/BeforeHttpRequestSendEvent-class.html">BeforeHttpRequestSendEvent</a></li>
       <li><a href="nyxx/Channel-class.html">Channel</a></li>
       <li><a href="nyxx/ChannelCreateEvent-class.html">ChannelCreateEvent</a></li>
@@ -391,7 +394,7 @@ Supports sending files via <code>sendFile()</code> - method can send file or fil
           
 </dd>
         <dt id="delete" class="callable">
-          <span class="name"><a href="nyxx/Message/delete.html">delete</a></span><span class="signature">(<wbr>)
+          <span class="name"><a href="nyxx/Message/delete.html">delete</a></span><span class="signature">(<wbr>{<span class="parameter" id="delete-param-auditReason"><span class="type-annotation">String</span> <span class="parameter-name">auditReason</span>: <span class="default-value">""</span></span> })
             <span class="returntype parameter">&#8594; Future<span class="signature">&lt;Null&gt;</span></span>
           </span>
         </dt>
@@ -450,7 +453,7 @@ Supports sending files via <code>sendFile()</code> - method can send file or fil
           </span>
         </dt>
         <dd>
-          Returns a string representation of this object.
+          Returns mention of message
           
 </dd>
         <dt id="unpinMessage" class="callable">
@@ -552,7 +555,7 @@ Supports sending files via <code>sendFile()</code> - method can send file or fil
 
 <footer>
   <span class="no-break">
-    nyxx 0.21.2
+    nyxx 0.22.1
   </span>
 
 </footer>

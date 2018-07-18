@@ -40,6 +40,9 @@
     <ol>
       <li class="section-title"><a href="nyxx/nyxx-library.html#classes">Classes</a></li>
       <li><a href="nyxx/Attachment-class.html">Attachment</a></li>
+      <li><a href="nyxx/AuditLog-class.html">AuditLog</a></li>
+      <li><a href="nyxx/AuditLogChange-class.html">AuditLogChange</a></li>
+      <li><a href="nyxx/AuditLogEntry-class.html">AuditLogEntry</a></li>
       <li><a href="nyxx/BeforeHttpRequestSendEvent-class.html">BeforeHttpRequestSendEvent</a></li>
       <li><a href="nyxx/Channel-class.html">Channel</a></li>
       <li><a href="nyxx/ChannelCreateEvent-class.html">ChannelCreateEvent</a></li>
@@ -276,7 +279,7 @@
       <h2>Methods</h2>
       <dl class="callables">
         <dt id="delete" class="callable">
-          <span class="name"><a href="nyxx/Webhook/delete.html">delete</a></span><span class="signature">(<wbr>)
+          <span class="name"><a href="nyxx/Webhook/delete.html">delete</a></span><span class="signature">(<wbr>{<span class="parameter" id="delete-param-auditReason"><span class="type-annotation">String</span> <span class="parameter-name">auditReason</span>: <span class="default-value">""</span></span> })
             <span class="returntype parameter">&#8594; Future<span class="signature">&lt;Null&gt;</span></span>
           </span>
         </dt>
@@ -285,7 +288,7 @@
           
 </dd>
         <dt id="edit" class="callable">
-          <span class="name"><a href="nyxx/Webhook/edit.html">edit</a></span><span class="signature">(<wbr>{<span class="parameter" id="edit-param-name"><span class="type-annotation">String</span> <span class="parameter-name">name</span></span> })
+          <span class="name"><a href="nyxx/Webhook/edit.html">edit</a></span><span class="signature">(<wbr>{<span class="parameter" id="edit-param-name"><span class="type-annotation">String</span> <span class="parameter-name">name</span>, </span> <span class="parameter" id="edit-param-auditReason"><span class="type-annotation">String</span> <span class="parameter-name">auditReason</span>: <span class="default-value">""</span></span> })
             <span class="returntype parameter">&#8594; Future<span class="signature">&lt;<a href="nyxx/Webhook-class.html">Webhook</a>&gt;</span></span>
           </span>
         </dt>
@@ -296,15 +299,6 @@
         <dt id="send" class="callable">
           <span class="name"><a href="nyxx/Webhook/send.html">send</a></span><span class="signature">(<wbr>{<span class="parameter" id="send-param-content"><span class="type-annotation">String</span> <span class="parameter-name">content</span>, </span> <span class="parameter" id="send-param-embeds"><span class="type-annotation">List<span class="signature">&lt;Map<span class="signature">&lt;String, dynamic&gt;</span>&gt;</span></span> <span class="parameter-name">embeds</span>, </span> <span class="parameter" id="send-param-username"><span class="type-annotation">String</span> <span class="parameter-name">username</span>, </span> <span class="parameter" id="send-param-avatarUrl"><span class="type-annotation">String</span> <span class="parameter-name">avatarUrl</span>, </span> <span class="parameter" id="send-param-tts"><span class="type-annotation">bool</span> <span class="parameter-name">tts</span></span> })
             <span class="returntype parameter">&#8594; Future<span class="signature">&lt;Null&gt;</span></span>
-          </span>
-        </dt>
-        <dd>
-          Sends a message with the webhook.
-          
-</dd>
-        <dt id="sendMessage" class="callable">
-          <span class="name deprecated"><a class="deprecated" href="nyxx/Webhook/sendMessage.html">sendMessage</a></span><span class="signature">(<wbr>{<span class="parameter" id="sendMessage-param-content"><span class="type-annotation">String</span> <span class="parameter-name">content</span>, </span> <span class="parameter" id="sendMessage-param-embeds"><span class="type-annotation">List<span class="signature">&lt;Map<span class="signature">&lt;String, dynamic&gt;</span>&gt;</span></span> <span class="parameter-name">embeds</span>, </span> <span class="parameter" id="sendMessage-param-username"><span class="type-annotation">String</span> <span class="parameter-name">username</span>, </span> <span class="parameter" id="sendMessage-param-avatarUrl"><span class="type-annotation">String</span> <span class="parameter-name">avatarUrl</span>, </span> <span class="parameter" id="sendMessage-param-tts"><span class="type-annotation">bool</span> <span class="parameter-name">tts</span></span> })
-            <span class="returntype parameter">&#8594; Future<span class="signature">&lt;<a href="nyxx/Message-class.html">Message</a>&gt;</span></span>
           </span>
         </dt>
         <dd>
@@ -391,7 +385,6 @@
       <li><a href="nyxx/Webhook/delete.html">delete</a></li>
       <li><a href="nyxx/Webhook/edit.html">edit</a></li>
       <li><a href="nyxx/Webhook/send.html">send</a></li>
-      <li><a class="deprecated" href="nyxx/Webhook/sendMessage.html">sendMessage</a></li>
       <li><a href="nyxx/Webhook/toString.html">toString</a></li>
       <li class="inherited"><a href="nyxx/Webhook/noSuchMethod.html">noSuchMethod</a></li>
     
@@ -409,7 +402,7 @@
 
 <footer>
   <span class="no-break">
-    nyxx 0.21.2
+    nyxx 0.22.1
   </span>
 
 </footer>

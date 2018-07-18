@@ -67,6 +67,7 @@
       <li><a href="nyxx/TextChannel/getChannelInvites.html">getChannelInvites</a></li>
       <li><a href="nyxx/TextChannel/getPinnedMessages.html">getPinnedMessages</a></li>
       <li><a href="nyxx/TextChannel/getWebhooks.html">getWebhooks</a></li>
+      <li><a href="nyxx/TextChannel/toString.html">toString</a></li>
       <li class="inherited"><a href="nyxx/MessageChannel/bulkRemoveMessages.html">bulkRemoveMessages</a></li>
       <li class="inherited"><a href="nyxx/Channel/delete.html">delete</a></li>
       <li class="inherited"><a href="nyxx/MessageChannel/getMessage.html">getMessage</a></li>
@@ -78,7 +79,6 @@
       <li class="inherited"><a href="nyxx/MessageChannel/startTyping.html">startTyping</a></li>
       <li class="inherited"><a href="nyxx/MessageChannel/startTypingLoop.html">startTypingLoop</a></li>
       <li class="inherited"><a href="nyxx/MessageChannel/stopTypingLoop.html">stopTypingLoop</a></li>
-      <li class="inherited"><a href="nyxx/Channel/toString.html">toString</a></li>
     
       <li class="section-title inherited"><a href="nyxx/TextChannel-class.html#operators">Operators</a></li>
       <li class="inherited"><a href="nyxx/Channel/operator_equals.html">operator ==</a></li>
@@ -94,7 +94,7 @@
     <section class="multi-line-signature">
       <span class="returntype">Future<span class="signature">&lt;<a href="nyxx/Webhook-class.html">Webhook</a>&gt;</span></span>
       <span class="name ">createWebhook</span>
-(<wbr><span class="parameter" id="createWebhook-param-name"><span class="type-annotation">String</span> <span class="parameter-name">name</span></span>)
+(<wbr><span class="parameter" id="createWebhook-param-name"><span class="type-annotation">String</span> <span class="parameter-name">name</span>, {</span> <span class="parameter" id="createWebhook-param-auditReason"><span class="type-annotation">String</span> <span class="parameter-name">auditReason</span>: <span class="default-value">""</span></span> })
     </section>
     <section class="desc markdown">
       <p>Creates a webhook.</p>
@@ -102,11 +102,10 @@
     
     <section class="summary source-code" id="source">
       <h2><span>Implementation</span> </h2>
-      <pre class="language-dart"><code class="language-dart">Future&lt;Webhook&gt; createWebhook(String name) async {
-  HttpResponse r = await this
-      .client
-      .http
-      .send(&#39;POST&#39;, &quot;&#47;channels&#47;$id&#47;webhooks&quot;, body: {&quot;name&quot;: name});
+      <pre class="language-dart"><code class="language-dart">Future&lt;Webhook&gt; createWebhook(String name, {String auditReason: &quot;&quot;}) async {
+  HttpResponse r = await this.client.http.send(
+      &#39;POST&#39;, &quot;&#47;channels&#47;$id&#47;webhooks&quot;,
+      body: {&quot;name&quot;: name}, reason: auditReason);
   return new Webhook._fromApi(
       this.client, r.body.asJson() as Map&lt;String, dynamic&gt;);
 }</code></pre>
@@ -121,7 +120,7 @@
 
 <footer>
   <span class="no-break">
-    nyxx 0.21.2
+    nyxx 0.22.1
   </span>
 
 </footer>

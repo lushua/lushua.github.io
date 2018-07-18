@@ -42,9 +42,10 @@
       <li class="section-title"><a href="nyxx.commands/MirrorsCommandFramework-class.html#constructors">Constructors</a></li>
       <li><a href="nyxx.commands/MirrorsCommandFramework/MirrorsCommandFramework.html">MirrorsCommandFramework</a></li>
     
-      <li class="section-title inherited">
+      <li class="section-title">
         <a href="nyxx.commands/MirrorsCommandFramework-class.html#instance-properties">Properties</a>
       </li>
+      <li><a href="nyxx.commands/MirrorsCommandFramework/commandExecutionFail.html">commandExecutionFail</a></li>
       <li class="inherited"><a href="nyxx.commands/Commands/commandNotFoundEvent.html">commandNotFoundEvent</a></li>
       <li class="inherited"><a href="nyxx.commands/Commands/cooldownEvent.html">cooldownEvent</a></li>
       <li class="inherited"><a href="nyxx.commands/Commands/forAdminOnlyEvent.html">forAdminOnlyEvent</a></li>
@@ -58,6 +59,8 @@
       <li class="section-title"><a href="nyxx.commands/MirrorsCommandFramework-class.html#instance-methods">Methods</a></li>
       <li><a href="nyxx.commands/MirrorsCommandFramework/createHelp.html">createHelp</a></li>
       <li><a href="nyxx.commands/MirrorsCommandFramework/executeCommand.html">executeCommand</a></li>
+      <li><a href="nyxx.commands/MirrorsCommandFramework/groupParams.html">groupParams</a></li>
+      <li><a href="nyxx.commands/MirrorsCommandFramework/registerServices.html">registerServices</a></li>
       <li class="inherited"><a href="nyxx.commands/Commands/add.html">add</a></li>
       <li class="inherited"><a href="nyxx.commands/Commands/addMany.html">addMany</a></li>
       <li class="inherited"><a href="nyxx.commands/Commands/noSuchMethod.html">noSuchMethod</a></li>
@@ -82,7 +85,7 @@
       </div>
       <span class="returntype">Future<span class="signature">&lt;Null&gt;</span></span>
       <span class="name ">executeCommand</span>
-(<wbr><span class="parameter" id="executeCommand-param-msg"><span class="type-annotation"><a href="nyxx/Message-class.html">Message</a></span> <span class="parameter-name">msg</span>, </span> <span class="parameter" id="executeCommand-param-matchedCommand"><span class="type-annotation"><a href="nyxx.commands/Command-class.html">Command</a></span> <span class="parameter-name">matchedCommand</span></span>)
+(<wbr><span class="parameter" id="executeCommand-param-msg"><span class="type-annotation"><a href="nyxx/Message-class.html">Message</a></span> <span class="parameter-name">msg</span>, </span> <span class="parameter" id="executeCommand-param-matchedCommand"><span class="type-annotation"><a href="nyxx.commands/AbstractCommand-class.html">AbstractCommand</a></span> <span class="parameter-name">matchedCommand</span></span>)
     </section>
     <section class="desc markdown">
       <p>Executes command. Left abstract to implement by subclasess wich provides different context.</p>
@@ -91,7 +94,8 @@
     <section class="summary source-code" id="source">
       <h2><span>Implementation</span> </h2>
       <pre class="language-dart"><code class="language-dart">@override
-Future&lt;Null&gt; executeCommand(Message msg, Command matchedCommand) async {
+Future&lt;Null&gt; executeCommand(
+    Message msg, AbstractCommand matchedCommand) async {
   await _reflectCommand(msg, matchedCommand);
   return null;
 }</code></pre>
@@ -106,7 +110,7 @@ Future&lt;Null&gt; executeCommand(Message msg, Command matchedCommand) async {
 
 <footer>
   <span class="no-break">
-    nyxx 0.21.2
+    nyxx 0.22.1
   </span>
 
 </footer>

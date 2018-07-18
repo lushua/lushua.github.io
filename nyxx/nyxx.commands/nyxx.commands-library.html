@@ -61,6 +61,12 @@ more functionality. In other hand <a href="nyxx.commands/InstanceCommandFramewor
       <h2>Classes</h2>
 
       <dl>
+        <dt id="AbstractCommand">
+          <span class="name "><a href="nyxx.commands/AbstractCommand-class.html">AbstractCommand</a></span>
+        </dt>
+        <dd>
+          Absctract class to factory new command
+        </dd>
         <dt id="CacheEntry">
           <span class="name "><a href="nyxx.commands/CacheEntry-class.html">CacheEntry</a></span>
         </dt>
@@ -72,6 +78,12 @@ more functionality. In other hand <a href="nyxx.commands/InstanceCommandFramewor
         </dt>
         <dd>
           Absctract class to factory new command
+        </dd>
+        <dt id="CommandExecutionFailEvent">
+          <span class="name "><a href="nyxx.commands/CommandExecutionFailEvent-class.html">CommandExecutionFailEvent</a></span>
+        </dt>
+        <dd>
+          Emitted when command execution fails
         </dd>
         <dt id="Commands">
           <span class="name "><a href="nyxx.commands/Commands-class.html">Commands</a></span>
@@ -92,6 +104,18 @@ more functionality. In other hand <a href="nyxx.commands/InstanceCommandFramewor
         <dd>
           Dispatches commands based on registry. <a href="nyxx.commands/Command-class.html">Command</a> class can only dispatch one command and aliases and dont have suncommand support.
 It's faster than <a href="nyxx.commands/MirrorsCommandFramework-class.html">MirrorsCommandFramework</a> because it isn't searching for matching methods at runtime.
+        </dd>
+        <dt id="Maincommand">
+          <span class="name "><a href="nyxx.commands/Maincommand-class.html">Maincommand</a></span>
+        </dt>
+        <dd>
+          
+        </dd>
+        <dt id="MirrorsCommand">
+          <span class="name "><a href="nyxx.commands/MirrorsCommand-class.html">MirrorsCommand</a></span>
+        </dt>
+        <dd>
+          
         </dd>
         <dt id="MirrorsCommandFramework">
           <span class="name "><a href="nyxx.commands/MirrorsCommandFramework-class.html">MirrorsCommandFramework</a></span>
@@ -121,11 +145,15 @@ searches if command has subcommand and possibly runs it. Uses <a href="nyxx.comm
     <h5>nyxx.commands library</h5>
     <ol>
       <li class="section-title"><a href="nyxx.commands/nyxx.commands-library.html#classes">Classes</a></li>
+      <li><a href="nyxx.commands/AbstractCommand-class.html">AbstractCommand</a></li>
       <li><a href="nyxx.commands/CacheEntry-class.html">CacheEntry</a></li>
       <li><a href="nyxx.commands/Command-class.html">Command</a></li>
+      <li><a href="nyxx.commands/CommandExecutionFailEvent-class.html">CommandExecutionFailEvent</a></li>
       <li><a href="nyxx.commands/Commands-class.html">Commands</a></li>
       <li><a href="nyxx.commands/CooldownCache-class.html">CooldownCache</a></li>
       <li><a href="nyxx.commands/InstanceCommandFramework-class.html">InstanceCommandFramework</a></li>
+      <li><a href="nyxx.commands/Maincommand-class.html">Maincommand</a></li>
+      <li><a href="nyxx.commands/MirrorsCommand-class.html">MirrorsCommand</a></li>
       <li><a href="nyxx.commands/MirrorsCommandFramework-class.html">MirrorsCommandFramework</a></li>
       <li><a href="nyxx.commands/Subcommand-class.html">Subcommand</a></li>
     
@@ -141,7 +169,7 @@ searches if command has subcommand and possibly runs it. Uses <a href="nyxx.comm
 
 <footer>
   <span class="no-break">
-    nyxx 0.21.2
+    nyxx 0.22.1
   </span>
 
 </footer>

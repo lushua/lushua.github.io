@@ -67,6 +67,7 @@
       <li><a href="nyxx/TextChannel/getChannelInvites.html">getChannelInvites</a></li>
       <li><a href="nyxx/TextChannel/getPinnedMessages.html">getPinnedMessages</a></li>
       <li><a href="nyxx/TextChannel/getWebhooks.html">getWebhooks</a></li>
+      <li><a href="nyxx/TextChannel/toString.html">toString</a></li>
       <li class="inherited"><a href="nyxx/MessageChannel/bulkRemoveMessages.html">bulkRemoveMessages</a></li>
       <li class="inherited"><a href="nyxx/Channel/delete.html">delete</a></li>
       <li class="inherited"><a href="nyxx/MessageChannel/getMessage.html">getMessage</a></li>
@@ -78,7 +79,6 @@
       <li class="inherited"><a href="nyxx/MessageChannel/startTyping.html">startTyping</a></li>
       <li class="inherited"><a href="nyxx/MessageChannel/startTypingLoop.html">startTypingLoop</a></li>
       <li class="inherited"><a href="nyxx/MessageChannel/stopTypingLoop.html">stopTypingLoop</a></li>
-      <li class="inherited"><a href="nyxx/Channel/toString.html">toString</a></li>
     
       <li class="section-title inherited"><a href="nyxx/TextChannel-class.html#operators">Operators</a></li>
       <li class="inherited"><a href="nyxx/Channel/operator_equals.html">operator ==</a></li>
@@ -94,7 +94,7 @@
     <section class="multi-line-signature">
       <span class="returntype">Future<span class="signature">&lt;<a href="nyxx/Invite-class.html">Invite</a>&gt;</span></span>
       <span class="name ">createInvite</span>
-(<wbr>{<span class="parameter" id="createInvite-param-maxAge"><span class="type-annotation">int</span> <span class="parameter-name">maxAge</span>: <span class="default-value">0</span>, </span> <span class="parameter" id="createInvite-param-maxUses"><span class="type-annotation">int</span> <span class="parameter-name">maxUses</span>: <span class="default-value">0</span>, </span> <span class="parameter" id="createInvite-param-temporary"><span class="type-annotation">bool</span> <span class="parameter-name">temporary</span>: <span class="default-value">false</span>, </span> <span class="parameter" id="createInvite-param-unique"><span class="type-annotation">bool</span> <span class="parameter-name">unique</span>: <span class="default-value">false</span></span> })
+(<wbr>{<span class="parameter" id="createInvite-param-maxAge"><span class="type-annotation">int</span> <span class="parameter-name">maxAge</span>: <span class="default-value">0</span>, </span> <span class="parameter" id="createInvite-param-maxUses"><span class="type-annotation">int</span> <span class="parameter-name">maxUses</span>: <span class="default-value">0</span>, </span> <span class="parameter" id="createInvite-param-temporary"><span class="type-annotation">bool</span> <span class="parameter-name">temporary</span>: <span class="default-value">false</span>, </span> <span class="parameter" id="createInvite-param-unique"><span class="type-annotation">bool</span> <span class="parameter-name">unique</span>: <span class="default-value">false</span>, </span> <span class="parameter" id="createInvite-param-auditReason"><span class="type-annotation">String</span> <span class="parameter-name">auditReason</span>: <span class="default-value">""</span></span> })
     </section>
     <section class="desc markdown">
       <p>Creates new <a href="nyxx/Invite-class.html">Invite</a> for <a href="nyxx/Channel-class.html">Channel</a> and returns it</p>
@@ -106,7 +106,8 @@
     {int maxAge: 0,
     int maxUses: 0,
     bool temporary: false,
-    bool unique: false}) async {
+    bool unique: false,
+    String auditReason: &quot;&quot;}) async {
   Map&lt;String, dynamic&gt; params = new Map&lt;String, dynamic&gt;();
 
   params[&#39;max_age&#39;] = maxAge;
@@ -114,10 +115,9 @@
   params[&#39;temporary&#39;] = temporary;
   params[&#39;unique&#39;] = unique;
 
-  final HttpResponse r = await this
-      .client
-      .http
-      .send(&#39;POST&#39;, &quot;&#47;channels&#47;$id&#47;invites&quot;, body: params);
+  final HttpResponse r = await this.client.http.send(
+      &#39;POST&#39;, &quot;&#47;channels&#47;$id&#47;invites&quot;,
+      body: params, reason: auditReason);
 
   return new Invite._new(
       this.client, r.body.asJson() as Map&lt;String, dynamic&gt;);
@@ -133,7 +133,7 @@
 
 <footer>
   <span class="no-break">
-    nyxx 0.21.2
+    nyxx 0.22.1
   </span>
 
 </footer>

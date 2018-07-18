@@ -40,6 +40,9 @@
     <ol>
       <li class="section-title"><a href="nyxx/nyxx-library.html#classes">Classes</a></li>
       <li><a href="nyxx/Attachment-class.html">Attachment</a></li>
+      <li><a href="nyxx/AuditLog-class.html">AuditLog</a></li>
+      <li><a href="nyxx/AuditLogChange-class.html">AuditLogChange</a></li>
+      <li><a href="nyxx/AuditLogEntry-class.html">AuditLogEntry</a></li>
       <li><a href="nyxx/BeforeHttpRequestSendEvent-class.html">BeforeHttpRequestSendEvent</a></li>
       <li><a href="nyxx/Channel-class.html">Channel</a></li>
       <li><a href="nyxx/ChannelCreateEvent-class.html">ChannelCreateEvent</a></li>
@@ -147,6 +150,9 @@
   <div class="col-xs-12 col-sm-9 col-md-8 main-content">
     <h1>VoiceChannel class</h1>
 
+    <section class="desc markdown">
+      <p>Represents VoiceChannel within <a href="nyxx/Guild-class.html">Guild</a></p>
+    </section>
     
     <section>
       <dl class="dl-horizontal">
@@ -291,7 +297,7 @@
       <h2>Methods</h2>
       <dl class="callables">
         <dt id="edit" class="callable">
-          <span class="name"><a href="nyxx/VoiceChannel/edit.html">edit</a></span><span class="signature">(<wbr>{<span class="parameter" id="edit-param-name"><span class="type-annotation">String</span> <span class="parameter-name">name</span>: <span class="default-value">null</span>, </span> <span class="parameter" id="edit-param-bitrate"><span class="type-annotation">int</span> <span class="parameter-name">bitrate</span>: <span class="default-value">null</span>, </span> <span class="parameter" id="edit-param-position"><span class="type-annotation">int</span> <span class="parameter-name">position</span>: <span class="default-value">null</span>, </span> <span class="parameter" id="edit-param-userLimit"><span class="type-annotation">int</span> <span class="parameter-name">userLimit</span>: <span class="default-value">null</span></span> })
+          <span class="name"><a href="nyxx/VoiceChannel/edit.html">edit</a></span><span class="signature">(<wbr>{<span class="parameter" id="edit-param-name"><span class="type-annotation">String</span> <span class="parameter-name">name</span>: <span class="default-value">null</span>, </span> <span class="parameter" id="edit-param-bitrate"><span class="type-annotation">int</span> <span class="parameter-name">bitrate</span>: <span class="default-value">null</span>, </span> <span class="parameter" id="edit-param-position"><span class="type-annotation">int</span> <span class="parameter-name">position</span>: <span class="default-value">null</span>, </span> <span class="parameter" id="edit-param-userLimit"><span class="type-annotation">int</span> <span class="parameter-name">userLimit</span>: <span class="default-value">null</span>, </span> <span class="parameter" id="edit-param-auditReason"><span class="type-annotation">String</span> <span class="parameter-name">auditReason</span></span> })
             <span class="returntype parameter">&#8594; Future<span class="signature">&lt;<a href="nyxx/VoiceChannel-class.html">VoiceChannel</a>&gt;</span></span>
           </span>
         </dt>
@@ -300,7 +306,7 @@
           
 </dd>
         <dt id="delete" class="callable inherited">
-          <span class="name"><a href="nyxx/Channel/delete.html">delete</a></span><span class="signature">(<wbr>)
+          <span class="name"><a href="nyxx/Channel/delete.html">delete</a></span><span class="signature">(<wbr>{<span class="parameter" id="delete-param-auditReason"><span class="type-annotation">String</span> <span class="parameter-name">auditReason</span>: <span class="default-value">""</span></span> })
             <span class="returntype parameter">&#8594; Future<span class="signature">&lt;Null&gt;</span></span>
           </span>
         </dt>
@@ -398,7 +404,7 @@
 
 <footer>
   <span class="no-break">
-    nyxx 0.21.2
+    nyxx 0.22.1
   </span>
 
 </footer>

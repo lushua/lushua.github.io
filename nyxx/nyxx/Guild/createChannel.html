@@ -81,6 +81,7 @@
       <li><a href="nyxx/Guild/delete.html">delete</a></li>
       <li><a href="nyxx/Guild/edit.html">edit</a></li>
       <li><a href="nyxx/Guild/editGuildEmbed.html">editGuildEmbed</a></li>
+      <li><a href="nyxx/Guild/getAuditLogs.html">getAuditLogs</a></li>
       <li><a href="nyxx/Guild/getBans.html">getBans</a></li>
       <li><a href="nyxx/Guild/getEmoji.html">getEmoji</a></li>
       <li><a href="nyxx/Guild/getGuildEmbed.html">getGuildEmbed</a></li>
@@ -112,7 +113,7 @@
     <section class="multi-line-signature">
       <span class="returntype">Future</span>
       <span class="name ">createChannel</span>
-(<wbr><span class="parameter" id="createChannel-param-name"><span class="type-annotation">String</span> <span class="parameter-name">name</span>, </span> <span class="parameter" id="createChannel-param-type"><span class="type-annotation">String</span> <span class="parameter-name">type</span>, {</span> <span class="parameter" id="createChannel-param-bitrate"><span class="type-annotation">int</span> <span class="parameter-name">bitrate</span>: <span class="default-value">64000</span>, </span> <span class="parameter" id="createChannel-param-userLimit"><span class="type-annotation">int</span> <span class="parameter-name">userLimit</span>: <span class="default-value">0</span></span> })
+(<wbr><span class="parameter" id="createChannel-param-name"><span class="type-annotation">String</span> <span class="parameter-name">name</span>, </span> <span class="parameter" id="createChannel-param-type"><span class="type-annotation">String</span> <span class="parameter-name">type</span>, {</span> <span class="parameter" id="createChannel-param-bitrate"><span class="type-annotation">int</span> <span class="parameter-name">bitrate</span>: <span class="default-value">64000</span>, </span> <span class="parameter" id="createChannel-param-userLimit"><span class="type-annotation">int</span> <span class="parameter-name">userLimit</span>: <span class="default-value">0</span>, </span> <span class="parameter" id="createChannel-param-auditReason"><span class="type-annotation">String</span> <span class="parameter-name">auditReason</span>: <span class="default-value">""</span></span> })
     </section>
     <section class="desc markdown">
       <p>Creates a channel.</p>
@@ -121,14 +122,15 @@
     <section class="summary source-code" id="source">
       <h2><span>Implementation</span> </h2>
       <pre class="language-dart"><code class="language-dart">Future&lt;dynamic&gt; createChannel(String name, String type,
-    {int bitrate: 64000, int userLimit: 0}) async {
+    {int bitrate: 64000, int userLimit: 0, String auditReason = &quot;&quot;}) async {
   HttpResponse r = await this.client.http.send(&#39;POST&#39;, &quot;&#47;guilds&#47;$id&#47;channels&quot;,
       body: {
         &quot;name&quot;: name,
         &quot;type&quot;: type,
         &quot;bitrate&quot;: bitrate,
         &quot;user_limit&quot;: userLimit
-      });
+      },
+      reason: auditReason);
 
   if (r.body.asJson()[&#39;type&#39;] == 0) {
     return new TextChannel._new(
@@ -149,7 +151,7 @@
 
 <footer>
   <span class="no-break">
-    nyxx 0.21.2
+    nyxx 0.22.1
   </span>
 
 </footer>

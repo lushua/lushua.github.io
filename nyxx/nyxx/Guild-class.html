@@ -40,6 +40,9 @@
     <ol>
       <li class="section-title"><a href="nyxx/nyxx-library.html#classes">Classes</a></li>
       <li><a href="nyxx/Attachment-class.html">Attachment</a></li>
+      <li><a href="nyxx/AuditLog-class.html">AuditLog</a></li>
+      <li><a href="nyxx/AuditLogChange-class.html">AuditLogChange</a></li>
+      <li><a href="nyxx/AuditLogEntry-class.html">AuditLogEntry</a></li>
       <li><a href="nyxx/BeforeHttpRequestSendEvent-class.html">BeforeHttpRequestSendEvent</a></li>
       <li><a href="nyxx/Channel-class.html">Channel</a></li>
       <li><a href="nyxx/ChannelCreateEvent-class.html">ChannelCreateEvent</a></li>
@@ -151,7 +154,7 @@
       <p><a href="nyxx/Guild-class.html">Guild</a> object represents single <code>Discord Server</code> instance.
 Based on bots permissions - can preform operations of <a href="nyxx/Guild-class.html">Guild</a>, <a href="nyxx/User-class.html">User</a>s <a href="nyxx/Role-class.html">Role</a>s and many more.</p>
 <p><a href="nyxx/Guild/channels.html">channels</a> property is Map of <a href="nyxx/Channel-class.html">Channel</a>s but i can be cast to specific Channel subclasses. Example with getting all <a href="nyxx/TextChannel-class.html">TextChannel</a>s in <a href="nyxx/Guild-class.html">Guild</a>:</p>
-<pre class="language-dart"><code class="language-dart">var textChannels = channels.where((channel) =&gt; channel is ITextChannel) as List&lt;TextChannel&gt;;
+<pre class="language-dart"><code class="language-dart">var textChannels = channels.where((channel) =&gt; channel is MessageChannel) as List&lt;TextChannel&gt;;
 </code></pre>
 <p>If you want to get <a href="nyxx/Guild/icon.html">icon</a> or <a href="nyxx/Guild/splash.html">splash</a> of <a href="nyxx/Guild-class.html">Guild</a> use <code>iconURL()</code> method - <a href="nyxx/Guild/icon.html">icon</a> property returns only hash, same as <a href="nyxx/Guild/splash.html">splash</a> property.</p>
     </section>
@@ -402,7 +405,7 @@ Based on bots permissions - can preform operations of <a href="nyxx/Guild-class.
           
 </dd>
         <dt id="ban" class="callable">
-          <span class="name"><a href="nyxx/Guild/ban.html">ban</a></span><span class="signature">(<wbr><span class="parameter" id="ban-param-id"><span class="type-annotation">String</span> <span class="parameter-name">id</span>, [</span> <span class="parameter" id="ban-param-deleteMessageDays"><span class="type-annotation">int</span> <span class="parameter-name">deleteMessageDays</span> = <span class="default-value">0</span></span> ])
+          <span class="name"><a href="nyxx/Guild/ban.html">ban</a></span><span class="signature">(<wbr><span class="parameter" id="ban-param-id"><span class="type-annotation">String</span> <span class="parameter-name">id</span>, {</span> <span class="parameter" id="ban-param-deleteMessageDays"><span class="type-annotation">int</span> <span class="parameter-name">deleteMessageDays</span>: <span class="default-value">0</span>, </span> <span class="parameter" id="ban-param-auditReason"><span class="type-annotation">String</span> <span class="parameter-name">auditReason</span></span> })
             <span class="returntype parameter">&#8594; Future<span class="signature">&lt;Null&gt;</span></span>
           </span>
         </dt>
@@ -411,7 +414,7 @@ Based on bots permissions - can preform operations of <a href="nyxx/Guild-class.
           
 </dd>
         <dt id="changeOwner" class="callable">
-          <span class="name"><a href="nyxx/Guild/changeOwner.html">changeOwner</a></span><span class="signature">(<wbr><span class="parameter" id="changeOwner-param-id"><span class="type-annotation">String</span> <span class="parameter-name">id</span></span>)
+          <span class="name"><a href="nyxx/Guild/changeOwner.html">changeOwner</a></span><span class="signature">(<wbr><span class="parameter" id="changeOwner-param-id"><span class="type-annotation">String</span> <span class="parameter-name">id</span>, {</span> <span class="parameter" id="changeOwner-param-auditReason"><span class="type-annotation">String</span> <span class="parameter-name">auditReason</span>: <span class="default-value">""</span></span> })
             <span class="returntype parameter">&#8594; Future<span class="signature">&lt;<a href="nyxx/Guild-class.html">Guild</a>&gt;</span></span>
           </span>
         </dt>
@@ -420,7 +423,7 @@ Based on bots permissions - can preform operations of <a href="nyxx/Guild-class.
           
 </dd>
         <dt id="createChannel" class="callable">
-          <span class="name"><a href="nyxx/Guild/createChannel.html">createChannel</a></span><span class="signature">(<wbr><span class="parameter" id="createChannel-param-name"><span class="type-annotation">String</span> <span class="parameter-name">name</span>, </span> <span class="parameter" id="createChannel-param-type"><span class="type-annotation">String</span> <span class="parameter-name">type</span>, {</span> <span class="parameter" id="createChannel-param-bitrate"><span class="type-annotation">int</span> <span class="parameter-name">bitrate</span>: <span class="default-value">64000</span>, </span> <span class="parameter" id="createChannel-param-userLimit"><span class="type-annotation">int</span> <span class="parameter-name">userLimit</span>: <span class="default-value">0</span></span> })
+          <span class="name"><a href="nyxx/Guild/createChannel.html">createChannel</a></span><span class="signature">(<wbr><span class="parameter" id="createChannel-param-name"><span class="type-annotation">String</span> <span class="parameter-name">name</span>, </span> <span class="parameter" id="createChannel-param-type"><span class="type-annotation">String</span> <span class="parameter-name">type</span>, {</span> <span class="parameter" id="createChannel-param-bitrate"><span class="type-annotation">int</span> <span class="parameter-name">bitrate</span>: <span class="default-value">64000</span>, </span> <span class="parameter" id="createChannel-param-userLimit"><span class="type-annotation">int</span> <span class="parameter-name">userLimit</span>: <span class="default-value">0</span>, </span> <span class="parameter" id="createChannel-param-auditReason"><span class="type-annotation">String</span> <span class="parameter-name">auditReason</span>: <span class="default-value">""</span></span> })
             <span class="returntype parameter">&#8594; Future</span>
           </span>
         </dt>
@@ -429,7 +432,7 @@ Based on bots permissions - can preform operations of <a href="nyxx/Guild-class.
           
 </dd>
         <dt id="createRole" class="callable">
-          <span class="name"><a href="nyxx/Guild/createRole.html">createRole</a></span><span class="signature">(<wbr>)
+          <span class="name"><a href="nyxx/Guild/createRole.html">createRole</a></span><span class="signature">(<wbr>{<span class="parameter" id="createRole-param-auditReason"><span class="type-annotation">String</span> <span class="parameter-name">auditReason</span>: <span class="default-value">""</span></span> })
             <span class="returntype parameter">&#8594; Future<span class="signature">&lt;<a href="nyxx/Role-class.html">Role</a>&gt;</span></span>
           </span>
         </dt>
@@ -447,7 +450,7 @@ Based on bots permissions - can preform operations of <a href="nyxx/Guild-class.
           
 </dd>
         <dt id="edit" class="callable">
-          <span class="name"><a href="nyxx/Guild/edit.html">edit</a></span><span class="signature">(<wbr>{<span class="parameter" id="edit-param-name"><span class="type-annotation">String</span> <span class="parameter-name">name</span>: <span class="default-value">null</span>, </span> <span class="parameter" id="edit-param-verificationLevel"><span class="type-annotation">int</span> <span class="parameter-name">verificationLevel</span>: <span class="default-value">null</span>, </span> <span class="parameter" id="edit-param-notificationLevel"><span class="type-annotation">int</span> <span class="parameter-name">notificationLevel</span>: <span class="default-value">null</span>, </span> <span class="parameter" id="edit-param-afkChannel"><span class="type-annotation"><a href="nyxx/VoiceChannel-class.html">VoiceChannel</a></span> <span class="parameter-name">afkChannel</span>: <span class="default-value">null</span>, </span> <span class="parameter" id="edit-param-afkTimeout"><span class="type-annotation">int</span> <span class="parameter-name">afkTimeout</span>: <span class="default-value">null</span>, </span> <span class="parameter" id="edit-param-icon"><span class="type-annotation">String</span> <span class="parameter-name">icon</span>: <span class="default-value">null</span></span> })
+          <span class="name"><a href="nyxx/Guild/edit.html">edit</a></span><span class="signature">(<wbr>{<span class="parameter" id="edit-param-name"><span class="type-annotation">String</span> <span class="parameter-name">name</span>: <span class="default-value">null</span>, </span> <span class="parameter" id="edit-param-verificationLevel"><span class="type-annotation">int</span> <span class="parameter-name">verificationLevel</span>: <span class="default-value">null</span>, </span> <span class="parameter" id="edit-param-notificationLevel"><span class="type-annotation">int</span> <span class="parameter-name">notificationLevel</span>: <span class="default-value">null</span>, </span> <span class="parameter" id="edit-param-afkChannel"><span class="type-annotation"><a href="nyxx/VoiceChannel-class.html">VoiceChannel</a></span> <span class="parameter-name">afkChannel</span>: <span class="default-value">null</span>, </span> <span class="parameter" id="edit-param-afkTimeout"><span class="type-annotation">int</span> <span class="parameter-name">afkTimeout</span>: <span class="default-value">null</span>, </span> <span class="parameter" id="edit-param-icon"><span class="type-annotation">String</span> <span class="parameter-name">icon</span>: <span class="default-value">null</span>, </span> <span class="parameter" id="edit-param-auditReason"><span class="type-annotation">String</span> <span class="parameter-name">auditReason</span></span> })
             <span class="returntype parameter">&#8594; Future<span class="signature">&lt;<a href="nyxx/Guild-class.html">Guild</a>&gt;</span></span>
           </span>
         </dt>
@@ -456,12 +459,21 @@ Based on bots permissions - can preform operations of <a href="nyxx/Guild-class.
           
 </dd>
         <dt id="editGuildEmbed" class="callable">
-          <span class="name"><a href="nyxx/Guild/editGuildEmbed.html">editGuildEmbed</a></span><span class="signature">(<wbr><span class="parameter" id="editGuildEmbed-param-embed"><span class="type-annotation"><a href="nyxx/EmbedBuilder-class.html">EmbedBuilder</a></span> <span class="parameter-name">embed</span></span>)
+          <span class="name"><a href="nyxx/Guild/editGuildEmbed.html">editGuildEmbed</a></span><span class="signature">(<wbr><span class="parameter" id="editGuildEmbed-param-embed"><span class="type-annotation"><a href="nyxx/EmbedBuilder-class.html">EmbedBuilder</a></span> <span class="parameter-name">embed</span>, {</span> <span class="parameter" id="editGuildEmbed-param-auditReason"><span class="type-annotation">String</span> <span class="parameter-name">auditReason</span>: <span class="default-value">""</span></span> })
             <span class="returntype parameter">&#8594; Future<span class="signature">&lt;<a href="nyxx/Embed-class.html">Embed</a>&gt;</span></span>
           </span>
         </dt>
         <dd>
           Modify guild embed object
+          
+</dd>
+        <dt id="getAuditLogs" class="callable">
+          <span class="name"><a href="nyxx/Guild/getAuditLogs.html">getAuditLogs</a></span><span class="signature">(<wbr>{<span class="parameter" id="getAuditLogs-param-userId"><span class="type-annotation"><a href="nyxx/Snowflake-class.html">Snowflake</a></span> <span class="parameter-name">userId</span>, </span> <span class="parameter" id="getAuditLogs-param-actionType"><span class="type-annotation">String</span> <span class="parameter-name">actionType</span>, </span> <span class="parameter" id="getAuditLogs-param-before"><span class="type-annotation"><a href="nyxx/Snowflake-class.html">Snowflake</a></span> <span class="parameter-name">before</span>, </span> <span class="parameter" id="getAuditLogs-param-limit"><span class="type-annotation">int</span> <span class="parameter-name">limit</span></span> })
+            <span class="returntype parameter">&#8594; Future<span class="signature">&lt;<a href="nyxx/AuditLog-class.html">AuditLog</a>&gt;</span></span>
+          </span>
+        </dt>
+        <dd>
+          
           
 </dd>
         <dt id="getBans" class="callable">
@@ -547,7 +559,7 @@ not already there. <a href="nyxx/Guild/getMember.html">[...]</a>
           
 </dd>
         <dt id="moveGuildChannel" class="callable">
-          <span class="name"><a href="nyxx/Guild/moveGuildChannel.html">moveGuildChannel</a></span><span class="signature">(<wbr><span class="parameter" id="moveGuildChannel-param-channelId"><span class="type-annotation">String</span> <span class="parameter-name">channelId</span>, </span> <span class="parameter" id="moveGuildChannel-param-newPosition"><span class="type-annotation">int</span> <span class="parameter-name">newPosition</span></span>)
+          <span class="name"><a href="nyxx/Guild/moveGuildChannel.html">moveGuildChannel</a></span><span class="signature">(<wbr><span class="parameter" id="moveGuildChannel-param-channelId"><span class="type-annotation">String</span> <span class="parameter-name">channelId</span>, </span> <span class="parameter" id="moveGuildChannel-param-newPosition"><span class="type-annotation">int</span> <span class="parameter-name">newPosition</span>, {</span> <span class="parameter" id="moveGuildChannel-param-auditReason"><span class="type-annotation">String</span> <span class="parameter-name">auditReason</span>: <span class="default-value">""</span></span> })
             <span class="returntype parameter">&#8594; Future<span class="signature">&lt;Null&gt;</span></span>
           </span>
         </dt>
@@ -565,7 +577,7 @@ not already there. <a href="nyxx/Guild/getMember.html">[...]</a>
           
 </dd>
         <dt id="prune" class="callable">
-          <span class="name"><a href="nyxx/Guild/prune.html">prune</a></span><span class="signature">(<wbr><span class="parameter" id="prune-param-days"><span class="type-annotation">int</span> <span class="parameter-name">days</span></span>)
+          <span class="name"><a href="nyxx/Guild/prune.html">prune</a></span><span class="signature">(<wbr><span class="parameter" id="prune-param-days"><span class="type-annotation">int</span> <span class="parameter-name">days</span>, {</span> <span class="parameter" id="prune-param-auditReason"><span class="type-annotation">String</span> <span class="parameter-name">auditReason</span>: <span class="default-value">""</span></span> })
             <span class="returntype parameter">&#8594; Future<span class="signature">&lt;int&gt;</span></span>
           </span>
         </dt>
@@ -676,6 +688,7 @@ not already there. <a href="nyxx/Guild/getMember.html">[...]</a>
       <li><a href="nyxx/Guild/delete.html">delete</a></li>
       <li><a href="nyxx/Guild/edit.html">edit</a></li>
       <li><a href="nyxx/Guild/editGuildEmbed.html">editGuildEmbed</a></li>
+      <li><a href="nyxx/Guild/getAuditLogs.html">getAuditLogs</a></li>
       <li><a href="nyxx/Guild/getBans.html">getBans</a></li>
       <li><a href="nyxx/Guild/getEmoji.html">getEmoji</a></li>
       <li><a href="nyxx/Guild/getGuildEmbed.html">getGuildEmbed</a></li>
@@ -705,7 +718,7 @@ not already there. <a href="nyxx/Guild/getMember.html">[...]</a>
 
 <footer>
   <span class="no-break">
-    nyxx 0.21.2
+    nyxx 0.22.1
   </span>
 
 </footer>

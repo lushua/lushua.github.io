@@ -81,6 +81,7 @@
       <li><a href="nyxx/Guild/delete.html">delete</a></li>
       <li><a href="nyxx/Guild/edit.html">edit</a></li>
       <li><a href="nyxx/Guild/editGuildEmbed.html">editGuildEmbed</a></li>
+      <li><a href="nyxx/Guild/getAuditLogs.html">getAuditLogs</a></li>
       <li><a href="nyxx/Guild/getBans.html">getBans</a></li>
       <li><a href="nyxx/Guild/getEmoji.html">getEmoji</a></li>
       <li><a href="nyxx/Guild/getGuildEmbed.html">getGuildEmbed</a></li>
@@ -112,7 +113,7 @@
     <section class="multi-line-signature">
       <span class="returntype">Future<span class="signature">&lt;int&gt;</span></span>
       <span class="name ">prune</span>
-(<wbr><span class="parameter" id="prune-param-days"><span class="type-annotation">int</span> <span class="parameter-name">days</span></span>)
+(<wbr><span class="parameter" id="prune-param-days"><span class="type-annotation">int</span> <span class="parameter-name">days</span>, {</span> <span class="parameter" id="prune-param-auditReason"><span class="type-annotation">String</span> <span class="parameter-name">auditReason</span>: <span class="default-value">""</span></span> })
     </section>
     <section class="desc markdown">
       <p>Prunes the guild, returns the amount of members pruned.</p>
@@ -120,11 +121,9 @@
     
     <section class="summary source-code" id="source">
       <h2><span>Implementation</span> </h2>
-      <pre class="language-dart"><code class="language-dart">Future&lt;int&gt; prune(int days) async {
-  HttpResponse r = await this
-      .client
-      .http
-      .send(&#39;POST&#39;, &quot;&#47;guilds&#47;$id&#47;prune&quot;, body: {&quot;days&quot;: days});
+      <pre class="language-dart"><code class="language-dart">Future&lt;int&gt; prune(int days, {String auditReason = &quot;&quot;}) async {
+  HttpResponse r = await this.client.http.send(&#39;POST&#39;, &quot;&#47;guilds&#47;$id&#47;prune&quot;,
+      body: {&quot;days&quot;: days}, reason: auditReason);
   return r.body.asJson() as int;
 }</code></pre>
     </section>
@@ -138,7 +137,7 @@
 
 <footer>
   <span class="no-break">
-    nyxx 0.21.2
+    nyxx 0.22.1
   </span>
 
 </footer>

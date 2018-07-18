@@ -51,14 +51,8 @@
 
     <section class="desc markdown">
       <p>Nyxx DISCORD API wrapper for Dart</p>
-<p>Library consists of 2 modules <a href="nyxx/nyxx-library.html">nyxx</a> and <a href="nyxx.commands/nyxx.commands-library.html">nyxx.commands</a>.
-This module (aka library) contains all main nyxx logic:
-<code>/internal</code> - contains internal things like Http and Websocket stack needed for library to work
-<code>/</code> - root path has generic models/objects/stuff which is used everywhere
-<code>/builders</code> - contains classes used to build <a href="nyxx/Embed-class.html">Embed</a>s
-<code>/objects</code> - directory which groups all data classes
-<code>/events</code> - classes used in event dispatching
-<code>/errors</code> - Few errors to report weird behavior</p>
+<p>Library consists of 2 modules <a href="nyxx/nyxx-library.html">nyxx</a> and <a href="nyxx.commands/nyxx.commands-library.html">nyxx.commands</a>.</p>
+<p>This module (aka library) contains all main nyxx logic:</p><ul><li><code>/internal</code> - contains internal things like Http and Websocket stack needed for library to work</li><li><code>/</code> - root path has generic models/objects/stuff which is used everywhere</li><li><code>/builders</code> - contains classes used to build <a href="nyxx/Embed-class.html">Embed</a>s</li><li><code>/objects</code> - directory which groups all data classes</li><li><code>/events</code> - classes used in event dispatching</li><li><code>/errors</code> - Few errors to report weird behavior</li></ul>
     </section>
     
     <section class="summary offset-anchor" id="classes">
@@ -70,6 +64,24 @@ This module (aka library) contains all main nyxx logic:
         </dt>
         <dd>
           A message attachment.
+        </dd>
+        <dt id="AuditLog">
+          <span class="name "><a href="nyxx/AuditLog-class.html">AuditLog</a></span>
+        </dt>
+        <dd>
+          Represents <a href="nyxx/Guild-class.html">Guild</a>s audit log. <a href="nyxx/AuditLog-class.html">[...]</a>
+        </dd>
+        <dt id="AuditLogChange">
+          <span class="name "><a href="nyxx/AuditLogChange-class.html">AuditLogChange</a></span>
+        </dt>
+        <dd>
+          Represents change made in guild with old and new value <a href="nyxx/AuditLogChange-class.html">[...]</a>
+        </dd>
+        <dt id="AuditLogEntry">
+          <span class="name "><a href="nyxx/AuditLogEntry-class.html">AuditLogEntry</a></span>
+        </dt>
+        <dd>
+          Single entry of Audit Log <a href="nyxx/AuditLogEntry-class.html">[...]</a>
         </dd>
         <dt id="BeforeHttpRequestSendEvent">
           <span class="name "><a href="nyxx/BeforeHttpRequestSendEvent-class.html">BeforeHttpRequestSendEvent</a></span>
@@ -230,6 +242,7 @@ All fields are optional except of <a href="nyxx/EmbedBuilder/title.html">title</
         </dt>
         <dd>
           List of all Unicode Emojis (not really) :D
+Class contains 1200+ emojis which has unicode hex value and shortcode.
         </dd>
         <dt id="Game">
           <span class="name "><a href="nyxx/Game-class.html">Game</a></span>
@@ -290,7 +303,7 @@ Based on bots permissions - can preform operations of <a href="nyxx/Guild-class.
           <span class="name "><a href="nyxx/GuildEmoji-class.html">GuildEmoji</a></span>
         </dt>
         <dd>
-          Emoji object. Handles Unicode emojis and custom ones. Unicode emoji dont have <a href="nyxx/GuildEmoji/id.html">id</a> and <a href="nyxx/GuildEmoji/name.html">name</a> is emoji.
+          Emoji object. Handles Unicode emojis and custom ones.
         </dd>
         <dt id="GuildEmojisUpdateEvent">
           <span class="name "><a href="nyxx/GuildEmojisUpdateEvent-class.html">GuildEmojisUpdateEvent</a></span>
@@ -413,7 +426,8 @@ Supports sending files via <code>sendFile()</code> - method can send file or fil
           <span class="name "><a href="nyxx/MessageChannel-class.html">MessageChannel</a></span>
         </dt>
         <dd>
-          
+          Provides abstraction of messages for <a href="nyxx/TextChannel-class.html">TextChannel</a>, <a href="nyxx/DMChannel-class.html">DMChannel</a> and <code>DMGroupChannel</code>.
+Caches message to avoid abusing API.
         </dd>
         <dt id="MessageDeleteBulkEvent">
           <span class="name "><a href="nyxx/MessageDeleteBulkEvent-class.html">MessageDeleteBulkEvent</a></span>
@@ -541,13 +555,15 @@ or when a 429 is received.
           <span class="name "><a href="nyxx/Snowflake-class.html">Snowflake</a></span>
         </dt>
         <dd>
-          
+          <a href="nyxx/Snowflake-class.html">Snowflake</a> represents id structure which is used by discord.
+<a href="nyxx/Snowflake/id.html">id</a> is actual id of entity which holds <a href="nyxx/Snowflake-class.html">Snowflake</a>
         </dd>
         <dt id="TextChannel">
           <span class="name "><a href="nyxx/TextChannel-class.html">TextChannel</a></span>
         </dt>
         <dd>
-          
+          <a href="nyxx/TextChannel-class.html">TextChannel</a> represents single text channel on <a href="nyxx/Guild-class.html">Guild</a>.
+Inhertits from <a href="nyxx/MessageChannel-class.html">MessageChannel</a> and mixes <a href="nyxx/GuildChannel-class.html">GuildChannel</a>.
         </dd>
         <dt id="TypingEvent">
           <span class="name "><a href="nyxx/TypingEvent-class.html">TypingEvent</a></span>
@@ -577,19 +593,19 @@ or when a 429 is received.
           <span class="name "><a href="nyxx/VoiceChannel-class.html">VoiceChannel</a></span>
         </dt>
         <dd>
-          
+          Represents VoiceChannel within <a href="nyxx/Guild-class.html">Guild</a>
         </dd>
         <dt id="VoiceRegion">
           <span class="name "><a href="nyxx/VoiceRegion-class.html">VoiceRegion</a></span>
         </dt>
         <dd>
-          
+          Represents voice region on which discord guild takes place
         </dd>
         <dt id="VoiceServerUpdateEvent">
           <span class="name "><a href="nyxx/VoiceServerUpdateEvent-class.html">VoiceServerUpdateEvent</a></span>
         </dt>
         <dd>
-          
+          Emitted when guild's voice server changes
         </dd>
         <dt id="VoiceState">
           <span class="name "><a href="nyxx/VoiceState-class.html">VoiceState</a></span>
@@ -601,7 +617,7 @@ or when a 429 is received.
           <span class="name "><a href="nyxx/VoiceStateUpdateEvent-class.html">VoiceStateUpdateEvent</a></span>
         </dt>
         <dd>
-          
+          Emmited when client connects/disconnecs/mutes etc to voice channel
         </dd>
         <dt id="Webhook">
           <span class="name "><a href="nyxx/Webhook-class.html">Webhook</a></span>
@@ -613,7 +629,7 @@ or when a 429 is received.
           <span class="name "><a href="nyxx/WebhookUpdateEvent-class.html">WebhookUpdateEvent</a></span>
         </dt>
         <dd>
-          
+          Emitted when webhook is edited (add, delete. modify)
         </dd>
       </dl>
     </section>
@@ -669,6 +685,9 @@ or <a href="https://www.dartdocs.org/documentation/nyxx/latest/discord.vm/config
     <ol>
       <li class="section-title"><a href="nyxx/nyxx-library.html#classes">Classes</a></li>
       <li><a href="nyxx/Attachment-class.html">Attachment</a></li>
+      <li><a href="nyxx/AuditLog-class.html">AuditLog</a></li>
+      <li><a href="nyxx/AuditLogChange-class.html">AuditLogChange</a></li>
+      <li><a href="nyxx/AuditLogEntry-class.html">AuditLogEntry</a></li>
       <li><a href="nyxx/BeforeHttpRequestSendEvent-class.html">BeforeHttpRequestSendEvent</a></li>
       <li><a href="nyxx/Channel-class.html">Channel</a></li>
       <li><a href="nyxx/ChannelCreateEvent-class.html">ChannelCreateEvent</a></li>
@@ -777,7 +796,7 @@ or <a href="https://www.dartdocs.org/documentation/nyxx/latest/discord.vm/config
 
 <footer>
   <span class="no-break">
-    nyxx 0.21.2
+    nyxx 0.22.1
   </span>
 
 </footer>

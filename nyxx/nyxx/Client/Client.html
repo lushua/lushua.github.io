@@ -127,6 +127,9 @@
       <pre class="language-dart"><code class="language-dart">Client(this._token, [this._options]) {
   if (!internals.setup) throw new NotSetupError();
 
+  if (this._token == null || this._token == &quot;&quot;)
+    throw new Exception(&quot;Token cannot be null or empty&quot;);
+
   if (this._options == null) {
     this._options = new ClientOptions();
   }
@@ -151,7 +154,7 @@
 
 <footer>
   <span class="no-break">
-    nyxx 0.21.2
+    nyxx 0.22.1
   </span>
 
 </footer>

@@ -40,6 +40,9 @@
     <ol>
       <li class="section-title"><a href="nyxx/nyxx-library.html#classes">Classes</a></li>
       <li><a href="nyxx/Attachment-class.html">Attachment</a></li>
+      <li><a href="nyxx/AuditLog-class.html">AuditLog</a></li>
+      <li><a href="nyxx/AuditLogChange-class.html">AuditLogChange</a></li>
+      <li><a href="nyxx/AuditLogEntry-class.html">AuditLogEntry</a></li>
       <li><a href="nyxx/BeforeHttpRequestSendEvent-class.html">BeforeHttpRequestSendEvent</a></li>
       <li><a href="nyxx/Channel-class.html">Channel</a></li>
       <li><a href="nyxx/ChannelCreateEvent-class.html">ChannelCreateEvent</a></li>
@@ -259,6 +262,14 @@
           The string to mention the user.
           <div class="features">read / write, inherited</div>
 </dd>
+        <dt id="mentionNickname" class="property inherited">
+          <span class="name"><a href="nyxx/User/mentionNickname.html">mentionNickname</a></span>
+          <span class="signature">&#8596; String</span>
+        </dt>
+        <dd class="inherited">
+          The string to mention the user by nickname
+          <div class="features">read / write, inherited</div>
+</dd>
         <dt id="raw" class="property inherited">
           <span class="name"><a href="nyxx/User/raw.html">raw</a></span>
           <span class="signature">&#8596; Map<span class="signature">&lt;String, dynamic&gt;</span></span>
@@ -364,15 +375,6 @@
           Sends a message. <a href="nyxx/User/send.html">[...]</a>
           <div class="features">inherited</div>
 </dd>
-        <dt id="sendMessage" class="callable inherited">
-          <span class="name deprecated"><a class="deprecated" href="nyxx/User/sendMessage.html">sendMessage</a></span><span class="signature">(<wbr>{<span class="parameter" id="sendMessage-param-content"><span class="type-annotation">String</span> <span class="parameter-name">content</span>, </span> <span class="parameter" id="sendMessage-param-embed"><span class="type-annotation">Map</span> <span class="parameter-name">embed</span>, </span> <span class="parameter" id="sendMessage-param-tts"><span class="type-annotation">bool</span> <span class="parameter-name">tts</span>: <span class="default-value">false</span>, </span> <span class="parameter" id="sendMessage-param-nonce"><span class="type-annotation">String</span> <span class="parameter-name">nonce</span>, </span> <span class="parameter" id="sendMessage-param-disableEveryone"><span class="type-annotation">bool</span> <span class="parameter-name">disableEveryone</span></span> })
-            <span class="returntype parameter">&#8594; Future<span class="signature">&lt;<a href="nyxx/Message-class.html">Message</a>&gt;</span></span>
-          </span>
-        </dt>
-        <dd class="inherited">
-          Sends a message. <a href="nyxx/User/sendMessage.html">[...]</a>
-          <div class="features">inherited</div>
-</dd>
         <dt id="startTyping" class="callable inherited">
           <span class="name"><a href="nyxx/User/startTyping.html">startTyping</a></span><span class="signature">(<wbr>)
             <span class="returntype parameter">&#8594; Future<span class="signature">&lt;Null&gt;</span></span>
@@ -406,7 +408,7 @@
           </span>
         </dt>
         <dd class="inherited">
-          Returns a string representation of this object.
+          Returns a mention of user
           <div class="features">inherited</div>
 </dd>
       </dl>
@@ -449,6 +451,7 @@
       <li class="inherited"><a href="nyxx/User/hashCode.html">hashCode</a></li>
       <li class="inherited"><a href="nyxx/User/id.html">id</a></li>
       <li class="inherited"><a href="nyxx/User/mention.html">mention</a></li>
+      <li class="inherited"><a href="nyxx/User/mentionNickname.html">mentionNickname</a></li>
       <li class="inherited"><a href="nyxx/User/raw.html">raw</a></li>
       <li class="inherited"><a href="nyxx/User/runtimeType.html">runtimeType</a></li>
       <li class="inherited"><a href="nyxx/User/username.html">username</a></li>
@@ -462,7 +465,6 @@
       <li class="inherited"><a href="nyxx/User/getMessage.html">getMessage</a></li>
       <li class="inherited"><a href="nyxx/User/noSuchMethod.html">noSuchMethod</a></li>
       <li class="inherited"><a href="nyxx/User/send.html">send</a></li>
-      <li class="inherited"><a class="deprecated" href="nyxx/User/sendMessage.html">sendMessage</a></li>
       <li class="inherited"><a href="nyxx/User/startTyping.html">startTyping</a></li>
       <li class="inherited"><a href="nyxx/User/startTypingLoop.html">startTypingLoop</a></li>
       <li class="inherited"><a href="nyxx/User/stopTypingLoop.html">stopTypingLoop</a></li>
@@ -480,7 +482,7 @@
 
 <footer>
   <span class="no-break">
-    nyxx 0.21.2
+    nyxx 0.22.1
   </span>
 
 </footer>

@@ -39,11 +39,15 @@
     <h5>nyxx.commands library</h5>
     <ol>
       <li class="section-title"><a href="nyxx.commands/nyxx.commands-library.html#classes">Classes</a></li>
+      <li><a href="nyxx.commands/AbstractCommand-class.html">AbstractCommand</a></li>
       <li><a href="nyxx.commands/CacheEntry-class.html">CacheEntry</a></li>
       <li><a href="nyxx.commands/Command-class.html">Command</a></li>
+      <li><a href="nyxx.commands/CommandExecutionFailEvent-class.html">CommandExecutionFailEvent</a></li>
       <li><a href="nyxx.commands/Commands-class.html">Commands</a></li>
       <li><a href="nyxx.commands/CooldownCache-class.html">CooldownCache</a></li>
       <li><a href="nyxx.commands/InstanceCommandFramework-class.html">InstanceCommandFramework</a></li>
+      <li><a href="nyxx.commands/Maincommand-class.html">Maincommand</a></li>
+      <li><a href="nyxx.commands/MirrorsCommand-class.html">MirrorsCommand</a></li>
       <li><a href="nyxx.commands/MirrorsCommandFramework-class.html">MirrorsCommandFramework</a></li>
       <li><a href="nyxx.commands/Subcommand-class.html">Subcommand</a></li>
     
@@ -108,7 +112,7 @@ It's faster than <a href="nyxx.commands/MirrorsCommandFramework-class.html">Mirr
           <span class="signature">&#8596; Stream<span class="signature">&lt;<a href="nyxx/Message-class.html">Message</a>&gt;</span></span>
         </dt>
         <dd class="inherited">
-          Invoked when user hits command rate limit.
+          Invoked when user hits command ratelimit.
           <div class="features">read / write, inherited</div>
 </dd>
         <dt id="forAdminOnlyEvent" class="property inherited">
@@ -184,7 +188,7 @@ All messages without this prefix will be ignored
           
 </dd>
         <dt id="executeCommand" class="callable">
-          <span class="name"><a href="nyxx.commands/InstanceCommandFramework/executeCommand.html">executeCommand</a></span><span class="signature">(<wbr><span class="parameter" id="executeCommand-param-msg"><span class="type-annotation"><a href="nyxx/Message-class.html">Message</a></span> <span class="parameter-name">msg</span>, </span> <span class="parameter" id="executeCommand-param-matchedCommand"><span class="type-annotation"><a href="nyxx.commands/Command-class.html">Command</a></span> <span class="parameter-name">matchedCommand</span></span>)
+          <span class="name"><a href="nyxx.commands/InstanceCommandFramework/executeCommand.html">executeCommand</a></span><span class="signature">(<wbr><span class="parameter" id="executeCommand-param-msg"><span class="type-annotation"><a href="nyxx/Message-class.html">Message</a></span> <span class="parameter-name">msg</span>, </span> <span class="parameter" id="executeCommand-param-matchedCommand"><span class="type-annotation"><a href="nyxx.commands/AbstractCommand-class.html">AbstractCommand</a></span> <span class="parameter-name">matchedCommand</span></span>)
             <span class="returntype parameter">&#8594; Future<span class="signature">&lt;Null&gt;</span></span>
           </span>
         </dt>
@@ -193,7 +197,7 @@ All messages without this prefix will be ignored
           
 </dd>
         <dt id="add" class="callable inherited">
-          <span class="name"><a href="nyxx.commands/Commands/add.html">add</a></span><span class="signature">(<wbr><span class="parameter" id="add-param-command"><span class="type-annotation"><a href="nyxx.commands/Command-class.html">Command</a></span> <span class="parameter-name">command</span></span>)
+          <span class="name"><a href="nyxx.commands/Commands/add.html">add</a></span><span class="signature">(<wbr><span class="parameter" id="add-param-command"><span class="type-annotation"><a href="nyxx.commands/AbstractCommand-class.html">AbstractCommand</a></span> <span class="parameter-name">command</span></span>)
             <span class="returntype parameter">&#8594; void</span>
           </span>
         </dt>
@@ -202,7 +206,7 @@ All messages without this prefix will be ignored
           <div class="features">inherited</div>
 </dd>
         <dt id="addMany" class="callable inherited">
-          <span class="name"><a href="nyxx.commands/Commands/addMany.html">addMany</a></span><span class="signature">(<wbr><span class="parameter" id="addMany-param-commands"><span class="type-annotation">List<span class="signature">&lt;<a href="nyxx.commands/Command-class.html">Command</a>&gt;</span></span> <span class="parameter-name">commands</span></span>)
+          <span class="name"><a href="nyxx.commands/Commands/addMany.html">addMany</a></span><span class="signature">(<wbr><span class="parameter" id="addMany-param-commands"><span class="type-annotation">List<span class="signature">&lt;<a href="nyxx.commands/AbstractCommand-class.html">AbstractCommand</a>&gt;</span></span> <span class="parameter-name">commands</span></span>)
             <span class="returntype parameter">&#8594; void</span>
           </span>
         </dt>
@@ -289,7 +293,7 @@ All messages without this prefix will be ignored
 
 <footer>
   <span class="no-break">
-    nyxx 0.21.2
+    nyxx 0.22.1
   </span>
 
 </footer>

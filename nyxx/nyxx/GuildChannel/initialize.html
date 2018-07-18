@@ -82,7 +82,7 @@
   this.position = raw[&#39;position&#39;];
 
   &#47;&#47;this.id = raw[&#39;id&#39;];
-  if (raw.containsKey(&#39;parent_id&#39;))
+  if (raw[&#39;parent_id&#39;] != null)
     this.parentId = new Snowflake(raw[&#39;parent_id&#39;]);
 
   this.nsfw = raw[&#39;nsfw&#39;];
@@ -98,7 +98,7 @@
 
 <footer>
   <span class="no-break">
-    nyxx 0.21.2
+    nyxx 0.22.1
   </span>
 
 </footer>

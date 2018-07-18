@@ -40,6 +40,9 @@
     <ol>
       <li class="section-title"><a href="nyxx/nyxx-library.html#classes">Classes</a></li>
       <li><a href="nyxx/Attachment-class.html">Attachment</a></li>
+      <li><a href="nyxx/AuditLog-class.html">AuditLog</a></li>
+      <li><a href="nyxx/AuditLogChange-class.html">AuditLogChange</a></li>
+      <li><a href="nyxx/AuditLogEntry-class.html">AuditLogEntry</a></li>
       <li><a href="nyxx/BeforeHttpRequestSendEvent-class.html">BeforeHttpRequestSendEvent</a></li>
       <li><a href="nyxx/Channel-class.html">Channel</a></li>
       <li><a href="nyxx/ChannelCreateEvent-class.html">ChannelCreateEvent</a></li>
@@ -213,6 +216,14 @@
           Whether or not the role is managed by an integration.
           <div class="features">read / write</div>
 </dd>
+        <dt id="mention" class="property">
+          <span class="name"><a href="nyxx/Role/mention.html">mention</a></span>
+          <span class="signature">&#8596; String</span>
+        </dt>
+        <dd>
+          Mention of role
+          <div class="features">read / write</div>
+</dd>
         <dt id="mentionable" class="property">
           <span class="name"><a href="nyxx/Role/mentionable.html">mentionable</a></span>
           <span class="signature">&#8596; bool</span>
@@ -276,7 +287,7 @@
       <h2>Methods</h2>
       <dl class="callables">
         <dt id="addToUser" class="callable">
-          <span class="name"><a href="nyxx/Role/addToUser.html">addToUser</a></span><span class="signature">(<wbr><span class="parameter" id="addToUser-param-user"><span class="type-annotation"><a href="nyxx/User-class.html">User</a></span> <span class="parameter-name">user</span></span>)
+          <span class="name"><a href="nyxx/Role/addToUser.html">addToUser</a></span><span class="signature">(<wbr><span class="parameter" id="addToUser-param-user"><span class="type-annotation"><a href="nyxx/User-class.html">User</a></span> <span class="parameter-name">user</span>, {</span> <span class="parameter" id="addToUser-param-auditReason"><span class="type-annotation">String</span> <span class="parameter-name">auditReason</span>: <span class="default-value">""</span></span> })
             <span class="returntype parameter">&#8594; Future<span class="signature">&lt;Null&gt;</span></span>
           </span>
         </dt>
@@ -285,7 +296,7 @@
           
 </dd>
         <dt id="delete" class="callable">
-          <span class="name"><a href="nyxx/Role/delete.html">delete</a></span><span class="signature">(<wbr>)
+          <span class="name"><a href="nyxx/Role/delete.html">delete</a></span><span class="signature">(<wbr>{<span class="parameter" id="delete-param-auditReason"><span class="type-annotation">String</span> <span class="parameter-name">auditReason</span>: <span class="default-value">""</span></span> })
             <span class="returntype parameter">&#8594; Future<span class="signature">&lt;Null&gt;</span></span>
           </span>
         </dt>
@@ -294,7 +305,7 @@
           
 </dd>
         <dt id="edit" class="callable">
-          <span class="name"><a href="nyxx/Role/edit.html">edit</a></span><span class="signature">(<wbr>{<span class="parameter" id="edit-param-name"><span class="type-annotation">String</span> <span class="parameter-name">name</span>: <span class="default-value">null</span>, </span> <span class="parameter" id="edit-param-permissions"><span class="type-annotation">int</span> <span class="parameter-name">permissions</span>: <span class="default-value">null</span>, </span> <span class="parameter" id="edit-param-position"><span class="type-annotation">int</span> <span class="parameter-name">position</span>: <span class="default-value">null</span>, </span> <span class="parameter" id="edit-param-color"><span class="type-annotation">int</span> <span class="parameter-name">color</span>: <span class="default-value">null</span>, </span> <span class="parameter" id="edit-param-mentionable"><span class="type-annotation">bool</span> <span class="parameter-name">mentionable</span>: <span class="default-value">null</span>, </span> <span class="parameter" id="edit-param-hoist"><span class="type-annotation">bool</span> <span class="parameter-name">hoist</span>: <span class="default-value">null</span></span> })
+          <span class="name"><a href="nyxx/Role/edit.html">edit</a></span><span class="signature">(<wbr>{<span class="parameter" id="edit-param-name"><span class="type-annotation">String</span> <span class="parameter-name">name</span>: <span class="default-value">null</span>, </span> <span class="parameter" id="edit-param-permissions"><span class="type-annotation">int</span> <span class="parameter-name">permissions</span>: <span class="default-value">null</span>, </span> <span class="parameter" id="edit-param-position"><span class="type-annotation">int</span> <span class="parameter-name">position</span>: <span class="default-value">null</span>, </span> <span class="parameter" id="edit-param-color"><span class="type-annotation">int</span> <span class="parameter-name">color</span>: <span class="default-value">null</span>, </span> <span class="parameter" id="edit-param-mentionable"><span class="type-annotation">bool</span> <span class="parameter-name">mentionable</span>: <span class="default-value">null</span>, </span> <span class="parameter" id="edit-param-hoist"><span class="type-annotation">bool</span> <span class="parameter-name">hoist</span>: <span class="default-value">null</span>, </span> <span class="parameter" id="edit-param-auditReason"><span class="type-annotation">String</span> <span class="parameter-name">auditReason</span>: <span class="default-value">""</span></span> })
             <span class="returntype parameter">&#8594; Future<span class="signature">&lt;<a href="nyxx/Role-class.html">Role</a>&gt;</span></span>
           </span>
         </dt>
@@ -308,7 +319,7 @@
           </span>
         </dt>
         <dd>
-          Returns a string representation of this object.
+          Returns a mention of role. Empty string if role inn't mentionable
           
 </dd>
         <dt id="noSuchMethod" class="callable inherited">
@@ -356,6 +367,7 @@
       <li><a href="nyxx/Role/hoist.html">hoist</a></li>
       <li><a href="nyxx/Role/id.html">id</a></li>
       <li><a href="nyxx/Role/managed.html">managed</a></li>
+      <li><a href="nyxx/Role/mention.html">mention</a></li>
       <li><a href="nyxx/Role/mentionable.html">mentionable</a></li>
       <li><a href="nyxx/Role/name.html">name</a></li>
       <li><a href="nyxx/Role/permissions.html">permissions</a></li>
@@ -383,7 +395,7 @@
 
 <footer>
   <span class="no-break">
-    nyxx 0.21.2
+    nyxx 0.22.1
   </span>
 
 </footer>

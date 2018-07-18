@@ -40,6 +40,9 @@
     <ol>
       <li class="section-title"><a href="nyxx/nyxx-library.html#classes">Classes</a></li>
       <li><a href="nyxx/Attachment-class.html">Attachment</a></li>
+      <li><a href="nyxx/AuditLog-class.html">AuditLog</a></li>
+      <li><a href="nyxx/AuditLogChange-class.html">AuditLogChange</a></li>
+      <li><a href="nyxx/AuditLogEntry-class.html">AuditLogEntry</a></li>
       <li><a href="nyxx/BeforeHttpRequestSendEvent-class.html">BeforeHttpRequestSendEvent</a></li>
       <li><a href="nyxx/Channel-class.html">Channel</a></li>
       <li><a href="nyxx/ChannelCreateEvent-class.html">ChannelCreateEvent</a></li>
@@ -195,6 +198,15 @@
     <section class="summary offset-anchor" id="instance-methods">
       <h2>Methods</h2>
       <dl class="callables">
+        <dt id="addAuditReason" class="callable">
+          <span class="name"><a href="nyxx/Http/addAuditReason.html">addAuditReason</a></span><span class="signature">(<wbr><span class="parameter" id="addAuditReason-param-reason"><span class="type-annotation">String</span> <span class="parameter-name">reason</span></span>)
+            <span class="returntype parameter">&#8594; Map<span class="signature">&lt;String, dynamic&gt;</span></span>
+          </span>
+        </dt>
+        <dd>
+          
+          
+</dd>
         <dt id="expandAttachments" class="callable">
           <span class="name"><a href="nyxx/Http/expandAttachments.html">expandAttachments</a></span><span class="signature">(<wbr><span class="parameter" id="expandAttachments-param-payload"><span class="type-annotation">String</span> <span class="parameter-name">payload</span></span>)
             <span class="returntype parameter">&#8594; String</span>
@@ -205,7 +217,7 @@
           
 </dd>
         <dt id="send" class="callable">
-          <span class="name"><a href="nyxx/Http/send.html">send</a></span><span class="signature">(<wbr><span class="parameter" id="send-param-method"><span class="type-annotation">String</span> <span class="parameter-name">method</span>, </span> <span class="parameter" id="send-param-path"><span class="type-annotation">String</span> <span class="parameter-name">path</span>, {</span> <span class="parameter" id="send-param-body"><span class="parameter-name">body</span>, </span> <span class="parameter" id="send-param-queryParams"><span class="type-annotation">Map<span class="signature">&lt;String, String&gt;</span></span> <span class="parameter-name">queryParams</span>, </span> <span class="parameter" id="send-param-beforeReady"><span class="type-annotation">bool</span> <span class="parameter-name">beforeReady</span>: <span class="default-value">false</span>, </span> <span class="parameter" id="send-param-headers"><span class="type-annotation">Map<span class="signature">&lt;String, String&gt;</span></span> <span class="parameter-name">headers</span>: <span class="default-value">const {}</span></span> })
+          <span class="name"><a href="nyxx/Http/send.html">send</a></span><span class="signature">(<wbr><span class="parameter" id="send-param-method"><span class="type-annotation">String</span> <span class="parameter-name">method</span>, </span> <span class="parameter" id="send-param-path"><span class="type-annotation">String</span> <span class="parameter-name">path</span>, {</span> <span class="parameter" id="send-param-body"><span class="parameter-name">body</span>, </span> <span class="parameter" id="send-param-queryParams"><span class="type-annotation">Map<span class="signature">&lt;String, String&gt;</span></span> <span class="parameter-name">queryParams</span>, </span> <span class="parameter" id="send-param-beforeReady"><span class="type-annotation">bool</span> <span class="parameter-name">beforeReady</span>: <span class="default-value">false</span>, </span> <span class="parameter" id="send-param-headers"><span class="type-annotation">Map<span class="signature">&lt;String, String&gt;</span></span> <span class="parameter-name">headers</span>: <span class="default-value">const {}</span>, </span> <span class="parameter" id="send-param-reason"><span class="type-annotation">String</span> <span class="parameter-name">reason</span></span> })
             <span class="returntype parameter">&#8594; Future<span class="signature">&lt;<a href="nyxx/HttpResponse-class.html">HttpResponse</a>&gt;</span></span>
           </span>
         </dt>
@@ -214,7 +226,7 @@
           
 </dd>
         <dt id="sendMultipart" class="callable">
-          <span class="name"><a href="nyxx/Http/sendMultipart.html">sendMultipart</a></span><span class="signature">(<wbr><span class="parameter" id="sendMultipart-param-method"><span class="type-annotation">String</span> <span class="parameter-name">method</span>, </span> <span class="parameter" id="sendMultipart-param-path"><span class="type-annotation">String</span> <span class="parameter-name">path</span>, </span> <span class="parameter" id="sendMultipart-param-filenames"><span class="type-annotation">List<span class="signature">&lt;String&gt;</span></span> <span class="parameter-name">filenames</span>, {</span> <span class="parameter" id="sendMultipart-param-data"><span class="type-annotation">String</span> <span class="parameter-name">data</span>, </span> <span class="parameter" id="sendMultipart-param-beforeReady"><span class="type-annotation">bool</span> <span class="parameter-name">beforeReady</span>: <span class="default-value">false</span></span> })
+          <span class="name"><a href="nyxx/Http/sendMultipart.html">sendMultipart</a></span><span class="signature">(<wbr><span class="parameter" id="sendMultipart-param-method"><span class="type-annotation">String</span> <span class="parameter-name">method</span>, </span> <span class="parameter" id="sendMultipart-param-path"><span class="type-annotation">String</span> <span class="parameter-name">path</span>, </span> <span class="parameter" id="sendMultipart-param-filenames"><span class="type-annotation">List<span class="signature">&lt;String&gt;</span></span> <span class="parameter-name">filenames</span>, {</span> <span class="parameter" id="sendMultipart-param-data"><span class="type-annotation">String</span> <span class="parameter-name">data</span>, </span> <span class="parameter" id="sendMultipart-param-beforeReady"><span class="type-annotation">bool</span> <span class="parameter-name">beforeReady</span>: <span class="default-value">false</span>, </span> <span class="parameter" id="sendMultipart-param-reason"><span class="type-annotation">String</span> <span class="parameter-name">reason</span></span> })
             <span class="returntype parameter">&#8594; Future<span class="signature">&lt;<a href="nyxx/HttpResponse-class.html">HttpResponse</a>&gt;</span></span>
           </span>
         </dt>
@@ -275,6 +287,7 @@
       <li class="inherited"><a href="nyxx/Http/runtimeType.html">runtimeType</a></li>
     
       <li class="section-title"><a href="nyxx/Http-class.html#instance-methods">Methods</a></li>
+      <li><a href="nyxx/Http/addAuditReason.html">addAuditReason</a></li>
       <li><a href="nyxx/Http/expandAttachments.html">expandAttachments</a></li>
       <li><a href="nyxx/Http/send.html">send</a></li>
       <li><a href="nyxx/Http/sendMultipart.html">sendMultipart</a></li>
@@ -293,7 +306,7 @@
 
 <footer>
   <span class="no-break">
-    nyxx 0.21.2
+    nyxx 0.22.1
   </span>
 
 </footer>

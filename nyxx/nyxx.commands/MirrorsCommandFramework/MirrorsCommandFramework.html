@@ -42,9 +42,10 @@
       <li class="section-title"><a href="nyxx.commands/MirrorsCommandFramework-class.html#constructors">Constructors</a></li>
       <li><a href="nyxx.commands/MirrorsCommandFramework/MirrorsCommandFramework.html">MirrorsCommandFramework</a></li>
     
-      <li class="section-title inherited">
+      <li class="section-title">
         <a href="nyxx.commands/MirrorsCommandFramework-class.html#instance-properties">Properties</a>
       </li>
+      <li><a href="nyxx.commands/MirrorsCommandFramework/commandExecutionFail.html">commandExecutionFail</a></li>
       <li class="inherited"><a href="nyxx.commands/Commands/commandNotFoundEvent.html">commandNotFoundEvent</a></li>
       <li class="inherited"><a href="nyxx.commands/Commands/cooldownEvent.html">cooldownEvent</a></li>
       <li class="inherited"><a href="nyxx.commands/Commands/forAdminOnlyEvent.html">forAdminOnlyEvent</a></li>
@@ -58,6 +59,8 @@
       <li class="section-title"><a href="nyxx.commands/MirrorsCommandFramework-class.html#instance-methods">Methods</a></li>
       <li><a href="nyxx.commands/MirrorsCommandFramework/createHelp.html">createHelp</a></li>
       <li><a href="nyxx.commands/MirrorsCommandFramework/executeCommand.html">executeCommand</a></li>
+      <li><a href="nyxx.commands/MirrorsCommandFramework/groupParams.html">groupParams</a></li>
+      <li><a href="nyxx.commands/MirrorsCommandFramework/registerServices.html">registerServices</a></li>
       <li class="inherited"><a href="nyxx.commands/Commands/add.html">add</a></li>
       <li class="inherited"><a href="nyxx.commands/Commands/addMany.html">addMany</a></li>
       <li class="inherited"><a href="nyxx.commands/Commands/noSuchMethod.html">noSuchMethod</a></li>
@@ -88,7 +91,10 @@ All arguments are passed back to <a href="nyxx.commands/Commands-class.html">Com
       <h2><span>Implementation</span> </h2>
       <pre class="language-dart"><code class="language-dart">MirrorsCommandFramework(String prefix, Client client,
     [List&lt;String&gt; admins, String gameName])
-    : super(prefix, client, admins, gameName);</code></pre>
+    : super(prefix, client, admins, gameName) {
+  _commandExecutionFail = new StreamController&lt;CommandExecutionFailEvent&gt;();
+  commandExecutionFail = _commandExecutionFail.stream;
+}</code></pre>
     </section>
 
   </div> <!-- /.main-content -->
@@ -100,7 +106,7 @@ All arguments are passed back to <a href="nyxx.commands/Commands-class.html">Com
 
 <footer>
   <span class="no-break">
-    nyxx 0.21.2
+    nyxx 0.22.1
   </span>
 
 </footer>

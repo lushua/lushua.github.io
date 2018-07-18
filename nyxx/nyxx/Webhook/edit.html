@@ -62,7 +62,6 @@
       <li><a href="nyxx/Webhook/delete.html">delete</a></li>
       <li><a href="nyxx/Webhook/edit.html">edit</a></li>
       <li><a href="nyxx/Webhook/send.html">send</a></li>
-      <li><a class="deprecated" href="nyxx/Webhook/sendMessage.html">sendMessage</a></li>
       <li><a href="nyxx/Webhook/toString.html">toString</a></li>
       <li class="inherited"><a href="nyxx/Webhook/noSuchMethod.html">noSuchMethod</a></li>
     
@@ -82,7 +81,7 @@
     <section class="multi-line-signature">
       <span class="returntype">Future<span class="signature">&lt;<a href="nyxx/Webhook-class.html">Webhook</a>&gt;</span></span>
       <span class="name ">edit</span>
-(<wbr>{<span class="parameter" id="edit-param-name"><span class="type-annotation">String</span> <span class="parameter-name">name</span></span> })
+(<wbr>{<span class="parameter" id="edit-param-name"><span class="type-annotation">String</span> <span class="parameter-name">name</span>, </span> <span class="parameter" id="edit-param-auditReason"><span class="type-annotation">String</span> <span class="parameter-name">auditReason</span>: <span class="default-value">""</span></span> })
     </section>
     <section class="desc markdown">
       <p>Edits the webhook.</p>
@@ -90,10 +89,9 @@
     
     <section class="summary source-code" id="source">
       <h2><span>Implementation</span> </h2>
-      <pre class="language-dart"><code class="language-dart">Future&lt;Webhook&gt; edit({String name}) async {
-  HttpResponse r = await this
-      .http
-      .send(&#39;PATCH&#39;, &quot;&#47;webhooks&#47;$id&#47;$token&quot;, body: {&quot;name&quot;: name});
+      <pre class="language-dart"><code class="language-dart">Future&lt;Webhook&gt; edit({String name, String auditReason: &quot;&quot;}) async {
+  HttpResponse r = await this.http.send(&#39;PATCH&#39;, &quot;&#47;webhooks&#47;$id&#47;$token&quot;,
+      body: {&quot;name&quot;: name}, reason: auditReason);
   this.name = r.body.asJson()[&#39;name&#39;];
   return this;
 }</code></pre>
@@ -108,7 +106,7 @@
 
 <footer>
   <span class="no-break">
-    nyxx 0.21.2
+    nyxx 0.22.1
   </span>
 
 </footer>

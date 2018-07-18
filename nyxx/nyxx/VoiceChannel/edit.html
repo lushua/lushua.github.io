@@ -79,7 +79,7 @@
     <section class="multi-line-signature">
       <span class="returntype">Future<span class="signature">&lt;<a href="nyxx/VoiceChannel-class.html">VoiceChannel</a>&gt;</span></span>
       <span class="name ">edit</span>
-(<wbr>{<span class="parameter" id="edit-param-name"><span class="type-annotation">String</span> <span class="parameter-name">name</span>: <span class="default-value">null</span>, </span> <span class="parameter" id="edit-param-bitrate"><span class="type-annotation">int</span> <span class="parameter-name">bitrate</span>: <span class="default-value">null</span>, </span> <span class="parameter" id="edit-param-position"><span class="type-annotation">int</span> <span class="parameter-name">position</span>: <span class="default-value">null</span>, </span> <span class="parameter" id="edit-param-userLimit"><span class="type-annotation">int</span> <span class="parameter-name">userLimit</span>: <span class="default-value">null</span></span> })
+(<wbr>{<span class="parameter" id="edit-param-name"><span class="type-annotation">String</span> <span class="parameter-name">name</span>: <span class="default-value">null</span>, </span> <span class="parameter" id="edit-param-bitrate"><span class="type-annotation">int</span> <span class="parameter-name">bitrate</span>: <span class="default-value">null</span>, </span> <span class="parameter" id="edit-param-position"><span class="type-annotation">int</span> <span class="parameter-name">position</span>: <span class="default-value">null</span>, </span> <span class="parameter" id="edit-param-userLimit"><span class="type-annotation">int</span> <span class="parameter-name">userLimit</span>: <span class="default-value">null</span>, </span> <span class="parameter" id="edit-param-auditReason"><span class="type-annotation">String</span> <span class="parameter-name">auditReason</span></span> })
     </section>
     <section class="desc markdown">
       <p>Edits the channel.</p>
@@ -91,14 +91,17 @@
     {String name: null,
     int bitrate: null,
     int position: null,
-    int userLimit: null}) async {
+    int userLimit: null,
+    String auditReason}) async {
   HttpResponse r =
-      await this.client.http.send(&#39;PATCH&#39;, &quot;&#47;channels&#47;${this.id}&quot;, body: {
-    &quot;name&quot;: name != null ? name : this.name,
-    &quot;bitrate&quot;: bitrate != null ? bitrate : this.bitrate,
-    &quot;user_limit&quot;: userLimit != null ? userLimit : this.userLimit,
-    &quot;position&quot;: position != null ? position : this.position
-  });
+      await this.client.http.send(&#39;PATCH&#39;, &quot;&#47;channels&#47;${this.id}&quot;,
+          body: {
+            &quot;name&quot;: name != null ? name : this.name,
+            &quot;bitrate&quot;: bitrate != null ? bitrate : this.bitrate,
+            &quot;user_limit&quot;: userLimit != null ? userLimit : this.userLimit,
+            &quot;position&quot;: position != null ? position : this.position
+          },
+          reason: auditReason);
   return new VoiceChannel._new(
       this.client, r.body.asJson() as Map&lt;String, dynamic&gt;, this.guild);
 }</code></pre>
@@ -113,7 +116,7 @@
 
 <footer>
   <span class="no-break">
-    nyxx 0.21.2
+    nyxx 0.22.1
   </span>
 
 </footer>

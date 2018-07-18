@@ -50,6 +50,7 @@
       <li><a href="nyxx/Role/hoist.html">hoist</a></li>
       <li><a href="nyxx/Role/id.html">id</a></li>
       <li><a href="nyxx/Role/managed.html">managed</a></li>
+      <li><a href="nyxx/Role/mention.html">mention</a></li>
       <li><a href="nyxx/Role/mentionable.html">mentionable</a></li>
       <li><a href="nyxx/Role/name.html">name</a></li>
       <li><a href="nyxx/Role/permissions.html">permissions</a></li>
@@ -87,13 +88,13 @@
 (<wbr>)
     </section>
     <section class="desc markdown">
-      <p>Returns a string representation of this object.</p>
+      <p>Returns a mention of role. Empty string if role inn't mentionable</p>
     </section>
     
     <section class="summary source-code" id="source">
       <h2><span>Implementation</span> </h2>
       <pre class="language-dart"><code class="language-dart">@override
-String toString() =&gt; this.name;</code></pre>
+String toString() =&gt; mentionable ? this.mention : &quot;&quot;;</code></pre>
     </section>
 
   </div> <!-- /.main-content -->
@@ -105,7 +106,7 @@ String toString() =&gt; this.name;</code></pre>
 
 <footer>
   <span class="no-break">
-    nyxx 0.21.2
+    nyxx 0.22.1
   </span>
 
 </footer>

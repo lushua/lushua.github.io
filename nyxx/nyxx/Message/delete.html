@@ -97,7 +97,7 @@
     <section class="multi-line-signature">
       <span class="returntype">Future<span class="signature">&lt;Null&gt;</span></span>
       <span class="name ">delete</span>
-(<wbr>)
+(<wbr>{<span class="parameter" id="delete-param-auditReason"><span class="type-annotation">String</span> <span class="parameter-name">auditReason</span>: <span class="default-value">""</span></span> })
     </section>
     <section class="desc markdown">
       <p>Deletes the message.</p>
@@ -107,11 +107,10 @@
     
     <section class="summary source-code" id="source">
       <h2><span>Implementation</span> </h2>
-      <pre class="language-dart"><code class="language-dart">Future&lt;Null&gt; delete() async {
-  await this
-      .client
-      .http
-      .send(&#39;DELETE&#39;, &#39;&#47;channels&#47;${this.channel.id}&#47;messages&#47;${this.id}&#39;);
+      <pre class="language-dart"><code class="language-dart">Future&lt;Null&gt; delete({String auditReason: &quot;&quot;}) async {
+  await this.client.http.send(
+      &#39;DELETE&#39;, &#39;&#47;channels&#47;${this.channel.id}&#47;messages&#47;${this.id}&#39;,
+      reason: auditReason);
   return null;
 }</code></pre>
     </section>
@@ -125,7 +124,7 @@
 
 <footer>
   <span class="no-break">
-    nyxx 0.21.2
+    nyxx 0.22.1
   </span>
 
 </footer>

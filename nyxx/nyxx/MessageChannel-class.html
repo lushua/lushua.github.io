@@ -40,6 +40,9 @@
     <ol>
       <li class="section-title"><a href="nyxx/nyxx-library.html#classes">Classes</a></li>
       <li><a href="nyxx/Attachment-class.html">Attachment</a></li>
+      <li><a href="nyxx/AuditLog-class.html">AuditLog</a></li>
+      <li><a href="nyxx/AuditLogChange-class.html">AuditLogChange</a></li>
+      <li><a href="nyxx/AuditLogEntry-class.html">AuditLogEntry</a></li>
       <li><a href="nyxx/BeforeHttpRequestSendEvent-class.html">BeforeHttpRequestSendEvent</a></li>
       <li><a href="nyxx/Channel-class.html">Channel</a></li>
       <li><a href="nyxx/ChannelCreateEvent-class.html">ChannelCreateEvent</a></li>
@@ -147,6 +150,10 @@
   <div class="col-xs-12 col-sm-9 col-md-8 main-content">
     <h1>MessageChannel class</h1>
 
+    <section class="desc markdown">
+      <p>Provides abstraction of messages for <a href="nyxx/TextChannel-class.html">TextChannel</a>, <a href="nyxx/DMChannel-class.html">DMChannel</a> and <code>DMGroupChannel</code>.
+Caches message to avoid abusing API.</p>
+    </section>
     
     <section>
       <dl class="dl-horizontal">
@@ -327,7 +334,7 @@ Throws an <code>Exception</code> if the HTTP request errored.
           
 </dd>
         <dt id="delete" class="callable inherited">
-          <span class="name"><a href="nyxx/Channel/delete.html">delete</a></span><span class="signature">(<wbr>)
+          <span class="name"><a href="nyxx/Channel/delete.html">delete</a></span><span class="signature">(<wbr>{<span class="parameter" id="delete-param-auditReason"><span class="type-annotation">String</span> <span class="parameter-name">auditReason</span>: <span class="default-value">""</span></span> })
             <span class="returntype parameter">&#8594; Future<span class="signature">&lt;Null&gt;</span></span>
           </span>
         </dt>
@@ -417,7 +424,7 @@ Throws an <code>Exception</code> if the HTTP request errored.
 
 <footer>
   <span class="no-break">
-    nyxx 0.21.2
+    nyxx 0.22.1
   </span>
 
 </footer>
