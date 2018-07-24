@@ -60,7 +60,24 @@ Faster way of creating commands for bot. You just  have to implement one class, 
 Nyxx works on the command line, browser, mobile, and can be transpiled to JavaScript.</li><li><em>Fine Control</em> <br>
 Nyxx allows you to control every outgoing HTTP request or websocket messages.</li><li><em>Internal Sharding</em> <br>
 Nyxx automatically spawns shards for your bot, but you can override this and spawn a custom number of shards. Internal sharding means that all of your bots servers are managed in one script, no need for communication between shards.</li><li><em>Complete</em> <br>
-Nyxx support nearly all DiscordAPI endpoints.</li></ul>
+Nyxx supports nearly all DiscordAPI endpoints.</li></ul>
+<h3>Sample</h3>
+<pre class="language-dart"><code class="language-dart">void main() {
+  discord.configureDiscordForVM();
+  discord.Client bot =
+      new discord.Client(Platform.environment['DISCORD_TOKEN']);
+
+  bot.onReady.listen((discord.ReadyEvent e) {
+    print("Ready!");
+  });
+
+  bot.onMessage.listen((discord.MessageEvent e) {
+    if (e.message.content == "!ping") {
+      e.message.channel.sendMessage(content: "Pong!");
+    }
+  });
+}
+</code></pre>
 <h2>Documentation and examples</h2>
 <h4><a href="https://www.dartdocs.org/documentation/nyxx/latest/">Dartdocs</a></h4>
 <p>Latest docs for newest release.</p>
@@ -68,7 +85,7 @@ Nyxx support nearly all DiscordAPI endpoints.</li></ul>
 <p>My website has docs for latests commits - You can read about incoming changes</p>
 <h4><a href="https://github.com/l7ssha/nyxx/wiki">Wiki</a></h4>
 <p>Wiki docs are designed to match latest release.</p>
-<h2>Roadmap</h2><ul><li>Better dartdocs documentation</li><li>More examples at wiki/more tutorial/Video tutorial </li><li>Bigger bot written in nyxx for example</li><li>Fix <code>lint</code> errors from <code>dartanalyzer</code></li><li>Annotation driver flow for CommandsFramework?</li><li>Recheck all code and fix styling/small logic bugs</li></ul>
+<h2>Roadmap</h2><ul><li><code> </code> Better dartdocs documentation</li><li><code> </code> More examples at wiki/more tutorial/Video tutorial </li><li><code> </code> Bigger bot written in nyxx for example</li><li><code> </code> Fix <code>lint</code> errors from <code>dartanalyzer</code></li><li><code>x</code> Annotation driver flow for CommandsFramework?</li><li><code>x</code> Recheck all code and fix styling/small logic bugs</li><li><code> </code> Support for Voice connection</li></ul>
       </section>
       
 

@@ -61,6 +61,7 @@
       <li><a href="nyxx.commands/MirrorsCommandFramework/createHelp.html">createHelp</a></li>
       <li><a href="nyxx.commands/MirrorsCommandFramework/executeCommand.html">executeCommand</a></li>
       <li><a href="nyxx.commands/MirrorsCommandFramework/registerLibraryCommands.html">registerLibraryCommands</a></li>
+      <li><a href="nyxx.commands/MirrorsCommandFramework/registerLibraryServices.html">registerLibraryServices</a></li>
       <li><a href="nyxx.commands/MirrorsCommandFramework/registerServices.html">registerServices</a></li>
       <li class="inherited"><a href="nyxx.commands/Commands/add.html">add</a></li>
       <li class="inherited"><a href="nyxx.commands/Commands/addMany.html">addMany</a></li>
@@ -90,7 +91,8 @@ There cannot be more than 1 dependency with single type. Only first will be inje
     
     <section class="summary source-code" id="source">
       <h2><span>Implementation</span> </h2>
-      <pre class="language-dart"><code class="language-dart">void registerServices(List&lt;Object&gt; services) =&gt; this._services = services;</code></pre>
+      <pre class="language-dart"><code class="language-dart">void registerServices(List&lt;Object&gt; services) =&gt;
+    this._services.addAll(services);</code></pre>
     </section>
 
   </div> <!-- /.main-content -->

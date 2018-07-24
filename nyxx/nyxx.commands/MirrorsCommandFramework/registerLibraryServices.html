@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="API docs for the commandExecutionFail property from the MirrorsCommandFramework class, for the Dart programming language.">
-  <title>commandExecutionFail property - MirrorsCommandFramework class - nyxx.commands library - Dart API</title>
+  <meta name="description" content="API docs for the registerLibraryServices method from the MirrorsCommandFramework class, for the Dart programming language.">
+  <title>registerLibraryServices method - MirrorsCommandFramework class - nyxx.commands library - Dart API</title>
   <!-- required because all the links are pseudo-absolute -->
   <base href="../..">
 
@@ -26,9 +26,9 @@
     <li><a href="index.html">nyxx</a></li>
     <li><a href="nyxx.commands/nyxx.commands-library.html">nyxx.commands</a></li>
     <li><a href="nyxx.commands/MirrorsCommandFramework-class.html">MirrorsCommandFramework</a></li>
-    <li class="self-crumb">commandExecutionFail property</li>
+    <li class="self-crumb">registerLibraryServices method</li>
   </ol>
-  <div class="self-name">commandExecutionFail</div>
+  <div class="self-name">registerLibraryServices</div>
   <form class="search navbar-right" role="search">
     <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
   </form>
@@ -77,22 +77,31 @@
   </div><!--/.sidebar-offcanvas-->
 
   <div class="col-xs-12 col-sm-9 col-md-8 main-content">
-    <h1>commandExecutionFail property</h1>
+    <h1>registerLibraryServices method</h1>
 
-        <section class="multi-line-signature">
-          <span class="returntype">Stream<span class="signature">&lt;<a href="nyxx.commands/CommandExecutionFailEvent-class.html">CommandExecutionFailEvent</a>&gt;</span></span>
-          <span class="name ">commandExecutionFail</span>
-          <div class="features">read / write</div>
-        </section>
-        <section class="desc markdown">
-          <p>Emmited when command execution fails</p>
-        </section>
-                <section class="summary source-code" id="source">
-          <h2><span>Implementation</span> </h2>
-          <pre class="language-dart"><code class="language-dart">Stream&lt;CommandExecutionFailEvent&gt; commandExecutionFail
-
-</code></pre>
-        </section>
+    <section class="multi-line-signature">
+      <span class="returntype">void</span>
+      <span class="name ">registerLibraryServices</span>
+(<wbr>)
+    </section>
+    <section class="desc markdown">
+      <p>Register all services in current isolate. It captures all classes which inherits from <a href="nyxx.commands/Service-class.html">Service</a> class and performs dependency injection if possible.</p>
+    </section>
+    
+    <section class="summary source-code" id="source">
+      <h2><span>Implementation</span> </h2>
+      <pre class="language-dart"><code class="language-dart">void registerLibraryServices() {
+  _registerLibrary(Service, (toInject, cm) {
+    try {
+      var serv = cm.newInstance(new Symbol(&#39;&#39;), toInject).reflectee;
+      _services.add(serv);
+    } catch (e) {
+      print(e);
+      throw new Exception(&quot;Service constructor not satisfied!&quot;);
+    }
+  });
+}</code></pre>
+    </section>
 
   </div> <!-- /.main-content -->
 

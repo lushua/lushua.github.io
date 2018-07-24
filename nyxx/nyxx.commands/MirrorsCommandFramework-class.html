@@ -50,6 +50,7 @@
       <li><a href="nyxx.commands/Maincommand-class.html">Maincommand</a></li>
       <li><a href="nyxx.commands/MirrorsCommand-class.html">MirrorsCommand</a></li>
       <li><a href="nyxx.commands/MirrorsCommandFramework-class.html">MirrorsCommandFramework</a></li>
+      <li><a href="nyxx.commands/Service-class.html">Service</a></li>
       <li><a href="nyxx.commands/Subcommand-class.html">Subcommand</a></li>
     
     
@@ -224,6 +225,15 @@ All messages without this prefix will be ignored
 Performs dependency injection when instantiate commands. And throws <code>Exception</code> when there are missing services
           
 </dd>
+        <dt id="registerLibraryServices" class="callable">
+          <span class="name"><a href="nyxx.commands/MirrorsCommandFramework/registerLibraryServices.html">registerLibraryServices</a></span><span class="signature">(<wbr>)
+            <span class="returntype parameter">&#8594; void</span>
+          </span>
+        </dt>
+        <dd>
+          Register all services in current isolate. It captures all classes which inherits from <a href="nyxx.commands/Service-class.html">Service</a> class and performs dependency injection if possible.
+          
+</dd>
         <dt id="registerServices" class="callable">
           <span class="name"><a href="nyxx.commands/MirrorsCommandFramework/registerServices.html">registerServices</a></span><span class="signature">(<wbr><span class="parameter" id="registerServices-param-services"><span class="type-annotation">List<span class="signature">&lt;Object&gt;</span></span> <span class="parameter-name">services</span></span>)
             <span class="returntype parameter">&#8594; void</span>
@@ -317,6 +327,7 @@ There cannot be more than 1 dependency with single type. Only first will be inje
       <li><a href="nyxx.commands/MirrorsCommandFramework/createHelp.html">createHelp</a></li>
       <li><a href="nyxx.commands/MirrorsCommandFramework/executeCommand.html">executeCommand</a></li>
       <li><a href="nyxx.commands/MirrorsCommandFramework/registerLibraryCommands.html">registerLibraryCommands</a></li>
+      <li><a href="nyxx.commands/MirrorsCommandFramework/registerLibraryServices.html">registerLibraryServices</a></li>
       <li><a href="nyxx.commands/MirrorsCommandFramework/registerServices.html">registerServices</a></li>
       <li class="inherited"><a href="nyxx.commands/Commands/add.html">add</a></li>
       <li class="inherited"><a href="nyxx.commands/Commands/addMany.html">addMany</a></li>
