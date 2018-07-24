@@ -197,6 +197,14 @@ Caches message to avoid abusing API.</p>
           A collection of messages sent to this channel.
           <div class="features">read / write</div>
 </dd>
+        <dt id="onMessage" class="property">
+          <span class="name"><a href="nyxx/MessageChannel/onMessage.html">onMessage</a></span>
+          <span class="signature">&#8596; Stream<span class="signature">&lt;<a href="nyxx/MessageEvent-class.html">MessageEvent</a>&gt;</span></span>
+        </dt>
+        <dd>
+          Sent when a new message is received.
+          <div class="features">read / write</div>
+</dd>
         <dt id="client" class="property inherited">
           <span class="name"><a href="nyxx/Channel/client.html">client</a></span>
           <span class="signature">&#8596; <a href="nyxx/Client-class.html">Client</a></span>
@@ -391,6 +399,7 @@ Throws an <code>Exception</code> if the HTTP request errored.
       </li>
       <li><a href="nyxx/MessageChannel/lastMessageID.html">lastMessageID</a></li>
       <li><a href="nyxx/MessageChannel/messages.html">messages</a></li>
+      <li><a href="nyxx/MessageChannel/onMessage.html">onMessage</a></li>
       <li class="inherited"><a href="nyxx/Channel/client.html">client</a></li>
       <li class="inherited"><a href="nyxx/Channel/createdAt.html">createdAt</a></li>
       <li class="inherited"><a href="nyxx/Channel/hashCode.html">hashCode</a></li>

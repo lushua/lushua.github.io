@@ -142,6 +142,12 @@
   this.http = new Http._new(this);
   this._events = new _EventController(this);
   this._ws = new _WS(this);
+
+  Logger.root.level = Level.ALL;
+  Logger.root.onRecord.listen((LogRecord rec) {
+    print(
+        &#39;[${rec.level.name}] {${rec.loggerName}} - ${rec.time}: ${rec.message}&#39;);
+  });
 }</code></pre>
     </section>
 

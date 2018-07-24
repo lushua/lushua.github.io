@@ -50,6 +50,7 @@
       <li><a href="nyxx.commands/Commands/forAdminOnlyEvent.html">forAdminOnlyEvent</a></li>
       <li><a href="nyxx.commands/Commands/helpDirect.html">helpDirect</a></li>
       <li><a href="nyxx.commands/Commands/ignoreBots.html">ignoreBots</a></li>
+      <li><a href="nyxx.commands/Commands/logger.html">logger</a></li>
       <li><a href="nyxx.commands/Commands/prefix.html">prefix</a></li>
       <li><a href="nyxx.commands/Commands/requiredPermissionEvent.html">requiredPermissionEvent</a></li>
       <li class="inherited"><a href="nyxx.commands/Commands/hashCode.html">hashCode</a></li>
@@ -87,7 +88,7 @@
       <h2><span>Implementation</span> </h2>
       <pre class="language-dart"><code class="language-dart">void add(AbstractCommand command) {
   _commands.add(command);
-  print(&quot;[INFO] Registred command: ${command.name}&quot;);
+  logger.info(&quot;Command [${command.name}] added to registry&quot;);
 }</code></pre>
     </section>
 

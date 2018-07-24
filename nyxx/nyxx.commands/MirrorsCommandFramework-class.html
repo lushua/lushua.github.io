@@ -42,6 +42,7 @@
       <li><a href="nyxx.commands/AbstractCommand-class.html">AbstractCommand</a></li>
       <li><a href="nyxx.commands/CacheEntry-class.html">CacheEntry</a></li>
       <li><a href="nyxx.commands/Command-class.html">Command</a></li>
+      <li><a href="nyxx.commands/CommandContext-class.html">CommandContext</a></li>
       <li><a href="nyxx.commands/CommandExecutionFailEvent-class.html">CommandExecutionFailEvent</a></li>
       <li><a href="nyxx.commands/Commands-class.html">Commands</a></li>
       <li><a href="nyxx.commands/CooldownCache-class.html">CooldownCache</a></li>
@@ -156,6 +157,14 @@ All arguments are passed back to <a href="nyxx.commands/Commands-class.html">Com
           Indicator if you want to ignore all bot messages, even if messages is current command.
           <div class="features">read / write, inherited</div>
 </dd>
+        <dt id="logger" class="property inherited">
+          <span class="name"><a href="nyxx.commands/Commands/logger.html">logger</a></span>
+          <span class="signature">&#8594; Logger</span>
+        </dt>
+        <dd class="inherited">
+          Logger instance
+          <div class="features">final, inherited</div>
+</dd>
         <dt id="prefix" class="property inherited">
           <span class="name"><a href="nyxx.commands/Commands/prefix.html">prefix</a></span>
           <span class="signature">&#8596; String</span>
@@ -205,13 +214,14 @@ All messages without this prefix will be ignored
           Executes command. Left abstract to implement by subclasess wich provides different context.
           
 </dd>
-        <dt id="groupParams" class="callable">
-          <span class="name"><a href="nyxx.commands/MirrorsCommandFramework/groupParams.html">groupParams</a></span><span class="signature">(<wbr><span class="parameter" id="groupParams-param-splitted"><span class="type-annotation">List<span class="signature">&lt;String&gt;</span></span> <span class="parameter-name">splitted</span></span>)
-            <span class="returntype parameter">&#8594; List<span class="signature">&lt;String&gt;</span></span>
+        <dt id="registerLibraryCommands" class="callable">
+          <span class="name"><a href="nyxx.commands/MirrorsCommandFramework/registerLibraryCommands.html">registerLibraryCommands</a></span><span class="signature">(<wbr>)
+            <span class="returntype parameter">&#8594; void</span>
           </span>
         </dt>
         <dd>
-          
+          Register commands in current Isolate's libraries. Basically loads all classes as commnads with <a href="nyxx.commands/MirrorsCommand-class.html">MirrorsCommand</a> superclass.
+Performs dependency injection when instantiate commands. And throws <code>Exception</code> when there are missing services
           
 </dd>
         <dt id="registerServices" class="callable">
@@ -220,7 +230,8 @@ All messages without this prefix will be ignored
           </span>
         </dt>
         <dd>
-          
+          Register services to injected into commands modules. Has to be executed before registering commands.
+There cannot be more than 1 dependency with single type. Only first will be injected.
           
 </dd>
         <dt id="add" class="callable inherited">
@@ -297,6 +308,7 @@ All messages without this prefix will be ignored
       <li class="inherited"><a href="nyxx.commands/Commands/hashCode.html">hashCode</a></li>
       <li class="inherited"><a href="nyxx.commands/Commands/helpDirect.html">helpDirect</a></li>
       <li class="inherited"><a href="nyxx.commands/Commands/ignoreBots.html">ignoreBots</a></li>
+      <li class="inherited"><a href="nyxx.commands/Commands/logger.html">logger</a></li>
       <li class="inherited"><a href="nyxx.commands/Commands/prefix.html">prefix</a></li>
       <li class="inherited"><a href="nyxx.commands/Commands/requiredPermissionEvent.html">requiredPermissionEvent</a></li>
       <li class="inherited"><a href="nyxx.commands/Commands/runtimeType.html">runtimeType</a></li>
@@ -304,7 +316,7 @@ All messages without this prefix will be ignored
       <li class="section-title"><a href="nyxx.commands/MirrorsCommandFramework-class.html#instance-methods">Methods</a></li>
       <li><a href="nyxx.commands/MirrorsCommandFramework/createHelp.html">createHelp</a></li>
       <li><a href="nyxx.commands/MirrorsCommandFramework/executeCommand.html">executeCommand</a></li>
-      <li><a href="nyxx.commands/MirrorsCommandFramework/groupParams.html">groupParams</a></li>
+      <li><a href="nyxx.commands/MirrorsCommandFramework/registerLibraryCommands.html">registerLibraryCommands</a></li>
       <li><a href="nyxx.commands/MirrorsCommandFramework/registerServices.html">registerServices</a></li>
       <li class="inherited"><a href="nyxx.commands/Commands/add.html">add</a></li>
       <li class="inherited"><a href="nyxx.commands/Commands/addMany.html">addMany</a></li>

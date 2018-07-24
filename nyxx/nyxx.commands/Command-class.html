@@ -42,6 +42,7 @@
       <li><a href="nyxx.commands/AbstractCommand-class.html">AbstractCommand</a></li>
       <li><a href="nyxx.commands/CacheEntry-class.html">CacheEntry</a></li>
       <li><a href="nyxx.commands/Command-class.html">Command</a></li>
+      <li><a href="nyxx.commands/CommandContext-class.html">CommandContext</a></li>
       <li><a href="nyxx.commands/CommandExecutionFailEvent-class.html">CommandExecutionFailEvent</a></li>
       <li><a href="nyxx.commands/Commands-class.html">Commands</a></li>
       <li><a href="nyxx.commands/CooldownCache-class.html">CooldownCache</a></li>
@@ -106,28 +107,12 @@
           List of aliases for command
           <div class="features">read / write, inherited</div>
 </dd>
-        <dt id="author" class="property inherited">
-          <span class="name"><a href="nyxx.commands/AbstractCommand/author.html">author</a></span>
-          <span class="signature">&#8596; <a href="nyxx/User-class.html">User</a></span>
-        </dt>
-        <dd class="inherited">
-          Author of message
-          <div class="features">read / write, inherited</div>
-</dd>
-        <dt id="channel" class="property inherited">
-          <span class="name"><a href="nyxx.commands/AbstractCommand/channel.html">channel</a></span>
-          <span class="signature">&#8596; <a href="nyxx/Channel-class.html">Channel</a></span>
-        </dt>
-        <dd class="inherited">
-          Channel from where message come from
-          <div class="features">read / write, inherited</div>
-</dd>
         <dt id="context" class="property inherited">
           <span class="name"><a href="nyxx.commands/AbstractCommand/context.html">context</a></span>
-          <span class="signature">&#8596; <a href="nyxx/MessageEvent-class.html">MessageEvent</a></span>
+          <span class="signature">&#8596; <a href="nyxx.commands/CommandContext-class.html">CommandContext</a></span>
         </dt>
         <dd class="inherited">
-          Execution context of command. <code>MessageEvent</code> class contains <code>Message</code> instance.
+          Execution context of command.
           <div class="features">read / write, inherited</div>
 </dd>
         <dt id="cooldown" class="property inherited">
@@ -136,14 +121,6 @@
         </dt>
         <dd class="inherited">
           Cooldown for command in seconds
-          <div class="features">read / write, inherited</div>
-</dd>
-        <dt id="guild" class="property inherited">
-          <span class="name"><a href="nyxx.commands/AbstractCommand/guild.html">guild</a></span>
-          <span class="signature">&#8596; <a href="nyxx/Guild-class.html">Guild</a></span>
-        </dt>
-        <dd class="inherited">
-          Guild in which message was sent
           <div class="features">read / write, inherited</div>
 </dd>
         <dt id="hashCode" class="property inherited">
@@ -178,12 +155,12 @@
           Indicated if command is hidden from help
           <div class="features">read / write, inherited</div>
 </dd>
-        <dt id="message" class="property inherited">
-          <span class="name"><a href="nyxx.commands/AbstractCommand/message.html">message</a></span>
-          <span class="signature">&#8596; <a href="nyxx/Message-class.html">Message</a></span>
+        <dt id="logger" class="property inherited">
+          <span class="name"><a href="nyxx.commands/AbstractCommand/logger.html">logger</a></span>
+          <span class="signature">&#8596; Logger</span>
         </dt>
         <dd class="inherited">
-          Message that was sent
+          Logger for instance of command
           <div class="features">read / write, inherited</div>
 </dd>
         <dt id="name" class="property inherited">
@@ -240,6 +217,15 @@
         </dt>
         <dd class="inherited">
           Delays execution of command and waits for nex matching command based on <code>prefix</code>. Has static timemout of 30 seconds
+          <div class="features">inherited</div>
+</dd>
+        <dt id="nextMessages" class="callable inherited">
+          <span class="name"><a href="nyxx.commands/AbstractCommand/nextMessages.html">nextMessages</a></span><span class="signature">(<wbr><span class="parameter" id="nextMessages-param-num"><span class="type-annotation">int</span> <span class="parameter-name">num</span>, {</span> <span class="parameter" id="nextMessages-param-timeout"><span class="type-annotation">Duration</span> <span class="parameter-name">timeout</span>: <span class="default-value">const Duration(seconds: 30)</span></span> })
+            <span class="returntype parameter">&#8594; Future<span class="signature">&lt;List<span class="signature">&lt;<a href="nyxx/Message-class.html">Message</a>&gt;</span>&gt;</span></span>
+          </span>
+        </dt>
+        <dd class="inherited">
+          Gets next <code>num</code> number of any messages sent within one context (same channel) with optional timeout(default 30 sec)
           <div class="features">inherited</div>
 </dd>
         <dt id="noSuchMethod" class="callable inherited">
@@ -301,16 +287,13 @@
         <a href="nyxx.commands/Command-class.html#instance-properties">Properties</a>
       </li>
       <li class="inherited"><a href="nyxx.commands/AbstractCommand/aliases.html">aliases</a></li>
-      <li class="inherited"><a href="nyxx.commands/AbstractCommand/author.html">author</a></li>
-      <li class="inherited"><a href="nyxx.commands/AbstractCommand/channel.html">channel</a></li>
       <li class="inherited"><a href="nyxx.commands/AbstractCommand/context.html">context</a></li>
       <li class="inherited"><a href="nyxx.commands/AbstractCommand/cooldown.html">cooldown</a></li>
-      <li class="inherited"><a href="nyxx.commands/AbstractCommand/guild.html">guild</a></li>
       <li class="inherited"><a href="nyxx.commands/AbstractCommand/hashCode.html">hashCode</a></li>
       <li class="inherited"><a href="nyxx.commands/AbstractCommand/help.html">help</a></li>
       <li class="inherited"><a href="nyxx.commands/AbstractCommand/isAdmin.html">isAdmin</a></li>
       <li class="inherited"><a href="nyxx.commands/AbstractCommand/isHidden.html">isHidden</a></li>
-      <li class="inherited"><a href="nyxx.commands/AbstractCommand/message.html">message</a></li>
+      <li class="inherited"><a href="nyxx.commands/AbstractCommand/logger.html">logger</a></li>
       <li class="inherited"><a href="nyxx.commands/AbstractCommand/name.html">name</a></li>
       <li class="inherited"><a href="nyxx.commands/AbstractCommand/requiredRoles.html">requiredRoles</a></li>
       <li class="inherited"><a href="nyxx.commands/AbstractCommand/runtimeType.html">runtimeType</a></li>
@@ -319,6 +302,7 @@
       <li class="section-title"><a href="nyxx.commands/Command-class.html#instance-methods">Methods</a></li>
       <li><a href="nyxx.commands/Command/run.html">run</a></li>
       <li class="inherited"><a href="nyxx.commands/AbstractCommand/delay.html">delay</a></li>
+      <li class="inherited"><a href="nyxx.commands/AbstractCommand/nextMessages.html">nextMessages</a></li>
       <li class="inherited"><a href="nyxx.commands/AbstractCommand/noSuchMethod.html">noSuchMethod</a></li>
       <li class="inherited"><a href="nyxx.commands/AbstractCommand/reply.html">reply</a></li>
       <li class="inherited"><a href="nyxx.commands/AbstractCommand/toString.html">toString</a></li>
