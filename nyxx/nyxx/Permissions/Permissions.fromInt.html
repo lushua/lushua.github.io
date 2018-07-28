@@ -41,6 +41,7 @@
     <ol>
       <li class="section-title"><a href="nyxx/Permissions-class.html#constructors">Constructors</a></li>
       <li><a href="nyxx/Permissions/Permissions.fromInt.html">fromInt</a></li>
+      <li><a href="nyxx/Permissions/Permissions.fromOverwrite.html">fromOverwrite</a></li>
     
       <li class="section-title">
         <a href="nyxx/Permissions-class.html#instance-properties">Properties</a>
@@ -74,7 +75,7 @@
       <li class="inherited"><a href="nyxx/Permissions/hashCode.html">hashCode</a></li>
       <li class="inherited"><a href="nyxx/Permissions/runtimeType.html">runtimeType</a></li>
     
-      <li class="section-title inherited"><a href="nyxx/Permissions-class.html#instance-methods">Methods</a></li>
+      <li class="section-title"><a href="nyxx/Permissions-class.html#instance-methods">Methods</a></li>
       <li class="inherited"><a href="nyxx/Permissions/noSuchMethod.html">noSuchMethod</a></li>
       <li class="inherited"><a href="nyxx/Permissions/toString.html">toString</a></li>
     
@@ -91,7 +92,7 @@
 
     <section class="multi-line-signature">
       
-      <span class="name ">Permissions.fromInt</span>(<wbr><span class="parameter" id="fromInt-param-_client"><span class="type-annotation"><a href="nyxx/Client-class.html">Client</a></span> <span class="parameter-name">_client</span>, </span> <span class="parameter" id="fromInt-param-permissions"><span class="type-annotation">int</span> <span class="parameter-name">permissions</span></span>)
+      <span class="name ">Permissions.fromInt</span>(<wbr><span class="parameter" id="fromInt-param-permissions"><span class="type-annotation">int</span> <span class="parameter-name">permissions</span></span>)
     </section>
 
     <section class="desc markdown">
@@ -100,48 +101,8 @@
     
     <section class="summary source-code" id="source">
       <h2><span>Implementation</span> </h2>
-      <pre class="language-dart"><code class="language-dart">Permissions.fromInt(this._client, int permissions) {
-  this.raw = permissions;
-  this.createInstantInvite =
-      (this.raw &amp; _Constants.permissions[&#39;CREATE_INSTANT_INVITE&#39;]) &gt; 0;
-  this.kickMembers = (this.raw &amp; _Constants.permissions[&#39;KICK_MEMBERS&#39;]) &gt; 0;
-  this.banMembers = (this.raw &amp; _Constants.permissions[&#39;BAN_MEMBERS&#39;]) &gt; 0;
-  this.administrator =
-      (this.raw &amp; _Constants.permissions[&#39;ADMINISTRATOR&#39;]) &gt; 0;
-  this.manageChannels =
-      (this.raw &amp; _Constants.permissions[&#39;MANAGE_CHANNELS&#39;]) &gt; 0;
-  this.manageGuild = (this.raw &amp; _Constants.permissions[&#39;MANAGE_GUILD&#39;]) &gt; 0;
-  this.readMessages =
-      (this.raw &amp; _Constants.permissions[&#39;READ_MESSAGES&#39;]) &gt; 0;
-  this.sendMessages =
-      (this.raw &amp; _Constants.permissions[&#39;SEND_MESSAGES&#39;]) &gt; 0;
-  this.sendTtsMessages =
-      (this.raw &amp; _Constants.permissions[&#39;SEND_TTS_MESSAGES&#39;]) &gt; 0;
-  this.manageMessages =
-      (this.raw &amp; _Constants.permissions[&#39;MANAGE_MESSAGES&#39;]) &gt; 0;
-  this.embedLinks = (this.raw &amp; _Constants.permissions[&#39;EMBED_LINKS&#39;]) &gt; 0;
-  this.attachFiles = (this.raw &amp; _Constants.permissions[&#39;ATTACH_FILES&#39;]) &gt; 0;
-  this.readMessageHistory =
-      (this.raw &amp; _Constants.permissions[&#39;READ_MESSAGE_HISTORY&#39;]) &gt; 0;
-  this.mentionEveryone =
-      (this.raw &amp; _Constants.permissions[&#39;MENTION_EVERYONE&#39;]) &gt; 0;
-  this.useExternalEmojis =
-      (this.raw &amp; _Constants.permissions[&#39;EXTERNAL_EMOJIS&#39;]) &gt; 0;
-  this.connect = (this.raw &amp; _Constants.permissions[&#39;CONNECT&#39;]) &gt; 0;
-  this.speak = (this.raw &amp; _Constants.permissions[&#39;SPEAK&#39;]) &gt; 0;
-  this.muteMembers = (this.raw &amp; _Constants.permissions[&#39;MUTE_MEMBERS&#39;]) &gt; 0;
-  this.deafenMembers =
-      (this.raw &amp; _Constants.permissions[&#39;DEAFEN_MEMBERS&#39;]) &gt; 0;
-  this.moveMembers = (this.raw &amp; _Constants.permissions[&#39;MOVE_MEMBERS&#39;]) &gt; 0;
-  this.useVad = (this.raw &amp; _Constants.permissions[&#39;USE_VAD&#39;]) &gt; 0;
-  this.changeNickname =
-      (this.raw &amp; _Constants.permissions[&#39;CHANGE_NICKNAME&#39;]) &gt; 0;
-  this.manageNicknames =
-      (this.raw &amp; _Constants.permissions[&#39;MANAGE_NICKNAMES&#39;]) &gt; 0;
-  this.manageRoles =
-      (this.raw &amp; _Constants.permissions[&#39;MANAGE_ROLES_OR_PERMISSIONS&#39;]) &gt; 0;
-  this.manageWebhooks =
-      (this.raw &amp; _Constants.permissions[&#39;MANAGE_WEBHOOKS&#39;]) &gt; 0;
+      <pre class="language-dart"><code class="language-dart">Permissions.fromInt(int permissions) {
+  _construct(permissions);
 }</code></pre>
     </section>
 

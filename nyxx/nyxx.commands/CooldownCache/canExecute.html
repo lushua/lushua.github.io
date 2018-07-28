@@ -76,34 +76,34 @@
     <section class="summary source-code" id="source">
       <h2><span>Implementation</span> </h2>
       <pre class="language-dart"><code class="language-dart">Future&lt;bool&gt; canExecute(
-    String userId, String commandName, int desiredCooldown) async {
-  &#47;&#47;&#47; current date
-  int now = new DateTime.now().millisecondsSinceEpoch;
+    String userId, String commandName, int desiredCooldown) {
+  return new Future&lt;bool&gt;(() {
+    &#47;&#47;&#47; current date
+    int now = new DateTime.now().millisecondsSinceEpoch;
 
-  &#47;&#47;&#47; Search for entry
-  var entryList = _cache.where(
-      (item) =&gt; item.userId == userId &amp;&amp; item.commandName == commandName);
+    &#47;&#47;&#47; Search for entry
+    var entryList = _cache.where(
+        (item) =&gt; item.userId == userId &amp;&amp; item.commandName == commandName);
 
-  &#47;&#47;&#47; If not found crete new, insert it and return
-  if (entryList.isEmpty) {
-    var newEntry = new CacheEntry(userId, commandName, now);
-    _cache.add(newEntry);
-    return true;
-  }
+    &#47;&#47;&#47; If not found crete new, insert it and return
+    if (entryList.isEmpty) {
+      var newEntry = new CacheEntry(userId, commandName, now);
+      _cache.add(newEntry);
+      return true;
+    }
 
-  &#47;&#47;&#47; If found check if user can execute command
-  var entry = entryList.first;
-  if (entry.lastUsed + desiredCooldown &lt; now) {
-    entry.lastUsed = now;
-    var pos = _cache.indexOf(entry);
-    &#47;&#47;_cache.removeAt(pos);
-    &#47;&#47;_cache.add(entry);
+    &#47;&#47;&#47; If found check if user can execute command
+    var entry = entryList.first;
+    if (entry.lastUsed + desiredCooldown &lt; now) {
+      entry.lastUsed = now;
+      var pos = _cache.indexOf(entry);
 
-    _cache[pos] = entry;
-    return true;
-  }
+      _cache[pos] = entry;
+      return true;
+    }
 
-  return false;
+    return false;
+  });
 }</code></pre>
     </section>
 

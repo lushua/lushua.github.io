@@ -52,20 +52,20 @@
     <section class="desc markdown">
       <p>Nyxx DISCORD API wrapper for Dart</p>
 <p>This module contains commands specific logic that this framework offers.
-There are 2 implementations of <a href="nyxx.commands/Commands-class.html">Commands</a> handler: <a href="nyxx.commands/InstanceCommandFramework-class.html">InstanceCommandFramework</a> and <a href="nyxx.commands/MirrorsCommandFramework-class.html">MirrorsCommandFramework</a>.
-They are created to achieve same result but has different capabilities. <a href="nyxx.commands/MirrorsCommandFramework-class.html">MirrorsCommandFramework</a> is more advanced and offers
-more functionality. In other hand <a href="nyxx.commands/InstanceCommandFramework-class.html">InstanceCommandFramework</a> is faster one, because has faster command resolution.</p>
+There are 2 implementations of <code>Commands</code> handler: <code>InstanceCommandFramework</code> and <code>MirrorsCommandFramework</code>.
+They are created to achieve same result but has different capabilities. <code>MirrorsCommandFramework</code> is more advanced and offers
+more functionality. In other hand <code>InstanceCommandFramework</code> is faster one, because has faster command resolution.</p>
     </section>
     
     <section class="summary offset-anchor" id="classes">
       <h2>Classes</h2>
 
       <dl>
-        <dt id="AbstractCommand">
-          <span class="name "><a href="nyxx.commands/AbstractCommand-class.html">AbstractCommand</a></span>
+        <dt id="AnnotCommand">
+          <span class="name "><a href="nyxx.commands/AnnotCommand-class.html">AnnotCommand</a></span>
         </dt>
         <dd>
-          Absctract class to factory new command
+          
         </dd>
         <dt id="CacheEntry">
           <span class="name "><a href="nyxx.commands/CacheEntry-class.html">CacheEntry</a></span>
@@ -77,13 +77,13 @@ more functionality. In other hand <a href="nyxx.commands/InstanceCommandFramewor
           <span class="name "><a href="nyxx.commands/Command-class.html">Command</a></span>
         </dt>
         <dd>
-          Absctract class to factory new command
+          
         </dd>
         <dt id="CommandContext">
           <span class="name "><a href="nyxx.commands/CommandContext-class.html">CommandContext</a></span>
         </dt>
         <dd>
-          Execution context of command.
+          Abstract class to factory new command
         </dd>
         <dt id="CommandExecutionFailEvent">
           <span class="name "><a href="nyxx.commands/CommandExecutionFailEvent-class.html">CommandExecutionFailEvent</a></span>
@@ -91,8 +91,8 @@ more functionality. In other hand <a href="nyxx.commands/InstanceCommandFramewor
         <dd>
           Emitted when command execution fails
         </dd>
-        <dt id="Commands">
-          <span class="name "><a href="nyxx.commands/Commands-class.html">Commands</a></span>
+        <dt id="CommandsFramework">
+          <span class="name "><a href="nyxx.commands/CommandsFramework-class.html">CommandsFramework</a></span>
         </dt>
         <dd>
           Main handler for CommandFramework.
@@ -104,31 +104,17 @@ more functionality. In other hand <a href="nyxx.commands/InstanceCommandFramewor
         <dd>
           Handles caching of cooldown
         </dd>
-        <dt id="InstanceCommandFramework">
-          <span class="name "><a href="nyxx.commands/InstanceCommandFramework-class.html">InstanceCommandFramework</a></span>
-        </dt>
-        <dd>
-          Dispatches commands based on registry. <a href="nyxx.commands/Command-class.html">Command</a> class can only dispatch one command and aliases and dont have suncommand support.
-It's faster than <a href="nyxx.commands/MirrorsCommandFramework-class.html">MirrorsCommandFramework</a> because it isn't searching for matching methods at runtime.
-        </dd>
         <dt id="Maincommand">
           <span class="name "><a href="nyxx.commands/Maincommand-class.html">Maincommand</a></span>
         </dt>
         <dd>
-          
+          Creates main execution command
         </dd>
-        <dt id="MirrorsCommand">
-          <span class="name "><a href="nyxx.commands/MirrorsCommand-class.html">MirrorsCommand</a></span>
+        <dt id="Remainder">
+          <span class="name "><a href="nyxx.commands/Remainder-class.html">Remainder</a></span>
         </dt>
         <dd>
-          
-        </dd>
-        <dt id="MirrorsCommandFramework">
-          <span class="name "><a href="nyxx.commands/MirrorsCommandFramework-class.html">MirrorsCommandFramework</a></span>
-        </dt>
-        <dd>
-          Uses 'dart:mirrors' to find and dispatch commands. First searches in normal mode for matching command and next with 'mirros'
-searches if command has subcommand and possibly runs it. Uses <a href="nyxx.commands/Subcommand-class.html">Subcommand</a> to annotate subcommand function.
+          Captures all remaining text into <code>List&lt;String&gt;</code>
         </dd>
         <dt id="Service">
           <span class="name "><a href="nyxx.commands/Service-class.html">Service</a></span>
@@ -141,6 +127,12 @@ searches if command has subcommand and possibly runs it. Uses <a href="nyxx.comm
         </dt>
         <dd>
           Defines new subcommand.
+        </dd>
+        <dt id="TypeConverter">
+          <span class="name "><a href="nyxx.commands/TypeConverter-class.html">TypeConverter</a><span class="signature">&lt;T&gt;</span></span>
+        </dt>
+        <dd>
+          
         </dd>
       </dl>
     </section>
@@ -157,19 +149,18 @@ searches if command has subcommand and possibly runs it. Uses <a href="nyxx.comm
     <h5>nyxx.commands library</h5>
     <ol>
       <li class="section-title"><a href="nyxx.commands/nyxx.commands-library.html#classes">Classes</a></li>
-      <li><a href="nyxx.commands/AbstractCommand-class.html">AbstractCommand</a></li>
+      <li><a href="nyxx.commands/AnnotCommand-class.html">AnnotCommand</a></li>
       <li><a href="nyxx.commands/CacheEntry-class.html">CacheEntry</a></li>
       <li><a href="nyxx.commands/Command-class.html">Command</a></li>
       <li><a href="nyxx.commands/CommandContext-class.html">CommandContext</a></li>
       <li><a href="nyxx.commands/CommandExecutionFailEvent-class.html">CommandExecutionFailEvent</a></li>
-      <li><a href="nyxx.commands/Commands-class.html">Commands</a></li>
+      <li><a href="nyxx.commands/CommandsFramework-class.html">CommandsFramework</a></li>
       <li><a href="nyxx.commands/CooldownCache-class.html">CooldownCache</a></li>
-      <li><a href="nyxx.commands/InstanceCommandFramework-class.html">InstanceCommandFramework</a></li>
       <li><a href="nyxx.commands/Maincommand-class.html">Maincommand</a></li>
-      <li><a href="nyxx.commands/MirrorsCommand-class.html">MirrorsCommand</a></li>
-      <li><a href="nyxx.commands/MirrorsCommandFramework-class.html">MirrorsCommandFramework</a></li>
+      <li><a href="nyxx.commands/Remainder-class.html">Remainder</a></li>
       <li><a href="nyxx.commands/Service-class.html">Service</a></li>
       <li><a href="nyxx.commands/Subcommand-class.html">Subcommand</a></li>
+      <li><a href="nyxx.commands/TypeConverter-class.html">TypeConverter</a></li>
     
     
     
