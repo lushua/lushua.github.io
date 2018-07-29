@@ -46,6 +46,7 @@
       <li><a href="nyxx.commands/CommandExecutionFailEvent-class.html">CommandExecutionFailEvent</a></li>
       <li><a href="nyxx.commands/CommandsFramework-class.html">CommandsFramework</a></li>
       <li><a href="nyxx.commands/CooldownCache-class.html">CooldownCache</a></li>
+      <li><a href="nyxx.commands/GuildOnly-class.html">GuildOnly</a></li>
       <li><a href="nyxx.commands/Maincommand-class.html">Maincommand</a></li>
       <li><a href="nyxx.commands/Remainder-class.html">Remainder</a></li>
       <li><a href="nyxx.commands/Service-class.html">Service</a></li>
@@ -74,7 +75,7 @@
 
       <dl class="constructor-summary-list">
         <dt id="CommandsFramework" class="callable">
-          <span class="name"><a href="nyxx.commands/CommandsFramework/CommandsFramework.html">CommandsFramework</a></span><span class="signature">(<span class="parameter" id="-param-prefix"><span class="type-annotation">String</span> <span class="parameter-name">prefix</span>, </span> <span class="parameter" id="-param-client"><span class="type-annotation"><a href="nyxx/Client-class.html">Client</a></span> <span class="parameter-name">client</span>, [</span> <span class="parameter" id="-param-_admins"><span class="type-annotation">List<span class="signature">&lt;String&gt;</span></span> <span class="parameter-name">_admins</span>, </span> <span class="parameter" id="-param-gameName"><span class="type-annotation">String</span> <span class="parameter-name">gameName</span></span> ])</span>
+          <span class="name"><a href="nyxx.commands/CommandsFramework/CommandsFramework.html">CommandsFramework</a></span><span class="signature">(<span class="parameter" id="-param-prefix"><span class="type-annotation">String</span> <span class="parameter-name">prefix</span>, </span> <span class="parameter" id="-param-client"><span class="type-annotation"><a href="nyxx/Client-class.html">Client</a></span> <span class="parameter-name">client</span>, {</span> <span class="parameter" id="-param-admins"><span class="type-annotation">List<span class="signature">&lt;String&gt;</span></span> <span class="parameter-name">admins</span>, </span> <span class="parameter" id="-param-gameName"><span class="type-annotation">String</span> <span class="parameter-name">gameName</span></span> })</span>
         </dt>
         <dd>
           Creates commands framework handler. Requires prefix to handle commands.
@@ -86,46 +87,6 @@
       <h2>Properties</h2>
 
       <dl class="properties">
-        <dt id="commandExecutionFail" class="property">
-          <span class="name"><a href="nyxx.commands/CommandsFramework/commandExecutionFail.html">commandExecutionFail</a></span>
-          <span class="signature">&#8596; Stream<span class="signature">&lt;<a href="nyxx.commands/CommandExecutionFailEvent-class.html">CommandExecutionFailEvent</a>&gt;</span></span>
-        </dt>
-        <dd>
-          Emmited when command execution fails
-          <div class="features">read / write</div>
-</dd>
-        <dt id="commandNotFoundEvent" class="property">
-          <span class="name"><a href="nyxx.commands/CommandsFramework/commandNotFoundEvent.html">commandNotFoundEvent</a></span>
-          <span class="signature">&#8596; Stream<span class="signature">&lt;<a href="nyxx/Message-class.html">Message</a>&gt;</span></span>
-        </dt>
-        <dd>
-          Fires when invoked command dont exists in registry
-          <div class="features">read / write</div>
-</dd>
-        <dt id="cooldownEvent" class="property">
-          <span class="name"><a href="nyxx.commands/CommandsFramework/cooldownEvent.html">cooldownEvent</a></span>
-          <span class="signature">&#8596; Stream<span class="signature">&lt;<a href="nyxx/Message-class.html">Message</a>&gt;</span></span>
-        </dt>
-        <dd>
-          Invoked when user hits command ratelimit.
-          <div class="features">read / write</div>
-</dd>
-        <dt id="entityRegex" class="property">
-          <span class="name"><a href="nyxx.commands/CommandsFramework/entityRegex.html">entityRegex</a></span>
-          <span class="signature">&#8596; RegExp</span>
-        </dt>
-        <dd>
-          
-          <div class="features">read / write</div>
-</dd>
-        <dt id="forAdminOnlyEvent" class="property">
-          <span class="name"><a href="nyxx.commands/CommandsFramework/forAdminOnlyEvent.html">forAdminOnlyEvent</a></span>
-          <span class="signature">&#8596; Stream<span class="signature">&lt;<a href="nyxx/Message-class.html">Message</a>&gt;</span></span>
-        </dt>
-        <dd>
-          Invoked when non-admin user uses admin-only command.
-          <div class="features">read / write</div>
-</dd>
         <dt id="helpDirect" class="property">
           <span class="name"><a href="nyxx.commands/CommandsFramework/helpDirect.html">helpDirect</a></span>
           <span class="signature">&#8596; bool</span>
@@ -150,6 +111,70 @@
           Logger instance
           <div class="features">final</div>
 </dd>
+        <dt id="onAdminOnlyError" class="property">
+          <span class="name"><a href="nyxx.commands/CommandsFramework/onAdminOnlyError.html">onAdminOnlyError</a></span>
+          <span class="signature">&#8596; Stream<span class="signature">&lt;<a href="nyxx/Message-class.html">Message</a>&gt;</span></span>
+        </dt>
+        <dd>
+          Invoked when non-admin user uses admin-only command.
+          <div class="features">read / write</div>
+</dd>
+        <dt id="onCommandExecutionFail" class="property">
+          <span class="name"><a href="nyxx.commands/CommandsFramework/onCommandExecutionFail.html">onCommandExecutionFail</a></span>
+          <span class="signature">&#8596; Stream<span class="signature">&lt;<a href="nyxx.commands/CommandExecutionFailEvent-class.html">CommandExecutionFailEvent</a>&gt;</span></span>
+        </dt>
+        <dd>
+          Emitted when command execution fails
+          <div class="features">read / write</div>
+</dd>
+        <dt id="onCommandNotFound" class="property">
+          <span class="name"><a href="nyxx.commands/CommandsFramework/onCommandNotFound.html">onCommandNotFound</a></span>
+          <span class="signature">&#8596; Stream<span class="signature">&lt;<a href="nyxx/Message-class.html">Message</a>&gt;</span></span>
+        </dt>
+        <dd>
+          Fires when invoked command dont exists in registry
+          <div class="features">read / write</div>
+</dd>
+        <dt id="onCooldown" class="property">
+          <span class="name"><a href="nyxx.commands/CommandsFramework/onCooldown.html">onCooldown</a></span>
+          <span class="signature">&#8596; Stream<span class="signature">&lt;<a href="nyxx/Message-class.html">Message</a>&gt;</span></span>
+        </dt>
+        <dd>
+          Invoked when user hits command ratelimit.
+          <div class="features">read / write</div>
+</dd>
+        <dt id="onRequiredPermissionError" class="property">
+          <span class="name"><a href="nyxx.commands/CommandsFramework/onRequiredPermissionError.html">onRequiredPermissionError</a></span>
+          <span class="signature">&#8596; Stream<span class="signature">&lt;<a href="nyxx/Message-class.html">Message</a>&gt;</span></span>
+        </dt>
+        <dd>
+          Invoked when user didn't have enough permissions.
+          <div class="features">read / write</div>
+</dd>
+        <dt id="onRequiredTopicError" class="property">
+          <span class="name"><a href="nyxx.commands/CommandsFramework/onRequiredTopicError.html">onRequiredTopicError</a></span>
+          <span class="signature">&#8596; Stream<span class="signature">&lt;<a href="nyxx/Message-class.html">Message</a>&gt;</span></span>
+        </dt>
+        <dd>
+          Emitted when command is invoked in channel without required topic
+          <div class="features">read / write</div>
+</dd>
+        <dt id="onUnauthorizedNsfwAccess" class="property">
+          <span class="name"><a href="nyxx.commands/CommandsFramework/onUnauthorizedNsfwAccess.html">onUnauthorizedNsfwAccess</a></span>
+          <span class="signature">&#8596; Stream<span class="signature">&lt;<a href="nyxx/Message-class.html">Message</a>&gt;</span></span>
+        </dt>
+        <dd>
+          Emitted  when nsfw command is invoked in non nsfw context;
+          <div class="features">read / write</div>
+</dd>
+        <dt id="onWrongContext" class="property">
+          <span class="name"><a href="nyxx.commands/CommandsFramework/onWrongContext.html">onWrongContext</a></span>
+          <span class="signature">&#8596; Stream<span class="signature">&lt;<a href="nyxx/Message-class.html">Message</a>&gt;</span></span>
+        </dt>
+        <dd>
+          Emitted when command is only for DM and is invoked on Guild etc
+          <div class="features">read / write</div>
+</dd>
         <dt id="prefix" class="property">
           <span class="name"><a href="nyxx.commands/CommandsFramework/prefix.html">prefix</a></span>
           <span class="signature">&#8596; String</span>
@@ -157,14 +182,6 @@
         <dd>
           Prefix needed to dispatch a commands.
 All messages without this prefix will be ignored
-          <div class="features">read / write</div>
-</dd>
-        <dt id="requiredPermissionEvent" class="property">
-          <span class="name"><a href="nyxx.commands/CommandsFramework/requiredPermissionEvent.html">requiredPermissionEvent</a></span>
-          <span class="signature">&#8596; Stream<span class="signature">&lt;<a href="nyxx/Message-class.html">Message</a>&gt;</span></span>
-        </dt>
-        <dd>
-          Invoked when user didn't have enough permissions.
           <div class="features">read / write</div>
 </dd>
         <dt id="hashCode" class="property inherited">
@@ -294,16 +311,18 @@ There cannot be more than 1 dependency with single type. Only first will be inje
       <li class="section-title">
         <a href="nyxx.commands/CommandsFramework-class.html#instance-properties">Properties</a>
       </li>
-      <li><a href="nyxx.commands/CommandsFramework/commandExecutionFail.html">commandExecutionFail</a></li>
-      <li><a href="nyxx.commands/CommandsFramework/commandNotFoundEvent.html">commandNotFoundEvent</a></li>
-      <li><a href="nyxx.commands/CommandsFramework/cooldownEvent.html">cooldownEvent</a></li>
-      <li><a href="nyxx.commands/CommandsFramework/entityRegex.html">entityRegex</a></li>
-      <li><a href="nyxx.commands/CommandsFramework/forAdminOnlyEvent.html">forAdminOnlyEvent</a></li>
       <li><a href="nyxx.commands/CommandsFramework/helpDirect.html">helpDirect</a></li>
       <li><a href="nyxx.commands/CommandsFramework/ignoreBots.html">ignoreBots</a></li>
       <li><a href="nyxx.commands/CommandsFramework/logger.html">logger</a></li>
+      <li><a href="nyxx.commands/CommandsFramework/onAdminOnlyError.html">onAdminOnlyError</a></li>
+      <li><a href="nyxx.commands/CommandsFramework/onCommandExecutionFail.html">onCommandExecutionFail</a></li>
+      <li><a href="nyxx.commands/CommandsFramework/onCommandNotFound.html">onCommandNotFound</a></li>
+      <li><a href="nyxx.commands/CommandsFramework/onCooldown.html">onCooldown</a></li>
+      <li><a href="nyxx.commands/CommandsFramework/onRequiredPermissionError.html">onRequiredPermissionError</a></li>
+      <li><a href="nyxx.commands/CommandsFramework/onRequiredTopicError.html">onRequiredTopicError</a></li>
+      <li><a href="nyxx.commands/CommandsFramework/onUnauthorizedNsfwAccess.html">onUnauthorizedNsfwAccess</a></li>
+      <li><a href="nyxx.commands/CommandsFramework/onWrongContext.html">onWrongContext</a></li>
       <li><a href="nyxx.commands/CommandsFramework/prefix.html">prefix</a></li>
-      <li><a href="nyxx.commands/CommandsFramework/requiredPermissionEvent.html">requiredPermissionEvent</a></li>
       <li class="inherited"><a href="nyxx.commands/CommandsFramework/hashCode.html">hashCode</a></li>
       <li class="inherited"><a href="nyxx.commands/CommandsFramework/runtimeType.html">runtimeType</a></li>
     

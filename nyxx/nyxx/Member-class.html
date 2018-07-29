@@ -39,6 +39,7 @@
     <h5>nyxx library</h5>
     <ol>
       <li class="section-title"><a href="nyxx/nyxx-library.html#classes">Classes</a></li>
+      <li><a href="nyxx/AbstractPermissions-class.html">AbstractPermissions</a></li>
       <li><a href="nyxx/Attachment-class.html">Attachment</a></li>
       <li><a href="nyxx/AuditLog-class.html">AuditLog</a></li>
       <li><a href="nyxx/AuditLogChange-class.html">AuditLogChange</a></li>
@@ -47,6 +48,7 @@
       <li><a href="nyxx/Channel-class.html">Channel</a></li>
       <li><a href="nyxx/ChannelCreateEvent-class.html">ChannelCreateEvent</a></li>
       <li><a href="nyxx/ChannelDeleteEvent-class.html">ChannelDeleteEvent</a></li>
+      <li><a href="nyxx/ChannelPermissions-class.html">ChannelPermissions</a></li>
       <li><a href="nyxx/ChannelPinsUpdateEvent-class.html">ChannelPinsUpdateEvent</a></li>
       <li><a href="nyxx/ChannelUpdateEvent-class.html">ChannelUpdateEvent</a></li>
       <li><a href="nyxx/Client-class.html">Client</a></li>
@@ -109,6 +111,8 @@
       <li><a href="nyxx/OAuth2Guild-class.html">OAuth2Guild</a></li>
       <li><a href="nyxx/OAuth2Info-class.html">OAuth2Info</a></li>
       <li><a href="nyxx/Permissions-class.html">Permissions</a></li>
+      <li><a href="nyxx/PermissionsBuilder-class.html">PermissionsBuilder</a></li>
+      <li><a href="nyxx/PermissionsConstants-class.html">PermissionsConstants</a></li>
       <li><a href="nyxx/PresenceUpdateEvent-class.html">PresenceUpdateEvent</a></li>
       <li><a href="nyxx/RatelimitEvent-class.html">RatelimitEvent</a></li>
       <li><a href="nyxx/RawEvent-class.html">RawEvent</a></li>
@@ -224,7 +228,7 @@
 </dd>
         <dt id="roles" class="property">
           <span class="name"><a href="nyxx/Member/roles.html">roles</a></span>
-          <span class="signature">&#8596; List<span class="signature">&lt;String&gt;</span></span>
+          <span class="signature">&#8596; List<span class="signature">&lt;<a href="nyxx/Role-class.html">Role</a>&gt;</span></span>
         </dt>
         <dd>
           A list of role IDs the member has.
@@ -288,7 +292,7 @@
 </dd>
         <dt id="id" class="property inherited">
           <span class="name"><a href="nyxx/User/id.html">id</a></span>
-          <span class="signature">&#8596; String</span>
+          <span class="signature">&#8596; <a href="nyxx/Snowflake-class.html">Snowflake</a></span>
         </dt>
         <dd class="inherited">
           The user's ID.
@@ -347,6 +351,15 @@
         </dt>
         <dd>
           Bans the member and optionally deletes <code>deleteMessageDays</code> days worth of messages.
+          
+</dd>
+        <dt id="getTotalPermissions" class="callable">
+          <span class="name"><a href="nyxx/Member/getTotalPermissions.html">getTotalPermissions</a></span><span class="signature">(<wbr>)
+            <span class="returntype parameter">&#8594; Future<span class="signature">&lt;<a href="nyxx/Permissions-class.html">Permissions</a>&gt;</span></span>
+          </span>
+        </dt>
+        <dd>
+          
           
 </dd>
         <dt id="kick" class="callable">
@@ -500,6 +513,7 @@
     
       <li class="section-title"><a href="nyxx/Member-class.html#instance-methods">Methods</a></li>
       <li><a href="nyxx/Member/ban.html">ban</a></li>
+      <li><a href="nyxx/Member/getTotalPermissions.html">getTotalPermissions</a></li>
       <li><a href="nyxx/Member/kick.html">kick</a></li>
       <li><a href="nyxx/Member/toUser.html">toUser</a></li>
       <li class="inherited"><a href="nyxx/User/avatarURL.html">avatarURL</a></li>

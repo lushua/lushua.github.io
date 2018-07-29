@@ -45,16 +45,18 @@
       <li class="section-title">
         <a href="nyxx.commands/CommandsFramework-class.html#instance-properties">Properties</a>
       </li>
-      <li><a href="nyxx.commands/CommandsFramework/commandExecutionFail.html">commandExecutionFail</a></li>
-      <li><a href="nyxx.commands/CommandsFramework/commandNotFoundEvent.html">commandNotFoundEvent</a></li>
-      <li><a href="nyxx.commands/CommandsFramework/cooldownEvent.html">cooldownEvent</a></li>
-      <li><a href="nyxx.commands/CommandsFramework/entityRegex.html">entityRegex</a></li>
-      <li><a href="nyxx.commands/CommandsFramework/forAdminOnlyEvent.html">forAdminOnlyEvent</a></li>
       <li><a href="nyxx.commands/CommandsFramework/helpDirect.html">helpDirect</a></li>
       <li><a href="nyxx.commands/CommandsFramework/ignoreBots.html">ignoreBots</a></li>
       <li><a href="nyxx.commands/CommandsFramework/logger.html">logger</a></li>
+      <li><a href="nyxx.commands/CommandsFramework/onAdminOnlyError.html">onAdminOnlyError</a></li>
+      <li><a href="nyxx.commands/CommandsFramework/onCommandExecutionFail.html">onCommandExecutionFail</a></li>
+      <li><a href="nyxx.commands/CommandsFramework/onCommandNotFound.html">onCommandNotFound</a></li>
+      <li><a href="nyxx.commands/CommandsFramework/onCooldown.html">onCooldown</a></li>
+      <li><a href="nyxx.commands/CommandsFramework/onRequiredPermissionError.html">onRequiredPermissionError</a></li>
+      <li><a href="nyxx.commands/CommandsFramework/onRequiredTopicError.html">onRequiredTopicError</a></li>
+      <li><a href="nyxx.commands/CommandsFramework/onUnauthorizedNsfwAccess.html">onUnauthorizedNsfwAccess</a></li>
+      <li><a href="nyxx.commands/CommandsFramework/onWrongContext.html">onWrongContext</a></li>
       <li><a href="nyxx.commands/CommandsFramework/prefix.html">prefix</a></li>
-      <li><a href="nyxx.commands/CommandsFramework/requiredPermissionEvent.html">requiredPermissionEvent</a></li>
       <li class="inherited"><a href="nyxx.commands/CommandsFramework/hashCode.html">hashCode</a></li>
       <li class="inherited"><a href="nyxx.commands/CommandsFramework/runtimeType.html">runtimeType</a></li>
     
@@ -81,7 +83,7 @@
 
     <section class="multi-line-signature">
       
-      <span class="name ">CommandsFramework</span>(<wbr><span class="parameter" id="-param-prefix"><span class="type-annotation">String</span> <span class="parameter-name">prefix</span>, </span> <span class="parameter" id="-param-client"><span class="type-annotation"><a href="nyxx/Client-class.html">Client</a></span> <span class="parameter-name">client</span>, [</span> <span class="parameter" id="-param-_admins"><span class="type-annotation">List<span class="signature">&lt;String&gt;</span></span> <span class="parameter-name">_admins</span>, </span> <span class="parameter" id="-param-gameName"><span class="type-annotation">String</span> <span class="parameter-name">gameName</span></span> ])
+      <span class="name ">CommandsFramework</span>(<wbr><span class="parameter" id="-param-prefix"><span class="type-annotation">String</span> <span class="parameter-name">prefix</span>, </span> <span class="parameter" id="-param-client"><span class="type-annotation"><a href="nyxx/Client-class.html">Client</a></span> <span class="parameter-name">client</span>, {</span> <span class="parameter" id="-param-admins"><span class="type-annotation">List<span class="signature">&lt;String&gt;</span></span> <span class="parameter-name">admins</span>, </span> <span class="parameter" id="-param-gameName"><span class="type-annotation">String</span> <span class="parameter-name">gameName</span></span> })
     </section>
 
     <section class="desc markdown">
@@ -91,8 +93,9 @@
     <section class="summary source-code" id="source">
       <h2><span>Implementation</span> </h2>
       <pre class="language-dart"><code class="language-dart">CommandsFramework(this.prefix, Client client,
-    [this._admins, String gameName]) {
-  _commands = [];
+  {List&lt;String&gt; admins, String gameName}) {
+  this._commands = new List();
+  this._admins = admins;
   _cooldownCache = new CooldownCache();
 
   _commandNotFoundEventController = new StreamController.broadcast();
@@ -100,12 +103,18 @@
   _forAdminOnlyEventController = new StreamController.broadcast();
   _cooldownEventController = new StreamController.broadcast();
   _commandExecutionFailController = new StreamController.broadcast();
+  _wrongContextController = new StreamController.broadcast();
+  _unauthorizedNsfwAccess = new StreamController.broadcast();
+  _requiredTopicError = new StreamController.broadcast();
 
-  commandNotFoundEvent = _commandNotFoundEventController.stream;
-  forAdminOnlyEvent = _forAdminOnlyEventController.stream;
-  requiredPermissionEvent = _forAdminOnlyEventController.stream;
-  cooldownEvent = _cooldownEventController.stream;
-  commandExecutionFail = _commandExecutionFailController.stream;
+  onCommandNotFound = _commandNotFoundEventController.stream;
+  onAdminOnlyError = _forAdminOnlyEventController.stream;
+  onRequiredPermissionError = _forAdminOnlyEventController.stream;
+  onCooldown = _cooldownEventController.stream;
+  onCommandExecutionFail = _commandExecutionFailController.stream;
+  onWrongContext = _wrongContextController.stream;
+  onUnauthorizedNsfwAccess = _unauthorizedNsfwAccess.stream;
+  onRequiredTopicError = _requiredTopicError.stream;
 
   if (gameName != null) client.user.setGame(name: gameName);
 

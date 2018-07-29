@@ -46,6 +46,7 @@
       <li><a href="nyxx.commands/CommandExecutionFailEvent-class.html">CommandExecutionFailEvent</a></li>
       <li><a href="nyxx.commands/CommandsFramework-class.html">CommandsFramework</a></li>
       <li><a href="nyxx.commands/CooldownCache-class.html">CooldownCache</a></li>
+      <li><a href="nyxx.commands/GuildOnly-class.html">GuildOnly</a></li>
       <li><a href="nyxx.commands/Maincommand-class.html">Maincommand</a></li>
       <li><a href="nyxx.commands/Remainder-class.html">Remainder</a></li>
       <li><a href="nyxx.commands/Service-class.html">Service</a></li>
@@ -156,15 +157,6 @@
           
           
 </dd>
-        <dt id="delay" class="callable">
-          <span class="name"><a href="nyxx.commands/CommandContext/delay.html">delay</a></span><span class="signature">(<wbr>{<span class="parameter" id="delay-param-prefix"><span class="type-annotation">String</span> <span class="parameter-name">prefix</span>: <span class="default-value">""</span>, </span> <span class="parameter" id="delay-param-ensureUser"><span class="type-annotation">bool</span> <span class="parameter-name">ensureUser</span>: <span class="default-value">false</span></span> })
-            <span class="returntype parameter">&#8594; Future<span class="signature">&lt;<a href="nyxx/MessageEvent-class.html">MessageEvent</a>&gt;</span></span>
-          </span>
-        </dt>
-        <dd>
-          Delays execution of command and waits for nex matching command based on <code>prefix</code>. Has static timeout of 30 seconds
-          
-</dd>
         <dt id="getHelp" class="callable">
           <span class="name"><a href="nyxx.commands/CommandContext/getHelp.html">getHelp</a></span><span class="signature">(<wbr><span class="parameter" id="getHelp-param-isAdmin"><span class="type-annotation">bool</span> <span class="parameter-name">isAdmin</span>, </span> <span class="parameter" id="getHelp-param-buffer"><span class="type-annotation">StringBuffer</span> <span class="parameter-name">buffer</span></span>)
             <span class="returntype parameter">&#8594; void</span>
@@ -172,6 +164,15 @@
         </dt>
         <dd>
           
+          
+</dd>
+        <dt id="nextMessage" class="callable">
+          <span class="name"><a href="nyxx.commands/CommandContext/nextMessage.html">nextMessage</a></span><span class="signature">(<wbr>{<span class="parameter" id="nextMessage-param-prefix"><span class="type-annotation">String</span> <span class="parameter-name">prefix</span>: <span class="default-value">""</span>, </span> <span class="parameter" id="nextMessage-param-ensureUser"><span class="type-annotation">bool</span> <span class="parameter-name">ensureUser</span>: <span class="default-value">false</span>, </span> <span class="parameter" id="nextMessage-param-timeout"><span class="type-annotation">Duration</span> <span class="parameter-name">timeout</span>: <span class="default-value">const Duration(seconds: 30)</span></span> })
+            <span class="returntype parameter">&#8594; Future<span class="signature">&lt;<a href="nyxx/MessageEvent-class.html">MessageEvent</a>&gt;</span></span>
+          </span>
+        </dt>
+        <dd>
+          Delays execution of command and waits for nex matching command based on <code>prefix</code>. Has static timeout of 30 seconds
           
 </dd>
         <dt id="nextMessages" class="callable">
@@ -269,8 +270,8 @@
     
       <li class="section-title"><a href="nyxx.commands/CommandContext-class.html#instance-methods">Methods</a></li>
       <li><a href="nyxx.commands/CommandContext/collectEmojis.html">collectEmojis</a></li>
-      <li><a href="nyxx.commands/CommandContext/delay.html">delay</a></li>
       <li><a href="nyxx.commands/CommandContext/getHelp.html">getHelp</a></li>
+      <li><a href="nyxx.commands/CommandContext/nextMessage.html">nextMessage</a></li>
       <li><a href="nyxx.commands/CommandContext/nextMessages.html">nextMessages</a></li>
       <li><a href="nyxx.commands/CommandContext/reply.html">reply</a></li>
       <li><a href="nyxx.commands/CommandContext/replyDelyed.html">replyDelyed</a></li>

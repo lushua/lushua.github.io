@@ -39,6 +39,7 @@
     <h5>nyxx library</h5>
     <ol>
       <li class="section-title"><a href="nyxx/nyxx-library.html#classes">Classes</a></li>
+      <li><a href="nyxx/AbstractPermissions-class.html">AbstractPermissions</a></li>
       <li><a href="nyxx/Attachment-class.html">Attachment</a></li>
       <li><a href="nyxx/AuditLog-class.html">AuditLog</a></li>
       <li><a href="nyxx/AuditLogChange-class.html">AuditLogChange</a></li>
@@ -47,6 +48,7 @@
       <li><a href="nyxx/Channel-class.html">Channel</a></li>
       <li><a href="nyxx/ChannelCreateEvent-class.html">ChannelCreateEvent</a></li>
       <li><a href="nyxx/ChannelDeleteEvent-class.html">ChannelDeleteEvent</a></li>
+      <li><a href="nyxx/ChannelPermissions-class.html">ChannelPermissions</a></li>
       <li><a href="nyxx/ChannelPinsUpdateEvent-class.html">ChannelPinsUpdateEvent</a></li>
       <li><a href="nyxx/ChannelUpdateEvent-class.html">ChannelUpdateEvent</a></li>
       <li><a href="nyxx/Client-class.html">Client</a></li>
@@ -109,6 +111,8 @@
       <li><a href="nyxx/OAuth2Guild-class.html">OAuth2Guild</a></li>
       <li><a href="nyxx/OAuth2Info-class.html">OAuth2Info</a></li>
       <li><a href="nyxx/Permissions-class.html">Permissions</a></li>
+      <li><a href="nyxx/PermissionsBuilder-class.html">PermissionsBuilder</a></li>
+      <li><a href="nyxx/PermissionsConstants-class.html">PermissionsConstants</a></li>
       <li><a href="nyxx/PresenceUpdateEvent-class.html">PresenceUpdateEvent</a></li>
       <li><a href="nyxx/RatelimitEvent-class.html">RatelimitEvent</a></li>
       <li><a href="nyxx/RawEvent-class.html">RawEvent</a></li>
@@ -154,6 +158,20 @@
       <p>Permissions for a role or channel override.</p>
     </section>
     
+    <section>
+      <dl class="dl-horizontal">
+        <dt>Inheritance</dt>
+        <dd><ul class="gt-separated dark clazz-relationships">
+          <li>Object</li>
+          <li><a href="nyxx/AbstractPermissions-class.html">AbstractPermissions</a></li>
+          <li>Permissions</li>
+        </ul></dd>
+
+
+
+
+      </dl>
+    </section>
 
     <section class="summary offset-anchor" id="constructors">
       <h2>Constructors</h2>
@@ -166,7 +184,7 @@
           Makes a <a href="nyxx/Permissions-class.html">Permissions</a> object from a raw permission code.
         </dd>
         <dt id="Permissions.fromOverwrite" class="callable">
-          <span class="name"><a href="nyxx/Permissions/Permissions.fromOverwrite.html">Permissions.fromOverwrite</a></span><span class="signature">(<span class="parameter" id="fromOverwrite-param-permissions"><span class="type-annotation">int</span> <span class="parameter-name">permissions</span>, </span> <span class="parameter" id="fromOverwrite-param-overwrite"><span class="type-annotation">int</span> <span class="parameter-name">overwrite</span></span>)</span>
+          <span class="name"><a href="nyxx/Permissions/Permissions.fromOverwrite.html">Permissions.fromOverwrite</a></span><span class="signature">(<span class="parameter" id="fromOverwrite-param-permissions"><span class="type-annotation">int</span> <span class="parameter-name">permissions</span>, </span> <span class="parameter" id="fromOverwrite-param-allow"><span class="type-annotation">int</span> <span class="parameter-name">allow</span>, </span> <span class="parameter" id="fromOverwrite-param-deny"><span class="type-annotation">int</span> <span class="parameter-name">deny</span></span>)</span>
         </dt>
         <dd>
           
@@ -174,233 +192,249 @@
       </dl>
     </section>
 
-    <section class="summary offset-anchor" id="instance-properties">
+    <section class="summary offset-anchor inherited" id="instance-properties">
       <h2>Properties</h2>
 
       <dl class="properties">
-        <dt id="administrator" class="property">
-          <span class="name"><a href="nyxx/Permissions/administrator.html">administrator</a></span>
+        <dt id="addReactions" class="property inherited">
+          <span class="name"><a href="nyxx/AbstractPermissions/addReactions.html">addReactions</a></span>
           <span class="signature">&#8596; bool</span>
         </dt>
-        <dd>
+        <dd class="inherited">
+          Allows to add reactions
+          <div class="features">read / write, inherited</div>
+</dd>
+        <dt id="administrator" class="property inherited">
+          <span class="name"><a href="nyxx/AbstractPermissions/administrator.html">administrator</a></span>
+          <span class="signature">&#8596; bool</span>
+        </dt>
+        <dd class="inherited">
           True if user is administrator
-          <div class="features">read / write</div>
+          <div class="features">read / write, inherited</div>
 </dd>
-        <dt id="attachFiles" class="property">
-          <span class="name"><a href="nyxx/Permissions/attachFiles.html">attachFiles</a></span>
+        <dt id="attachFiles" class="property inherited">
+          <span class="name"><a href="nyxx/AbstractPermissions/attachFiles.html">attachFiles</a></span>
           <span class="signature">&#8596; bool</span>
         </dt>
-        <dd>
+        <dd class="inherited">
           True if user can attach files in messages
-          <div class="features">read / write</div>
+          <div class="features">read / write, inherited</div>
 </dd>
-        <dt id="banMembers" class="property">
-          <span class="name"><a href="nyxx/Permissions/banMembers.html">banMembers</a></span>
+        <dt id="banMembers" class="property inherited">
+          <span class="name"><a href="nyxx/AbstractPermissions/banMembers.html">banMembers</a></span>
           <span class="signature">&#8596; bool</span>
         </dt>
-        <dd>
+        <dd class="inherited">
           True if user can ban members
-          <div class="features">read / write</div>
+          <div class="features">read / write, inherited</div>
 </dd>
-        <dt id="changeNickname" class="property">
-          <span class="name"><a href="nyxx/Permissions/changeNickname.html">changeNickname</a></span>
+        <dt id="changeNickname" class="property inherited">
+          <span class="name"><a href="nyxx/AbstractPermissions/changeNickname.html">changeNickname</a></span>
           <span class="signature">&#8596; bool</span>
         </dt>
-        <dd>
+        <dd class="inherited">
           True if user can change nick
-          <div class="features">read / write</div>
+          <div class="features">read / write, inherited</div>
 </dd>
-        <dt id="connect" class="property">
-          <span class="name"><a href="nyxx/Permissions/connect.html">connect</a></span>
+        <dt id="connect" class="property inherited">
+          <span class="name"><a href="nyxx/AbstractPermissions/connect.html">connect</a></span>
           <span class="signature">&#8596; bool</span>
         </dt>
-        <dd>
+        <dd class="inherited">
           True if user can connect to voice channel
-          <div class="features">read / write</div>
+          <div class="features">read / write, inherited</div>
 </dd>
-        <dt id="createInstantInvite" class="property">
-          <span class="name"><a href="nyxx/Permissions/createInstantInvite.html">createInstantInvite</a></span>
+        <dt id="createInstantInvite" class="property inherited">
+          <span class="name"><a href="nyxx/AbstractPermissions/createInstantInvite.html">createInstantInvite</a></span>
           <span class="signature">&#8596; bool</span>
         </dt>
-        <dd>
+        <dd class="inherited">
           True if user can craete InstantInvite
-          <div class="features">read / write</div>
+          <div class="features">read / write, inherited</div>
 </dd>
-        <dt id="deafenMembers" class="property">
-          <span class="name"><a href="nyxx/Permissions/deafenMembers.html">deafenMembers</a></span>
+        <dt id="deafenMembers" class="property inherited">
+          <span class="name"><a href="nyxx/AbstractPermissions/deafenMembers.html">deafenMembers</a></span>
           <span class="signature">&#8596; bool</span>
         </dt>
-        <dd>
+        <dd class="inherited">
           True if user can deafen members
-          <div class="features">read / write</div>
+          <div class="features">read / write, inherited</div>
 </dd>
-        <dt id="embedLinks" class="property">
-          <span class="name"><a href="nyxx/Permissions/embedLinks.html">embedLinks</a></span>
+        <dt id="embedLinks" class="property inherited">
+          <span class="name"><a href="nyxx/AbstractPermissions/embedLinks.html">embedLinks</a></span>
           <span class="signature">&#8596; bool</span>
         </dt>
-        <dd>
+        <dd class="inherited">
           True if user can send links in messages
-          <div class="features">read / write</div>
-</dd>
-        <dt id="kickMembers" class="property">
-          <span class="name"><a href="nyxx/Permissions/kickMembers.html">kickMembers</a></span>
-          <span class="signature">&#8596; bool</span>
-        </dt>
-        <dd>
-          True if user can kick members
-          <div class="features">read / write</div>
-</dd>
-        <dt id="manageChannels" class="property">
-          <span class="name"><a href="nyxx/Permissions/manageChannels.html">manageChannels</a></span>
-          <span class="signature">&#8596; bool</span>
-        </dt>
-        <dd>
-          True if user can mamanger channels
-          <div class="features">read / write</div>
-</dd>
-        <dt id="manageGuild" class="property">
-          <span class="name"><a href="nyxx/Permissions/manageGuild.html">manageGuild</a></span>
-          <span class="signature">&#8596; bool</span>
-        </dt>
-        <dd>
-          True if user can manager guilds
-          <div class="features">read / write</div>
-</dd>
-        <dt id="manageMessages" class="property">
-          <span class="name"><a href="nyxx/Permissions/manageMessages.html">manageMessages</a></span>
-          <span class="signature">&#8596; bool</span>
-        </dt>
-        <dd>
-          True if user can manage messages
-          <div class="features">read / write</div>
-</dd>
-        <dt id="manageNicknames" class="property">
-          <span class="name"><a href="nyxx/Permissions/manageNicknames.html">manageNicknames</a></span>
-          <span class="signature">&#8596; bool</span>
-        </dt>
-        <dd>
-          True if user can manager others nicknames
-          <div class="features">read / write</div>
-</dd>
-        <dt id="manageRoles" class="property">
-          <span class="name"><a href="nyxx/Permissions/manageRoles.html">manageRoles</a></span>
-          <span class="signature">&#8596; bool</span>
-        </dt>
-        <dd>
-          True if user can manage server's roles
-          <div class="features">read / write</div>
-</dd>
-        <dt id="manageWebhooks" class="property">
-          <span class="name"><a href="nyxx/Permissions/manageWebhooks.html">manageWebhooks</a></span>
-          <span class="signature">&#8596; bool</span>
-        </dt>
-        <dd>
-          True if user can manage webhooks
-          <div class="features">read / write</div>
-</dd>
-        <dt id="mentionEveryone" class="property">
-          <span class="name"><a href="nyxx/Permissions/mentionEveryone.html">mentionEveryone</a></span>
-          <span class="signature">&#8596; bool</span>
-        </dt>
-        <dd>
-          True if user can mention everyone
-          <div class="features">read / write</div>
-</dd>
-        <dt id="moveMembers" class="property">
-          <span class="name"><a href="nyxx/Permissions/moveMembers.html">moveMembers</a></span>
-          <span class="signature">&#8596; bool</span>
-        </dt>
-        <dd>
-          True if user can move members
-          <div class="features">read / write</div>
-</dd>
-        <dt id="muteMembers" class="property">
-          <span class="name"><a href="nyxx/Permissions/muteMembers.html">muteMembers</a></span>
-          <span class="signature">&#8596; bool</span>
-        </dt>
-        <dd>
-          True if user can mute members
-          <div class="features">read / write</div>
-</dd>
-        <dt id="raw" class="property">
-          <span class="name"><a href="nyxx/Permissions/raw.html">raw</a></span>
-          <span class="signature">&#8596; int</span>
-        </dt>
-        <dd>
-          The raw permission code.
-          <div class="features">read / write</div>
-</dd>
-        <dt id="readMessageHistory" class="property">
-          <span class="name"><a href="nyxx/Permissions/readMessageHistory.html">readMessageHistory</a></span>
-          <span class="signature">&#8596; bool</span>
-        </dt>
-        <dd>
-          True if user can read messages history
-          <div class="features">read / write</div>
-</dd>
-        <dt id="readMessages" class="property">
-          <span class="name"><a href="nyxx/Permissions/readMessages.html">readMessages</a></span>
-          <span class="signature">&#8596; bool</span>
-        </dt>
-        <dd>
-          True if user can read messages
-          <div class="features">read / write</div>
-</dd>
-        <dt id="sendMessages" class="property">
-          <span class="name"><a href="nyxx/Permissions/sendMessages.html">sendMessages</a></span>
-          <span class="signature">&#8596; bool</span>
-        </dt>
-        <dd>
-          True if user can send messages
-          <div class="features">read / write</div>
-</dd>
-        <dt id="sendTtsMessages" class="property">
-          <span class="name"><a href="nyxx/Permissions/sendTtsMessages.html">sendTtsMessages</a></span>
-          <span class="signature">&#8596; bool</span>
-        </dt>
-        <dd>
-          True if user can send TTF messages
-          <div class="features">read / write</div>
-</dd>
-        <dt id="speak" class="property">
-          <span class="name"><a href="nyxx/Permissions/speak.html">speak</a></span>
-          <span class="signature">&#8596; bool</span>
-        </dt>
-        <dd>
-          True if user can speak
-          <div class="features">read / write</div>
-</dd>
-        <dt id="useExternalEmojis" class="property">
-          <span class="name"><a href="nyxx/Permissions/useExternalEmojis.html">useExternalEmojis</a></span>
-          <span class="signature">&#8596; bool</span>
-        </dt>
-        <dd>
-          True if user can use external emojis
-          <div class="features">read / write</div>
-</dd>
-        <dt id="useVad" class="property">
-          <span class="name"><a href="nyxx/Permissions/useVad.html">useVad</a></span>
-          <span class="signature">&#8596; bool</span>
-        </dt>
-        <dd>
-          Allows for using voice-activity-detection in a voice channel
-          <div class="features">read / write</div>
+          <div class="features">read / write, inherited</div>
 </dd>
         <dt id="hashCode" class="property inherited">
-          <span class="name"><a href="nyxx/Permissions/hashCode.html">hashCode</a></span>
+          <span class="name"><a href="nyxx/AbstractPermissions/hashCode.html">hashCode</a></span>
           <span class="signature">&#8594; int</span>
         </dt>
         <dd class="inherited">
-          The hash code for this object. <a href="nyxx/Permissions/hashCode.html">[...]</a>
+          The hash code for this object. <a href="nyxx/AbstractPermissions/hashCode.html">[...]</a>
           <div class="features">read-only, inherited</div>
 </dd>
+        <dt id="kickMembers" class="property inherited">
+          <span class="name"><a href="nyxx/AbstractPermissions/kickMembers.html">kickMembers</a></span>
+          <span class="signature">&#8596; bool</span>
+        </dt>
+        <dd class="inherited">
+          True if user can kick members
+          <div class="features">read / write, inherited</div>
+</dd>
+        <dt id="manageChannels" class="property inherited">
+          <span class="name"><a href="nyxx/AbstractPermissions/manageChannels.html">manageChannels</a></span>
+          <span class="signature">&#8596; bool</span>
+        </dt>
+        <dd class="inherited">
+          True if user can mamanger channels
+          <div class="features">read / write, inherited</div>
+</dd>
+        <dt id="manageGuild" class="property inherited">
+          <span class="name"><a href="nyxx/AbstractPermissions/manageGuild.html">manageGuild</a></span>
+          <span class="signature">&#8596; bool</span>
+        </dt>
+        <dd class="inherited">
+          True if user can manager guilds
+          <div class="features">read / write, inherited</div>
+</dd>
+        <dt id="manageMessages" class="property inherited">
+          <span class="name"><a href="nyxx/AbstractPermissions/manageMessages.html">manageMessages</a></span>
+          <span class="signature">&#8596; bool</span>
+        </dt>
+        <dd class="inherited">
+          True if user can manage messages
+          <div class="features">read / write, inherited</div>
+</dd>
+        <dt id="manageNicknames" class="property inherited">
+          <span class="name"><a href="nyxx/AbstractPermissions/manageNicknames.html">manageNicknames</a></span>
+          <span class="signature">&#8596; bool</span>
+        </dt>
+        <dd class="inherited">
+          True if user can manager others nicknames
+          <div class="features">read / write, inherited</div>
+</dd>
+        <dt id="manageRoles" class="property inherited">
+          <span class="name"><a href="nyxx/AbstractPermissions/manageRoles.html">manageRoles</a></span>
+          <span class="signature">&#8596; bool</span>
+        </dt>
+        <dd class="inherited">
+          True if user can manage server's roles
+          <div class="features">read / write, inherited</div>
+</dd>
+        <dt id="manageWebhooks" class="property inherited">
+          <span class="name"><a href="nyxx/AbstractPermissions/manageWebhooks.html">manageWebhooks</a></span>
+          <span class="signature">&#8596; bool</span>
+        </dt>
+        <dd class="inherited">
+          True if user can manage webhooks
+          <div class="features">read / write, inherited</div>
+</dd>
+        <dt id="mentionEveryone" class="property inherited">
+          <span class="name"><a href="nyxx/AbstractPermissions/mentionEveryone.html">mentionEveryone</a></span>
+          <span class="signature">&#8596; bool</span>
+        </dt>
+        <dd class="inherited">
+          True if user can mention everyone
+          <div class="features">read / write, inherited</div>
+</dd>
+        <dt id="moveMembers" class="property inherited">
+          <span class="name"><a href="nyxx/AbstractPermissions/moveMembers.html">moveMembers</a></span>
+          <span class="signature">&#8596; bool</span>
+        </dt>
+        <dd class="inherited">
+          True if user can move members
+          <div class="features">read / write, inherited</div>
+</dd>
+        <dt id="muteMembers" class="property inherited">
+          <span class="name"><a href="nyxx/AbstractPermissions/muteMembers.html">muteMembers</a></span>
+          <span class="signature">&#8596; bool</span>
+        </dt>
+        <dd class="inherited">
+          True if user can mute members
+          <div class="features">read / write, inherited</div>
+</dd>
+        <dt id="raw" class="property inherited">
+          <span class="name"><a href="nyxx/AbstractPermissions/raw.html">raw</a></span>
+          <span class="signature">&#8596; int</span>
+        </dt>
+        <dd class="inherited">
+          The raw permission code.
+          <div class="features">read / write, inherited</div>
+</dd>
+        <dt id="readMessageHistory" class="property inherited">
+          <span class="name"><a href="nyxx/AbstractPermissions/readMessageHistory.html">readMessageHistory</a></span>
+          <span class="signature">&#8596; bool</span>
+        </dt>
+        <dd class="inherited">
+          True if user can read messages history
+          <div class="features">read / write, inherited</div>
+</dd>
         <dt id="runtimeType" class="property inherited">
-          <span class="name"><a href="nyxx/Permissions/runtimeType.html">runtimeType</a></span>
+          <span class="name"><a href="nyxx/AbstractPermissions/runtimeType.html">runtimeType</a></span>
           <span class="signature">&#8594; Type</span>
         </dt>
         <dd class="inherited">
           A representation of the runtime type of the object.
           <div class="features">read-only, inherited</div>
+</dd>
+        <dt id="sendMessages" class="property inherited">
+          <span class="name"><a href="nyxx/AbstractPermissions/sendMessages.html">sendMessages</a></span>
+          <span class="signature">&#8596; bool</span>
+        </dt>
+        <dd class="inherited">
+          True if user can send messages
+          <div class="features">read / write, inherited</div>
+</dd>
+        <dt id="sendTtsMessages" class="property inherited">
+          <span class="name"><a href="nyxx/AbstractPermissions/sendTtsMessages.html">sendTtsMessages</a></span>
+          <span class="signature">&#8596; bool</span>
+        </dt>
+        <dd class="inherited">
+          True if user can send TTF messages
+          <div class="features">read / write, inherited</div>
+</dd>
+        <dt id="speak" class="property inherited">
+          <span class="name"><a href="nyxx/AbstractPermissions/speak.html">speak</a></span>
+          <span class="signature">&#8596; bool</span>
+        </dt>
+        <dd class="inherited">
+          True if user can speak
+          <div class="features">read / write, inherited</div>
+</dd>
+        <dt id="useExternalEmojis" class="property inherited">
+          <span class="name"><a href="nyxx/AbstractPermissions/useExternalEmojis.html">useExternalEmojis</a></span>
+          <span class="signature">&#8596; bool</span>
+        </dt>
+        <dd class="inherited">
+          True if user can use external emojis
+          <div class="features">read / write, inherited</div>
+</dd>
+        <dt id="useVad" class="property inherited">
+          <span class="name"><a href="nyxx/AbstractPermissions/useVad.html">useVad</a></span>
+          <span class="signature">&#8596; bool</span>
+        </dt>
+        <dd class="inherited">
+          Allows for using voice-activity-detection in a voice channel
+          <div class="features">read / write, inherited</div>
+</dd>
+        <dt id="viewAuditLog" class="property inherited">
+          <span class="name"><a href="nyxx/AbstractPermissions/viewAuditLog.html">viewAuditLog</a></span>
+          <span class="signature">&#8596; bool</span>
+        </dt>
+        <dd class="inherited">
+          Allow to view audit logs
+          <div class="features">read / write, inherited</div>
+</dd>
+        <dt id="viewChannel" class="property inherited">
+          <span class="name"><a href="nyxx/AbstractPermissions/viewChannel.html">viewChannel</a></span>
+          <span class="signature">&#8596; bool</span>
+        </dt>
+        <dd class="inherited">
+          Allow viewing channels (OLD READ_MESSAGES)
+          <div class="features">read / write, inherited</div>
 </dd>
       </dl>
     </section>
@@ -409,16 +443,16 @@
       <h2>Methods</h2>
       <dl class="callables">
         <dt id="noSuchMethod" class="callable inherited">
-          <span class="name"><a href="nyxx/Permissions/noSuchMethod.html">noSuchMethod</a></span><span class="signature">(<wbr><span class="parameter" id="noSuchMethod-param-invocation"><span class="type-annotation">Invocation</span> <span class="parameter-name">invocation</span></span>)
+          <span class="name"><a href="nyxx/AbstractPermissions/noSuchMethod.html">noSuchMethod</a></span><span class="signature">(<wbr><span class="parameter" id="noSuchMethod-param-invocation"><span class="type-annotation">Invocation</span> <span class="parameter-name">invocation</span></span>)
             <span class="returntype parameter">&#8594; dynamic</span>
           </span>
         </dt>
         <dd class="inherited">
-          Invoked when a non-existent method or property is accessed. <a href="nyxx/Permissions/noSuchMethod.html">[...]</a>
+          Invoked when a non-existent method or property is accessed. <a href="nyxx/AbstractPermissions/noSuchMethod.html">[...]</a>
           <div class="features">inherited</div>
 </dd>
         <dt id="toString" class="callable inherited">
-          <span class="name"><a href="nyxx/Permissions/toString.html">toString</a></span><span class="signature">(<wbr>)
+          <span class="name"><a href="nyxx/AbstractPermissions/toString.html">toString</a></span><span class="signature">(<wbr>)
             <span class="returntype parameter">&#8594; String</span>
           </span>
         </dt>
@@ -433,12 +467,12 @@
       <h2>Operators</h2>
       <dl class="callables">
         <dt id="operator ==" class="callable inherited">
-          <span class="name"><a href="nyxx/Permissions/operator_equals.html">operator ==</a></span><span class="signature">(<wbr><span class="parameter" id="==-param-other"><span class="parameter-name">other</span></span>)
+          <span class="name"><a href="nyxx/AbstractPermissions/operator_equals.html">operator ==</a></span><span class="signature">(<wbr><span class="parameter" id="==-param-other"><span class="parameter-name">other</span></span>)
             <span class="returntype parameter">&#8594; bool</span>
           </span>
         </dt>
         <dd class="inherited">
-          The equality operator. <a href="nyxx/Permissions/operator_equals.html">[...]</a>
+          The equality operator. <a href="nyxx/AbstractPermissions/operator_equals.html">[...]</a>
           <div class="features">inherited</div>
 </dd>
       </dl>
@@ -455,44 +489,46 @@
       <li><a href="nyxx/Permissions/Permissions.fromInt.html">fromInt</a></li>
       <li><a href="nyxx/Permissions/Permissions.fromOverwrite.html">fromOverwrite</a></li>
     
-      <li class="section-title">
+      <li class="section-title inherited">
         <a href="nyxx/Permissions-class.html#instance-properties">Properties</a>
       </li>
-      <li><a href="nyxx/Permissions/administrator.html">administrator</a></li>
-      <li><a href="nyxx/Permissions/attachFiles.html">attachFiles</a></li>
-      <li><a href="nyxx/Permissions/banMembers.html">banMembers</a></li>
-      <li><a href="nyxx/Permissions/changeNickname.html">changeNickname</a></li>
-      <li><a href="nyxx/Permissions/connect.html">connect</a></li>
-      <li><a href="nyxx/Permissions/createInstantInvite.html">createInstantInvite</a></li>
-      <li><a href="nyxx/Permissions/deafenMembers.html">deafenMembers</a></li>
-      <li><a href="nyxx/Permissions/embedLinks.html">embedLinks</a></li>
-      <li><a href="nyxx/Permissions/kickMembers.html">kickMembers</a></li>
-      <li><a href="nyxx/Permissions/manageChannels.html">manageChannels</a></li>
-      <li><a href="nyxx/Permissions/manageGuild.html">manageGuild</a></li>
-      <li><a href="nyxx/Permissions/manageMessages.html">manageMessages</a></li>
-      <li><a href="nyxx/Permissions/manageNicknames.html">manageNicknames</a></li>
-      <li><a href="nyxx/Permissions/manageRoles.html">manageRoles</a></li>
-      <li><a href="nyxx/Permissions/manageWebhooks.html">manageWebhooks</a></li>
-      <li><a href="nyxx/Permissions/mentionEveryone.html">mentionEveryone</a></li>
-      <li><a href="nyxx/Permissions/moveMembers.html">moveMembers</a></li>
-      <li><a href="nyxx/Permissions/muteMembers.html">muteMembers</a></li>
-      <li><a href="nyxx/Permissions/raw.html">raw</a></li>
-      <li><a href="nyxx/Permissions/readMessageHistory.html">readMessageHistory</a></li>
-      <li><a href="nyxx/Permissions/readMessages.html">readMessages</a></li>
-      <li><a href="nyxx/Permissions/sendMessages.html">sendMessages</a></li>
-      <li><a href="nyxx/Permissions/sendTtsMessages.html">sendTtsMessages</a></li>
-      <li><a href="nyxx/Permissions/speak.html">speak</a></li>
-      <li><a href="nyxx/Permissions/useExternalEmojis.html">useExternalEmojis</a></li>
-      <li><a href="nyxx/Permissions/useVad.html">useVad</a></li>
-      <li class="inherited"><a href="nyxx/Permissions/hashCode.html">hashCode</a></li>
-      <li class="inherited"><a href="nyxx/Permissions/runtimeType.html">runtimeType</a></li>
+      <li class="inherited"><a href="nyxx/AbstractPermissions/addReactions.html">addReactions</a></li>
+      <li class="inherited"><a href="nyxx/AbstractPermissions/administrator.html">administrator</a></li>
+      <li class="inherited"><a href="nyxx/AbstractPermissions/attachFiles.html">attachFiles</a></li>
+      <li class="inherited"><a href="nyxx/AbstractPermissions/banMembers.html">banMembers</a></li>
+      <li class="inherited"><a href="nyxx/AbstractPermissions/changeNickname.html">changeNickname</a></li>
+      <li class="inherited"><a href="nyxx/AbstractPermissions/connect.html">connect</a></li>
+      <li class="inherited"><a href="nyxx/AbstractPermissions/createInstantInvite.html">createInstantInvite</a></li>
+      <li class="inherited"><a href="nyxx/AbstractPermissions/deafenMembers.html">deafenMembers</a></li>
+      <li class="inherited"><a href="nyxx/AbstractPermissions/embedLinks.html">embedLinks</a></li>
+      <li class="inherited"><a href="nyxx/AbstractPermissions/hashCode.html">hashCode</a></li>
+      <li class="inherited"><a href="nyxx/AbstractPermissions/kickMembers.html">kickMembers</a></li>
+      <li class="inherited"><a href="nyxx/AbstractPermissions/manageChannels.html">manageChannels</a></li>
+      <li class="inherited"><a href="nyxx/AbstractPermissions/manageGuild.html">manageGuild</a></li>
+      <li class="inherited"><a href="nyxx/AbstractPermissions/manageMessages.html">manageMessages</a></li>
+      <li class="inherited"><a href="nyxx/AbstractPermissions/manageNicknames.html">manageNicknames</a></li>
+      <li class="inherited"><a href="nyxx/AbstractPermissions/manageRoles.html">manageRoles</a></li>
+      <li class="inherited"><a href="nyxx/AbstractPermissions/manageWebhooks.html">manageWebhooks</a></li>
+      <li class="inherited"><a href="nyxx/AbstractPermissions/mentionEveryone.html">mentionEveryone</a></li>
+      <li class="inherited"><a href="nyxx/AbstractPermissions/moveMembers.html">moveMembers</a></li>
+      <li class="inherited"><a href="nyxx/AbstractPermissions/muteMembers.html">muteMembers</a></li>
+      <li class="inherited"><a href="nyxx/AbstractPermissions/raw.html">raw</a></li>
+      <li class="inherited"><a href="nyxx/AbstractPermissions/readMessageHistory.html">readMessageHistory</a></li>
+      <li class="inherited"><a href="nyxx/AbstractPermissions/runtimeType.html">runtimeType</a></li>
+      <li class="inherited"><a href="nyxx/AbstractPermissions/sendMessages.html">sendMessages</a></li>
+      <li class="inherited"><a href="nyxx/AbstractPermissions/sendTtsMessages.html">sendTtsMessages</a></li>
+      <li class="inherited"><a href="nyxx/AbstractPermissions/speak.html">speak</a></li>
+      <li class="inherited"><a href="nyxx/AbstractPermissions/useExternalEmojis.html">useExternalEmojis</a></li>
+      <li class="inherited"><a href="nyxx/AbstractPermissions/useVad.html">useVad</a></li>
+      <li class="inherited"><a href="nyxx/AbstractPermissions/viewAuditLog.html">viewAuditLog</a></li>
+      <li class="inherited"><a href="nyxx/AbstractPermissions/viewChannel.html">viewChannel</a></li>
     
       <li class="section-title"><a href="nyxx/Permissions-class.html#instance-methods">Methods</a></li>
-      <li class="inherited"><a href="nyxx/Permissions/noSuchMethod.html">noSuchMethod</a></li>
-      <li class="inherited"><a href="nyxx/Permissions/toString.html">toString</a></li>
+      <li class="inherited"><a href="nyxx/AbstractPermissions/noSuchMethod.html">noSuchMethod</a></li>
+      <li class="inherited"><a href="nyxx/AbstractPermissions/toString.html">toString</a></li>
     
       <li class="section-title inherited"><a href="nyxx/Permissions-class.html#operators">Operators</a></li>
-      <li class="inherited"><a href="nyxx/Permissions/operator_equals.html">operator ==</a></li>
+      <li class="inherited"><a href="nyxx/AbstractPermissions/operator_equals.html">operator ==</a></li>
     
     
     

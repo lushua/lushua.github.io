@@ -49,11 +49,14 @@
       <li><a href="nyxx/GuildChannel/name.html">name</a></li>
       <li><a href="nyxx/GuildChannel/nsfw.html">nsfw</a></li>
       <li><a href="nyxx/GuildChannel/parentId.html">parentId</a></li>
+      <li><a href="nyxx/GuildChannel/permissions.html">permissions</a></li>
       <li><a href="nyxx/GuildChannel/position.html">position</a></li>
       <li class="inherited"><a href="nyxx/GuildChannel/hashCode.html">hashCode</a></li>
       <li class="inherited"><a href="nyxx/GuildChannel/runtimeType.html">runtimeType</a></li>
     
       <li class="section-title"><a href="nyxx/GuildChannel-class.html#instance-methods">Methods</a></li>
+      <li><a href="nyxx/GuildChannel/deleteChannelPermission.html">deleteChannelPermission</a></li>
+      <li><a href="nyxx/GuildChannel/editChannelPermission.html">editChannelPermission</a></li>
       <li><a href="nyxx/GuildChannel/initialize.html">initialize</a></li>
       <li class="inherited"><a href="nyxx/GuildChannel/noSuchMethod.html">noSuchMethod</a></li>
       <li class="inherited"><a href="nyxx/GuildChannel/toString.html">toString</a></li>
@@ -72,21 +75,30 @@
     <section class="multi-line-signature">
       <span class="returntype">void</span>
       <span class="name ">initialize</span>
-(<wbr><span class="parameter" id="initialize-param-raw"><span class="type-annotation">Map<span class="signature">&lt;String, dynamic&gt;</span></span> <span class="parameter-name">raw</span></span>)
+(<wbr><span class="parameter" id="initialize-param-raw"><span class="type-annotation">Map<span class="signature">&lt;String, dynamic&gt;</span></span> <span class="parameter-name">raw</span>, </span> <span class="parameter" id="initialize-param-client"><span class="type-annotation"><a href="nyxx/Client-class.html">Client</a></span> <span class="parameter-name">client</span>, </span> <span class="parameter" id="initialize-param-guild"><span class="type-annotation"><a href="nyxx/Guild-class.html">Guild</a></span> <span class="parameter-name">guild</span></span>)
     </section>
     
     <section class="summary source-code" id="source">
       <h2><span>Implementation</span> </h2>
-      <pre class="language-dart"><code class="language-dart">void initialize(Map&lt;String, dynamic&gt; raw) {
+      <pre class="language-dart"><code class="language-dart">void initialize(Map&lt;String, dynamic&gt; raw, Client client, Guild guild) {
+  this._client = client;
   this.name = raw[&#39;name&#39;];
   this.position = raw[&#39;position&#39;];
+  this.guild = guild;
 
-  &#47;&#47;this.id = raw[&#39;id&#39;];
+  this._id = raw[&#39;id&#39;];
   if (raw[&#39;parent_id&#39;] != null) {
     this.parentId = new Snowflake(raw[&#39;parent_id&#39;]);
   }
 
   this.nsfw = raw[&#39;nsfw&#39;];
+
+  if(raw[&#39;permission_overwrites&#39;] != null) {
+    permissions = new List();
+    raw[&#39;permission_overwrites&#39;].forEach((Map&lt;String, dynamic&gt; o) {
+      permissions.add(new ChannelPermissions._new(o));
+    });
+  }
 }</code></pre>
     </section>
 

@@ -113,7 +113,7 @@
     <section class="multi-line-signature">
       <span class="returntype">Future</span>
       <span class="name ">createChannel</span>
-(<wbr><span class="parameter" id="createChannel-param-name"><span class="type-annotation">String</span> <span class="parameter-name">name</span>, </span> <span class="parameter" id="createChannel-param-type"><span class="type-annotation">String</span> <span class="parameter-name">type</span>, {</span> <span class="parameter" id="createChannel-param-bitrate"><span class="type-annotation">int</span> <span class="parameter-name">bitrate</span>: <span class="default-value">64000</span>, </span> <span class="parameter" id="createChannel-param-userLimit"><span class="type-annotation">int</span> <span class="parameter-name">userLimit</span>: <span class="default-value">0</span>, </span> <span class="parameter" id="createChannel-param-auditReason"><span class="type-annotation">String</span> <span class="parameter-name">auditReason</span>: <span class="default-value">""</span></span> })
+(<wbr><span class="parameter" id="createChannel-param-name"><span class="type-annotation">String</span> <span class="parameter-name">name</span>, </span> <span class="parameter" id="createChannel-param-type"><span class="type-annotation">String</span> <span class="parameter-name">type</span>, {</span> <span class="parameter" id="createChannel-param-bitrate"><span class="type-annotation">int</span> <span class="parameter-name">bitrate</span>: <span class="default-value">64000</span>, </span> <span class="parameter" id="createChannel-param-userLimit"><span class="type-annotation">int</span> <span class="parameter-name">userLimit</span>: <span class="default-value">0</span>, </span> <span class="parameter" id="createChannel-param-auditReason"><span class="type-annotation">String</span> <span class="parameter-name">auditReason</span>: <span class="default-value">""</span>, </span> <span class="parameter" id="createChannel-param-permissions"><span class="type-annotation"><a href="nyxx/PermissionsBuilder-class.html">PermissionsBuilder</a></span> <span class="parameter-name">permissions</span></span> })
     </section>
     <section class="desc markdown">
       <p>Creates a channel.</p>
@@ -122,13 +122,14 @@
     <section class="summary source-code" id="source">
       <h2><span>Implementation</span> </h2>
       <pre class="language-dart"><code class="language-dart">Future&lt;dynamic&gt; createChannel(String name, String type,
-    {int bitrate: 64000, int userLimit: 0, String auditReason = &quot;&quot;}) async {
+    {int bitrate: 64000, int userLimit: 0, String auditReason = &quot;&quot;, PermissionsBuilder permissions}) async {
   HttpResponse r = await this.client.http.send(&#39;POST&#39;, &quot;&#47;guilds&#47;$id&#47;channels&quot;,
       body: {
         &quot;name&quot;: name,
         &quot;type&quot;: type,
         &quot;bitrate&quot;: bitrate,
-        &quot;user_limit&quot;: userLimit
+        &quot;user_limit&quot;: userLimit,
+        &quot;permissions&quot;: permissions._build()._build()
       },
       reason: auditReason);
 

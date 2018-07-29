@@ -46,6 +46,7 @@
       <li><a href="nyxx.commands/CommandExecutionFailEvent-class.html">CommandExecutionFailEvent</a></li>
       <li><a href="nyxx.commands/CommandsFramework-class.html">CommandsFramework</a></li>
       <li><a href="nyxx.commands/CooldownCache-class.html">CooldownCache</a></li>
+      <li><a href="nyxx.commands/GuildOnly-class.html">GuildOnly</a></li>
       <li><a href="nyxx.commands/Maincommand-class.html">Maincommand</a></li>
       <li><a href="nyxx.commands/Remainder-class.html">Remainder</a></li>
       <li><a href="nyxx.commands/Service-class.html">Service</a></li>
@@ -73,7 +74,7 @@
 
       <dl class="constructor-summary-list">
         <dt id="CacheEntry" class="callable">
-          <span class="name"><a href="nyxx.commands/CacheEntry/CacheEntry.html">CacheEntry</a></span><span class="signature">(<span class="parameter" id="-param-userId"><span class="type-annotation">String</span> <span class="parameter-name">userId</span>, </span> <span class="parameter" id="-param-commandName"><span class="type-annotation">String</span> <span class="parameter-name">commandName</span>, </span> <span class="parameter" id="-param-lastUsed"><span class="type-annotation">int</span> <span class="parameter-name">lastUsed</span></span>)</span>
+          <span class="name"><a href="nyxx.commands/CacheEntry/CacheEntry.html">CacheEntry</a></span><span class="signature">(<span class="parameter" id="-param-userId"><span class="type-annotation"><a href="nyxx/Snowflake-class.html">Snowflake</a></span> <span class="parameter-name">userId</span>, </span> <span class="parameter" id="-param-commandName"><span class="type-annotation">String</span> <span class="parameter-name">commandName</span>, </span> <span class="parameter" id="-param-lastUsed"><span class="type-annotation">int</span> <span class="parameter-name">lastUsed</span></span>)</span>
         </dt>
         <dd>
           Create cache entry
@@ -103,7 +104,7 @@
 </dd>
         <dt id="userId" class="property">
           <span class="name"><a href="nyxx.commands/CacheEntry/userId.html">userId</a></span>
-          <span class="signature">&#8596; String</span>
+          <span class="signature">&#8596; <a href="nyxx/Snowflake-class.html">Snowflake</a></span>
         </dt>
         <dd>
           Id of user which requested command

@@ -67,7 +67,7 @@
     <section class="multi-line-signature">
       <span class="returntype">Future<span class="signature">&lt;bool&gt;</span></span>
       <span class="name ">canExecute</span>
-(<wbr><span class="parameter" id="canExecute-param-userId"><span class="type-annotation">String</span> <span class="parameter-name">userId</span>, </span> <span class="parameter" id="canExecute-param-commandName"><span class="type-annotation">String</span> <span class="parameter-name">commandName</span>, </span> <span class="parameter" id="canExecute-param-desiredCooldown"><span class="type-annotation">int</span> <span class="parameter-name">desiredCooldown</span></span>)
+(<wbr><span class="parameter" id="canExecute-param-userId"><span class="type-annotation"><a href="nyxx/Snowflake-class.html">Snowflake</a></span> <span class="parameter-name">userId</span>, </span> <span class="parameter" id="canExecute-param-commandName"><span class="type-annotation">String</span> <span class="parameter-name">commandName</span>, </span> <span class="parameter" id="canExecute-param-desiredCooldown"><span class="type-annotation">int</span> <span class="parameter-name">desiredCooldown</span></span>)
     </section>
     <section class="desc markdown">
       <p>Checks if user can execute given command at given time</p>
@@ -76,7 +76,7 @@
     <section class="summary source-code" id="source">
       <h2><span>Implementation</span> </h2>
       <pre class="language-dart"><code class="language-dart">Future&lt;bool&gt; canExecute(
-    String userId, String commandName, int desiredCooldown) {
+    Snowflake userId, String commandName, int desiredCooldown) {
   return new Future&lt;bool&gt;(() {
     &#47;&#47;&#47; current date
     int now = new DateTime.now().millisecondsSinceEpoch;

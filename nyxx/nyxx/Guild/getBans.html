@@ -127,7 +127,7 @@
   r.body.asJson().forEach((Map&lt;String, dynamic&gt; o) {
     final User user =
         new User._new(client, o[&#39;user&#39;] as Map&lt;String, dynamic&gt;);
-    map[user.id] = user;
+    map[user.id.toString()] = user;
   });
   return map;
 }</code></pre>

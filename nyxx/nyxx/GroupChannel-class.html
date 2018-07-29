@@ -39,6 +39,7 @@
     <h5>nyxx library</h5>
     <ol>
       <li class="section-title"><a href="nyxx/nyxx-library.html#classes">Classes</a></li>
+      <li><a href="nyxx/AbstractPermissions-class.html">AbstractPermissions</a></li>
       <li><a href="nyxx/Attachment-class.html">Attachment</a></li>
       <li><a href="nyxx/AuditLog-class.html">AuditLog</a></li>
       <li><a href="nyxx/AuditLogChange-class.html">AuditLogChange</a></li>
@@ -47,6 +48,7 @@
       <li><a href="nyxx/Channel-class.html">Channel</a></li>
       <li><a href="nyxx/ChannelCreateEvent-class.html">ChannelCreateEvent</a></li>
       <li><a href="nyxx/ChannelDeleteEvent-class.html">ChannelDeleteEvent</a></li>
+      <li><a href="nyxx/ChannelPermissions-class.html">ChannelPermissions</a></li>
       <li><a href="nyxx/ChannelPinsUpdateEvent-class.html">ChannelPinsUpdateEvent</a></li>
       <li><a href="nyxx/ChannelUpdateEvent-class.html">ChannelUpdateEvent</a></li>
       <li><a href="nyxx/Client-class.html">Client</a></li>
@@ -109,6 +111,8 @@
       <li><a href="nyxx/OAuth2Guild-class.html">OAuth2Guild</a></li>
       <li><a href="nyxx/OAuth2Info-class.html">OAuth2Info</a></li>
       <li><a href="nyxx/Permissions-class.html">Permissions</a></li>
+      <li><a href="nyxx/PermissionsBuilder-class.html">PermissionsBuilder</a></li>
+      <li><a href="nyxx/PermissionsConstants-class.html">PermissionsConstants</a></li>
       <li><a href="nyxx/PresenceUpdateEvent-class.html">PresenceUpdateEvent</a></li>
       <li><a href="nyxx/RatelimitEvent-class.html">RatelimitEvent</a></li>
       <li><a href="nyxx/RawEvent-class.html">RawEvent</a></li>
@@ -239,6 +243,14 @@
           Parent channel id;
           <div class="features">read / write, inherited</div>
 </dd>
+        <dt id="permissions" class="property inherited">
+          <span class="name"><a href="nyxx/GuildChannel/permissions.html">permissions</a></span>
+          <span class="signature">&#8596; List<span class="signature">&lt;<a href="nyxx/ChannelPermissions-class.html">ChannelPermissions</a>&gt;</span></span>
+        </dt>
+        <dd class="inherited">
+          Permissions for channel
+          <div class="features">read / write, inherited</div>
+</dd>
         <dt id="position" class="property inherited">
           <span class="name"><a href="nyxx/GuildChannel/position.html">position</a></span>
           <span class="signature">&#8596; int</span>
@@ -286,8 +298,26 @@
           Deletes the channel.
           <div class="features">inherited</div>
 </dd>
+        <dt id="deleteChannelPermission" class="callable inherited">
+          <span class="name"><a href="nyxx/GuildChannel/deleteChannelPermission.html">deleteChannelPermission</a></span><span class="signature">(<wbr><span class="parameter" id="deleteChannelPermission-param-id"><span class="type-annotation"><a href="nyxx/Snowflake-class.html">Snowflake</a></span> <span class="parameter-name">id</span>, {</span> <span class="parameter" id="deleteChannelPermission-param-auditReason"><span class="type-annotation">String</span> <span class="parameter-name">auditReason</span>: <span class="default-value">""</span></span> })
+            <span class="returntype parameter">&#8594; Future<span class="signature">&lt;Null&gt;</span></span>
+          </span>
+        </dt>
+        <dd class="inherited">
+          Deletes permission overwrite for given User or Role id
+          <div class="features">inherited</div>
+</dd>
+        <dt id="editChannelPermission" class="callable inherited">
+          <span class="name"><a href="nyxx/GuildChannel/editChannelPermission.html">editChannelPermission</a></span><span class="signature">(<wbr><span class="parameter" id="editChannelPermission-param-perms"><span class="type-annotation"><a href="nyxx/PermissionsBuilder-class.html">PermissionsBuilder</a></span> <span class="parameter-name">perms</span>, </span> <span class="parameter" id="editChannelPermission-param-id"><span class="type-annotation"><a href="nyxx/Snowflake-class.html">Snowflake</a></span> <span class="parameter-name">id</span>, {</span> <span class="parameter" id="editChannelPermission-param-auditReason"><span class="type-annotation">String</span> <span class="parameter-name">auditReason</span>: <span class="default-value">""</span></span> })
+            <span class="returntype parameter">&#8594; Future<span class="signature">&lt;Null&gt;</span></span>
+          </span>
+        </dt>
+        <dd class="inherited">
+          Allows to set permissions for channel. <code>id</code> param is ID of User or Role
+          <div class="features">inherited</div>
+</dd>
         <dt id="initialize" class="callable inherited">
-          <span class="name"><a href="nyxx/GuildChannel/initialize.html">initialize</a></span><span class="signature">(<wbr><span class="parameter" id="initialize-param-raw"><span class="type-annotation">Map<span class="signature">&lt;String, dynamic&gt;</span></span> <span class="parameter-name">raw</span></span>)
+          <span class="name"><a href="nyxx/GuildChannel/initialize.html">initialize</a></span><span class="signature">(<wbr><span class="parameter" id="initialize-param-raw"><span class="type-annotation">Map<span class="signature">&lt;String, dynamic&gt;</span></span> <span class="parameter-name">raw</span>, </span> <span class="parameter" id="initialize-param-client"><span class="type-annotation"><a href="nyxx/Client-class.html">Client</a></span> <span class="parameter-name">client</span>, </span> <span class="parameter" id="initialize-param-guild"><span class="type-annotation"><a href="nyxx/Guild-class.html">Guild</a></span> <span class="parameter-name">guild</span></span>)
             <span class="returntype parameter">&#8594; void</span>
           </span>
         </dt>
@@ -350,6 +380,7 @@
       <li class="inherited"><a href="nyxx/GuildChannel/name.html">name</a></li>
       <li class="inherited"><a href="nyxx/GuildChannel/nsfw.html">nsfw</a></li>
       <li class="inherited"><a href="nyxx/GuildChannel/parentId.html">parentId</a></li>
+      <li class="inherited"><a href="nyxx/GuildChannel/permissions.html">permissions</a></li>
       <li class="inherited"><a href="nyxx/GuildChannel/position.html">position</a></li>
       <li class="inherited"><a href="nyxx/Channel/raw.html">raw</a></li>
       <li class="inherited"><a href="nyxx/Channel/runtimeType.html">runtimeType</a></li>
@@ -357,6 +388,8 @@
     
       <li class="section-title inherited"><a href="nyxx/GroupChannel-class.html#instance-methods">Methods</a></li>
       <li class="inherited"><a href="nyxx/Channel/delete.html">delete</a></li>
+      <li class="inherited"><a href="nyxx/GuildChannel/deleteChannelPermission.html">deleteChannelPermission</a></li>
+      <li class="inherited"><a href="nyxx/GuildChannel/editChannelPermission.html">editChannelPermission</a></li>
       <li class="inherited"><a href="nyxx/GuildChannel/initialize.html">initialize</a></li>
       <li class="inherited"><a href="nyxx/Channel/noSuchMethod.html">noSuchMethod</a></li>
       <li class="inherited"><a href="nyxx/Channel/toString.html">toString</a></li>
