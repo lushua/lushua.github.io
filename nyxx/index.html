@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="generator" content="made with love by dartdoc 0.15.1">
+  <meta name="generator" content="made with love by dartdoc 0.20.0">
   <meta name="description" content="nyxx API docs, for the Dart programming language.">
   <title>nyxx - Dart API docs</title>
 
@@ -32,15 +32,12 @@
 <main>
 
   <div class="col-xs-6 col-sm-3 col-md-2 sidebar sidebar-offcanvas-left">
-    <h5>nyxx package</h5>
-
-
+    <h5><span class="package-name">nyxx</span> <span class="package-kind">package</span></h5>
     <ol>
-      <li class="section-title"><a href="index.html#libraries">Libraries</a></li>
-      <li><a href="nyxx/nyxx-library.html">nyxx</a></li>
-      <li><a href="nyxx.commands/nyxx.commands-library.html">nyxx.commands</a></li>
-      <li><a href="setup.web/setup.web-library.html">setup.web</a></li>
-      <li><a href="setup.wm/setup.wm-library.html">setup.wm</a></li>
+          <li class="section-title">Libraries</li>
+          <li><a href="nyxx/nyxx-library.html">nyxx</a></li>
+          <li><a href="nyxx.commands/nyxx.commands-library.html">nyxx.commands</a></li>
+          <li><a href="nyxx.voice/nyxx.voice-library.html">nyxx.voice</a></li>
     </ol>
   </div>
 
@@ -55,15 +52,14 @@
 <a href="https://www.dartdocs.org/documentation/nyxx/latest/"><img alt="documentation" src="https://img.shields.io/badge/Documentation-nyxx-yellow.svg"></a></p>
 <p>Simple, robust framework for creating discord bots for Dart. <br>
 Fork of <a href="https://github.com/Hackzzila">Hackzzila's</a> <a href="https://github.com/Hackzzila/nyx">nyx</a> - extended with new functionality, few bug fixes, applied pending pull requests.</p><hr></div>
-<h3>Features</h3><ul><li><em>Commands framework</em> <br>
-Faster way of creating commands for bot. You just  have to implement one class, and initialize framework. Everything is done automatically. </li><li><em>Cross Platform</em> <br>
-Nyxx works on the command line, browser, mobile, and can be transpiled to JavaScript.</li><li><em>Fine Control</em> <br>
-Nyxx allows you to control every outgoing HTTP request or websocket messages.</li><li><em>Internal Sharding</em> <br>
-Nyxx automatically spawns shards for your bot, but you can override this and spawn a custom number of shards. Internal sharding means that all of your bots servers are managed in one script, no need for communication between shards.</li><li><em>Complete</em> <br>
+<h3>Features</h3><ul><li><strong>Commands framework</strong> <br>
+Faster way of creating commands for bot. You just  have to implement one class, and initialize framework. Everything is done automatically. </li><li><strong>Cross Platform</strong> <br>
+Nyxx works on the command line, browser, mobile.</li><li><strong>Fine Control</strong> <br>
+Nyxx allows you to control every outgoing HTTP request or websocket messages.</li><li><strong>Internal Sharding</strong> <br>
+Nyxx automatically spawns shards for your bot, but you can override this and spawn a custom number of shards. Internal sharding means that all of your bots servers are managed in one script, no need for communication between shards.</li><li><strong>Complete</strong> <br>
 Nyxx supports nearly all DiscordAPI endpoints.</li></ul>
 <h3>Sample</h3>
 <pre class="language-dart"><code class="language-dart">void main() {
-  discord.configureDiscordForVM();
   discord.Client bot =
       new discord.Client(Platform.environment['DISCORD_TOKEN']);
 
@@ -85,39 +81,31 @@ Nyxx supports nearly all DiscordAPI endpoints.</li></ul>
 <p>My website has docs for latests commits - You can read about incoming changes</p>
 <h4><a href="https://github.com/l7ssha/nyxx/wiki">Wiki</a></h4>
 <p>Wiki docs are designed to match latest release.</p>
-<h2>Roadmap</h2><ul><li><code> </code> Better dartdocs documentation</li><li><code> </code> More examples at wiki/more tutorial/Video tutorial </li><li><code> </code> Bigger bot written in nyxx for example</li><li><code> </code> Fix <code>lint</code> errors from <code>dartanalyzer</code></li><li><code>x</code> Annotation driver flow for CommandsFramework?</li><li><code>x</code> Recheck all code and fix styling/small logic bugs</li><li><code> </code> Support for Voice connection</li></ul>
+<h2>Roadmap</h2><ul><li><code> </code> Better dartdocs documentation</li><li><code>x</code> More examples at wiki/more tutorial/Video tutorial </li><li><code> </code> Bigger bot written in nyxx for example</li><li><code> </code> Fix <code>lint</code> errors from <code>dartanalyzer</code></li><li><code>x</code> Annotation driver flow for CommandsFramework?</li><li><code>x</code> Recheck all code and fix styling/small logic bugs</li><li><code> </code> Support for Voice connection</li></ul>
       </section>
       
-
-      <section class="summary" id="libraries">
-        <h2>Libraries</h2>
-        <dl>
+        <section class="summary">
+            <h2>Libraries</h2>
+          <dl>
             <dt id="nyxx">
               <span class="name"><a href="nyxx/nyxx-library.html">nyxx</a></span>
             </dt>
             <dd>
               Nyxx DISCORD API wrapper for Dart <a href="nyxx/nyxx-library.html">[...]</a>
-            </dd>
-            <dt id="nyxx.commands">
+            </dd>            <dt id="nyxx.commands">
               <span class="name"><a href="nyxx.commands/nyxx.commands-library.html">nyxx.commands</a></span>
             </dt>
             <dd>
               Nyxx DISCORD API wrapper for Dart <a href="nyxx.commands/nyxx.commands-library.html">[...]</a>
-            </dd>
-            <dt id="setup.web">
-              <span class="name"><a href="setup.web/setup.web-library.html">setup.web</a></span>
+            </dd>            <dt id="nyxx.voice">
+              <span class="name"><a href="nyxx.voice/nyxx.voice-library.html">nyxx.voice</a></span>
             </dt>
             <dd>
-              
-            </dd>
-            <dt id="setup.wm">
-              <span class="name"><a href="setup.wm/setup.wm-library.html">setup.wm</a></span>
-            </dt>
-            <dd>
-              
-            </dd>
-        </dl>
-      </section>
+              Nyxx DISCORD API wrapper for Dart
+ Voice sublibrary wrapps all tool and logic needed to interact with voice.
+ Allows to connect to channel and play music using <a href="https://github.com/Frederikam/Lavalink">Lavalink</a>
+            </dd>          </dl>
+        </section>
 
   </div> <!-- /.main-content -->
 
@@ -125,12 +113,12 @@ Nyxx supports nearly all DiscordAPI endpoints.</li></ul>
 
 <footer>
   <span class="no-break">
-    nyxx 0.22.1
+    nyxx 0.24.0
   </span>
 
 </footer>
 
-<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="static-assets/typeahead.bundle.min.js"></script>
 <script src="static-assets/highlight.pack.js"></script>
 <script src="static-assets/URI.js"></script>

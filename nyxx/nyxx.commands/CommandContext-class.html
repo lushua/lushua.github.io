@@ -39,8 +39,6 @@
     <h5>nyxx.commands library</h5>
     <ol>
       <li class="section-title"><a href="nyxx.commands/nyxx.commands-library.html#classes">Classes</a></li>
-      <li><a href="nyxx.commands/AnnotCommand-class.html">AnnotCommand</a></li>
-      <li><a href="nyxx.commands/CacheEntry-class.html">CacheEntry</a></li>
       <li><a href="nyxx.commands/Command-class.html">Command</a></li>
       <li><a href="nyxx.commands/CommandContext-class.html">CommandContext</a></li>
       <li><a href="nyxx.commands/CommandExecutionFailEvent-class.html">CommandExecutionFailEvent</a></li>
@@ -48,13 +46,17 @@
       <li><a href="nyxx.commands/CooldownCache-class.html">CooldownCache</a></li>
       <li><a href="nyxx.commands/GuildOnly-class.html">GuildOnly</a></li>
       <li><a href="nyxx.commands/Maincommand-class.html">Maincommand</a></li>
+      <li><a href="nyxx.commands/Pagination-class.html">Pagination</a></li>
       <li><a href="nyxx.commands/Remainder-class.html">Remainder</a></li>
+      <li><a href="nyxx.commands/Scheduler-class.html">Scheduler</a></li>
       <li><a href="nyxx.commands/Service-class.html">Service</a></li>
       <li><a href="nyxx.commands/Subcommand-class.html">Subcommand</a></li>
       <li><a href="nyxx.commands/TypeConverter-class.html">TypeConverter</a></li>
     
     
     
+      <li class="section-title"><a href="nyxx.commands/nyxx.commands-library.html#functions">Functions</a></li>
+      <li><a href="nyxx.commands/createPoll.html">createPoll</a></li>
     
     
     
@@ -150,7 +152,7 @@
       <dl class="callables">
         <dt id="collectEmojis" class="callable">
           <span class="name"><a href="nyxx.commands/CommandContext/collectEmojis.html">collectEmojis</a></span><span class="signature">(<wbr><span class="parameter" id="collectEmojis-param-msg"><span class="type-annotation"><a href="nyxx/Message-class.html">Message</a></span> <span class="parameter-name">msg</span>, </span> <span class="parameter" id="collectEmojis-param-duration"><span class="type-annotation">Duration</span> <span class="parameter-name">duration</span></span>)
-            <span class="returntype parameter">&#8594; Future<span class="signature">&lt;Map<span class="signature">&lt;<a href="nyxx/Emoji-class.html">Emoji</a>, int&gt;</span>&gt;</span></span>
+            <span class="returntype parameter">&#8594; Future<span class="signature">&lt;<wbr><span class="type-parameter">Map<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/Emoji-class.html">Emoji</a></span>, <span class="type-parameter">int</span>&gt;</span></span>&gt;</span></span>
           </span>
         </dt>
         <dd>
@@ -168,7 +170,7 @@
 </dd>
         <dt id="nextMessage" class="callable">
           <span class="name"><a href="nyxx.commands/CommandContext/nextMessage.html">nextMessage</a></span><span class="signature">(<wbr>{<span class="parameter" id="nextMessage-param-prefix"><span class="type-annotation">String</span> <span class="parameter-name">prefix</span>: <span class="default-value">""</span>, </span> <span class="parameter" id="nextMessage-param-ensureUser"><span class="type-annotation">bool</span> <span class="parameter-name">ensureUser</span>: <span class="default-value">false</span>, </span> <span class="parameter" id="nextMessage-param-timeout"><span class="type-annotation">Duration</span> <span class="parameter-name">timeout</span>: <span class="default-value">const Duration(seconds: 30)</span></span> })
-            <span class="returntype parameter">&#8594; Future<span class="signature">&lt;<a href="nyxx/MessageEvent-class.html">MessageEvent</a>&gt;</span></span>
+            <span class="returntype parameter">&#8594; Future<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/MessageEvent-class.html">MessageEvent</a></span>&gt;</span></span>
           </span>
         </dt>
         <dd>
@@ -177,25 +179,34 @@
 </dd>
         <dt id="nextMessages" class="callable">
           <span class="name"><a href="nyxx.commands/CommandContext/nextMessages.html">nextMessages</a></span><span class="signature">(<wbr><span class="parameter" id="nextMessages-param-num"><span class="type-annotation">int</span> <span class="parameter-name">num</span>, {</span> <span class="parameter" id="nextMessages-param-timeout"><span class="type-annotation">Duration</span> <span class="parameter-name">timeout</span>: <span class="default-value">const Duration(seconds: 30)</span></span> })
-            <span class="returntype parameter">&#8594; Future<span class="signature">&lt;List<span class="signature">&lt;<a href="nyxx/Message-class.html">Message</a>&gt;</span>&gt;</span></span>
+            <span class="returntype parameter">&#8594; Future<span class="signature">&lt;<wbr><span class="type-parameter">List<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/Message-class.html">Message</a></span>&gt;</span></span>&gt;</span></span>
           </span>
         </dt>
         <dd>
           Gets next <code>num</code> number of any messages sent within one context (same channel) with optional <code>timeout</code>(default 30 sec)
           
 </dd>
+        <dt id="nextMessagesWhere" class="callable">
+          <span class="name"><a href="nyxx.commands/CommandContext/nextMessagesWhere.html">nextMessagesWhere</a></span><span class="signature">(<wbr><span class="parameter" id="nextMessagesWhere-param-func"><span class="type-annotation">bool</span> <span class="parameter-name">func</span>(<span class="parameter" id="func-param-msg"><span class="type-annotation"><a href="nyxx/Message-class.html">Message</a></span> <span class="parameter-name">msg</span></span>), {</span> <span class="parameter" id="nextMessagesWhere-param-timeout"><span class="type-annotation">Duration</span> <span class="parameter-name">timeout</span>: <span class="default-value">const Duration(seconds: 30)</span></span> })
+            <span class="returntype parameter">&#8594; Future<span class="signature">&lt;<wbr><span class="type-parameter">List<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/Message-class.html">Message</a></span>&gt;</span></span>&gt;</span></span>
+          </span>
+        </dt>
+        <dd>
+          Gets all channel messages that satisfies test.
+          
+</dd>
         <dt id="reply" class="callable">
           <span class="name"><a href="nyxx.commands/CommandContext/reply.html">reply</a></span><span class="signature">(<wbr>{<span class="parameter" id="reply-param-content"><span class="type-annotation">String</span> <span class="parameter-name">content</span>, </span> <span class="parameter" id="reply-param-embed"><span class="type-annotation"><a href="nyxx/EmbedBuilder-class.html">EmbedBuilder</a></span> <span class="parameter-name">embed</span>, </span> <span class="parameter" id="reply-param-tts"><span class="type-annotation">bool</span> <span class="parameter-name">tts</span>: <span class="default-value">false</span>, </span> <span class="parameter" id="reply-param-nonce"><span class="type-annotation">String</span> <span class="parameter-name">nonce</span>, </span> <span class="parameter" id="reply-param-disableEveryone"><span class="type-annotation">bool</span> <span class="parameter-name">disableEveryone</span></span> })
-            <span class="returntype parameter">&#8594; Future<span class="signature">&lt;<a href="nyxx/Message-class.html">Message</a>&gt;</span></span>
+            <span class="returntype parameter">&#8594; Future<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/Message-class.html">Message</a></span>&gt;</span></span>
           </span>
         </dt>
         <dd>
           Reply to message which fires command.
           
 </dd>
-        <dt id="replyDelyed" class="callable">
-          <span class="name"><a href="nyxx.commands/CommandContext/replyDelyed.html">replyDelyed</a></span><span class="signature">(<wbr><span class="parameter" id="replyDelyed-param-duration"><span class="type-annotation">Duration</span> <span class="parameter-name">duration</span>, {</span> <span class="parameter" id="replyDelyed-param-content"><span class="type-annotation">String</span> <span class="parameter-name">content</span>, </span> <span class="parameter" id="replyDelyed-param-embed"><span class="type-annotation"><a href="nyxx/EmbedBuilder-class.html">EmbedBuilder</a></span> <span class="parameter-name">embed</span>, </span> <span class="parameter" id="replyDelyed-param-tts"><span class="type-annotation">bool</span> <span class="parameter-name">tts</span>: <span class="default-value">false</span>, </span> <span class="parameter" id="replyDelyed-param-nonce"><span class="type-annotation">String</span> <span class="parameter-name">nonce</span>, </span> <span class="parameter" id="replyDelyed-param-disableEveryone"><span class="type-annotation">bool</span> <span class="parameter-name">disableEveryone</span></span> })
-            <span class="returntype parameter">&#8594; Future<span class="signature">&lt;<a href="nyxx/Message-class.html">Message</a>&gt;</span></span>
+        <dt id="replyDelayed" class="callable">
+          <span class="name"><a href="nyxx.commands/CommandContext/replyDelayed.html">replyDelayed</a></span><span class="signature">(<wbr><span class="parameter" id="replyDelayed-param-duration"><span class="type-annotation">Duration</span> <span class="parameter-name">duration</span>, {</span> <span class="parameter" id="replyDelayed-param-content"><span class="type-annotation">String</span> <span class="parameter-name">content</span>, </span> <span class="parameter" id="replyDelayed-param-embed"><span class="type-annotation"><a href="nyxx/EmbedBuilder-class.html">EmbedBuilder</a></span> <span class="parameter-name">embed</span>, </span> <span class="parameter" id="replyDelayed-param-tts"><span class="type-annotation">bool</span> <span class="parameter-name">tts</span>: <span class="default-value">false</span>, </span> <span class="parameter" id="replyDelayed-param-nonce"><span class="type-annotation">String</span> <span class="parameter-name">nonce</span>, </span> <span class="parameter" id="replyDelayed-param-disableEveryone"><span class="type-annotation">bool</span> <span class="parameter-name">disableEveryone</span></span> })
+            <span class="returntype parameter">&#8594; Future<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/Message-class.html">Message</a></span>&gt;</span></span>
           </span>
         </dt>
         <dd>
@@ -204,11 +215,20 @@
 </dd>
         <dt id="replyTemp" class="callable">
           <span class="name"><a href="nyxx.commands/CommandContext/replyTemp.html">replyTemp</a></span><span class="signature">(<wbr><span class="parameter" id="replyTemp-param-duration"><span class="type-annotation">Duration</span> <span class="parameter-name">duration</span>, {</span> <span class="parameter" id="replyTemp-param-content"><span class="type-annotation">String</span> <span class="parameter-name">content</span>, </span> <span class="parameter" id="replyTemp-param-embed"><span class="type-annotation"><a href="nyxx/EmbedBuilder-class.html">EmbedBuilder</a></span> <span class="parameter-name">embed</span>, </span> <span class="parameter" id="replyTemp-param-tts"><span class="type-annotation">bool</span> <span class="parameter-name">tts</span>: <span class="default-value">false</span>, </span> <span class="parameter" id="replyTemp-param-nonce"><span class="type-annotation">String</span> <span class="parameter-name">nonce</span>, </span> <span class="parameter" id="replyTemp-param-disableEveryone"><span class="type-annotation">bool</span> <span class="parameter-name">disableEveryone</span></span> })
-            <span class="returntype parameter">&#8594; Future<span class="signature">&lt;<a href="nyxx/Message-class.html">Message</a>&gt;</span></span>
+            <span class="returntype parameter">&#8594; Future<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/Message-class.html">Message</a></span>&gt;</span></span>
           </span>
         </dt>
         <dd>
           
+          
+</dd>
+        <dt id="waitForTyping" class="callable">
+          <span class="name"><a href="nyxx.commands/CommandContext/waitForTyping.html">waitForTyping</a></span><span class="signature">(<wbr>{<span class="parameter" id="waitForTyping-param-user"><span class="type-annotation"><a href="nyxx/User-class.html">User</a></span> <span class="parameter-name">user</span>, </span> <span class="parameter" id="waitForTyping-param-timeout"><span class="type-annotation">Duration</span> <span class="parameter-name">timeout</span>: <span class="default-value">const Duration(seconds: 30)</span>, </span> <span class="parameter" id="waitForTyping-param-everywhere"><span class="type-annotation">bool</span> <span class="parameter-name">everywhere</span>: <span class="default-value">false</span></span> })
+            <span class="returntype parameter">&#8594; Future<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/TypingEvent-class.html">TypingEvent</a></span>&gt;</span></span>
+          </span>
+        </dt>
+        <dd>
+          Waits for first <a href="nyxx/TypingEvent-class.html">TypingEvent</a> and returns it. If timed out returns null. Can listen to specific user
           
 </dd>
         <dt id="noSuchMethod" class="callable inherited">
@@ -236,7 +256,7 @@
       <h2>Operators</h2>
       <dl class="callables">
         <dt id="operator ==" class="callable inherited">
-          <span class="name"><a href="nyxx.commands/CommandContext/operator_equals.html">operator ==</a></span><span class="signature">(<wbr><span class="parameter" id="==-param-other"><span class="parameter-name">other</span></span>)
+          <span class="name"><a href="nyxx.commands/CommandContext/operator_equals.html">operator ==</a></span><span class="signature">(<wbr><span class="parameter" id="==-param-other"><span class="type-annotation">dynamic</span> <span class="parameter-name">other</span></span>)
             <span class="returntype parameter">&#8594; bool</span>
           </span>
         </dt>
@@ -273,9 +293,11 @@
       <li><a href="nyxx.commands/CommandContext/getHelp.html">getHelp</a></li>
       <li><a href="nyxx.commands/CommandContext/nextMessage.html">nextMessage</a></li>
       <li><a href="nyxx.commands/CommandContext/nextMessages.html">nextMessages</a></li>
+      <li><a href="nyxx.commands/CommandContext/nextMessagesWhere.html">nextMessagesWhere</a></li>
       <li><a href="nyxx.commands/CommandContext/reply.html">reply</a></li>
-      <li><a href="nyxx.commands/CommandContext/replyDelyed.html">replyDelyed</a></li>
+      <li><a href="nyxx.commands/CommandContext/replyDelayed.html">replyDelayed</a></li>
       <li><a href="nyxx.commands/CommandContext/replyTemp.html">replyTemp</a></li>
+      <li><a href="nyxx.commands/CommandContext/waitForTyping.html">waitForTyping</a></li>
       <li class="inherited"><a href="nyxx.commands/CommandContext/noSuchMethod.html">noSuchMethod</a></li>
       <li class="inherited"><a href="nyxx.commands/CommandContext/toString.html">toString</a></li>
     
@@ -291,12 +313,12 @@
 
 <footer>
   <span class="no-break">
-    nyxx 0.22.1
+    nyxx 0.24.0
   </span>
 
 </footer>
 
-<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="static-assets/typeahead.bundle.min.js"></script>
 <script src="static-assets/highlight.pack.js"></script>
 <script src="static-assets/URI.js"></script>

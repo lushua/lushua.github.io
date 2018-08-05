@@ -65,7 +65,7 @@
     <h1>canExecute method</h1>
 
     <section class="multi-line-signature">
-      <span class="returntype">Future<span class="signature">&lt;bool&gt;</span></span>
+      <span class="returntype">Future<span class="signature">&lt;<wbr><span class="type-parameter">bool</span>&gt;</span></span>
       <span class="name ">canExecute</span>
 (<wbr><span class="parameter" id="canExecute-param-userId"><span class="type-annotation"><a href="nyxx/Snowflake-class.html">Snowflake</a></span> <span class="parameter-name">userId</span>, </span> <span class="parameter" id="canExecute-param-commandName"><span class="type-annotation">String</span> <span class="parameter-name">commandName</span>, </span> <span class="parameter" id="canExecute-param-desiredCooldown"><span class="type-annotation">int</span> <span class="parameter-name">desiredCooldown</span></span>)
     </section>
@@ -80,25 +80,22 @@
   return new Future&lt;bool&gt;(() {
     &#47;&#47;&#47; current date
     int now = new DateTime.now().millisecondsSinceEpoch;
+    var node = new _CacheKey._new(userId, commandName);
+
+    bool found = false;
 
     &#47;&#47;&#47; Search for entry
-    var entryList = _cache.where(
-        (item) =&gt; item.userId == userId &amp;&amp; item.commandName == commandName);
+    if (_cache.containsKey(node)) found = true;
 
     &#47;&#47;&#47; If not found crete new, insert it and return
-    if (entryList.isEmpty) {
-      var newEntry = new CacheEntry(userId, commandName, now);
-      _cache.add(newEntry);
+    if (!found) {
+      _cache[node] = now;
       return true;
     }
 
     &#47;&#47;&#47; If found check if user can execute command
-    var entry = entryList.first;
-    if (entry.lastUsed + desiredCooldown &lt; now) {
-      entry.lastUsed = now;
-      var pos = _cache.indexOf(entry);
-
-      _cache[pos] = entry;
+    if (_cache[node] + desiredCooldown &lt; now) {
+      _cache[node] = now;
       return true;
     }
 
@@ -116,12 +113,12 @@
 
 <footer>
   <span class="no-break">
-    nyxx 0.22.1
+    nyxx 0.24.0
   </span>
 
 </footer>
 
-<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="static-assets/typeahead.bundle.min.js"></script>
 <script src="static-assets/highlight.pack.js"></script>
 <script src="static-assets/URI.js"></script>

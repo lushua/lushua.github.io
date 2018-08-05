@@ -128,7 +128,7 @@
       <li><a href="nyxx/TypingEvent-class.html">TypingEvent</a></li>
       <li><a href="nyxx/UnicodeEmoji-class.html">UnicodeEmoji</a></li>
       <li><a href="nyxx/User-class.html">User</a></li>
-      <li><a href="nyxx/Util-class.html">Util</a></li>
+      <li><a href="nyxx/UserVoiceState-class.html">UserVoiceState</a></li>
       <li><a href="nyxx/VoiceChannel-class.html">VoiceChannel</a></li>
       <li><a href="nyxx/VoiceRegion-class.html">VoiceRegion</a></li>
       <li><a href="nyxx/VoiceServerUpdateEvent-class.html">VoiceServerUpdateEvent</a></li>
@@ -143,11 +143,8 @@
     
     
       <li class="section-title"><a href="nyxx/nyxx-library.html#exceptions">Exceptions</a></li>
-      <li><a href="nyxx/ClientNotReadyError-class.html">ClientNotReadyError</a></li>
       <li><a href="nyxx/HttpError-class.html">HttpError</a></li>
-      <li><a href="nyxx/InvalidShardError-class.html">InvalidShardError</a></li>
       <li><a href="nyxx/InvalidTokenError-class.html">InvalidTokenError</a></li>
-      <li><a href="nyxx/NotSetupError-class.html">NotSetupError</a></li>
     </ol>
   </div>
 
@@ -192,7 +189,7 @@ Rememeber to close <a href="nyxx/Client-class.html">Client</a> before terminatin
 </dd>
         <dt id="beforeHttpRequestSend" class="property">
           <span class="name"><a href="nyxx/Client/beforeHttpRequestSend.html">beforeHttpRequestSend</a></span>
-          <span class="signature">&#8596; Stream<span class="signature">&lt;<a href="nyxx/BeforeHttpRequestSendEvent-class.html">BeforeHttpRequestSendEvent</a>&gt;</span></span>
+          <span class="signature">&#8596; Stream<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/BeforeHttpRequestSendEvent-class.html">BeforeHttpRequestSendEvent</a></span>&gt;</span></span>
         </dt>
         <dd>
           Emitted before all HTTP requests are sent. (You can edit them) <a href="nyxx/Client/beforeHttpRequestSend.html">[...]</a>
@@ -200,7 +197,7 @@ Rememeber to close <a href="nyxx/Client-class.html">Client</a> before terminatin
 </dd>
         <dt id="channels" class="property">
           <span class="name"><a href="nyxx/Client/channels.html">channels</a></span>
-          <span class="signature">&#8596; Map<span class="signature">&lt;String, <a href="nyxx/Channel-class.html">Channel</a>&gt;</span></span>
+          <span class="signature">&#8596; Map<span class="signature">&lt;<wbr><span class="type-parameter">String</span>, <span class="type-parameter"><a href="nyxx/Channel-class.html">Channel</a></span>&gt;</span></span>
         </dt>
         <dd>
           All of the channels the bot is in.
@@ -208,7 +205,7 @@ Rememeber to close <a href="nyxx/Client-class.html">Client</a> before terminatin
 </dd>
         <dt id="guilds" class="property">
           <span class="name"><a href="nyxx/Client/guilds.html">guilds</a></span>
-          <span class="signature">&#8596; Map<span class="signature">&lt;String, <a href="nyxx/Guild-class.html">Guild</a>&gt;</span></span>
+          <span class="signature">&#8596; Map<span class="signature">&lt;<wbr><span class="type-parameter">String</span>, <span class="type-parameter"><a href="nyxx/Guild-class.html">Guild</a></span>&gt;</span></span>
         </dt>
         <dd>
           All of the guilds the bot is in.
@@ -224,7 +221,7 @@ Rememeber to close <a href="nyxx/Client-class.html">Client</a> before terminatin
 </dd>
         <dt id="onChannelCreate" class="property">
           <span class="name"><a href="nyxx/Client/onChannelCreate.html">onChannelCreate</a></span>
-          <span class="signature">&#8596; Stream<span class="signature">&lt;<a href="nyxx/ChannelCreateEvent-class.html">ChannelCreateEvent</a>&gt;</span></span>
+          <span class="signature">&#8596; Stream<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/ChannelCreateEvent-class.html">ChannelCreateEvent</a></span>&gt;</span></span>
         </dt>
         <dd>
           Emitted when a channel is created.
@@ -232,7 +229,7 @@ Rememeber to close <a href="nyxx/Client-class.html">Client</a> before terminatin
 </dd>
         <dt id="onChannelDelete" class="property">
           <span class="name"><a href="nyxx/Client/onChannelDelete.html">onChannelDelete</a></span>
-          <span class="signature">&#8596; Stream<span class="signature">&lt;<a href="nyxx/ChannelDeleteEvent-class.html">ChannelDeleteEvent</a>&gt;</span></span>
+          <span class="signature">&#8596; Stream<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/ChannelDeleteEvent-class.html">ChannelDeleteEvent</a></span>&gt;</span></span>
         </dt>
         <dd>
           Emitted when a channel is deleted.
@@ -240,7 +237,7 @@ Rememeber to close <a href="nyxx/Client-class.html">Client</a> before terminatin
 </dd>
         <dt id="onChannelPinsUpdate" class="property">
           <span class="name"><a href="nyxx/Client/onChannelPinsUpdate.html">onChannelPinsUpdate</a></span>
-          <span class="signature">&#8596; Stream<span class="signature">&lt;<a href="nyxx/ChannelPinsUpdateEvent-class.html">ChannelPinsUpdateEvent</a>&gt;</span></span>
+          <span class="signature">&#8596; Stream<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/ChannelPinsUpdateEvent-class.html">ChannelPinsUpdateEvent</a></span>&gt;</span></span>
         </dt>
         <dd>
           Emitted when channel's pins are updated.
@@ -248,7 +245,7 @@ Rememeber to close <a href="nyxx/Client-class.html">Client</a> before terminatin
 </dd>
         <dt id="onChannelUpdate" class="property">
           <span class="name"><a href="nyxx/Client/onChannelUpdate.html">onChannelUpdate</a></span>
-          <span class="signature">&#8596; Stream<span class="signature">&lt;<a href="nyxx/ChannelUpdateEvent-class.html">ChannelUpdateEvent</a>&gt;</span></span>
+          <span class="signature">&#8596; Stream<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/ChannelUpdateEvent-class.html">ChannelUpdateEvent</a></span>&gt;</span></span>
         </dt>
         <dd>
           Emitted when a channel is updated.
@@ -256,7 +253,7 @@ Rememeber to close <a href="nyxx/Client-class.html">Client</a> before terminatin
 </dd>
         <dt id="onDisconnect" class="property">
           <span class="name"><a href="nyxx/Client/onDisconnect.html">onDisconnect</a></span>
-          <span class="signature">&#8596; Stream<span class="signature">&lt;<a href="nyxx/DisconnectEvent-class.html">DisconnectEvent</a>&gt;</span></span>
+          <span class="signature">&#8596; Stream<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/DisconnectEvent-class.html">DisconnectEvent</a></span>&gt;</span></span>
         </dt>
         <dd>
           Emitted when a shard is disconnected from the websocket.
@@ -264,7 +261,7 @@ Rememeber to close <a href="nyxx/Client-class.html">Client</a> before terminatin
 </dd>
         <dt id="onGuildBanAdd" class="property">
           <span class="name"><a href="nyxx/Client/onGuildBanAdd.html">onGuildBanAdd</a></span>
-          <span class="signature">&#8596; Stream<span class="signature">&lt;<a href="nyxx/GuildBanAddEvent-class.html">GuildBanAddEvent</a>&gt;</span></span>
+          <span class="signature">&#8596; Stream<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/GuildBanAddEvent-class.html">GuildBanAddEvent</a></span>&gt;</span></span>
         </dt>
         <dd>
           Emitted when a member is banned.
@@ -272,7 +269,7 @@ Rememeber to close <a href="nyxx/Client-class.html">Client</a> before terminatin
 </dd>
         <dt id="onGuildBanRemove" class="property">
           <span class="name"><a href="nyxx/Client/onGuildBanRemove.html">onGuildBanRemove</a></span>
-          <span class="signature">&#8596; Stream<span class="signature">&lt;<a href="nyxx/GuildBanRemoveEvent-class.html">GuildBanRemoveEvent</a>&gt;</span></span>
+          <span class="signature">&#8596; Stream<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/GuildBanRemoveEvent-class.html">GuildBanRemoveEvent</a></span>&gt;</span></span>
         </dt>
         <dd>
           Emitted when a user is unbanned.
@@ -280,7 +277,7 @@ Rememeber to close <a href="nyxx/Client-class.html">Client</a> before terminatin
 </dd>
         <dt id="onGuildCreate" class="property">
           <span class="name"><a href="nyxx/Client/onGuildCreate.html">onGuildCreate</a></span>
-          <span class="signature">&#8596; Stream<span class="signature">&lt;<a href="nyxx/GuildCreateEvent-class.html">GuildCreateEvent</a>&gt;</span></span>
+          <span class="signature">&#8596; Stream<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/GuildCreateEvent-class.html">GuildCreateEvent</a></span>&gt;</span></span>
         </dt>
         <dd>
           Emitted when the client joins a guild.
@@ -288,7 +285,7 @@ Rememeber to close <a href="nyxx/Client-class.html">Client</a> before terminatin
 </dd>
         <dt id="onGuildDelete" class="property">
           <span class="name"><a href="nyxx/Client/onGuildDelete.html">onGuildDelete</a></span>
-          <span class="signature">&#8596; Stream<span class="signature">&lt;<a href="nyxx/GuildDeleteEvent-class.html">GuildDeleteEvent</a>&gt;</span></span>
+          <span class="signature">&#8596; Stream<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/GuildDeleteEvent-class.html">GuildDeleteEvent</a></span>&gt;</span></span>
         </dt>
         <dd>
           Emitted when the client leaves a guild.
@@ -296,7 +293,7 @@ Rememeber to close <a href="nyxx/Client-class.html">Client</a> before terminatin
 </dd>
         <dt id="onGuildEmojisUpdate" class="property">
           <span class="name"><a href="nyxx/Client/onGuildEmojisUpdate.html">onGuildEmojisUpdate</a></span>
-          <span class="signature">&#8596; Stream<span class="signature">&lt;<a href="nyxx/GuildEmojisUpdateEvent-class.html">GuildEmojisUpdateEvent</a>&gt;</span></span>
+          <span class="signature">&#8596; Stream<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/GuildEmojisUpdateEvent-class.html">GuildEmojisUpdateEvent</a></span>&gt;</span></span>
         </dt>
         <dd>
           Emitted when guild's emojis are changed.
@@ -304,7 +301,7 @@ Rememeber to close <a href="nyxx/Client-class.html">Client</a> before terminatin
 </dd>
         <dt id="onGuildMemberAdd" class="property">
           <span class="name"><a href="nyxx/Client/onGuildMemberAdd.html">onGuildMemberAdd</a></span>
-          <span class="signature">&#8596; Stream<span class="signature">&lt;<a href="nyxx/GuildMemberAddEvent-class.html">GuildMemberAddEvent</a>&gt;</span></span>
+          <span class="signature">&#8596; Stream<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/GuildMemberAddEvent-class.html">GuildMemberAddEvent</a></span>&gt;</span></span>
         </dt>
         <dd>
           Emitted when a member joins a guild.
@@ -312,7 +309,7 @@ Rememeber to close <a href="nyxx/Client-class.html">Client</a> before terminatin
 </dd>
         <dt id="onGuildMemberRemove" class="property">
           <span class="name"><a href="nyxx/Client/onGuildMemberRemove.html">onGuildMemberRemove</a></span>
-          <span class="signature">&#8596; Stream<span class="signature">&lt;<a href="nyxx/GuildMemberRemoveEvent-class.html">GuildMemberRemoveEvent</a>&gt;</span></span>
+          <span class="signature">&#8596; Stream<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/GuildMemberRemoveEvent-class.html">GuildMemberRemoveEvent</a></span>&gt;</span></span>
         </dt>
         <dd>
           Emitted when a user leaves a guild.
@@ -320,7 +317,7 @@ Rememeber to close <a href="nyxx/Client-class.html">Client</a> before terminatin
 </dd>
         <dt id="onGuildMemberUpdate" class="property">
           <span class="name"><a href="nyxx/Client/onGuildMemberUpdate.html">onGuildMemberUpdate</a></span>
-          <span class="signature">&#8596; Stream<span class="signature">&lt;<a href="nyxx/GuildMemberUpdateEvent-class.html">GuildMemberUpdateEvent</a>&gt;</span></span>
+          <span class="signature">&#8596; Stream<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/GuildMemberUpdateEvent-class.html">GuildMemberUpdateEvent</a></span>&gt;</span></span>
         </dt>
         <dd>
           Emitted when a member is updated.
@@ -328,7 +325,7 @@ Rememeber to close <a href="nyxx/Client-class.html">Client</a> before terminatin
 </dd>
         <dt id="onGuildUnavailable" class="property">
           <span class="name"><a href="nyxx/Client/onGuildUnavailable.html">onGuildUnavailable</a></span>
-          <span class="signature">&#8596; Stream<span class="signature">&lt;<a href="nyxx/GuildUnavailableEvent-class.html">GuildUnavailableEvent</a>&gt;</span></span>
+          <span class="signature">&#8596; Stream<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/GuildUnavailableEvent-class.html">GuildUnavailableEvent</a></span>&gt;</span></span>
         </dt>
         <dd>
           Emitted when a guild becomes unavailable.
@@ -336,7 +333,7 @@ Rememeber to close <a href="nyxx/Client-class.html">Client</a> before terminatin
 </dd>
         <dt id="onGuildUpdate" class="property">
           <span class="name"><a href="nyxx/Client/onGuildUpdate.html">onGuildUpdate</a></span>
-          <span class="signature">&#8596; Stream<span class="signature">&lt;<a href="nyxx/GuildUpdateEvent-class.html">GuildUpdateEvent</a>&gt;</span></span>
+          <span class="signature">&#8596; Stream<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/GuildUpdateEvent-class.html">GuildUpdateEvent</a></span>&gt;</span></span>
         </dt>
         <dd>
           Emitted when a guild is updated..
@@ -344,7 +341,7 @@ Rememeber to close <a href="nyxx/Client-class.html">Client</a> before terminatin
 </dd>
         <dt id="onHttpError" class="property">
           <span class="name"><a href="nyxx/Client/onHttpError.html">onHttpError</a></span>
-          <span class="signature">&#8596; Stream<span class="signature">&lt;<a href="nyxx/HttpErrorEvent-class.html">HttpErrorEvent</a>&gt;</span></span>
+          <span class="signature">&#8596; Stream<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/HttpErrorEvent-class.html">HttpErrorEvent</a></span>&gt;</span></span>
         </dt>
         <dd>
           Emitted when a HTTP request failed.
@@ -352,7 +349,7 @@ Rememeber to close <a href="nyxx/Client-class.html">Client</a> before terminatin
 </dd>
         <dt id="onHttpResponse" class="property">
           <span class="name"><a href="nyxx/Client/onHttpResponse.html">onHttpResponse</a></span>
-          <span class="signature">&#8596; Stream<span class="signature">&lt;<a href="nyxx/HttpResponseEvent-class.html">HttpResponseEvent</a>&gt;</span></span>
+          <span class="signature">&#8596; Stream<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/HttpResponseEvent-class.html">HttpResponseEvent</a></span>&gt;</span></span>
         </dt>
         <dd>
           Emitted when a successful HTTP response is received.
@@ -360,7 +357,7 @@ Rememeber to close <a href="nyxx/Client-class.html">Client</a> before terminatin
 </dd>
         <dt id="onMessage" class="property">
           <span class="name"><a href="nyxx/Client/onMessage.html">onMessage</a></span>
-          <span class="signature">&#8596; Stream<span class="signature">&lt;<a href="nyxx/MessageEvent-class.html">MessageEvent</a>&gt;</span></span>
+          <span class="signature">&#8596; Stream<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/MessageEvent-class.html">MessageEvent</a></span>&gt;</span></span>
         </dt>
         <dd>
           Emitted when a message is received.
@@ -368,7 +365,7 @@ Rememeber to close <a href="nyxx/Client-class.html">Client</a> before terminatin
 </dd>
         <dt id="onMessageDelete" class="property">
           <span class="name"><a href="nyxx/Client/onMessageDelete.html">onMessageDelete</a></span>
-          <span class="signature">&#8596; Stream<span class="signature">&lt;<a href="nyxx/MessageDeleteEvent-class.html">MessageDeleteEvent</a>&gt;</span></span>
+          <span class="signature">&#8596; Stream<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/MessageDeleteEvent-class.html">MessageDeleteEvent</a></span>&gt;</span></span>
         </dt>
         <dd>
           Emitted when a message is deleted.
@@ -376,7 +373,7 @@ Rememeber to close <a href="nyxx/Client-class.html">Client</a> before terminatin
 </dd>
         <dt id="onMessageDeleteBulk" class="property">
           <span class="name"><a href="nyxx/Client/onMessageDeleteBulk.html">onMessageDeleteBulk</a></span>
-          <span class="signature">&#8596; Stream<span class="signature">&lt;<a href="nyxx/MessageDeleteBulkEvent-class.html">MessageDeleteBulkEvent</a>&gt;</span></span>
+          <span class="signature">&#8596; Stream<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/MessageDeleteBulkEvent-class.html">MessageDeleteBulkEvent</a></span>&gt;</span></span>
         </dt>
         <dd>
           Emitted when many messages are deleted at once
@@ -384,7 +381,7 @@ Rememeber to close <a href="nyxx/Client-class.html">Client</a> before terminatin
 </dd>
         <dt id="onMessageReactionAdded" class="property">
           <span class="name"><a href="nyxx/Client/onMessageReactionAdded.html">onMessageReactionAdded</a></span>
-          <span class="signature">&#8596; Stream<span class="signature">&lt;<a href="nyxx/MessageReactionEvent-class.html">MessageReactionEvent</a>&gt;</span></span>
+          <span class="signature">&#8596; Stream<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/MessageReactionEvent-class.html">MessageReactionEvent</a></span>&gt;</span></span>
         </dt>
         <dd>
           Emitted when a user adds a reaction to a message.
@@ -392,7 +389,7 @@ Rememeber to close <a href="nyxx/Client-class.html">Client</a> before terminatin
 </dd>
         <dt id="onMessageReactionRemove" class="property">
           <span class="name"><a href="nyxx/Client/onMessageReactionRemove.html">onMessageReactionRemove</a></span>
-          <span class="signature">&#8596; Stream<span class="signature">&lt;<a href="nyxx/MessageReactionEvent-class.html">MessageReactionEvent</a>&gt;</span></span>
+          <span class="signature">&#8596; Stream<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/MessageReactionEvent-class.html">MessageReactionEvent</a></span>&gt;</span></span>
         </dt>
         <dd>
           Emitted when a user deletes a reaction to a message.
@@ -400,7 +397,7 @@ Rememeber to close <a href="nyxx/Client-class.html">Client</a> before terminatin
 </dd>
         <dt id="onMessageReactionsRemoved" class="property">
           <span class="name"><a href="nyxx/Client/onMessageReactionsRemoved.html">onMessageReactionsRemoved</a></span>
-          <span class="signature">&#8596; Stream<span class="signature">&lt;<a href="nyxx/MessageReactionsRemovedEvent-class.html">MessageReactionsRemovedEvent</a>&gt;</span></span>
+          <span class="signature">&#8596; Stream<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/MessageReactionsRemovedEvent-class.html">MessageReactionsRemovedEvent</a></span>&gt;</span></span>
         </dt>
         <dd>
           Emitted when a user explicitly removes all reactions from a message.
@@ -408,7 +405,7 @@ Rememeber to close <a href="nyxx/Client-class.html">Client</a> before terminatin
 </dd>
         <dt id="onMessageUpdate" class="property">
           <span class="name"><a href="nyxx/Client/onMessageUpdate.html">onMessageUpdate</a></span>
-          <span class="signature">&#8596; Stream<span class="signature">&lt;<a href="nyxx/MessageUpdateEvent-class.html">MessageUpdateEvent</a>&gt;</span></span>
+          <span class="signature">&#8596; Stream<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/MessageUpdateEvent-class.html">MessageUpdateEvent</a></span>&gt;</span></span>
         </dt>
         <dd>
           Emitted when a message is edited.
@@ -416,7 +413,7 @@ Rememeber to close <a href="nyxx/Client-class.html">Client</a> before terminatin
 </dd>
         <dt id="onPresenceUpdate" class="property">
           <span class="name"><a href="nyxx/Client/onPresenceUpdate.html">onPresenceUpdate</a></span>
-          <span class="signature">&#8596; Stream<span class="signature">&lt;<a href="nyxx/PresenceUpdateEvent-class.html">PresenceUpdateEvent</a>&gt;</span></span>
+          <span class="signature">&#8596; Stream<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/PresenceUpdateEvent-class.html">PresenceUpdateEvent</a></span>&gt;</span></span>
         </dt>
         <dd>
           Emitted when a member's presence is changed.
@@ -424,7 +421,7 @@ Rememeber to close <a href="nyxx/Client-class.html">Client</a> before terminatin
 </dd>
         <dt id="onRatelimited" class="property">
           <span class="name"><a href="nyxx/Client/onRatelimited.html">onRatelimited</a></span>
-          <span class="signature">&#8596; Stream<span class="signature">&lt;<a href="nyxx/RatelimitEvent-class.html">RatelimitEvent</a>&gt;</span></span>
+          <span class="signature">&#8596; Stream<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/RatelimitEvent-class.html">RatelimitEvent</a></span>&gt;</span></span>
         </dt>
         <dd>
           Sent when the client is ratelimited, either by the ratelimit handler itself,
@@ -433,7 +430,7 @@ or when a 429 is received.
 </dd>
         <dt id="onRaw" class="property">
           <span class="name"><a href="nyxx/Client/onRaw.html">onRaw</a></span>
-          <span class="signature">&#8596; Stream<span class="signature">&lt;<a href="nyxx/RawEvent-class.html">RawEvent</a>&gt;</span></span>
+          <span class="signature">&#8596; Stream<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/RawEvent-class.html">RawEvent</a></span>&gt;</span></span>
         </dt>
         <dd>
           Emitted when a raw packet is received from the websocket connection.
@@ -441,7 +438,7 @@ or when a 429 is received.
 </dd>
         <dt id="onReady" class="property">
           <span class="name"><a href="nyxx/Client/onReady.html">onReady</a></span>
-          <span class="signature">&#8596; Stream<span class="signature">&lt;<a href="nyxx/ReadyEvent-class.html">ReadyEvent</a>&gt;</span></span>
+          <span class="signature">&#8596; Stream<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/ReadyEvent-class.html">ReadyEvent</a></span>&gt;</span></span>
         </dt>
         <dd>
           Emitted when the client is ready.
@@ -449,7 +446,7 @@ or when a 429 is received.
 </dd>
         <dt id="onRoleCreate" class="property">
           <span class="name"><a href="nyxx/Client/onRoleCreate.html">onRoleCreate</a></span>
-          <span class="signature">&#8596; Stream<span class="signature">&lt;<a href="nyxx/RoleCreateEvent-class.html">RoleCreateEvent</a>&gt;</span></span>
+          <span class="signature">&#8596; Stream<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/RoleCreateEvent-class.html">RoleCreateEvent</a></span>&gt;</span></span>
         </dt>
         <dd>
           Emitted when a role is created.
@@ -457,7 +454,7 @@ or when a 429 is received.
 </dd>
         <dt id="onRoleDelete" class="property">
           <span class="name"><a href="nyxx/Client/onRoleDelete.html">onRoleDelete</a></span>
-          <span class="signature">&#8596; Stream<span class="signature">&lt;<a href="nyxx/RoleDeleteEvent-class.html">RoleDeleteEvent</a>&gt;</span></span>
+          <span class="signature">&#8596; Stream<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/RoleDeleteEvent-class.html">RoleDeleteEvent</a></span>&gt;</span></span>
         </dt>
         <dd>
           Emitted when a role is deleted.
@@ -465,7 +462,7 @@ or when a 429 is received.
 </dd>
         <dt id="onRoleUpdate" class="property">
           <span class="name"><a href="nyxx/Client/onRoleUpdate.html">onRoleUpdate</a></span>
-          <span class="signature">&#8596; Stream<span class="signature">&lt;<a href="nyxx/RoleUpdateEvent-class.html">RoleUpdateEvent</a>&gt;</span></span>
+          <span class="signature">&#8596; Stream<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/RoleUpdateEvent-class.html">RoleUpdateEvent</a></span>&gt;</span></span>
         </dt>
         <dd>
           Emitted when a role is updated.
@@ -473,7 +470,7 @@ or when a 429 is received.
 </dd>
         <dt id="onTyping" class="property">
           <span class="name"><a href="nyxx/Client/onTyping.html">onTyping</a></span>
-          <span class="signature">&#8596; Stream<span class="signature">&lt;<a href="nyxx/TypingEvent-class.html">TypingEvent</a>&gt;</span></span>
+          <span class="signature">&#8596; Stream<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/TypingEvent-class.html">TypingEvent</a></span>&gt;</span></span>
         </dt>
         <dd>
           Emitted when a user starts typing.
@@ -481,7 +478,7 @@ or when a 429 is received.
 </dd>
         <dt id="onVoiceServerUpdate" class="property">
           <span class="name"><a href="nyxx/Client/onVoiceServerUpdate.html">onVoiceServerUpdate</a></span>
-          <span class="signature">&#8596; Stream<span class="signature">&lt;<a href="nyxx/VoiceServerUpdateEvent-class.html">VoiceServerUpdateEvent</a>&gt;</span></span>
+          <span class="signature">&#8596; Stream<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/VoiceServerUpdateEvent-class.html">VoiceServerUpdateEvent</a></span>&gt;</span></span>
         </dt>
         <dd>
           Emitted when a guild's voice server is updated. This is sent when initially connecting to voice, and when the current voice instance fails over to a new server.
@@ -489,7 +486,7 @@ or when a 429 is received.
 </dd>
         <dt id="onVoiceStateUpdate" class="property">
           <span class="name"><a href="nyxx/Client/onVoiceStateUpdate.html">onVoiceStateUpdate</a></span>
-          <span class="signature">&#8596; Stream<span class="signature">&lt;<a href="nyxx/VoiceStateUpdateEvent-class.html">VoiceStateUpdateEvent</a>&gt;</span></span>
+          <span class="signature">&#8596; Stream<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/VoiceStateUpdateEvent-class.html">VoiceStateUpdateEvent</a></span>&gt;</span></span>
         </dt>
         <dd>
           Emittedwhen someone joins/leaves/moves voice channels.
@@ -497,7 +494,7 @@ or when a 429 is received.
 </dd>
         <dt id="onWebhookUpdate" class="property">
           <span class="name"><a href="nyxx/Client/onWebhookUpdate.html">onWebhookUpdate</a></span>
-          <span class="signature">&#8596; Stream<span class="signature">&lt;<a href="nyxx/WebhookUpdateEvent-class.html">WebhookUpdateEvent</a>&gt;</span></span>
+          <span class="signature">&#8596; Stream<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/WebhookUpdateEvent-class.html">WebhookUpdateEvent</a></span>&gt;</span></span>
         </dt>
         <dd>
           Emitted when a guild channel's webhook is created, updated, or deleted.
@@ -513,7 +510,7 @@ or when a 429 is received.
 </dd>
         <dt id="shards" class="property">
           <span class="name"><a href="nyxx/Client/shards.html">shards</a></span>
-          <span class="signature">&#8596; Map<span class="signature">&lt;int, <a href="nyxx/Shard-class.html">Shard</a>&gt;</span></span>
+          <span class="signature">&#8596; Map<span class="signature">&lt;<wbr><span class="type-parameter">int</span>, <span class="type-parameter"><a href="nyxx/Shard-class.html">Shard</a></span>&gt;</span></span>
         </dt>
         <dd>
           The client's internal shards.
@@ -537,7 +534,7 @@ or when a 429 is received.
 </dd>
         <dt id="users" class="property">
           <span class="name"><a href="nyxx/Client/users.html">users</a></span>
-          <span class="signature">&#8596; Map<span class="signature">&lt;String, <a href="nyxx/User-class.html">User</a>&gt;</span></span>
+          <span class="signature">&#8596; Map<span class="signature">&lt;<wbr><span class="type-parameter">String</span>, <span class="type-parameter"><a href="nyxx/User-class.html">User</a></span>&gt;</span></span>
         </dt>
         <dd>
           All of the users the bot can see. Does not always have offline users
@@ -576,7 +573,7 @@ without forceFetchUsers enabled.
       <dl class="callables">
         <dt id="destroy" class="callable">
           <span class="name"><a href="nyxx/Client/destroy.html">destroy</a></span><span class="signature">(<wbr>)
-            <span class="returntype parameter">&#8594; Future<span class="signature">&lt;Null&gt;</span></span>
+            <span class="returntype parameter">&#8594; Future<span class="signature">&lt;<wbr><span class="type-parameter">Null</span>&gt;</span></span>
           </span>
         </dt>
         <dd>
@@ -585,7 +582,7 @@ without forceFetchUsers enabled.
 </dd>
         <dt id="getInvite" class="callable">
           <span class="name"><a href="nyxx/Client/getInvite.html">getInvite</a></span><span class="signature">(<wbr><span class="parameter" id="getInvite-param-code"><span class="type-annotation">String</span> <span class="parameter-name">code</span></span>)
-            <span class="returntype parameter">&#8594; Future<span class="signature">&lt;<a href="nyxx/Invite-class.html">Invite</a>&gt;</span></span>
+            <span class="returntype parameter">&#8594; Future<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/Invite-class.html">Invite</a></span>&gt;</span></span>
           </span>
         </dt>
         <dd>
@@ -594,7 +591,7 @@ without forceFetchUsers enabled.
 </dd>
         <dt id="getOAuth2Info" class="callable">
           <span class="name"><a href="nyxx/Client/getOAuth2Info.html">getOAuth2Info</a></span><span class="signature">(<wbr><span class="parameter" id="getOAuth2Info-param-userId"><span class="type-annotation">String</span> <span class="parameter-name">userId</span></span>)
-            <span class="returntype parameter">&#8594; Future<span class="signature">&lt;<a href="nyxx/OAuth2Info-class.html">OAuth2Info</a>&gt;</span></span>
+            <span class="returntype parameter">&#8594; Future<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/OAuth2Info-class.html">OAuth2Info</a></span>&gt;</span></span>
           </span>
         </dt>
         <dd>
@@ -603,7 +600,7 @@ without forceFetchUsers enabled.
 </dd>
         <dt id="getUser" class="callable">
           <span class="name"><a href="nyxx/Client/getUser.html">getUser</a></span><span class="signature">(<wbr><span class="parameter" id="getUser-param-userId"><span class="type-annotation">String</span> <span class="parameter-name">userId</span></span>)
-            <span class="returntype parameter">&#8594; Future<span class="signature">&lt;<a href="nyxx/User-class.html">User</a>&gt;</span></span>
+            <span class="returntype parameter">&#8594; Future<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/User-class.html">User</a></span>&gt;</span></span>
           </span>
         </dt>
         <dd>
@@ -635,7 +632,7 @@ without forceFetchUsers enabled.
       <h2>Operators</h2>
       <dl class="callables">
         <dt id="operator ==" class="callable inherited">
-          <span class="name"><a href="nyxx/Client/operator_equals.html">operator ==</a></span><span class="signature">(<wbr><span class="parameter" id="==-param-other"><span class="parameter-name">other</span></span>)
+          <span class="name"><a href="nyxx/Client/operator_equals.html">operator ==</a></span><span class="signature">(<wbr><span class="parameter" id="==-param-other"><span class="type-annotation">dynamic</span> <span class="parameter-name">other</span></span>)
             <span class="returntype parameter">&#8594; bool</span>
           </span>
         </dt>
@@ -728,12 +725,12 @@ without forceFetchUsers enabled.
 
 <footer>
   <span class="no-break">
-    nyxx 0.22.1
+    nyxx 0.24.0
   </span>
 
 </footer>
 
-<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="static-assets/typeahead.bundle.min.js"></script>
 <script src="static-assets/highlight.pack.js"></script>
 <script src="static-assets/URI.js"></script>

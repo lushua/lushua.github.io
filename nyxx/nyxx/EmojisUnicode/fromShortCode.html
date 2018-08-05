@@ -48,8 +48,7 @@
       <li class="inherited"><a href="nyxx/EmojisUnicode/hashCode.html">hashCode</a></li>
       <li class="inherited"><a href="nyxx/EmojisUnicode/runtimeType.html">runtimeType</a></li>
     
-      <li class="section-title"><a href="nyxx/EmojisUnicode-class.html#instance-methods">Methods</a></li>
-      <li><a href="nyxx/EmojisUnicode/fromShortCode.html">fromShortCode</a></li>
+      <li class="section-title inherited"><a href="nyxx/EmojisUnicode-class.html#instance-methods">Methods</a></li>
       <li class="inherited"><a href="nyxx/EmojisUnicode/noSuchMethod.html">noSuchMethod</a></li>
       <li class="inherited"><a href="nyxx/EmojisUnicode/toString.html">toString</a></li>
     
@@ -976,6 +975,9 @@
       <li><a href="nyxx/EmojisUnicode/zipper_mouth_face.html">zipper_mouth_face</a></li>
       <li><a href="nyxx/EmojisUnicode/zzz.html">zzz</a></li>
     
+      <li class="section-title"><a href="nyxx/EmojisUnicode-class.html#static-methods">Static methods</a></li>
+      <li><a href="nyxx/EmojisUnicode/fromHexCode.html">fromHexCode</a></li>
+      <li><a href="nyxx/EmojisUnicode/fromShortCode.html">fromShortCode</a></li>
     
     </ol>
   </div><!--/.sidebar-offcanvas-->
@@ -984,7 +986,7 @@
     <h1>fromShortCode method</h1>
 
     <section class="multi-line-signature">
-      <span class="returntype">Future<span class="signature">&lt;<a href="nyxx/UnicodeEmoji-class.html">UnicodeEmoji</a>&gt;</span></span>
+      <span class="returntype">Future<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/UnicodeEmoji-class.html">UnicodeEmoji</a></span>&gt;</span></span>
       <span class="name ">fromShortCode</span>
 (<wbr><span class="parameter" id="fromShortCode-param-shortCode"><span class="type-annotation">String</span> <span class="parameter-name">shortCode</span></span>)
     </section>
@@ -996,7 +998,7 @@ In future it will be rewritten to map.</p>
     
     <section class="summary source-code" id="source">
       <h2><span>Implementation</span> </h2>
-      <pre class="language-dart"><code class="language-dart">Future&lt;UnicodeEmoji&gt; fromShortCode(String shortCode) {
+      <pre class="language-dart"><code class="language-dart">static Future&lt;UnicodeEmoji&gt; fromShortCode(String shortCode) {
   return new Future(() {
     String normalize(String s) {
       if (s.startsWith(&quot;:&quot;) &amp;&amp; s.endsWith(&quot;:&quot;)) return s;
@@ -1004,12 +1006,14 @@ In future it will be rewritten to map.</p>
     }
 
     shortCode = normalize(shortCode);
+
     var mirror = reflectClass(EmojisUnicode);
-    for (var v in mirror.declarations.values) {
-      if (v is UnicodeEmoji) {
-        var emoji = v as UnicodeEmoji;
-        if (emoji.code == shortCode) return emoji;
-      }
+    var variables =
+        mirror.declarations.values.where((i) =&gt; i is VariableMirror);
+    for (var variable in variables) {
+      var emo =
+          mirror.getField(variable.simpleName).reflectee as UnicodeEmoji;
+      if (emo.name == shortCode) return emo;
     }
 
     return null;
@@ -1026,12 +1030,12 @@ In future it will be rewritten to map.</p>
 
 <footer>
   <span class="no-break">
-    nyxx 0.22.1
+    nyxx 0.24.0
   </span>
 
 </footer>
 
-<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="static-assets/typeahead.bundle.min.js"></script>
 <script src="static-assets/highlight.pack.js"></script>
 <script src="static-assets/URI.js"></script>

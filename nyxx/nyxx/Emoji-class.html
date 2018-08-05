@@ -128,7 +128,7 @@
       <li><a href="nyxx/TypingEvent-class.html">TypingEvent</a></li>
       <li><a href="nyxx/UnicodeEmoji-class.html">UnicodeEmoji</a></li>
       <li><a href="nyxx/User-class.html">User</a></li>
-      <li><a href="nyxx/Util-class.html">Util</a></li>
+      <li><a href="nyxx/UserVoiceState-class.html">UserVoiceState</a></li>
       <li><a href="nyxx/VoiceChannel-class.html">VoiceChannel</a></li>
       <li><a href="nyxx/VoiceRegion-class.html">VoiceRegion</a></li>
       <li><a href="nyxx/VoiceServerUpdateEvent-class.html">VoiceServerUpdateEvent</a></li>
@@ -143,11 +143,8 @@
     
     
       <li class="section-title"><a href="nyxx/nyxx-library.html#exceptions">Exceptions</a></li>
-      <li><a href="nyxx/ClientNotReadyError-class.html">ClientNotReadyError</a></li>
       <li><a href="nyxx/HttpError-class.html">HttpError</a></li>
-      <li><a href="nyxx/InvalidShardError-class.html">InvalidShardError</a></li>
       <li><a href="nyxx/InvalidTokenError-class.html">InvalidTokenError</a></li>
-      <li><a href="nyxx/NotSetupError-class.html">NotSetupError</a></li>
     </ol>
   </div>
 
@@ -228,6 +225,15 @@
           Encodes Emoji to API format
           
 </dd>
+        <dt id="format" class="callable">
+          <span class="name"><a href="nyxx/Emoji/format.html">format</a></span><span class="signature">(<wbr>)
+            <span class="returntype parameter">&#8594; String</span>
+          </span>
+        </dt>
+        <dd>
+          Created message ready Emoji
+          
+</dd>
         <dt id="noSuchMethod" class="callable inherited">
           <span class="name"><a href="nyxx/Emoji/noSuchMethod.html">noSuchMethod</a></span><span class="signature">(<wbr><span class="parameter" id="noSuchMethod-param-invocation"><span class="type-annotation">Invocation</span> <span class="parameter-name">invocation</span></span>)
             <span class="returntype parameter">&#8594; dynamic</span>
@@ -253,7 +259,7 @@
       <h2>Operators</h2>
       <dl class="callables">
         <dt id="operator ==" class="callable">
-          <span class="name"><a href="nyxx/Emoji/operator_equals.html">operator ==</a></span><span class="signature">(<wbr><span class="parameter" id="==-param-other"><span class="parameter-name">other</span></span>)
+          <span class="name"><a href="nyxx/Emoji/operator_equals.html">operator ==</a></span><span class="signature">(<wbr><span class="parameter" id="==-param-other"><span class="type-annotation">dynamic</span> <span class="parameter-name">other</span></span>)
             <span class="returntype parameter">&#8594; bool</span>
           </span>
         </dt>
@@ -283,6 +289,7 @@
     
       <li class="section-title"><a href="nyxx/Emoji-class.html#instance-methods">Methods</a></li>
       <li><a href="nyxx/Emoji/encode.html">encode</a></li>
+      <li><a href="nyxx/Emoji/format.html">format</a></li>
       <li class="inherited"><a href="nyxx/Emoji/noSuchMethod.html">noSuchMethod</a></li>
       <li class="inherited"><a href="nyxx/Emoji/toString.html">toString</a></li>
     
@@ -298,12 +305,12 @@
 
 <footer>
   <span class="no-break">
-    nyxx 0.22.1
+    nyxx 0.24.0
   </span>
 
 </footer>
 
-<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="static-assets/typeahead.bundle.min.js"></script>
 <script src="static-assets/highlight.pack.js"></script>
 <script src="static-assets/URI.js"></script>

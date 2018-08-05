@@ -68,9 +68,9 @@
     <h1>sendMultipart method</h1>
 
     <section class="multi-line-signature">
-      <span class="returntype">Future<span class="signature">&lt;<a href="nyxx/HttpResponse-class.html">HttpResponse</a>&gt;</span></span>
+      <span class="returntype">Future<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/HttpResponse-class.html">HttpResponse</a></span>&gt;</span></span>
       <span class="name ">sendMultipart</span>
-(<wbr><span class="parameter" id="sendMultipart-param-method"><span class="type-annotation">String</span> <span class="parameter-name">method</span>, </span> <span class="parameter" id="sendMultipart-param-path"><span class="type-annotation">String</span> <span class="parameter-name">path</span>, </span> <span class="parameter" id="sendMultipart-param-filenames"><span class="type-annotation">List<span class="signature">&lt;String&gt;</span></span> <span class="parameter-name">filenames</span>, {</span> <span class="parameter" id="sendMultipart-param-data"><span class="type-annotation">String</span> <span class="parameter-name">data</span>, </span> <span class="parameter" id="sendMultipart-param-beforeReady"><span class="type-annotation">bool</span> <span class="parameter-name">beforeReady</span>: <span class="default-value">false</span>, </span> <span class="parameter" id="sendMultipart-param-reason"><span class="type-annotation">String</span> <span class="parameter-name">reason</span></span> })
+(<wbr><span class="parameter" id="sendMultipart-param-method"><span class="type-annotation">String</span> <span class="parameter-name">method</span>, </span> <span class="parameter" id="sendMultipart-param-path"><span class="type-annotation">String</span> <span class="parameter-name">path</span>, </span> <span class="parameter" id="sendMultipart-param-filenames"><span class="type-annotation">List<span class="signature">&lt;<wbr><span class="type-parameter">String</span>&gt;</span></span> <span class="parameter-name">filenames</span>, {</span> <span class="parameter" id="sendMultipart-param-data"><span class="type-annotation">String</span> <span class="parameter-name">data</span>, </span> <span class="parameter" id="sendMultipart-param-beforeReady"><span class="type-annotation">bool</span> <span class="parameter-name">beforeReady</span>: <span class="default-value">false</span>, </span> <span class="parameter" id="sendMultipart-param-reason"><span class="type-annotation">String</span> <span class="parameter-name">reason</span></span> })
     </section>
     
     <section class="summary source-code" id="source">
@@ -79,7 +79,7 @@
     String method, String path, List&lt;String&gt; filenames,
     {String data, bool beforeReady: false, String reason}) async {
   if (_client is Client &amp;&amp; !this._client.ready &amp;&amp; !beforeReady)
-    throw new ClientNotReadyError();
+    throw new Exception(&quot;Client isn&#39;t ready yet.&quot;);
 
   Directory current = Directory.current;
   List&lt;String&gt; filepaths = new List();
@@ -119,12 +119,12 @@
 
 <footer>
   <span class="no-break">
-    nyxx 0.22.1
+    nyxx 0.24.0
   </span>
 
 </footer>
 
-<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="static-assets/typeahead.bundle.min.js"></script>
 <script src="static-assets/highlight.pack.js"></script>
 <script src="static-assets/URI.js"></script>

@@ -45,6 +45,8 @@
       <li class="section-title">
         <a href="nyxx.commands/CommandsFramework-class.html#instance-properties">Properties</a>
       </li>
+      <li><a href="nyxx.commands/CommandsFramework/admins.html">admins</a></li>
+      <li><a href="nyxx.commands/CommandsFramework/game.html">game</a></li>
       <li><a href="nyxx.commands/CommandsFramework/helpDirect.html">helpDirect</a></li>
       <li><a href="nyxx.commands/CommandsFramework/ignoreBots.html">ignoreBots</a></li>
       <li><a href="nyxx.commands/CommandsFramework/logger.html">logger</a></li>
@@ -87,7 +89,7 @@
 (<wbr>)
     </section>
     <section class="desc markdown">
-      <p>Register commands in current Isolate's libraries. Basically loads all classes as commnads with <code>MirrorsCommand</code> superclass.
+      <p>Register commands in current Isolate's libraries. Basically loads all classes as commnads with <a href="nyxx.commands/CommandContext-class.html">CommandContext</a> superclass.
 Performs dependency injection when instantiate commands. And throws <code>Exception</code> when there are missing services</p>
     </section>
     
@@ -96,12 +98,13 @@ Performs dependency injection when instantiate commands. And throws <code>Except
       <pre class="language-dart"><code class="language-dart">void registerLibraryCommands() {
   _registerLibrary(CommandContext, (toInject, cm) {
     try {
-      var cmd = cm.newInstance(new Symbol(&#39;&#39;), toInject).reflectee;
-      cmd.logger = new Logger.detached(&quot;Command&quot;);
+      var cmd = cm.newInstance(new Symbol(&#39;&#39;), toInject).reflectee
+          as CommandContext;
       add(cmd);
     } catch (e) {
       print(e);
-      throw new Exception(&quot;Command constructor not satisfied!&quot;);
+      throw new Exception(
+          &quot;Command [${cm.simpleName}] constructor not satisfied!&quot;);
     }
   });
 }</code></pre>
@@ -116,12 +119,12 @@ Performs dependency injection when instantiate commands. And throws <code>Except
 
 <footer>
   <span class="no-break">
-    nyxx 0.22.1
+    nyxx 0.24.0
   </span>
 
 </footer>
 
-<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="static-assets/typeahead.bundle.min.js"></script>
 <script src="static-assets/highlight.pack.js"></script>
 <script src="static-assets/URI.js"></script>

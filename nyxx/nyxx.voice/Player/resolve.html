@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="API docs for the resolve method from the Player class, for the Dart programming language.">
+  <title>resolve method - Player class - nyxx.voice library - Dart API</title>
+  <!-- required because all the links are pseudo-absolute -->
+  <base href="../..">
+
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500,400i,400,300|Source+Sans+Pro:400,300,700" rel="stylesheet">
+  <link rel="stylesheet" href="static-assets/github.css">
+  <link rel="stylesheet" href="static-assets/styles.css">
+  <link rel="icon" href="static-assets/favicon.png">
+
+</head>
+
+<body>
+
+<div id="overlay-under-drawer"></div>
+
+<header id="title">
+  <button id="sidenav-left-toggle" type="button">&nbsp;</button>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="index.html">nyxx</a></li>
+    <li><a href="nyxx.voice/nyxx.voice-library.html">nyxx.voice</a></li>
+    <li><a href="nyxx.voice/Player-class.html">Player</a></li>
+    <li class="self-crumb">resolve method</li>
+  </ol>
+  <div class="self-name">resolve</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<main>
+
+  <div class="col-xs-6 col-sm-3 col-md-2 sidebar sidebar-offcanvas-left">
+    <h5>Player class</h5>
+    <ol>
+    
+      <li class="section-title">
+        <a href="nyxx.voice/Player-class.html#instance-properties">Properties</a>
+      </li>
+      <li><a href="nyxx.voice/Player/currentChannel.html">currentChannel</a></li>
+      <li><a href="nyxx.voice/Player/currentTrack.html">currentTrack</a></li>
+      <li><a href="nyxx.voice/Player/isConnected.html">isConnected</a></li>
+      <li><a href="nyxx.voice/Player/isPlaying.html">isPlaying</a></li>
+      <li><a href="nyxx.voice/Player/onPlayerUpdate.html">onPlayerUpdate</a></li>
+      <li><a href="nyxx.voice/Player/onTrackError.html">onTrackError</a></li>
+      <li class="inherited"><a href="nyxx.voice/Player/hashCode.html">hashCode</a></li>
+      <li class="inherited"><a href="nyxx.voice/Player/runtimeType.html">runtimeType</a></li>
+    
+      <li class="section-title"><a href="nyxx.voice/Player-class.html#instance-methods">Methods</a></li>
+      <li><a href="nyxx.voice/Player/changeChannel.html">changeChannel</a></li>
+      <li><a href="nyxx.voice/Player/connect.html">connect</a></li>
+      <li><a href="nyxx.voice/Player/disconnect.html">disconnect</a></li>
+      <li><a href="nyxx.voice/Player/pause.html">pause</a></li>
+      <li><a href="nyxx.voice/Player/play.html">play</a></li>
+      <li><a href="nyxx.voice/Player/resolve.html">resolve</a></li>
+      <li><a href="nyxx.voice/Player/seek.html">seek</a></li>
+      <li><a href="nyxx.voice/Player/setVolume.html">setVolume</a></li>
+      <li><a href="nyxx.voice/Player/stop.html">stop</a></li>
+      <li><a href="nyxx.voice/Player/toggleMute.html">toggleMute</a></li>
+      <li class="inherited"><a href="nyxx.voice/Player/noSuchMethod.html">noSuchMethod</a></li>
+      <li class="inherited"><a href="nyxx.voice/Player/toString.html">toString</a></li>
+    
+      <li class="section-title inherited"><a href="nyxx.voice/Player-class.html#operators">Operators</a></li>
+      <li class="inherited"><a href="nyxx.voice/Player/operator_equals.html">operator ==</a></li>
+    
+    
+    
+    </ol>
+  </div><!--/.sidebar-offcanvas-->
+
+  <div class="col-xs-12 col-sm-9 col-md-8 main-content">
+    <h1>resolve method</h1>
+
+    <section class="multi-line-signature">
+      <span class="returntype">Future<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx.voice/TrackResponse-class.html">TrackResponse</a></span>&gt;</span></span>
+      <span class="name ">resolve</span>
+(<wbr><span class="parameter" id="resolve-param-hash"><span class="type-annotation">String</span> <span class="parameter-name">hash</span></span>)
+    </section>
+    <section class="desc markdown">
+      <p>Resolves url to Lavalink Track</p>
+    </section>
+    
+    <section class="summary source-code" id="source">
+      <h2><span>Implementation</span> </h2>
+      <pre class="language-dart"><code class="language-dart">Future&lt;TrackResponse&gt; resolve(String hash) async {
+  var req = w_transport.JsonRequest()
+    ..uri = _restPath
+    ..path = &quot;&#47;loadtracks&quot;
+    ..headers = { &quot;Authorization&quot;: &quot;password&quot; }
+    ..queryParameters = { &quot;identifier&quot; : hash };
+
+  var res = await req.send(&quot;GET&quot;);
+  if(res.status != 200)
+    throw new Exception(&quot;Cannot comunicate with lavalink via http&quot;);
+
+  var r = res.body.asJson() as Map&lt;String, dynamic&gt;;
+  return new TrackResponse._new(r);
+}</code></pre>
+    </section>
+
+  </div> <!-- /.main-content -->
+
+  <div class="col-xs-6 col-sm-6 col-md-2 sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+
+</main>
+
+<footer>
+  <span class="no-break">
+    nyxx 0.24.0
+  </span>
+
+</footer>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="static-assets/typeahead.bundle.min.js"></script>
+<script src="static-assets/highlight.pack.js"></script>
+<script src="static-assets/URI.js"></script>
+<script src="static-assets/script.js"></script>
+
+
+</body>
+
+</html>

@@ -75,28 +75,28 @@
     <section class="multi-line-signature">
       <span class="returntype">void</span>
       <span class="name ">initialize</span>
-(<wbr><span class="parameter" id="initialize-param-raw"><span class="type-annotation">Map<span class="signature">&lt;String, dynamic&gt;</span></span> <span class="parameter-name">raw</span>, </span> <span class="parameter" id="initialize-param-client"><span class="type-annotation"><a href="nyxx/Client-class.html">Client</a></span> <span class="parameter-name">client</span>, </span> <span class="parameter" id="initialize-param-guild"><span class="type-annotation"><a href="nyxx/Guild-class.html">Guild</a></span> <span class="parameter-name">guild</span></span>)
+(<wbr><span class="parameter" id="initialize-param-raw"><span class="type-annotation">Map<span class="signature">&lt;<wbr><span class="type-parameter">String</span>, <span class="type-parameter">dynamic</span>&gt;</span></span> <span class="parameter-name">raw</span>, </span> <span class="parameter" id="initialize-param-client"><span class="type-annotation"><a href="nyxx/Client-class.html">Client</a></span> <span class="parameter-name">client</span>, </span> <span class="parameter" id="initialize-param-guild"><span class="type-annotation"><a href="nyxx/Guild-class.html">Guild</a></span> <span class="parameter-name">guild</span></span>)
     </section>
     
     <section class="summary source-code" id="source">
       <h2><span>Implementation</span> </h2>
       <pre class="language-dart"><code class="language-dart">void initialize(Map&lt;String, dynamic&gt; raw, Client client, Guild guild) {
   this._client = client;
-  this.name = raw[&#39;name&#39;];
-  this.position = raw[&#39;position&#39;];
+  this.name = raw[&#39;name&#39;] as String;
+  this.position = raw[&#39;position&#39;] as int;
   this.guild = guild;
 
-  this._id = raw[&#39;id&#39;];
+  this._id = raw[&#39;id&#39;] as String;
   if (raw[&#39;parent_id&#39;] != null) {
-    this.parentId = new Snowflake(raw[&#39;parent_id&#39;]);
+    this.parentId = new Snowflake(raw[&#39;parent_id&#39;] as String);
   }
 
-  this.nsfw = raw[&#39;nsfw&#39;];
+  this.nsfw = raw[&#39;nsfw&#39;] as bool;
 
-  if(raw[&#39;permission_overwrites&#39;] != null) {
+  if (raw[&#39;permission_overwrites&#39;] != null) {
     permissions = new List();
-    raw[&#39;permission_overwrites&#39;].forEach((Map&lt;String, dynamic&gt; o) {
-      permissions.add(new ChannelPermissions._new(o));
+    raw[&#39;permission_overwrites&#39;].forEach((dynamic o) {
+      permissions.add(new ChannelPermissions._new(o as Map&lt;String, dynamic&gt;));
     });
   }
 }</code></pre>
@@ -111,12 +111,12 @@
 
 <footer>
   <span class="no-break">
-    nyxx 0.22.1
+    nyxx 0.24.0
   </span>
 
 </footer>
 
-<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="static-assets/typeahead.bundle.min.js"></script>
 <script src="static-assets/highlight.pack.js"></script>
 <script src="static-assets/URI.js"></script>

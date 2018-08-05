@@ -78,7 +78,7 @@
     <h1>edit method</h1>
 
     <section class="multi-line-signature">
-      <span class="returntype">Future<span class="signature">&lt;<a href="nyxx/Role-class.html">Role</a>&gt;</span></span>
+      <span class="returntype">Future<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/Role-class.html">Role</a></span>&gt;</span></span>
       <span class="name ">edit</span>
 (<wbr>{<span class="parameter" id="edit-param-name"><span class="type-annotation">String</span> <span class="parameter-name">name</span>: <span class="default-value">null</span>, </span> <span class="parameter" id="edit-param-permissions"><span class="type-annotation"><a href="nyxx/PermissionsBuilder-class.html">PermissionsBuilder</a></span> <span class="parameter-name">permissions</span>, </span> <span class="parameter" id="edit-param-position"><span class="type-annotation">int</span> <span class="parameter-name">position</span>: <span class="default-value">null</span>, </span> <span class="parameter" id="edit-param-color"><span class="type-annotation">int</span> <span class="parameter-name">color</span>: <span class="default-value">null</span>, </span> <span class="parameter" id="edit-param-mentionable"><span class="type-annotation">bool</span> <span class="parameter-name">mentionable</span>: <span class="default-value">null</span>, </span> <span class="parameter" id="edit-param-hoist"><span class="type-annotation">bool</span> <span class="parameter-name">hoist</span>: <span class="default-value">null</span>, </span> <span class="parameter" id="edit-param-auditReason"><span class="type-annotation">String</span> <span class="parameter-name">auditReason</span>: <span class="default-value">""</span></span> })
     </section>
@@ -100,8 +100,9 @@
       &#39;PATCH&#39;, &quot;&#47;guilds&#47;${this.guild.id}&#47;roles&#47;$id&quot;,
       body: {
         &quot;name&quot;: name != null ? name : this.name,
-        &quot;permissions&quot;:
-            permissions != null ? permissions._build()._build() : this.permissions.raw,
+        &quot;permissions&quot;: permissions != null
+            ? permissions._build()._build()
+            : this.permissions.raw,
         &quot;position&quot;: position != null ? position : this.position,
         &quot;color&quot;: color != null ? color : this.color,
         &quot;hoist&quot;: hoist != null ? hoist : this.hoist,
@@ -122,12 +123,12 @@
 
 <footer>
   <span class="no-break">
-    nyxx 0.22.1
+    nyxx 0.24.0
   </span>
 
 </footer>
 
-<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="static-assets/typeahead.bundle.min.js"></script>
 <script src="static-assets/highlight.pack.js"></script>
 <script src="static-assets/URI.js"></script>

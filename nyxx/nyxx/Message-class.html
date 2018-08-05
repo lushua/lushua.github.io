@@ -128,7 +128,7 @@
       <li><a href="nyxx/TypingEvent-class.html">TypingEvent</a></li>
       <li><a href="nyxx/UnicodeEmoji-class.html">UnicodeEmoji</a></li>
       <li><a href="nyxx/User-class.html">User</a></li>
-      <li><a href="nyxx/Util-class.html">Util</a></li>
+      <li><a href="nyxx/UserVoiceState-class.html">UserVoiceState</a></li>
       <li><a href="nyxx/VoiceChannel-class.html">VoiceChannel</a></li>
       <li><a href="nyxx/VoiceRegion-class.html">VoiceRegion</a></li>
       <li><a href="nyxx/VoiceServerUpdateEvent-class.html">VoiceServerUpdateEvent</a></li>
@@ -143,11 +143,8 @@
     
     
       <li class="section-title"><a href="nyxx/nyxx-library.html#exceptions">Exceptions</a></li>
-      <li><a href="nyxx/ClientNotReadyError-class.html">ClientNotReadyError</a></li>
       <li><a href="nyxx/HttpError-class.html">HttpError</a></li>
-      <li><a href="nyxx/InvalidShardError-class.html">InvalidShardError</a></li>
       <li><a href="nyxx/InvalidTokenError-class.html">InvalidTokenError</a></li>
-      <li><a href="nyxx/NotSetupError-class.html">NotSetupError</a></li>
     </ol>
   </div>
 
@@ -168,7 +165,7 @@ Supports sending files via <code>sendFile()</code> - method can send file or fil
       <dl class="properties">
         <dt id="attachments" class="property">
           <span class="name"><a href="nyxx/Message/attachments.html">attachments</a></span>
-          <span class="signature">&#8596; Map<span class="signature">&lt;String, <a href="nyxx/Attachment-class.html">Attachment</a>&gt;</span></span>
+          <span class="signature">&#8596; Map<span class="signature">&lt;<wbr><span class="type-parameter">String</span>, <span class="type-parameter"><a href="nyxx/Attachment-class.html">Attachment</a></span>&gt;</span></span>
         </dt>
         <dd>
           The attachments in the message.
@@ -224,7 +221,7 @@ Supports sending files via <code>sendFile()</code> - method can send file or fil
 </dd>
         <dt id="embeds" class="property">
           <span class="name"><a href="nyxx/Message/embeds.html">embeds</a></span>
-          <span class="signature">&#8596; Map<span class="signature">&lt;String, <a href="nyxx/Embed-class.html">Embed</a>&gt;</span></span>
+          <span class="signature">&#8596; Map<span class="signature">&lt;<wbr><span class="type-parameter">String</span>, <span class="type-parameter"><a href="nyxx/Embed-class.html">Embed</a></span>&gt;</span></span>
         </dt>
         <dd>
           A collection of the embeds in the message.
@@ -264,7 +261,7 @@ Supports sending files via <code>sendFile()</code> - method can send file or fil
 </dd>
         <dt id="mentions" class="property">
           <span class="name"><a href="nyxx/Message/mentions.html">mentions</a></span>
-          <span class="signature">&#8596; Map<span class="signature">&lt;String, <a href="nyxx/User-class.html">User</a>&gt;</span></span>
+          <span class="signature">&#8596; Map<span class="signature">&lt;<wbr><span class="type-parameter">String</span>, <span class="type-parameter"><a href="nyxx/User-class.html">User</a></span>&gt;</span></span>
         </dt>
         <dd>
           The mentions in the message.
@@ -280,7 +277,7 @@ Supports sending files via <code>sendFile()</code> - method can send file or fil
 </dd>
         <dt id="onDelete" class="property">
           <span class="name"><a href="nyxx/Message/onDelete.html">onDelete</a></span>
-          <span class="signature">&#8596; Stream<span class="signature">&lt;<a href="nyxx/MessageDeleteEvent-class.html">MessageDeleteEvent</a>&gt;</span></span>
+          <span class="signature">&#8596; Stream<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/MessageDeleteEvent-class.html">MessageDeleteEvent</a></span>&gt;</span></span>
         </dt>
         <dd>
           Emitted when the message is deleted.
@@ -288,7 +285,7 @@ Supports sending files via <code>sendFile()</code> - method can send file or fil
 </dd>
         <dt id="onReactionAdded" class="property">
           <span class="name"><a href="nyxx/Message/onReactionAdded.html">onReactionAdded</a></span>
-          <span class="signature">&#8596; Stream<span class="signature">&lt;<a href="nyxx/MessageReactionEvent-class.html">MessageReactionEvent</a>&gt;</span></span>
+          <span class="signature">&#8596; Stream<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/MessageReactionEvent-class.html">MessageReactionEvent</a></span>&gt;</span></span>
         </dt>
         <dd>
           Emitted when a user adds a reaction to a message.
@@ -296,7 +293,7 @@ Supports sending files via <code>sendFile()</code> - method can send file or fil
 </dd>
         <dt id="onReactionRemove" class="property">
           <span class="name"><a href="nyxx/Message/onReactionRemove.html">onReactionRemove</a></span>
-          <span class="signature">&#8596; Stream<span class="signature">&lt;<a href="nyxx/MessageReactionEvent-class.html">MessageReactionEvent</a>&gt;</span></span>
+          <span class="signature">&#8596; Stream<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/MessageReactionEvent-class.html">MessageReactionEvent</a></span>&gt;</span></span>
         </dt>
         <dd>
           Emitted when a user adds a reaction to a message.
@@ -304,7 +301,7 @@ Supports sending files via <code>sendFile()</code> - method can send file or fil
 </dd>
         <dt id="onReactionsRemoved" class="property">
           <span class="name"><a href="nyxx/Message/onReactionsRemoved.html">onReactionsRemoved</a></span>
-          <span class="signature">&#8596; Stream<span class="signature">&lt;<a href="nyxx/MessageReactionsRemovedEvent-class.html">MessageReactionsRemovedEvent</a>&gt;</span></span>
+          <span class="signature">&#8596; Stream<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/MessageReactionsRemovedEvent-class.html">MessageReactionsRemovedEvent</a></span>&gt;</span></span>
         </dt>
         <dd>
           Emitted when a user explicitly removes all reactions from a message.
@@ -312,7 +309,7 @@ Supports sending files via <code>sendFile()</code> - method can send file or fil
 </dd>
         <dt id="onUpdate" class="property">
           <span class="name"><a href="nyxx/Message/onUpdate.html">onUpdate</a></span>
-          <span class="signature">&#8596; Stream<span class="signature">&lt;<a href="nyxx/MessageUpdateEvent-class.html">MessageUpdateEvent</a>&gt;</span></span>
+          <span class="signature">&#8596; Stream<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/MessageUpdateEvent-class.html">MessageUpdateEvent</a></span>&gt;</span></span>
         </dt>
         <dd>
           Emitted when the message is edited.
@@ -328,7 +325,7 @@ Supports sending files via <code>sendFile()</code> - method can send file or fil
 </dd>
         <dt id="raw" class="property">
           <span class="name"><a href="nyxx/Message/raw.html">raw</a></span>
-          <span class="signature">&#8596; Map<span class="signature">&lt;String, dynamic&gt;</span></span>
+          <span class="signature">&#8596; Map<span class="signature">&lt;<wbr><span class="type-parameter">String</span>, <span class="type-parameter">dynamic</span>&gt;</span></span>
         </dt>
         <dd>
           The raw object returned by the API.
@@ -336,7 +333,7 @@ Supports sending files via <code>sendFile()</code> - method can send file or fil
 </dd>
         <dt id="reactions" class="property">
           <span class="name"><a href="nyxx/Message/reactions.html">reactions</a></span>
-          <span class="signature">&#8596; List<span class="signature">&lt;<a href="nyxx/Reaction-class.html">Reaction</a>&gt;</span></span>
+          <span class="signature">&#8596; List<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/Reaction-class.html">Reaction</a></span>&gt;</span></span>
         </dt>
         <dd>
           List of message reactions
@@ -344,7 +341,7 @@ Supports sending files via <code>sendFile()</code> - method can send file or fil
 </dd>
         <dt id="roleMentions" class="property">
           <span class="name"><a href="nyxx/Message/roleMentions.html">roleMentions</a></span>
-          <span class="signature">&#8596; Map<span class="signature">&lt;String, <a href="nyxx/Role-class.html">Role</a>&gt;</span></span>
+          <span class="signature">&#8596; Map<span class="signature">&lt;<wbr><span class="type-parameter">String</span>, <span class="type-parameter"><a href="nyxx/Role-class.html">Role</a></span>&gt;</span></span>
         </dt>
         <dd>
           A list of IDs for the role mentions in the message.
@@ -390,7 +387,7 @@ Supports sending files via <code>sendFile()</code> - method can send file or fil
       <dl class="callables">
         <dt id="createReaction" class="callable">
           <span class="name"><a href="nyxx/Message/createReaction.html">createReaction</a></span><span class="signature">(<wbr><span class="parameter" id="createReaction-param-emoji"><span class="type-annotation"><a href="nyxx/Emoji-class.html">Emoji</a></span> <span class="parameter-name">emoji</span></span>)
-            <span class="returntype parameter">&#8594; Future<span class="signature">&lt;Null&gt;</span></span>
+            <span class="returntype parameter">&#8594; Future<span class="signature">&lt;<wbr><span class="type-parameter">Null</span>&gt;</span></span>
           </span>
         </dt>
         <dd>
@@ -399,7 +396,7 @@ Supports sending files via <code>sendFile()</code> - method can send file or fil
 </dd>
         <dt id="delete" class="callable">
           <span class="name"><a href="nyxx/Message/delete.html">delete</a></span><span class="signature">(<wbr>{<span class="parameter" id="delete-param-auditReason"><span class="type-annotation">String</span> <span class="parameter-name">auditReason</span>: <span class="default-value">""</span></span> })
-            <span class="returntype parameter">&#8594; Future<span class="signature">&lt;Null&gt;</span></span>
+            <span class="returntype parameter">&#8594; Future<span class="signature">&lt;<wbr><span class="type-parameter">Null</span>&gt;</span></span>
           </span>
         </dt>
         <dd>
@@ -408,7 +405,7 @@ Supports sending files via <code>sendFile()</code> - method can send file or fil
 </dd>
         <dt id="deleteAllReactions" class="callable">
           <span class="name"><a href="nyxx/Message/deleteAllReactions.html">deleteAllReactions</a></span><span class="signature">(<wbr>)
-            <span class="returntype parameter">&#8594; Future<span class="signature">&lt;Null&gt;</span></span>
+            <span class="returntype parameter">&#8594; Future<span class="signature">&lt;<wbr><span class="type-parameter">Null</span>&gt;</span></span>
           </span>
         </dt>
         <dd>
@@ -417,7 +414,7 @@ Supports sending files via <code>sendFile()</code> - method can send file or fil
 </dd>
         <dt id="deleteReaction" class="callable">
           <span class="name"><a href="nyxx/Message/deleteReaction.html">deleteReaction</a></span><span class="signature">(<wbr><span class="parameter" id="deleteReaction-param-emoji"><span class="type-annotation"><a href="nyxx/Emoji-class.html">Emoji</a></span> <span class="parameter-name">emoji</span></span>)
-            <span class="returntype parameter">&#8594; Future<span class="signature">&lt;Null&gt;</span></span>
+            <span class="returntype parameter">&#8594; Future<span class="signature">&lt;<wbr><span class="type-parameter">Null</span>&gt;</span></span>
           </span>
         </dt>
         <dd>
@@ -426,7 +423,7 @@ Supports sending files via <code>sendFile()</code> - method can send file or fil
 </dd>
         <dt id="deleteUserReaction" class="callable">
           <span class="name"><a href="nyxx/Message/deleteUserReaction.html">deleteUserReaction</a></span><span class="signature">(<wbr><span class="parameter" id="deleteUserReaction-param-emoji"><span class="type-annotation"><a href="nyxx/Emoji-class.html">Emoji</a></span> <span class="parameter-name">emoji</span>, </span> <span class="parameter" id="deleteUserReaction-param-userId"><span class="type-annotation">String</span> <span class="parameter-name">userId</span></span>)
-            <span class="returntype parameter">&#8594; Future<span class="signature">&lt;Null&gt;</span></span>
+            <span class="returntype parameter">&#8594; Future<span class="signature">&lt;<wbr><span class="type-parameter">Null</span>&gt;</span></span>
           </span>
         </dt>
         <dd>
@@ -435,7 +432,7 @@ Supports sending files via <code>sendFile()</code> - method can send file or fil
 </dd>
         <dt id="edit" class="callable">
           <span class="name"><a href="nyxx/Message/edit.html">edit</a></span><span class="signature">(<wbr>{<span class="parameter" id="edit-param-content"><span class="type-annotation">String</span> <span class="parameter-name">content</span>, </span> <span class="parameter" id="edit-param-embed"><span class="type-annotation"><a href="nyxx/EmbedBuilder-class.html">EmbedBuilder</a></span> <span class="parameter-name">embed</span>, </span> <span class="parameter" id="edit-param-tts"><span class="type-annotation">bool</span> <span class="parameter-name">tts</span>: <span class="default-value">false</span>, </span> <span class="parameter" id="edit-param-nonce"><span class="type-annotation">String</span> <span class="parameter-name">nonce</span>, </span> <span class="parameter" id="edit-param-disableEveryone"><span class="type-annotation">bool</span> <span class="parameter-name">disableEveryone</span></span> })
-            <span class="returntype parameter">&#8594; Future<span class="signature">&lt;<a href="nyxx/Message-class.html">Message</a>&gt;</span></span>
+            <span class="returntype parameter">&#8594; Future<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/Message-class.html">Message</a></span>&gt;</span></span>
           </span>
         </dt>
         <dd>
@@ -444,7 +441,7 @@ Supports sending files via <code>sendFile()</code> - method can send file or fil
 </dd>
         <dt id="pinMessage" class="callable">
           <span class="name"><a href="nyxx/Message/pinMessage.html">pinMessage</a></span><span class="signature">(<wbr>)
-            <span class="returntype parameter">&#8594; Future<span class="signature">&lt;Null&gt;</span></span>
+            <span class="returntype parameter">&#8594; Future<span class="signature">&lt;<wbr><span class="type-parameter">Null</span>&gt;</span></span>
           </span>
         </dt>
         <dd>
@@ -462,7 +459,7 @@ Supports sending files via <code>sendFile()</code> - method can send file or fil
 </dd>
         <dt id="unpinMessage" class="callable">
           <span class="name"><a href="nyxx/Message/unpinMessage.html">unpinMessage</a></span><span class="signature">(<wbr>)
-            <span class="returntype parameter">&#8594; Future<span class="signature">&lt;Null&gt;</span></span>
+            <span class="returntype parameter">&#8594; Future<span class="signature">&lt;<wbr><span class="type-parameter">Null</span>&gt;</span></span>
           </span>
         </dt>
         <dd>
@@ -485,7 +482,7 @@ Supports sending files via <code>sendFile()</code> - method can send file or fil
       <h2>Operators</h2>
       <dl class="callables">
         <dt id="operator ==" class="callable inherited">
-          <span class="name"><a href="nyxx/Message/operator_equals.html">operator ==</a></span><span class="signature">(<wbr><span class="parameter" id="==-param-other"><span class="parameter-name">other</span></span>)
+          <span class="name"><a href="nyxx/Message/operator_equals.html">operator ==</a></span><span class="signature">(<wbr><span class="parameter" id="==-param-other"><span class="type-annotation">dynamic</span> <span class="parameter-name">other</span></span>)
             <span class="returntype parameter">&#8594; bool</span>
           </span>
         </dt>
@@ -559,12 +556,12 @@ Supports sending files via <code>sendFile()</code> - method can send file or fil
 
 <footer>
   <span class="no-break">
-    nyxx 0.22.1
+    nyxx 0.24.0
   </span>
 
 </footer>
 
-<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="static-assets/typeahead.bundle.min.js"></script>
 <script src="static-assets/highlight.pack.js"></script>
 <script src="static-assets/URI.js"></script>

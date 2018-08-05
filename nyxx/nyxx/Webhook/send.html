@@ -62,6 +62,7 @@
       <li><a href="nyxx/Webhook/delete.html">delete</a></li>
       <li><a href="nyxx/Webhook/edit.html">edit</a></li>
       <li><a href="nyxx/Webhook/send.html">send</a></li>
+      <li><a href="nyxx/Webhook/sendFile.html">sendFile</a></li>
       <li><a href="nyxx/Webhook/toString.html">toString</a></li>
       <li class="inherited"><a href="nyxx/Webhook/noSuchMethod.html">noSuchMethod</a></li>
     
@@ -79,9 +80,9 @@
     <h1>send method</h1>
 
     <section class="multi-line-signature">
-      <span class="returntype">Future<span class="signature">&lt;Null&gt;</span></span>
+      <span class="returntype">Future<span class="signature">&lt;<wbr><span class="type-parameter">Null</span>&gt;</span></span>
       <span class="name ">send</span>
-(<wbr>{<span class="parameter" id="send-param-content"><span class="type-annotation">String</span> <span class="parameter-name">content</span>, </span> <span class="parameter" id="send-param-embeds"><span class="type-annotation">List<span class="signature">&lt;Map<span class="signature">&lt;String, dynamic&gt;</span>&gt;</span></span> <span class="parameter-name">embeds</span>, </span> <span class="parameter" id="send-param-username"><span class="type-annotation">String</span> <span class="parameter-name">username</span>, </span> <span class="parameter" id="send-param-avatarUrl"><span class="type-annotation">String</span> <span class="parameter-name">avatarUrl</span>, </span> <span class="parameter" id="send-param-tts"><span class="type-annotation">bool</span> <span class="parameter-name">tts</span></span> })
+(<wbr>{<span class="parameter" id="send-param-content"><span class="type-annotation">String</span> <span class="parameter-name">content</span>, </span> <span class="parameter" id="send-param-embeds"><span class="type-annotation">List<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/EmbedBuilder-class.html">EmbedBuilder</a></span>&gt;</span></span> <span class="parameter-name">embeds</span>, </span> <span class="parameter" id="send-param-username"><span class="type-annotation">String</span> <span class="parameter-name">username</span>, </span> <span class="parameter" id="send-param-avatarUrl"><span class="type-annotation">String</span> <span class="parameter-name">avatarUrl</span>, </span> <span class="parameter" id="send-param-tts"><span class="type-annotation">bool</span> <span class="parameter-name">tts</span></span> })
     </section>
     <section class="desc markdown">
       <p>Sends a message with the webhook.</p>
@@ -91,7 +92,7 @@
       <h2><span>Implementation</span> </h2>
       <pre class="language-dart"><code class="language-dart">Future&lt;Null&gt; send(
     {String content,
-    List&lt;Map&lt;String, dynamic&gt;&gt; embeds,
+    List&lt;EmbedBuilder&gt; embeds,
     String username,
     String avatarUrl,
     bool tts}) async {
@@ -100,7 +101,7 @@
     &quot;username&quot;: username,
     &quot;avatar_url&quot;: avatarUrl,
     &quot;tts&quot;: tts,
-    &quot;embeds&quot;: embeds
+    &quot;embeds&quot;: embeds.map((t) =&gt; t._build())
   };
 
   await this.http.send(&#39;POST&#39;, &quot;&#47;webhooks&#47;$id&#47;$token&quot;, body: payload);
@@ -117,12 +118,12 @@
 
 <footer>
   <span class="no-break">
-    nyxx 0.22.1
+    nyxx 0.24.0
   </span>
 
 </footer>
 
-<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="static-assets/typeahead.bundle.min.js"></script>
 <script src="static-assets/highlight.pack.js"></script>
 <script src="static-assets/URI.js"></script>

@@ -76,12 +76,14 @@
     <section class="summary source-code" id="source">
       <h2><span>Implementation</span> </h2>
       <pre class="language-dart"><code class="language-dart">CooldownCache() {
-  _cache = [];
+  _cache = new Map();
 
   new Timer.periodic(const Duration(minutes: 30), (Timer t) {
     int now = new DateTime.now().millisecondsSinceEpoch;
 
-    _cache.removeWhere((item) =&gt; now - item.lastUsed &gt;= 1800000);
+    _cache.forEach((k, v) {
+      if (now - v &gt;= 1800000) _cache.remove(k);
+    });
   });
 }</code></pre>
     </section>
@@ -95,12 +97,12 @@
 
 <footer>
   <span class="no-break">
-    nyxx 0.22.1
+    nyxx 0.24.0
   </span>
 
 </footer>
 
-<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="static-assets/typeahead.bundle.min.js"></script>
 <script src="static-assets/highlight.pack.js"></script>
 <script src="static-assets/URI.js"></script>

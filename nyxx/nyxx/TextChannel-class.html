@@ -128,7 +128,7 @@
       <li><a href="nyxx/TypingEvent-class.html">TypingEvent</a></li>
       <li><a href="nyxx/UnicodeEmoji-class.html">UnicodeEmoji</a></li>
       <li><a href="nyxx/User-class.html">User</a></li>
-      <li><a href="nyxx/Util-class.html">Util</a></li>
+      <li><a href="nyxx/UserVoiceState-class.html">UserVoiceState</a></li>
       <li><a href="nyxx/VoiceChannel-class.html">VoiceChannel</a></li>
       <li><a href="nyxx/VoiceRegion-class.html">VoiceRegion</a></li>
       <li><a href="nyxx/VoiceServerUpdateEvent-class.html">VoiceServerUpdateEvent</a></li>
@@ -143,11 +143,8 @@
     
     
       <li class="section-title"><a href="nyxx/nyxx-library.html#exceptions">Exceptions</a></li>
-      <li><a href="nyxx/ClientNotReadyError-class.html">ClientNotReadyError</a></li>
       <li><a href="nyxx/HttpError-class.html">HttpError</a></li>
-      <li><a href="nyxx/InvalidShardError-class.html">InvalidShardError</a></li>
       <li><a href="nyxx/InvalidTokenError-class.html">InvalidTokenError</a></li>
-      <li><a href="nyxx/NotSetupError-class.html">NotSetupError</a></li>
     </ol>
   </div>
 
@@ -250,7 +247,7 @@ Inhertits from <a href="nyxx/MessageChannel-class.html">MessageChannel</a> and m
 </dd>
         <dt id="messages" class="property inherited">
           <span class="name"><a href="nyxx/MessageChannel/messages.html">messages</a></span>
-          <span class="signature">&#8596; LinkedHashMap<span class="signature">&lt;String, <a href="nyxx/Message-class.html">Message</a>&gt;</span></span>
+          <span class="signature">&#8596; LinkedHashMap<span class="signature">&lt;<wbr><span class="type-parameter">String</span>, <span class="type-parameter"><a href="nyxx/Message-class.html">Message</a></span>&gt;</span></span>
         </dt>
         <dd class="inherited">
           A collection of messages sent to this channel.
@@ -274,10 +271,18 @@ Inhertits from <a href="nyxx/MessageChannel-class.html">MessageChannel</a> and m
 </dd>
         <dt id="onMessage" class="property inherited">
           <span class="name"><a href="nyxx/MessageChannel/onMessage.html">onMessage</a></span>
-          <span class="signature">&#8596; Stream<span class="signature">&lt;<a href="nyxx/MessageEvent-class.html">MessageEvent</a>&gt;</span></span>
+          <span class="signature">&#8596; Stream<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/MessageEvent-class.html">MessageEvent</a></span>&gt;</span></span>
         </dt>
         <dd class="inherited">
           Sent when a new message is received.
+          <div class="features">read / write, inherited</div>
+</dd>
+        <dt id="onTyping" class="property inherited">
+          <span class="name"><a href="nyxx/MessageChannel/onTyping.html">onTyping</a></span>
+          <span class="signature">&#8596; Stream<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/TypingEvent-class.html">TypingEvent</a></span>&gt;</span></span>
+        </dt>
+        <dd class="inherited">
+          
           <div class="features">read / write, inherited</div>
 </dd>
         <dt id="parentId" class="property inherited">
@@ -290,7 +295,7 @@ Inhertits from <a href="nyxx/MessageChannel-class.html">MessageChannel</a> and m
 </dd>
         <dt id="permissions" class="property inherited">
           <span class="name"><a href="nyxx/GuildChannel/permissions.html">permissions</a></span>
-          <span class="signature">&#8596; List<span class="signature">&lt;<a href="nyxx/ChannelPermissions-class.html">ChannelPermissions</a>&gt;</span></span>
+          <span class="signature">&#8596; List<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/ChannelPermissions-class.html">ChannelPermissions</a></span>&gt;</span></span>
         </dt>
         <dd class="inherited">
           Permissions for channel
@@ -306,7 +311,7 @@ Inhertits from <a href="nyxx/MessageChannel-class.html">MessageChannel</a> and m
 </dd>
         <dt id="raw" class="property inherited">
           <span class="name"><a href="nyxx/Channel/raw.html">raw</a></span>
-          <span class="signature">&#8596; Map<span class="signature">&lt;String, dynamic&gt;</span></span>
+          <span class="signature">&#8596; Map<span class="signature">&lt;<wbr><span class="type-parameter">String</span>, <span class="type-parameter">dynamic</span>&gt;</span></span>
         </dt>
         <dd class="inherited">
           The raw object returned by the API
@@ -336,7 +341,7 @@ Inhertits from <a href="nyxx/MessageChannel-class.html">MessageChannel</a> and m
       <dl class="callables">
         <dt id="createInvite" class="callable">
           <span class="name"><a href="nyxx/TextChannel/createInvite.html">createInvite</a></span><span class="signature">(<wbr>{<span class="parameter" id="createInvite-param-maxAge"><span class="type-annotation">int</span> <span class="parameter-name">maxAge</span>: <span class="default-value">0</span>, </span> <span class="parameter" id="createInvite-param-maxUses"><span class="type-annotation">int</span> <span class="parameter-name">maxUses</span>: <span class="default-value">0</span>, </span> <span class="parameter" id="createInvite-param-temporary"><span class="type-annotation">bool</span> <span class="parameter-name">temporary</span>: <span class="default-value">false</span>, </span> <span class="parameter" id="createInvite-param-unique"><span class="type-annotation">bool</span> <span class="parameter-name">unique</span>: <span class="default-value">false</span>, </span> <span class="parameter" id="createInvite-param-auditReason"><span class="type-annotation">String</span> <span class="parameter-name">auditReason</span>: <span class="default-value">""</span></span> })
-            <span class="returntype parameter">&#8594; Future<span class="signature">&lt;<a href="nyxx/Invite-class.html">Invite</a>&gt;</span></span>
+            <span class="returntype parameter">&#8594; Future<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/Invite-class.html">Invite</a></span>&gt;</span></span>
           </span>
         </dt>
         <dd>
@@ -345,7 +350,7 @@ Inhertits from <a href="nyxx/MessageChannel-class.html">MessageChannel</a> and m
 </dd>
         <dt id="createWebhook" class="callable">
           <span class="name"><a href="nyxx/TextChannel/createWebhook.html">createWebhook</a></span><span class="signature">(<wbr><span class="parameter" id="createWebhook-param-name"><span class="type-annotation">String</span> <span class="parameter-name">name</span>, {</span> <span class="parameter" id="createWebhook-param-auditReason"><span class="type-annotation">String</span> <span class="parameter-name">auditReason</span>: <span class="default-value">""</span></span> })
-            <span class="returntype parameter">&#8594; Future<span class="signature">&lt;<a href="nyxx/Webhook-class.html">Webhook</a>&gt;</span></span>
+            <span class="returntype parameter">&#8594; Future<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/Webhook-class.html">Webhook</a></span>&gt;</span></span>
           </span>
         </dt>
         <dd>
@@ -354,7 +359,7 @@ Inhertits from <a href="nyxx/MessageChannel-class.html">MessageChannel</a> and m
 </dd>
         <dt id="edit" class="callable">
           <span class="name"><a href="nyxx/TextChannel/edit.html">edit</a></span><span class="signature">(<wbr>{<span class="parameter" id="edit-param-name"><span class="type-annotation">String</span> <span class="parameter-name">name</span>: <span class="default-value">null</span>, </span> <span class="parameter" id="edit-param-topic"><span class="type-annotation">String</span> <span class="parameter-name">topic</span>: <span class="default-value">null</span>, </span> <span class="parameter" id="edit-param-position"><span class="type-annotation">int</span> <span class="parameter-name">position</span>: <span class="default-value">null</span></span> })
-            <span class="returntype parameter">&#8594; Future<span class="signature">&lt;<a href="nyxx/TextChannel-class.html">TextChannel</a>&gt;</span></span>
+            <span class="returntype parameter">&#8594; Future<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/TextChannel-class.html">TextChannel</a></span>&gt;</span></span>
           </span>
         </dt>
         <dd>
@@ -363,7 +368,7 @@ Inhertits from <a href="nyxx/MessageChannel-class.html">MessageChannel</a> and m
 </dd>
         <dt id="getChannelInvites" class="callable">
           <span class="name"><a href="nyxx/TextChannel/getChannelInvites.html">getChannelInvites</a></span><span class="signature">(<wbr>)
-            <span class="returntype parameter">&#8594; Future<span class="signature">&lt;Map<span class="signature">&lt;String, <a href="nyxx/Invite-class.html">Invite</a>&gt;</span>&gt;</span></span>
+            <span class="returntype parameter">&#8594; Future<span class="signature">&lt;<wbr><span class="type-parameter">Map<span class="signature">&lt;<wbr><span class="type-parameter">String</span>, <span class="type-parameter"><a href="nyxx/Invite-class.html">Invite</a></span>&gt;</span></span>&gt;</span></span>
           </span>
         </dt>
         <dd>
@@ -372,7 +377,7 @@ Inhertits from <a href="nyxx/MessageChannel-class.html">MessageChannel</a> and m
 </dd>
         <dt id="getPinnedMessages" class="callable">
           <span class="name"><a href="nyxx/TextChannel/getPinnedMessages.html">getPinnedMessages</a></span><span class="signature">(<wbr>)
-            <span class="returntype parameter">&#8594; Future<span class="signature">&lt;Map<span class="signature">&lt;String, <a href="nyxx/Message-class.html">Message</a>&gt;</span>&gt;</span></span>
+            <span class="returntype parameter">&#8594; Future<span class="signature">&lt;<wbr><span class="type-parameter">Map<span class="signature">&lt;<wbr><span class="type-parameter">String</span>, <span class="type-parameter"><a href="nyxx/Message-class.html">Message</a></span>&gt;</span></span>&gt;</span></span>
           </span>
         </dt>
         <dd>
@@ -381,7 +386,7 @@ Inhertits from <a href="nyxx/MessageChannel-class.html">MessageChannel</a> and m
 </dd>
         <dt id="getWebhooks" class="callable">
           <span class="name"><a href="nyxx/TextChannel/getWebhooks.html">getWebhooks</a></span><span class="signature">(<wbr>)
-            <span class="returntype parameter">&#8594; Future<span class="signature">&lt;Map<span class="signature">&lt;String, <a href="nyxx/Webhook-class.html">Webhook</a>&gt;</span>&gt;</span></span>
+            <span class="returntype parameter">&#8594; Future<span class="signature">&lt;<wbr><span class="type-parameter">Map<span class="signature">&lt;<wbr><span class="type-parameter">String</span>, <span class="type-parameter"><a href="nyxx/Webhook-class.html">Webhook</a></span>&gt;</span></span>&gt;</span></span>
           </span>
         </dt>
         <dd>
@@ -398,8 +403,8 @@ Inhertits from <a href="nyxx/MessageChannel-class.html">MessageChannel</a> and m
           
 </dd>
         <dt id="bulkRemoveMessages" class="callable inherited">
-          <span class="name"><a href="nyxx/MessageChannel/bulkRemoveMessages.html">bulkRemoveMessages</a></span><span class="signature">(<wbr><span class="parameter" id="bulkRemoveMessages-param-messagesIds"><span class="type-annotation">List<span class="signature">&lt;String&gt;</span></span> <span class="parameter-name">messagesIds</span></span>)
-            <span class="returntype parameter">&#8594; Future<span class="signature">&lt;Null&gt;</span></span>
+          <span class="name"><a href="nyxx/MessageChannel/bulkRemoveMessages.html">bulkRemoveMessages</a></span><span class="signature">(<wbr><span class="parameter" id="bulkRemoveMessages-param-messagesIds"><span class="type-annotation">List<span class="signature">&lt;<wbr><span class="type-parameter">String</span>&gt;</span></span> <span class="parameter-name">messagesIds</span></span>)
+            <span class="returntype parameter">&#8594; Future<span class="signature">&lt;<wbr><span class="type-parameter">Null</span>&gt;</span></span>
           </span>
         </dt>
         <dd class="inherited">
@@ -408,7 +413,7 @@ Inhertits from <a href="nyxx/MessageChannel-class.html">MessageChannel</a> and m
 </dd>
         <dt id="delete" class="callable inherited">
           <span class="name"><a href="nyxx/Channel/delete.html">delete</a></span><span class="signature">(<wbr>{<span class="parameter" id="delete-param-auditReason"><span class="type-annotation">String</span> <span class="parameter-name">auditReason</span>: <span class="default-value">""</span></span> })
-            <span class="returntype parameter">&#8594; Future<span class="signature">&lt;Null&gt;</span></span>
+            <span class="returntype parameter">&#8594; Future<span class="signature">&lt;<wbr><span class="type-parameter">Null</span>&gt;</span></span>
           </span>
         </dt>
         <dd class="inherited">
@@ -417,7 +422,7 @@ Inhertits from <a href="nyxx/MessageChannel-class.html">MessageChannel</a> and m
 </dd>
         <dt id="deleteChannelPermission" class="callable inherited">
           <span class="name"><a href="nyxx/GuildChannel/deleteChannelPermission.html">deleteChannelPermission</a></span><span class="signature">(<wbr><span class="parameter" id="deleteChannelPermission-param-id"><span class="type-annotation"><a href="nyxx/Snowflake-class.html">Snowflake</a></span> <span class="parameter-name">id</span>, {</span> <span class="parameter" id="deleteChannelPermission-param-auditReason"><span class="type-annotation">String</span> <span class="parameter-name">auditReason</span>: <span class="default-value">""</span></span> })
-            <span class="returntype parameter">&#8594; Future<span class="signature">&lt;Null&gt;</span></span>
+            <span class="returntype parameter">&#8594; Future<span class="signature">&lt;<wbr><span class="type-parameter">Null</span>&gt;</span></span>
           </span>
         </dt>
         <dd class="inherited">
@@ -426,7 +431,7 @@ Inhertits from <a href="nyxx/MessageChannel-class.html">MessageChannel</a> and m
 </dd>
         <dt id="editChannelPermission" class="callable inherited">
           <span class="name"><a href="nyxx/GuildChannel/editChannelPermission.html">editChannelPermission</a></span><span class="signature">(<wbr><span class="parameter" id="editChannelPermission-param-perms"><span class="type-annotation"><a href="nyxx/PermissionsBuilder-class.html">PermissionsBuilder</a></span> <span class="parameter-name">perms</span>, </span> <span class="parameter" id="editChannelPermission-param-id"><span class="type-annotation"><a href="nyxx/Snowflake-class.html">Snowflake</a></span> <span class="parameter-name">id</span>, {</span> <span class="parameter" id="editChannelPermission-param-auditReason"><span class="type-annotation">String</span> <span class="parameter-name">auditReason</span>: <span class="default-value">""</span></span> })
-            <span class="returntype parameter">&#8594; Future<span class="signature">&lt;Null&gt;</span></span>
+            <span class="returntype parameter">&#8594; Future<span class="signature">&lt;<wbr><span class="type-parameter">Null</span>&gt;</span></span>
           </span>
         </dt>
         <dd class="inherited">
@@ -444,7 +449,7 @@ Inhertits from <a href="nyxx/MessageChannel-class.html">MessageChannel</a> and m
 </dd>
         <dt id="getMessages" class="callable inherited">
           <span class="name"><a href="nyxx/MessageChannel/getMessages.html">getMessages</a></span><span class="signature">(<wbr>{<span class="parameter" id="getMessages-param-limit"><span class="type-annotation">int</span> <span class="parameter-name">limit</span>: <span class="default-value">50</span>, </span> <span class="parameter" id="getMessages-param-after"><span class="type-annotation"><a href="nyxx/Snowflake-class.html">Snowflake</a></span> <span class="parameter-name">after</span>: <span class="default-value">null</span>, </span> <span class="parameter" id="getMessages-param-before"><span class="type-annotation"><a href="nyxx/Snowflake-class.html">Snowflake</a></span> <span class="parameter-name">before</span>: <span class="default-value">null</span>, </span> <span class="parameter" id="getMessages-param-around"><span class="type-annotation"><a href="nyxx/Snowflake-class.html">Snowflake</a></span> <span class="parameter-name">around</span>: <span class="default-value">null</span></span> })
-            <span class="returntype parameter">&#8594; Future<span class="signature">&lt;LinkedHashMap<span class="signature">&lt;String, <a href="nyxx/Message-class.html">Message</a>&gt;</span>&gt;</span></span>
+            <span class="returntype parameter">&#8594; Future<span class="signature">&lt;<wbr><span class="type-parameter">LinkedHashMap<span class="signature">&lt;<wbr><span class="type-parameter">String</span>, <span class="type-parameter"><a href="nyxx/Message-class.html">Message</a></span>&gt;</span></span>&gt;</span></span>
           </span>
         </dt>
         <dd class="inherited">
@@ -452,7 +457,7 @@ Inhertits from <a href="nyxx/MessageChannel-class.html">MessageChannel</a> and m
           <div class="features">inherited</div>
 </dd>
         <dt id="initialize" class="callable inherited">
-          <span class="name"><a href="nyxx/GuildChannel/initialize.html">initialize</a></span><span class="signature">(<wbr><span class="parameter" id="initialize-param-raw"><span class="type-annotation">Map<span class="signature">&lt;String, dynamic&gt;</span></span> <span class="parameter-name">raw</span>, </span> <span class="parameter" id="initialize-param-client"><span class="type-annotation"><a href="nyxx/Client-class.html">Client</a></span> <span class="parameter-name">client</span>, </span> <span class="parameter" id="initialize-param-guild"><span class="type-annotation"><a href="nyxx/Guild-class.html">Guild</a></span> <span class="parameter-name">guild</span></span>)
+          <span class="name"><a href="nyxx/GuildChannel/initialize.html">initialize</a></span><span class="signature">(<wbr><span class="parameter" id="initialize-param-raw"><span class="type-annotation">Map<span class="signature">&lt;<wbr><span class="type-parameter">String</span>, <span class="type-parameter">dynamic</span>&gt;</span></span> <span class="parameter-name">raw</span>, </span> <span class="parameter" id="initialize-param-client"><span class="type-annotation"><a href="nyxx/Client-class.html">Client</a></span> <span class="parameter-name">client</span>, </span> <span class="parameter" id="initialize-param-guild"><span class="type-annotation"><a href="nyxx/Guild-class.html">Guild</a></span> <span class="parameter-name">guild</span></span>)
             <span class="returntype parameter">&#8594; void</span>
           </span>
         </dt>
@@ -471,7 +476,7 @@ Inhertits from <a href="nyxx/MessageChannel-class.html">MessageChannel</a> and m
 </dd>
         <dt id="send" class="callable inherited">
           <span class="name"><a href="nyxx/MessageChannel/send.html">send</a></span><span class="signature">(<wbr>{<span class="parameter" id="send-param-content"><span class="type-annotation">String</span> <span class="parameter-name">content</span>, </span> <span class="parameter" id="send-param-embed"><span class="type-annotation"><a href="nyxx/EmbedBuilder-class.html">EmbedBuilder</a></span> <span class="parameter-name">embed</span>, </span> <span class="parameter" id="send-param-tts"><span class="type-annotation">bool</span> <span class="parameter-name">tts</span>: <span class="default-value">false</span>, </span> <span class="parameter" id="send-param-nonce"><span class="type-annotation">String</span> <span class="parameter-name">nonce</span>, </span> <span class="parameter" id="send-param-disableEveryone"><span class="type-annotation">bool</span> <span class="parameter-name">disableEveryone</span></span> })
-            <span class="returntype parameter">&#8594; Future<span class="signature">&lt;<a href="nyxx/Message-class.html">Message</a>&gt;</span></span>
+            <span class="returntype parameter">&#8594; Future<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/Message-class.html">Message</a></span>&gt;</span></span>
           </span>
         </dt>
         <dd class="inherited">
@@ -479,8 +484,8 @@ Inhertits from <a href="nyxx/MessageChannel-class.html">MessageChannel</a> and m
           <div class="features">inherited</div>
 </dd>
         <dt id="sendFile" class="callable inherited">
-          <span class="name"><a href="nyxx/MessageChannel/sendFile.html">sendFile</a></span><span class="signature">(<wbr><span class="parameter" id="sendFile-param-filepaths"><span class="type-annotation">List<span class="signature">&lt;String&gt;</span></span> <span class="parameter-name">filepaths</span>, {</span> <span class="parameter" id="sendFile-param-content"><span class="type-annotation">String</span> <span class="parameter-name">content</span>: <span class="default-value">""</span>, </span> <span class="parameter" id="sendFile-param-embed"><span class="type-annotation"><a href="nyxx/EmbedBuilder-class.html">EmbedBuilder</a></span> <span class="parameter-name">embed</span>: <span class="default-value">null</span></span> })
-            <span class="returntype parameter">&#8594; Future<span class="signature">&lt;<a href="nyxx/Message-class.html">Message</a>&gt;</span></span>
+          <span class="name"><a href="nyxx/MessageChannel/sendFile.html">sendFile</a></span><span class="signature">(<wbr><span class="parameter" id="sendFile-param-filepaths"><span class="type-annotation">List<span class="signature">&lt;<wbr><span class="type-parameter">String</span>&gt;</span></span> <span class="parameter-name">filepaths</span>, {</span> <span class="parameter" id="sendFile-param-content"><span class="type-annotation">String</span> <span class="parameter-name">content</span>: <span class="default-value">""</span>, </span> <span class="parameter" id="sendFile-param-embed"><span class="type-annotation"><a href="nyxx/EmbedBuilder-class.html">EmbedBuilder</a></span> <span class="parameter-name">embed</span>: <span class="default-value">null</span></span> })
+            <span class="returntype parameter">&#8594; Future<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/Message-class.html">Message</a></span>&gt;</span></span>
           </span>
         </dt>
         <dd class="inherited">
@@ -491,7 +496,7 @@ Throws an <code>Exception</code> if the HTTP request errored.
 </dd>
         <dt id="startTyping" class="callable inherited">
           <span class="name"><a href="nyxx/MessageChannel/startTyping.html">startTyping</a></span><span class="signature">(<wbr>)
-            <span class="returntype parameter">&#8594; Future<span class="signature">&lt;Null&gt;</span></span>
+            <span class="returntype parameter">&#8594; Future<span class="signature">&lt;<wbr><span class="type-parameter">Null</span>&gt;</span></span>
           </span>
         </dt>
         <dd class="inherited">
@@ -523,7 +528,7 @@ Throws an <code>Exception</code> if the HTTP request errored.
       <h2>Operators</h2>
       <dl class="callables">
         <dt id="operator ==" class="callable inherited">
-          <span class="name"><a href="nyxx/Channel/operator_equals.html">operator ==</a></span><span class="signature">(<wbr><span class="parameter" id="==-param-other"><span class="parameter-name">other</span></span>)
+          <span class="name"><a href="nyxx/Channel/operator_equals.html">operator ==</a></span><span class="signature">(<wbr><span class="parameter" id="==-param-other"><span class="type-annotation">dynamic</span> <span class="parameter-name">other</span></span>)
             <span class="returntype parameter">&#8594; bool</span>
           </span>
         </dt>
@@ -557,6 +562,7 @@ Throws an <code>Exception</code> if the HTTP request errored.
       <li class="inherited"><a href="nyxx/GuildChannel/name.html">name</a></li>
       <li class="inherited"><a href="nyxx/GuildChannel/nsfw.html">nsfw</a></li>
       <li class="inherited"><a href="nyxx/MessageChannel/onMessage.html">onMessage</a></li>
+      <li class="inherited"><a href="nyxx/MessageChannel/onTyping.html">onTyping</a></li>
       <li class="inherited"><a href="nyxx/GuildChannel/parentId.html">parentId</a></li>
       <li class="inherited"><a href="nyxx/GuildChannel/permissions.html">permissions</a></li>
       <li class="inherited"><a href="nyxx/GuildChannel/position.html">position</a></li>
@@ -598,12 +604,12 @@ Throws an <code>Exception</code> if the HTTP request errored.
 
 <footer>
   <span class="no-break">
-    nyxx 0.22.1
+    nyxx 0.24.0
   </span>
 
 </footer>
 
-<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="static-assets/typeahead.bundle.min.js"></script>
 <script src="static-assets/highlight.pack.js"></script>
 <script src="static-assets/URI.js"></script>

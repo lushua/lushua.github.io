@@ -35,14 +35,12 @@
 <main>
 
   <div class="col-xs-6 col-sm-3 col-md-2 sidebar sidebar-offcanvas-left">
-    <h5>nyxx package</h5>
-
+    <h5><span class="package-name">nyxx</span> <span class="package-kind">package</span></h5>
     <ol>
-      <li class="section-title"><a href="index.html#libraries">Libraries</a></li>
-      <li><a href="nyxx/nyxx-library.html">nyxx</a></li>
-      <li><a href="nyxx.commands/nyxx.commands-library.html">nyxx.commands</a></li>
-      <li><a href="setup.web/setup.web-library.html">setup.web</a></li>
-      <li><a href="setup.wm/setup.wm-library.html">setup.wm</a></li>
+          <li class="section-title">Libraries</li>
+          <li><a href="nyxx/nyxx-library.html">nyxx</a></li>
+          <li><a href="nyxx.commands/nyxx.commands-library.html">nyxx.commands</a></li>
+          <li><a href="nyxx.voice/nyxx.voice-library.html">nyxx.voice</a></li>
     </ol>
   </div>
 
@@ -149,7 +147,7 @@ Rememeber to close <a href="nyxx/Client-class.html">Client</a> before terminatin
           <span class="name "><a href="nyxx/ClientOptions-class.html">ClientOptions</a></span>
         </dt>
         <dd>
-          The options for <code>Client</code>.
+          The options for <a href="nyxx/Client-class.html">Client</a>
         </dd>
         <dt id="ClientUser">
           <span class="name "><a href="nyxx/ClientUser-class.html">ClientUser</a></span>
@@ -607,11 +605,11 @@ Inhertits from <a href="nyxx/MessageChannel-class.html">MessageChannel</a> and m
         <dd>
           A user.
         </dd>
-        <dt id="Util">
-          <span class="name "><a href="nyxx/Util-class.html">Util</a></span>
+        <dt id="UserVoiceState">
+          <span class="name "><a href="nyxx/UserVoiceState-class.html">UserVoiceState</a></span>
         </dt>
         <dd>
-          The utility functions for the client.
+          
         </dd>
         <dt id="VoiceChannel">
           <span class="name "><a href="nyxx/VoiceChannel-class.html">VoiceChannel</a></span>
@@ -641,7 +639,7 @@ Inhertits from <a href="nyxx/MessageChannel-class.html">MessageChannel</a> and m
           <span class="name "><a href="nyxx/VoiceStateUpdateEvent-class.html">VoiceStateUpdateEvent</a></span>
         </dt>
         <dd>
-          Emmited when client connects/disconnecs/mutes etc to voice channel
+          Emitted when client connects/disconnecs/mutes etc to voice channel
         </dd>
         <dt id="Webhook">
           <span class="name "><a href="nyxx/Webhook-class.html">Webhook</a></span>
@@ -667,37 +665,17 @@ Inhertits from <a href="nyxx/MessageChannel-class.html">MessageChannel</a> and m
       <h2>Exceptions / Errors</h2>
 
       <dl>
-        <dt id="ClientNotReadyError">
-          <span class="name "><a href="nyxx/ClientNotReadyError-class.html">ClientNotReadyError</a></span>
-        </dt>
-        <dd>
-          An error for when a method is called before the client is ready.
-        </dd>
         <dt id="HttpError">
           <span class="name "><a href="nyxx/HttpError-class.html">HttpError</a></span>
         </dt>
         <dd>
           An HTTP error.
         </dd>
-        <dt id="InvalidShardError">
-          <span class="name "><a href="nyxx/InvalidShardError-class.html">InvalidShardError</a></span>
-        </dt>
-        <dd>
-          An error for when your shard settings are invalid.
-        </dd>
         <dt id="InvalidTokenError">
           <span class="name "><a href="nyxx/InvalidTokenError-class.html">InvalidTokenError</a></span>
         </dt>
         <dd>
           An error for when your token is invalid.
-        </dd>
-        <dt id="NotSetupError">
-          <span class="name "><a href="nyxx/NotSetupError-class.html">NotSetupError</a></span>
-        </dt>
-        <dd>
-          Thrown when you don't setup the client first.
-See <a href="https://www.dartdocs.org/documentation/nyxx/latest/discord.browser/configureDiscordForBrowser.html">configureDiscordForBrowser()</a>
-or <a href="https://www.dartdocs.org/documentation/nyxx/latest/discord.vm/configureDiscordForVM.html">configureDiscordForVM()</a>
         </dd>
       </dl>
     </section>
@@ -797,7 +775,7 @@ or <a href="https://www.dartdocs.org/documentation/nyxx/latest/discord.vm/config
       <li><a href="nyxx/TypingEvent-class.html">TypingEvent</a></li>
       <li><a href="nyxx/UnicodeEmoji-class.html">UnicodeEmoji</a></li>
       <li><a href="nyxx/User-class.html">User</a></li>
-      <li><a href="nyxx/Util-class.html">Util</a></li>
+      <li><a href="nyxx/UserVoiceState-class.html">UserVoiceState</a></li>
       <li><a href="nyxx/VoiceChannel-class.html">VoiceChannel</a></li>
       <li><a href="nyxx/VoiceRegion-class.html">VoiceRegion</a></li>
       <li><a href="nyxx/VoiceServerUpdateEvent-class.html">VoiceServerUpdateEvent</a></li>
@@ -812,11 +790,8 @@ or <a href="https://www.dartdocs.org/documentation/nyxx/latest/discord.vm/config
     
     
       <li class="section-title"><a href="nyxx/nyxx-library.html#exceptions">Exceptions</a></li>
-      <li><a href="nyxx/ClientNotReadyError-class.html">ClientNotReadyError</a></li>
       <li><a href="nyxx/HttpError-class.html">HttpError</a></li>
-      <li><a href="nyxx/InvalidShardError-class.html">InvalidShardError</a></li>
       <li><a href="nyxx/InvalidTokenError-class.html">InvalidTokenError</a></li>
-      <li><a href="nyxx/NotSetupError-class.html">NotSetupError</a></li>
     </ol>
   </div><!--/sidebar-offcanvas-right-->
 
@@ -824,12 +799,12 @@ or <a href="https://www.dartdocs.org/documentation/nyxx/latest/discord.vm/config
 
 <footer>
   <span class="no-break">
-    nyxx 0.22.1
+    nyxx 0.24.0
   </span>
 
 </footer>
 
-<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="static-assets/typeahead.bundle.min.js"></script>
 <script src="static-assets/highlight.pack.js"></script>
 <script src="static-assets/URI.js"></script>
