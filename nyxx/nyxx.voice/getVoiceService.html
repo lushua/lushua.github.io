@@ -80,8 +80,9 @@
     <section class="summary source-code" id="source">
       <h2><span>Implementation</span> </h2>
       <pre class="language-dart"><code class="language-dart">VoiceService getVoiceService() {
-  if(_manager == null)
-    throw new Exception(&quot;Cannot get initialized VoiceService! Init voice service with VoiceService.init()&quot;);
+  if (_manager == null)
+    throw new Exception(
+        &quot;Cannot get initialized VoiceService! Init voice service with VoiceService.init()&quot;);
 
   return _manager;
 }</code></pre>

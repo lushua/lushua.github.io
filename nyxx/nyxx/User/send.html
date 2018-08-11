@@ -46,26 +46,26 @@
       <li><a href="nyxx/User/avatar.html">avatar</a></li>
       <li><a href="nyxx/User/bot.html">bot</a></li>
       <li><a href="nyxx/User/client.html">client</a></li>
-      <li><a href="nyxx/User/createdAt.html">createdAt</a></li>
       <li><a href="nyxx/User/discriminator.html">discriminator</a></li>
-      <li><a href="nyxx/User/id.html">id</a></li>
       <li><a href="nyxx/User/mention.html">mention</a></li>
       <li><a href="nyxx/User/mentionNickname.html">mentionNickname</a></li>
       <li><a href="nyxx/User/raw.html">raw</a></li>
       <li><a href="nyxx/User/username.html">username</a></li>
-      <li class="inherited"><a href="nyxx/User/hashCode.html">hashCode</a></li>
-      <li class="inherited"><a href="nyxx/User/runtimeType.html">runtimeType</a></li>
+      <li><a href="nyxx/User/voiceState.html">voiceState</a></li>
+      <li class="inherited"><a href="nyxx/SnowflakeEntity/createdAt.html">createdAt</a></li>
+      <li class="inherited"><a href="nyxx/SnowflakeEntity/hashCode.html">hashCode</a></li>
+      <li class="inherited"><a href="nyxx/SnowflakeEntity/id.html">id</a></li>
+      <li class="inherited"><a href="nyxx/SnowflakeEntity/runtimeType.html">runtimeType</a></li>
     
       <li class="section-title"><a href="nyxx/User-class.html#instance-methods">Methods</a></li>
       <li><a href="nyxx/User/avatarURL.html">avatarURL</a></li>
       <li><a href="nyxx/User/getDMChannel.html">getDMChannel</a></li>
-      <li><a href="nyxx/User/getMessage.html">getMessage</a></li>
       <li><a href="nyxx/User/send.html">send</a></li>
       <li><a href="nyxx/User/toString.html">toString</a></li>
-      <li class="inherited"><a href="nyxx/User/noSuchMethod.html">noSuchMethod</a></li>
+      <li class="inherited"><a href="nyxx/SnowflakeEntity/noSuchMethod.html">noSuchMethod</a></li>
     
       <li class="section-title inherited"><a href="nyxx/User-class.html#operators">Operators</a></li>
-      <li class="inherited"><a href="nyxx/User/operator_equals.html">operator ==</a></li>
+      <li class="inherited"><a href="nyxx/SnowflakeEntity/operator_equals.html">operator ==</a></li>
     
     
     
@@ -78,44 +78,42 @@
     <section class="multi-line-signature">
       <span class="returntype">Future<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/Message-class.html">Message</a></span>&gt;</span></span>
       <span class="name ">send</span>
-(<wbr>{<span class="parameter" id="send-param-content"><span class="type-annotation">String</span> <span class="parameter-name">content</span>, </span> <span class="parameter" id="send-param-embed"><span class="type-annotation">Map</span> <span class="parameter-name">embed</span>, </span> <span class="parameter" id="send-param-tts"><span class="type-annotation">bool</span> <span class="parameter-name">tts</span>: <span class="default-value">false</span>, </span> <span class="parameter" id="send-param-nonce"><span class="type-annotation">String</span> <span class="parameter-name">nonce</span>, </span> <span class="parameter" id="send-param-disableEveryone"><span class="type-annotation">bool</span> <span class="parameter-name">disableEveryone</span></span> })
+(<wbr>{<span class="parameter" id="send-param-content"><span class="type-annotation">Object</span> <span class="parameter-name">content</span>: <span class="default-value">""</span>, </span> <span class="parameter" id="send-param-embed"><span class="type-annotation">Map</span> <span class="parameter-name">embed</span>, </span> <span class="parameter" id="send-param-tts"><span class="type-annotation">bool</span> <span class="parameter-name">tts</span>: <span class="default-value">false</span>, </span> <span class="parameter" id="send-param-nonce"><span class="type-annotation">String</span> <span class="parameter-name">nonce</span>, </span> <span class="parameter" id="send-param-disableEveryone"><span class="type-annotation">bool</span> <span class="parameter-name">disableEveryone</span></span> })
     </section>
     <section class="desc markdown">
       <p>Sends a message.</p>
-<p>Throws an <code>Exception</code> if the HTTP request errored.
-    Channel.send(content: "My content!");</p>
     </section>
     
     <section class="summary source-code" id="source">
       <h2><span>Implementation</span> </h2>
       <pre class="language-dart"><code class="language-dart">Future&lt;Message&gt; send(
-    {String content,
+    {Object content: &quot;&quot;,
     Map&lt;dynamic, dynamic&gt; embed,
     bool tts: false,
     String nonce,
     bool disableEveryone}) async {
-
   String newContent;
   if (content != null &amp;&amp;
       (disableEveryone == true ||
           (disableEveryone == null &amp;&amp;
               this.client._options.disableEveryone))) {
-    newContent = content
+    newContent = content.toString()
         .replaceAll(&quot;@everyone&quot;, &quot;@\u200Beveryone&quot;)
         .replaceAll(&quot;@here&quot;, &quot;@\u200Bhere&quot;);
   } else {
-    newContent = content;
+    newContent = content.toString();
   }
 
   DMChannel channel = await getDMChannel();
 
   final HttpResponse r = await this.client.http.send(
-      &#39;POST&#39;, &#39;&#47;channels&#47;${channel.id.toString()}&#47;messages&#39;, body: &lt;String, dynamic&gt;{
-    &quot;content&quot;: newContent,
-    &quot;tts&quot;: tts,
-    &quot;nonce&quot;: nonce,
-    &quot;embed&quot;: embed
-  });
+      &#39;POST&#39;, &#39;&#47;channels&#47;${channel.id.toString()}&#47;messages&#39;,
+      body: &lt;String, dynamic&gt;{
+        &quot;content&quot;: newContent,
+        &quot;tts&quot;: tts,
+        &quot;nonce&quot;: nonce,
+        &quot;embed&quot;: embed
+      });
   return new Message._new(
       this.client, r.body.asJson() as Map&lt;String, dynamic&gt;);
 }</code></pre>

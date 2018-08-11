@@ -41,19 +41,18 @@
     <ol>
       <li class="section-title"><a href="nyxx/Snowflake-class.html#constructors">Constructors</a></li>
       <li><a href="nyxx/Snowflake/Snowflake.html">Snowflake</a></li>
+      <li><a href="nyxx/Snowflake/Snowflake.static.html">static</a></li>
     
       <li class="section-title">
         <a href="nyxx/Snowflake-class.html#instance-properties">Properties</a>
       </li>
       <li><a href="nyxx/Snowflake/hashCode.html">hashCode</a></li>
       <li><a href="nyxx/Snowflake/id.html">id</a></li>
-      <li><a href="nyxx/Snowflake/processId.html">processId</a></li>
-      <li><a href="nyxx/Snowflake/sequence.html">sequence</a></li>
       <li><a href="nyxx/Snowflake/timestamp.html">timestamp</a></li>
-      <li><a href="nyxx/Snowflake/workerId.html">workerId</a></li>
       <li class="inherited"><a href="nyxx/Snowflake/runtimeType.html">runtimeType</a></li>
     
       <li class="section-title"><a href="nyxx/Snowflake-class.html#instance-methods">Methods</a></li>
+      <li><a href="nyxx/Snowflake/compareTo.html">compareTo</a></li>
       <li><a href="nyxx/Snowflake/toString.html">toString</a></li>
       <li class="inherited"><a href="nyxx/Snowflake/noSuchMethod.html">noSuchMethod</a></li>
     
@@ -68,21 +67,26 @@
   <div class="col-xs-12 col-sm-9 col-md-8 main-content">
     <h1>timestamp property</h1>
 
+
+        <section id="getter">
+        
         <section class="multi-line-signature">
           <span class="returntype">DateTime</span>
           <span class="name ">timestamp</span>
-          <div class="features">read / write</div>
-        </section>
+  
+</section>
+        
         <section class="desc markdown">
-          <p>Time when id was created.</p>
-        </section>
-                <section class="summary source-code" id="source">
-          <h2><span>Implementation</span> </h2>
-          <pre class="language-dart"><code class="language-dart">DateTime timestamp
-
-</code></pre>
-        </section>
-
+  <p>Returns timestamp included in <a href="nyxx/Snowflake-class.html">Snowflake</a>
+<a href="https://discordapp.com/developers/docs/reference#snowflakes">Snowflake reference</a></p>
+</section>
+<section class="summary source-code" id="source">
+  <h2><span>Implementation</span> </h2>
+  <pre class="language-dart"><code class="language-dart">DateTime get timestamp =&gt; new DateTime.fromMillisecondsSinceEpoch(
+    ((int.parse(id) &#47; 4194304) + 1420070400000).toInt());</code></pre>
+</section>
+</section>
+        
   </div> <!-- /.main-content -->
 
   <div class="col-xs-6 col-sm-6 col-md-2 sidebar sidebar-offcanvas-right">

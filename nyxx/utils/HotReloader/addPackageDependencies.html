@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="API docs for the addPackageDependencies method from the HotReloader class, for the Dart programming language.">
+  <title>addPackageDependencies method - HotReloader class - utils library - Dart API</title>
+  <!-- required because all the links are pseudo-absolute -->
+  <base href="../..">
+
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500,400i,400,300|Source+Sans+Pro:400,300,700" rel="stylesheet">
+  <link rel="stylesheet" href="static-assets/github.css">
+  <link rel="stylesheet" href="static-assets/styles.css">
+  <link rel="icon" href="static-assets/favicon.png">
+
+</head>
+
+<body>
+
+<div id="overlay-under-drawer"></div>
+
+<header id="title">
+  <button id="sidenav-left-toggle" type="button">&nbsp;</button>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="index.html">nyxx</a></li>
+    <li><a href="utils/utils-library.html">utils</a></li>
+    <li><a href="utils/HotReloader-class.html">HotReloader</a></li>
+    <li class="self-crumb">addPackageDependencies method</li>
+  </ol>
+  <div class="self-name">addPackageDependencies</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<main>
+
+  <div class="col-xs-6 col-sm-3 col-md-2 sidebar sidebar-offcanvas-left">
+    <h5>HotReloader class</h5>
+    <ol>
+      <li class="section-title"><a href="utils/HotReloader-class.html#constructors">Constructors</a></li>
+      <li><a href="utils/HotReloader/HotReloader.html">HotReloader</a></li>
+    
+      <li class="section-title">
+        <a href="utils/HotReloader-class.html#instance-properties">Properties</a>
+      </li>
+      <li><a href="utils/HotReloader/debounceInterval.html">debounceInterval</a></li>
+      <li><a href="utils/HotReloader/isRunning.html">isRunning</a></li>
+      <li><a href="utils/HotReloader/listeningPaths.html">listeningPaths</a></li>
+      <li><a href="utils/HotReloader/onChange.html">onChange</a></li>
+      <li><a href="utils/HotReloader/onReload.html">onReload</a></li>
+      <li><a href="utils/HotReloader/registeredPaths.html">registeredPaths</a></li>
+      <li><a href="utils/HotReloader/vmServiceUrl.html">vmServiceUrl</a></li>
+      <li class="inherited"><a href="utils/HotReloader/hashCode.html">hashCode</a></li>
+      <li class="inherited"><a href="utils/HotReloader/runtimeType.html">runtimeType</a></li>
+    
+      <li class="section-title"><a href="utils/HotReloader-class.html#instance-methods">Methods</a></li>
+      <li><a href="utils/HotReloader/addFile.html">addFile</a></li>
+      <li><a href="utils/HotReloader/addGlob.html">addGlob</a></li>
+      <li><a href="utils/HotReloader/addPackageDependencies.html">addPackageDependencies</a></li>
+      <li><a href="utils/HotReloader/addPackagePath.html">addPackagePath</a></li>
+      <li><a href="utils/HotReloader/addPath.html">addPath</a></li>
+      <li><a href="utils/HotReloader/addUri.html">addUri</a></li>
+      <li><a href="utils/HotReloader/go.html">go</a></li>
+      <li><a href="utils/HotReloader/isListeningTo.html">isListeningTo</a></li>
+      <li><a href="utils/HotReloader/kill.html">kill</a></li>
+      <li><a href="utils/HotReloader/reload.html">reload</a></li>
+      <li><a href="utils/HotReloader/stop.html">stop</a></li>
+      <li class="inherited"><a href="utils/HotReloader/noSuchMethod.html">noSuchMethod</a></li>
+      <li class="inherited"><a href="utils/HotReloader/toString.html">toString</a></li>
+    
+      <li class="section-title inherited"><a href="utils/HotReloader-class.html#operators">Operators</a></li>
+      <li class="inherited"><a href="utils/HotReloader/operator_equals.html">operator ==</a></li>
+    
+      <li class="section-title"><a href="utils/HotReloader-class.html#static-properties">Static properties</a></li>
+      <li><a href="utils/HotReloader/alreadyKilled.html">alreadyKilled</a></li>
+      <li><a href="utils/HotReloader/isHotReloadable.html">isHotReloadable</a></li>
+      <li><a href="utils/HotReloader/notHotReloadable.html">notHotReloadable</a></li>
+      <li><a href="utils/HotReloader/notPackageUri.html">notPackageUri</a></li>
+      <li><a href="utils/HotReloader/packageNotFound.html">packageNotFound</a></li>
+    
+    
+    </ol>
+  </div><!--/.sidebar-offcanvas-->
+
+  <div class="col-xs-12 col-sm-9 col-md-8 main-content">
+    <h1>addPackageDependencies method</h1>
+
+    <section class="multi-line-signature">
+      <span class="returntype">Future</span>
+      <span class="name ">addPackageDependencies</span>
+(<wbr>[<span class="parameter" id="addPackageDependencies-param-packageFilePath"><span class="type-annotation">String</span> <span class="parameter-name">packageFilePath</span> = <span class="default-value">'.packages'</span></span> ])
+    </section>
+    <section class="desc markdown">
+      <p>Registers all packages the <code>.packages</code> file contains</p>
+<p>   main() async {
+     final reloader = new HotReloader();
+     await reloader.addPackageDependencies();
+     await reloader.go();</p>
+<pre class="language-dart"><code> // Your code goes here
+</code></pre>
+<p>   }</p>
+    </section>
+    
+    <section class="summary source-code" id="source">
+      <h2><span>Implementation</span> </h2>
+      <pre class="language-dart"><code class="language-dart">Future addPackageDependencies([String packageFilePath = &#39;.packages&#39;]) async {
+  final file = new File(packageFilePath);
+  if (!await file.exists()) throw new Exception(&#39;Packages file not found!&#39;);
+  final List&lt;String&gt; lines = await file.readAsLines();
+  final List&lt;String&gt; packages = lines
+      .where((String line) =&gt; !line.startsWith(&#39;#&#39;))
+      .map((String line) =&gt; line.split(&#39;:&#39;).first)
+      .toList();
+
+  for (String package in packages) {
+    await addPackagePath(new Uri(scheme: &#39;package&#39;, path: package + &#39;&#47;&#39;));
+  }
+}</code></pre>
+    </section>
+
+  </div> <!-- /.main-content -->
+
+  <div class="col-xs-6 col-sm-6 col-md-2 sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+
+</main>
+
+<footer>
+  <span class="no-break">
+    nyxx 0.24.0
+  </span>
+
+</footer>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="static-assets/typeahead.bundle.min.js"></script>
+<script src="static-assets/highlight.pack.js"></script>
+<script src="static-assets/URI.js"></script>
+<script src="static-assets/script.js"></script>
+
+
+</body>
+
+</html>

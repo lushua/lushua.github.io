@@ -82,10 +82,10 @@
       <h2><span>Implementation</span> </h2>
       <pre class="language-dart"><code class="language-dart">Future&lt;Message&gt; paginate(
     {Duration timeout: const Duration(seconds: 30)}) async {
-  var nextEmoji = EmojisUnicode.arrow_forward;
-  var backEmoji = EmojisUnicode.arrow_backward;
-  var firstEmoji = EmojisUnicode.track_previous;
-  var lastEmoji = EmojisUnicode.track_next;
+  var nextEmoji = util.EmojisUnicode.arrow_forward;
+  var backEmoji = util.EmojisUnicode.arrow_backward;
+  var firstEmoji = util.EmojisUnicode.track_previous;
+  var lastEmoji = util.EmojisUnicode.track_next;
 
   var msg = await channel.send(content: pages[0]);
   await msg.createReaction(firstEmoji);

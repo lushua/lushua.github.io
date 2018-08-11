@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="API docs for the HotReloader class from the utils library, for the Dart programming language.">
+  <title>HotReloader class - utils library - Dart API</title>
+  <!-- required because all the links are pseudo-absolute -->
+  <base href="..">
+
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500,400i,400,300|Source+Sans+Pro:400,300,700" rel="stylesheet">
+  <link rel="stylesheet" href="static-assets/github.css">
+  <link rel="stylesheet" href="static-assets/styles.css">
+  <link rel="icon" href="static-assets/favicon.png">
+
+</head>
+
+<body>
+
+<div id="overlay-under-drawer"></div>
+
+<header id="title">
+  <button id="sidenav-left-toggle" type="button">&nbsp;</button>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="index.html">nyxx</a></li>
+    <li><a href="utils/utils-library.html">utils</a></li>
+    <li class="self-crumb">HotReloader class</li>
+  </ol>
+  <div class="self-name">HotReloader</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<main>
+
+  <div class="col-xs-6 col-sm-3 col-md-2 sidebar sidebar-offcanvas-left">
+    <h5>utils library</h5>
+    <ol>
+      <li class="section-title"><a href="utils/utils-library.html#classes">Classes</a></li>
+      <li><a href="utils/Color-class.html">Color</a></li>
+      <li><a href="utils/EmojisUnicode-class.html">EmojisUnicode</a></li>
+      <li><a href="utils/HotReloader-class.html">HotReloader</a></li>
+      <li><a href="utils/HotReloaderPath-class.html">HotReloaderPath</a></li>
+    
+    
+    
+      <li class="section-title"><a href="utils/utils-library.html#functions">Functions</a></li>
+      <li><a href="utils/getSymbolName.html">getSymbolName</a></li>
+      <li><a href="utils/hotReload.html">hotReload</a></li>
+      <li><a href="utils/merge.html">merge</a></li>
+      <li><a href="utils/partition.html">partition</a></li>
+      <li><a href="utils/split.html">split</a></li>
+      <li><a href="utils/splitEqually.html">splitEqually</a></li>
+    
+    
+    
+    </ol>
+  </div>
+
+  <div class="col-xs-12 col-sm-9 col-md-8 main-content">
+    <h1>HotReloader class</h1>
+
+    <section class="desc markdown">
+      <p>Hot reloader
+This is modified version of <a href="https://github.com/Jaguar-dart/jaguar_hotreload">jaguar_hotreload</a>.
+I've fixed Dart 2 compatibility and adopted it to nyxx needs.</p>
+<pre class="language-dart"><code>final reloader = new HotReloader();
+reloader.addPath('.');
+await reloader.go();
+</code></pre>
+<h2>VM services</h2>
+<p>Hot reloading requires that VM service is enabled! VM services can be started
+by passing <code>--enable-vm-service</code> or <code>--observe</code> command line flags while
+starting the application.</p>
+<p><code>--enable-vm-service=&lt;port&gt;/&lt;IP address&gt;</code> and <code>--enable-vm-service=&lt;port&gt;</code>
+can be used to start VM services at desired address.</p>
+<p>More information can be found at: <a href="https://www.dartlang.org/dart-vm/tools/dart-vm">https://www.dartlang.org/dart-vm/tools/dart-vm</a></p>
+    </section>
+    
+
+    <section class="summary offset-anchor" id="constructors">
+      <h2>Constructors</h2>
+
+      <dl class="constructor-summary-list">
+        <dt id="HotReloader" class="callable">
+          <span class="name"><a href="utils/HotReloader/HotReloader.html">HotReloader</a></span><span class="signature">({<span class="parameter" id="-param-vmServiceUrl"><span class="type-annotation">String</span> <span class="parameter-name">vmServiceUrl</span>: <span class="default-value">_kVmServiceUrl</span>, </span> <span class="parameter" id="-param-debounceInterval"><span class="type-annotation">Duration</span> <span class="parameter-name">debounceInterval</span>: <span class="default-value">const Duration(seconds: 1)</span></span> })</span>
+        </dt>
+        <dd>
+          Creates a <a href="utils/HotReloader-class.html">HotReloader</a> with given <code>vmServiceUrl</code> <a href="utils/HotReloader/HotReloader.html">[...]</a>
+        </dd>
+      </dl>
+    </section>
+
+    <section class="summary offset-anchor" id="instance-properties">
+      <h2>Properties</h2>
+
+      <dl class="properties">
+        <dt id="debounceInterval" class="property">
+          <span class="name"><a href="utils/HotReloader/debounceInterval.html">debounceInterval</a></span>
+          <span class="signature">&#8594; Duration</span>
+        </dt>
+        <dd>
+          Debounce interval for <code>onChange</code> event
+          <div class="features">final</div>
+</dd>
+        <dt id="isRunning" class="property">
+          <span class="name"><a href="utils/HotReloader/isRunning.html">isRunning</a></span>
+          <span class="signature">&#8594; bool</span>
+        </dt>
+        <dd>
+          Is the hot reloader running?
+          <div class="features">read-only</div>
+</dd>
+        <dt id="listeningPaths" class="property">
+          <span class="name"><a href="utils/HotReloader/listeningPaths.html">listeningPaths</a></span>
+          <span class="signature">&#8594; List<span class="signature">&lt;<wbr><span class="type-parameter">String</span>&gt;</span></span>
+        </dt>
+        <dd>
+          Returns all the paths being listened to <a href="utils/HotReloader/listeningPaths.html">[...]</a>
+          <div class="features">read-only</div>
+</dd>
+        <dt id="onChange" class="property">
+          <span class="name"><a href="utils/HotReloader/onChange.html">onChange</a></span>
+          <span class="signature">&#8594; Stream<span class="signature">&lt;<wbr><span class="type-parameter">WatchEvent</span>&gt;</span></span>
+        </dt>
+        <dd>
+          Stream that is fired when any of the file being listened to changes
+          <div class="features">read-only</div>
+</dd>
+        <dt id="onReload" class="property">
+          <span class="name"><a href="utils/HotReloader/onReload.html">onReload</a></span>
+          <span class="signature">&#8594; Stream<span class="signature">&lt;<wbr><span class="type-parameter">DateTime</span>&gt;</span></span>
+        </dt>
+        <dd>
+          Stream that is fired after the application is reloaded
+          <div class="features">read-only</div>
+</dd>
+        <dt id="registeredPaths" class="property">
+          <span class="name"><a href="utils/HotReloader/registeredPaths.html">registeredPaths</a></span>
+          <span class="signature">&#8594; List<span class="signature">&lt;<wbr><span class="type-parameter">String</span>&gt;</span></span>
+        </dt>
+        <dd>
+          Returns all the registered paths
+          <div class="features">read-only</div>
+</dd>
+        <dt id="vmServiceUrl" class="property">
+          <span class="name"><a href="utils/HotReloader/vmServiceUrl.html">vmServiceUrl</a></span>
+          <span class="signature">&#8594; String</span>
+        </dt>
+        <dd>
+          The URL of the Dart VM service. <a href="utils/HotReloader/vmServiceUrl.html">[...]</a>
+          <div class="features">final</div>
+</dd>
+        <dt id="hashCode" class="property inherited">
+          <span class="name"><a href="utils/HotReloader/hashCode.html">hashCode</a></span>
+          <span class="signature">&#8594; int</span>
+        </dt>
+        <dd class="inherited">
+          The hash code for this object. <a href="utils/HotReloader/hashCode.html">[...]</a>
+          <div class="features">read-only, inherited</div>
+</dd>
+        <dt id="runtimeType" class="property inherited">
+          <span class="name"><a href="utils/HotReloader/runtimeType.html">runtimeType</a></span>
+          <span class="signature">&#8594; Type</span>
+        </dt>
+        <dd class="inherited">
+          A representation of the runtime type of the object.
+          <div class="features">read-only, inherited</div>
+</dd>
+      </dl>
+    </section>
+
+    <section class="summary offset-anchor" id="instance-methods">
+      <h2>Methods</h2>
+      <dl class="callables">
+        <dt id="addFile" class="callable">
+          <span class="name"><a href="utils/HotReloader/addFile.html">addFile</a></span><span class="signature">(<wbr><span class="parameter" id="addFile-param-entity"><span class="type-annotation">FileSystemEntity</span> <span class="parameter-name">entity</span></span>)
+            <span class="returntype parameter">&#8594; void</span>
+          </span>
+        </dt>
+        <dd>
+          Registers <code>FileSystemEntity</code> to watch <a href="utils/HotReloader/addFile.html">[...]</a>
+          
+</dd>
+        <dt id="addGlob" class="callable">
+          <span class="name"><a href="utils/HotReloader/addGlob.html">addGlob</a></span><span class="signature">(<wbr><span class="parameter" id="addGlob-param-glob"><span class="type-annotation">Glob</span> <span class="parameter-name">glob</span></span>)
+            <span class="returntype parameter">&#8594; void</span>
+          </span>
+        </dt>
+        <dd>
+          Registers <code>glob</code> to watch <a href="utils/HotReloader/addGlob.html">[...]</a>
+          
+</dd>
+        <dt id="addPackageDependencies" class="callable">
+          <span class="name"><a href="utils/HotReloader/addPackageDependencies.html">addPackageDependencies</a></span><span class="signature">(<wbr>[<span class="parameter" id="addPackageDependencies-param-packageFilePath"><span class="type-annotation">String</span> <span class="parameter-name">packageFilePath</span> = <span class="default-value">'.packages'</span></span> ])
+            <span class="returntype parameter">&#8594; Future</span>
+          </span>
+        </dt>
+        <dd>
+          Registers all packages the <code>.packages</code> file contains <a href="utils/HotReloader/addPackageDependencies.html">[...]</a>
+          
+</dd>
+        <dt id="addPackagePath" class="callable">
+          <span class="name"><a href="utils/HotReloader/addPackagePath.html">addPackagePath</a></span><span class="signature">(<wbr><span class="parameter" id="addPackagePath-param-uri"><span class="type-annotation">Uri</span> <span class="parameter-name">uri</span></span>)
+            <span class="returntype parameter">&#8594; Future</span>
+          </span>
+        </dt>
+        <dd>
+          Registers package <code>uri</code> to watch <a href="utils/HotReloader/addPackagePath.html">[...]</a>
+          
+</dd>
+        <dt id="addPath" class="callable">
+          <span class="name"><a href="utils/HotReloader/addPath.html">addPath</a></span><span class="signature">(<wbr><span class="parameter" id="addPath-param-path"><span class="type-annotation">String</span> <span class="parameter-name">path</span></span>)
+            <span class="returntype parameter">&#8594; void</span>
+          </span>
+        </dt>
+        <dd>
+          Registers a <code>path</code> to watch <a href="utils/HotReloader/addPath.html">[...]</a>
+          
+</dd>
+        <dt id="addUri" class="callable">
+          <span class="name"><a href="utils/HotReloader/addUri.html">addUri</a></span><span class="signature">(<wbr><span class="parameter" id="addUri-param-uri"><span class="type-annotation">Uri</span> <span class="parameter-name">uri</span></span>)
+            <span class="returntype parameter">&#8594; void</span>
+          </span>
+        </dt>
+        <dd>
+          Registers <code>Uri</code> to watch <a href="utils/HotReloader/addUri.html">[...]</a>
+          
+</dd>
+        <dt id="go" class="callable">
+          <span class="name"><a href="utils/HotReloader/go.html">go</a></span><span class="signature">(<wbr>)
+            <span class="returntype parameter">&#8594; Future</span>
+          </span>
+        </dt>
+        <dd>
+          Go! Start listening for changes to files in registered paths <a href="utils/HotReloader/go.html">[...]</a>
+          
+</dd>
+        <dt id="isListeningTo" class="callable">
+          <span class="name"><a href="utils/HotReloader/isListeningTo.html">isListeningTo</a></span><span class="signature">(<wbr><span class="parameter" id="isListeningTo-param-path"><span class="type-annotation">String</span> <span class="parameter-name">path</span></span>)
+            <span class="returntype parameter">&#8594; bool</span>
+          </span>
+        </dt>
+        <dd>
+          Returns if <code>path</code> is being listened to
+          
+</dd>
+        <dt id="kill" class="callable">
+          <span class="name"><a href="utils/HotReloader/kill.html">kill</a></span><span class="signature">(<wbr>)
+            <span class="returntype parameter">&#8594; Future</span>
+          </span>
+        </dt>
+        <dd>
+          Completely kills the hot reloader. Shall not be used, once it is killed!
+          
+</dd>
+        <dt id="reload" class="callable">
+          <span class="name"><a href="utils/HotReloader/reload.html">reload</a></span><span class="signature">(<wbr>)
+            <span class="returntype parameter">&#8594; Future<span class="signature">&lt;<wbr><span class="type-parameter">Null</span>&gt;</span></span>
+          </span>
+        </dt>
+        <dd>
+          Reloads the application
+          
+</dd>
+        <dt id="stop" class="callable">
+          <span class="name"><a href="utils/HotReloader/stop.html">stop</a></span><span class="signature">(<wbr>)
+            <span class="returntype parameter">&#8594; Future</span>
+          </span>
+        </dt>
+        <dd>
+          Stops listening for file system changes
+          
+</dd>
+        <dt id="noSuchMethod" class="callable inherited">
+          <span class="name"><a href="utils/HotReloader/noSuchMethod.html">noSuchMethod</a></span><span class="signature">(<wbr><span class="parameter" id="noSuchMethod-param-invocation"><span class="type-annotation">Invocation</span> <span class="parameter-name">invocation</span></span>)
+            <span class="returntype parameter">&#8594; dynamic</span>
+          </span>
+        </dt>
+        <dd class="inherited">
+          Invoked when a non-existent method or property is accessed. <a href="utils/HotReloader/noSuchMethod.html">[...]</a>
+          <div class="features">inherited</div>
+</dd>
+        <dt id="toString" class="callable inherited">
+          <span class="name"><a href="utils/HotReloader/toString.html">toString</a></span><span class="signature">(<wbr>)
+            <span class="returntype parameter">&#8594; String</span>
+          </span>
+        </dt>
+        <dd class="inherited">
+          Returns a string representation of this object.
+          <div class="features">inherited</div>
+</dd>
+      </dl>
+    </section>
+
+    <section class="summary offset-anchor inherited" id="operators">
+      <h2>Operators</h2>
+      <dl class="callables">
+        <dt id="operator ==" class="callable inherited">
+          <span class="name"><a href="utils/HotReloader/operator_equals.html">operator ==</a></span><span class="signature">(<wbr><span class="parameter" id="==-param-other"><span class="type-annotation">dynamic</span> <span class="parameter-name">other</span></span>)
+            <span class="returntype parameter">&#8594; bool</span>
+          </span>
+        </dt>
+        <dd class="inherited">
+          The equality operator. <a href="utils/HotReloader/operator_equals.html">[...]</a>
+          <div class="features">inherited</div>
+</dd>
+      </dl>
+    </section>
+
+    <section class="summary offset-anchor" id="static-properties">
+      <h2>Static Properties</h2>
+
+      <dl class="properties">
+        <dt id="alreadyKilled" class="property">
+          <span class="name"><a href="utils/HotReloader/alreadyKilled.html">alreadyKilled</a></span>
+          <span class="signature">&#8594; Exception</span>
+        </dt>
+        <dd>
+          Exception thrown when hot reloader is already killed
+          <div class="features">final</div>
+</dd>
+        <dt id="isHotReloadable" class="property">
+          <span class="name"><a href="utils/HotReloader/isHotReloadable.html">isHotReloadable</a></span>
+          <span class="signature">&#8594; bool</span>
+        </dt>
+        <dd>
+          Is the application hot reloadable? <a href="utils/HotReloader/isHotReloadable.html">[...]</a>
+          <div class="features">read-only</div>
+</dd>
+        <dt id="notHotReloadable" class="property">
+          <span class="name"><a href="utils/HotReloader/notHotReloadable.html">notHotReloadable</a></span>
+          <span class="signature">&#8594; Exception</span>
+        </dt>
+        <dd>
+          
+          <div class="features">final</div>
+</dd>
+        <dt id="notPackageUri" class="property">
+          <span class="name"><a href="utils/HotReloader/notPackageUri.html">notPackageUri</a></span>
+          <span class="signature">&#8594; Exception</span>
+        </dt>
+        <dd>
+          Exception thrown when supplied package uri is not a package uri
+          <div class="features">final</div>
+</dd>
+        <dt id="packageNotFound" class="property">
+          <span class="name"><a href="utils/HotReloader/packageNotFound.html">packageNotFound</a></span>
+          <span class="signature">&#8594; Exception</span>
+        </dt>
+        <dd>
+          Exception thrown when package is not found
+          <div class="features">final</div>
+</dd>
+      </dl>
+    </section>
+
+
+
+  </div> <!-- /.main-content -->
+
+  <div class="col-xs-6 col-sm-6 col-md-2 sidebar sidebar-offcanvas-right">
+    <ol>
+      <li class="section-title"><a href="utils/HotReloader-class.html#constructors">Constructors</a></li>
+      <li><a href="utils/HotReloader/HotReloader.html">HotReloader</a></li>
+    
+      <li class="section-title">
+        <a href="utils/HotReloader-class.html#instance-properties">Properties</a>
+      </li>
+      <li><a href="utils/HotReloader/debounceInterval.html">debounceInterval</a></li>
+      <li><a href="utils/HotReloader/isRunning.html">isRunning</a></li>
+      <li><a href="utils/HotReloader/listeningPaths.html">listeningPaths</a></li>
+      <li><a href="utils/HotReloader/onChange.html">onChange</a></li>
+      <li><a href="utils/HotReloader/onReload.html">onReload</a></li>
+      <li><a href="utils/HotReloader/registeredPaths.html">registeredPaths</a></li>
+      <li><a href="utils/HotReloader/vmServiceUrl.html">vmServiceUrl</a></li>
+      <li class="inherited"><a href="utils/HotReloader/hashCode.html">hashCode</a></li>
+      <li class="inherited"><a href="utils/HotReloader/runtimeType.html">runtimeType</a></li>
+    
+      <li class="section-title"><a href="utils/HotReloader-class.html#instance-methods">Methods</a></li>
+      <li><a href="utils/HotReloader/addFile.html">addFile</a></li>
+      <li><a href="utils/HotReloader/addGlob.html">addGlob</a></li>
+      <li><a href="utils/HotReloader/addPackageDependencies.html">addPackageDependencies</a></li>
+      <li><a href="utils/HotReloader/addPackagePath.html">addPackagePath</a></li>
+      <li><a href="utils/HotReloader/addPath.html">addPath</a></li>
+      <li><a href="utils/HotReloader/addUri.html">addUri</a></li>
+      <li><a href="utils/HotReloader/go.html">go</a></li>
+      <li><a href="utils/HotReloader/isListeningTo.html">isListeningTo</a></li>
+      <li><a href="utils/HotReloader/kill.html">kill</a></li>
+      <li><a href="utils/HotReloader/reload.html">reload</a></li>
+      <li><a href="utils/HotReloader/stop.html">stop</a></li>
+      <li class="inherited"><a href="utils/HotReloader/noSuchMethod.html">noSuchMethod</a></li>
+      <li class="inherited"><a href="utils/HotReloader/toString.html">toString</a></li>
+    
+      <li class="section-title inherited"><a href="utils/HotReloader-class.html#operators">Operators</a></li>
+      <li class="inherited"><a href="utils/HotReloader/operator_equals.html">operator ==</a></li>
+    
+      <li class="section-title"><a href="utils/HotReloader-class.html#static-properties">Static properties</a></li>
+      <li><a href="utils/HotReloader/alreadyKilled.html">alreadyKilled</a></li>
+      <li><a href="utils/HotReloader/isHotReloadable.html">isHotReloadable</a></li>
+      <li><a href="utils/HotReloader/notHotReloadable.html">notHotReloadable</a></li>
+      <li><a href="utils/HotReloader/notPackageUri.html">notPackageUri</a></li>
+      <li><a href="utils/HotReloader/packageNotFound.html">packageNotFound</a></li>
+    
+    
+    </ol>
+  </div><!--/.sidebar-offcanvas-->
+
+</main>
+
+<footer>
+  <span class="no-break">
+    nyxx 0.24.0
+  </span>
+
+</footer>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="static-assets/typeahead.bundle.min.js"></script>
+<script src="static-assets/highlight.pack.js"></script>
+<script src="static-assets/URI.js"></script>
+<script src="static-assets/script.js"></script>
+
+
+</body>
+
+</html>

@@ -42,15 +42,15 @@
       <li><a href="nyxx.commands/Command-class.html">Command</a></li>
       <li><a href="nyxx.commands/CommandContext-class.html">CommandContext</a></li>
       <li><a href="nyxx.commands/CommandExecutionFailEvent-class.html">CommandExecutionFailEvent</a></li>
+      <li><a href="nyxx.commands/CommandParsingFail-class.html">CommandParsingFail</a></li>
       <li><a href="nyxx.commands/CommandsFramework-class.html">CommandsFramework</a></li>
+      <li><a href="nyxx.commands/Cons-class.html">Cons</a></li>
       <li><a href="nyxx.commands/CooldownCache-class.html">CooldownCache</a></li>
       <li><a href="nyxx.commands/GuildOnly-class.html">GuildOnly</a></li>
-      <li><a href="nyxx.commands/Maincommand-class.html">Maincommand</a></li>
       <li><a href="nyxx.commands/Pagination-class.html">Pagination</a></li>
       <li><a href="nyxx.commands/Remainder-class.html">Remainder</a></li>
       <li><a href="nyxx.commands/Scheduler-class.html">Scheduler</a></li>
       <li><a href="nyxx.commands/Service-class.html">Service</a></li>
-      <li><a href="nyxx.commands/Subcommand-class.html">Subcommand</a></li>
       <li><a href="nyxx.commands/TypeConverter-class.html">TypeConverter</a></li>
     
     
@@ -69,7 +69,7 @@
     <section class="multi-line-signature">
         <span class="returntype">Future<span class="signature">&lt;<wbr><span class="type-parameter">Map<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/Emoji-class.html">Emoji</a></span>, <span class="type-parameter">int</span>&gt;</span></span>&gt;</span></span>
         <span class="name ">createPoll</span>
-(<wbr><span class="parameter" id="createPoll-param-channel"><span class="type-annotation"><a href="nyxx/TextChannel-class.html">TextChannel</a></span> <span class="parameter-name">channel</span>, </span> <span class="parameter" id="createPoll-param-title"><span class="type-annotation">String</span> <span class="parameter-name">title</span>, </span> <span class="parameter" id="createPoll-param-options"><span class="type-annotation">Map<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/Emoji-class.html">Emoji</a></span>, <span class="type-parameter">String</span>&gt;</span></span> <span class="parameter-name">options</span>, {</span> <span class="parameter" id="createPoll-param-timeout"><span class="type-annotation">Duration</span> <span class="parameter-name">timeout</span>: <span class="default-value">const Duration(minutes: 10)</span>, </span> <span class="parameter" id="createPoll-param-message"><span class="type-annotation">String</span> <span class="parameter-name">message</span>: <span class="default-value">null</span>, </span> <span class="parameter" id="createPoll-param-delete"><span class="type-annotation">bool</span> <span class="parameter-name">delete</span>: <span class="default-value">false</span></span> })
+(<wbr><span class="parameter" id="createPoll-param-channel"><span class="type-annotation"><a href="nyxx/TextChannel-class.html">TextChannel</a></span> <span class="parameter-name">channel</span>, </span> <span class="parameter" id="createPoll-param-title"><span class="type-annotation">String</span> <span class="parameter-name">title</span>, </span> <span class="parameter" id="createPoll-param-options"><span class="type-annotation">Map<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/Emoji-class.html">Emoji</a></span>, <span class="type-parameter">String</span>&gt;</span></span> <span class="parameter-name">options</span>, {</span> <span class="parameter" id="createPoll-param-timeout"><span class="type-annotation">Duration</span> <span class="parameter-name">timeout</span>: <span class="default-value">const Duration(minutes: 10)</span>, </span> <span class="parameter" id="createPoll-param-message"><span class="type-annotation">String</span> <span class="parameter-name">message</span>, </span> <span class="parameter" id="createPoll-param-delete"><span class="type-annotation">bool</span> <span class="parameter-name">delete</span>: <span class="default-value">false</span></span> })
     </section>
     <section class="desc markdown">
       <p>Creates new poll, generates options and collects results. Returns <code>Map&lt;Emoji, int</code> as result. <code>timeout</code> is set by default to 10 minutes</p>
@@ -80,7 +80,7 @@
       <pre class="language-dart"><code class="language-dart">Future&lt;Map&lt;Emoji, int&gt;&gt; createPoll(
     TextChannel channel, String title, Map&lt;Emoji, String&gt; options,
     {Duration timeout: const Duration(minutes: 10),
-    String message: null,
+    String message,
     bool delete: false}) async {
   StringBuffer buffer = new StringBuffer();
 

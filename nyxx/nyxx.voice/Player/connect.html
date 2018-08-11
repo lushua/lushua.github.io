@@ -46,7 +46,6 @@
       <li><a href="nyxx.voice/Player/currentChannel.html">currentChannel</a></li>
       <li><a href="nyxx.voice/Player/currentTrack.html">currentTrack</a></li>
       <li><a href="nyxx.voice/Player/isConnected.html">isConnected</a></li>
-      <li><a href="nyxx.voice/Player/isPlaying.html">isPlaying</a></li>
       <li><a href="nyxx.voice/Player/onPlayerUpdate.html">onPlayerUpdate</a></li>
       <li><a href="nyxx.voice/Player/onTrackError.html">onTrackError</a></li>
       <li class="inherited"><a href="nyxx.voice/Player/hashCode.html">hashCode</a></li>
@@ -99,29 +98,37 @@ Remember to await this methods - thread can be locked forever.</p>
   _onTrackError = new StreamController.broadcast();
   onTrackError = _onTrackError.stream;
 
-  _guild.shard.send(&quot;VOICE_STATE_UPDATE&quot;, new _Opcode4(_guild, channel, false, false)._build());
+  _guild.shard.send(&quot;VOICE_STATE_UPDATE&quot;,
+      new _Opcode4(_guild, channel, false, false)._build());
 
   _currentState = (await _client.onVoiceStateUpdate.first).state;
-  _rawEvent =  (await _client.onVoiceServerUpdate.first).raw;
+  _rawEvent = (await _client.onVoiceServerUpdate.first).raw;
 
-  var s = jsonEncode(new _OpVoiceUpdate(_guild.id.toString(), _currentState.sessionId, _rawEvent).build());
+  var s = jsonEncode(new _OpVoiceUpdate(
+          _guild.id.toString(), _currentState.sessionId, _rawEvent)
+      .build());
   print(s);
   _webSocket.add(s);
 
-  _sub1 = _client.onVoiceServerUpdate.where((e) =&gt; e.guild.id.toString() == _guild.id.toString()).listen((e) {
+  _sub1 = _client.onVoiceServerUpdate
+      .where((e) =&gt; e.guild.id.toString() == _guild.id.toString())
+      .listen((e) {
     _rawEvent = e.raw;
-    _webSocket.add(jsonEncode(new _OpVoiceUpdate(_guild.id.toString(), _currentState.sessionId, _rawEvent).build()));
+    _webSocket.add(jsonEncode(new _OpVoiceUpdate(
+            _guild.id.toString(), _currentState.sessionId, _rawEvent)
+        .build()));
   });
 
   _sub2 = _client.onVoiceStateUpdate.where((e) {
-    if(e.state.channel != null)
-      if(e.state.channel.id.toString() != currentChannel.id.toString())
-        return false;
+    if (e.state.channel != null) if (e.state.channel.id.toString() !=
+        currentChannel.id.toString()) return false;
 
     return e.state.user.id.toString() == _client.user.id.toString();
   }).listen((e) {
     _currentState = e.state;
-    _webSocket.add(jsonEncode(new _OpVoiceUpdate(_guild.id.toString(), _currentState.sessionId, _rawEvent).build()));
+    _webSocket.add(jsonEncode(new _OpVoiceUpdate(
+            _guild.id.toString(), _currentState.sessionId, _rawEvent)
+        .build()));
   });
 
   return null;

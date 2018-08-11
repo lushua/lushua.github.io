@@ -104,7 +104,7 @@ Performs dependency injection when instantiate commands. And throws <code>Except
     } catch (e) {
       print(e);
       throw new Exception(
-          &quot;Command [${cm.simpleName}] constructor not satisfied!&quot;);
+          &quot;Command [${util.getSymbolName(cm.simpleName)}] constructor not satisfied!&quot;);
     }
   });
 }</code></pre>

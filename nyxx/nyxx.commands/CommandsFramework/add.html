@@ -95,14 +95,12 @@
     <section class="summary source-code" id="source">
       <h2><span>Implementation</span> </h2>
       <pre class="language-dart"><code class="language-dart">void add(CommandContext command) {
-  var inst = reflect(command);
-  var cls = inst.type;
-  var cmd = _getCmdAnnot(cls, Command) as Command;
+  var cmd = util.getSymbolName(reflect(command).type.simpleName);
 
-  command.logger = new Logger.detached(&quot;Command[${cmd.name}]&quot;);
+  command.logger = new Logger.detached(&quot;Command[$cmd]&quot;);
 
   _commands.add(command);
-  logger.info(&quot;Command[${cmd.name}] added to registry&quot;);
+  logger.info(&quot;Command[$cmd] added to registry&quot;);
 }</code></pre>
     </section>
 

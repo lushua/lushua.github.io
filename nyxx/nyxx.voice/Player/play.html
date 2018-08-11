@@ -46,7 +46,6 @@
       <li><a href="nyxx.voice/Player/currentChannel.html">currentChannel</a></li>
       <li><a href="nyxx.voice/Player/currentTrack.html">currentTrack</a></li>
       <li><a href="nyxx.voice/Player/isConnected.html">isConnected</a></li>
-      <li><a href="nyxx.voice/Player/isPlaying.html">isPlaying</a></li>
       <li><a href="nyxx.voice/Player/onPlayerUpdate.html">onPlayerUpdate</a></li>
       <li><a href="nyxx.voice/Player/onTrackError.html">onTrackError</a></li>
       <li class="inherited"><a href="nyxx.voice/Player/hashCode.html">hashCode</a></li>
@@ -80,7 +79,7 @@
     <section class="multi-line-signature">
       <span class="returntype">Future<span class="signature">&lt;<wbr><span class="type-parameter">bool</span>&gt;</span></span>
       <span class="name ">play</span>
-(<wbr><span class="parameter" id="play-param-track"><span class="type-annotation"><a href="nyxx.voice/Track-class.html">Track</a></span> <span class="parameter-name">track</span></span>)
+(<wbr><span class="parameter" id="play-param-track"><span class="type-annotation"><a href="nyxx.voice/Entity-class.html">Entity</a></span> <span class="parameter-name">track</span></span>)
     </section>
     <section class="desc markdown">
       <p>Plays track on currently connected channel</p>
@@ -88,10 +87,13 @@
     
     <section class="summary source-code" id="source">
       <h2><span>Implementation</span> </h2>
-      <pre class="language-dart"><code class="language-dart">Future&lt;bool&gt; play(Track track) async {
-  currentTrack = track;
-  _webSocket.add(jsonEncode(new _OpPlay(_guild, track).build()));
-  isPlaying = true;
+      <pre class="language-dart"><code class="language-dart">Future&lt;bool&gt; play(Entity track) async {
+  if (track is Track)
+    currentTrack = track;
+  else if (track is Playlist) currentTrack = track.tracks.first;
+
+  _webSocket.add(jsonEncode(new _OpPlay(_guild, currentTrack).build()));
+  &#47;&#47;isPlaying = true;
   return true;
 }</code></pre>
     </section>

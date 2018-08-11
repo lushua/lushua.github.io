@@ -95,10 +95,14 @@
       <li class="inherited"><a href="nyxx/Client/runtimeType.html">runtimeType</a></li>
     
       <li class="section-title"><a href="nyxx/Client-class.html#instance-methods">Methods</a></li>
+      <li><a href="nyxx/Client/blockToReady.html">blockToReady</a></li>
+      <li><a href="nyxx/Client/createGuild.html">createGuild</a></li>
       <li><a href="nyxx/Client/destroy.html">destroy</a></li>
+      <li><a href="nyxx/Client/getGuild.html">getGuild</a></li>
       <li><a href="nyxx/Client/getInvite.html">getInvite</a></li>
       <li><a href="nyxx/Client/getOAuth2Info.html">getOAuth2Info</a></li>
       <li><a href="nyxx/Client/getUser.html">getUser</a></li>
+      <li><a href="nyxx/Client/getWebhook.html">getWebhook</a></li>
       <li class="inherited"><a href="nyxx/Client/noSuchMethod.html">noSuchMethod</a></li>
       <li class="inherited"><a href="nyxx/Client/toString.html">toString</a></li>
     
@@ -114,7 +118,7 @@
     <h1>users property</h1>
 
         <section class="multi-line-signature">
-          <span class="returntype">Map<span class="signature">&lt;<wbr><span class="type-parameter">String</span>, <span class="type-parameter"><a href="nyxx/User-class.html">User</a></span>&gt;</span></span>
+          <span class="returntype">Map<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/Snowflake-class.html">Snowflake</a></span>, <span class="type-parameter"><a href="nyxx/User-class.html">User</a></span>&gt;</span></span>
           <span class="name ">users</span>
           <div class="features">read / write</div>
         </section>
@@ -124,7 +128,7 @@ without forceFetchUsers enabled.</p>
         </section>
                 <section class="summary source-code" id="source">
           <h2><span>Implementation</span> </h2>
-          <pre class="language-dart"><code class="language-dart">Map&lt;String, User&gt; users
+          <pre class="language-dart"><code class="language-dart">Map&lt;Snowflake, User&gt; users
 
 </code></pre>
         </section>

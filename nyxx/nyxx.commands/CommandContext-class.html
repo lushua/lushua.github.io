@@ -42,15 +42,15 @@
       <li><a href="nyxx.commands/Command-class.html">Command</a></li>
       <li><a href="nyxx.commands/CommandContext-class.html">CommandContext</a></li>
       <li><a href="nyxx.commands/CommandExecutionFailEvent-class.html">CommandExecutionFailEvent</a></li>
+      <li><a href="nyxx.commands/CommandParsingFail-class.html">CommandParsingFail</a></li>
       <li><a href="nyxx.commands/CommandsFramework-class.html">CommandsFramework</a></li>
+      <li><a href="nyxx.commands/Cons-class.html">Cons</a></li>
       <li><a href="nyxx.commands/CooldownCache-class.html">CooldownCache</a></li>
       <li><a href="nyxx.commands/GuildOnly-class.html">GuildOnly</a></li>
-      <li><a href="nyxx.commands/Maincommand-class.html">Maincommand</a></li>
       <li><a href="nyxx.commands/Pagination-class.html">Pagination</a></li>
       <li><a href="nyxx.commands/Remainder-class.html">Remainder</a></li>
       <li><a href="nyxx.commands/Scheduler-class.html">Scheduler</a></li>
       <li><a href="nyxx.commands/Service-class.html">Service</a></li>
-      <li><a href="nyxx.commands/Subcommand-class.html">Subcommand</a></li>
       <li><a href="nyxx.commands/TypeConverter-class.html">TypeConverter</a></li>
     
     
@@ -67,7 +67,8 @@
     <h1>CommandContext class</h1>
 
     <section class="desc markdown">
-      <p>Abstract class to factory new command</p>
+      <p>All command have to inhertit from this class.
+This class provides variuos helper methods to access discord world more easly</p>
     </section>
     
 
@@ -156,7 +157,21 @@
           </span>
         </dt>
         <dd>
+          Collects messages emojis.
           
+</dd>
+        <dt id="getCodeBlocks" class="callable">
+          <span class="name"><a href="nyxx.commands/CommandContext/getCodeBlocks.html">getCodeBlocks</a></span><span class="signature">(<wbr>)
+            <span class="returntype parameter">&#8594; Stream<span class="signature">&lt;<wbr><span class="type-parameter">String</span>&gt;</span></span>
+          </span>
+        </dt>
+        <dd>
+          Returns stream of all code blocks in message
+For now it only parses codeblock which starts in first line
+Language string <code>dart, java</code> will be ignored and not included
+"""
+n&gt; eval ```(dart)?
+  await reply(content: 'no to elo'); <a href="nyxx.commands/CommandContext/getCodeBlocks.html">[...]</a>
           
 </dd>
         <dt id="getHelp" class="callable">
@@ -165,7 +180,7 @@
           </span>
         </dt>
         <dd>
-          
+          Allows to create help String for command
           
 </dd>
         <dt id="nextMessage" class="callable">
@@ -196,7 +211,7 @@
           
 </dd>
         <dt id="reply" class="callable">
-          <span class="name"><a href="nyxx.commands/CommandContext/reply.html">reply</a></span><span class="signature">(<wbr>{<span class="parameter" id="reply-param-content"><span class="type-annotation">String</span> <span class="parameter-name">content</span>, </span> <span class="parameter" id="reply-param-embed"><span class="type-annotation"><a href="nyxx/EmbedBuilder-class.html">EmbedBuilder</a></span> <span class="parameter-name">embed</span>, </span> <span class="parameter" id="reply-param-tts"><span class="type-annotation">bool</span> <span class="parameter-name">tts</span>: <span class="default-value">false</span>, </span> <span class="parameter" id="reply-param-nonce"><span class="type-annotation">String</span> <span class="parameter-name">nonce</span>, </span> <span class="parameter" id="reply-param-disableEveryone"><span class="type-annotation">bool</span> <span class="parameter-name">disableEveryone</span></span> })
+          <span class="name"><a href="nyxx.commands/CommandContext/reply.html">reply</a></span><span class="signature">(<wbr>{<span class="parameter" id="reply-param-content"><span class="type-annotation">Object</span> <span class="parameter-name">content</span>, </span> <span class="parameter" id="reply-param-embed"><span class="type-annotation"><a href="nyxx/EmbedBuilder-class.html">EmbedBuilder</a></span> <span class="parameter-name">embed</span>, </span> <span class="parameter" id="reply-param-tts"><span class="type-annotation">bool</span> <span class="parameter-name">tts</span>: <span class="default-value">false</span>, </span> <span class="parameter" id="reply-param-nonce"><span class="type-annotation">String</span> <span class="parameter-name">nonce</span>, </span> <span class="parameter" id="reply-param-disableEveryone"><span class="type-annotation">bool</span> <span class="parameter-name">disableEveryone</span></span> })
             <span class="returntype parameter">&#8594; Future<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/Message-class.html">Message</a></span>&gt;</span></span>
           </span>
         </dt>
@@ -205,21 +220,21 @@
           
 </dd>
         <dt id="replyDelayed" class="callable">
-          <span class="name"><a href="nyxx.commands/CommandContext/replyDelayed.html">replyDelayed</a></span><span class="signature">(<wbr><span class="parameter" id="replyDelayed-param-duration"><span class="type-annotation">Duration</span> <span class="parameter-name">duration</span>, {</span> <span class="parameter" id="replyDelayed-param-content"><span class="type-annotation">String</span> <span class="parameter-name">content</span>, </span> <span class="parameter" id="replyDelayed-param-embed"><span class="type-annotation"><a href="nyxx/EmbedBuilder-class.html">EmbedBuilder</a></span> <span class="parameter-name">embed</span>, </span> <span class="parameter" id="replyDelayed-param-tts"><span class="type-annotation">bool</span> <span class="parameter-name">tts</span>: <span class="default-value">false</span>, </span> <span class="parameter" id="replyDelayed-param-nonce"><span class="type-annotation">String</span> <span class="parameter-name">nonce</span>, </span> <span class="parameter" id="replyDelayed-param-disableEveryone"><span class="type-annotation">bool</span> <span class="parameter-name">disableEveryone</span></span> })
+          <span class="name"><a href="nyxx.commands/CommandContext/replyDelayed.html">replyDelayed</a></span><span class="signature">(<wbr><span class="parameter" id="replyDelayed-param-duration"><span class="type-annotation">Duration</span> <span class="parameter-name">duration</span>, {</span> <span class="parameter" id="replyDelayed-param-content"><span class="type-annotation">Object</span> <span class="parameter-name">content</span>, </span> <span class="parameter" id="replyDelayed-param-embed"><span class="type-annotation"><a href="nyxx/EmbedBuilder-class.html">EmbedBuilder</a></span> <span class="parameter-name">embed</span>, </span> <span class="parameter" id="replyDelayed-param-tts"><span class="type-annotation">bool</span> <span class="parameter-name">tts</span>: <span class="default-value">false</span>, </span> <span class="parameter" id="replyDelayed-param-nonce"><span class="type-annotation">String</span> <span class="parameter-name">nonce</span>, </span> <span class="parameter" id="replyDelayed-param-disableEveryone"><span class="type-annotation">bool</span> <span class="parameter-name">disableEveryone</span></span> })
             <span class="returntype parameter">&#8594; Future<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/Message-class.html">Message</a></span>&gt;</span></span>
           </span>
         </dt>
         <dd>
-          
+          Replies to messages after specified Duration
           
 </dd>
         <dt id="replyTemp" class="callable">
-          <span class="name"><a href="nyxx.commands/CommandContext/replyTemp.html">replyTemp</a></span><span class="signature">(<wbr><span class="parameter" id="replyTemp-param-duration"><span class="type-annotation">Duration</span> <span class="parameter-name">duration</span>, {</span> <span class="parameter" id="replyTemp-param-content"><span class="type-annotation">String</span> <span class="parameter-name">content</span>, </span> <span class="parameter" id="replyTemp-param-embed"><span class="type-annotation"><a href="nyxx/EmbedBuilder-class.html">EmbedBuilder</a></span> <span class="parameter-name">embed</span>, </span> <span class="parameter" id="replyTemp-param-tts"><span class="type-annotation">bool</span> <span class="parameter-name">tts</span>: <span class="default-value">false</span>, </span> <span class="parameter" id="replyTemp-param-nonce"><span class="type-annotation">String</span> <span class="parameter-name">nonce</span>, </span> <span class="parameter" id="replyTemp-param-disableEveryone"><span class="type-annotation">bool</span> <span class="parameter-name">disableEveryone</span></span> })
+          <span class="name"><a href="nyxx.commands/CommandContext/replyTemp.html">replyTemp</a></span><span class="signature">(<wbr><span class="parameter" id="replyTemp-param-duration"><span class="type-annotation">Duration</span> <span class="parameter-name">duration</span>, {</span> <span class="parameter" id="replyTemp-param-content"><span class="type-annotation">Object</span> <span class="parameter-name">content</span>, </span> <span class="parameter" id="replyTemp-param-embed"><span class="type-annotation"><a href="nyxx/EmbedBuilder-class.html">EmbedBuilder</a></span> <span class="parameter-name">embed</span>, </span> <span class="parameter" id="replyTemp-param-tts"><span class="type-annotation">bool</span> <span class="parameter-name">tts</span>: <span class="default-value">false</span>, </span> <span class="parameter" id="replyTemp-param-nonce"><span class="type-annotation">String</span> <span class="parameter-name">nonce</span>, </span> <span class="parameter" id="replyTemp-param-disableEveryone"><span class="type-annotation">bool</span> <span class="parameter-name">disableEveryone</span></span> })
             <span class="returntype parameter">&#8594; Future<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/Message-class.html">Message</a></span>&gt;</span></span>
           </span>
         </dt>
         <dd>
-          
+          Replys to messages then deletes it when duration expires
           
 </dd>
         <dt id="waitForTyping" class="callable">
@@ -290,6 +305,7 @@
     
       <li class="section-title"><a href="nyxx.commands/CommandContext-class.html#instance-methods">Methods</a></li>
       <li><a href="nyxx.commands/CommandContext/collectEmojis.html">collectEmojis</a></li>
+      <li><a href="nyxx.commands/CommandContext/getCodeBlocks.html">getCodeBlocks</a></li>
       <li><a href="nyxx.commands/CommandContext/getHelp.html">getHelp</a></li>
       <li><a href="nyxx.commands/CommandContext/nextMessage.html">nextMessage</a></li>
       <li><a href="nyxx.commands/CommandContext/nextMessages.html">nextMessages</a></li>

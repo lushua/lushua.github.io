@@ -95,10 +95,14 @@
       <li class="inherited"><a href="nyxx/Client/runtimeType.html">runtimeType</a></li>
     
       <li class="section-title"><a href="nyxx/Client-class.html#instance-methods">Methods</a></li>
+      <li><a href="nyxx/Client/blockToReady.html">blockToReady</a></li>
+      <li><a href="nyxx/Client/createGuild.html">createGuild</a></li>
       <li><a href="nyxx/Client/destroy.html">destroy</a></li>
+      <li><a href="nyxx/Client/getGuild.html">getGuild</a></li>
       <li><a href="nyxx/Client/getInvite.html">getInvite</a></li>
       <li><a href="nyxx/Client/getOAuth2Info.html">getOAuth2Info</a></li>
       <li><a href="nyxx/Client/getUser.html">getUser</a></li>
+      <li><a href="nyxx/Client/getWebhook.html">getWebhook</a></li>
       <li class="inherited"><a href="nyxx/Client/noSuchMethod.html">noSuchMethod</a></li>
       <li class="inherited"><a href="nyxx/Client/toString.html">toString</a></li>
     
@@ -130,13 +134,12 @@
   if (this._token == null || this._token == &quot;&quot;)
     throw new Exception(&quot;Token cannot be null or empty&quot;);
 
-  if (this._options == null) {
-    this._options = new ClientOptions();
-  }
+  if (this._options == null) this._options = new ClientOptions();
 
-  this.guilds = new Map&lt;String, Guild&gt;();
-  this.channels = new Map&lt;String, Channel&gt;();
-  this.users = new Map&lt;String, User&gt;();
+  this._voiceStates = new Map&lt;Snowflake, UserVoiceState&gt;();
+  this.guilds = new Map&lt;Snowflake, Guild&gt;();
+  this.channels = new Map&lt;Snowflake, Channel&gt;();
+  this.users = new Map&lt;Snowflake, User&gt;();
   this.shards = new Map&lt;int, Shard&gt;();
 
   this.http = new Http._new(this);
@@ -145,12 +148,11 @@
 
   Logger.root.level = Level.ALL;
   Logger.root.onRecord.listen((LogRecord rec) {
-    print(
-        &#39;[${rec.level.name}] {${rec.loggerName}} - &#39;
-            &#39;${rec.time.day}.${rec.time.month} &#39;
-            &#39;${rec.time.hour}:${rec.time.minute}:${rec.time.second}&#39;
-            &#39;:${rec.time.millisecond} &#39;
-            &#39;-- ${rec.message}&#39;);
+    print(&#39;[${rec.level.name}] {${rec.loggerName}} - &#39;
+        &#39;${rec.time.day}.${rec.time.month}.${rec.time.year}&#39;
+        &#39;${rec.time.hour}:${rec.time.minute}:${rec.time.second}&#39;
+        &#39;:${rec.time.millisecond} &#39;
+        &#39;-- ${rec.message}&#39;);
   });
 }</code></pre>
     </section>

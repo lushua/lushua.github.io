@@ -46,7 +46,6 @@
       <li><a href="nyxx.voice/Player/currentChannel.html">currentChannel</a></li>
       <li><a href="nyxx.voice/Player/currentTrack.html">currentTrack</a></li>
       <li><a href="nyxx.voice/Player/isConnected.html">isConnected</a></li>
-      <li><a href="nyxx.voice/Player/isPlaying.html">isPlaying</a></li>
       <li><a href="nyxx.voice/Player/onPlayerUpdate.html">onPlayerUpdate</a></li>
       <li><a href="nyxx.voice/Player/onTrackError.html">onTrackError</a></li>
       <li class="inherited"><a href="nyxx.voice/Player/hashCode.html">hashCode</a></li>
@@ -89,12 +88,18 @@
     <section class="summary source-code" id="source">
       <h2><span>Implementation</span> </h2>
       <pre class="language-dart"><code class="language-dart">Future&lt;Null&gt; toggleMute() async {
-  if(_currentState.selfMute)
-    _webSocket.add(jsonEncode(new _OpPause(_guild , false).build()));
+  var op;
+  if (_currentState.selfMute)
+    op = new _OpPause(_guild, false).build();
   else
-    _webSocket.add(jsonEncode(new _OpPause(_guild , true).build()));
+    op = new _OpPause(_guild, true).build();
 
-  _guild.shard.send(&quot;VOICE_STATE_UPDATE&quot;, new _Opcode4(_guild, currentChannel, !_currentState.selfMute, _currentState.selfDeaf)._build());
+  _webSocket.add(jsonEncode(op));
+  _guild.shard.send(
+      &quot;VOICE_STATE_UPDATE&quot;,
+      new _Opcode4(_guild, currentChannel, !_currentState.selfMute,
+              _currentState.selfDeaf)
+          ._build());
 }</code></pre>
     </section>
 

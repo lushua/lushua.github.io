@@ -95,10 +95,14 @@
       <li class="inherited"><a href="nyxx/Client/runtimeType.html">runtimeType</a></li>
     
       <li class="section-title"><a href="nyxx/Client-class.html#instance-methods">Methods</a></li>
+      <li><a href="nyxx/Client/blockToReady.html">blockToReady</a></li>
+      <li><a href="nyxx/Client/createGuild.html">createGuild</a></li>
       <li><a href="nyxx/Client/destroy.html">destroy</a></li>
+      <li><a href="nyxx/Client/getGuild.html">getGuild</a></li>
       <li><a href="nyxx/Client/getInvite.html">getInvite</a></li>
       <li><a href="nyxx/Client/getOAuth2Info.html">getOAuth2Info</a></li>
       <li><a href="nyxx/Client/getUser.html">getUser</a></li>
+      <li><a href="nyxx/Client/getWebhook.html">getWebhook</a></li>
       <li class="inherited"><a href="nyxx/Client/noSuchMethod.html">noSuchMethod</a></li>
       <li class="inherited"><a href="nyxx/Client/toString.html">toString</a></li>
     
@@ -114,7 +118,7 @@
     <h1>guilds property</h1>
 
         <section class="multi-line-signature">
-          <span class="returntype">Map<span class="signature">&lt;<wbr><span class="type-parameter">String</span>, <span class="type-parameter"><a href="nyxx/Guild-class.html">Guild</a></span>&gt;</span></span>
+          <span class="returntype">Map<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/Snowflake-class.html">Snowflake</a></span>, <span class="type-parameter"><a href="nyxx/Guild-class.html">Guild</a></span>&gt;</span></span>
           <span class="name ">guilds</span>
           <div class="features">read / write</div>
         </section>
@@ -123,7 +127,7 @@
         </section>
                 <section class="summary source-code" id="source">
           <h2><span>Implementation</span> </h2>
-          <pre class="language-dart"><code class="language-dart">Map&lt;String, Guild&gt; guilds
+          <pre class="language-dart"><code class="language-dart">Map&lt;Snowflake, Guild&gt; guilds
 
 </code></pre>
         </section>

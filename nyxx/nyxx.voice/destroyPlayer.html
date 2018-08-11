@@ -80,6 +80,7 @@
     <section class="summary source-code" id="source">
       <h2><span>Implementation</span> </h2>
       <pre class="language-dart"><code class="language-dart">Future&lt;Null&gt; destroyPlayer(Player player) async {
+  _logger.fine(&quot;Node for guild -${player._guild.id}- disconnected!&quot;);
   _manager.removePlayer(player._guild.id.toString());
   player = null;
 }</code></pre>

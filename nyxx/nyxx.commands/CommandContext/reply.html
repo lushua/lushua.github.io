@@ -55,6 +55,7 @@
     
       <li class="section-title"><a href="nyxx.commands/CommandContext-class.html#instance-methods">Methods</a></li>
       <li><a href="nyxx.commands/CommandContext/collectEmojis.html">collectEmojis</a></li>
+      <li><a href="nyxx.commands/CommandContext/getCodeBlocks.html">getCodeBlocks</a></li>
       <li><a href="nyxx.commands/CommandContext/getHelp.html">getHelp</a></li>
       <li><a href="nyxx.commands/CommandContext/nextMessage.html">nextMessage</a></li>
       <li><a href="nyxx.commands/CommandContext/nextMessages.html">nextMessages</a></li>
@@ -80,7 +81,7 @@
     <section class="multi-line-signature">
       <span class="returntype">Future<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/Message-class.html">Message</a></span>&gt;</span></span>
       <span class="name ">reply</span>
-(<wbr>{<span class="parameter" id="reply-param-content"><span class="type-annotation">String</span> <span class="parameter-name">content</span>, </span> <span class="parameter" id="reply-param-embed"><span class="type-annotation"><a href="nyxx/EmbedBuilder-class.html">EmbedBuilder</a></span> <span class="parameter-name">embed</span>, </span> <span class="parameter" id="reply-param-tts"><span class="type-annotation">bool</span> <span class="parameter-name">tts</span>: <span class="default-value">false</span>, </span> <span class="parameter" id="reply-param-nonce"><span class="type-annotation">String</span> <span class="parameter-name">nonce</span>, </span> <span class="parameter" id="reply-param-disableEveryone"><span class="type-annotation">bool</span> <span class="parameter-name">disableEveryone</span></span> })
+(<wbr>{<span class="parameter" id="reply-param-content"><span class="type-annotation">Object</span> <span class="parameter-name">content</span>, </span> <span class="parameter" id="reply-param-embed"><span class="type-annotation"><a href="nyxx/EmbedBuilder-class.html">EmbedBuilder</a></span> <span class="parameter-name">embed</span>, </span> <span class="parameter" id="reply-param-tts"><span class="type-annotation">bool</span> <span class="parameter-name">tts</span>: <span class="default-value">false</span>, </span> <span class="parameter" id="reply-param-nonce"><span class="type-annotation">String</span> <span class="parameter-name">nonce</span>, </span> <span class="parameter" id="reply-param-disableEveryone"><span class="type-annotation">bool</span> <span class="parameter-name">disableEveryone</span></span> })
     </section>
     <section class="desc markdown">
       <p>Reply to message which fires command.</p>
@@ -89,7 +90,7 @@
     <section class="summary source-code" id="source">
       <h2><span>Implementation</span> </h2>
       <pre class="language-dart"><code class="language-dart">Future&lt;Message&gt; reply(
-    {String content,
+    {Object content,
     EmbedBuilder embed,
     bool tts: false,
     String nonce,

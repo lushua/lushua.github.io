@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="API docs for the getCodeBlocks method from the CommandContext class, for the Dart programming language.">
+  <title>getCodeBlocks method - CommandContext class - nyxx.commands library - Dart API</title>
+  <!-- required because all the links are pseudo-absolute -->
+  <base href="../..">
+
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500,400i,400,300|Source+Sans+Pro:400,300,700" rel="stylesheet">
+  <link rel="stylesheet" href="static-assets/github.css">
+  <link rel="stylesheet" href="static-assets/styles.css">
+  <link rel="icon" href="static-assets/favicon.png">
+
+</head>
+
+<body>
+
+<div id="overlay-under-drawer"></div>
+
+<header id="title">
+  <button id="sidenav-left-toggle" type="button">&nbsp;</button>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="index.html">nyxx</a></li>
+    <li><a href="nyxx.commands/nyxx.commands-library.html">nyxx.commands</a></li>
+    <li><a href="nyxx.commands/CommandContext-class.html">CommandContext</a></li>
+    <li class="self-crumb">getCodeBlocks method</li>
+  </ol>
+  <div class="self-name">getCodeBlocks</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<main>
+
+  <div class="col-xs-6 col-sm-3 col-md-2 sidebar sidebar-offcanvas-left">
+    <h5>CommandContext class</h5>
+    <ol>
+      <li class="section-title"><a href="nyxx.commands/CommandContext-class.html#constructors">Constructors</a></li>
+      <li><a href="nyxx.commands/CommandContext/CommandContext.html">CommandContext</a></li>
+    
+      <li class="section-title">
+        <a href="nyxx.commands/CommandContext-class.html#instance-properties">Properties</a>
+      </li>
+      <li><a href="nyxx.commands/CommandContext/author.html">author</a></li>
+      <li><a href="nyxx.commands/CommandContext/channel.html">channel</a></li>
+      <li><a href="nyxx.commands/CommandContext/guild.html">guild</a></li>
+      <li><a href="nyxx.commands/CommandContext/logger.html">logger</a></li>
+      <li><a href="nyxx.commands/CommandContext/message.html">message</a></li>
+      <li class="inherited"><a href="nyxx.commands/CommandContext/hashCode.html">hashCode</a></li>
+      <li class="inherited"><a href="nyxx.commands/CommandContext/runtimeType.html">runtimeType</a></li>
+    
+      <li class="section-title"><a href="nyxx.commands/CommandContext-class.html#instance-methods">Methods</a></li>
+      <li><a href="nyxx.commands/CommandContext/collectEmojis.html">collectEmojis</a></li>
+      <li><a href="nyxx.commands/CommandContext/getCodeBlocks.html">getCodeBlocks</a></li>
+      <li><a href="nyxx.commands/CommandContext/getHelp.html">getHelp</a></li>
+      <li><a href="nyxx.commands/CommandContext/nextMessage.html">nextMessage</a></li>
+      <li><a href="nyxx.commands/CommandContext/nextMessages.html">nextMessages</a></li>
+      <li><a href="nyxx.commands/CommandContext/nextMessagesWhere.html">nextMessagesWhere</a></li>
+      <li><a href="nyxx.commands/CommandContext/reply.html">reply</a></li>
+      <li><a href="nyxx.commands/CommandContext/replyDelayed.html">replyDelayed</a></li>
+      <li><a href="nyxx.commands/CommandContext/replyTemp.html">replyTemp</a></li>
+      <li><a href="nyxx.commands/CommandContext/waitForTyping.html">waitForTyping</a></li>
+      <li class="inherited"><a href="nyxx.commands/CommandContext/noSuchMethod.html">noSuchMethod</a></li>
+      <li class="inherited"><a href="nyxx.commands/CommandContext/toString.html">toString</a></li>
+    
+      <li class="section-title inherited"><a href="nyxx.commands/CommandContext-class.html#operators">Operators</a></li>
+      <li class="inherited"><a href="nyxx.commands/CommandContext/operator_equals.html">operator ==</a></li>
+    
+    
+    
+    </ol>
+  </div><!--/.sidebar-offcanvas-->
+
+  <div class="col-xs-12 col-sm-9 col-md-8 main-content">
+    <h1>getCodeBlocks method</h1>
+
+    <section class="multi-line-signature">
+      <span class="returntype">Stream<span class="signature">&lt;<wbr><span class="type-parameter">String</span>&gt;</span></span>
+      <span class="name ">getCodeBlocks</span>
+(<wbr>)
+    </section>
+    <section class="desc markdown">
+      <p>Returns stream of all code blocks in message
+For now it only parses codeblock which starts in first line
+Language string <code>dart, java</code> will be ignored and not included
+"""
+n&gt; eval ```(dart)?
+  await reply(content: 'no to elo');</p>
+<pre class="language-dart"><code>"""
+</code></pre>
+    </section>
+    
+    <section class="summary source-code" id="source">
+      <h2><span>Implementation</span> </h2>
+      <pre class="language-dart"><code class="language-dart">Stream&lt;String&gt; getCodeBlocks() async* {
+   var regex = new RegExp(r&quot;```(\w+)?(\s)?(((.+)(\s)?)+)```&quot;);
+
+   var matches = regex.allMatches(message.content);
+   for(var m in matches)
+     yield m.group(3);
+ }</code></pre>
+    </section>
+
+  </div> <!-- /.main-content -->
+
+  <div class="col-xs-6 col-sm-6 col-md-2 sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+
+</main>
+
+<footer>
+  <span class="no-break">
+    nyxx 0.24.0
+  </span>
+
+</footer>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="static-assets/typeahead.bundle.min.js"></script>
+<script src="static-assets/highlight.pack.js"></script>
+<script src="static-assets/URI.js"></script>
+<script src="static-assets/script.js"></script>
+
+
+</body>
+
+</html>

@@ -42,15 +42,15 @@
       <li><a href="nyxx.commands/Command-class.html">Command</a></li>
       <li><a href="nyxx.commands/CommandContext-class.html">CommandContext</a></li>
       <li><a href="nyxx.commands/CommandExecutionFailEvent-class.html">CommandExecutionFailEvent</a></li>
+      <li><a href="nyxx.commands/CommandParsingFail-class.html">CommandParsingFail</a></li>
       <li><a href="nyxx.commands/CommandsFramework-class.html">CommandsFramework</a></li>
+      <li><a href="nyxx.commands/Cons-class.html">Cons</a></li>
       <li><a href="nyxx.commands/CooldownCache-class.html">CooldownCache</a></li>
       <li><a href="nyxx.commands/GuildOnly-class.html">GuildOnly</a></li>
-      <li><a href="nyxx.commands/Maincommand-class.html">Maincommand</a></li>
       <li><a href="nyxx.commands/Pagination-class.html">Pagination</a></li>
       <li><a href="nyxx.commands/Remainder-class.html">Remainder</a></li>
       <li><a href="nyxx.commands/Scheduler-class.html">Scheduler</a></li>
       <li><a href="nyxx.commands/Service-class.html">Service</a></li>
-      <li><a href="nyxx.commands/Subcommand-class.html">Subcommand</a></li>
       <li><a href="nyxx.commands/TypeConverter-class.html">TypeConverter</a></li>
     
     
@@ -67,8 +67,9 @@
     <h1>CommandsFramework class</h1>
 
     <section class="desc markdown">
-      <p>Main handler for CommandFramework.
-  This class matches and dispatches commands to best matching contexts.</p>
+      <p>Main point of commands in nyx.
+It gets all sent messages and matches to registered command and invokes
+its action.</p>
     </section>
     
 
@@ -91,7 +92,7 @@
       <dl class="properties">
         <dt id="admins" class="property">
           <span class="name"><a href="nyxx.commands/CommandsFramework/admins.html">admins</a></span>
-          <span class="signature">&#8596; List<span class="signature">&lt;<wbr><span class="type-parameter">String</span>&gt;</span></span>
+          <span class="signature">&#8596; List<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/Snowflake-class.html">Snowflake</a></span>&gt;</span></span>
         </dt>
         <dd>
           Specifies list of admins which can access commands annotated as admin
@@ -126,7 +127,8 @@
           <span class="signature">&#8594; Logger</span>
         </dt>
         <dd>
-          Logger instance
+          Emitted when command fails to parse. Eg. Wrong arguments
+Logger instance
           <div class="features">final</div>
 </dd>
         <dt id="onAdminOnlyError" class="property">

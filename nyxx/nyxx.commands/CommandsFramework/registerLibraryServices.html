@@ -102,7 +102,7 @@
     } catch (e) {
       print(e);
       throw new Exception(
-          &quot;Service [${cm.simpleName}] constructor not satisfied!&quot;);
+          &quot;Service [${util.getSymbolName(cm.simpleName)}] constructor not satisfied!&quot;);
     }
   });
 }</code></pre>

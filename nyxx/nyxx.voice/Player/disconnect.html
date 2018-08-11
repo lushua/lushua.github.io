@@ -46,7 +46,6 @@
       <li><a href="nyxx.voice/Player/currentChannel.html">currentChannel</a></li>
       <li><a href="nyxx.voice/Player/currentTrack.html">currentTrack</a></li>
       <li><a href="nyxx.voice/Player/isConnected.html">isConnected</a></li>
-      <li><a href="nyxx.voice/Player/isPlaying.html">isPlaying</a></li>
       <li><a href="nyxx.voice/Player/onPlayerUpdate.html">onPlayerUpdate</a></li>
       <li><a href="nyxx.voice/Player/onTrackError.html">onTrackError</a></li>
       <li class="inherited"><a href="nyxx.voice/Player/hashCode.html">hashCode</a></li>
@@ -89,13 +88,14 @@
     <section class="summary source-code" id="source">
       <h2><span>Implementation</span> </h2>
       <pre class="language-dart"><code class="language-dart">Future&lt;Null&gt; disconnect() async {
-  _guild.shard.send(&quot;VOICE_STATE_UPDATE&quot;, new _Opcode4(_guild, null, false, false)._build());
+  _guild.shard.send(&quot;VOICE_STATE_UPDATE&quot;,
+      new _Opcode4(_guild, null, false, false)._build());
   await stop();
   _webSocket.add(jsonEncode(new _SimpleOp(&quot;destroy&quot;, _guild)._build()));
-  isPlaying = false;
+  &#47;&#47;isPlaying = false;
   isConnected = false;
   _sub1 == null ? {} : _sub1.cancel();
-  _sub2 == null ? {}:  _sub2.cancel();
+  _sub2 == null ? {} : _sub2.cancel();
 }</code></pre>
     </section>
 

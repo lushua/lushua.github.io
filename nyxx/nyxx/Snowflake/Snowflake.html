@@ -41,19 +41,18 @@
     <ol>
       <li class="section-title"><a href="nyxx/Snowflake-class.html#constructors">Constructors</a></li>
       <li><a href="nyxx/Snowflake/Snowflake.html">Snowflake</a></li>
+      <li><a href="nyxx/Snowflake/Snowflake.static.html">static</a></li>
     
       <li class="section-title">
         <a href="nyxx/Snowflake-class.html#instance-properties">Properties</a>
       </li>
       <li><a href="nyxx/Snowflake/hashCode.html">hashCode</a></li>
       <li><a href="nyxx/Snowflake/id.html">id</a></li>
-      <li><a href="nyxx/Snowflake/processId.html">processId</a></li>
-      <li><a href="nyxx/Snowflake/sequence.html">sequence</a></li>
       <li><a href="nyxx/Snowflake/timestamp.html">timestamp</a></li>
-      <li><a href="nyxx/Snowflake/workerId.html">workerId</a></li>
       <li class="inherited"><a href="nyxx/Snowflake/runtimeType.html">runtimeType</a></li>
     
       <li class="section-title"><a href="nyxx/Snowflake-class.html#instance-methods">Methods</a></li>
+      <li><a href="nyxx/Snowflake/compareTo.html">compareTo</a></li>
       <li><a href="nyxx/Snowflake/toString.html">toString</a></li>
       <li class="inherited"><a href="nyxx/Snowflake/noSuchMethod.html">noSuchMethod</a></li>
     
@@ -79,33 +78,7 @@
     
     <section class="summary source-code" id="source">
       <h2><span>Implementation</span> </h2>
-      <pre class="language-dart"><code class="language-dart">Snowflake(this.id) {
-  int _unusedBits = 0;
-  int _timestampBits = 42;
-  int _workerIdBits = 5;
-  int _processIdBits = 5;
-  int _sequenceBits = 12;
-
-  int _timestampShift = _sequenceBits + _workerIdBits + _processIdBits;
-  int _workerIdShift = _sequenceBits + _processIdBits;
-  int _processShift = _sequenceBits;
-
-  int _epoch = 1420070400000;
-  int tmpId = int.parse(id);
-
-  var tmp =
-      ((tmpId &amp; _diode(_unusedBits, _timestampBits)) &gt;&gt; _timestampShift);
-  timestamp = new DateTime.fromMillisecondsSinceEpoch(tmp + _epoch);
-  workerId = (tmpId &amp; _diode(_unusedBits + _timestampBits, _workerIdBits)) &gt;&gt;
-      _workerIdShift;
-  processId = (tmpId &amp;
-          _diode(_unusedBits + _timestampBits + _workerIdBits,
-              _processIdBits)) &gt;&gt;
-      _processShift;
-  sequence = (tmpId &amp;
-      _diode(_unusedBits + _timestampBits + _workerIdBits + _processIdBits,
-          _sequenceBits));
-}</code></pre>
+      <pre class="language-dart"><code class="language-dart">Snowflake(this.id);</code></pre>
     </section>
 
   </div> <!-- /.main-content -->

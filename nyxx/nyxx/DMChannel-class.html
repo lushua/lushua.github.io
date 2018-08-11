@@ -45,7 +45,9 @@
       <li><a href="nyxx/AuditLogChange-class.html">AuditLogChange</a></li>
       <li><a href="nyxx/AuditLogEntry-class.html">AuditLogEntry</a></li>
       <li><a href="nyxx/BeforeHttpRequestSendEvent-class.html">BeforeHttpRequestSendEvent</a></li>
+      <li><a href="nyxx/Builder-class.html">Builder</a></li>
       <li><a href="nyxx/Channel-class.html">Channel</a></li>
+      <li><a href="nyxx/ChannelBuilder-class.html">ChannelBuilder</a></li>
       <li><a href="nyxx/ChannelCreateEvent-class.html">ChannelCreateEvent</a></li>
       <li><a href="nyxx/ChannelDeleteEvent-class.html">ChannelDeleteEvent</a></li>
       <li><a href="nyxx/ChannelPermissions-class.html">ChannelPermissions</a></li>
@@ -70,13 +72,13 @@
       <li><a href="nyxx/EmbedThumbnail-class.html">EmbedThumbnail</a></li>
       <li><a href="nyxx/EmbedVideo-class.html">EmbedVideo</a></li>
       <li><a href="nyxx/Emoji-class.html">Emoji</a></li>
-      <li><a href="nyxx/EmojisUnicode-class.html">EmojisUnicode</a></li>
       <li><a href="nyxx/Game-class.html">Game</a></li>
       <li><a href="nyxx/GroupChannel-class.html">GroupChannel</a></li>
       <li><a href="nyxx/GroupDMChannel-class.html">GroupDMChannel</a></li>
       <li><a href="nyxx/Guild-class.html">Guild</a></li>
       <li><a href="nyxx/GuildBanAddEvent-class.html">GuildBanAddEvent</a></li>
       <li><a href="nyxx/GuildBanRemoveEvent-class.html">GuildBanRemoveEvent</a></li>
+      <li><a href="nyxx/GuildBuilder-class.html">GuildBuilder</a></li>
       <li><a href="nyxx/GuildChannel-class.html">GuildChannel</a></li>
       <li><a href="nyxx/GuildCreateEvent-class.html">GuildCreateEvent</a></li>
       <li><a href="nyxx/GuildDeleteEvent-class.html">GuildDeleteEvent</a></li>
@@ -119,11 +121,13 @@
       <li><a href="nyxx/Reaction-class.html">Reaction</a></li>
       <li><a href="nyxx/ReadyEvent-class.html">ReadyEvent</a></li>
       <li><a href="nyxx/Role-class.html">Role</a></li>
+      <li><a href="nyxx/RoleBuilder-class.html">RoleBuilder</a></li>
       <li><a href="nyxx/RoleCreateEvent-class.html">RoleCreateEvent</a></li>
       <li><a href="nyxx/RoleDeleteEvent-class.html">RoleDeleteEvent</a></li>
       <li><a href="nyxx/RoleUpdateEvent-class.html">RoleUpdateEvent</a></li>
       <li><a href="nyxx/Shard-class.html">Shard</a></li>
       <li><a href="nyxx/Snowflake-class.html">Snowflake</a></li>
+      <li><a href="nyxx/SnowflakeEntity-class.html">SnowflakeEntity</a></li>
       <li><a href="nyxx/TextChannel-class.html">TextChannel</a></li>
       <li><a href="nyxx/TypingEvent-class.html">TypingEvent</a></li>
       <li><a href="nyxx/UnicodeEmoji-class.html">UnicodeEmoji</a></li>
@@ -139,7 +143,11 @@
     
     
     
+      <li class="section-title"><a href="nyxx/nyxx-library.html#functions">Functions</a></li>
+      <li><a href="nyxx/snow.html">snow</a></li>
     
+      <li class="section-title"><a href="nyxx/nyxx-library.html#enums">Enums</a></li>
+      <li><a href="nyxx/ChannelType-class.html">ChannelType</a></li>
     
     
       <li class="section-title"><a href="nyxx/nyxx-library.html#exceptions">Exceptions</a></li>
@@ -151,12 +159,16 @@
   <div class="col-xs-12 col-sm-9 col-md-8 main-content">
     <h1>DMChannel class</h1>
 
+    <section class="desc markdown">
+      <p>Represents channel with user.</p>
+    </section>
     
     <section>
       <dl class="dl-horizontal">
         <dt>Inheritance</dt>
         <dd><ul class="gt-separated dark clazz-relationships">
           <li>Object</li>
+          <li><a href="nyxx/SnowflakeEntity-class.html">SnowflakeEntity</a></li>
           <li><a href="nyxx/Channel-class.html">Channel</a></li>
           <li><a href="nyxx/MessageChannel-class.html">MessageChannel</a></li>
           <li>DMChannel</li>
@@ -190,28 +202,69 @@
           <div class="features">read / write, inherited</div>
 </dd>
         <dt id="createdAt" class="property inherited">
-          <span class="name"><a href="nyxx/Channel/createdAt.html">createdAt</a></span>
-          <span class="signature">&#8596; DateTime</span>
+          <span class="name"><a href="nyxx/SnowflakeEntity/createdAt.html">createdAt</a></span>
+          <span class="signature">&#8594; DateTime</span>
         </dt>
         <dd class="inherited">
-          A timestamp for when the channel was created.
-          <div class="features">read / write, inherited</div>
+          Gets creation timestamp included in <a href="nyxx/Snowflake-class.html">Snowflake</a>
+          <div class="features">read-only, inherited</div>
+</dd>
+        <dt id="first" class="property inherited">
+          <span class="name"><a href="nyxx/MessageChannel/first.html">first</a></span>
+          <span class="signature">&#8594; <a href="nyxx/Message-class.html">Message</a></span>
+        </dt>
+        <dd class="inherited">
+          Returns the first element. <a href="nyxx/MessageChannel/first.html">[...]</a>
+          <div class="features">read-only, inherited</div>
 </dd>
         <dt id="hashCode" class="property inherited">
-          <span class="name"><a href="nyxx/Channel/hashCode.html">hashCode</a></span>
+          <span class="name"><a href="nyxx/SnowflakeEntity/hashCode.html">hashCode</a></span>
           <span class="signature">&#8594; int</span>
         </dt>
         <dd class="inherited">
-          The hash code for this object. <a href="nyxx/Channel/hashCode.html">[...]</a>
+          The hash code for this object. <a href="nyxx/SnowflakeEntity/hashCode.html">[...]</a>
           <div class="features">read-only, inherited</div>
 </dd>
         <dt id="id" class="property inherited">
-          <span class="name"><a href="nyxx/Channel/id.html">id</a></span>
+          <span class="name"><a href="nyxx/SnowflakeEntity/id.html">id</a></span>
           <span class="signature">&#8596; <a href="nyxx/Snowflake-class.html">Snowflake</a></span>
         </dt>
         <dd class="inherited">
-          The channel's ID.
+          Snowflake id
           <div class="features">read / write, inherited</div>
+</dd>
+        <dt id="isEmpty" class="property inherited">
+          <span class="name"><a href="nyxx/MessageChannel/isEmpty.html">isEmpty</a></span>
+          <span class="signature">&#8594; bool</span>
+        </dt>
+        <dd class="inherited">
+          Returns <code>true</code> if there are no elements in this collection. <a href="nyxx/MessageChannel/isEmpty.html">[...]</a>
+          <div class="features">read-only, inherited</div>
+</dd>
+        <dt id="isNotEmpty" class="property inherited">
+          <span class="name"><a href="nyxx/MessageChannel/isNotEmpty.html">isNotEmpty</a></span>
+          <span class="signature">&#8594; bool</span>
+        </dt>
+        <dd class="inherited">
+          Returns true if there is at least one element in this collection. <a href="nyxx/MessageChannel/isNotEmpty.html">[...]</a>
+          <div class="features">read-only, inherited</div>
+</dd>
+        <dt id="iterator" class="property inherited">
+          <span class="name"><a href="nyxx/MessageChannel/iterator.html">iterator</a></span>
+          <span class="signature">&#8594; Iterator<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/Message-class.html">Message</a></span>&gt;</span></span>
+        </dt>
+        <dd class="inherited">
+          Returns a new <code>Iterator</code> that allows iterating the elements of this
+<code>Iterable</code>. <a href="nyxx/MessageChannel/iterator.html">[...]</a>
+          <div class="features">read-only, inherited</div>
+</dd>
+        <dt id="last" class="property inherited">
+          <span class="name"><a href="nyxx/MessageChannel/last.html">last</a></span>
+          <span class="signature">&#8594; <a href="nyxx/Message-class.html">Message</a></span>
+        </dt>
+        <dd class="inherited">
+          Returns the last element. <a href="nyxx/MessageChannel/last.html">[...]</a>
+          <div class="features">read-only, inherited</div>
 </dd>
         <dt id="lastMessageID" class="property inherited">
           <span class="name"><a href="nyxx/MessageChannel/lastMessageID.html">lastMessageID</a></span>
@@ -221,9 +274,17 @@
           The ID for the last message in the channel.
           <div class="features">read / write, inherited</div>
 </dd>
+        <dt id="length" class="property inherited">
+          <span class="name"><a href="nyxx/MessageChannel/length.html">length</a></span>
+          <span class="signature">&#8594; int</span>
+        </dt>
+        <dd class="inherited">
+          Returns the number of elements in <a href="nyxx/DMChannel-class.html">this</a>. <a href="nyxx/MessageChannel/length.html">[...]</a>
+          <div class="features">read-only, inherited</div>
+</dd>
         <dt id="messages" class="property inherited">
           <span class="name"><a href="nyxx/MessageChannel/messages.html">messages</a></span>
-          <span class="signature">&#8596; LinkedHashMap<span class="signature">&lt;<wbr><span class="type-parameter">String</span>, <span class="type-parameter"><a href="nyxx/Message-class.html">Message</a></span>&gt;</span></span>
+          <span class="signature">&#8596; LinkedHashMap<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/Snowflake-class.html">Snowflake</a></span>, <span class="type-parameter"><a href="nyxx/Message-class.html">Message</a></span>&gt;</span></span>
         </dt>
         <dd class="inherited">
           A collection of messages sent to this channel.
@@ -242,7 +303,7 @@
           <span class="signature">&#8596; Stream<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/TypingEvent-class.html">TypingEvent</a></span>&gt;</span></span>
         </dt>
         <dd class="inherited">
-          
+          Emitted when user starts typing
           <div class="features">read / write, inherited</div>
 </dd>
         <dt id="raw" class="property inherited">
@@ -254,11 +315,19 @@
           <div class="features">read / write, inherited</div>
 </dd>
         <dt id="runtimeType" class="property inherited">
-          <span class="name"><a href="nyxx/Channel/runtimeType.html">runtimeType</a></span>
+          <span class="name"><a href="nyxx/SnowflakeEntity/runtimeType.html">runtimeType</a></span>
           <span class="signature">&#8594; Type</span>
         </dt>
         <dd class="inherited">
           A representation of the runtime type of the object.
+          <div class="features">read-only, inherited</div>
+</dd>
+        <dt id="single" class="property inherited">
+          <span class="name"><a href="nyxx/MessageChannel/single.html">single</a></span>
+          <span class="signature">&#8594; <a href="nyxx/Message-class.html">Message</a></span>
+        </dt>
+        <dd class="inherited">
+          Checks that this iterable has only one element, and returns that element. <a href="nyxx/MessageChannel/single.html">[...]</a>
           <div class="features">read-only, inherited</div>
 </dd>
         <dt id="type" class="property inherited">
@@ -275,13 +344,40 @@
     <section class="summary offset-anchor inherited" id="instance-methods">
       <h2>Methods</h2>
       <dl class="callables">
+        <dt id="any" class="callable inherited">
+          <span class="name"><a href="nyxx/MessageChannel/any.html">any</a></span><span class="signature">(<wbr><span class="parameter" id="any-param-test"><span class="type-annotation">bool</span> <span class="parameter-name">test</span>(<span class="parameter" id="test-param-element"><span class="type-annotation">E</span> <span class="parameter-name">element</span></span>)</span>)
+            <span class="returntype parameter">&#8594; bool</span>
+          </span>
+        </dt>
+        <dd class="inherited">
+          Checks whether any element of this iterable satisfies <code>test</code>. <a href="nyxx/MessageChannel/any.html">[...]</a>
+          <div class="features">inherited</div>
+</dd>
         <dt id="bulkRemoveMessages" class="callable inherited">
-          <span class="name"><a href="nyxx/MessageChannel/bulkRemoveMessages.html">bulkRemoveMessages</a></span><span class="signature">(<wbr><span class="parameter" id="bulkRemoveMessages-param-messagesIds"><span class="type-annotation">List<span class="signature">&lt;<wbr><span class="type-parameter">String</span>&gt;</span></span> <span class="parameter-name">messagesIds</span></span>)
+          <span class="name"><a href="nyxx/MessageChannel/bulkRemoveMessages.html">bulkRemoveMessages</a></span><span class="signature">(<wbr><span class="parameter" id="bulkRemoveMessages-param-messagesIds"><span class="type-annotation">Iterable<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/Snowflake-class.html">Snowflake</a></span>&gt;</span></span> <span class="parameter-name">messagesIds</span></span>)
             <span class="returntype parameter">&#8594; Future<span class="signature">&lt;<wbr><span class="type-parameter">Null</span>&gt;</span></span>
           </span>
         </dt>
         <dd class="inherited">
           Bulk removes many messages by its ids. <code>messagesIds</code> is list of messages ids to delete.
+          <div class="features">inherited</div>
+</dd>
+        <dt id="cast" class="callable inherited">
+          <span class="name"><a href="nyxx/MessageChannel/cast.html">cast</a></span><span class="signature">&lt;<wbr><span class="type-parameter">R</span>&gt;</span><span class="signature">(<wbr>)
+            <span class="returntype parameter">&#8594; Iterable<span class="signature">&lt;<wbr><span class="type-parameter">R</span>&gt;</span></span>
+          </span>
+        </dt>
+        <dd class="inherited">
+          Provides a view of this iterable as an iterable of <code>R</code> instances. <a href="nyxx/MessageChannel/cast.html">[...]</a>
+          <div class="features">inherited</div>
+</dd>
+        <dt id="contains" class="callable inherited">
+          <span class="name"><a href="nyxx/MessageChannel/contains.html">contains</a></span><span class="signature">(<wbr><span class="parameter" id="contains-param-element"><span class="type-annotation">Object</span> <span class="parameter-name">element</span></span>)
+            <span class="returntype parameter">&#8594; bool</span>
+          </span>
+        </dt>
+        <dd class="inherited">
+          Returns true if the collection contains an element equal to <code>element</code>. <a href="nyxx/MessageChannel/contains.html">[...]</a>
           <div class="features">inherited</div>
 </dd>
         <dt id="delete" class="callable inherited">
@@ -293,8 +389,73 @@
           Deletes the channel.
           <div class="features">inherited</div>
 </dd>
+        <dt id="elementAt" class="callable inherited">
+          <span class="name"><a href="nyxx/MessageChannel/elementAt.html">elementAt</a></span><span class="signature">(<wbr><span class="parameter" id="elementAt-param-index"><span class="type-annotation">int</span> <span class="parameter-name">index</span></span>)
+            <span class="returntype parameter">&#8594; <a href="nyxx/Message-class.html">Message</a></span>
+          </span>
+        </dt>
+        <dd class="inherited">
+          Returns the <code>index</code>th element. <a href="nyxx/MessageChannel/elementAt.html">[...]</a>
+          <div class="features">inherited</div>
+</dd>
+        <dt id="every" class="callable inherited">
+          <span class="name"><a href="nyxx/MessageChannel/every.html">every</a></span><span class="signature">(<wbr><span class="parameter" id="every-param-f"><span class="type-annotation">bool</span> <span class="parameter-name">f</span>(<span class="parameter" id="f-param-element"><span class="type-annotation">E</span> <span class="parameter-name">element</span></span>)</span>)
+            <span class="returntype parameter">&#8594; bool</span>
+          </span>
+        </dt>
+        <dd class="inherited">
+          Checks whether every element of this iterable satisfies <code>test</code>. <a href="nyxx/MessageChannel/every.html">[...]</a>
+          <div class="features">inherited</div>
+</dd>
+        <dt id="expand" class="callable inherited">
+          <span class="name"><a href="nyxx/MessageChannel/expand.html">expand</a></span><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span><span class="signature">(<wbr><span class="parameter" id="expand-param-f"><span class="type-annotation">Iterable<span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span> <span class="parameter-name">f</span>(<span class="parameter" id="f-param-element"><span class="type-annotation">E</span> <span class="parameter-name">element</span></span>)</span>)
+            <span class="returntype parameter">&#8594; Iterable<span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span>
+          </span>
+        </dt>
+        <dd class="inherited">
+          Expands each element of this <code>Iterable</code> into zero or more elements. <a href="nyxx/MessageChannel/expand.html">[...]</a>
+          <div class="features">inherited</div>
+</dd>
+        <dt id="firstWhere" class="callable inherited">
+          <span class="name"><a href="nyxx/MessageChannel/firstWhere.html">firstWhere</a></span><span class="signature">(<wbr><span class="parameter" id="firstWhere-param-test"><span class="type-annotation">bool</span> <span class="parameter-name">test</span>(<span class="parameter" id="test-param-value"><span class="type-annotation">E</span> <span class="parameter-name">value</span></span>), {</span> <span class="parameter" id="firstWhere-param-orElse"><span class="type-annotation"><a href="nyxx/Message-class.html">Message</a></span> <span class="parameter-name">orElse</span>()</span> })
+            <span class="returntype parameter">&#8594; <a href="nyxx/Message-class.html">Message</a></span>
+          </span>
+        </dt>
+        <dd class="inherited">
+          Returns the first element that satisfies the given predicate <code>test</code>. <a href="nyxx/MessageChannel/firstWhere.html">[...]</a>
+          <div class="features">inherited</div>
+</dd>
+        <dt id="fold" class="callable inherited">
+          <span class="name"><a href="nyxx/MessageChannel/fold.html">fold</a></span><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span><span class="signature">(<wbr><span class="parameter" id="fold-param-initialValue"><span class="type-annotation">T</span> <span class="parameter-name">initialValue</span>, </span> <span class="parameter" id="fold-param-combine"><span class="type-annotation">T</span> <span class="parameter-name">combine</span>(<span class="parameter" id="combine-param-previousValue"><span class="type-annotation">T</span> <span class="parameter-name">previousValue</span>, </span> <span class="parameter" id="combine-param-element"><span class="type-annotation">E</span> <span class="parameter-name">element</span></span>)</span>)
+            <span class="returntype parameter">&#8594; T</span>
+          </span>
+        </dt>
+        <dd class="inherited">
+          Reduces a collection to a single value by iteratively combining each
+element of the collection with an existing value <a href="nyxx/MessageChannel/fold.html">[...]</a>
+          <div class="features">inherited</div>
+</dd>
+        <dt id="followedBy" class="callable inherited">
+          <span class="name"><a href="nyxx/MessageChannel/followedBy.html">followedBy</a></span><span class="signature">(<wbr><span class="parameter" id="followedBy-param-other"><span class="type-annotation">Iterable<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/Message-class.html">Message</a></span>&gt;</span></span> <span class="parameter-name">other</span></span>)
+            <span class="returntype parameter">&#8594; Iterable<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/Message-class.html">Message</a></span>&gt;</span></span>
+          </span>
+        </dt>
+        <dd class="inherited">
+          Returns the lazy concatentation of this iterable and <code>other</code>. <a href="nyxx/MessageChannel/followedBy.html">[...]</a>
+          <div class="features">inherited</div>
+</dd>
+        <dt id="forEach" class="callable inherited">
+          <span class="name"><a href="nyxx/MessageChannel/forEach.html">forEach</a></span><span class="signature">(<wbr><span class="parameter" id="forEach-param-f"><span class="type-annotation">void</span> <span class="parameter-name">f</span>(<span class="parameter" id="f-param-element"><span class="type-annotation">E</span> <span class="parameter-name">element</span></span>)</span>)
+            <span class="returntype parameter">&#8594; void</span>
+          </span>
+        </dt>
+        <dd class="inherited">
+          Applies the function <code>f</code> to each element of this collection in iteration
+order.
+          <div class="features">inherited</div>
+</dd>
         <dt id="getMessage" class="callable inherited">
-          <span class="name"><a href="nyxx/MessageChannel/getMessage.html">getMessage</a></span><span class="signature">(<wbr><span class="parameter" id="getMessage-param-id"><span class="type-annotation">String</span> <span class="parameter-name">id</span></span>)
+          <span class="name"><a href="nyxx/MessageChannel/getMessage.html">getMessage</a></span><span class="signature">(<wbr><span class="parameter" id="getMessage-param-id"><span class="type-annotation"><a href="nyxx/Snowflake-class.html">Snowflake</a></span> <span class="parameter-name">id</span></span>)
             <span class="returntype parameter">&#8594; <a href="nyxx/Message-class.html">Message</a></span>
           </span>
         </dt>
@@ -303,25 +464,63 @@
           <div class="features">inherited</div>
 </dd>
         <dt id="getMessages" class="callable inherited">
-          <span class="name"><a href="nyxx/MessageChannel/getMessages.html">getMessages</a></span><span class="signature">(<wbr>{<span class="parameter" id="getMessages-param-limit"><span class="type-annotation">int</span> <span class="parameter-name">limit</span>: <span class="default-value">50</span>, </span> <span class="parameter" id="getMessages-param-after"><span class="type-annotation"><a href="nyxx/Snowflake-class.html">Snowflake</a></span> <span class="parameter-name">after</span>: <span class="default-value">null</span>, </span> <span class="parameter" id="getMessages-param-before"><span class="type-annotation"><a href="nyxx/Snowflake-class.html">Snowflake</a></span> <span class="parameter-name">before</span>: <span class="default-value">null</span>, </span> <span class="parameter" id="getMessages-param-around"><span class="type-annotation"><a href="nyxx/Snowflake-class.html">Snowflake</a></span> <span class="parameter-name">around</span>: <span class="default-value">null</span></span> })
-            <span class="returntype parameter">&#8594; Future<span class="signature">&lt;<wbr><span class="type-parameter">LinkedHashMap<span class="signature">&lt;<wbr><span class="type-parameter">String</span>, <span class="type-parameter"><a href="nyxx/Message-class.html">Message</a></span>&gt;</span></span>&gt;</span></span>
+          <span class="name"><a href="nyxx/MessageChannel/getMessages.html">getMessages</a></span><span class="signature">(<wbr>{<span class="parameter" id="getMessages-param-limit"><span class="type-annotation">int</span> <span class="parameter-name">limit</span>: <span class="default-value">50</span>, </span> <span class="parameter" id="getMessages-param-after"><span class="type-annotation"><a href="nyxx/Snowflake-class.html">Snowflake</a></span> <span class="parameter-name">after</span>, </span> <span class="parameter" id="getMessages-param-before"><span class="type-annotation"><a href="nyxx/Snowflake-class.html">Snowflake</a></span> <span class="parameter-name">before</span>, </span> <span class="parameter" id="getMessages-param-around"><span class="type-annotation"><a href="nyxx/Snowflake-class.html">Snowflake</a></span> <span class="parameter-name">around</span></span> })
+            <span class="returntype parameter">&#8594; Future<span class="signature">&lt;<wbr><span class="type-parameter">LinkedHashMap<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/Snowflake-class.html">Snowflake</a></span>, <span class="type-parameter"><a href="nyxx/Message-class.html">Message</a></span>&gt;</span></span>&gt;</span></span>
           </span>
         </dt>
         <dd class="inherited">
           Gets several <a href="nyxx/Message-class.html">Message</a> objects. <a href="nyxx/MessageChannel/getMessages.html">[...]</a>
           <div class="features">inherited</div>
 </dd>
+        <dt id="join" class="callable inherited">
+          <span class="name"><a href="nyxx/MessageChannel/join.html">join</a></span><span class="signature">(<wbr>[<span class="parameter" id="join-param-separator"><span class="type-annotation">String</span> <span class="parameter-name">separator</span> = <span class="default-value">""</span></span> ])
+            <span class="returntype parameter">&#8594; String</span>
+          </span>
+        </dt>
+        <dd class="inherited">
+          Converts each element to a <code>String</code> and concatenates the strings. <a href="nyxx/MessageChannel/join.html">[...]</a>
+          <div class="features">inherited</div>
+</dd>
+        <dt id="lastWhere" class="callable inherited">
+          <span class="name"><a href="nyxx/MessageChannel/lastWhere.html">lastWhere</a></span><span class="signature">(<wbr><span class="parameter" id="lastWhere-param-test"><span class="type-annotation">bool</span> <span class="parameter-name">test</span>(<span class="parameter" id="test-param-value"><span class="type-annotation">E</span> <span class="parameter-name">value</span></span>), {</span> <span class="parameter" id="lastWhere-param-orElse"><span class="type-annotation"><a href="nyxx/Message-class.html">Message</a></span> <span class="parameter-name">orElse</span>()</span> })
+            <span class="returntype parameter">&#8594; <a href="nyxx/Message-class.html">Message</a></span>
+          </span>
+        </dt>
+        <dd class="inherited">
+          Returns the last element that satisfies the given predicate <code>test</code>. <a href="nyxx/MessageChannel/lastWhere.html">[...]</a>
+          <div class="features">inherited</div>
+</dd>
+        <dt id="map" class="callable inherited">
+          <span class="name"><a href="nyxx/MessageChannel/map.html">map</a></span><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span><span class="signature">(<wbr><span class="parameter" id="map-param-f"><span class="type-annotation">T</span> <span class="parameter-name">f</span>(<span class="parameter" id="f-param-element"><span class="type-annotation">E</span> <span class="parameter-name">element</span></span>)</span>)
+            <span class="returntype parameter">&#8594; Iterable<span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span>
+          </span>
+        </dt>
+        <dd class="inherited">
+          Returns a new lazy <code>Iterable</code> with elements that are created by
+calling <code>f</code> on each element of this <code>Iterable</code> in iteration order. <a href="nyxx/MessageChannel/map.html">[...]</a>
+          <div class="features">inherited</div>
+</dd>
         <dt id="noSuchMethod" class="callable inherited">
-          <span class="name"><a href="nyxx/Channel/noSuchMethod.html">noSuchMethod</a></span><span class="signature">(<wbr><span class="parameter" id="noSuchMethod-param-invocation"><span class="type-annotation">Invocation</span> <span class="parameter-name">invocation</span></span>)
+          <span class="name"><a href="nyxx/SnowflakeEntity/noSuchMethod.html">noSuchMethod</a></span><span class="signature">(<wbr><span class="parameter" id="noSuchMethod-param-invocation"><span class="type-annotation">Invocation</span> <span class="parameter-name">invocation</span></span>)
             <span class="returntype parameter">&#8594; dynamic</span>
           </span>
         </dt>
         <dd class="inherited">
-          Invoked when a non-existent method or property is accessed. <a href="nyxx/Channel/noSuchMethod.html">[...]</a>
+          Invoked when a non-existent method or property is accessed. <a href="nyxx/SnowflakeEntity/noSuchMethod.html">[...]</a>
+          <div class="features">inherited</div>
+</dd>
+        <dt id="reduce" class="callable inherited">
+          <span class="name"><a href="nyxx/MessageChannel/reduce.html">reduce</a></span><span class="signature">(<wbr><span class="parameter" id="reduce-param-combine"><span class="type-annotation"><a href="nyxx/Message-class.html">Message</a></span> <span class="parameter-name">combine</span>(<span class="parameter" id="combine-param-value"><span class="type-annotation">E</span> <span class="parameter-name">value</span>, </span> <span class="parameter" id="combine-param-element"><span class="type-annotation">E</span> <span class="parameter-name">element</span></span>)</span>)
+            <span class="returntype parameter">&#8594; <a href="nyxx/Message-class.html">Message</a></span>
+          </span>
+        </dt>
+        <dd class="inherited">
+          Reduces a collection to a single value by iteratively combining elements
+of the collection using the provided function. <a href="nyxx/MessageChannel/reduce.html">[...]</a>
           <div class="features">inherited</div>
 </dd>
         <dt id="send" class="callable inherited">
-          <span class="name"><a href="nyxx/MessageChannel/send.html">send</a></span><span class="signature">(<wbr>{<span class="parameter" id="send-param-content"><span class="type-annotation">String</span> <span class="parameter-name">content</span>, </span> <span class="parameter" id="send-param-embed"><span class="type-annotation"><a href="nyxx/EmbedBuilder-class.html">EmbedBuilder</a></span> <span class="parameter-name">embed</span>, </span> <span class="parameter" id="send-param-tts"><span class="type-annotation">bool</span> <span class="parameter-name">tts</span>: <span class="default-value">false</span>, </span> <span class="parameter" id="send-param-nonce"><span class="type-annotation">String</span> <span class="parameter-name">nonce</span>, </span> <span class="parameter" id="send-param-disableEveryone"><span class="type-annotation">bool</span> <span class="parameter-name">disableEveryone</span></span> })
+          <span class="name"><a href="nyxx/MessageChannel/send.html">send</a></span><span class="signature">(<wbr>{<span class="parameter" id="send-param-content"><span class="type-annotation">Object</span> <span class="parameter-name">content</span>: <span class="default-value">""</span>, </span> <span class="parameter" id="send-param-embed"><span class="type-annotation"><a href="nyxx/EmbedBuilder-class.html">EmbedBuilder</a></span> <span class="parameter-name">embed</span>, </span> <span class="parameter" id="send-param-tts"><span class="type-annotation">bool</span> <span class="parameter-name">tts</span>: <span class="default-value">false</span>, </span> <span class="parameter" id="send-param-nonce"><span class="type-annotation">String</span> <span class="parameter-name">nonce</span>, </span> <span class="parameter" id="send-param-disableEveryone"><span class="type-annotation">bool</span> <span class="parameter-name">disableEveryone</span></span> })
             <span class="returntype parameter">&#8594; Future<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/Message-class.html">Message</a></span>&gt;</span></span>
           </span>
         </dt>
@@ -330,7 +529,7 @@
           <div class="features">inherited</div>
 </dd>
         <dt id="sendFile" class="callable inherited">
-          <span class="name"><a href="nyxx/MessageChannel/sendFile.html">sendFile</a></span><span class="signature">(<wbr><span class="parameter" id="sendFile-param-filepaths"><span class="type-annotation">List<span class="signature">&lt;<wbr><span class="type-parameter">String</span>&gt;</span></span> <span class="parameter-name">filepaths</span>, {</span> <span class="parameter" id="sendFile-param-content"><span class="type-annotation">String</span> <span class="parameter-name">content</span>: <span class="default-value">""</span>, </span> <span class="parameter" id="sendFile-param-embed"><span class="type-annotation"><a href="nyxx/EmbedBuilder-class.html">EmbedBuilder</a></span> <span class="parameter-name">embed</span>: <span class="default-value">null</span></span> })
+          <span class="name"><a href="nyxx/MessageChannel/sendFile.html">sendFile</a></span><span class="signature">(<wbr><span class="parameter" id="sendFile-param-filepaths"><span class="type-annotation">List<span class="signature">&lt;<wbr><span class="type-parameter">String</span>&gt;</span></span> <span class="parameter-name">filepaths</span>, {</span> <span class="parameter" id="sendFile-param-content"><span class="type-annotation">String</span> <span class="parameter-name">content</span>: <span class="default-value">""</span>, </span> <span class="parameter" id="sendFile-param-embed"><span class="type-annotation"><a href="nyxx/EmbedBuilder-class.html">EmbedBuilder</a></span> <span class="parameter-name">embed</span></span> })
             <span class="returntype parameter">&#8594; Future<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/Message-class.html">Message</a></span>&gt;</span></span>
           </span>
         </dt>
@@ -338,6 +537,33 @@
           Sends file to channel and optional <code>content</code>. <code>filepath</code> is relative to project root.
 Throws an <code>Exception</code> if the HTTP request errored.
     Channel.send(content: "My content!");
+          <div class="features">inherited</div>
+</dd>
+        <dt id="singleWhere" class="callable inherited">
+          <span class="name"><a href="nyxx/MessageChannel/singleWhere.html">singleWhere</a></span><span class="signature">(<wbr><span class="parameter" id="singleWhere-param-test"><span class="type-annotation">bool</span> <span class="parameter-name">test</span>(<span class="parameter" id="test-param-element"><span class="type-annotation">E</span> <span class="parameter-name">element</span></span>), {</span> <span class="parameter" id="singleWhere-param-orElse"><span class="type-annotation"><a href="nyxx/Message-class.html">Message</a></span> <span class="parameter-name">orElse</span>()</span> })
+            <span class="returntype parameter">&#8594; <a href="nyxx/Message-class.html">Message</a></span>
+          </span>
+        </dt>
+        <dd class="inherited">
+          Returns the single element that satisfies <code>test</code>. <a href="nyxx/MessageChannel/singleWhere.html">[...]</a>
+          <div class="features">inherited</div>
+</dd>
+        <dt id="skip" class="callable inherited">
+          <span class="name"><a href="nyxx/MessageChannel/skip.html">skip</a></span><span class="signature">(<wbr><span class="parameter" id="skip-param-count"><span class="type-annotation">int</span> <span class="parameter-name">count</span></span>)
+            <span class="returntype parameter">&#8594; Iterable<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/Message-class.html">Message</a></span>&gt;</span></span>
+          </span>
+        </dt>
+        <dd class="inherited">
+          Returns an <code>Iterable</code> that provides all but the first <code>count</code> elements. <a href="nyxx/MessageChannel/skip.html">[...]</a>
+          <div class="features">inherited</div>
+</dd>
+        <dt id="skipWhile" class="callable inherited">
+          <span class="name"><a href="nyxx/MessageChannel/skipWhile.html">skipWhile</a></span><span class="signature">(<wbr><span class="parameter" id="skipWhile-param-test"><span class="type-annotation">bool</span> <span class="parameter-name">test</span>(<span class="parameter" id="test-param-value"><span class="type-annotation">E</span> <span class="parameter-name">value</span></span>)</span>)
+            <span class="returntype parameter">&#8594; Iterable<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/Message-class.html">Message</a></span>&gt;</span></span>
+          </span>
+        </dt>
+        <dd class="inherited">
+          Returns an <code>Iterable</code> that skips leading elements while <code>test</code> is satisfied. <a href="nyxx/MessageChannel/skipWhile.html">[...]</a>
           <div class="features">inherited</div>
 </dd>
         <dt id="startTyping" class="callable inherited">
@@ -367,13 +593,68 @@ Throws an <code>Exception</code> if the HTTP request errored.
           Stops a typing loop if one is running.
           <div class="features">inherited</div>
 </dd>
+        <dt id="take" class="callable inherited">
+          <span class="name"><a href="nyxx/MessageChannel/take.html">take</a></span><span class="signature">(<wbr><span class="parameter" id="take-param-count"><span class="type-annotation">int</span> <span class="parameter-name">count</span></span>)
+            <span class="returntype parameter">&#8594; Iterable<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/Message-class.html">Message</a></span>&gt;</span></span>
+          </span>
+        </dt>
+        <dd class="inherited">
+          Returns a lazy iterable of the <code>count</code> first elements of this iterable. <a href="nyxx/MessageChannel/take.html">[...]</a>
+          <div class="features">inherited</div>
+</dd>
+        <dt id="takeWhile" class="callable inherited">
+          <span class="name"><a href="nyxx/MessageChannel/takeWhile.html">takeWhile</a></span><span class="signature">(<wbr><span class="parameter" id="takeWhile-param-test"><span class="type-annotation">bool</span> <span class="parameter-name">test</span>(<span class="parameter" id="test-param-value"><span class="type-annotation">E</span> <span class="parameter-name">value</span></span>)</span>)
+            <span class="returntype parameter">&#8594; Iterable<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/Message-class.html">Message</a></span>&gt;</span></span>
+          </span>
+        </dt>
+        <dd class="inherited">
+          Returns a lazy iterable of the leading elements satisfying <code>test</code>. <a href="nyxx/MessageChannel/takeWhile.html">[...]</a>
+          <div class="features">inherited</div>
+</dd>
+        <dt id="toList" class="callable inherited">
+          <span class="name"><a href="nyxx/MessageChannel/toList.html">toList</a></span><span class="signature">(<wbr>{<span class="parameter" id="toList-param-growable"><span class="type-annotation">bool</span> <span class="parameter-name">growable</span>: <span class="default-value">true</span></span> })
+            <span class="returntype parameter">&#8594; List<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/Message-class.html">Message</a></span>&gt;</span></span>
+          </span>
+        </dt>
+        <dd class="inherited">
+          Creates a <code>List</code> containing the elements of this <code>Iterable</code>. <a href="nyxx/MessageChannel/toList.html">[...]</a>
+          <div class="features">inherited</div>
+</dd>
+        <dt id="toSet" class="callable inherited">
+          <span class="name"><a href="nyxx/MessageChannel/toSet.html">toSet</a></span><span class="signature">(<wbr>)
+            <span class="returntype parameter">&#8594; Set<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/Message-class.html">Message</a></span>&gt;</span></span>
+          </span>
+        </dt>
+        <dd class="inherited">
+          Creates a <code>Set</code> containing the same elements as this iterable. <a href="nyxx/MessageChannel/toSet.html">[...]</a>
+          <div class="features">inherited</div>
+</dd>
         <dt id="toString" class="callable inherited">
-          <span class="name"><a href="nyxx/Channel/toString.html">toString</a></span><span class="signature">(<wbr>)
+          <span class="name"><a href="nyxx/MessageChannel/toString.html">toString</a></span><span class="signature">(<wbr>)
             <span class="returntype parameter">&#8594; String</span>
           </span>
         </dt>
         <dd class="inherited">
           Returns a string representation of this object.
+          <div class="features">inherited</div>
+</dd>
+        <dt id="where" class="callable inherited">
+          <span class="name"><a href="nyxx/MessageChannel/where.html">where</a></span><span class="signature">(<wbr><span class="parameter" id="where-param-f"><span class="type-annotation">bool</span> <span class="parameter-name">f</span>(<span class="parameter" id="f-param-element"><span class="type-annotation">E</span> <span class="parameter-name">element</span></span>)</span>)
+            <span class="returntype parameter">&#8594; Iterable<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/Message-class.html">Message</a></span>&gt;</span></span>
+          </span>
+        </dt>
+        <dd class="inherited">
+          Returns a new lazy <code>Iterable</code> with all elements that satisfy the
+predicate <code>test</code>. <a href="nyxx/MessageChannel/where.html">[...]</a>
+          <div class="features">inherited</div>
+</dd>
+        <dt id="whereType" class="callable inherited">
+          <span class="name"><a href="nyxx/MessageChannel/whereType.html">whereType</a></span><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span><span class="signature">(<wbr>)
+            <span class="returntype parameter">&#8594; Iterable<span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span>
+          </span>
+        </dt>
+        <dd class="inherited">
+          Returns a new lazy <code>Iterable</code> with all elements that have type <code>T</code>. <a href="nyxx/MessageChannel/whereType.html">[...]</a>
           <div class="features">inherited</div>
 </dd>
       </dl>
@@ -383,12 +664,12 @@ Throws an <code>Exception</code> if the HTTP request errored.
       <h2>Operators</h2>
       <dl class="callables">
         <dt id="operator ==" class="callable inherited">
-          <span class="name"><a href="nyxx/Channel/operator_equals.html">operator ==</a></span><span class="signature">(<wbr><span class="parameter" id="==-param-other"><span class="type-annotation">dynamic</span> <span class="parameter-name">other</span></span>)
+          <span class="name"><a href="nyxx/SnowflakeEntity/operator_equals.html">operator ==</a></span><span class="signature">(<wbr><span class="parameter" id="==-param-other"><span class="type-annotation">dynamic</span> <span class="parameter-name">other</span></span>)
             <span class="returntype parameter">&#8594; bool</span>
           </span>
         </dt>
         <dd class="inherited">
-          The equality operator. <a href="nyxx/Channel/operator_equals.html">[...]</a>
+          The equality operator. <a href="nyxx/SnowflakeEntity/operator_equals.html">[...]</a>
           <div class="features">inherited</div>
 </dd>
       </dl>
@@ -407,32 +688,62 @@ Throws an <code>Exception</code> if the HTTP request errored.
       </li>
       <li><a href="nyxx/DMChannel/recipient.html">recipient</a></li>
       <li class="inherited"><a href="nyxx/Channel/client.html">client</a></li>
-      <li class="inherited"><a href="nyxx/Channel/createdAt.html">createdAt</a></li>
-      <li class="inherited"><a href="nyxx/Channel/hashCode.html">hashCode</a></li>
-      <li class="inherited"><a href="nyxx/Channel/id.html">id</a></li>
+      <li class="inherited"><a href="nyxx/SnowflakeEntity/createdAt.html">createdAt</a></li>
+      <li class="inherited"><a href="nyxx/MessageChannel/first.html">first</a></li>
+      <li class="inherited"><a href="nyxx/SnowflakeEntity/hashCode.html">hashCode</a></li>
+      <li class="inherited"><a href="nyxx/SnowflakeEntity/id.html">id</a></li>
+      <li class="inherited"><a href="nyxx/MessageChannel/isEmpty.html">isEmpty</a></li>
+      <li class="inherited"><a href="nyxx/MessageChannel/isNotEmpty.html">isNotEmpty</a></li>
+      <li class="inherited"><a href="nyxx/MessageChannel/iterator.html">iterator</a></li>
+      <li class="inherited"><a href="nyxx/MessageChannel/last.html">last</a></li>
       <li class="inherited"><a href="nyxx/MessageChannel/lastMessageID.html">lastMessageID</a></li>
+      <li class="inherited"><a href="nyxx/MessageChannel/length.html">length</a></li>
       <li class="inherited"><a href="nyxx/MessageChannel/messages.html">messages</a></li>
       <li class="inherited"><a href="nyxx/MessageChannel/onMessage.html">onMessage</a></li>
       <li class="inherited"><a href="nyxx/MessageChannel/onTyping.html">onTyping</a></li>
       <li class="inherited"><a href="nyxx/Channel/raw.html">raw</a></li>
-      <li class="inherited"><a href="nyxx/Channel/runtimeType.html">runtimeType</a></li>
+      <li class="inherited"><a href="nyxx/SnowflakeEntity/runtimeType.html">runtimeType</a></li>
+      <li class="inherited"><a href="nyxx/MessageChannel/single.html">single</a></li>
       <li class="inherited"><a href="nyxx/Channel/type.html">type</a></li>
     
       <li class="section-title inherited"><a href="nyxx/DMChannel-class.html#instance-methods">Methods</a></li>
+      <li class="inherited"><a href="nyxx/MessageChannel/any.html">any</a></li>
       <li class="inherited"><a href="nyxx/MessageChannel/bulkRemoveMessages.html">bulkRemoveMessages</a></li>
+      <li class="inherited"><a href="nyxx/MessageChannel/cast.html">cast</a></li>
+      <li class="inherited"><a href="nyxx/MessageChannel/contains.html">contains</a></li>
       <li class="inherited"><a href="nyxx/Channel/delete.html">delete</a></li>
+      <li class="inherited"><a href="nyxx/MessageChannel/elementAt.html">elementAt</a></li>
+      <li class="inherited"><a href="nyxx/MessageChannel/every.html">every</a></li>
+      <li class="inherited"><a href="nyxx/MessageChannel/expand.html">expand</a></li>
+      <li class="inherited"><a href="nyxx/MessageChannel/firstWhere.html">firstWhere</a></li>
+      <li class="inherited"><a href="nyxx/MessageChannel/fold.html">fold</a></li>
+      <li class="inherited"><a href="nyxx/MessageChannel/followedBy.html">followedBy</a></li>
+      <li class="inherited"><a href="nyxx/MessageChannel/forEach.html">forEach</a></li>
       <li class="inherited"><a href="nyxx/MessageChannel/getMessage.html">getMessage</a></li>
       <li class="inherited"><a href="nyxx/MessageChannel/getMessages.html">getMessages</a></li>
-      <li class="inherited"><a href="nyxx/Channel/noSuchMethod.html">noSuchMethod</a></li>
+      <li class="inherited"><a href="nyxx/MessageChannel/join.html">join</a></li>
+      <li class="inherited"><a href="nyxx/MessageChannel/lastWhere.html">lastWhere</a></li>
+      <li class="inherited"><a href="nyxx/MessageChannel/map.html">map</a></li>
+      <li class="inherited"><a href="nyxx/SnowflakeEntity/noSuchMethod.html">noSuchMethod</a></li>
+      <li class="inherited"><a href="nyxx/MessageChannel/reduce.html">reduce</a></li>
       <li class="inherited"><a href="nyxx/MessageChannel/send.html">send</a></li>
       <li class="inherited"><a href="nyxx/MessageChannel/sendFile.html">sendFile</a></li>
+      <li class="inherited"><a href="nyxx/MessageChannel/singleWhere.html">singleWhere</a></li>
+      <li class="inherited"><a href="nyxx/MessageChannel/skip.html">skip</a></li>
+      <li class="inherited"><a href="nyxx/MessageChannel/skipWhile.html">skipWhile</a></li>
       <li class="inherited"><a href="nyxx/MessageChannel/startTyping.html">startTyping</a></li>
       <li class="inherited"><a href="nyxx/MessageChannel/startTypingLoop.html">startTypingLoop</a></li>
       <li class="inherited"><a href="nyxx/MessageChannel/stopTypingLoop.html">stopTypingLoop</a></li>
-      <li class="inherited"><a href="nyxx/Channel/toString.html">toString</a></li>
+      <li class="inherited"><a href="nyxx/MessageChannel/take.html">take</a></li>
+      <li class="inherited"><a href="nyxx/MessageChannel/takeWhile.html">takeWhile</a></li>
+      <li class="inherited"><a href="nyxx/MessageChannel/toList.html">toList</a></li>
+      <li class="inherited"><a href="nyxx/MessageChannel/toSet.html">toSet</a></li>
+      <li class="inherited"><a href="nyxx/MessageChannel/toString.html">toString</a></li>
+      <li class="inherited"><a href="nyxx/MessageChannel/where.html">where</a></li>
+      <li class="inherited"><a href="nyxx/MessageChannel/whereType.html">whereType</a></li>
     
       <li class="section-title inherited"><a href="nyxx/DMChannel-class.html#operators">Operators</a></li>
-      <li class="inherited"><a href="nyxx/Channel/operator_equals.html">operator ==</a></li>
+      <li class="inherited"><a href="nyxx/SnowflakeEntity/operator_equals.html">operator ==</a></li>
     
     
     

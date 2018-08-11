@@ -55,6 +55,7 @@
     
       <li class="section-title"><a href="nyxx.commands/CommandContext-class.html#instance-methods">Methods</a></li>
       <li><a href="nyxx.commands/CommandContext/collectEmojis.html">collectEmojis</a></li>
+      <li><a href="nyxx.commands/CommandContext/getCodeBlocks.html">getCodeBlocks</a></li>
       <li><a href="nyxx.commands/CommandContext/getHelp.html">getHelp</a></li>
       <li><a href="nyxx.commands/CommandContext/nextMessage.html">nextMessage</a></li>
       <li><a href="nyxx.commands/CommandContext/nextMessages.html">nextMessages</a></li>
@@ -93,17 +94,16 @@
     Duration timeout: const Duration(seconds: 30),
     bool everywhere: false}) async {
   return new Future(() {
-    switch (everywhere) {
-      case true:
-        if (user != null)
-          return channel.client.onTyping.firstWhere((e) =&gt; e.user == user);
+    if (everywhere) {
+      if (user != null)
+        return channel.client.onTyping.firstWhere((e) =&gt; e.user == user);
 
-        return channel.client.onTyping.first;
-      case false:
-        if (user != null)
-          return channel.onTyping.firstWhere((e) =&gt; e.user == user);
+      return channel.client.onTyping.first;
+    } else {
+      if (user != null)
+        return channel.onTyping.firstWhere((e) =&gt; e.user == user);
 
-        return channel.onTyping.first;
+      return channel.onTyping.first;
     }
   }).timeout(timeout, onTimeout: () =&gt; null);
 }</code></pre>

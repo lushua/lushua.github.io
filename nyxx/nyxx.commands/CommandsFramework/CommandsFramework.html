@@ -106,6 +106,7 @@
   _wrongContextController = new StreamController.broadcast();
   _unauthorizedNsfwAccess = new StreamController.broadcast();
   _requiredTopicError = new StreamController.broadcast();
+  &#47;&#47;_commandParsingFail = new StreamController.broadcast();
 
   onCommandNotFound = _commandNotFoundEventController.stream;
   onAdminOnlyError = _forAdminOnlyEventController.stream;
@@ -115,13 +116,19 @@
   onWrongContext = _wrongContextController.stream;
   onUnauthorizedNsfwAccess = _unauthorizedNsfwAccess.stream;
   onRequiredTopicError = _requiredTopicError.stream;
+  &#47;&#47;onCommandParsingFail = _commandParsingFail.stream;
 
   &#47;&#47; Listen to incoming messages and ignore all from bots (if set)
   _client.onMessage.listen((MessageEvent e) async {
     if (ignoreBots &amp;&amp; e.message.author.bot) return;
     if (!e.message.content.startsWith(prefix)) return;
 
-    await _dispatch(e);
+    try {
+        await _dispatch(e);
+    }
+    catch (e) {
+      print(e);
+    }
   });
 }</code></pre>
     </section>

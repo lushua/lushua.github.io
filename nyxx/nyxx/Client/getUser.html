@@ -95,10 +95,14 @@
       <li class="inherited"><a href="nyxx/Client/runtimeType.html">runtimeType</a></li>
     
       <li class="section-title"><a href="nyxx/Client-class.html#instance-methods">Methods</a></li>
+      <li><a href="nyxx/Client/blockToReady.html">blockToReady</a></li>
+      <li><a href="nyxx/Client/createGuild.html">createGuild</a></li>
       <li><a href="nyxx/Client/destroy.html">destroy</a></li>
+      <li><a href="nyxx/Client/getGuild.html">getGuild</a></li>
       <li><a href="nyxx/Client/getInvite.html">getInvite</a></li>
       <li><a href="nyxx/Client/getOAuth2Info.html">getOAuth2Info</a></li>
       <li><a href="nyxx/Client/getUser.html">getUser</a></li>
+      <li><a href="nyxx/Client/getWebhook.html">getWebhook</a></li>
       <li class="inherited"><a href="nyxx/Client/noSuchMethod.html">noSuchMethod</a></li>
       <li class="inherited"><a href="nyxx/Client/toString.html">toString</a></li>
     
@@ -116,18 +120,19 @@
     <section class="multi-line-signature">
       <span class="returntype">Future<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/User-class.html">User</a></span>&gt;</span></span>
       <span class="name ">getUser</span>
-(<wbr><span class="parameter" id="getUser-param-userId"><span class="type-annotation">String</span> <span class="parameter-name">userId</span></span>)
+(<wbr><span class="parameter" id="getUser-param-id"><span class="type-annotation"><a href="nyxx/Snowflake-class.html">Snowflake</a></span> <span class="parameter-name">id</span></span>)
     </section>
     <section class="desc markdown">
-      <p>Gets a <a href="nyxx/User-class.html">User</a> object.</p>
-<p>Throws an <code>Exception</code> if the HTTP request errored.
-    Client.getUser("user id");</p>
+      <p>Get user instance with specified id.</p>
     </section>
     
     <section class="summary source-code" id="source">
       <h2><span>Implementation</span> </h2>
-      <pre class="language-dart"><code class="language-dart">Future&lt;User&gt; getUser(String userId) async {
-  final HttpResponse r = await this.http.send(&#39;GET&#39;, &#39;&#47;users&#47;userId&#39;);
+      <pre class="language-dart"><code class="language-dart">Future&lt;User&gt; getUser(Snowflake id) async {
+  if(this.users.containsKey(id))
+    return this.users[id];
+
+  var r = await this.http.send(&quot;GET&quot;, &quot;&#47;users&#47;${id.toString()}&quot;);
   return new User._new(this, r.body.asJson() as Map&lt;String, dynamic&gt;);
 }</code></pre>
     </section>

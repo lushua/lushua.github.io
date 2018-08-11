@@ -46,7 +46,6 @@
       <li><a href="nyxx.voice/Player/currentChannel.html">currentChannel</a></li>
       <li><a href="nyxx.voice/Player/currentTrack.html">currentTrack</a></li>
       <li><a href="nyxx.voice/Player/isConnected.html">isConnected</a></li>
-      <li><a href="nyxx.voice/Player/isPlaying.html">isPlaying</a></li>
       <li><a href="nyxx.voice/Player/onPlayerUpdate.html">onPlayerUpdate</a></li>
       <li><a href="nyxx.voice/Player/onTrackError.html">onTrackError</a></li>
       <li class="inherited"><a href="nyxx.voice/Player/hashCode.html">hashCode</a></li>
@@ -88,9 +87,13 @@
     
     <section class="summary source-code" id="source">
       <h2><span>Implementation</span> </h2>
-      <pre class="language-dart"><code class="language-dart">Future&lt;Null&gt; changeChannel(VoiceChannel channel, {bool muted: false, bool deafen: false}) {
+      <pre class="language-dart"><code class="language-dart">Future&lt;Null&gt; changeChannel(VoiceChannel channel,
+    {bool muted: false, bool deafen: false}) {
   currentChannel = channel;
-  _guild.shard.send(&quot;VOICE_STATE_UPDATE&quot;, new _Opcode4(_guild, channel, muted, deafen)._build());
+  _guild.shard.send(&quot;VOICE_STATE_UPDATE&quot;,
+      new _Opcode4(_guild, channel, muted, deafen)._build());
+
+  return null;
 }</code></pre>
     </section>
 

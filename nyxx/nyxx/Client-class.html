@@ -45,7 +45,9 @@
       <li><a href="nyxx/AuditLogChange-class.html">AuditLogChange</a></li>
       <li><a href="nyxx/AuditLogEntry-class.html">AuditLogEntry</a></li>
       <li><a href="nyxx/BeforeHttpRequestSendEvent-class.html">BeforeHttpRequestSendEvent</a></li>
+      <li><a href="nyxx/Builder-class.html">Builder</a></li>
       <li><a href="nyxx/Channel-class.html">Channel</a></li>
+      <li><a href="nyxx/ChannelBuilder-class.html">ChannelBuilder</a></li>
       <li><a href="nyxx/ChannelCreateEvent-class.html">ChannelCreateEvent</a></li>
       <li><a href="nyxx/ChannelDeleteEvent-class.html">ChannelDeleteEvent</a></li>
       <li><a href="nyxx/ChannelPermissions-class.html">ChannelPermissions</a></li>
@@ -70,13 +72,13 @@
       <li><a href="nyxx/EmbedThumbnail-class.html">EmbedThumbnail</a></li>
       <li><a href="nyxx/EmbedVideo-class.html">EmbedVideo</a></li>
       <li><a href="nyxx/Emoji-class.html">Emoji</a></li>
-      <li><a href="nyxx/EmojisUnicode-class.html">EmojisUnicode</a></li>
       <li><a href="nyxx/Game-class.html">Game</a></li>
       <li><a href="nyxx/GroupChannel-class.html">GroupChannel</a></li>
       <li><a href="nyxx/GroupDMChannel-class.html">GroupDMChannel</a></li>
       <li><a href="nyxx/Guild-class.html">Guild</a></li>
       <li><a href="nyxx/GuildBanAddEvent-class.html">GuildBanAddEvent</a></li>
       <li><a href="nyxx/GuildBanRemoveEvent-class.html">GuildBanRemoveEvent</a></li>
+      <li><a href="nyxx/GuildBuilder-class.html">GuildBuilder</a></li>
       <li><a href="nyxx/GuildChannel-class.html">GuildChannel</a></li>
       <li><a href="nyxx/GuildCreateEvent-class.html">GuildCreateEvent</a></li>
       <li><a href="nyxx/GuildDeleteEvent-class.html">GuildDeleteEvent</a></li>
@@ -119,11 +121,13 @@
       <li><a href="nyxx/Reaction-class.html">Reaction</a></li>
       <li><a href="nyxx/ReadyEvent-class.html">ReadyEvent</a></li>
       <li><a href="nyxx/Role-class.html">Role</a></li>
+      <li><a href="nyxx/RoleBuilder-class.html">RoleBuilder</a></li>
       <li><a href="nyxx/RoleCreateEvent-class.html">RoleCreateEvent</a></li>
       <li><a href="nyxx/RoleDeleteEvent-class.html">RoleDeleteEvent</a></li>
       <li><a href="nyxx/RoleUpdateEvent-class.html">RoleUpdateEvent</a></li>
       <li><a href="nyxx/Shard-class.html">Shard</a></li>
       <li><a href="nyxx/Snowflake-class.html">Snowflake</a></li>
+      <li><a href="nyxx/SnowflakeEntity-class.html">SnowflakeEntity</a></li>
       <li><a href="nyxx/TextChannel-class.html">TextChannel</a></li>
       <li><a href="nyxx/TypingEvent-class.html">TypingEvent</a></li>
       <li><a href="nyxx/UnicodeEmoji-class.html">UnicodeEmoji</a></li>
@@ -139,7 +143,11 @@
     
     
     
+      <li class="section-title"><a href="nyxx/nyxx-library.html#functions">Functions</a></li>
+      <li><a href="nyxx/snow.html">snow</a></li>
     
+      <li class="section-title"><a href="nyxx/nyxx-library.html#enums">Enums</a></li>
+      <li><a href="nyxx/ChannelType-class.html">ChannelType</a></li>
     
     
       <li class="section-title"><a href="nyxx/nyxx-library.html#exceptions">Exceptions</a></li>
@@ -157,8 +165,7 @@ From there you can subscribe to varius <code>Stream</code>s to listen to <a href
 Rememeber to close <a href="nyxx/Client-class.html">Client</a> before terminating program:</p>
 <pre class="language-dart"><code class="language-dart"> bot.destroy();
 </code></pre>
-<p>It closes bot connections to discord servers and makes sure that everything is terminated correctly.
-<a href="nyxx/Client-class.html">Client</a> is also used when creating instance of <code>Commands</code> - Commands Framework.</p>
+<p>It closes bot connections to discord servers and makes sure that everything is terminated correctly.</p>
     </section>
     
 
@@ -197,7 +204,7 @@ Rememeber to close <a href="nyxx/Client-class.html">Client</a> before terminatin
 </dd>
         <dt id="channels" class="property">
           <span class="name"><a href="nyxx/Client/channels.html">channels</a></span>
-          <span class="signature">&#8596; Map<span class="signature">&lt;<wbr><span class="type-parameter">String</span>, <span class="type-parameter"><a href="nyxx/Channel-class.html">Channel</a></span>&gt;</span></span>
+          <span class="signature">&#8596; Map<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/Snowflake-class.html">Snowflake</a></span>, <span class="type-parameter"><a href="nyxx/Channel-class.html">Channel</a></span>&gt;</span></span>
         </dt>
         <dd>
           All of the channels the bot is in.
@@ -205,7 +212,7 @@ Rememeber to close <a href="nyxx/Client-class.html">Client</a> before terminatin
 </dd>
         <dt id="guilds" class="property">
           <span class="name"><a href="nyxx/Client/guilds.html">guilds</a></span>
-          <span class="signature">&#8596; Map<span class="signature">&lt;<wbr><span class="type-parameter">String</span>, <span class="type-parameter"><a href="nyxx/Guild-class.html">Guild</a></span>&gt;</span></span>
+          <span class="signature">&#8596; Map<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/Snowflake-class.html">Snowflake</a></span>, <span class="type-parameter"><a href="nyxx/Guild-class.html">Guild</a></span>&gt;</span></span>
         </dt>
         <dd>
           All of the guilds the bot is in.
@@ -534,7 +541,7 @@ or when a 429 is received.
 </dd>
         <dt id="users" class="property">
           <span class="name"><a href="nyxx/Client/users.html">users</a></span>
-          <span class="signature">&#8596; Map<span class="signature">&lt;<wbr><span class="type-parameter">String</span>, <span class="type-parameter"><a href="nyxx/User-class.html">User</a></span>&gt;</span></span>
+          <span class="signature">&#8596; Map<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/Snowflake-class.html">Snowflake</a></span>, <span class="type-parameter"><a href="nyxx/User-class.html">User</a></span>&gt;</span></span>
         </dt>
         <dd>
           All of the users the bot can see. Does not always have offline users
@@ -571,6 +578,24 @@ without forceFetchUsers enabled.
     <section class="summary offset-anchor" id="instance-methods">
       <h2>Methods</h2>
       <dl class="callables">
+        <dt id="blockToReady" class="callable">
+          <span class="name"><a href="nyxx/Client/blockToReady.html">blockToReady</a></span><span class="signature">(<wbr>)
+            <span class="returntype parameter">&#8594; Future<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/ReadyEvent-class.html">ReadyEvent</a></span>&gt;</span></span>
+          </span>
+        </dt>
+        <dd>
+          Block isolate until client is ready
+          
+</dd>
+        <dt id="createGuild" class="callable">
+          <span class="name"><a href="nyxx/Client/createGuild.html">createGuild</a></span><span class="signature">(<wbr><span class="parameter" id="createGuild-param-builder"><span class="type-annotation"><a href="nyxx/GuildBuilder-class.html">GuildBuilder</a></span> <span class="parameter-name">builder</span></span>)
+            <span class="returntype parameter">&#8594; Future<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/Guild-class.html">Guild</a></span>&gt;</span></span>
+          </span>
+        </dt>
+        <dd>
+          Creates new guild with provided builder.
+          
+</dd>
         <dt id="destroy" class="callable">
           <span class="name"><a href="nyxx/Client/destroy.html">destroy</a></span><span class="signature">(<wbr>)
             <span class="returntype parameter">&#8594; Future<span class="signature">&lt;<wbr><span class="type-parameter">Null</span>&gt;</span></span>
@@ -578,6 +603,15 @@ without forceFetchUsers enabled.
         </dt>
         <dd>
           Destroys the websocket connection, and all streams.
+          
+</dd>
+        <dt id="getGuild" class="callable">
+          <span class="name"><a href="nyxx/Client/getGuild.html">getGuild</a></span><span class="signature">(<wbr><span class="parameter" id="getGuild-param-id"><span class="type-annotation"><a href="nyxx/Snowflake-class.html">Snowflake</a></span> <span class="parameter-name">id</span></span>)
+            <span class="returntype parameter">&#8594; Future<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/Guild-class.html">Guild</a></span>&gt;</span></span>
+          </span>
+        </dt>
+        <dd>
+          Gets Guild with specified id.
           
 </dd>
         <dt id="getInvite" class="callable">
@@ -599,12 +633,21 @@ without forceFetchUsers enabled.
           
 </dd>
         <dt id="getUser" class="callable">
-          <span class="name"><a href="nyxx/Client/getUser.html">getUser</a></span><span class="signature">(<wbr><span class="parameter" id="getUser-param-userId"><span class="type-annotation">String</span> <span class="parameter-name">userId</span></span>)
+          <span class="name"><a href="nyxx/Client/getUser.html">getUser</a></span><span class="signature">(<wbr><span class="parameter" id="getUser-param-id"><span class="type-annotation"><a href="nyxx/Snowflake-class.html">Snowflake</a></span> <span class="parameter-name">id</span></span>)
             <span class="returntype parameter">&#8594; Future<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/User-class.html">User</a></span>&gt;</span></span>
           </span>
         </dt>
         <dd>
-          Gets a <a href="nyxx/User-class.html">User</a> object. <a href="nyxx/Client/getUser.html">[...]</a>
+          Get user instance with specified id.
+          
+</dd>
+        <dt id="getWebhook" class="callable">
+          <span class="name"><a href="nyxx/Client/getWebhook.html">getWebhook</a></span><span class="signature">(<wbr><span class="parameter" id="getWebhook-param-id"><span class="type-annotation">String</span> <span class="parameter-name">id</span>, {</span> <span class="parameter" id="getWebhook-param-token"><span class="type-annotation">String</span> <span class="parameter-name">token</span>: <span class="default-value">""</span></span> })
+            <span class="returntype parameter">&#8594; Future<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/Webhook-class.html">Webhook</a></span>&gt;</span></span>
+          </span>
+        </dt>
+        <dd>
+          Gets a webhook by its ID and token.
           
 </dd>
         <dt id="noSuchMethod" class="callable inherited">
@@ -706,10 +749,14 @@ without forceFetchUsers enabled.
       <li class="inherited"><a href="nyxx/Client/runtimeType.html">runtimeType</a></li>
     
       <li class="section-title"><a href="nyxx/Client-class.html#instance-methods">Methods</a></li>
+      <li><a href="nyxx/Client/blockToReady.html">blockToReady</a></li>
+      <li><a href="nyxx/Client/createGuild.html">createGuild</a></li>
       <li><a href="nyxx/Client/destroy.html">destroy</a></li>
+      <li><a href="nyxx/Client/getGuild.html">getGuild</a></li>
       <li><a href="nyxx/Client/getInvite.html">getInvite</a></li>
       <li><a href="nyxx/Client/getOAuth2Info.html">getOAuth2Info</a></li>
       <li><a href="nyxx/Client/getUser.html">getUser</a></li>
+      <li><a href="nyxx/Client/getWebhook.html">getWebhook</a></li>
       <li class="inherited"><a href="nyxx/Client/noSuchMethod.html">noSuchMethod</a></li>
       <li class="inherited"><a href="nyxx/Client/toString.html">toString</a></li>
     

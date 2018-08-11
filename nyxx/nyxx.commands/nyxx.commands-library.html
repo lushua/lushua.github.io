@@ -40,7 +40,9 @@
           <li class="section-title">Libraries</li>
           <li><a href="nyxx/nyxx-library.html">nyxx</a></li>
           <li><a href="nyxx.commands/nyxx.commands-library.html">nyxx.commands</a></li>
+          <li><a href="nyxx.rpc/nyxx.rpc-library.html">nyxx.rpc</a></li>
           <li><a href="nyxx.voice/nyxx.voice-library.html">nyxx.voice</a></li>
+          <li><a href="utils/utils-library.html">utils</a></li>
     </ol>
   </div>
 
@@ -50,7 +52,7 @@
     <section class="desc markdown">
       <p>Nyxx DISCORD API wrapper for Dart</p>
 <p>Commands sublibrary provides tool for creating commands bots.
-It also provides more advanced tools for creating polls <a href="nyxx.commands/createPoll.html">createPoll</a>
+It also provides more advanced tools for creating polls.
 and paginated messages <a href="nyxx.commands/Pagination-class.html">Pagination</a>.</p>
     </section>
     
@@ -62,13 +64,17 @@ and paginated messages <a href="nyxx.commands/Pagination-class.html">Pagination<
           <span class="name "><a href="nyxx.commands/Command-class.html">Command</a></span>
         </dt>
         <dd>
-          
+          Defines command. Can be placed above method or class.
+If places above class this means that class is group of commands and all
+commans will be have prefix with given name.
+Placed on method it defines command handler for specified command. <a href="nyxx.commands/Command-class.html">[...]</a>
         </dd>
         <dt id="CommandContext">
           <span class="name "><a href="nyxx.commands/CommandContext-class.html">CommandContext</a></span>
         </dt>
         <dd>
-          Abstract class to factory new command
+          All command have to inhertit from this class.
+This class provides variuos helper methods to access discord world more easly
         </dd>
         <dt id="CommandExecutionFailEvent">
           <span class="name "><a href="nyxx.commands/CommandExecutionFailEvent-class.html">CommandExecutionFailEvent</a></span>
@@ -76,12 +82,26 @@ and paginated messages <a href="nyxx.commands/Pagination-class.html">Pagination<
         <dd>
           Emitted when command execution fails
         </dd>
+        <dt id="CommandParsingFail">
+          <span class="name "><a href="nyxx.commands/CommandParsingFail-class.html">CommandParsingFail</a></span>
+        </dt>
+        <dd>
+          Emitted when parsing error occurs
+        </dd>
         <dt id="CommandsFramework">
           <span class="name "><a href="nyxx.commands/CommandsFramework-class.html">CommandsFramework</a></span>
         </dt>
         <dd>
-          Main handler for CommandFramework.
-  This class matches and dispatches commands to best matching contexts.
+          Main point of commands in nyx.
+It gets all sent messages and matches to registered command and invokes
+its action.
+        </dd>
+        <dt id="Cons">
+          <span class="name "><a href="nyxx.commands/Cons-class.html">Cons</a></span>
+        </dt>
+        <dd>
+          Defines additional properties which will restrict user access to command
+All fields are optional and wont affect command execution of not set.
         </dd>
         <dt id="CooldownCache">
           <span class="name "><a href="nyxx.commands/CooldownCache-class.html">CooldownCache</a></span>
@@ -93,13 +113,7 @@ and paginated messages <a href="nyxx.commands/Pagination-class.html">Pagination<
           <span class="name "><a href="nyxx.commands/GuildOnly-class.html">GuildOnly</a></span>
         </dt>
         <dd>
-          
-        </dd>
-        <dt id="Maincommand">
-          <span class="name "><a href="nyxx.commands/Maincommand-class.html">Maincommand</a></span>
-        </dt>
-        <dd>
-          Creates main execution command
+          Allows to specify destination of command.
         </dd>
         <dt id="Pagination">
           <span class="name "><a href="nyxx.commands/Pagination-class.html">Pagination</a></span>
@@ -111,7 +125,7 @@ and paginated messages <a href="nyxx.commands/Pagination-class.html">Pagination<
           <span class="name "><a href="nyxx.commands/Remainder-class.html">Remainder</a></span>
         </dt>
         <dd>
-          Captures all remaining text into <code>List&lt;String&gt;</code>
+          Captures all remaining text into <code>List&lt;String&gt;</code> or <code>String</code>
         </dd>
         <dt id="Scheduler">
           <span class="name "><a href="nyxx.commands/Scheduler-class.html">Scheduler</a></span>
@@ -125,12 +139,6 @@ and paginated messages <a href="nyxx.commands/Pagination-class.html">Pagination<
         <dd>
           <a href="nyxx.commands/Service-class.html">Service</a> is base for services
 Overriding this class
-        </dd>
-        <dt id="Subcommand">
-          <span class="name "><a href="nyxx.commands/Subcommand-class.html">Subcommand</a></span>
-        </dt>
-        <dd>
-          Defines new subcommand.
         </dd>
         <dt id="TypeConverter">
           <span class="name "><a href="nyxx.commands/TypeConverter-class.html">TypeConverter</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span>
@@ -149,7 +157,7 @@ Overriding this class alows to later register it into <a href="nyxx.commands/Com
 
       <dl class="callables">
         <dt id="createPoll" class="callable">
-          <span class="name"><a href="nyxx.commands/createPoll.html">createPoll</a></span><span class="signature">(<wbr><span class="parameter" id="createPoll-param-channel"><span class="type-annotation"><a href="nyxx/TextChannel-class.html">TextChannel</a></span> <span class="parameter-name">channel</span>, </span> <span class="parameter" id="createPoll-param-title"><span class="type-annotation">String</span> <span class="parameter-name">title</span>, </span> <span class="parameter" id="createPoll-param-options"><span class="type-annotation">Map<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/Emoji-class.html">Emoji</a></span>, <span class="type-parameter">String</span>&gt;</span></span> <span class="parameter-name">options</span>, {</span> <span class="parameter" id="createPoll-param-timeout"><span class="type-annotation">Duration</span> <span class="parameter-name">timeout</span>: <span class="default-value">const Duration(minutes: 10)</span>, </span> <span class="parameter" id="createPoll-param-message"><span class="type-annotation">String</span> <span class="parameter-name">message</span>: <span class="default-value">null</span>, </span> <span class="parameter" id="createPoll-param-delete"><span class="type-annotation">bool</span> <span class="parameter-name">delete</span>: <span class="default-value">false</span></span> })
+          <span class="name"><a href="nyxx.commands/createPoll.html">createPoll</a></span><span class="signature">(<wbr><span class="parameter" id="createPoll-param-channel"><span class="type-annotation"><a href="nyxx/TextChannel-class.html">TextChannel</a></span> <span class="parameter-name">channel</span>, </span> <span class="parameter" id="createPoll-param-title"><span class="type-annotation">String</span> <span class="parameter-name">title</span>, </span> <span class="parameter" id="createPoll-param-options"><span class="type-annotation">Map<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/Emoji-class.html">Emoji</a></span>, <span class="type-parameter">String</span>&gt;</span></span> <span class="parameter-name">options</span>, {</span> <span class="parameter" id="createPoll-param-timeout"><span class="type-annotation">Duration</span> <span class="parameter-name">timeout</span>: <span class="default-value">const Duration(minutes: 10)</span>, </span> <span class="parameter" id="createPoll-param-message"><span class="type-annotation">String</span> <span class="parameter-name">message</span>, </span> <span class="parameter" id="createPoll-param-delete"><span class="type-annotation">bool</span> <span class="parameter-name">delete</span>: <span class="default-value">false</span></span> })
             <span class="returntype parameter">&#8594; Future<span class="signature">&lt;<wbr><span class="type-parameter">Map<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/Emoji-class.html">Emoji</a></span>, <span class="type-parameter">int</span>&gt;</span></span>&gt;</span></span>
           </span>
         </dt>
@@ -172,15 +180,15 @@ Overriding this class alows to later register it into <a href="nyxx.commands/Com
       <li><a href="nyxx.commands/Command-class.html">Command</a></li>
       <li><a href="nyxx.commands/CommandContext-class.html">CommandContext</a></li>
       <li><a href="nyxx.commands/CommandExecutionFailEvent-class.html">CommandExecutionFailEvent</a></li>
+      <li><a href="nyxx.commands/CommandParsingFail-class.html">CommandParsingFail</a></li>
       <li><a href="nyxx.commands/CommandsFramework-class.html">CommandsFramework</a></li>
+      <li><a href="nyxx.commands/Cons-class.html">Cons</a></li>
       <li><a href="nyxx.commands/CooldownCache-class.html">CooldownCache</a></li>
       <li><a href="nyxx.commands/GuildOnly-class.html">GuildOnly</a></li>
-      <li><a href="nyxx.commands/Maincommand-class.html">Maincommand</a></li>
       <li><a href="nyxx.commands/Pagination-class.html">Pagination</a></li>
       <li><a href="nyxx.commands/Remainder-class.html">Remainder</a></li>
       <li><a href="nyxx.commands/Scheduler-class.html">Scheduler</a></li>
       <li><a href="nyxx.commands/Service-class.html">Service</a></li>
-      <li><a href="nyxx.commands/Subcommand-class.html">Subcommand</a></li>
       <li><a href="nyxx.commands/TypeConverter-class.html">TypeConverter</a></li>
     
     

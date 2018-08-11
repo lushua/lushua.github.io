@@ -42,15 +42,15 @@
       <li><a href="nyxx.commands/Command-class.html">Command</a></li>
       <li><a href="nyxx.commands/CommandContext-class.html">CommandContext</a></li>
       <li><a href="nyxx.commands/CommandExecutionFailEvent-class.html">CommandExecutionFailEvent</a></li>
+      <li><a href="nyxx.commands/CommandParsingFail-class.html">CommandParsingFail</a></li>
       <li><a href="nyxx.commands/CommandsFramework-class.html">CommandsFramework</a></li>
+      <li><a href="nyxx.commands/Cons-class.html">Cons</a></li>
       <li><a href="nyxx.commands/CooldownCache-class.html">CooldownCache</a></li>
       <li><a href="nyxx.commands/GuildOnly-class.html">GuildOnly</a></li>
-      <li><a href="nyxx.commands/Maincommand-class.html">Maincommand</a></li>
       <li><a href="nyxx.commands/Pagination-class.html">Pagination</a></li>
       <li><a href="nyxx.commands/Remainder-class.html">Remainder</a></li>
       <li><a href="nyxx.commands/Scheduler-class.html">Scheduler</a></li>
       <li><a href="nyxx.commands/Service-class.html">Service</a></li>
-      <li><a href="nyxx.commands/Subcommand-class.html">Subcommand</a></li>
       <li><a href="nyxx.commands/TypeConverter-class.html">TypeConverter</a></li>
     
     
@@ -66,6 +66,30 @@
   <div class="col-xs-12 col-sm-9 col-md-8 main-content">
     <h1>Command class</h1>
 
+    <section class="desc markdown">
+      <p>Defines command. Can be placed above method or class.
+If places above class this means that class is group of commands and all
+commans will be have prefix with given name.
+Placed on method it defines command handler for specified command.</p>
+<p>Code above cretaes new command group with name <code>cmd</code> and subcommand <code>check</code>.
+Group also has default command handler if only <code>cmd</code> invoked</p>
+<pre class="language-dart"><code>@Command(name: "cmd")
+class ExampleCommand {
+  // Invoked when message == `!cmd`
+  @Command(main: true)
+  Future main() async {
+   await reply(content: "Some reply");
+  }
+
+  // This is subcommand and will be invoked when message
+  // is equal with `!cmd check`
+  @Command(name: "check")
+  Future main() async {
+    await reply(content: "Checked!");
+  }
+}
+</code></pre>
+    </section>
     
 
     <section class="summary offset-anchor" id="constructors">
@@ -73,7 +97,7 @@
 
       <dl class="constructor-summary-list">
         <dt id="Command" class="callable">
-          <span class="name"><a href="nyxx.commands/Command/Command.html">Command</a></span><span class="signature">(<span class="parameter" id="-param-name"><span class="type-annotation">String</span> <span class="parameter-name">name</span>, {</span> <span class="parameter" id="-param-aliases"><span class="type-annotation">List<span class="signature">&lt;<wbr><span class="type-parameter">String</span>&gt;</span></span> <span class="parameter-name">aliases</span></span> })</span>
+          <span class="name"><a href="nyxx.commands/Command/Command.html">Command</a></span><span class="signature">({<span class="parameter" id="-param-name"><span class="type-annotation">String</span> <span class="parameter-name">name</span>, </span> <span class="parameter" id="-param-aliases"><span class="type-annotation">List<span class="signature">&lt;<wbr><span class="type-parameter">String</span>&gt;</span></span> <span class="parameter-name">aliases</span>, </span> <span class="parameter" id="-param-main"><span class="type-annotation">bool</span> <span class="parameter-name">main</span></span> })</span>
         </dt>
         <dd>
           
@@ -92,6 +116,14 @@
         </dt>
         <dd>
           List of aliases for command
+          <div class="features">final</div>
+</dd>
+        <dt id="main" class="property">
+          <span class="name"><a href="nyxx.commands/Command/main.html">main</a></span>
+          <span class="signature">&#8594; bool</span>
+        </dt>
+        <dd>
+          True if command should be main
           <div class="features">final</div>
 </dd>
         <dt id="name" class="property">
@@ -174,6 +206,7 @@
         <a href="nyxx.commands/Command-class.html#instance-properties">Properties</a>
       </li>
       <li><a href="nyxx.commands/Command/aliases.html">aliases</a></li>
+      <li><a href="nyxx.commands/Command/main.html">main</a></li>
       <li><a href="nyxx.commands/Command/name.html">name</a></li>
       <li class="inherited"><a href="nyxx.commands/Command/hashCode.html">hashCode</a></li>
       <li class="inherited"><a href="nyxx.commands/Command/runtimeType.html">runtimeType</a></li>

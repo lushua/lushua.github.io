@@ -83,7 +83,8 @@
           <span class="signature">&#8596; <a href="nyxx/VoiceChannel-class.html">VoiceChannel</a></span>
         </dt>
         <dd>
-          Current <code>VoiceChannel</code> player is in
+          True if player is playing something
+Current <code>VoiceChannel</code> player is in
           <div class="features">read / write</div>
 </dd>
         <dt id="currentTrack" class="property">
@@ -100,14 +101,6 @@
         </dt>
         <dd>
           True if player is connecte
-          <div class="features">read / write</div>
-</dd>
-        <dt id="isPlaying" class="property">
-          <span class="name"><a href="nyxx.voice/Player/isPlaying.html">isPlaying</a></span>
-          <span class="signature">&#8596; bool</span>
-        </dt>
-        <dd>
-          True if player is playing something
           <div class="features">read / write</div>
 </dd>
         <dt id="onPlayerUpdate" class="property">
@@ -187,7 +180,7 @@ Remember to await this methods - thread can be locked forever.
           
 </dd>
         <dt id="play" class="callable">
-          <span class="name"><a href="nyxx.voice/Player/play.html">play</a></span><span class="signature">(<wbr><span class="parameter" id="play-param-track"><span class="type-annotation"><a href="nyxx.voice/Track-class.html">Track</a></span> <span class="parameter-name">track</span></span>)
+          <span class="name"><a href="nyxx.voice/Player/play.html">play</a></span><span class="signature">(<wbr><span class="parameter" id="play-param-track"><span class="type-annotation"><a href="nyxx.voice/Entity-class.html">Entity</a></span> <span class="parameter-name">track</span></span>)
             <span class="returntype parameter">&#8594; Future<span class="signature">&lt;<wbr><span class="type-parameter">bool</span>&gt;</span></span>
           </span>
         </dt>
@@ -290,7 +283,6 @@ Remember to await this methods - thread can be locked forever.
       <li><a href="nyxx.voice/Player/currentChannel.html">currentChannel</a></li>
       <li><a href="nyxx.voice/Player/currentTrack.html">currentTrack</a></li>
       <li><a href="nyxx.voice/Player/isConnected.html">isConnected</a></li>
-      <li><a href="nyxx.voice/Player/isPlaying.html">isPlaying</a></li>
       <li><a href="nyxx.voice/Player/onPlayerUpdate.html">onPlayerUpdate</a></li>
       <li><a href="nyxx.voice/Player/onTrackError.html">onTrackError</a></li>
       <li class="inherited"><a href="nyxx.voice/Player/hashCode.html">hashCode</a></li>

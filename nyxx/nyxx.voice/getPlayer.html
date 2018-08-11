@@ -80,6 +80,7 @@
     <section class="summary source-code" id="source">
       <h2><span>Implementation</span> </h2>
       <pre class="language-dart"><code class="language-dart">Future&lt;Player&gt; getPlayer(Guild guild) async {
+  _logger.fine(&quot;Node for guild -${guild.id}- connected!&quot;);
   return await _manager.getPlayer(guild);
 }</code></pre>
     </section>

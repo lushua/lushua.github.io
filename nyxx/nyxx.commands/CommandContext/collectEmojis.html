@@ -55,6 +55,7 @@
     
       <li class="section-title"><a href="nyxx.commands/CommandContext-class.html#instance-methods">Methods</a></li>
       <li><a href="nyxx.commands/CommandContext/collectEmojis.html">collectEmojis</a></li>
+      <li><a href="nyxx.commands/CommandContext/getCodeBlocks.html">getCodeBlocks</a></li>
       <li><a href="nyxx.commands/CommandContext/getHelp.html">getHelp</a></li>
       <li><a href="nyxx.commands/CommandContext/nextMessage.html">nextMessage</a></li>
       <li><a href="nyxx.commands/CommandContext/nextMessages.html">nextMessages</a></li>
@@ -82,6 +83,9 @@
       <span class="name ">collectEmojis</span>
 (<wbr><span class="parameter" id="collectEmojis-param-msg"><span class="type-annotation"><a href="nyxx/Message-class.html">Message</a></span> <span class="parameter-name">msg</span>, </span> <span class="parameter" id="collectEmojis-param-duration"><span class="type-annotation">Duration</span> <span class="parameter-name">duration</span></span>)
     </section>
+    <section class="desc markdown">
+      <p>Collects messages emojis.</p>
+    </section>
     
     <section class="summary source-code" id="source">
       <h2><span>Implementation</span> </h2>
@@ -91,7 +95,7 @@
   return new Future&lt;Map&lt;Emoji, int&gt;&gt;(() async {
     await for (var r in msg.onReactionAdded) {
       if (m.containsKey(r.emoji))
-        m[r.emoji] = m[r.emoji] += 1;
+        m[r.emoji] += 1;
       else
         m[r.emoji] = 1;
     }
