@@ -78,8 +78,8 @@
     <section class="summary source-code" id="source">
       <h2><span>Implementation</span> </h2>
       <pre class="language-dart"><code class="language-dart">UserVoiceState(Client client, this.raw) {
-  this.channel = client.channels[new Snowflake(raw[&#39;channel_id&#39;] as String)]
-      as VoiceChannel;
+  this.channel =
+      client.channels[Snowflake(raw[&#39;channel_id&#39;] as String)] as VoiceChannel;
   this.deaf = raw[&#39;deaf&#39;] as bool;
   this.selfDeaf = raw[&#39;self_deaf&#39;] as bool;
   this.selfMute = raw[&#39;self_mute&#39;] as bool;
@@ -96,7 +96,7 @@
 
 <footer>
   <span class="no-break">
-    nyxx 0.24.0
+    nyxx 1.0.0
   </span>
 
 </footer>

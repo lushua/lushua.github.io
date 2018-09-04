@@ -67,6 +67,7 @@
       <li><a href="nyxx/Guild/splash.html">splash</a></li>
       <li><a href="nyxx/Guild/systemChannel.html">systemChannel</a></li>
       <li><a href="nyxx/Guild/verificationLevel.html">verificationLevel</a></li>
+      <li><a href="nyxx/Guild/webhooks.html">webhooks</a></li>
       <li class="inherited"><a href="nyxx/SnowflakeEntity/createdAt.html">createdAt</a></li>
       <li class="inherited"><a href="nyxx/SnowflakeEntity/hashCode.html">hashCode</a></li>
       <li class="inherited"><a href="nyxx/SnowflakeEntity/id.html">id</a></li>
@@ -77,6 +78,7 @@
       <li><a href="nyxx/Guild/ban.html">ban</a></li>
       <li><a href="nyxx/Guild/changeOwner.html">changeOwner</a></li>
       <li><a href="nyxx/Guild/createChannel.html">createChannel</a></li>
+      <li><a href="nyxx/Guild/createEmoji.html">createEmoji</a></li>
       <li><a href="nyxx/Guild/createRole.html">createRole</a></li>
       <li><a href="nyxx/Guild/delete.html">delete</a></li>
       <li><a href="nyxx/Guild/edit.html">edit</a></li>
@@ -91,7 +93,7 @@
       <li><a href="nyxx/Guild/getWebhooks.html">getWebhooks</a></li>
       <li><a href="nyxx/Guild/iconURL.html">iconURL</a></li>
       <li><a href="nyxx/Guild/leave.html">leave</a></li>
-      <li><a href="nyxx/Guild/moveGuildChannel.html">moveGuildChannel</a></li>
+      <li><a href="nyxx/Guild/moveChannel.html">moveChannel</a></li>
       <li><a href="nyxx/Guild/prune.html">prune</a></li>
       <li><a href="nyxx/Guild/splashURL.html">splashURL</a></li>
       <li><a href="nyxx/Guild/toString.html">toString</a></li>
@@ -112,22 +114,25 @@
     <section class="multi-line-signature">
       <span class="returntype">Future<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/AuditLog-class.html">AuditLog</a></span>&gt;</span></span>
       <span class="name ">getAuditLogs</span>
-(<wbr>{<span class="parameter" id="getAuditLogs-param-userId"><span class="type-annotation"><a href="nyxx/Snowflake-class.html">Snowflake</a></span> <span class="parameter-name">userId</span>, </span> <span class="parameter" id="getAuditLogs-param-actionType"><span class="type-annotation">String</span> <span class="parameter-name">actionType</span>, </span> <span class="parameter" id="getAuditLogs-param-before"><span class="type-annotation"><a href="nyxx/Snowflake-class.html">Snowflake</a></span> <span class="parameter-name">before</span>, </span> <span class="parameter" id="getAuditLogs-param-limit"><span class="type-annotation">int</span> <span class="parameter-name">limit</span></span> })
+(<wbr>{<span class="parameter" id="getAuditLogs-param-userId"><span class="type-annotation"><a href="nyxx/Snowflake-class.html">Snowflake</a></span> <span class="parameter-name">userId</span>, </span> <span class="parameter" id="getAuditLogs-param-actionType"><span class="type-annotation">int</span> <span class="parameter-name">actionType</span>, </span> <span class="parameter" id="getAuditLogs-param-before"><span class="type-annotation"><a href="nyxx/Snowflake-class.html">Snowflake</a></span> <span class="parameter-name">before</span>, </span> <span class="parameter" id="getAuditLogs-param-limit"><span class="type-annotation">int</span> <span class="parameter-name">limit</span>: <span class="default-value">50</span></span> })
     </section>
     <section class="desc markdown">
-      <p>Returns Audit logs.</p>
+      <p>Returns Audit logs.
+<a href="https://discordapp.com/developers/docs/resources/audit-log">https://discordapp.com/developers/docs/resources/audit-log</a></p>
+<pre class="language-dart"><code>var logs = await guild.getAuditLogs(actionType: 1);
+</code></pre>
     </section>
     
     <section class="summary source-code" id="source">
       <h2><span>Implementation</span> </h2>
       <pre class="language-dart"><code class="language-dart">Future&lt;AuditLog&gt; getAuditLogs(
     {Snowflake userId,
-    String actionType,
+    int actionType,
     Snowflake before,
-    int limit}) async {
-  var query = new Map&lt;String, String&gt;();
+    int limit = 50}) async {
+  var query = Map&lt;String, String&gt;();
   if (userId != null) query[&#39;user_id&#39;] = userId.toString();
-  if (actionType != null) query[&#39;action_type&#39;] = actionType;
+  if (actionType != null) query[&#39;action_type&#39;] = actionType.toString();
   if (before != null) query[&#39;before&#39;] = before.toString();
   if (limit != null) query[&#39;limit&#39;] = limit.toString();
 
@@ -136,8 +141,7 @@
       .http
       .send(&#39;GET&#39;, &#39;&#47;guilds&#47;${this.id}&#47;audit-logs&#39;, queryParams: query);
 
-  return new AuditLog._new(
-      this.client, r.body.asJson() as Map&lt;String, dynamic&gt;);
+  return AuditLog._new(this.client, r.body as Map&lt;String, dynamic&gt;);
 }</code></pre>
     </section>
 
@@ -150,7 +154,7 @@
 
 <footer>
   <span class="no-break">
-    nyxx 0.24.0
+    nyxx 1.0.0
   </span>
 
 </footer>

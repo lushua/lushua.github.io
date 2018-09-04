@@ -110,29 +110,58 @@
     <h1>sendFile method</h1>
 
     <section class="multi-line-signature">
+      <div>
+        <ol class="annotation-list">
+          <li>@override</li>
+        </ol>
+      </div>
       <span class="returntype">Future<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/Message-class.html">Message</a></span>&gt;</span></span>
       <span class="name ">sendFile</span>
-(<wbr><span class="parameter" id="sendFile-param-filepaths"><span class="type-annotation">List<span class="signature">&lt;<wbr><span class="type-parameter">String</span>&gt;</span></span> <span class="parameter-name">filepaths</span>, {</span> <span class="parameter" id="sendFile-param-content"><span class="type-annotation">String</span> <span class="parameter-name">content</span>: <span class="default-value">""</span>, </span> <span class="parameter" id="sendFile-param-embed"><span class="type-annotation"><a href="nyxx/EmbedBuilder-class.html">EmbedBuilder</a></span> <span class="parameter-name">embed</span></span> })
+(<wbr><span class="parameter" id="sendFile-param-files"><span class="type-annotation">List<span class="signature">&lt;<wbr><span class="type-parameter">File</span>&gt;</span></span> <span class="parameter-name">files</span>, {</span> <span class="parameter" id="sendFile-param-content"><span class="type-annotation">String</span> <span class="parameter-name">content</span>: <span class="default-value">""</span>, </span> <span class="parameter" id="sendFile-param-embed"><span class="type-annotation"><a href="nyxx/EmbedBuilder-class.html">EmbedBuilder</a></span> <span class="parameter-name">embed</span>, </span> <span class="parameter" id="sendFile-param-disableEveryone"><span class="type-annotation">bool</span> <span class="parameter-name">disableEveryone</span></span> })
     </section>
     <section class="desc markdown">
-      <p>Sends file to channel and optional <code>content</code>. <code>filepath</code> is relative to project root.
-Throws an <code>Exception</code> if the HTTP request errored.
-    Channel.send(content: "My content!");</p>
+      <p>Sends file to channel and optional <code>content</code> with <code>embed</code>.
+Use <code>expandAttachment(String file)</code> method to expand file names in embed</p>
+<pre class="language-dart"><code>await chan.sendFile([new File("kitten.png"), new File("kitten.jpg")], content: "Kittens ^-^"]);
+</code></pre>
+<pre class="language-dart"><code>var embed = new nyxx.EmbedBuilder()
+  ..title = "Example Title"
+  ..thumbnailUrl = "${expandAttachment('kitten.jpg')}";
+
+await e.message.channel
+  .sendFile([new File("kitten.jpg")], embed: embed, content: "HEJKA!");
+</code></pre>
     </section>
     
     <section class="summary source-code" id="source">
       <h2><span>Implementation</span> </h2>
-      <pre class="language-dart"><code class="language-dart">Future&lt;Message&gt; sendFile(List&lt;String&gt; filepaths,
-    {String content = &quot;&quot;, EmbedBuilder embed}) async {
-  final HttpResponse r = await this.client.http.sendMultipart(
-      &#39;POST&#39;, &#39;&#47;channels&#47;${this.id}&#47;messages&#39;, filepaths,
-      data: jsonEncode(&lt;String, dynamic&gt;{
-        &quot;content&quot;: content,
-        &quot;embed&quot;: embed != null ? embed._build() : &quot;&quot;
-      }));
+      <pre class="language-dart"><code class="language-dart">@override
 
-  return new Message._new(
-      this.client, r.body.asJson() as Map&lt;String, dynamic&gt;);
+&#47;&#47;&#47; Sends file to channel and optional [content] with [embed].
+&#47;&#47;&#47; Use `expandAttachment(String file)` method to expand file names in embed
+&#47;&#47;&#47;
+&#47;&#47;&#47; ```
+&#47;&#47;&#47; await chan.sendFile([new File(&quot;kitten.png&quot;), new File(&quot;kitten.jpg&quot;)], content: &quot;Kittens ^-^&quot;]);
+&#47;&#47;&#47; ```
+&#47;&#47;&#47; ```
+&#47;&#47;&#47; var embed = new nyxx.EmbedBuilder()
+&#47;&#47;&#47;   ..title = &quot;Example Title&quot;
+&#47;&#47;&#47;   ..thumbnailUrl = &quot;${expandAttachment(&#39;kitten.jpg&#39;)}&quot;;
+&#47;&#47;&#47;
+&#47;&#47;&#47; await e.message.channel
+&#47;&#47;&#47;   .sendFile([new File(&quot;kitten.jpg&quot;)], embed: embed, content: &quot;HEJKA!&quot;);
+&#47;&#47;&#47; ```
+Future&lt;Message&gt; sendFile(List&lt;File&gt; files,
+    {String content = &quot;&quot;, EmbedBuilder embed, bool disableEveryone}) async {
+  var newContent = _sanitizeMessage(content, disableEveryone, client);
+
+  final HttpResponse r = await this.client.http.sendMultipart(
+      &#39;POST&#39;, &#39;&#47;channels&#47;${this.id}&#47;messages&#39;, files, data: &lt;String, dynamic&gt;{
+    &quot;content&quot;: newContent,
+    &quot;embed&quot;: embed != null ? embed._build() : &quot;&quot;
+  });
+
+  return Message._new(this.client, r.body as Map&lt;String, dynamic&gt;);
 }</code></pre>
     </section>
 
@@ -145,7 +174,7 @@ Throws an <code>Exception</code> if the HTTP request errored.
 
 <footer>
   <span class="no-break">
-    nyxx 0.24.0
+    nyxx 1.0.0
   </span>
 
 </footer>

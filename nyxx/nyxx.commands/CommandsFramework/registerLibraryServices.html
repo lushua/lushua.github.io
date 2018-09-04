@@ -63,8 +63,7 @@
       <li class="inherited"><a href="nyxx.commands/CommandsFramework/runtimeType.html">runtimeType</a></li>
     
       <li class="section-title"><a href="nyxx.commands/CommandsFramework-class.html#instance-methods">Methods</a></li>
-      <li><a href="nyxx.commands/CommandsFramework/add.html">add</a></li>
-      <li><a href="nyxx.commands/CommandsFramework/addMany.html">addMany</a></li>
+      <li><a href="nyxx.commands/CommandsFramework/checkPermissions.html">checkPermissions</a></li>
       <li><a href="nyxx.commands/CommandsFramework/registerLibraryCommands.html">registerLibraryCommands</a></li>
       <li><a href="nyxx.commands/CommandsFramework/registerLibraryServices.html">registerLibraryServices</a></li>
       <li><a href="nyxx.commands/CommandsFramework/registerServices.html">registerServices</a></li>
@@ -95,14 +94,26 @@
     <section class="summary source-code" id="source">
       <h2><span>Implementation</span> </h2>
       <pre class="language-dart"><code class="language-dart">void registerLibraryServices() {
-  _registerLibrary(Service, (toInject, cm) {
-    try {
-      var serv = cm.newInstance(new Symbol(&#39;&#39;), toInject).reflectee;
-      _services.add(serv);
-    } catch (e) {
-      print(e);
-      throw new Exception(
-          &quot;Service [${util.getSymbolName(cm.simpleName)}] constructor not satisfied!&quot;);
+  var superClass = reflectClass(Service);
+  var mirrorSystem = currentMirrorSystem();
+
+  mirrorSystem.libraries.forEach((uri, lib) {
+    for (var cm in lib.declarations.values) {
+      if (cm is ClassMirror) {
+        if (cm.isSubclassOf(superClass) &amp;&amp; !cm.isAbstract) {
+          var toInject = _createConstuctorInjections(cm);
+
+          try {
+            var serv = cm.newInstance(Symbol(&#39;&#39;), toInject).reflectee;
+            _services.add(serv);
+          } catch (e) {
+            throw Exception(
+                &quot;Service [${util.getSymbolName(cm.simpleName)}] constructor not satisfied!&quot;);
+          }
+
+          break;
+        }
+      }
     }
   });
 }</code></pre>
@@ -117,7 +128,7 @@
 
 <footer>
   <span class="no-break">
-    nyxx 0.24.0
+    nyxx 1.0.0
   </span>
 
 </footer>

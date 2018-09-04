@@ -50,6 +50,8 @@
       <li><a href="nyxx/Client/channels.html">channels</a></li>
       <li><a href="nyxx/Client/guilds.html">guilds</a></li>
       <li><a href="nyxx/Client/http.html">http</a></li>
+      <li><a href="nyxx/Client/inviteLink.html">inviteLink</a></li>
+      <li><a href="nyxx/Client/logger.html">logger</a></li>
       <li><a href="nyxx/Client/onChannelCreate.html">onChannelCreate</a></li>
       <li><a href="nyxx/Client/onChannelDelete.html">onChannelDelete</a></li>
       <li><a href="nyxx/Client/onChannelPinsUpdate.html">onChannelPinsUpdate</a></li>
@@ -97,10 +99,8 @@
       <li class="section-title"><a href="nyxx/Client-class.html#instance-methods">Methods</a></li>
       <li><a href="nyxx/Client/blockToReady.html">blockToReady</a></li>
       <li><a href="nyxx/Client/createGuild.html">createGuild</a></li>
-      <li><a href="nyxx/Client/destroy.html">destroy</a></li>
       <li><a href="nyxx/Client/getGuild.html">getGuild</a></li>
       <li><a href="nyxx/Client/getInvite.html">getInvite</a></li>
-      <li><a href="nyxx/Client/getOAuth2Info.html">getOAuth2Info</a></li>
       <li><a href="nyxx/Client/getUser.html">getUser</a></li>
       <li><a href="nyxx/Client/getWebhook.html">getWebhook</a></li>
       <li class="inherited"><a href="nyxx/Client/noSuchMethod.html">noSuchMethod</a></li>
@@ -123,7 +123,8 @@
           <div class="features">read / write</div>
         </section>
         <section class="desc markdown">
-          <p>Emitted before all HTTP requests are sent. (You can edit them)</p>
+          <p>Emitted before all HTTP requests are sent. (You can edit them)
+This is single subscription Stream.</p>
 <p><em>WARNING:</em>* Once you listen to this stream, all requests
 will be halted until you call <code>request.send()</code></p>
         </section>
@@ -143,7 +144,7 @@ will be halted until you call <code>request.send()</code></p>
 
 <footer>
   <span class="no-break">
-    nyxx 0.24.0
+    nyxx 1.0.0
   </span>
 
 </footer>

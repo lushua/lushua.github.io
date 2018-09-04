@@ -68,6 +68,7 @@
       <li class="inherited"><a href="nyxx/User/getDMChannel.html">getDMChannel</a></li>
       <li class="inherited"><a href="nyxx/SnowflakeEntity/noSuchMethod.html">noSuchMethod</a></li>
       <li class="inherited"><a href="nyxx/User/send.html">send</a></li>
+      <li class="inherited"><a href="nyxx/User/sendFile.html">sendFile</a></li>
       <li class="inherited"><a href="nyxx/User/toString.html">toString</a></li>
     
       <li class="section-title inherited"><a href="nyxx/ClientUser-class.html#operators">Operators</a></li>
@@ -84,18 +85,17 @@
     <section class="multi-line-signature">
       <span class="returntype"><a href="nyxx/ClientUser-class.html">ClientUser</a></span>
       <span class="name ">setGame</span>
-(<wbr>{<span class="parameter" id="setGame-param-game"><span class="type-annotation"><a href="nyxx/Game-class.html">Game</a></span> <span class="parameter-name">game</span></span> })
+(<wbr><span class="parameter" id="setGame-param-game"><span class="type-annotation"><a href="nyxx/Game-class.html">Game</a></span> <span class="parameter-name">game</span></span>)
     </section>
     <section class="desc markdown">
-      <p>Updates the client's game.
-    ClientUser.setGame(name: '&lt;3');</p>
+      <p>Updates the client's game.</p>
+<pre class="language-dart"><code>user.setGame(Game.of("&lt;3"))
+</code></pre>
     </section>
     
     <section class="summary source-code" id="source">
       <h2><span>Implementation</span> </h2>
-      <pre class="language-dart"><code class="language-dart">ClientUser setGame({Game game}) {
-  return this.setPresence(game: game);
-}</code></pre>
+      <pre class="language-dart"><code class="language-dart">ClientUser setGame(Game game) =&gt; this.setPresence(game: game);</code></pre>
     </section>
 
   </div> <!-- /.main-content -->
@@ -107,7 +107,7 @@
 
 <footer>
   <span class="no-break">
-    nyxx 0.24.0
+    nyxx 1.0.0
   </span>
 
 </footer>

@@ -78,18 +78,20 @@
     <h1>addToUser method</h1>
 
     <section class="multi-line-signature">
-      <span class="returntype">Future<span class="signature">&lt;<wbr><span class="type-parameter">Null</span>&gt;</span></span>
+      <span class="returntype">Future<span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
       <span class="name ">addToUser</span>
 (<wbr><span class="parameter" id="addToUser-param-user"><span class="type-annotation"><a href="nyxx/User-class.html">User</a></span> <span class="parameter-name">user</span>, {</span> <span class="parameter" id="addToUser-param-auditReason"><span class="type-annotation">String</span> <span class="parameter-name">auditReason</span>: <span class="default-value">""</span></span> })
+    </section>
+    <section class="desc markdown">
+      <p>Adds role to user.</p>
     </section>
     
     <section class="summary source-code" id="source">
       <h2><span>Implementation</span> </h2>
-      <pre class="language-dart"><code class="language-dart">Future&lt;Null&gt; addToUser(User user, {String auditReason: &quot;&quot;}) async {
+      <pre class="language-dart"><code class="language-dart">Future&lt;void&gt; addToUser(User user, {String auditReason = &quot;&quot;}) async {
   await this.client.http.send(
       &#39;PUT&#39;, &#39;&#47;guilds&#47;${guild.id}&#47;members&#47;${user.id}&#47;roles&#47;$id&#39;,
       reason: auditReason);
-  return null;
 }</code></pre>
     </section>
 
@@ -102,7 +104,7 @@
 
 <footer>
   <span class="no-break">
-    nyxx 0.24.0
+    nyxx 1.0.0
   </span>
 
 </footer>

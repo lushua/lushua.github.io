@@ -50,6 +50,8 @@
       <li><a href="nyxx/Client/channels.html">channels</a></li>
       <li><a href="nyxx/Client/guilds.html">guilds</a></li>
       <li><a href="nyxx/Client/http.html">http</a></li>
+      <li><a href="nyxx/Client/inviteLink.html">inviteLink</a></li>
+      <li><a href="nyxx/Client/logger.html">logger</a></li>
       <li><a href="nyxx/Client/onChannelCreate.html">onChannelCreate</a></li>
       <li><a href="nyxx/Client/onChannelDelete.html">onChannelDelete</a></li>
       <li><a href="nyxx/Client/onChannelPinsUpdate.html">onChannelPinsUpdate</a></li>
@@ -97,10 +99,8 @@
       <li class="section-title"><a href="nyxx/Client-class.html#instance-methods">Methods</a></li>
       <li><a href="nyxx/Client/blockToReady.html">blockToReady</a></li>
       <li><a href="nyxx/Client/createGuild.html">createGuild</a></li>
-      <li><a href="nyxx/Client/destroy.html">destroy</a></li>
       <li><a href="nyxx/Client/getGuild.html">getGuild</a></li>
       <li><a href="nyxx/Client/getInvite.html">getInvite</a></li>
-      <li><a href="nyxx/Client/getOAuth2Info.html">getOAuth2Info</a></li>
       <li><a href="nyxx/Client/getUser.html">getUser</a></li>
       <li><a href="nyxx/Client/getWebhook.html">getWebhook</a></li>
       <li class="inherited"><a href="nyxx/Client/noSuchMethod.html">noSuchMethod</a></li>
@@ -129,11 +129,10 @@
     <section class="summary source-code" id="source">
       <h2><span>Implementation</span> </h2>
       <pre class="language-dart"><code class="language-dart">Future&lt;User&gt; getUser(Snowflake id) async {
-  if(this.users.containsKey(id))
-    return this.users[id];
+  if (this.users.containsKey(id)) return this.users[id];
 
   var r = await this.http.send(&quot;GET&quot;, &quot;&#47;users&#47;${id.toString()}&quot;);
-  return new User._new(this, r.body.asJson() as Map&lt;String, dynamic&gt;);
+  return User._new(this, r.body as Map&lt;String, dynamic&gt;);
 }</code></pre>
     </section>
 
@@ -146,7 +145,7 @@
 
 <footer>
   <span class="no-break">
-    nyxx 0.24.0
+    nyxx 1.0.0
   </span>
 
 </footer>

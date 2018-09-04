@@ -73,6 +73,9 @@
       <li><a href="nyxx/EmbedVideo-class.html">EmbedVideo</a></li>
       <li><a href="nyxx/Emoji-class.html">Emoji</a></li>
       <li><a href="nyxx/Game-class.html">Game</a></li>
+      <li><a href="nyxx/GameAssets-class.html">GameAssets</a></li>
+      <li><a href="nyxx/GameParty-class.html">GameParty</a></li>
+      <li><a href="nyxx/GameSecrets-class.html">GameSecrets</a></li>
       <li><a href="nyxx/GroupChannel-class.html">GroupChannel</a></li>
       <li><a href="nyxx/GroupDMChannel-class.html">GroupDMChannel</a></li>
       <li><a href="nyxx/Guild-class.html">Guild</a></li>
@@ -100,6 +103,7 @@
       <li><a href="nyxx/Invite-class.html">Invite</a></li>
       <li><a href="nyxx/InviteChannel-class.html">InviteChannel</a></li>
       <li><a href="nyxx/InviteGuild-class.html">InviteGuild</a></li>
+      <li><a href="nyxx/ISend-class.html">ISend</a></li>
       <li><a href="nyxx/Member-class.html">Member</a></li>
       <li><a href="nyxx/Message-class.html">Message</a></li>
       <li><a href="nyxx/MessageChannel-class.html">MessageChannel</a></li>
@@ -144,7 +148,7 @@
     
     
       <li class="section-title"><a href="nyxx/nyxx-library.html#functions">Functions</a></li>
-      <li><a href="nyxx/snow.html">snow</a></li>
+      <li><a href="nyxx/expandAttachment.html">expandAttachment</a></li>
     
       <li class="section-title"><a href="nyxx/nyxx-library.html#enums">Enums</a></li>
       <li><a href="nyxx/ChannelType-class.html">ChannelType</a></li>
@@ -152,7 +156,6 @@
     
       <li class="section-title"><a href="nyxx/nyxx-library.html#exceptions">Exceptions</a></li>
       <li><a href="nyxx/HttpError-class.html">HttpError</a></li>
-      <li><a href="nyxx/InvalidTokenError-class.html">InvalidTokenError</a></li>
     </ol>
   </div>
 
@@ -295,7 +298,7 @@
       <dl class="callables">
         <dt id="delete" class="callable">
           <span class="name"><a href="nyxx/Webhook/delete.html">delete</a></span><span class="signature">(<wbr>{<span class="parameter" id="delete-param-auditReason"><span class="type-annotation">String</span> <span class="parameter-name">auditReason</span>: <span class="default-value">""</span></span> })
-            <span class="returntype parameter">&#8594; Future<span class="signature">&lt;<wbr><span class="type-parameter">Null</span>&gt;</span></span>
+            <span class="returntype parameter">&#8594; Future<span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
           </span>
         </dt>
         <dd>
@@ -313,7 +316,7 @@
 </dd>
         <dt id="send" class="callable">
           <span class="name"><a href="nyxx/Webhook/send.html">send</a></span><span class="signature">(<wbr>{<span class="parameter" id="send-param-content"><span class="type-annotation">String</span> <span class="parameter-name">content</span>, </span> <span class="parameter" id="send-param-embeds"><span class="type-annotation">List<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/EmbedBuilder-class.html">EmbedBuilder</a></span>&gt;</span></span> <span class="parameter-name">embeds</span>, </span> <span class="parameter" id="send-param-username"><span class="type-annotation">String</span> <span class="parameter-name">username</span>, </span> <span class="parameter" id="send-param-avatarUrl"><span class="type-annotation">String</span> <span class="parameter-name">avatarUrl</span>, </span> <span class="parameter" id="send-param-tts"><span class="type-annotation">bool</span> <span class="parameter-name">tts</span></span> })
-            <span class="returntype parameter">&#8594; Future<span class="signature">&lt;<wbr><span class="type-parameter">Null</span>&gt;</span></span>
+            <span class="returntype parameter">&#8594; Future<span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
           </span>
         </dt>
         <dd>
@@ -321,8 +324,8 @@
           
 </dd>
         <dt id="sendFile" class="callable">
-          <span class="name"><a href="nyxx/Webhook/sendFile.html">sendFile</a></span><span class="signature">(<wbr>{<span class="parameter" id="sendFile-param-content"><span class="type-annotation">String</span> <span class="parameter-name">content</span>, </span> <span class="parameter" id="sendFile-param-filepaths"><span class="type-annotation">List<span class="signature">&lt;<wbr><span class="type-parameter">String</span>&gt;</span></span> <span class="parameter-name">filepaths</span>, </span> <span class="parameter" id="sendFile-param-embeds"><span class="type-annotation">List<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/EmbedBuilder-class.html">EmbedBuilder</a></span>&gt;</span></span> <span class="parameter-name">embeds</span>, </span> <span class="parameter" id="sendFile-param-username"><span class="type-annotation">String</span> <span class="parameter-name">username</span>, </span> <span class="parameter" id="sendFile-param-avatarUrl"><span class="type-annotation">String</span> <span class="parameter-name">avatarUrl</span>, </span> <span class="parameter" id="sendFile-param-tts"><span class="type-annotation">bool</span> <span class="parameter-name">tts</span></span> })
-            <span class="returntype parameter">&#8594; Future<span class="signature">&lt;<wbr><span class="type-parameter">Null</span>&gt;</span></span>
+          <span class="name"><a href="nyxx/Webhook/sendFile.html">sendFile</a></span><span class="signature">(<wbr>{<span class="parameter" id="sendFile-param-content"><span class="type-annotation">String</span> <span class="parameter-name">content</span>, </span> <span class="parameter" id="sendFile-param-files"><span class="type-annotation">List<span class="signature">&lt;<wbr><span class="type-parameter">File</span>&gt;</span></span> <span class="parameter-name">files</span>, </span> <span class="parameter" id="sendFile-param-embeds"><span class="type-annotation">List<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/EmbedBuilder-class.html">EmbedBuilder</a></span>&gt;</span></span> <span class="parameter-name">embeds</span>, </span> <span class="parameter" id="sendFile-param-username"><span class="type-annotation">String</span> <span class="parameter-name">username</span>, </span> <span class="parameter" id="sendFile-param-avatarUrl"><span class="type-annotation">String</span> <span class="parameter-name">avatarUrl</span>, </span> <span class="parameter" id="sendFile-param-tts"><span class="type-annotation">bool</span> <span class="parameter-name">tts</span></span> })
+            <span class="returntype parameter">&#8594; Future<span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
           </span>
         </dt>
         <dd>
@@ -410,7 +413,7 @@
 
 <footer>
   <span class="no-break">
-    nyxx 0.24.0
+    nyxx 1.0.0
   </span>
 
 </footer>

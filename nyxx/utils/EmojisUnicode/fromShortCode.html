@@ -999,7 +999,7 @@ In future it will be rewritten to map.</p>
     <section class="summary source-code" id="source">
       <h2><span>Implementation</span> </h2>
       <pre class="language-dart"><code class="language-dart">static Future&lt;UnicodeEmoji&gt; fromShortCode(String shortCode) {
-  return new Future(() {
+  return Future(() {
     String normalize(String s) {
       if (s.startsWith(&quot;:&quot;) &amp;&amp; s.endsWith(&quot;:&quot;)) return s;
       return &quot;:$s:&quot;;
@@ -1030,7 +1030,7 @@ In future it will be rewritten to map.</p>
 
 <footer>
   <span class="no-break">
-    nyxx 0.24.0
+    nyxx 1.0.0
   </span>
 
 </footer>

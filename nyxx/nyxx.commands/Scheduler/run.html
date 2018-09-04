@@ -81,10 +81,11 @@
       <h2><span>Implementation</span> </h2>
       <pre class="language-dart"><code class="language-dart">Future&lt;Null&gt; run() async {
   _client.onReady.listen((e) {
+    List&lt;MessageChannel&gt; _targets;
     targets
         .forEach((s) =&gt; _targets.add(_client.channels[s] as MessageChannel));
 
-    this._t = new Timer.periodic(runEvery, (Timer t) {
+    this._t = Timer.periodic(_runEvery, (Timer t) {
       for (var target in _targets) {
         func(target);
       }
@@ -104,7 +105,7 @@
 
 <footer>
   <span class="no-break">
-    nyxx 0.24.0
+    nyxx 1.0.0
   </span>
 
 </footer>

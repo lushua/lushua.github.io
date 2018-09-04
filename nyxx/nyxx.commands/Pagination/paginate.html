@@ -40,7 +40,7 @@
     <h5>Pagination class</h5>
     <ol>
       <li class="section-title"><a href="nyxx.commands/Pagination-class.html#constructors">Constructors</a></li>
-      <li><a href="nyxx.commands/Pagination/Pagination.fromList.html">fromList</a></li>
+      <li><a href="nyxx.commands/Pagination/Pagination.html">Pagination</a></li>
       <li><a href="nyxx.commands/Pagination/Pagination.fromString.html">fromString</a></li>
       <li><a href="nyxx.commands/Pagination/Pagination.fromStringEq.html">fromStringEq</a></li>
       <li><a href="nyxx.commands/Pagination/Pagination.fromStringLen.html">fromStringLen</a></li>
@@ -81,7 +81,7 @@
     <section class="summary source-code" id="source">
       <h2><span>Implementation</span> </h2>
       <pre class="language-dart"><code class="language-dart">Future&lt;Message&gt; paginate(
-    {Duration timeout: const Duration(seconds: 30)}) async {
+    {Duration timeout = const Duration(seconds: 30)}) async {
   var nextEmoji = util.EmojisUnicode.arrow_forward;
   var backEmoji = util.EmojisUnicode.arrow_backward;
   var firstEmoji = util.EmojisUnicode.track_previous;
@@ -93,7 +93,7 @@
   await msg.createReaction(nextEmoji);
   await msg.createReaction(lastEmoji);
 
-  new Future(() async {
+  Future(() async {
     var currPage = 0;
     var group = util.merge([
       channel.client.onMessageReactionAdded,
@@ -138,7 +138,7 @@
 
 <footer>
   <span class="no-break">
-    nyxx 0.24.0
+    nyxx 1.0.0
   </span>
 
 </footer>

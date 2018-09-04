@@ -85,7 +85,7 @@
     <section class="summary source-code" id="source">
       <h2><span>Implementation</span> </h2>
       <pre class="language-dart"><code class="language-dart">void abort() {
-  this._streamController.add(new HttpResponse._aborted(this));
+  this._streamController.add(HttpResponse._aborted(this));
   this._streamController.close();
 }</code></pre>
     </section>
@@ -99,7 +99,7 @@
 
 <footer>
   <span class="no-break">
-    nyxx 0.24.0
+    nyxx 1.0.0
   </span>
 
 </footer>

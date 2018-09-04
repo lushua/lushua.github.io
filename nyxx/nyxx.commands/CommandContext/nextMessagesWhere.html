@@ -47,8 +47,8 @@
       </li>
       <li><a href="nyxx.commands/CommandContext/author.html">author</a></li>
       <li><a href="nyxx.commands/CommandContext/channel.html">channel</a></li>
+      <li><a href="nyxx.commands/CommandContext/client.html">client</a></li>
       <li><a href="nyxx.commands/CommandContext/guild.html">guild</a></li>
-      <li><a href="nyxx.commands/CommandContext/logger.html">logger</a></li>
       <li><a href="nyxx.commands/CommandContext/message.html">message</a></li>
       <li class="inherited"><a href="nyxx.commands/CommandContext/hashCode.html">hashCode</a></li>
       <li class="inherited"><a href="nyxx.commands/CommandContext/runtimeType.html">runtimeType</a></li>
@@ -56,8 +56,6 @@
       <li class="section-title"><a href="nyxx.commands/CommandContext-class.html#instance-methods">Methods</a></li>
       <li><a href="nyxx.commands/CommandContext/collectEmojis.html">collectEmojis</a></li>
       <li><a href="nyxx.commands/CommandContext/getCodeBlocks.html">getCodeBlocks</a></li>
-      <li><a href="nyxx.commands/CommandContext/getHelp.html">getHelp</a></li>
-      <li><a href="nyxx.commands/CommandContext/nextMessage.html">nextMessage</a></li>
       <li><a href="nyxx.commands/CommandContext/nextMessages.html">nextMessages</a></li>
       <li><a href="nyxx.commands/CommandContext/nextMessagesWhere.html">nextMessagesWhere</a></li>
       <li><a href="nyxx.commands/CommandContext/reply.html">reply</a></li>
@@ -84,14 +82,19 @@
 (<wbr><span class="parameter" id="nextMessagesWhere-param-func"><span class="type-annotation">bool</span> <span class="parameter-name">func</span>(<span class="parameter" id="func-param-msg"><span class="type-annotation"><a href="nyxx/Message-class.html">Message</a></span> <span class="parameter-name">msg</span></span>), {</span> <span class="parameter" id="nextMessagesWhere-param-timeout"><span class="type-annotation">Duration</span> <span class="parameter-name">timeout</span>: <span class="default-value">const Duration(seconds: 30)</span></span> })
     </section>
     <section class="desc markdown">
-      <p>Gets all channel messages that satisfies test.</p>
+      <p>Gets all context channel messages that satisfies test. Has default timeout of 30 seconds.</p>
+<pre class="language-dart"><code>@Command()
+Future&lt;void&gt; getAv(User user) async {
+  var messages = await nextMessagesWhere((msg) =&gt; msg.content.startsWith("fuck"));
+}
+</code></pre>
     </section>
     
     <section class="summary source-code" id="source">
       <h2><span>Implementation</span> </h2>
       <pre class="language-dart"><code class="language-dart">Future&lt;List&lt;Message&gt;&gt; nextMessagesWhere(bool func(Message msg),
-    {Duration timeout: const Duration(seconds: 30)}) async {
-  List&lt;Message&gt; tmpData = new List();
+    {Duration timeout = const Duration(seconds: 30)}) async {
+  List&lt;Message&gt; tmpData = List();
 
   await channel.onMessage.forEach((i) {
     if (func(i.message)) tmpData.add(i.message);
@@ -110,7 +113,7 @@
 
 <footer>
   <span class="no-break">
-    nyxx 0.24.0
+    nyxx 1.0.0
   </span>
 
 </footer>

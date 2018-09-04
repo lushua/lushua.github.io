@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="generator" content="made with love by dartdoc 0.20.0">
+  <meta name="generator" content="made with love by dartdoc 0.20.1">
   <meta name="description" content="nyxx API docs, for the Dart programming language.">
   <title>nyxx - Dart API docs</title>
 
@@ -37,7 +37,6 @@
           <li class="section-title">Libraries</li>
           <li><a href="nyxx/nyxx-library.html">nyxx</a></li>
           <li><a href="nyxx.commands/nyxx.commands-library.html">nyxx.commands</a></li>
-          <li><a href="nyxx.rpc/nyxx.rpc-library.html">nyxx.rpc</a></li>
           <li><a href="nyxx.voice/nyxx.voice-library.html">nyxx.voice</a></li>
           <li><a href="utils/utils-library.html">utils</a></li>
     </ol>
@@ -56,12 +55,12 @@
 Fork of <a href="https://github.com/Hackzzila">Hackzzila's</a> <a href="https://github.com/Hackzzila/nyx">nyx</a> - extended with new functionality, few bug fixes, applied pending pull requests.</p><hr></div>
 <h3>Stable release</h3>
 <p><code>nyxx 1.0.0</code> is first stable release. It uses Dart 2.0 stable and has many rewritten and improved features.</p>
-<h3>Features</h3><ul><li><strong>Commands framework</strong> <br>
-Faster way of creating commands for bot. You just  have to implement one class, and initialize framework. Everything is done automatically. </li><li><strong>Cross Platform</strong> <br>
-Nyxx works on the command line, browser, mobile.</li><li><strong>Fine Control</strong> <br>
-Nyxx allows you to control every outgoing HTTP request or websocket messages.</li><li><strong>Internal Sharding</strong> <br>
-Nyxx automatically spawns shards for your bot, but you can override this and spawn a custom number of shards. Internal sharding means that all of your bots servers are managed in one script, no need for communication between shards.</li><li><strong>Complete</strong> <br>
-Nyxx supports nearly all DiscordAPI endpoints.</li></ul>
+<h3>Features</h3><ul><li><strong>Commands framework included</strong> <br>
+A fast way to create a bot with command support. Implementing the framework is simple - and everything is done automatically.</li><li><strong>Cross Platform</strong> <br>
+Nyxx works on the command line, in the browser, and on mobile devices.</li><li><strong>Fine Control</strong> <br>
+Nyxx allows you to control every outgoing HTTP request or WebSocket message.</li><li><strong>Internal Sharding</strong> <br>
+Nyxx automatically spawns shards for your bot, but you can override this and spawn a custom number of shards. Internal sharding means that all of your bots shards are managed in one script, and there is no need for communication between shards.</li><li><strong>Complete</strong> <br>
+Nyxx supports nearly all Discord API endpoints.</li></ul>
 <h3>Sample</h3>
 <pre class="language-dart"><code class="language-dart">void main() {
   discord.Client bot =
@@ -80,11 +79,11 @@ Nyxx supports nearly all DiscordAPI endpoints.</li></ul>
 </code></pre>
 <h2>Documentation and examples</h2>
 <h4><a href="https://www.dartdocs.org/documentation/nyxx/latest/">Dartdocs</a></h4>
-<p>Latest docs for newest release.</p>
+<p>The dartdocs page will always have the documentation for the latest release.</p>
 <h4><a href="https://l7ssha.pl/nyxx">Dev docs</a></h4>
-<p>My website has docs for latests commits - You can read about incoming changes</p>
+<p>You can read about upcoming changes to the library on my website.</p>
 <h4><a href="https://github.com/l7ssha/nyxx/wiki">Wiki</a></h4>
-<p>Wiki docs are designed to match latest release.</p>
+<p>Wiki documentation are designed to match the latest Nyxx release.</p>
 <h2>Roadmap</h2><ul><li><code> </code> Better dartdocs documentation</li><li><code>x</code> More examples at wiki/more tutorial/Video tutorial </li><li><code> </code> Bigger bot written in nyxx for example</li><li><code> </code> Fix <code>lint</code> errors from <code>dartanalyzer</code></li><li><code>x</code> Annotation driver flow for CommandsFramework?</li><li><code>x</code> Recheck all code and fix styling/small logic bugs</li><li><code> </code> Support for Voice connection</li></ul>
       </section>
       
@@ -101,11 +100,6 @@ Nyxx supports nearly all DiscordAPI endpoints.</li></ul>
             </dt>
             <dd>
               Nyxx DISCORD API wrapper for Dart <a href="nyxx.commands/nyxx.commands-library.html">[...]</a>
-            </dd>            <dt id="nyxx.rpc">
-              <span class="name"><a href="nyxx.rpc/nyxx.rpc-library.html">nyxx.rpc</a></span>
-            </dt>
-            <dd>
-              
             </dd>            <dt id="nyxx.voice">
               <span class="name"><a href="nyxx.voice/nyxx.voice-library.html">nyxx.voice</a></span>
             </dt>
@@ -127,7 +121,7 @@ Nyxx supports nearly all DiscordAPI endpoints.</li></ul>
 
 <footer>
   <span class="no-break">
-    nyxx 0.24.0
+    nyxx 1.0.0
   </span>
 
 </footer>

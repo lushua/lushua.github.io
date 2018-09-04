@@ -73,6 +73,9 @@
       <li><a href="nyxx/EmbedVideo-class.html">EmbedVideo</a></li>
       <li><a href="nyxx/Emoji-class.html">Emoji</a></li>
       <li><a href="nyxx/Game-class.html">Game</a></li>
+      <li><a href="nyxx/GameAssets-class.html">GameAssets</a></li>
+      <li><a href="nyxx/GameParty-class.html">GameParty</a></li>
+      <li><a href="nyxx/GameSecrets-class.html">GameSecrets</a></li>
       <li><a href="nyxx/GroupChannel-class.html">GroupChannel</a></li>
       <li><a href="nyxx/GroupDMChannel-class.html">GroupDMChannel</a></li>
       <li><a href="nyxx/Guild-class.html">Guild</a></li>
@@ -100,6 +103,7 @@
       <li><a href="nyxx/Invite-class.html">Invite</a></li>
       <li><a href="nyxx/InviteChannel-class.html">InviteChannel</a></li>
       <li><a href="nyxx/InviteGuild-class.html">InviteGuild</a></li>
+      <li><a href="nyxx/ISend-class.html">ISend</a></li>
       <li><a href="nyxx/Member-class.html">Member</a></li>
       <li><a href="nyxx/Message-class.html">Message</a></li>
       <li><a href="nyxx/MessageChannel-class.html">MessageChannel</a></li>
@@ -144,7 +148,7 @@
     
     
       <li class="section-title"><a href="nyxx/nyxx-library.html#functions">Functions</a></li>
-      <li><a href="nyxx/snow.html">snow</a></li>
+      <li><a href="nyxx/expandAttachment.html">expandAttachment</a></li>
     
       <li class="section-title"><a href="nyxx/nyxx-library.html#enums">Enums</a></li>
       <li><a href="nyxx/ChannelType-class.html">ChannelType</a></li>
@@ -152,7 +156,6 @@
     
       <li class="section-title"><a href="nyxx/nyxx-library.html#exceptions">Exceptions</a></li>
       <li><a href="nyxx/HttpError-class.html">HttpError</a></li>
-      <li><a href="nyxx/InvalidTokenError-class.html">InvalidTokenError</a></li>
     </ol>
   </div>
 
@@ -161,11 +164,17 @@
 
     <section class="desc markdown">
       <p>Class representing client - it's place to start with.
-From there you can subscribe to varius <code>Stream</code>s to listen to <a href="https://github.com/l7ssha/nyxx/wiki/EventList">Events</a>
-Rememeber to close <a href="nyxx/Client-class.html">Client</a> before terminating program:</p>
-<pre class="language-dart"><code class="language-dart"> bot.destroy();
+From there you can subscribe to varius <code>Stream</code>s to listen to <a href="https://github.com/l7ssha/nyxx/wiki/EventList">Events</a></p>
+<p>Creating new instance of bot:</p>
+<pre class="language-dart"><code>var bot = new Client("&lt;TOKEN&gt;");
 </code></pre>
-<p>It closes bot connections to discord servers and makes sure that everything is terminated correctly.</p>
+<p>From this place bot will try to connect to gateway and listen to events:</p>
+<pre class="language-dart"><code>bot.onReady.listen((e) =&gt; print('Ready!'));
+
+bot.onRoleCreate.listen((e) {
+  print('Role createed with name: ${e.role.name});
+});
+</code></pre>
     </section>
     
 
@@ -174,7 +183,7 @@ Rememeber to close <a href="nyxx/Client-class.html">Client</a> before terminatin
 
       <dl class="constructor-summary-list">
         <dt id="Client" class="callable">
-          <span class="name"><a href="nyxx/Client/Client.html">Client</a></span><span class="signature">(<span class="parameter" id="-param-_token"><span class="type-annotation">String</span> <span class="parameter-name">_token</span>, [</span> <span class="parameter" id="-param-_options"><span class="type-annotation"><a href="nyxx/ClientOptions-class.html">ClientOptions</a></span> <span class="parameter-name">_options</span></span> ])</span>
+          <span class="name"><a href="nyxx/Client/Client.html">Client</a></span><span class="signature">(<span class="parameter" id="-param-_token"><span class="type-annotation">String</span> <span class="parameter-name">_token</span>, {</span> <span class="parameter" id="-param-options"><span class="type-annotation"><a href="nyxx/ClientOptions-class.html">ClientOptions</a></span> <span class="parameter-name">options</span>, </span> <span class="parameter" id="-param-ignoreExceptions"><span class="type-annotation">bool</span> <span class="parameter-name">ignoreExceptions</span>: <span class="default-value">true</span></span> })</span>
         </dt>
         <dd>
           Creates and logs in a new client.
@@ -199,7 +208,8 @@ Rememeber to close <a href="nyxx/Client-class.html">Client</a> before terminatin
           <span class="signature">&#8596; Stream<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/BeforeHttpRequestSendEvent-class.html">BeforeHttpRequestSendEvent</a></span>&gt;</span></span>
         </dt>
         <dd>
-          Emitted before all HTTP requests are sent. (You can edit them) <a href="nyxx/Client/beforeHttpRequestSend.html">[...]</a>
+          Emitted before all HTTP requests are sent. (You can edit them)
+This is single subscription Stream. <a href="nyxx/Client/beforeHttpRequestSend.html">[...]</a>
           <div class="features">read / write</div>
 </dd>
         <dt id="channels" class="property">
@@ -224,6 +234,22 @@ Rememeber to close <a href="nyxx/Client-class.html">Client</a> before terminatin
         </dt>
         <dd>
           The HTTP client.
+          <div class="features">read / write</div>
+</dd>
+        <dt id="inviteLink" class="property">
+          <span class="name"><a href="nyxx/Client/inviteLink.html">inviteLink</a></span>
+          <span class="signature">&#8594; String</span>
+        </dt>
+        <dd>
+          Gets an bot invite link. Null if <code>clientId</code> not present.
+          <div class="features">read-only</div>
+</dd>
+        <dt id="logger" class="property">
+          <span class="name"><a href="nyxx/Client/logger.html">logger</a></span>
+          <span class="signature">&#8596; Logger</span>
+        </dt>
+        <dd>
+          Logger instance
           <div class="features">read / write</div>
 </dd>
         <dt id="onChannelCreate" class="property">
@@ -584,7 +610,7 @@ without forceFetchUsers enabled.
           </span>
         </dt>
         <dd>
-          Block isolate until client is ready
+          Block isolate until client is ready.
           
 </dd>
         <dt id="createGuild" class="callable">
@@ -594,15 +620,6 @@ without forceFetchUsers enabled.
         </dt>
         <dd>
           Creates new guild with provided builder.
-          
-</dd>
-        <dt id="destroy" class="callable">
-          <span class="name"><a href="nyxx/Client/destroy.html">destroy</a></span><span class="signature">(<wbr>)
-            <span class="returntype parameter">&#8594; Future<span class="signature">&lt;<wbr><span class="type-parameter">Null</span>&gt;</span></span>
-          </span>
-        </dt>
-        <dd>
-          Destroys the websocket connection, and all streams.
           
 </dd>
         <dt id="getGuild" class="callable">
@@ -620,16 +637,7 @@ without forceFetchUsers enabled.
           </span>
         </dt>
         <dd>
-          Gets an <a href="nyxx/Invite-class.html">Invite</a> object. <a href="nyxx/Client/getInvite.html">[...]</a>
-          
-</dd>
-        <dt id="getOAuth2Info" class="callable">
-          <span class="name"><a href="nyxx/Client/getOAuth2Info.html">getOAuth2Info</a></span><span class="signature">(<wbr><span class="parameter" id="getOAuth2Info-param-userId"><span class="type-annotation">String</span> <span class="parameter-name">userId</span></span>)
-            <span class="returntype parameter">&#8594; Future<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/OAuth2Info-class.html">OAuth2Info</a></span>&gt;</span></span>
-          </span>
-        </dt>
-        <dd>
-          Gets an <a href="nyxx/OAuth2Info-class.html">OAuth2Info</a> object. <a href="nyxx/Client/getOAuth2Info.html">[...]</a>
+          Gets an <a href="nyxx/Invite-class.html">Invite</a> object with given code.
           
 </dd>
         <dt id="getUser" class="callable">
@@ -704,6 +712,8 @@ without forceFetchUsers enabled.
       <li><a href="nyxx/Client/channels.html">channels</a></li>
       <li><a href="nyxx/Client/guilds.html">guilds</a></li>
       <li><a href="nyxx/Client/http.html">http</a></li>
+      <li><a href="nyxx/Client/inviteLink.html">inviteLink</a></li>
+      <li><a href="nyxx/Client/logger.html">logger</a></li>
       <li><a href="nyxx/Client/onChannelCreate.html">onChannelCreate</a></li>
       <li><a href="nyxx/Client/onChannelDelete.html">onChannelDelete</a></li>
       <li><a href="nyxx/Client/onChannelPinsUpdate.html">onChannelPinsUpdate</a></li>
@@ -751,10 +761,8 @@ without forceFetchUsers enabled.
       <li class="section-title"><a href="nyxx/Client-class.html#instance-methods">Methods</a></li>
       <li><a href="nyxx/Client/blockToReady.html">blockToReady</a></li>
       <li><a href="nyxx/Client/createGuild.html">createGuild</a></li>
-      <li><a href="nyxx/Client/destroy.html">destroy</a></li>
       <li><a href="nyxx/Client/getGuild.html">getGuild</a></li>
       <li><a href="nyxx/Client/getInvite.html">getInvite</a></li>
-      <li><a href="nyxx/Client/getOAuth2Info.html">getOAuth2Info</a></li>
       <li><a href="nyxx/Client/getUser.html">getUser</a></li>
       <li><a href="nyxx/Client/getWebhook.html">getWebhook</a></li>
       <li class="inherited"><a href="nyxx/Client/noSuchMethod.html">noSuchMethod</a></li>
@@ -772,7 +780,7 @@ without forceFetchUsers enabled.
 
 <footer>
   <span class="no-break">
-    nyxx 0.24.0
+    nyxx 1.0.0
   </span>
 
 </footer>

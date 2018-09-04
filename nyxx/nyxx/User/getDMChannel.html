@@ -61,6 +61,7 @@
       <li><a href="nyxx/User/avatarURL.html">avatarURL</a></li>
       <li><a href="nyxx/User/getDMChannel.html">getDMChannel</a></li>
       <li><a href="nyxx/User/send.html">send</a></li>
+      <li><a href="nyxx/User/sendFile.html">sendFile</a></li>
       <li><a href="nyxx/User/toString.html">toString</a></li>
       <li class="inherited"><a href="nyxx/SnowflakeEntity/noSuchMethod.html">noSuchMethod</a></li>
     
@@ -94,8 +95,7 @@
   } catch (err) {
     HttpResponse r = await client.http.send(&#39;POST&#39;, &quot;&#47;users&#47;@me&#47;channels&quot;,
         body: {&quot;recipient_id&quot;: this.id.toString()});
-    return new DMChannel._new(
-        client, r.body.asJson() as Map&lt;String, dynamic&gt;);
+    return DMChannel._new(client, r.body as Map&lt;String, dynamic&gt;);
   }
 }</code></pre>
     </section>
@@ -109,7 +109,7 @@
 
 <footer>
   <span class="no-break">
-    nyxx 0.24.0
+    nyxx 1.0.0
   </span>
 
 </footer>

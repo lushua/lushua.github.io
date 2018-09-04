@@ -77,7 +77,7 @@
     <h1>connect method</h1>
 
     <section class="multi-line-signature">
-      <span class="returntype">Future<span class="signature">&lt;<wbr><span class="type-parameter">Null</span>&gt;</span></span>
+      <span class="returntype">Future<span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
       <span class="name ">connect</span>
 (<wbr><span class="parameter" id="connect-param-channel"><span class="type-annotation"><a href="nyxx/VoiceChannel-class.html">VoiceChannel</a></span> <span class="parameter-name">channel</span></span>)
     </section>
@@ -88,50 +88,48 @@ Remember to await this methods - thread can be locked forever.</p>
     
     <section class="summary source-code" id="source">
       <h2><span>Implementation</span> </h2>
-      <pre class="language-dart"><code class="language-dart">Future&lt;Null&gt; connect(VoiceChannel channel) async {
+      <pre class="language-dart"><code class="language-dart">Future&lt;void&gt; connect(VoiceChannel channel) async {
   isConnected = true;
   currentChannel = channel;
 
-  _onPlayerUpdate = new StreamController.broadcast();
+  _onPlayerUpdate = StreamController.broadcast();
   onPlayerUpdate = _onPlayerUpdate.stream;
 
-  _onTrackError = new StreamController.broadcast();
+  _onTrackError = StreamController.broadcast();
   onTrackError = _onTrackError.stream;
 
-  _guild.shard.send(&quot;VOICE_STATE_UPDATE&quot;,
-      new _Opcode4(_guild, channel, false, false)._build());
+  _guild.shard.send(
+      &quot;VOICE_STATE_UPDATE&quot;, _Opcode4(_guild, channel, false, false)._build());
 
   _currentState = (await _client.onVoiceStateUpdate.first).state;
   _rawEvent = (await _client.onVoiceServerUpdate.first).raw;
 
-  var s = jsonEncode(new _OpVoiceUpdate(
-          _guild.id.toString(), _currentState.sessionId, _rawEvent)
-      .build());
+  var s = jsonEncode(
+      _OpVoiceUpdate(_guild.id.toString(), _currentState.sessionId, _rawEvent)
+          .build());
   print(s);
   _webSocket.add(s);
 
   _sub1 = _client.onVoiceServerUpdate
-      .where((e) =&gt; e.guild.id.toString() == _guild.id.toString())
+      .where((e) =&gt; e.guild.id == _guild.id)
       .listen((e) {
     _rawEvent = e.raw;
-    _webSocket.add(jsonEncode(new _OpVoiceUpdate(
+    _webSocket.add(jsonEncode(_OpVoiceUpdate(
             _guild.id.toString(), _currentState.sessionId, _rawEvent)
         .build()));
   });
 
   _sub2 = _client.onVoiceStateUpdate.where((e) {
-    if (e.state.channel != null) if (e.state.channel.id.toString() !=
-        currentChannel.id.toString()) return false;
+    if (e.state.channel != null) if (e.state.channel.id != currentChannel.id)
+      return false;
 
-    return e.state.user.id.toString() == _client.user.id.toString();
+    return e.state.user.id == _client.user.id;
   }).listen((e) {
     _currentState = e.state;
-    _webSocket.add(jsonEncode(new _OpVoiceUpdate(
+    _webSocket.add(jsonEncode(_OpVoiceUpdate(
             _guild.id.toString(), _currentState.sessionId, _rawEvent)
         .build()));
   });
-
-  return null;
 }</code></pre>
     </section>
 
@@ -144,7 +142,7 @@ Remember to await this methods - thread can be locked forever.</p>
 
 <footer>
   <span class="no-break">
-    nyxx 0.24.0
+    nyxx 1.0.0
   </span>
 
 </footer>

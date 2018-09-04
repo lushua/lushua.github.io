@@ -39,18 +39,21 @@
     <h5>utils library</h5>
     <ol>
       <li class="section-title"><a href="utils/utils-library.html#classes">Classes</a></li>
-      <li><a href="utils/Color-class.html">Color</a></li>
       <li><a href="utils/EmojisUnicode-class.html">EmojisUnicode</a></li>
-      <li><a href="utils/HotReloader-class.html">HotReloader</a></li>
-      <li><a href="utils/HotReloaderPath-class.html">HotReloaderPath</a></li>
     
     
     
       <li class="section-title"><a href="utils/utils-library.html#functions">Functions</a></li>
+      <li><a href="utils/chunk.html">chunk</a></li>
+      <li><a href="utils/downloadFile.html">downloadFile</a></li>
+      <li><a href="utils/format.html">format</a></li>
       <li><a href="utils/getSymbolName.html">getSymbolName</a></li>
-      <li><a href="utils/hotReload.html">hotReload</a></li>
+      <li><a href="utils/HEXtoInt.html">HEXtoInt</a></li>
       <li><a href="utils/merge.html">merge</a></li>
       <li><a href="utils/partition.html">partition</a></li>
+      <li><a href="utils/RGBtoInt.html">RGBtoInt</a></li>
+      <li><a href="utils/sendMultipart.html">sendMultipart</a></li>
+      <li><a href="utils/sendRequest.html">sendRequest</a></li>
       <li><a href="utils/split.html">split</a></li>
       <li><a href="utils/splitEqually.html">splitEqually</a></li>
     
@@ -67,12 +70,14 @@
         <span class="name ">partition</span>
 &lt;<wbr><span class="type-parameter">T</span>&gt;(<wbr><span class="parameter" id="partition-param-lst"><span class="type-annotation">List<span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span> <span class="parameter-name">lst</span>, </span> <span class="parameter" id="partition-param-len"><span class="type-annotation">int</span> <span class="parameter-name">len</span></span>)
     </section>
+    <section class="desc markdown">
+      <p>Partition list into chunks</p>
+    </section>
     
     <section class="summary source-code" id="source">
       <h2><span>Implementation</span> </h2>
       <pre class="language-dart"><code class="language-dart">Iterable&lt;List&lt;T&gt;&gt; partition&lt;T&gt;(List&lt;T&gt; lst, int len) sync* {
-  for (var i = 0; i &lt; lst.length; i += len)
-    yield lst.sublist(i, i + len);
+  for (var i = 0; i &lt; lst.length; i += len) yield lst.sublist(i, i + len);
 }</code></pre>
     </section>
 
@@ -85,7 +90,7 @@
 
 <footer>
   <span class="no-break">
-    nyxx 0.24.0
+    nyxx 1.0.0
   </span>
 
 </footer>

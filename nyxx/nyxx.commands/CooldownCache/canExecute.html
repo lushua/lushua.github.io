@@ -77,10 +77,10 @@
       <h2><span>Implementation</span> </h2>
       <pre class="language-dart"><code class="language-dart">Future&lt;bool&gt; canExecute(
     Snowflake userId, String commandName, int desiredCooldown) {
-  return new Future&lt;bool&gt;(() {
+  return Future&lt;bool&gt;(() {
     &#47;&#47;&#47; current date
-    int now = new DateTime.now().millisecondsSinceEpoch;
-    var node = new _CacheKey._new(userId, commandName);
+    int now = DateTime.now().millisecondsSinceEpoch;
+    var node = _CacheKey._new(userId, commandName);
 
     bool found = false;
 
@@ -113,7 +113,7 @@
 
 <footer>
   <span class="no-break">
-    nyxx 0.24.0
+    nyxx 1.0.0
   </span>
 
 </footer>

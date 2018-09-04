@@ -73,6 +73,9 @@
       <li><a href="nyxx/EmbedVideo-class.html">EmbedVideo</a></li>
       <li><a href="nyxx/Emoji-class.html">Emoji</a></li>
       <li><a href="nyxx/Game-class.html">Game</a></li>
+      <li><a href="nyxx/GameAssets-class.html">GameAssets</a></li>
+      <li><a href="nyxx/GameParty-class.html">GameParty</a></li>
+      <li><a href="nyxx/GameSecrets-class.html">GameSecrets</a></li>
       <li><a href="nyxx/GroupChannel-class.html">GroupChannel</a></li>
       <li><a href="nyxx/GroupDMChannel-class.html">GroupDMChannel</a></li>
       <li><a href="nyxx/Guild-class.html">Guild</a></li>
@@ -100,6 +103,7 @@
       <li><a href="nyxx/Invite-class.html">Invite</a></li>
       <li><a href="nyxx/InviteChannel-class.html">InviteChannel</a></li>
       <li><a href="nyxx/InviteGuild-class.html">InviteGuild</a></li>
+      <li><a href="nyxx/ISend-class.html">ISend</a></li>
       <li><a href="nyxx/Member-class.html">Member</a></li>
       <li><a href="nyxx/Message-class.html">Message</a></li>
       <li><a href="nyxx/MessageChannel-class.html">MessageChannel</a></li>
@@ -144,7 +148,7 @@
     
     
       <li class="section-title"><a href="nyxx/nyxx-library.html#functions">Functions</a></li>
-      <li><a href="nyxx/snow.html">snow</a></li>
+      <li><a href="nyxx/expandAttachment.html">expandAttachment</a></li>
     
       <li class="section-title"><a href="nyxx/nyxx-library.html#enums">Enums</a></li>
       <li><a href="nyxx/ChannelType-class.html">ChannelType</a></li>
@@ -152,7 +156,6 @@
     
       <li class="section-title"><a href="nyxx/nyxx-library.html#exceptions">Exceptions</a></li>
       <li><a href="nyxx/HttpError-class.html">HttpError</a></li>
-      <li><a href="nyxx/InvalidTokenError-class.html">InvalidTokenError</a></li>
     </ol>
   </div>
 
@@ -160,8 +163,15 @@
     <h1>MessageChannel class</h1>
 
     <section class="desc markdown">
-      <p>Provides abstraction of messages for <a href="nyxx/TextChannel-class.html">TextChannel</a>, <a href="nyxx/DMChannel-class.html">DMChannel</a> and <code>DMGroupChannel</code>.
-Caches message to avoid abusing API.</p>
+      <p>Provides abstraction of messages for <a href="nyxx/TextChannel-class.html">TextChannel</a>, <a href="nyxx/DMChannel-class.html">DMChannel</a> and <a href="nyxx/GroupDMChannel-class.html">GroupDMChannel</a>.
+Implements iterator which allows to use message object in for loops to access
+messages sequentially.</p>
+<pre class="language-dart"><code>var chan = client.channels.firstWhere((ch) =&gt; ch is TextChannel);
+
+for (var message in chan) {
+  print(message.author.id);
+}
+</code></pre>
     </section>
     
     <section>
@@ -178,6 +188,7 @@ Caches message to avoid abusing API.</p>
         <dt>Mixes-in</dt>
         <dd><ul class="comma-separated clazz-relationships">
           <li>IterableMixin<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/Message-class.html">Message</a></span>&gt;</span></li>
+          <li><a href="nyxx/ISend-class.html">ISend</a></li>
         </ul></dd>
 
         <dt>Implemented by</dt>
@@ -233,7 +244,7 @@ Caches message to avoid abusing API.</p>
           <span class="signature">&#8596; Stream<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/TypingEvent-class.html">TypingEvent</a></span>&gt;</span></span>
         </dt>
         <dd>
-          Emitted when user starts typing
+          Emitted when user starts typing.
           <div class="features">read / write</div>
 </dd>
         <dt id="client" class="property inherited">
@@ -334,10 +345,11 @@ Caches message to avoid abusing API.</p>
 </dd>
         <dt id="type" class="property inherited">
           <span class="name"><a href="nyxx/Channel/type.html">type</a></span>
-          <span class="signature">&#8596; String</span>
+          <span class="signature">&#8596; int</span>
         </dt>
         <dd class="inherited">
           The channel's type.
+<a href="https://discordapp.com/developers/docs/resources/channel#channel-object-channel-types">https://discordapp.com/developers/docs/resources/channel#channel-object-channel-types</a>
           <div class="features">read / write, inherited</div>
 </dd>
       </dl>
@@ -348,54 +360,55 @@ Caches message to avoid abusing API.</p>
       <dl class="callables">
         <dt id="bulkRemoveMessages" class="callable">
           <span class="name"><a href="nyxx/MessageChannel/bulkRemoveMessages.html">bulkRemoveMessages</a></span><span class="signature">(<wbr><span class="parameter" id="bulkRemoveMessages-param-messagesIds"><span class="type-annotation">Iterable<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/Snowflake-class.html">Snowflake</a></span>&gt;</span></span> <span class="parameter-name">messagesIds</span></span>)
-            <span class="returntype parameter">&#8594; Future<span class="signature">&lt;<wbr><span class="type-parameter">Null</span>&gt;</span></span>
+            <span class="returntype parameter">&#8594; Future<span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
           </span>
         </dt>
         <dd>
-          Bulk removes many messages by its ids. <code>messagesIds</code> is list of messages ids to delete.
+          Bulk removes many messages by its ids. <code>messagesIds</code> is list of messages ids to delete. <a href="nyxx/MessageChannel/bulkRemoveMessages.html">[...]</a>
           
 </dd>
         <dt id="getMessage" class="callable">
-          <span class="name"><a href="nyxx/MessageChannel/getMessage.html">getMessage</a></span><span class="signature">(<wbr><span class="parameter" id="getMessage-param-id"><span class="type-annotation"><a href="nyxx/Snowflake-class.html">Snowflake</a></span> <span class="parameter-name">id</span></span>)
-            <span class="returntype parameter">&#8594; <a href="nyxx/Message-class.html">Message</a></span>
+          <span class="name"><a href="nyxx/MessageChannel/getMessage.html">getMessage</a></span><span class="signature">(<wbr><span class="parameter" id="getMessage-param-id"><span class="type-annotation"><a href="nyxx/Snowflake-class.html">Snowflake</a></span> <span class="parameter-name">id</span>, {</span> <span class="parameter" id="getMessage-param-force"><span class="type-annotation">bool</span> <span class="parameter-name">force</span>: <span class="default-value">false</span></span> })
+            <span class="returntype parameter">&#8594; Future<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/Message-class.html">Message</a></span>&gt;</span></span>
           </span>
         </dt>
         <dd>
-          
+          Returs message with given <code>id</code>. Allows to force fatch message from api
+with <code>force</code> propery. By default it checks if message is in cache and fatches if not.
           
 </dd>
         <dt id="getMessages" class="callable">
-          <span class="name"><a href="nyxx/MessageChannel/getMessages.html">getMessages</a></span><span class="signature">(<wbr>{<span class="parameter" id="getMessages-param-limit"><span class="type-annotation">int</span> <span class="parameter-name">limit</span>: <span class="default-value">50</span>, </span> <span class="parameter" id="getMessages-param-after"><span class="type-annotation"><a href="nyxx/Snowflake-class.html">Snowflake</a></span> <span class="parameter-name">after</span>, </span> <span class="parameter" id="getMessages-param-before"><span class="type-annotation"><a href="nyxx/Snowflake-class.html">Snowflake</a></span> <span class="parameter-name">before</span>, </span> <span class="parameter" id="getMessages-param-around"><span class="type-annotation"><a href="nyxx/Snowflake-class.html">Snowflake</a></span> <span class="parameter-name">around</span></span> })
+          <span class="name"><a href="nyxx/MessageChannel/getMessages.html">getMessages</a></span><span class="signature">(<wbr>{<span class="parameter" id="getMessages-param-limit"><span class="type-annotation">int</span> <span class="parameter-name">limit</span>: <span class="default-value">50</span>, </span> <span class="parameter" id="getMessages-param-after"><span class="type-annotation"><a href="nyxx/Snowflake-class.html">Snowflake</a></span> <span class="parameter-name">after</span>, </span> <span class="parameter" id="getMessages-param-before"><span class="type-annotation"><a href="nyxx/Snowflake-class.html">Snowflake</a></span> <span class="parameter-name">before</span>, </span> <span class="parameter" id="getMessages-param-around"><span class="type-annotation"><a href="nyxx/Snowflake-class.html">Snowflake</a></span> <span class="parameter-name">around</span>, </span> <span class="parameter" id="getMessages-param-cache"><span class="type-annotation">bool</span> <span class="parameter-name">cache</span></span> })
             <span class="returntype parameter">&#8594; Future<span class="signature">&lt;<wbr><span class="type-parameter">LinkedHashMap<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/Snowflake-class.html">Snowflake</a></span>, <span class="type-parameter"><a href="nyxx/Message-class.html">Message</a></span>&gt;</span></span>&gt;</span></span>
           </span>
         </dt>
         <dd>
-          Gets several <a href="nyxx/Message-class.html">Message</a> objects. <a href="nyxx/MessageChannel/getMessages.html">[...]</a>
+          Gets several <a href="nyxx/Message-class.html">Message</a> objects from API. Only one of <code>after</code>, <code>before</code>, <code>around</code> can be specified
+otherwise it'll throw. <a href="nyxx/MessageChannel/getMessages.html">[...]</a>
           
 </dd>
         <dt id="send" class="callable">
-          <span class="name"><a href="nyxx/MessageChannel/send.html">send</a></span><span class="signature">(<wbr>{<span class="parameter" id="send-param-content"><span class="type-annotation">Object</span> <span class="parameter-name">content</span>: <span class="default-value">""</span>, </span> <span class="parameter" id="send-param-embed"><span class="type-annotation"><a href="nyxx/EmbedBuilder-class.html">EmbedBuilder</a></span> <span class="parameter-name">embed</span>, </span> <span class="parameter" id="send-param-tts"><span class="type-annotation">bool</span> <span class="parameter-name">tts</span>: <span class="default-value">false</span>, </span> <span class="parameter" id="send-param-nonce"><span class="type-annotation">String</span> <span class="parameter-name">nonce</span>, </span> <span class="parameter" id="send-param-disableEveryone"><span class="type-annotation">bool</span> <span class="parameter-name">disableEveryone</span></span> })
+          <span class="name"><a href="nyxx/MessageChannel/send.html">send</a></span><span class="signature">(<wbr>{<span class="parameter" id="send-param-content"><span class="type-annotation">Object</span> <span class="parameter-name">content</span>: <span class="default-value">""</span>, </span> <span class="parameter" id="send-param-embed"><span class="type-annotation"><a href="nyxx/EmbedBuilder-class.html">EmbedBuilder</a></span> <span class="parameter-name">embed</span>, </span> <span class="parameter" id="send-param-tts"><span class="type-annotation">bool</span> <span class="parameter-name">tts</span>: <span class="default-value">false</span>, </span> <span class="parameter" id="send-param-disableEveryone"><span class="type-annotation">bool</span> <span class="parameter-name">disableEveryone</span></span> })
             <span class="returntype parameter">&#8594; Future<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/Message-class.html">Message</a></span>&gt;</span></span>
           </span>
         </dt>
         <dd>
-          Sends a message. <a href="nyxx/MessageChannel/send.html">[...]</a>
+          Sends message to channel. Performs <code>toString()</code> on thing passed to <code>content</code>. Allows to send embeds with <code>embed</code> field. <a href="nyxx/MessageChannel/send.html">[...]</a>
           
 </dd>
         <dt id="sendFile" class="callable">
-          <span class="name"><a href="nyxx/MessageChannel/sendFile.html">sendFile</a></span><span class="signature">(<wbr><span class="parameter" id="sendFile-param-filepaths"><span class="type-annotation">List<span class="signature">&lt;<wbr><span class="type-parameter">String</span>&gt;</span></span> <span class="parameter-name">filepaths</span>, {</span> <span class="parameter" id="sendFile-param-content"><span class="type-annotation">String</span> <span class="parameter-name">content</span>: <span class="default-value">""</span>, </span> <span class="parameter" id="sendFile-param-embed"><span class="type-annotation"><a href="nyxx/EmbedBuilder-class.html">EmbedBuilder</a></span> <span class="parameter-name">embed</span></span> })
+          <span class="name"><a href="nyxx/MessageChannel/sendFile.html">sendFile</a></span><span class="signature">(<wbr><span class="parameter" id="sendFile-param-files"><span class="type-annotation">List<span class="signature">&lt;<wbr><span class="type-parameter">File</span>&gt;</span></span> <span class="parameter-name">files</span>, {</span> <span class="parameter" id="sendFile-param-content"><span class="type-annotation">String</span> <span class="parameter-name">content</span>: <span class="default-value">""</span>, </span> <span class="parameter" id="sendFile-param-embed"><span class="type-annotation"><a href="nyxx/EmbedBuilder-class.html">EmbedBuilder</a></span> <span class="parameter-name">embed</span>, </span> <span class="parameter" id="sendFile-param-disableEveryone"><span class="type-annotation">bool</span> <span class="parameter-name">disableEveryone</span></span> })
             <span class="returntype parameter">&#8594; Future<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/Message-class.html">Message</a></span>&gt;</span></span>
           </span>
         </dt>
         <dd>
-          Sends file to channel and optional <code>content</code>. <code>filepath</code> is relative to project root.
-Throws an <code>Exception</code> if the HTTP request errored.
-    Channel.send(content: "My content!");
+          Sends file to channel and optional <code>content</code> with <code>embed</code>.
+Use <code>expandAttachment(String file)</code> method to expand file names in embed <a href="nyxx/MessageChannel/sendFile.html">[...]</a>
           
 </dd>
         <dt id="startTyping" class="callable">
           <span class="name"><a href="nyxx/MessageChannel/startTyping.html">startTyping</a></span><span class="signature">(<wbr>)
-            <span class="returntype parameter">&#8594; Future<span class="signature">&lt;<wbr><span class="type-parameter">Null</span>&gt;</span></span>
+            <span class="returntype parameter">&#8594; Future<span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
           </span>
         </dt>
         <dd>
@@ -449,11 +462,12 @@ Throws an <code>Exception</code> if the HTTP request errored.
 </dd>
         <dt id="delete" class="callable inherited">
           <span class="name"><a href="nyxx/Channel/delete.html">delete</a></span><span class="signature">(<wbr>{<span class="parameter" id="delete-param-auditReason"><span class="type-annotation">String</span> <span class="parameter-name">auditReason</span>: <span class="default-value">""</span></span> })
-            <span class="returntype parameter">&#8594; Future<span class="signature">&lt;<wbr><span class="type-parameter">Null</span>&gt;</span></span>
+            <span class="returntype parameter">&#8594; Future<span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
           </span>
         </dt>
         <dd class="inherited">
           Deletes the channel.
+Throws if bot cannot perform operation
           <div class="features">inherited</div>
 </dd>
         <dt id="elementAt" class="callable inherited">
@@ -755,7 +769,7 @@ predicate <code>test</code>. <a href="nyxx/MessageChannel/where.html">[...]</a>
 
 <footer>
   <span class="no-break">
-    nyxx 0.24.0
+    nyxx 1.0.0
   </span>
 
 </footer>

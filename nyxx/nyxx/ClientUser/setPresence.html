@@ -68,6 +68,7 @@
       <li class="inherited"><a href="nyxx/User/getDMChannel.html">getDMChannel</a></li>
       <li class="inherited"><a href="nyxx/SnowflakeEntity/noSuchMethod.html">noSuchMethod</a></li>
       <li class="inherited"><a href="nyxx/User/send.html">send</a></li>
+      <li class="inherited"><a href="nyxx/User/sendFile.html">sendFile</a></li>
       <li class="inherited"><a href="nyxx/User/toString.html">toString</a></li>
     
       <li class="section-title inherited"><a href="nyxx/ClientUser-class.html#operators">Operators</a></li>
@@ -84,17 +85,15 @@
     <section class="multi-line-signature">
       <span class="returntype"><a href="nyxx/ClientUser-class.html">ClientUser</a></span>
       <span class="name ">setPresence</span>
-(<wbr>{<span class="parameter" id="setPresence-param-status"><span class="type-annotation">String</span> <span class="parameter-name">status</span>: <span class="default-value">null</span>, </span> <span class="parameter" id="setPresence-param-afk"><span class="type-annotation">bool</span> <span class="parameter-name">afk</span>: <span class="default-value">false</span>, </span> <span class="parameter" id="setPresence-param-game"><span class="type-annotation"><a href="nyxx/Game-class.html">Game</a></span> <span class="parameter-name">game</span>: <span class="default-value">null</span></span> })
+(<wbr>{<span class="parameter" id="setPresence-param-status"><span class="type-annotation">String</span> <span class="parameter-name">status</span>, </span> <span class="parameter" id="setPresence-param-afk"><span class="type-annotation">bool</span> <span class="parameter-name">afk</span>: <span class="default-value">false</span>, </span> <span class="parameter" id="setPresence-param-game"><span class="type-annotation"><a href="nyxx/Game-class.html">Game</a></span> <span class="parameter-name">game</span></span> })
     </section>
     <section class="desc markdown">
-      <p>Updates the client's presence.
-    ClientUser.setPresence(status: s, activity: { 'name': args.join(' ') });</p>
+      <p>Updates the client's presence</p>
     </section>
     
     <section class="summary source-code" id="source">
       <h2><span>Implementation</span> </h2>
-      <pre class="language-dart"><code class="language-dart">ClientUser setPresence(
-    {String status: null, bool afk: false, Game game: null}) {
+      <pre class="language-dart"><code class="language-dart">ClientUser setPresence({String status, bool afk = false, Game game}) {
   this.client.shards.forEach((int id, Shard shard) {
     shard.setPresence(status: status, afk: afk, game: game);
   });
@@ -112,7 +111,7 @@
 
 <footer>
   <span class="no-break">
-    nyxx 0.24.0
+    nyxx 1.0.0
   </span>
 
 </footer>

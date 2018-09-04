@@ -77,7 +77,7 @@
     <h1>changeChannel method</h1>
 
     <section class="multi-line-signature">
-      <span class="returntype">Future<span class="signature">&lt;<wbr><span class="type-parameter">Null</span>&gt;</span></span>
+      <span class="returntype">Future<span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
       <span class="name ">changeChannel</span>
 (<wbr><span class="parameter" id="changeChannel-param-channel"><span class="type-annotation"><a href="nyxx/VoiceChannel-class.html">VoiceChannel</a></span> <span class="parameter-name">channel</span>, {</span> <span class="parameter" id="changeChannel-param-muted"><span class="type-annotation">bool</span> <span class="parameter-name">muted</span>: <span class="default-value">false</span>, </span> <span class="parameter" id="changeChannel-param-deafen"><span class="type-annotation">bool</span> <span class="parameter-name">deafen</span>: <span class="default-value">false</span></span> })
     </section>
@@ -87,13 +87,11 @@
     
     <section class="summary source-code" id="source">
       <h2><span>Implementation</span> </h2>
-      <pre class="language-dart"><code class="language-dart">Future&lt;Null&gt; changeChannel(VoiceChannel channel,
-    {bool muted: false, bool deafen: false}) {
+      <pre class="language-dart"><code class="language-dart">Future&lt;void&gt; changeChannel(VoiceChannel channel,
+    {bool muted = false, bool deafen = false}) {
   currentChannel = channel;
   _guild.shard.send(&quot;VOICE_STATE_UPDATE&quot;,
-      new _Opcode4(_guild, channel, muted, deafen)._build());
-
-  return null;
+      _Opcode4(_guild, channel, muted, deafen)._build());
 }</code></pre>
     </section>
 
@@ -106,7 +104,7 @@
 
 <footer>
   <span class="no-break">
-    nyxx 0.24.0
+    nyxx 1.0.0
   </span>
 
 </footer>

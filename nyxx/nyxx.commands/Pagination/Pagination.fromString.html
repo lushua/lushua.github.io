@@ -26,7 +26,7 @@
     <li><a href="index.html">nyxx</a></li>
     <li><a href="nyxx.commands/nyxx.commands-library.html">nyxx.commands</a></li>
     <li><a href="nyxx.commands/Pagination-class.html">Pagination</a></li>
-    <li class="self-crumb">Pagination.fromString constructor</li>
+    <li class="self-crumb">Pagination.fromString factory constructor</li>
   </ol>
   <div class="self-name">Pagination.fromString</div>
   <form class="search navbar-right" role="search">
@@ -40,7 +40,7 @@
     <h5>Pagination class</h5>
     <ol>
       <li class="section-title"><a href="nyxx.commands/Pagination-class.html#constructors">Constructors</a></li>
-      <li><a href="nyxx.commands/Pagination/Pagination.fromList.html">fromList</a></li>
+      <li><a href="nyxx.commands/Pagination/Pagination.html">Pagination</a></li>
       <li><a href="nyxx.commands/Pagination/Pagination.fromString.html">fromString</a></li>
       <li><a href="nyxx.commands/Pagination/Pagination.fromStringEq.html">fromStringEq</a></li>
       <li><a href="nyxx.commands/Pagination/Pagination.fromStringLen.html">fromStringLen</a></li>
@@ -80,8 +80,8 @@
     
     <section class="summary source-code" id="source">
       <h2><span>Implementation</span> </h2>
-      <pre class="language-dart"><code class="language-dart">Pagination.fromString(String str, this.channel) {
-  this.pages = util.split(str, 250).toList();
+      <pre class="language-dart"><code class="language-dart">factory Pagination.fromString(String str, MessageChannel channel) {
+  return Pagination(util.split(str, 250).toList(), channel);
 }</code></pre>
     </section>
 
@@ -94,7 +94,7 @@
 
 <footer>
   <span class="no-break">
-    nyxx 0.24.0
+    nyxx 1.0.0
   </span>
 
 </footer>

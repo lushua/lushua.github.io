@@ -52,14 +52,22 @@
       <li><a href="nyxx/GuildChannel/parentId.html">parentId</a></li>
       <li><a href="nyxx/GuildChannel/permissions.html">permissions</a></li>
       <li><a href="nyxx/GuildChannel/position.html">position</a></li>
+      <li class="inherited"><a href="nyxx/Channel/client.html">client</a></li>
+      <li class="inherited"><a href="nyxx/SnowflakeEntity/createdAt.html">createdAt</a></li>
       <li class="inherited"><a href="nyxx/GuildChannel/hashCode.html">hashCode</a></li>
-      <li class="inherited"><a href="nyxx/GuildChannel/runtimeType.html">runtimeType</a></li>
+      <li class="inherited"><a href="nyxx/SnowflakeEntity/id.html">id</a></li>
+      <li class="inherited"><a href="nyxx/Channel/raw.html">raw</a></li>
+      <li class="inherited"><a href="nyxx/SnowflakeEntity/runtimeType.html">runtimeType</a></li>
+      <li class="inherited"><a href="nyxx/Channel/type.html">type</a></li>
     
       <li class="section-title"><a href="nyxx/GuildChannel-class.html#instance-methods">Methods</a></li>
+      <li><a href="nyxx/GuildChannel/createInvite.html">createInvite</a></li>
       <li><a href="nyxx/GuildChannel/deleteChannelPermission.html">deleteChannelPermission</a></li>
       <li><a href="nyxx/GuildChannel/editChannelPermission.html">editChannelPermission</a></li>
-      <li class="inherited"><a href="nyxx/GuildChannel/noSuchMethod.html">noSuchMethod</a></li>
-      <li class="inherited"><a href="nyxx/GuildChannel/toString.html">toString</a></li>
+      <li><a href="nyxx/GuildChannel/getChannelInvites.html">getChannelInvites</a></li>
+      <li class="inherited"><a href="nyxx/Channel/delete.html">delete</a></li>
+      <li class="inherited"><a href="nyxx/SnowflakeEntity/noSuchMethod.html">noSuchMethod</a></li>
+      <li class="inherited"><a href="nyxx/SnowflakeEntity/toString.html">toString</a></li>
     
       <li class="section-title inherited"><a href="nyxx/GuildChannel-class.html#operators">Operators</a></li>
       <li class="inherited"><a href="nyxx/GuildChannel/operator_equals.html">operator ==</a></li>
@@ -73,19 +81,25 @@
     <h1>editChannelPermission method</h1>
 
     <section class="multi-line-signature">
-      <span class="returntype">Future<span class="signature">&lt;<wbr><span class="type-parameter">Null</span>&gt;</span></span>
+      <span class="returntype">Future<span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
       <span class="name ">editChannelPermission</span>
-(<wbr><span class="parameter" id="editChannelPermission-param-perms"><span class="type-annotation"><a href="nyxx/PermissionsBuilder-class.html">PermissionsBuilder</a></span> <span class="parameter-name">perms</span>, </span> <span class="parameter" id="editChannelPermission-param-id"><span class="type-annotation"><a href="nyxx/Snowflake-class.html">Snowflake</a></span> <span class="parameter-name">id</span>, {</span> <span class="parameter" id="editChannelPermission-param-auditReason"><span class="type-annotation">String</span> <span class="parameter-name">auditReason</span>: <span class="default-value">""</span></span> })
+(<wbr><span class="parameter" id="editChannelPermission-param-perms"><span class="type-annotation"><a href="nyxx/PermissionsBuilder-class.html">PermissionsBuilder</a></span> <span class="parameter-name">perms</span>, </span> <span class="parameter" id="editChannelPermission-param-id"><span class="type-annotation"><a href="nyxx/SnowflakeEntity-class.html">SnowflakeEntity</a></span> <span class="parameter-name">id</span>, {</span> <span class="parameter" id="editChannelPermission-param-auditReason"><span class="type-annotation">String</span> <span class="parameter-name">auditReason</span>: <span class="default-value">""</span></span> })
     </section>
     <section class="desc markdown">
-      <p>Allows to set permissions for channel. <code>id</code> param is ID of User or Role</p>
+      <p>Allows to set permissions for channel. <code>id</code> can be either User or Role
+Throws if <code>id</code> isn't <a href="nyxx/User-class.html">User</a> or <a href="nyxx/Role-class.html">Role</a></p>
     </section>
     
     <section class="summary source-code" id="source">
       <h2><span>Implementation</span> </h2>
-      <pre class="language-dart"><code class="language-dart">Future&lt;Null&gt; editChannelPermission(PermissionsBuilder perms, Snowflake id,
-    {String auditReason: &quot;&quot;}) async {
-  await this._client.http.send(&quot;PUT&quot;, &quot;&#47;channels&#47;${this._id}&#47;permissions&#47;$id&quot;,
+      <pre class="language-dart"><code class="language-dart">Future&lt;void&gt; editChannelPermission(
+    PermissionsBuilder perms, SnowflakeEntity id,
+    {String auditReason = &quot;&quot;}) async {
+  if (!(id is Role) || !(id is User))
+    throw Exception(&quot;The `id` property must be either Role or User&quot;);
+
+  await this.client.http.send(
+      &quot;PUT&quot;, &quot;&#47;channels&#47;${this.id}&#47;permissions&#47;${id.toString()}&quot;,
       body: perms._build()._build(), reason: auditReason);
 }</code></pre>
     </section>
@@ -99,7 +113,7 @@
 
 <footer>
   <span class="no-break">
-    nyxx 0.24.0
+    nyxx 1.0.0
   </span>
 
 </footer>

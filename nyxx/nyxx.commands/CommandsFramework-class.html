@@ -44,11 +44,14 @@
       <li><a href="nyxx.commands/CommandExecutionFailEvent-class.html">CommandExecutionFailEvent</a></li>
       <li><a href="nyxx.commands/CommandParsingFail-class.html">CommandParsingFail</a></li>
       <li><a href="nyxx.commands/CommandsFramework-class.html">CommandsFramework</a></li>
-      <li><a href="nyxx.commands/Cons-class.html">Cons</a></li>
       <li><a href="nyxx.commands/CooldownCache-class.html">CooldownCache</a></li>
-      <li><a href="nyxx.commands/GuildOnly-class.html">GuildOnly</a></li>
+      <li><a href="nyxx.commands/Help-class.html">Help</a></li>
+      <li><a href="nyxx.commands/Module-class.html">Module</a></li>
       <li><a href="nyxx.commands/Pagination-class.html">Pagination</a></li>
+      <li><a href="nyxx.commands/Postprocessor-class.html">Postprocessor</a></li>
+      <li><a href="nyxx.commands/Preprocessor-class.html">Preprocessor</a></li>
       <li><a href="nyxx.commands/Remainder-class.html">Remainder</a></li>
+      <li><a href="nyxx.commands/Restrict-class.html">Restrict</a></li>
       <li><a href="nyxx.commands/Scheduler-class.html">Scheduler</a></li>
       <li><a href="nyxx.commands/Service-class.html">Service</a></li>
       <li><a href="nyxx.commands/TypeConverter-class.html">TypeConverter</a></li>
@@ -226,22 +229,13 @@ All messages without this prefix will be ignored
     <section class="summary offset-anchor" id="instance-methods">
       <h2>Methods</h2>
       <dl class="callables">
-        <dt id="add" class="callable">
-          <span class="name"><a href="nyxx.commands/CommandsFramework/add.html">add</a></span><span class="signature">(<wbr><span class="parameter" id="add-param-command"><span class="type-annotation"><a href="nyxx.commands/CommandContext-class.html">CommandContext</a></span> <span class="parameter-name">command</span></span>)
-            <span class="returntype parameter">&#8594; void</span>
+        <dt id="checkPermissions" class="callable">
+          <span class="name"><a href="nyxx.commands/CommandsFramework/checkPermissions.html">checkPermissions</a></span><span class="signature">(<wbr><span class="parameter" id="checkPermissions-param-meta"><span class="type-annotation">_CommandMetadata</span> <span class="parameter-name">meta</span>, </span> <span class="parameter" id="checkPermissions-param-e"><span class="type-annotation"><a href="nyxx/Message-class.html">Message</a></span> <span class="parameter-name">e</span></span>)
+            <span class="returntype parameter">&#8594; Future<span class="signature">&lt;<wbr><span class="type-parameter">int</span>&gt;</span></span>
           </span>
         </dt>
         <dd>
-          Register new <a href="nyxx.commands/CommandContext-class.html">CommandContext</a> object.
           
-</dd>
-        <dt id="addMany" class="callable">
-          <span class="name"><a href="nyxx.commands/CommandsFramework/addMany.html">addMany</a></span><span class="signature">(<wbr><span class="parameter" id="addMany-param-commands"><span class="type-annotation">List<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx.commands/CommandContext-class.html">CommandContext</a></span>&gt;</span></span> <span class="parameter-name">commands</span></span>)
-            <span class="returntype parameter">&#8594; void</span>
-          </span>
-        </dt>
-        <dd>
-          Register many <a href="nyxx.commands/CommandContext-class.html">CommandContext</a> instances.
           
 </dd>
         <dt id="registerLibraryCommands" class="callable">
@@ -349,8 +343,7 @@ There cannot be more than 1 dependency with single type. Only first will be inje
       <li class="inherited"><a href="nyxx.commands/CommandsFramework/runtimeType.html">runtimeType</a></li>
     
       <li class="section-title"><a href="nyxx.commands/CommandsFramework-class.html#instance-methods">Methods</a></li>
-      <li><a href="nyxx.commands/CommandsFramework/add.html">add</a></li>
-      <li><a href="nyxx.commands/CommandsFramework/addMany.html">addMany</a></li>
+      <li><a href="nyxx.commands/CommandsFramework/checkPermissions.html">checkPermissions</a></li>
       <li><a href="nyxx.commands/CommandsFramework/registerLibraryCommands.html">registerLibraryCommands</a></li>
       <li><a href="nyxx.commands/CommandsFramework/registerLibraryServices.html">registerLibraryServices</a></li>
       <li><a href="nyxx.commands/CommandsFramework/registerServices.html">registerServices</a></li>
@@ -370,7 +363,7 @@ There cannot be more than 1 dependency with single type. Only first will be inje
 
 <footer>
   <span class="no-break">
-    nyxx 0.24.0
+    nyxx 1.0.0
   </span>
 
 </footer>

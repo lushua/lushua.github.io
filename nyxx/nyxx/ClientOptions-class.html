@@ -73,6 +73,9 @@
       <li><a href="nyxx/EmbedVideo-class.html">EmbedVideo</a></li>
       <li><a href="nyxx/Emoji-class.html">Emoji</a></li>
       <li><a href="nyxx/Game-class.html">Game</a></li>
+      <li><a href="nyxx/GameAssets-class.html">GameAssets</a></li>
+      <li><a href="nyxx/GameParty-class.html">GameParty</a></li>
+      <li><a href="nyxx/GameSecrets-class.html">GameSecrets</a></li>
       <li><a href="nyxx/GroupChannel-class.html">GroupChannel</a></li>
       <li><a href="nyxx/GroupDMChannel-class.html">GroupDMChannel</a></li>
       <li><a href="nyxx/Guild-class.html">Guild</a></li>
@@ -100,6 +103,7 @@
       <li><a href="nyxx/Invite-class.html">Invite</a></li>
       <li><a href="nyxx/InviteChannel-class.html">InviteChannel</a></li>
       <li><a href="nyxx/InviteGuild-class.html">InviteGuild</a></li>
+      <li><a href="nyxx/ISend-class.html">ISend</a></li>
       <li><a href="nyxx/Member-class.html">Member</a></li>
       <li><a href="nyxx/Message-class.html">Message</a></li>
       <li><a href="nyxx/MessageChannel-class.html">MessageChannel</a></li>
@@ -144,7 +148,7 @@
     
     
       <li class="section-title"><a href="nyxx/nyxx-library.html#functions">Functions</a></li>
-      <li><a href="nyxx/snow.html">snow</a></li>
+      <li><a href="nyxx/expandAttachment.html">expandAttachment</a></li>
     
       <li class="section-title"><a href="nyxx/nyxx-library.html#enums">Enums</a></li>
       <li><a href="nyxx/ChannelType-class.html">ChannelType</a></li>
@@ -152,7 +156,6 @@
     
       <li class="section-title"><a href="nyxx/nyxx-library.html#exceptions">Exceptions</a></li>
       <li><a href="nyxx/HttpError-class.html">HttpError</a></li>
-      <li><a href="nyxx/InvalidTokenError-class.html">InvalidTokenError</a></li>
     </ol>
   </div>
 
@@ -169,7 +172,7 @@
 
       <dl class="constructor-summary-list">
         <dt id="ClientOptions" class="callable">
-          <span class="name"><a href="nyxx/ClientOptions/ClientOptions.html">ClientOptions</a></span><span class="signature">({<span class="parameter" id="-param-disableEveryone"><span class="type-annotation">bool</span> <span class="parameter-name">disableEveryone</span>: <span class="default-value">false</span>, </span> <span class="parameter" id="-param-autoShard"><span class="type-annotation">bool</span> <span class="parameter-name">autoShard</span>: <span class="default-value">true</span>, </span> <span class="parameter" id="-param-shardIds"><span class="type-annotation">List<span class="signature">&lt;<wbr><span class="type-parameter">int</span>&gt;</span></span> <span class="parameter-name">shardIds</span>: <span class="default-value">const [0]</span>, </span> <span class="parameter" id="-param-shardCount"><span class="type-annotation">int</span> <span class="parameter-name">shardCount</span>: <span class="default-value">1</span>, </span> <span class="parameter" id="-param-disabledEvents"><span class="type-annotation">List<span class="signature">&lt;<wbr><span class="type-parameter">String</span>&gt;</span></span> <span class="parameter-name">disabledEvents</span>: <span class="default-value">const []</span>, </span> <span class="parameter" id="-param-messageCacheSize"><span class="type-annotation">int</span> <span class="parameter-name">messageCacheSize</span>: <span class="default-value">200</span>, </span> <span class="parameter" id="-param-ignoreUncachedEvents"><span class="type-annotation">bool</span> <span class="parameter-name">ignoreUncachedEvents</span>: <span class="default-value">true</span>, </span> <span class="parameter" id="-param-forceFetchMembers"><span class="type-annotation">bool</span> <span class="parameter-name">forceFetchMembers</span>: <span class="default-value">false</span></span> })</span>
+          <span class="name"><a href="nyxx/ClientOptions/ClientOptions.html">ClientOptions</a></span><span class="signature">({<span class="parameter" id="-param-disableEveryone"><span class="type-annotation">bool</span> <span class="parameter-name">disableEveryone</span>: <span class="default-value">false</span>, </span> <span class="parameter" id="-param-autoShard"><span class="type-annotation">bool</span> <span class="parameter-name">autoShard</span>: <span class="default-value">true</span>, </span> <span class="parameter" id="-param-shardIds"><span class="type-annotation">List<span class="signature">&lt;<wbr><span class="type-parameter">int</span>&gt;</span></span> <span class="parameter-name">shardIds</span>: <span class="default-value">const [0]</span>, </span> <span class="parameter" id="-param-shardCount"><span class="type-annotation">int</span> <span class="parameter-name">shardCount</span>: <span class="default-value">1</span>, </span> <span class="parameter" id="-param-messageCacheSize"><span class="type-annotation">int</span> <span class="parameter-name">messageCacheSize</span>: <span class="default-value">200</span>, </span> <span class="parameter" id="-param-ignoreUncachedEvents"><span class="type-annotation">bool</span> <span class="parameter-name">ignoreUncachedEvents</span>: <span class="default-value">true</span>, </span> <span class="parameter" id="-param-forceFetchMembers"><span class="type-annotation">bool</span> <span class="parameter-name">forceFetchMembers</span>: <span class="default-value">false</span></span> })</span>
         </dt>
         <dd>
           Makes a new <code>ClientOptions</code> object.
@@ -190,15 +193,6 @@
 values are untouched.
           <div class="features">read / write</div>
 </dd>
-        <dt id="disabledEvents" class="property">
-          <span class="name"><a class="deprecated" href="nyxx/ClientOptions/disabledEvents.html">disabledEvents</a></span>
-          <span class="signature">&#8596; List<span class="signature">&lt;<wbr><span class="type-parameter">String</span>&gt;</span></span>
-        </dt>
-        <dd>
-          A list of discord formatted events to be disabled. Note: some of these events
-can be dangerous to disable. Ex: <code>TYPING_START</code>
-          <div class="features">read / write</div>
-</dd>
         <dt id="disableEveryone" class="property">
           <span class="name"><a href="nyxx/ClientOptions/disableEveryone.html">disableEveryone</a></span>
           <span class="signature">&#8596; bool</span>
@@ -214,7 +208,7 @@ can be dangerous to disable. Ex: <code>TYPING_START</code>
         <dd>
           Whether or not to force fetch all of the members the client can see.
 Can slow down ready times but is recommended if you rely on <code>Message.member</code>
-or the member cache. Bots only, will break userbots.
+or the member cache.
           <div class="features">read / write</div>
 </dd>
         <dt id="ignoreUncachedEvents" class="property">
@@ -322,7 +316,6 @@ Ex: <code>onMessageUpdate</code>.
         <a href="nyxx/ClientOptions-class.html#instance-properties">Properties</a>
       </li>
       <li><a href="nyxx/ClientOptions/autoShard.html">autoShard</a></li>
-      <li><a class="deprecated" href="nyxx/ClientOptions/disabledEvents.html">disabledEvents</a></li>
       <li><a href="nyxx/ClientOptions/disableEveryone.html">disableEveryone</a></li>
       <li><a href="nyxx/ClientOptions/forceFetchMembers.html">forceFetchMembers</a></li>
       <li><a href="nyxx/ClientOptions/ignoreUncachedEvents.html">ignoreUncachedEvents</a></li>
@@ -348,7 +341,7 @@ Ex: <code>onMessageUpdate</code>.
 
 <footer>
   <span class="no-break">
-    nyxx 0.24.0
+    nyxx 1.0.0
   </span>
 
 </footer>

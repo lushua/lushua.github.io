@@ -63,8 +63,7 @@
       <li class="inherited"><a href="nyxx.commands/CommandsFramework/runtimeType.html">runtimeType</a></li>
     
       <li class="section-title"><a href="nyxx.commands/CommandsFramework-class.html#instance-methods">Methods</a></li>
-      <li><a href="nyxx.commands/CommandsFramework/add.html">add</a></li>
-      <li><a href="nyxx.commands/CommandsFramework/addMany.html">addMany</a></li>
+      <li><a href="nyxx.commands/CommandsFramework/checkPermissions.html">checkPermissions</a></li>
       <li><a href="nyxx.commands/CommandsFramework/registerLibraryCommands.html">registerLibraryCommands</a></li>
       <li><a href="nyxx.commands/CommandsFramework/registerLibraryServices.html">registerLibraryServices</a></li>
       <li><a href="nyxx.commands/CommandsFramework/registerServices.html">registerServices</a></li>
@@ -96,17 +95,68 @@ Performs dependency injection when instantiate commands. And throws <code>Except
     <section class="summary source-code" id="source">
       <h2><span>Implementation</span> </h2>
       <pre class="language-dart"><code class="language-dart">void registerLibraryCommands() {
-  _registerLibrary(CommandContext, (toInject, cm) {
-    try {
-      var cmd = cm.newInstance(new Symbol(&#39;&#39;), toInject).reflectee
-          as CommandContext;
-      add(cmd);
-    } catch (e) {
-      print(e);
-      throw new Exception(
-          &quot;Command [${util.getSymbolName(cm.simpleName)}] constructor not satisfied!&quot;);
-    }
+  var mirrorSystem = currentMirrorSystem();
+
+  mirrorSystem.libraries.forEach((_, library) {
+    library.declarations.values.forEach((d) {
+      var commandAnnot = _getCmdAnnot&lt;Module&gt;(d);
+
+      if (commandAnnot != null) {
+        if (d is ClassMirror) {
+          d.declarations.values.forEach((f) {
+            if (f is MethodMirror) {
+              var methodCommandAnnot = _getCmdAnnot&lt;Command&gt;(f);
+
+              if (methodCommandAnnot != null) {
+                var classRestrict = _getCmdAnnot&lt;Restrict&gt;(d);
+                var methodRestrict = _getCmdAnnot&lt;Restrict&gt;(f);
+                var methodHelp = _getCmdAnnot&lt;Help&gt;(f);
+                var processors = _getProcessors(d, f);
+
+                _commands.add(_CommandMetadata(
+                    f,
+                    d,
+                    classRestrict,
+                    commandAnnot,
+                    methodCommandAnnot,
+                    methodRestrict,
+                    methodHelp,
+                    processors.first as List&lt;Preprocessor&gt;,
+                    processors.last as List&lt;Postprocessor&gt;));
+                logger.fine(
+                    &quot;Command ${_createLog(commandAnnot, methodCommandAnnot)} has been registered&quot;);
+              }
+            }
+          });
+        } else if (d is MethodMirror) {
+          var commandAnnot = _getCmdAnnot&lt;Command&gt;(d);
+
+          if (commandAnnot != null) {
+            var methodRestrict = _getCmdAnnot&lt;Restrict&gt;(d);
+            var methodHelp = _getCmdAnnot&lt;Help&gt;(d);
+            var processors = _getProcessors(null, d);
+
+            _commands.add(_CommandMetadata(
+                d,
+                library,
+                null,
+                null,
+                commandAnnot,
+                methodRestrict,
+                methodHelp,
+                processors.first as List&lt;Preprocessor&gt;,
+                processors.last as List&lt;Postprocessor&gt;));
+            logger.fine(
+                &quot;Command [${commandAnnot.name.toString()}] has been registered&quot;);
+          }
+        }
+      }
+    });
   });
+
+  &#47;&#47;Insert 2 keyword messages first
+  _commands.sort((first, second) =&gt;
+      -first.commandString.length.compareTo(second.commandString.length));
 }</code></pre>
     </section>
 
@@ -119,7 +169,7 @@ Performs dependency injection when instantiate commands. And throws <code>Except
 
 <footer>
   <span class="no-break">
-    nyxx 0.24.0
+    nyxx 1.0.0
   </span>
 
 </footer>

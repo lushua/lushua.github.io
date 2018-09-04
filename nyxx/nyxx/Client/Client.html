@@ -50,6 +50,8 @@
       <li><a href="nyxx/Client/channels.html">channels</a></li>
       <li><a href="nyxx/Client/guilds.html">guilds</a></li>
       <li><a href="nyxx/Client/http.html">http</a></li>
+      <li><a href="nyxx/Client/inviteLink.html">inviteLink</a></li>
+      <li><a href="nyxx/Client/logger.html">logger</a></li>
       <li><a href="nyxx/Client/onChannelCreate.html">onChannelCreate</a></li>
       <li><a href="nyxx/Client/onChannelDelete.html">onChannelDelete</a></li>
       <li><a href="nyxx/Client/onChannelPinsUpdate.html">onChannelPinsUpdate</a></li>
@@ -97,10 +99,8 @@
       <li class="section-title"><a href="nyxx/Client-class.html#instance-methods">Methods</a></li>
       <li><a href="nyxx/Client/blockToReady.html">blockToReady</a></li>
       <li><a href="nyxx/Client/createGuild.html">createGuild</a></li>
-      <li><a href="nyxx/Client/destroy.html">destroy</a></li>
       <li><a href="nyxx/Client/getGuild.html">getGuild</a></li>
       <li><a href="nyxx/Client/getInvite.html">getInvite</a></li>
-      <li><a href="nyxx/Client/getOAuth2Info.html">getOAuth2Info</a></li>
       <li><a href="nyxx/Client/getUser.html">getUser</a></li>
       <li><a href="nyxx/Client/getWebhook.html">getWebhook</a></li>
       <li class="inherited"><a href="nyxx/Client/noSuchMethod.html">noSuchMethod</a></li>
@@ -119,7 +119,7 @@
 
     <section class="multi-line-signature">
       
-      <span class="name ">Client</span>(<wbr><span class="parameter" id="-param-_token"><span class="type-annotation">String</span> <span class="parameter-name">_token</span>, [</span> <span class="parameter" id="-param-_options"><span class="type-annotation"><a href="nyxx/ClientOptions-class.html">ClientOptions</a></span> <span class="parameter-name">_options</span></span> ])
+      <span class="name ">Client</span>(<wbr><span class="parameter" id="-param-_token"><span class="type-annotation">String</span> <span class="parameter-name">_token</span>, {</span> <span class="parameter" id="-param-options"><span class="type-annotation"><a href="nyxx/ClientOptions-class.html">ClientOptions</a></span> <span class="parameter-name">options</span>, </span> <span class="parameter" id="-param-ignoreExceptions"><span class="type-annotation">bool</span> <span class="parameter-name">ignoreExceptions</span>: <span class="default-value">true</span></span> })
     </section>
 
     <section class="desc markdown">
@@ -128,28 +128,42 @@
     
     <section class="summary source-code" id="source">
       <h2><span>Implementation</span> </h2>
-      <pre class="language-dart"><code class="language-dart">Client(this._token, [this._options]) {
-  w_transport.globalTransportPlatform = vmTransportPlatform;
+      <pre class="language-dart"><code class="language-dart">Client(this._token, {ClientOptions options, bool ignoreExceptions = true}) {
+  if (ignoreExceptions) {
+    Isolate.current.setErrorsFatal(false);
+    ReceivePort errorsPort = ReceivePort();
+    errorsPort.listen((err) {
+      logger.severe(&quot;ERROR: ${err[0]} \n ${err[1]}&quot;);
+    });
+    Isolate.current.addErrorListener(errorsPort.sendPort);
+  }
 
   if (this._token == null || this._token == &quot;&quot;)
-    throw new Exception(&quot;Token cannot be null or empty&quot;);
+    throw Exception(&quot;Token cannot be null or empty&quot;);
+  if (this._options == null) this._options = ClientOptions();
 
-  if (this._options == null) this._options = new ClientOptions();
+  this._voiceStates = Map&lt;Snowflake, UserVoiceState&gt;();
+  this.guilds = Map&lt;Snowflake, Guild&gt;();
+  this.channels = Map&lt;Snowflake, Channel&gt;();
+  this.users = Map&lt;Snowflake, User&gt;();
+  this.shards = Map&lt;int, Shard&gt;();
 
-  this._voiceStates = new Map&lt;Snowflake, UserVoiceState&gt;();
-  this.guilds = new Map&lt;Snowflake, Guild&gt;();
-  this.channels = new Map&lt;Snowflake, Channel&gt;();
-  this.users = new Map&lt;Snowflake, User&gt;();
-  this.shards = new Map&lt;int, Shard&gt;();
-
-  this.http = new Http._new(this);
-  this._events = new _EventController(this);
-  this._ws = new _WS(this);
+  this.http = Http._new(this);
+  this._events = _EventController(this);
+  this._ws = _WS(this);
 
   Logger.root.level = Level.ALL;
   Logger.root.onRecord.listen((LogRecord rec) {
-    print(&#39;[${rec.level.name}] {${rec.loggerName}} - &#39;
-        &#39;${rec.time.day}.${rec.time.month}.${rec.time.year}&#39;
+    String color;
+    if (rec.level == Level.WARNING)
+      color = &quot;\u001B[33m&quot;;
+    else if (rec.level == Level.SEVERE)
+      color = &quot;\u001B[31m&quot;;
+    else
+      color = &quot;\u001B[0m&quot;;
+
+    print(&#39;$color[${rec.level.name}] \u001B[0m {${rec.loggerName}} - &#39;
+        &#39;${rec.time.day}.${rec.time.month}.${rec.time.year} &#39;
         &#39;${rec.time.hour}:${rec.time.minute}:${rec.time.second}&#39;
         &#39;:${rec.time.millisecond} &#39;
         &#39;-- ${rec.message}&#39;);
@@ -166,7 +180,7 @@
 
 <footer>
   <span class="no-break">
-    nyxx 0.24.0
+    nyxx 1.0.0
   </span>
 
 </footer>

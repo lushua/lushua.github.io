@@ -63,8 +63,7 @@
       <li class="inherited"><a href="nyxx.commands/CommandsFramework/runtimeType.html">runtimeType</a></li>
     
       <li class="section-title"><a href="nyxx.commands/CommandsFramework-class.html#instance-methods">Methods</a></li>
-      <li><a href="nyxx.commands/CommandsFramework/add.html">add</a></li>
-      <li><a href="nyxx.commands/CommandsFramework/addMany.html">addMany</a></li>
+      <li><a href="nyxx.commands/CommandsFramework/checkPermissions.html">checkPermissions</a></li>
       <li><a href="nyxx.commands/CommandsFramework/registerLibraryCommands.html">registerLibraryCommands</a></li>
       <li><a href="nyxx.commands/CommandsFramework/registerLibraryServices.html">registerLibraryServices</a></li>
       <li><a href="nyxx.commands/CommandsFramework/registerServices.html">registerServices</a></li>
@@ -95,17 +94,17 @@
     <section class="summary source-code" id="source">
       <h2><span>Implementation</span> </h2>
       <pre class="language-dart"><code class="language-dart">CommandsFramework(this.prefix, this._client) {
-  this._commands = new List();
-  _cooldownCache = new CooldownCache();
+  this._commands = List();
+  _cooldownCache = CooldownCache();
 
-  _commandNotFoundEventController = new StreamController.broadcast();
-  _requiredPermissionEventController = new StreamController.broadcast();
-  _forAdminOnlyEventController = new StreamController.broadcast();
-  _cooldownEventController = new StreamController.broadcast();
-  _commandExecutionFailController = new StreamController.broadcast();
-  _wrongContextController = new StreamController.broadcast();
-  _unauthorizedNsfwAccess = new StreamController.broadcast();
-  _requiredTopicError = new StreamController.broadcast();
+  _commandNotFoundEventController = StreamController.broadcast();
+  _requiredPermissionEventController = StreamController.broadcast();
+  _forAdminOnlyEventController = StreamController.broadcast();
+  _cooldownEventController = StreamController.broadcast();
+  _commandExecutionFailController = StreamController.broadcast();
+  _wrongContextController = StreamController.broadcast();
+  _unauthorizedNsfwAccess = StreamController.broadcast();
+  _requiredTopicError = StreamController.broadcast();
   &#47;&#47;_commandParsingFail = new StreamController.broadcast();
 
   onCommandNotFound = _commandNotFoundEventController.stream;
@@ -119,16 +118,13 @@
   &#47;&#47;onCommandParsingFail = _commandParsingFail.stream;
 
   &#47;&#47; Listen to incoming messages and ignore all from bots (if set)
-  _client.onMessage.listen((MessageEvent e) async {
-    if (ignoreBots &amp;&amp; e.message.author.bot) return;
-    if (!e.message.content.startsWith(prefix)) return;
+  _client.onReady.listen((_) {
+    _client.onMessage.listen((MessageEvent e) {
+      if (ignoreBots &amp;&amp; e.message.author.bot) return;
+      if (!e.message.content.startsWith(prefix)) return;
 
-    try {
-        await _dispatch(e);
-    }
-    catch (e) {
-      print(e);
-    }
+      Future.microtask(() =&gt; _dispatch(e));
+    });
   });
 }</code></pre>
     </section>
@@ -142,7 +138,7 @@
 
 <footer>
   <span class="no-break">
-    nyxx 0.24.0
+    nyxx 1.0.0
   </span>
 
 </footer>

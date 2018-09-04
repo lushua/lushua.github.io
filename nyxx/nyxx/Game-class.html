@@ -73,6 +73,9 @@
       <li><a href="nyxx/EmbedVideo-class.html">EmbedVideo</a></li>
       <li><a href="nyxx/Emoji-class.html">Emoji</a></li>
       <li><a href="nyxx/Game-class.html">Game</a></li>
+      <li><a href="nyxx/GameAssets-class.html">GameAssets</a></li>
+      <li><a href="nyxx/GameParty-class.html">GameParty</a></li>
+      <li><a href="nyxx/GameSecrets-class.html">GameSecrets</a></li>
       <li><a href="nyxx/GroupChannel-class.html">GroupChannel</a></li>
       <li><a href="nyxx/GroupDMChannel-class.html">GroupDMChannel</a></li>
       <li><a href="nyxx/Guild-class.html">Guild</a></li>
@@ -100,6 +103,7 @@
       <li><a href="nyxx/Invite-class.html">Invite</a></li>
       <li><a href="nyxx/InviteChannel-class.html">InviteChannel</a></li>
       <li><a href="nyxx/InviteGuild-class.html">InviteGuild</a></li>
+      <li><a href="nyxx/ISend-class.html">ISend</a></li>
       <li><a href="nyxx/Member-class.html">Member</a></li>
       <li><a href="nyxx/Message-class.html">Message</a></li>
       <li><a href="nyxx/MessageChannel-class.html">MessageChannel</a></li>
@@ -144,7 +148,7 @@
     
     
       <li class="section-title"><a href="nyxx/nyxx-library.html#functions">Functions</a></li>
-      <li><a href="nyxx/snow.html">snow</a></li>
+      <li><a href="nyxx/expandAttachment.html">expandAttachment</a></li>
     
       <li class="section-title"><a href="nyxx/nyxx-library.html#enums">Enums</a></li>
       <li><a href="nyxx/ChannelType-class.html">ChannelType</a></li>
@@ -152,7 +156,6 @@
     
       <li class="section-title"><a href="nyxx/nyxx-library.html#exceptions">Exceptions</a></li>
       <li><a href="nyxx/HttpError-class.html">HttpError</a></li>
-      <li><a href="nyxx/InvalidTokenError-class.html">InvalidTokenError</a></li>
     </ol>
   </div>
 
@@ -168,8 +171,8 @@
       <h2>Constructors</h2>
 
       <dl class="constructor-summary-list">
-        <dt id="Game" class="callable">
-          <span class="name"><a href="nyxx/Game/Game.html">Game</a></span><span class="signature">(<span class="parameter" id="-param-name"><span class="type-annotation">String</span> <span class="parameter-name">name</span>, {</span> <span class="parameter" id="-param-type"><span class="type-annotation">int</span> <span class="parameter-name">type</span>: <span class="default-value">0</span>, </span> <span class="parameter" id="-param-url"><span class="type-annotation">String</span> <span class="parameter-name">url</span></span> })</span>
+        <dt id="Game.of" class="callable">
+          <span class="name"><a href="nyxx/Game/Game.of.html">Game.of</a></span><span class="signature">(<span class="parameter" id="of-param-name"><span class="type-annotation">String</span> <span class="parameter-name">name</span>, {</span> <span class="parameter" id="of-param-type"><span class="type-annotation">int</span> <span class="parameter-name">type</span>: <span class="default-value">0</span>, </span> <span class="parameter" id="of-param-url"><span class="type-annotation">String</span> <span class="parameter-name">url</span></span> })</span>
         </dt>
         <dd>
           Makes a new game object.
@@ -181,6 +184,54 @@
       <h2>Properties</h2>
 
       <dl class="properties">
+        <dt id="activityFlags" class="property">
+          <span class="name"><a href="nyxx/Game/activityFlags.html">activityFlags</a></span>
+          <span class="signature">&#8596; int</span>
+        </dt>
+        <dd>
+          Activity flags ORd together, describes what the payload includes
+          <div class="features">read / write</div>
+</dd>
+        <dt id="applicationId" class="property">
+          <span class="name"><a href="nyxx/Game/applicationId.html">applicationId</a></span>
+          <span class="signature">&#8596; <a href="nyxx/Snowflake-class.html">Snowflake</a></span>
+        </dt>
+        <dd>
+          Application id for the game
+          <div class="features">read / write</div>
+</dd>
+        <dt id="assets" class="property">
+          <span class="name"><a href="nyxx/Game/assets.html">assets</a></span>
+          <span class="signature">&#8596; <a href="nyxx/GameAssets-class.html">GameAssets</a></span>
+        </dt>
+        <dd>
+          Images for the presence and their hover texts
+          <div class="features">read / write</div>
+</dd>
+        <dt id="details" class="property">
+          <span class="name"><a href="nyxx/Game/details.html">details</a></span>
+          <span class="signature">&#8596; String</span>
+        </dt>
+        <dd>
+          What the player is currently doing
+          <div class="features">read / write</div>
+</dd>
+        <dt id="end" class="property">
+          <span class="name"><a href="nyxx/Game/end.html">end</a></span>
+          <span class="signature">&#8596; DateTime</span>
+        </dt>
+        <dd>
+          DateTime when activity ends
+          <div class="features">read / write</div>
+</dd>
+        <dt id="instance" class="property">
+          <span class="name"><a href="nyxx/Game/instance.html">instance</a></span>
+          <span class="signature">&#8596; bool</span>
+        </dt>
+        <dd>
+          Whether or not the activity is an instanced game session
+          <div class="features">read / write</div>
+</dd>
         <dt id="name" class="property">
           <span class="name"><a href="nyxx/Game/name.html">name</a></span>
           <span class="signature">&#8596; String</span>
@@ -189,12 +240,44 @@
           The game name.
           <div class="features">read / write</div>
 </dd>
+        <dt id="party" class="property">
+          <span class="name"><a href="nyxx/Game/party.html">party</a></span>
+          <span class="signature">&#8596; <a href="nyxx/GameParty-class.html">GameParty</a></span>
+        </dt>
+        <dd>
+          Information for the current party of the player
+          <div class="features">read / write</div>
+</dd>
         <dt id="raw" class="property">
           <span class="name"><a href="nyxx/Game/raw.html">raw</a></span>
           <span class="signature">&#8596; Map<span class="signature">&lt;<wbr><span class="type-parameter">String</span>, <span class="type-parameter">dynamic</span>&gt;</span></span>
         </dt>
         <dd>
           The raw object returned by the API
+          <div class="features">read / write</div>
+</dd>
+        <dt id="secrets" class="property">
+          <span class="name"><a href="nyxx/Game/secrets.html">secrets</a></span>
+          <span class="signature">&#8596; <a href="nyxx/GameSecrets-class.html">GameSecrets</a></span>
+        </dt>
+        <dd>
+          Secrets for Rich Presence joining and spectating
+          <div class="features">read / write</div>
+</dd>
+        <dt id="start" class="property">
+          <span class="name"><a href="nyxx/Game/start.html">start</a></span>
+          <span class="signature">&#8596; DateTime</span>
+        </dt>
+        <dd>
+          DateTime when activity started
+          <div class="features">read / write</div>
+</dd>
+        <dt id="state" class="property">
+          <span class="name"><a href="nyxx/Game/state.html">state</a></span>
+          <span class="signature">&#8596; String</span>
+        </dt>
+        <dd>
+          The user's current party status
           <div class="features">read / write</div>
 </dd>
         <dt id="type" class="property">
@@ -279,13 +362,23 @@
   <div class="col-xs-6 col-sm-6 col-md-2 sidebar sidebar-offcanvas-right">
     <ol>
       <li class="section-title"><a href="nyxx/Game-class.html#constructors">Constructors</a></li>
-      <li><a href="nyxx/Game/Game.html">Game</a></li>
+      <li><a href="nyxx/Game/Game.of.html">of</a></li>
     
       <li class="section-title">
         <a href="nyxx/Game-class.html#instance-properties">Properties</a>
       </li>
+      <li><a href="nyxx/Game/activityFlags.html">activityFlags</a></li>
+      <li><a href="nyxx/Game/applicationId.html">applicationId</a></li>
+      <li><a href="nyxx/Game/assets.html">assets</a></li>
+      <li><a href="nyxx/Game/details.html">details</a></li>
+      <li><a href="nyxx/Game/end.html">end</a></li>
+      <li><a href="nyxx/Game/instance.html">instance</a></li>
       <li><a href="nyxx/Game/name.html">name</a></li>
+      <li><a href="nyxx/Game/party.html">party</a></li>
       <li><a href="nyxx/Game/raw.html">raw</a></li>
+      <li><a href="nyxx/Game/secrets.html">secrets</a></li>
+      <li><a href="nyxx/Game/start.html">start</a></li>
+      <li><a href="nyxx/Game/state.html">state</a></li>
       <li><a href="nyxx/Game/type.html">type</a></li>
       <li><a href="nyxx/Game/url.html">url</a></li>
       <li class="inherited"><a href="nyxx/Game/hashCode.html">hashCode</a></li>
@@ -307,7 +400,7 @@
 
 <footer>
   <span class="no-break">
-    nyxx 0.24.0
+    nyxx 1.0.0
   </span>
 
 </footer>

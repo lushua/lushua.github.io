@@ -88,18 +88,17 @@
     <section class="summary source-code" id="source">
       <h2><span>Implementation</span> </h2>
       <pre class="language-dart"><code class="language-dart">Future&lt;TrackResponse&gt; resolve(String hash) async {
-  var req = w_transport.JsonRequest()
-    ..uri = _restPath
-    ..path = &quot;&#47;loadtracks&quot;
-    ..headers = {&quot;Authorization&quot;: &quot;password&quot;}
-    ..queryParameters = {&quot;identifier&quot;: hash};
+  var uri = _restPath
+      .replace(path: &quot;&#47;loadtracks&quot;, queryParameters: {&quot;identifier&quot;: hash});
+  var req = http.Request(&quot;GET&quot;, uri);
+  req.headers[&quot;Authorization&quot;] = this._password;
 
-  var res = await req.send(&quot;GET&quot;);
-  if (res.status != 200)
-    throw new Exception(&quot;Cannot comunicate with lavalink via http&quot;);
+  var res = await req.send();
+  if (res.statusCode != 200)
+    throw Exception(&quot;Cannot comunicate with lavalink via http&quot;);
 
-  var r = res.body.asJson() as Map&lt;String, dynamic&gt;;
-  return new TrackResponse._new(r);
+  var r = jsonDecode(await res.stream.bytesToString());
+  return TrackResponse._new(r as Map&lt;String, dynamic&gt;);
 }</code></pre>
     </section>
 
@@ -112,7 +111,7 @@
 
 <footer>
   <span class="no-break">
-    nyxx 0.24.0
+    nyxx 1.0.0
   </span>
 
 </footer>

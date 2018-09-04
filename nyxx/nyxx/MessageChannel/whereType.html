@@ -126,8 +126,7 @@ if the underlying elements change between iterations.</p>
     
     <section class="summary source-code" id="source">
       <h2><span>Implementation</span> </h2>
-      <pre class="language-dart"><code class="language-dart">Iterable&lt;T&gt; whereType&lt;T&gt;() =&gt;
-    throw new UnimplementedError(&quot;whereType is not yet supported&quot;);</code></pre>
+      <pre class="language-dart"><code class="language-dart">Iterable&lt;T&gt; whereType&lt;T&gt;() =&gt; new WhereTypeIterable&lt;T&gt;(this);</code></pre>
     </section>
 
   </div> <!-- /.main-content -->
@@ -139,7 +138,7 @@ if the underlying elements change between iterations.</p>
 
 <footer>
   <span class="no-break">
-    nyxx 0.24.0
+    nyxx 1.0.0
   </span>
 
 </footer>

@@ -87,11 +87,11 @@
     
     <section class="summary source-code" id="source">
       <h2><span>Implementation</span> </h2>
-      <pre class="language-dart"><code class="language-dart">Future&lt;Webhook&gt; edit({String name, String auditReason: &quot;&quot;}) async {
+      <pre class="language-dart"><code class="language-dart">Future&lt;Webhook&gt; edit({String name, String auditReason = &quot;&quot;}) async {
   HttpResponse r = await this.client.http.send(
       &#39;PATCH&#39;, &quot;&#47;webhooks&#47;$id&#47;$token&quot;,
       body: {&quot;name&quot;: name}, reason: auditReason);
-  this.name = r.body.asJson()[&#39;name&#39;] as String;
+  this.name = r.body[&#39;name&#39;] as String;
   return this;
 }</code></pre>
     </section>
@@ -105,7 +105,7 @@
 
 <footer>
   <span class="no-break">
-    nyxx 0.24.0
+    nyxx 1.0.0
   </span>
 
 </footer>

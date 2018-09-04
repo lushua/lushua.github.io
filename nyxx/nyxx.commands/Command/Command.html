@@ -45,18 +45,18 @@
       <li class="section-title">
         <a href="nyxx.commands/Command-class.html#instance-properties">Properties</a>
       </li>
-      <li><a href="nyxx.commands/Command/aliases.html">aliases</a></li>
       <li><a href="nyxx.commands/Command/main.html">main</a></li>
-      <li><a href="nyxx.commands/Command/name.html">name</a></li>
-      <li class="inherited"><a href="nyxx.commands/Command/hashCode.html">hashCode</a></li>
-      <li class="inherited"><a href="nyxx.commands/Command/runtimeType.html">runtimeType</a></li>
+      <li class="inherited"><a href="nyxx.commands/Module/aliases.html">aliases</a></li>
+      <li class="inherited"><a href="nyxx.commands/Module/hashCode.html">hashCode</a></li>
+      <li class="inherited"><a href="nyxx.commands/Module/name.html">name</a></li>
+      <li class="inherited"><a href="nyxx.commands/Module/runtimeType.html">runtimeType</a></li>
     
       <li class="section-title inherited"><a href="nyxx.commands/Command-class.html#instance-methods">Methods</a></li>
-      <li class="inherited"><a href="nyxx.commands/Command/noSuchMethod.html">noSuchMethod</a></li>
-      <li class="inherited"><a href="nyxx.commands/Command/toString.html">toString</a></li>
+      <li class="inherited"><a href="nyxx.commands/Module/noSuchMethod.html">noSuchMethod</a></li>
+      <li class="inherited"><a href="nyxx.commands/Module/toString.html">toString</a></li>
     
       <li class="section-title inherited"><a href="nyxx.commands/Command-class.html#operators">Operators</a></li>
-      <li class="inherited"><a href="nyxx.commands/Command/operator_equals.html">operator ==</a></li>
+      <li class="inherited"><a href="nyxx.commands/Module/operator_equals.html">operator ==</a></li>
     
     
     
@@ -68,13 +68,15 @@
 
     <section class="multi-line-signature">
       const
-      <span class="name ">Command</span>(<wbr>{<span class="parameter" id="-param-name"><span class="type-annotation">String</span> <span class="parameter-name">name</span>, </span> <span class="parameter" id="-param-aliases"><span class="type-annotation">List<span class="signature">&lt;<wbr><span class="type-parameter">String</span>&gt;</span></span> <span class="parameter-name">aliases</span>, </span> <span class="parameter" id="-param-main"><span class="type-annotation">bool</span> <span class="parameter-name">main</span></span> })
+      <span class="name ">Command</span>(<wbr>{<span class="parameter" id="-param-name"><span class="type-annotation">String</span> <span class="parameter-name">name</span>, </span> <span class="parameter" id="-param-aliases"><span class="type-annotation">List<span class="signature">&lt;<wbr><span class="type-parameter">String</span>&gt;</span></span> <span class="parameter-name">aliases</span>: <span class="default-value">const []</span>, </span> <span class="parameter" id="-param-main"><span class="type-annotation">bool</span> <span class="parameter-name">main</span>: <span class="default-value">true</span></span> })
     </section>
 
     
     <section class="summary source-code" id="source">
       <h2><span>Implementation</span> </h2>
-      <pre class="language-dart"><code class="language-dart">const Command({this.name, this.aliases, this.main});</code></pre>
+      <pre class="language-dart"><code class="language-dart">const Command(
+    {String name, List&lt;String&gt; aliases = const [], this.main = true})
+    : super(name, aliases: aliases);</code></pre>
     </section>
 
   </div> <!-- /.main-content -->
@@ -86,7 +88,7 @@
 
 <footer>
   <span class="no-break">
-    nyxx 0.24.0
+    nyxx 1.0.0
   </span>
 
 </footer>

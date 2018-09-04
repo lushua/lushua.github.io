@@ -77,7 +77,7 @@
     <h1>pause method</h1>
 
     <section class="multi-line-signature">
-      <span class="returntype">Future<span class="signature">&lt;<wbr><span class="type-parameter">Null</span>&gt;</span></span>
+      <span class="returntype">Future<span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
       <span class="name ">pause</span>
 (<wbr>)
     </section>
@@ -87,8 +87,8 @@
     
     <section class="summary source-code" id="source">
       <h2><span>Implementation</span> </h2>
-      <pre class="language-dart"><code class="language-dart">Future&lt;Null&gt; pause() async {
-  _webSocket.add(jsonEncode(new _SimpleOp(&quot;pause&quot;, _guild)._build()));
+      <pre class="language-dart"><code class="language-dart">Future&lt;void&gt; pause() async {
+  _webSocket.add(jsonEncode(_SimpleOp(&quot;pause&quot;, _guild)._build()));
 }</code></pre>
     </section>
 
@@ -101,7 +101,7 @@
 
 <footer>
   <span class="no-break">
-    nyxx 0.24.0
+    nyxx 1.0.0
   </span>
 
 </footer>

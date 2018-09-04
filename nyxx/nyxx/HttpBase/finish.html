@@ -83,17 +83,17 @@
       <h2><span>Implementation</span> </h2>
       <pre class="language-dart"><code class="language-dart">void finish() {
   this.uri =
-      new Uri.https(_Constants.host, _Constants.baseUri + path, queryParams);
+      Uri.https(_Constants.host, _Constants.baseUri + path, queryParams);
 
   if (http.buckets[uri.toString()] == null)
-    http.buckets[uri.toString()] = new HttpBucket._new(uri.toString());
+    http.buckets[uri.toString()] = HttpBucket._new(uri.toString());
 
   this.bucket = http.buckets[uri.toString()];
 
-  this._streamController = new StreamController&lt;HttpResponse&gt;.broadcast();
+  this._streamController = StreamController&lt;HttpResponse&gt;.broadcast();
   this.stream = _streamController.stream;
 
-  new BeforeHttpRequestSendEvent._new(this.http._client, this as HttpRequest);
+  BeforeHttpRequestSendEvent._new(this.http._client, this);
 
   if (this.http._client == null ||
       !this.http._client._events.beforeHttpRequestSend.hasListener)
@@ -110,7 +110,7 @@
 
 <footer>
   <span class="no-break">
-    nyxx 0.24.0
+    nyxx 1.0.0
   </span>
 
 </footer>

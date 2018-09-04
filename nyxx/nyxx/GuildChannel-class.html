@@ -73,6 +73,9 @@
       <li><a href="nyxx/EmbedVideo-class.html">EmbedVideo</a></li>
       <li><a href="nyxx/Emoji-class.html">Emoji</a></li>
       <li><a href="nyxx/Game-class.html">Game</a></li>
+      <li><a href="nyxx/GameAssets-class.html">GameAssets</a></li>
+      <li><a href="nyxx/GameParty-class.html">GameParty</a></li>
+      <li><a href="nyxx/GameSecrets-class.html">GameSecrets</a></li>
       <li><a href="nyxx/GroupChannel-class.html">GroupChannel</a></li>
       <li><a href="nyxx/GroupDMChannel-class.html">GroupDMChannel</a></li>
       <li><a href="nyxx/Guild-class.html">Guild</a></li>
@@ -100,6 +103,7 @@
       <li><a href="nyxx/Invite-class.html">Invite</a></li>
       <li><a href="nyxx/InviteChannel-class.html">InviteChannel</a></li>
       <li><a href="nyxx/InviteGuild-class.html">InviteGuild</a></li>
+      <li><a href="nyxx/ISend-class.html">ISend</a></li>
       <li><a href="nyxx/Member-class.html">Member</a></li>
       <li><a href="nyxx/Message-class.html">Message</a></li>
       <li><a href="nyxx/MessageChannel-class.html">MessageChannel</a></li>
@@ -144,7 +148,7 @@
     
     
       <li class="section-title"><a href="nyxx/nyxx-library.html#functions">Functions</a></li>
-      <li><a href="nyxx/snow.html">snow</a></li>
+      <li><a href="nyxx/expandAttachment.html">expandAttachment</a></li>
     
       <li class="section-title"><a href="nyxx/nyxx-library.html#enums">Enums</a></li>
       <li><a href="nyxx/ChannelType-class.html">ChannelType</a></li>
@@ -152,7 +156,6 @@
     
       <li class="section-title"><a href="nyxx/nyxx-library.html#exceptions">Exceptions</a></li>
       <li><a href="nyxx/HttpError-class.html">HttpError</a></li>
-      <li><a href="nyxx/InvalidTokenError-class.html">InvalidTokenError</a></li>
     </ol>
   </div>
 
@@ -160,12 +163,18 @@
     <h1>GuildChannel class</h1>
 
     <section class="desc markdown">
-      <p>Represents channel which is part of guild</p>
+      <p>Represents channel which is part of guild.</p>
     </section>
     
     <section>
       <dl class="dl-horizontal">
 
+        <dt>Implements</dt>
+        <dd>
+          <ul class="comma-separated clazz-relationships">
+            <li><a href="nyxx/Channel-class.html">Channel</a></li>
+          </ul>
+        </dd>
 
 
         <dt>Implemented by</dt>
@@ -224,7 +233,7 @@
           <span class="signature">&#8596; Stream<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/ChannelUpdateEvent-class.html">ChannelUpdateEvent</a></span>&gt;</span></span>
         </dt>
         <dd>
-          Emitted on channel update.
+          Emitted when channel is updated.
           <div class="features">read / write</div>
 </dd>
         <dt id="parentId" class="property">
@@ -232,7 +241,7 @@
           <span class="signature">&#8596; <a href="nyxx/Snowflake-class.html">Snowflake</a></span>
         </dt>
         <dd>
-          Parent channel id;
+          Parent channel id
           <div class="features">read / write</div>
 </dd>
         <dt id="permissions" class="property">
@@ -240,7 +249,7 @@
           <span class="signature">&#8596; List<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/ChannelPermissions-class.html">ChannelPermissions</a></span>&gt;</span></span>
         </dt>
         <dd>
-          Permissions for channel
+          Permissions overwrites for channel.
           <div class="features">read / write</div>
 </dd>
         <dt id="position" class="property">
@@ -251,6 +260,22 @@
           The channel's position in the channel list.
           <div class="features">read / write</div>
 </dd>
+        <dt id="client" class="property inherited">
+          <span class="name"><a href="nyxx/Channel/client.html">client</a></span>
+          <span class="signature">&#8596; <a href="nyxx/Client-class.html">Client</a></span>
+        </dt>
+        <dd class="inherited">
+          The <code>Client</code> object.
+          <div class="features">read / write, inherited</div>
+</dd>
+        <dt id="createdAt" class="property inherited">
+          <span class="name"><a href="nyxx/SnowflakeEntity/createdAt.html">createdAt</a></span>
+          <span class="signature">&#8594; DateTime</span>
+        </dt>
+        <dd class="inherited">
+          Gets creation timestamp included in <a href="nyxx/Snowflake-class.html">Snowflake</a>
+          <div class="features">read-only, inherited</div>
+</dd>
         <dt id="hashCode" class="property inherited">
           <span class="name"><a href="nyxx/GuildChannel/hashCode.html">hashCode</a></span>
           <span class="signature">&#8594; int</span>
@@ -259,13 +284,38 @@
           The hash code for this object. <a href="nyxx/GuildChannel/hashCode.html">[...]</a>
           <div class="features">read-only, inherited</div>
 </dd>
+        <dt id="id" class="property inherited">
+          <span class="name"><a href="nyxx/SnowflakeEntity/id.html">id</a></span>
+          <span class="signature">&#8596; <a href="nyxx/Snowflake-class.html">Snowflake</a></span>
+        </dt>
+        <dd class="inherited">
+          Snowflake id
+          <div class="features">read / write, inherited</div>
+</dd>
+        <dt id="raw" class="property inherited">
+          <span class="name"><a href="nyxx/Channel/raw.html">raw</a></span>
+          <span class="signature">&#8596; Map<span class="signature">&lt;<wbr><span class="type-parameter">String</span>, <span class="type-parameter">dynamic</span>&gt;</span></span>
+        </dt>
+        <dd class="inherited">
+          The raw object returned by the API
+          <div class="features">read / write, inherited</div>
+</dd>
         <dt id="runtimeType" class="property inherited">
-          <span class="name"><a href="nyxx/GuildChannel/runtimeType.html">runtimeType</a></span>
+          <span class="name"><a href="nyxx/SnowflakeEntity/runtimeType.html">runtimeType</a></span>
           <span class="signature">&#8594; Type</span>
         </dt>
         <dd class="inherited">
           A representation of the runtime type of the object.
           <div class="features">read-only, inherited</div>
+</dd>
+        <dt id="type" class="property inherited">
+          <span class="name"><a href="nyxx/Channel/type.html">type</a></span>
+          <span class="signature">&#8596; int</span>
+        </dt>
+        <dd class="inherited">
+          The channel's type.
+<a href="https://discordapp.com/developers/docs/resources/channel#channel-object-channel-types">https://discordapp.com/developers/docs/resources/channel#channel-object-channel-types</a>
+          <div class="features">read / write, inherited</div>
 </dd>
       </dl>
     </section>
@@ -273,35 +323,65 @@
     <section class="summary offset-anchor" id="instance-methods">
       <h2>Methods</h2>
       <dl class="callables">
-        <dt id="deleteChannelPermission" class="callable">
-          <span class="name"><a href="nyxx/GuildChannel/deleteChannelPermission.html">deleteChannelPermission</a></span><span class="signature">(<wbr><span class="parameter" id="deleteChannelPermission-param-id"><span class="type-annotation"><a href="nyxx/Snowflake-class.html">Snowflake</a></span> <span class="parameter-name">id</span>, {</span> <span class="parameter" id="deleteChannelPermission-param-auditReason"><span class="type-annotation">String</span> <span class="parameter-name">auditReason</span>: <span class="default-value">""</span></span> })
-            <span class="returntype parameter">&#8594; Future<span class="signature">&lt;<wbr><span class="type-parameter">Null</span>&gt;</span></span>
+        <dt id="createInvite" class="callable">
+          <span class="name"><a href="nyxx/GuildChannel/createInvite.html">createInvite</a></span><span class="signature">(<wbr>{<span class="parameter" id="createInvite-param-maxAge"><span class="type-annotation">int</span> <span class="parameter-name">maxAge</span>: <span class="default-value">0</span>, </span> <span class="parameter" id="createInvite-param-maxUses"><span class="type-annotation">int</span> <span class="parameter-name">maxUses</span>: <span class="default-value">0</span>, </span> <span class="parameter" id="createInvite-param-temporary"><span class="type-annotation">bool</span> <span class="parameter-name">temporary</span>: <span class="default-value">false</span>, </span> <span class="parameter" id="createInvite-param-unique"><span class="type-annotation">bool</span> <span class="parameter-name">unique</span>: <span class="default-value">false</span>, </span> <span class="parameter" id="createInvite-param-auditReason"><span class="type-annotation">String</span> <span class="parameter-name">auditReason</span>: <span class="default-value">""</span></span> })
+            <span class="returntype parameter">&#8594; Future<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/Invite-class.html">Invite</a></span>&gt;</span></span>
           </span>
         </dt>
         <dd>
-          Deletes permission overwrite for given User or Role id
+          Creates new <a href="nyxx/Invite-class.html">Invite</a> for <a href="nyxx/Channel-class.html">Channel</a> and returns it's instance <a href="nyxx/GuildChannel/createInvite.html">[...]</a>
+          
+</dd>
+        <dt id="deleteChannelPermission" class="callable">
+          <span class="name"><a href="nyxx/GuildChannel/deleteChannelPermission.html">deleteChannelPermission</a></span><span class="signature">(<wbr><span class="parameter" id="deleteChannelPermission-param-id"><span class="type-annotation"><a href="nyxx/SnowflakeEntity-class.html">SnowflakeEntity</a></span> <span class="parameter-name">id</span>, {</span> <span class="parameter" id="deleteChannelPermission-param-auditReason"><span class="type-annotation">String</span> <span class="parameter-name">auditReason</span>: <span class="default-value">""</span></span> })
+            <span class="returntype parameter">&#8594; Future<span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
+          </span>
+        </dt>
+        <dd>
+          Deletes permission overwrite for given User or Role <code>id</code>
+Throws if <code>id</code> isn't <a href="nyxx/User-class.html">User</a> or <a href="nyxx/Role-class.html">Role</a>
           
 </dd>
         <dt id="editChannelPermission" class="callable">
-          <span class="name"><a href="nyxx/GuildChannel/editChannelPermission.html">editChannelPermission</a></span><span class="signature">(<wbr><span class="parameter" id="editChannelPermission-param-perms"><span class="type-annotation"><a href="nyxx/PermissionsBuilder-class.html">PermissionsBuilder</a></span> <span class="parameter-name">perms</span>, </span> <span class="parameter" id="editChannelPermission-param-id"><span class="type-annotation"><a href="nyxx/Snowflake-class.html">Snowflake</a></span> <span class="parameter-name">id</span>, {</span> <span class="parameter" id="editChannelPermission-param-auditReason"><span class="type-annotation">String</span> <span class="parameter-name">auditReason</span>: <span class="default-value">""</span></span> })
-            <span class="returntype parameter">&#8594; Future<span class="signature">&lt;<wbr><span class="type-parameter">Null</span>&gt;</span></span>
+          <span class="name"><a href="nyxx/GuildChannel/editChannelPermission.html">editChannelPermission</a></span><span class="signature">(<wbr><span class="parameter" id="editChannelPermission-param-perms"><span class="type-annotation"><a href="nyxx/PermissionsBuilder-class.html">PermissionsBuilder</a></span> <span class="parameter-name">perms</span>, </span> <span class="parameter" id="editChannelPermission-param-id"><span class="type-annotation"><a href="nyxx/SnowflakeEntity-class.html">SnowflakeEntity</a></span> <span class="parameter-name">id</span>, {</span> <span class="parameter" id="editChannelPermission-param-auditReason"><span class="type-annotation">String</span> <span class="parameter-name">auditReason</span>: <span class="default-value">""</span></span> })
+            <span class="returntype parameter">&#8594; Future<span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
           </span>
         </dt>
         <dd>
-          Allows to set permissions for channel. <code>id</code> param is ID of User or Role
+          Allows to set permissions for channel. <code>id</code> can be either User or Role
+Throws if <code>id</code> isn't <a href="nyxx/User-class.html">User</a> or <a href="nyxx/Role-class.html">Role</a>
           
 </dd>
+        <dt id="getChannelInvites" class="callable">
+          <span class="name"><a href="nyxx/GuildChannel/getChannelInvites.html">getChannelInvites</a></span><span class="signature">(<wbr>)
+            <span class="returntype parameter">&#8594; Future<span class="signature">&lt;<wbr><span class="type-parameter">Map<span class="signature">&lt;<wbr><span class="type-parameter">String</span>, <span class="type-parameter"><a href="nyxx/Invite-class.html">Invite</a></span>&gt;</span></span>&gt;</span></span>
+          </span>
+        </dt>
+        <dd>
+          Fetches and returns all channel's <a href="nyxx/Invite-class.html">Invite</a>s <a href="nyxx/GuildChannel/getChannelInvites.html">[...]</a>
+          
+</dd>
+        <dt id="delete" class="callable inherited">
+          <span class="name"><a href="nyxx/Channel/delete.html">delete</a></span><span class="signature">(<wbr>{<span class="parameter" id="delete-param-auditReason"><span class="type-annotation">String</span> <span class="parameter-name">auditReason</span>: <span class="default-value">""</span></span> })
+            <span class="returntype parameter">&#8594; Future<span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
+          </span>
+        </dt>
+        <dd class="inherited">
+          Deletes the channel.
+Throws if bot cannot perform operation
+          <div class="features">inherited</div>
+</dd>
         <dt id="noSuchMethod" class="callable inherited">
-          <span class="name"><a href="nyxx/GuildChannel/noSuchMethod.html">noSuchMethod</a></span><span class="signature">(<wbr><span class="parameter" id="noSuchMethod-param-invocation"><span class="type-annotation">Invocation</span> <span class="parameter-name">invocation</span></span>)
+          <span class="name"><a href="nyxx/SnowflakeEntity/noSuchMethod.html">noSuchMethod</a></span><span class="signature">(<wbr><span class="parameter" id="noSuchMethod-param-invocation"><span class="type-annotation">Invocation</span> <span class="parameter-name">invocation</span></span>)
             <span class="returntype parameter">&#8594; dynamic</span>
           </span>
         </dt>
         <dd class="inherited">
-          Invoked when a non-existent method or property is accessed. <a href="nyxx/GuildChannel/noSuchMethod.html">[...]</a>
+          Invoked when a non-existent method or property is accessed. <a href="nyxx/SnowflakeEntity/noSuchMethod.html">[...]</a>
           <div class="features">inherited</div>
 </dd>
         <dt id="toString" class="callable inherited">
-          <span class="name"><a href="nyxx/GuildChannel/toString.html">toString</a></span><span class="signature">(<wbr>)
+          <span class="name"><a href="nyxx/SnowflakeEntity/toString.html">toString</a></span><span class="signature">(<wbr>)
             <span class="returntype parameter">&#8594; String</span>
           </span>
         </dt>
@@ -347,14 +427,22 @@
       <li><a href="nyxx/GuildChannel/parentId.html">parentId</a></li>
       <li><a href="nyxx/GuildChannel/permissions.html">permissions</a></li>
       <li><a href="nyxx/GuildChannel/position.html">position</a></li>
+      <li class="inherited"><a href="nyxx/Channel/client.html">client</a></li>
+      <li class="inherited"><a href="nyxx/SnowflakeEntity/createdAt.html">createdAt</a></li>
       <li class="inherited"><a href="nyxx/GuildChannel/hashCode.html">hashCode</a></li>
-      <li class="inherited"><a href="nyxx/GuildChannel/runtimeType.html">runtimeType</a></li>
+      <li class="inherited"><a href="nyxx/SnowflakeEntity/id.html">id</a></li>
+      <li class="inherited"><a href="nyxx/Channel/raw.html">raw</a></li>
+      <li class="inherited"><a href="nyxx/SnowflakeEntity/runtimeType.html">runtimeType</a></li>
+      <li class="inherited"><a href="nyxx/Channel/type.html">type</a></li>
     
       <li class="section-title"><a href="nyxx/GuildChannel-class.html#instance-methods">Methods</a></li>
+      <li><a href="nyxx/GuildChannel/createInvite.html">createInvite</a></li>
       <li><a href="nyxx/GuildChannel/deleteChannelPermission.html">deleteChannelPermission</a></li>
       <li><a href="nyxx/GuildChannel/editChannelPermission.html">editChannelPermission</a></li>
-      <li class="inherited"><a href="nyxx/GuildChannel/noSuchMethod.html">noSuchMethod</a></li>
-      <li class="inherited"><a href="nyxx/GuildChannel/toString.html">toString</a></li>
+      <li><a href="nyxx/GuildChannel/getChannelInvites.html">getChannelInvites</a></li>
+      <li class="inherited"><a href="nyxx/Channel/delete.html">delete</a></li>
+      <li class="inherited"><a href="nyxx/SnowflakeEntity/noSuchMethod.html">noSuchMethod</a></li>
+      <li class="inherited"><a href="nyxx/SnowflakeEntity/toString.html">toString</a></li>
     
       <li class="section-title inherited"><a href="nyxx/GuildChannel-class.html#operators">Operators</a></li>
       <li class="inherited"><a href="nyxx/GuildChannel/operator_equals.html">operator ==</a></li>
@@ -368,7 +456,7 @@
 
 <footer>
   <span class="no-break">
-    nyxx 0.24.0
+    nyxx 1.0.0
   </span>
 
 </footer>

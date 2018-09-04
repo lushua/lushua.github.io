@@ -109,7 +109,7 @@
       <pre class="language-dart"><code class="language-dart">Future&lt;Message&gt; edit(
     {String content,
     EmbedBuilder embed,
-    bool tts: false,
+    bool tts = false,
     String nonce,
     bool disableEveryone}) async {
   String newContent;
@@ -130,8 +130,7 @@
         &quot;content&quot;: newContent,
         &quot;embed&quot;: (embed != null ? embed._build() : &quot;&quot;)
       });
-  return new Message._new(
-      this.client, r.body.asJson() as Map&lt;String, dynamic&gt;);
+  return Message._new(this.client, r.body as Map&lt;String, dynamic&gt;);
 }</code></pre>
     </section>
 
@@ -144,7 +143,7 @@
 
 <footer>
   <span class="no-break">
-    nyxx 0.24.0
+    nyxx 1.0.0
   </span>
 
 </footer>

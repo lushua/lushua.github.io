@@ -44,11 +44,14 @@
       <li><a href="nyxx.commands/CommandExecutionFailEvent-class.html">CommandExecutionFailEvent</a></li>
       <li><a href="nyxx.commands/CommandParsingFail-class.html">CommandParsingFail</a></li>
       <li><a href="nyxx.commands/CommandsFramework-class.html">CommandsFramework</a></li>
-      <li><a href="nyxx.commands/Cons-class.html">Cons</a></li>
       <li><a href="nyxx.commands/CooldownCache-class.html">CooldownCache</a></li>
-      <li><a href="nyxx.commands/GuildOnly-class.html">GuildOnly</a></li>
+      <li><a href="nyxx.commands/Help-class.html">Help</a></li>
+      <li><a href="nyxx.commands/Module-class.html">Module</a></li>
       <li><a href="nyxx.commands/Pagination-class.html">Pagination</a></li>
+      <li><a href="nyxx.commands/Postprocessor-class.html">Postprocessor</a></li>
+      <li><a href="nyxx.commands/Preprocessor-class.html">Preprocessor</a></li>
       <li><a href="nyxx.commands/Remainder-class.html">Remainder</a></li>
+      <li><a href="nyxx.commands/Restrict-class.html">Restrict</a></li>
       <li><a href="nyxx.commands/Scheduler-class.html">Scheduler</a></li>
       <li><a href="nyxx.commands/Service-class.html">Service</a></li>
       <li><a href="nyxx.commands/TypeConverter-class.html">TypeConverter</a></li>
@@ -67,7 +70,13 @@
     <h1>Pagination class</h1>
 
     <section class="desc markdown">
-      <p>Handles pagination interactivity</p>
+      <p>Handles pagination interactivity. Allows to create pagnated messages from List<string>
+Factory constructors allows to create message from String directly.</string></p>
+<p>Pagination is sent by <a href="nyxx.commands/Pagination/paginate.html">paginate</a> method. And returns <a href="nyxx/Message-class.html">Message</a> instance of sent message.</p>
+<pre class="language-dart"><code>var pagination = new Pagination(["This is simple paginated", "data. Use it if you", "want to partition text by yourself"], ctx,channel);
+// It generated 2 equal (possibly) pages.
+var paginatedMessage = new Pagination.fromStringEq("This is text for pagination", 2);
+</code></pre>
     </section>
     
 
@@ -75,8 +84,8 @@
       <h2>Constructors</h2>
 
       <dl class="constructor-summary-list">
-        <dt id="Pagination.fromList" class="callable">
-          <span class="name"><a href="nyxx.commands/Pagination/Pagination.fromList.html">Pagination.fromList</a></span><span class="signature">(<span class="parameter" id="fromList-param-pages"><span class="type-annotation">List<span class="signature">&lt;<wbr><span class="type-parameter">String</span>&gt;</span></span> <span class="parameter-name">pages</span>, </span> <span class="parameter" id="fromList-param-channel"><span class="type-annotation"><a href="nyxx/MessageChannel-class.html">MessageChannel</a></span> <span class="parameter-name">channel</span></span>)</span>
+        <dt id="Pagination" class="callable">
+          <span class="name"><a href="nyxx.commands/Pagination/Pagination.html">Pagination</a></span><span class="signature">(<span class="parameter" id="-param-pages"><span class="type-annotation">List<span class="signature">&lt;<wbr><span class="type-parameter">String</span>&gt;</span></span> <span class="parameter-name">pages</span>, </span> <span class="parameter" id="-param-channel"><span class="type-annotation"><a href="nyxx/MessageChannel-class.html">MessageChannel</a></span> <span class="parameter-name">channel</span></span>)</span>
         </dt>
         <dd>
           Generates new pagination from List of Strings. Each list element is single page.
@@ -86,18 +95,21 @@
         </dt>
         <dd>
           Generates pagination from String. It divides String into 250 char long pages.
+          <div class="constructor-modifier features">factory</div>
         </dd>
         <dt id="Pagination.fromStringEq" class="callable">
           <span class="name"><a href="nyxx.commands/Pagination/Pagination.fromStringEq.html">Pagination.fromStringEq</a></span><span class="signature">(<span class="parameter" id="fromStringEq-param-str"><span class="type-annotation">String</span> <span class="parameter-name">str</span>, </span> <span class="parameter" id="fromStringEq-param-pieces"><span class="type-annotation">int</span> <span class="parameter-name">pieces</span>, </span> <span class="parameter" id="fromStringEq-param-channel"><span class="type-annotation"><a href="nyxx/MessageChannel-class.html">MessageChannel</a></span> <span class="parameter-name">channel</span></span>)</span>
         </dt>
         <dd>
           Generates pagination from String but with user specified number of pages.
+          <div class="constructor-modifier features">factory</div>
         </dd>
         <dt id="Pagination.fromStringLen" class="callable">
           <span class="name"><a href="nyxx.commands/Pagination/Pagination.fromStringLen.html">Pagination.fromStringLen</a></span><span class="signature">(<span class="parameter" id="fromStringLen-param-str"><span class="type-annotation">String</span> <span class="parameter-name">str</span>, </span> <span class="parameter" id="fromStringLen-param-len"><span class="type-annotation">int</span> <span class="parameter-name">len</span>, </span> <span class="parameter" id="fromStringLen-param-channel"><span class="type-annotation"><a href="nyxx/MessageChannel-class.html">MessageChannel</a></span> <span class="parameter-name">channel</span></span>)</span>
         </dt>
         <dd>
           Generates pagination from String but with user specified size of single page.
+          <div class="constructor-modifier features">factory</div>
         </dd>
       </dl>
     </section>
@@ -111,7 +123,7 @@
           <span class="signature">&#8596; <a href="nyxx/MessageChannel-class.html">MessageChannel</a></span>
         </dt>
         <dd>
-          
+          Channel where message will be sent
           <div class="features">read / write</div>
 </dd>
         <dt id="pages" class="property">
@@ -119,7 +131,7 @@
           <span class="signature">&#8596; List<span class="signature">&lt;<wbr><span class="type-parameter">String</span>&gt;</span></span>
         </dt>
         <dd>
-          
+          Pages of paginated message
           <div class="features">read / write</div>
 </dd>
         <dt id="hashCode" class="property inherited">
@@ -197,7 +209,7 @@
   <div class="col-xs-6 col-sm-6 col-md-2 sidebar sidebar-offcanvas-right">
     <ol>
       <li class="section-title"><a href="nyxx.commands/Pagination-class.html#constructors">Constructors</a></li>
-      <li><a href="nyxx.commands/Pagination/Pagination.fromList.html">fromList</a></li>
+      <li><a href="nyxx.commands/Pagination/Pagination.html">Pagination</a></li>
       <li><a href="nyxx.commands/Pagination/Pagination.fromString.html">fromString</a></li>
       <li><a href="nyxx.commands/Pagination/Pagination.fromStringEq.html">fromStringEq</a></li>
       <li><a href="nyxx.commands/Pagination/Pagination.fromStringLen.html">fromStringLen</a></li>
@@ -227,7 +239,7 @@
 
 <footer>
   <span class="no-break">
-    nyxx 0.24.0
+    nyxx 1.0.0
   </span>
 
 </footer>

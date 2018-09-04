@@ -81,7 +81,8 @@
     <section class="summary source-code" id="source">
       <h2><span>Implementation</span> </h2>
       <pre class="language-dart"><code class="language-dart">@override
-String toString() =&gt; response.status.toString() + &quot;: &quot; + response.statusText;</code></pre>
+String toString() =&gt;
+    &quot;${response.status} \t \u001B[35m${code} ${message}\u001B[0m&quot;;</code></pre>
     </section>
 
   </div> <!-- /.main-content -->
@@ -93,7 +94,7 @@ String toString() =&gt; response.status.toString() + &quot;: &quot; + response.s
 
 <footer>
   <span class="no-break">
-    nyxx 0.24.0
+    nyxx 1.0.0
   </span>
 
 </footer>

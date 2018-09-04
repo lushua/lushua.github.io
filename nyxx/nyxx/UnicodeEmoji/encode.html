@@ -41,6 +41,7 @@
     <ol>
       <li class="section-title"><a href="nyxx/UnicodeEmoji-class.html#constructors">Constructors</a></li>
       <li><a href="nyxx/UnicodeEmoji/UnicodeEmoji.html">UnicodeEmoji</a></li>
+      <li><a href="nyxx/UnicodeEmoji/UnicodeEmoji.from.html">from</a></li>
     
       <li class="section-title">
         <a href="nyxx/UnicodeEmoji-class.html#instance-properties">Properties</a>
@@ -86,7 +87,7 @@
       <pre class="language-dart"><code class="language-dart">@override
 String encode() {
   try {
-    return new String.fromCharCode(int.parse(code, radix: 16));
+    return String.fromCharCode(int.parse(code, radix: 16));
   } catch (e) {
     return code;
   }
@@ -102,7 +103,7 @@ String encode() {
 
 <footer>
   <span class="no-break">
-    nyxx 0.24.0
+    nyxx 1.0.0
   </span>
 
 </footer>

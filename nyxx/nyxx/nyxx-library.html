@@ -40,7 +40,6 @@
           <li class="section-title">Libraries</li>
           <li><a href="nyxx/nyxx-library.html">nyxx</a></li>
           <li><a href="nyxx.commands/nyxx.commands-library.html">nyxx.commands</a></li>
-          <li><a href="nyxx.rpc/nyxx.rpc-library.html">nyxx.rpc</a></li>
           <li><a href="nyxx.voice/nyxx.voice-library.html">nyxx.voice</a></li>
           <li><a href="utils/utils-library.html">utils</a></li>
     </ol>
@@ -104,6 +103,7 @@
         </dt>
         <dd>
           A channel.
+Abstract base class that defines the base methods and/or properties for all Discord channel types.
         </dd>
         <dt id="ChannelBuilder">
           <span class="name "><a href="nyxx/ChannelBuilder-class.html">ChannelBuilder</a></span>
@@ -115,7 +115,7 @@
           <span class="name "><a href="nyxx/ChannelCreateEvent-class.html">ChannelCreateEvent</a></span>
         </dt>
         <dd>
-          Sent when a channel is created..
+          Sent when a channel is created.
         </dd>
         <dt id="ChannelDeleteEvent">
           <span class="name "><a href="nyxx/ChannelDeleteEvent-class.html">ChannelDeleteEvent</a></span>
@@ -146,8 +146,7 @@
         </dt>
         <dd>
           Class representing client - it's place to start with.
-From there you can subscribe to varius <code>Stream</code>s to listen to <a href="https://github.com/l7ssha/nyxx/wiki/EventList">Events</a>
-Rememeber to close <a href="nyxx/Client-class.html">Client</a> before terminating program: <a href="nyxx/Client-class.html">[...]</a>
+From there you can subscribe to varius <code>Stream</code>s to listen to <a href="https://github.com/l7ssha/nyxx/wiki/EventList">Events</a> <a href="nyxx/Client-class.html">[...]</a>
         </dd>
         <dt id="ClientOAuth2Application">
           <span class="name "><a href="nyxx/ClientOAuth2Application-class.html">ClientOAuth2Application</a></span>
@@ -165,7 +164,7 @@ Rememeber to close <a href="nyxx/Client-class.html">Client</a> before terminatin
           <span class="name "><a href="nyxx/ClientUser-class.html">ClientUser</a></span>
         </dt>
         <dd>
-          The client user.
+          ClientUser is bot's discord account. Allows to change bot's presence.
         </dd>
         <dt id="DisconnectEvent">
           <span class="name "><a href="nyxx/DisconnectEvent-class.html">DisconnectEvent</a></span>
@@ -177,7 +176,7 @@ Rememeber to close <a href="nyxx/Client-class.html">Client</a> before terminatin
           <span class="name "><a href="nyxx/DMChannel-class.html">DMChannel</a></span>
         </dt>
         <dd>
-          Represents channel with user.
+          Represents channel with another user.
         </dd>
         <dt id="Embed">
           <span class="name "><a href="nyxx/Embed-class.html">Embed</a></span>
@@ -265,24 +264,42 @@ All fields are optional except of <a href="nyxx/EmbedBuilder/title.html">title</
         <dd>
           A game.
         </dd>
+        <dt id="GameAssets">
+          <span class="name "><a href="nyxx/GameAssets-class.html">GameAssets</a></span>
+        </dt>
+        <dd>
+          Presence's assets
+        </dd>
+        <dt id="GameParty">
+          <span class="name "><a href="nyxx/GameParty-class.html">GameParty</a></span>
+        </dt>
+        <dd>
+          Represents party of game.
+        </dd>
+        <dt id="GameSecrets">
+          <span class="name "><a href="nyxx/GameSecrets-class.html">GameSecrets</a></span>
+        </dt>
+        <dd>
+          Represents presence's secrets
+        </dd>
         <dt id="GroupChannel">
           <span class="name "><a href="nyxx/GroupChannel-class.html">GroupChannel</a></span>
         </dt>
         <dd>
-          Represents group channel.
+          Represents guild group channel.
         </dd>
         <dt id="GroupDMChannel">
           <span class="name "><a href="nyxx/GroupDMChannel-class.html">GroupDMChannel</a></span>
         </dt>
         <dd>
-          Represents group DM channel
+          Represents group DM channel.
         </dd>
         <dt id="Guild">
           <span class="name "><a href="nyxx/Guild-class.html">Guild</a></span>
         </dt>
         <dd>
-          <a href="nyxx/Guild-class.html">Guild</a> object represents single <code>Discord Server</code> instance.
-Based on bots permissions - can preform operations of <a href="nyxx/Guild-class.html">Guild</a>, <a href="nyxx/User-class.html">User</a>s <a href="nyxx/Role-class.html">Role</a>s and many more. <a href="nyxx/Guild-class.html">[...]</a>
+          <a href="nyxx/Guild-class.html">Guild</a> object represents single <code>Discord Server</code>.
+Guilds are a collection of members, channels, and roles that represents one community. <a href="nyxx/Guild-class.html">[...]</a>
         </dd>
         <dt id="GuildBanAddEvent">
           <span class="name "><a href="nyxx/GuildBanAddEvent-class.html">GuildBanAddEvent</a></span>
@@ -306,7 +323,7 @@ Based on bots permissions - can preform operations of <a href="nyxx/Guild-class.
           <span class="name "><a href="nyxx/GuildChannel-class.html">GuildChannel</a></span>
         </dt>
         <dd>
-          Represents channel which is part of guild
+          Represents channel which is part of guild.
         </dd>
         <dt id="GuildCreateEvent">
           <span class="name "><a href="nyxx/GuildCreateEvent-class.html">GuildCreateEvent</a></span>
@@ -429,6 +446,12 @@ Based on bots permissions - can preform operations of <a href="nyxx/Guild-class.
         <dd>
           A mini guild object for invites.
         </dd>
+        <dt id="ISend">
+          <span class="name "><a href="nyxx/ISend-class.html">ISend</a></span>
+        </dt>
+        <dd>
+          
+        </dd>
         <dt id="Member">
           <span class="name "><a href="nyxx/Member-class.html">Member</a></span>
         </dt>
@@ -447,8 +470,9 @@ Supports sending files via <code>sendFile()</code> - method can send file or fil
           <span class="name "><a href="nyxx/MessageChannel-class.html">MessageChannel</a></span>
         </dt>
         <dd>
-          Provides abstraction of messages for <a href="nyxx/TextChannel-class.html">TextChannel</a>, <a href="nyxx/DMChannel-class.html">DMChannel</a> and <code>DMGroupChannel</code>.
-Caches message to avoid abusing API.
+          Provides abstraction of messages for <a href="nyxx/TextChannel-class.html">TextChannel</a>, <a href="nyxx/DMChannel-class.html">DMChannel</a> and <a href="nyxx/GroupDMChannel-class.html">GroupDMChannel</a>.
+Implements iterator which allows to use message object in for loops to access
+messages sequentially. <a href="nyxx/MessageChannel-class.html">[...]</a>
         </dd>
         <dt id="MessageDeleteBulkEvent">
           <span class="name "><a href="nyxx/MessageDeleteBulkEvent-class.html">MessageDeleteBulkEvent</a></span>
@@ -478,7 +502,7 @@ Caches message to avoid abusing API.
           <span class="name "><a href="nyxx/MessageReactionsRemovedEvent-class.html">MessageReactionsRemovedEvent</a></span>
         </dt>
         <dd>
-          
+          Emitted when all reaction are removed
         </dd>
         <dt id="MessageUpdateEvent">
           <span class="name "><a href="nyxx/MessageUpdateEvent-class.html">MessageUpdateEvent</a></span>
@@ -558,7 +582,7 @@ or when a 429 is received.
           <span class="name "><a href="nyxx/Role-class.html">Role</a></span>
         </dt>
         <dd>
-          A role.
+          Represents a Discord guild role, which is used to assign priority, permissions, and a color to guild members
         </dd>
         <dt id="RoleBuilder">
           <span class="name "><a href="nyxx/RoleBuilder-class.html">RoleBuilder</a></span>
@@ -594,8 +618,8 @@ or when a 429 is received.
           <span class="name "><a href="nyxx/Snowflake-class.html">Snowflake</a></span>
         </dt>
         <dd>
-          <a href="nyxx/Snowflake-class.html">Snowflake</a> represents id structure which is used by discord.
-<a href="nyxx/Snowflake/id.html">id</a> is actual id of entity which holds <a href="nyxx/Snowflake-class.html">Snowflake</a>
+          <a href="nyxx/Snowflake-class.html">Snowflake</a> represents id system used by Discord.
+<a href="nyxx/Snowflake/id.html">id</a> property is actual id of entity which holds <a href="nyxx/Snowflake-class.html">Snowflake</a>.
         </dd>
         <dt id="SnowflakeEntity">
           <span class="name "><a href="nyxx/SnowflakeEntity-class.html">SnowflakeEntity</a></span>
@@ -626,7 +650,7 @@ Inhertits from <a href="nyxx/MessageChannel-class.html">MessageChannel</a> and m
           <span class="name "><a href="nyxx/User-class.html">User</a></span>
         </dt>
         <dd>
-          A user.
+          Represents a single user of Discord, either a human or a bot, outside of any specific guild's context.
         </dd>
         <dt id="UserVoiceState">
           <span class="name "><a href="nyxx/UserVoiceState-class.html">UserVoiceState</a></span>
@@ -685,9 +709,9 @@ Inhertits from <a href="nyxx/MessageChannel-class.html">MessageChannel</a> and m
       <h2>Functions</h2>
 
       <dl class="callables">
-        <dt id="snow" class="callable">
-          <span class="name"><a href="nyxx/snow.html">snow</a></span><span class="signature">(<wbr><span class="parameter" id="snow-param-id"><span class="type-annotation">String</span> <span class="parameter-name">id</span></span>)
-            <span class="returntype parameter">&#8594; <a href="nyxx/Snowflake-class.html">Snowflake</a></span>
+        <dt id="expandAttachment" class="callable">
+          <span class="name"><a href="nyxx/expandAttachment.html">expandAttachment</a></span><span class="signature">(<wbr><span class="parameter" id="expandAttachment-param-filename"><span class="type-annotation">String</span> <span class="parameter-name">filename</span></span>)
+            <span class="returntype parameter">&#8594; String</span>
           </span>
         </dt>
         <dd>
@@ -705,7 +729,7 @@ Inhertits from <a href="nyxx/MessageChannel-class.html">MessageChannel</a> and m
           <span class="name "><a href="nyxx/ChannelType-class.html">ChannelType</a></span>
         </dt>
         <dd>
-          
+          Enum for possible channel types
         </dd>
       </dl>
     </section>
@@ -720,12 +744,6 @@ Inhertits from <a href="nyxx/MessageChannel-class.html">MessageChannel</a> and m
         </dt>
         <dd>
           An HTTP error.
-        </dd>
-        <dt id="InvalidTokenError">
-          <span class="name "><a href="nyxx/InvalidTokenError-class.html">InvalidTokenError</a></span>
-        </dt>
-        <dd>
-          An error for when your token is invalid.
         </dd>
       </dl>
     </section>
@@ -770,6 +788,9 @@ Inhertits from <a href="nyxx/MessageChannel-class.html">MessageChannel</a> and m
       <li><a href="nyxx/EmbedVideo-class.html">EmbedVideo</a></li>
       <li><a href="nyxx/Emoji-class.html">Emoji</a></li>
       <li><a href="nyxx/Game-class.html">Game</a></li>
+      <li><a href="nyxx/GameAssets-class.html">GameAssets</a></li>
+      <li><a href="nyxx/GameParty-class.html">GameParty</a></li>
+      <li><a href="nyxx/GameSecrets-class.html">GameSecrets</a></li>
       <li><a href="nyxx/GroupChannel-class.html">GroupChannel</a></li>
       <li><a href="nyxx/GroupDMChannel-class.html">GroupDMChannel</a></li>
       <li><a href="nyxx/Guild-class.html">Guild</a></li>
@@ -797,6 +818,7 @@ Inhertits from <a href="nyxx/MessageChannel-class.html">MessageChannel</a> and m
       <li><a href="nyxx/Invite-class.html">Invite</a></li>
       <li><a href="nyxx/InviteChannel-class.html">InviteChannel</a></li>
       <li><a href="nyxx/InviteGuild-class.html">InviteGuild</a></li>
+      <li><a href="nyxx/ISend-class.html">ISend</a></li>
       <li><a href="nyxx/Member-class.html">Member</a></li>
       <li><a href="nyxx/Message-class.html">Message</a></li>
       <li><a href="nyxx/MessageChannel-class.html">MessageChannel</a></li>
@@ -841,7 +863,7 @@ Inhertits from <a href="nyxx/MessageChannel-class.html">MessageChannel</a> and m
     
     
       <li class="section-title"><a href="nyxx/nyxx-library.html#functions">Functions</a></li>
-      <li><a href="nyxx/snow.html">snow</a></li>
+      <li><a href="nyxx/expandAttachment.html">expandAttachment</a></li>
     
       <li class="section-title"><a href="nyxx/nyxx-library.html#enums">Enums</a></li>
       <li><a href="nyxx/ChannelType-class.html">ChannelType</a></li>
@@ -849,7 +871,6 @@ Inhertits from <a href="nyxx/MessageChannel-class.html">MessageChannel</a> and m
     
       <li class="section-title"><a href="nyxx/nyxx-library.html#exceptions">Exceptions</a></li>
       <li><a href="nyxx/HttpError-class.html">HttpError</a></li>
-      <li><a href="nyxx/InvalidTokenError-class.html">InvalidTokenError</a></li>
     </ol>
   </div><!--/sidebar-offcanvas-right-->
 
@@ -857,7 +878,7 @@ Inhertits from <a href="nyxx/MessageChannel-class.html">MessageChannel</a> and m
 
 <footer>
   <span class="no-break">
-    nyxx 0.24.0
+    nyxx 1.0.0
   </span>
 
 </footer>

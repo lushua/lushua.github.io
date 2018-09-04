@@ -110,14 +110,31 @@
     <h1>getMessage method</h1>
 
     <section class="multi-line-signature">
-      <span class="returntype"><a href="nyxx/Message-class.html">Message</a></span>
+      <span class="returntype">Future<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/Message-class.html">Message</a></span>&gt;</span></span>
       <span class="name ">getMessage</span>
-(<wbr><span class="parameter" id="getMessage-param-id"><span class="type-annotation"><a href="nyxx/Snowflake-class.html">Snowflake</a></span> <span class="parameter-name">id</span></span>)
+(<wbr><span class="parameter" id="getMessage-param-id"><span class="type-annotation"><a href="nyxx/Snowflake-class.html">Snowflake</a></span> <span class="parameter-name">id</span>, {</span> <span class="parameter" id="getMessage-param-force"><span class="type-annotation">bool</span> <span class="parameter-name">force</span>: <span class="default-value">false</span></span> })
+    </section>
+    <section class="desc markdown">
+      <p>Returs message with given <code>id</code>. Allows to force fatch message from api
+with <code>force</code> propery. By default it checks if message is in cache and fatches if not.</p>
     </section>
     
     <section class="summary source-code" id="source">
       <h2><span>Implementation</span> </h2>
-      <pre class="language-dart"><code class="language-dart">Message getMessage(Snowflake id) =&gt; messages[id];</code></pre>
+      <pre class="language-dart"><code class="language-dart">Future&lt;Message&gt; getMessage(Snowflake id, {bool force = false}) async {
+  if (force || !messages.containsKey(id)) {
+    var r = await this
+        .client
+        .http
+        .send(&#39;GET&#39;, &quot;&#47;channels&#47;${this.id.toString()}&#47;messages&#47;$id&quot;);
+    var msg = Message._new(this.client, r.body as Map&lt;String, dynamic&gt;);
+
+    messages[id] = msg;
+    return msg;
+  }
+
+  return messages[id];
+}</code></pre>
     </section>
 
   </div> <!-- /.main-content -->
@@ -129,7 +146,7 @@
 
 <footer>
   <span class="no-break">
-    nyxx 0.24.0
+    nyxx 1.0.0
   </span>
 
 </footer>

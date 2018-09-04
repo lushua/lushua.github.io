@@ -77,7 +77,7 @@
     <h1>disconnect method</h1>
 
     <section class="multi-line-signature">
-      <span class="returntype">Future<span class="signature">&lt;<wbr><span class="type-parameter">Null</span>&gt;</span></span>
+      <span class="returntype">Future<span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
       <span class="name ">disconnect</span>
 (<wbr>)
     </section>
@@ -87,15 +87,14 @@
     
     <section class="summary source-code" id="source">
       <h2><span>Implementation</span> </h2>
-      <pre class="language-dart"><code class="language-dart">Future&lt;Null&gt; disconnect() async {
-  _guild.shard.send(&quot;VOICE_STATE_UPDATE&quot;,
-      new _Opcode4(_guild, null, false, false)._build());
+      <pre class="language-dart"><code class="language-dart">Future&lt;void&gt; disconnect() async {
+  _guild.shard.send(
+      &quot;VOICE_STATE_UPDATE&quot;, _Opcode4(_guild, null, false, false)._build());
   await stop();
-  _webSocket.add(jsonEncode(new _SimpleOp(&quot;destroy&quot;, _guild)._build()));
-  &#47;&#47;isPlaying = false;
+  _webSocket.add(jsonEncode(_SimpleOp(&quot;destroy&quot;, _guild)._build()));
   isConnected = false;
-  _sub1 == null ? {} : _sub1.cancel();
-  _sub2 == null ? {} : _sub2.cancel();
+  if (_sub1 == null) _sub1.cancel();
+  if (_sub2 == null) _sub2.cancel();
 }</code></pre>
     </section>
 
@@ -108,7 +107,7 @@
 
 <footer>
   <span class="no-break">
-    nyxx 0.24.0
+    nyxx 1.0.0
   </span>
 
 </footer>

@@ -77,7 +77,7 @@
     <h1>send method</h1>
 
     <section class="multi-line-signature">
-      <span class="returntype">Future<span class="signature">&lt;<wbr><span class="type-parameter">Null</span>&gt;</span></span>
+      <span class="returntype">Future<span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
       <span class="name ">send</span>
 (<wbr>{<span class="parameter" id="send-param-content"><span class="type-annotation">String</span> <span class="parameter-name">content</span>, </span> <span class="parameter" id="send-param-embeds"><span class="type-annotation">List<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/EmbedBuilder-class.html">EmbedBuilder</a></span>&gt;</span></span> <span class="parameter-name">embeds</span>, </span> <span class="parameter" id="send-param-username"><span class="type-annotation">String</span> <span class="parameter-name">username</span>, </span> <span class="parameter" id="send-param-avatarUrl"><span class="type-annotation">String</span> <span class="parameter-name">avatarUrl</span>, </span> <span class="parameter" id="send-param-tts"><span class="type-annotation">bool</span> <span class="parameter-name">tts</span></span> })
     </section>
@@ -87,7 +87,7 @@
     
     <section class="summary source-code" id="source">
       <h2><span>Implementation</span> </h2>
-      <pre class="language-dart"><code class="language-dart">Future&lt;Null&gt; send(
+      <pre class="language-dart"><code class="language-dart">Future&lt;void&gt; send(
     {String content,
     List&lt;EmbedBuilder&gt; embeds,
     String username,
@@ -102,7 +102,6 @@
   };
 
   await this.client.http.send(&#39;POST&#39;, &quot;&#47;webhooks&#47;$id&#47;$token&quot;, body: payload);
-  return null;
 }</code></pre>
     </section>
 
@@ -115,7 +114,7 @@
 
 <footer>
   <span class="no-break">
-    nyxx 0.24.0
+    nyxx 1.0.0
   </span>
 
 </footer>

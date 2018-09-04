@@ -112,22 +112,24 @@
     <section class="multi-line-signature">
       <span class="returntype">Future<span class="signature">&lt;<wbr><span class="type-parameter">LinkedHashMap<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/Snowflake-class.html">Snowflake</a></span>, <span class="type-parameter"><a href="nyxx/Message-class.html">Message</a></span>&gt;</span></span>&gt;</span></span>
       <span class="name ">getMessages</span>
-(<wbr>{<span class="parameter" id="getMessages-param-limit"><span class="type-annotation">int</span> <span class="parameter-name">limit</span>: <span class="default-value">50</span>, </span> <span class="parameter" id="getMessages-param-after"><span class="type-annotation"><a href="nyxx/Snowflake-class.html">Snowflake</a></span> <span class="parameter-name">after</span>, </span> <span class="parameter" id="getMessages-param-before"><span class="type-annotation"><a href="nyxx/Snowflake-class.html">Snowflake</a></span> <span class="parameter-name">before</span>, </span> <span class="parameter" id="getMessages-param-around"><span class="type-annotation"><a href="nyxx/Snowflake-class.html">Snowflake</a></span> <span class="parameter-name">around</span></span> })
+(<wbr>{<span class="parameter" id="getMessages-param-limit"><span class="type-annotation">int</span> <span class="parameter-name">limit</span>: <span class="default-value">50</span>, </span> <span class="parameter" id="getMessages-param-after"><span class="type-annotation"><a href="nyxx/Snowflake-class.html">Snowflake</a></span> <span class="parameter-name">after</span>, </span> <span class="parameter" id="getMessages-param-before"><span class="type-annotation"><a href="nyxx/Snowflake-class.html">Snowflake</a></span> <span class="parameter-name">before</span>, </span> <span class="parameter" id="getMessages-param-around"><span class="type-annotation"><a href="nyxx/Snowflake-class.html">Snowflake</a></span> <span class="parameter-name">around</span>, </span> <span class="parameter" id="getMessages-param-cache"><span class="type-annotation">bool</span> <span class="parameter-name">cache</span></span> })
     </section>
     <section class="desc markdown">
-      <p>Gets several <a href="nyxx/Message-class.html">Message</a> objects.</p>
-<p>Throws an <code>Exception</code> if the HTTP request errored.
-    Channel.getMessages(limit: 100, after: "222078108977594368");</p>
+      <p>Gets several <a href="nyxx/Message-class.html">Message</a> objects from API. Only one of <code>after</code>, <code>before</code>, <code>around</code> can be specified
+otherwise it'll throw.</p>
+<p>Messages will be cached if <code>cache</code> is set to true. Defaults to false.</p>
+<pre class="language-dart"><code>var messages = await chan.getMessages(limit: 100, after: "222078108977594368");
+</code></pre>
     </section>
     
     <section class="summary source-code" id="source">
       <h2><span>Implementation</span> </h2>
-      <pre class="language-dart"><code class="language-dart">Future&lt;LinkedHashMap&lt;Snowflake, Message&gt;&gt; getMessages({
-  int limit: 50,
-  Snowflake after,
-  Snowflake before,
-  Snowflake around,
-}) async {
+      <pre class="language-dart"><code class="language-dart">Future&lt;LinkedHashMap&lt;Snowflake, Message&gt;&gt; getMessages(
+    {int limit = 50,
+    Snowflake after,
+    Snowflake before,
+    Snowflake around,
+    bool cache}) async {
   Map&lt;String, String&gt; query = {&quot;limit&quot;: limit.toString()};
 
   if (after != null) query[&#39;after&#39;] = after.toString();
@@ -139,13 +141,14 @@
       .http
       .send(&#39;GET&#39;, &#39;&#47;channels&#47;${this.id}&#47;messages&#39;, queryParams: query);
 
-  var response =
-      new LinkedHashMap&lt;Snowflake, Message&gt;();
+  var response = LinkedHashMap&lt;Snowflake, Message&gt;();
 
-  for (Map&lt;String, dynamic&gt; val in r.body.asJson()) {
-    var msg = new Message._new(this.client, val);
+  for (Map&lt;String, dynamic&gt; val in r.body.values.first) {
+    var msg = Message._new(this.client, val);
     response[msg.id] = msg;
   }
+
+  if (cache) messages.addAll(response);
 
   return response;
 }</code></pre>
@@ -160,7 +163,7 @@
 
 <footer>
   <span class="no-break">
-    nyxx 0.24.0
+    nyxx 1.0.0
   </span>
 
 </footer>

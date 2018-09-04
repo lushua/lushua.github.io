@@ -110,23 +110,25 @@
     <h1>bulkRemoveMessages method</h1>
 
     <section class="multi-line-signature">
-      <span class="returntype">Future<span class="signature">&lt;<wbr><span class="type-parameter">Null</span>&gt;</span></span>
+      <span class="returntype">Future<span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
       <span class="name ">bulkRemoveMessages</span>
 (<wbr><span class="parameter" id="bulkRemoveMessages-param-messagesIds"><span class="type-annotation">Iterable<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/Snowflake-class.html">Snowflake</a></span>&gt;</span></span> <span class="parameter-name">messagesIds</span></span>)
     </section>
     <section class="desc markdown">
       <p>Bulk removes many messages by its ids. <code>messagesIds</code> is list of messages ids to delete.</p>
+<pre class="language-dart"><code>var toDelete = chan.messages.keys.take(5);
+await chan.bulkRemoveMessages(toDelete);
+</code></pre>
     </section>
     
     <section class="summary source-code" id="source">
       <h2><span>Implementation</span> </h2>
-      <pre class="language-dart"><code class="language-dart">Future&lt;Null&gt; bulkRemoveMessages(Iterable&lt;Snowflake&gt; messagesIds) async {
-  if(messages.isEmpty)
-    return null;
-
-  await this.client.http.send(&#39;POST&#39;, &quot;&#47;channels&#47;${id.toString()}&#47;messages&#47;bulk-delete&quot;,
-      body: {&quot;messages&quot;: messagesIds.take(99)});
-  return await bulkRemoveMessages(messagesIds.skip(99));
+      <pre class="language-dart"><code class="language-dart">Future&lt;void&gt; bulkRemoveMessages(Iterable&lt;Snowflake&gt; messagesIds) async {
+  utils.chunk(messagesIds.toList(), 90).listen((data) async {
+    await this.client.http.send(
+        &#39;POST&#39;, &quot;&#47;channels&#47;${id.toString()}&#47;messages&#47;bulk-delete&quot;,
+        body: {&quot;messages&quot;: data});
+  });
 }</code></pre>
     </section>
 
@@ -139,7 +141,7 @@
 
 <footer>
   <span class="no-break">
-    nyxx 0.24.0
+    nyxx 1.0.0
   </span>
 
 </footer>

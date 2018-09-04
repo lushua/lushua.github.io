@@ -76,11 +76,11 @@
     <section class="summary source-code" id="source">
       <h2><span>Implementation</span> </h2>
       <pre class="language-dart"><code class="language-dart">Future&lt;Player&gt; getPlayer(Guild guild) {
-  return new Future&lt;Player&gt;.delayed(const Duration(seconds: 2), () {
+  return Future&lt;Player&gt;.delayed(const Duration(seconds: 2), () {
     if (_playersCache.containsKey(guild.id.toString()))
       return _playersCache[guild.id.toString()];
     else {
-      var tmp = new Player._new(guild, _client, _webSocket, _restPath);
+      var tmp = Player._new(guild, _client, _webSocket, _restPath, _password);
       _playersCache[guild.id.toString()] = tmp;
       return tmp;
     }
@@ -97,7 +97,7 @@
 
 <footer>
   <span class="no-break">
-    nyxx 0.24.0
+    nyxx 1.0.0
   </span>
 
 </footer>

@@ -44,11 +44,14 @@
       <li><a href="nyxx.commands/CommandExecutionFailEvent-class.html">CommandExecutionFailEvent</a></li>
       <li><a href="nyxx.commands/CommandParsingFail-class.html">CommandParsingFail</a></li>
       <li><a href="nyxx.commands/CommandsFramework-class.html">CommandsFramework</a></li>
-      <li><a href="nyxx.commands/Cons-class.html">Cons</a></li>
       <li><a href="nyxx.commands/CooldownCache-class.html">CooldownCache</a></li>
-      <li><a href="nyxx.commands/GuildOnly-class.html">GuildOnly</a></li>
+      <li><a href="nyxx.commands/Help-class.html">Help</a></li>
+      <li><a href="nyxx.commands/Module-class.html">Module</a></li>
       <li><a href="nyxx.commands/Pagination-class.html">Pagination</a></li>
+      <li><a href="nyxx.commands/Postprocessor-class.html">Postprocessor</a></li>
+      <li><a href="nyxx.commands/Preprocessor-class.html">Preprocessor</a></li>
       <li><a href="nyxx.commands/Remainder-class.html">Remainder</a></li>
+      <li><a href="nyxx.commands/Restrict-class.html">Restrict</a></li>
       <li><a href="nyxx.commands/Scheduler-class.html">Scheduler</a></li>
       <li><a href="nyxx.commands/Service-class.html">Service</a></li>
       <li><a href="nyxx.commands/TypeConverter-class.html">TypeConverter</a></li>
@@ -67,7 +70,21 @@
     <h1>Scheduler class</h1>
 
     <section class="desc markdown">
-      <p>Runs specific code on every target periodically</p>
+      <p>Runs specific code on every target periodically.</p>
+<pre class="language-dart"><code>// Create new scheduler and fill out all required fields
+ var scheduler = command.Scheduler(bot)
+   ..runEvery = const Duration(seconds: 1)
+   ..targets = [const nyxx.Snowflake.static("422285619952222208")]
+   ..func = (channel) {
+     channel.send(content: "test");
+ };
+
+ /// Disable scheduler after 5 seconds
+ Timer(const Duration(seconds: 5), () =&gt; scheduler.stop());
+
+ /// Run schduler
+ await scheduler.run();
+</code></pre>
     </section>
     
 
@@ -98,11 +115,11 @@
 </dd>
         <dt id="runEvery" class="property">
           <span class="name"><a href="nyxx.commands/Scheduler/runEvery.html">runEvery</a></span>
-          <span class="signature">&#8596; Duration</span>
+          <span class="signature">&#8592; <span class="parameter" id="runEvery=-param-duration"><span class="type-annotation">Duration</span></span></span>
         </dt>
         <dd>
-          Action will be run every <code>runEvery</code> amount of time.
-          <div class="features">read / write</div>
+          
+          <div class="features">write-only</div>
 </dd>
         <dt id="targets" class="property">
           <span class="name"><a href="nyxx.commands/Scheduler/targets.html">targets</a></span>
@@ -225,7 +242,7 @@
 
 <footer>
   <span class="no-break">
-    nyxx 0.24.0
+    nyxx 1.0.0
   </span>
 
 </footer>

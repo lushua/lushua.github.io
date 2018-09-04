@@ -73,6 +73,9 @@
       <li><a href="nyxx/EmbedVideo-class.html">EmbedVideo</a></li>
       <li><a href="nyxx/Emoji-class.html">Emoji</a></li>
       <li><a href="nyxx/Game-class.html">Game</a></li>
+      <li><a href="nyxx/GameAssets-class.html">GameAssets</a></li>
+      <li><a href="nyxx/GameParty-class.html">GameParty</a></li>
+      <li><a href="nyxx/GameSecrets-class.html">GameSecrets</a></li>
       <li><a href="nyxx/GroupChannel-class.html">GroupChannel</a></li>
       <li><a href="nyxx/GroupDMChannel-class.html">GroupDMChannel</a></li>
       <li><a href="nyxx/Guild-class.html">Guild</a></li>
@@ -100,6 +103,7 @@
       <li><a href="nyxx/Invite-class.html">Invite</a></li>
       <li><a href="nyxx/InviteChannel-class.html">InviteChannel</a></li>
       <li><a href="nyxx/InviteGuild-class.html">InviteGuild</a></li>
+      <li><a href="nyxx/ISend-class.html">ISend</a></li>
       <li><a href="nyxx/Member-class.html">Member</a></li>
       <li><a href="nyxx/Message-class.html">Message</a></li>
       <li><a href="nyxx/MessageChannel-class.html">MessageChannel</a></li>
@@ -144,7 +148,7 @@
     
     
       <li class="section-title"><a href="nyxx/nyxx-library.html#functions">Functions</a></li>
-      <li><a href="nyxx/snow.html">snow</a></li>
+      <li><a href="nyxx/expandAttachment.html">expandAttachment</a></li>
     
       <li class="section-title"><a href="nyxx/nyxx-library.html#enums">Enums</a></li>
       <li><a href="nyxx/ChannelType-class.html">ChannelType</a></li>
@@ -152,7 +156,6 @@
     
       <li class="section-title"><a href="nyxx/nyxx-library.html#exceptions">Exceptions</a></li>
       <li><a href="nyxx/HttpError-class.html">HttpError</a></li>
-      <li><a href="nyxx/InvalidTokenError-class.html">InvalidTokenError</a></li>
     </ol>
   </div>
 
@@ -473,6 +476,17 @@
             <span class="signature"><code>1 &lt;&lt; 22</code></span>
           </div>
         </dd>
+        <dt id="PRIORITY_SPEAKER" class="constant">
+          <span class="name "><a href="nyxx/PermissionsConstants/PRIORITY_SPEAKER-constant.html">PRIORITY_SPEAKER</a></span>
+          <span class="signature">&#8594; const int</span>
+        </dt>
+        <dd>
+          Allows for using priority speaker in a voice channel
+          
+  <div>
+            <span class="signature"><code>1 &lt;&lt; 8</code></span>
+          </div>
+        </dd>
         <dt id="READ_MESSAGE_HISTORY" class="constant">
           <span class="name "><a href="nyxx/PermissionsConstants/READ_MESSAGE_HISTORY-constant.html">READ_MESSAGE_HISTORY</a></span>
           <span class="signature">&#8594; const int</span>
@@ -597,6 +611,7 @@
       <li><a href="nyxx/PermissionsConstants/MENTION_EVERYONE-constant.html">MENTION_EVERYONE</a></li>
       <li><a href="nyxx/PermissionsConstants/MOVE_MEMBERS-constant.html">MOVE_MEMBERS</a></li>
       <li><a href="nyxx/PermissionsConstants/MUTE_MEMBERS-constant.html">MUTE_MEMBERS</a></li>
+      <li><a href="nyxx/PermissionsConstants/PRIORITY_SPEAKER-constant.html">PRIORITY_SPEAKER</a></li>
       <li><a href="nyxx/PermissionsConstants/READ_MESSAGE_HISTORY-constant.html">READ_MESSAGE_HISTORY</a></li>
       <li><a href="nyxx/PermissionsConstants/SEND_MESSAGES-constant.html">SEND_MESSAGES</a></li>
       <li><a href="nyxx/PermissionsConstants/SEND_TTS_MESSAGES-constant.html">SEND_TTS_MESSAGES</a></li>
@@ -611,7 +626,7 @@
 
 <footer>
   <span class="no-break">
-    nyxx 0.24.0
+    nyxx 1.0.0
   </span>
 
 </footer>

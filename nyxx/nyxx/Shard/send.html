@@ -80,9 +80,8 @@
     
     <section class="summary source-code" id="source">
       <h2><span>Implementation</span> </h2>
-      <pre class="language-dart"><code class="language-dart">void send(String op, d) =&gt; this
-    ._socket
-    .add(jsonEncode(&lt;String, dynamic&gt;{&quot;op&quot;: _Constants.opCodes[op], &quot;d&quot;: d}));</code></pre>
+      <pre class="language-dart"><code class="language-dart">void send(String op, d) =&gt; this._socket.add(
+    jsonEncode(&lt;String, dynamic&gt;{&quot;op&quot;: _OPCodes.matchOpCode(op), &quot;d&quot;: d}));</code></pre>
     </section>
 
   </div> <!-- /.main-content -->
@@ -94,7 +93,7 @@
 
 <footer>
   <span class="no-break">
-    nyxx 0.24.0
+    nyxx 1.0.0
   </span>
 
 </footer>

@@ -65,7 +65,7 @@
     <h1>removePlayer method</h1>
 
     <section class="multi-line-signature">
-      <span class="returntype">Future<span class="signature">&lt;<wbr><span class="type-parameter">Null</span>&gt;</span></span>
+      <span class="returntype">Future<span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
       <span class="name ">removePlayer</span>
 (<wbr><span class="parameter" id="removePlayer-param-guild"><span class="type-annotation">String</span> <span class="parameter-name">guild</span></span>)
     </section>
@@ -75,7 +75,7 @@
     
     <section class="summary source-code" id="source">
       <h2><span>Implementation</span> </h2>
-      <pre class="language-dart"><code class="language-dart">Future&lt;Null&gt; removePlayer(String guild) async {
+      <pre class="language-dart"><code class="language-dart">Future&lt;void&gt; removePlayer(String guild) async {
   await _playersCache[guild]._finish();
   _playersCache.remove(guild);
 }</code></pre>
@@ -90,7 +90,7 @@
 
 <footer>
   <span class="no-break">
-    nyxx 0.24.0
+    nyxx 1.0.0
   </span>
 
 </footer>

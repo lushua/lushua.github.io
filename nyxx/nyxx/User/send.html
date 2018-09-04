@@ -61,6 +61,7 @@
       <li><a href="nyxx/User/avatarURL.html">avatarURL</a></li>
       <li><a href="nyxx/User/getDMChannel.html">getDMChannel</a></li>
       <li><a href="nyxx/User/send.html">send</a></li>
+      <li><a href="nyxx/User/sendFile.html">sendFile</a></li>
       <li><a href="nyxx/User/toString.html">toString</a></li>
       <li class="inherited"><a href="nyxx/SnowflakeEntity/noSuchMethod.html">noSuchMethod</a></li>
     
@@ -76,9 +77,14 @@
     <h1>send method</h1>
 
     <section class="multi-line-signature">
+      <div>
+        <ol class="annotation-list">
+          <li>@override</li>
+        </ol>
+      </div>
       <span class="returntype">Future<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/Message-class.html">Message</a></span>&gt;</span></span>
       <span class="name ">send</span>
-(<wbr>{<span class="parameter" id="send-param-content"><span class="type-annotation">Object</span> <span class="parameter-name">content</span>: <span class="default-value">""</span>, </span> <span class="parameter" id="send-param-embed"><span class="type-annotation">Map</span> <span class="parameter-name">embed</span>, </span> <span class="parameter" id="send-param-tts"><span class="type-annotation">bool</span> <span class="parameter-name">tts</span>: <span class="default-value">false</span>, </span> <span class="parameter" id="send-param-nonce"><span class="type-annotation">String</span> <span class="parameter-name">nonce</span>, </span> <span class="parameter" id="send-param-disableEveryone"><span class="type-annotation">bool</span> <span class="parameter-name">disableEveryone</span></span> })
+(<wbr>{<span class="parameter" id="send-param-content"><span class="type-annotation">Object</span> <span class="parameter-name">content</span>: <span class="default-value">""</span>, </span> <span class="parameter" id="send-param-embed"><span class="type-annotation"><a href="nyxx/EmbedBuilder-class.html">EmbedBuilder</a></span> <span class="parameter-name">embed</span>, </span> <span class="parameter" id="send-param-tts"><span class="type-annotation">bool</span> <span class="parameter-name">tts</span>: <span class="default-value">false</span>, </span> <span class="parameter" id="send-param-disableEveryone"><span class="type-annotation">bool</span> <span class="parameter-name">disableEveryone</span></span> })
     </section>
     <section class="desc markdown">
       <p>Sends a message.</p>
@@ -86,36 +92,20 @@
     
     <section class="summary source-code" id="source">
       <h2><span>Implementation</span> </h2>
-      <pre class="language-dart"><code class="language-dart">Future&lt;Message&gt; send(
-    {Object content: &quot;&quot;,
-    Map&lt;dynamic, dynamic&gt; embed,
-    bool tts: false,
-    String nonce,
+      <pre class="language-dart"><code class="language-dart">@override
+
+&#47;&#47;&#47; Sends a message.
+Future&lt;Message&gt; send(
+    {Object content = &quot;&quot;,
+    EmbedBuilder embed,
+    bool tts = false,
     bool disableEveryone}) async {
-  String newContent;
-  if (content != null &amp;&amp;
-      (disableEveryone == true ||
-          (disableEveryone == null &amp;&amp;
-              this.client._options.disableEveryone))) {
-    newContent = content.toString()
-        .replaceAll(&quot;@everyone&quot;, &quot;@\u200Beveryone&quot;)
-        .replaceAll(&quot;@here&quot;, &quot;@\u200Bhere&quot;);
-  } else {
-    newContent = content.toString();
-  }
-
   DMChannel channel = await getDMChannel();
-
-  final HttpResponse r = await this.client.http.send(
-      &#39;POST&#39;, &#39;&#47;channels&#47;${channel.id.toString()}&#47;messages&#39;,
-      body: &lt;String, dynamic&gt;{
-        &quot;content&quot;: newContent,
-        &quot;tts&quot;: tts,
-        &quot;nonce&quot;: nonce,
-        &quot;embed&quot;: embed
-      });
-  return new Message._new(
-      this.client, r.body.asJson() as Map&lt;String, dynamic&gt;);
+  return await channel.send(
+      content: content,
+      embed: embed,
+      tts: tts,
+      disableEveryone: disableEveryone);
 }</code></pre>
     </section>
 
@@ -128,7 +118,7 @@
 
 <footer>
   <span class="no-break">
-    nyxx 0.24.0
+    nyxx 1.0.0
   </span>
 
 </footer>

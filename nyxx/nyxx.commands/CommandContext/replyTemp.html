@@ -47,8 +47,8 @@
       </li>
       <li><a href="nyxx.commands/CommandContext/author.html">author</a></li>
       <li><a href="nyxx.commands/CommandContext/channel.html">channel</a></li>
+      <li><a href="nyxx.commands/CommandContext/client.html">client</a></li>
       <li><a href="nyxx.commands/CommandContext/guild.html">guild</a></li>
-      <li><a href="nyxx.commands/CommandContext/logger.html">logger</a></li>
       <li><a href="nyxx.commands/CommandContext/message.html">message</a></li>
       <li class="inherited"><a href="nyxx.commands/CommandContext/hashCode.html">hashCode</a></li>
       <li class="inherited"><a href="nyxx.commands/CommandContext/runtimeType.html">runtimeType</a></li>
@@ -56,8 +56,6 @@
       <li class="section-title"><a href="nyxx.commands/CommandContext-class.html#instance-methods">Methods</a></li>
       <li><a href="nyxx.commands/CommandContext/collectEmojis.html">collectEmojis</a></li>
       <li><a href="nyxx.commands/CommandContext/getCodeBlocks.html">getCodeBlocks</a></li>
-      <li><a href="nyxx.commands/CommandContext/getHelp.html">getHelp</a></li>
-      <li><a href="nyxx.commands/CommandContext/nextMessage.html">nextMessage</a></li>
       <li><a href="nyxx.commands/CommandContext/nextMessages.html">nextMessages</a></li>
       <li><a href="nyxx.commands/CommandContext/nextMessagesWhere.html">nextMessagesWhere</a></li>
       <li><a href="nyxx.commands/CommandContext/reply.html">reply</a></li>
@@ -81,10 +79,15 @@
     <section class="multi-line-signature">
       <span class="returntype">Future<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/Message-class.html">Message</a></span>&gt;</span></span>
       <span class="name ">replyTemp</span>
-(<wbr><span class="parameter" id="replyTemp-param-duration"><span class="type-annotation">Duration</span> <span class="parameter-name">duration</span>, {</span> <span class="parameter" id="replyTemp-param-content"><span class="type-annotation">Object</span> <span class="parameter-name">content</span>, </span> <span class="parameter" id="replyTemp-param-embed"><span class="type-annotation"><a href="nyxx/EmbedBuilder-class.html">EmbedBuilder</a></span> <span class="parameter-name">embed</span>, </span> <span class="parameter" id="replyTemp-param-tts"><span class="type-annotation">bool</span> <span class="parameter-name">tts</span>: <span class="default-value">false</span>, </span> <span class="parameter" id="replyTemp-param-nonce"><span class="type-annotation">String</span> <span class="parameter-name">nonce</span>, </span> <span class="parameter" id="replyTemp-param-disableEveryone"><span class="type-annotation">bool</span> <span class="parameter-name">disableEveryone</span></span> })
+(<wbr><span class="parameter" id="replyTemp-param-duration"><span class="type-annotation">Duration</span> <span class="parameter-name">duration</span>, {</span> <span class="parameter" id="replyTemp-param-content"><span class="type-annotation">Object</span> <span class="parameter-name">content</span>, </span> <span class="parameter" id="replyTemp-param-embed"><span class="type-annotation"><a href="nyxx/EmbedBuilder-class.html">EmbedBuilder</a></span> <span class="parameter-name">embed</span>, </span> <span class="parameter" id="replyTemp-param-tts"><span class="type-annotation">bool</span> <span class="parameter-name">tts</span>: <span class="default-value">false</span>, </span> <span class="parameter" id="replyTemp-param-disableEveryone"><span class="type-annotation">bool</span> <span class="parameter-name">disableEveryone</span></span> })
     </section>
     <section class="desc markdown">
-      <p>Replys to messages then deletes it when duration expires</p>
+      <p>Reply to messages, then delete it <code>duration</code> expieres.</p>
+<pre class="language-dart"><code>@Command()
+Future&lt;void&gt; getAv(User user) async {
+  await replyTemp(content: uset.avatarURL());
+}
+</code></pre>
     </section>
     
     <section class="summary source-code" id="source">
@@ -92,17 +95,15 @@
       <pre class="language-dart"><code class="language-dart">Future&lt;Message&gt; replyTemp(Duration duration,
     {Object content,
     EmbedBuilder embed,
-    bool tts: false,
-    String nonce,
+    bool tts = false,
     bool disableEveryone}) async {
   var msg = await channel.send(
       content: content,
       embed: embed,
       tts: tts,
-      nonce: nonce,
       disableEveryone: disableEveryone);
 
-  new Timer(duration, () async =&gt; await msg.delete());
+  Timer(duration, () async =&gt; await msg.delete());
   return msg;
 }</code></pre>
     </section>
@@ -116,7 +117,7 @@
 
 <footer>
   <span class="no-break">
-    nyxx 0.24.0
+    nyxx 1.0.0
   </span>
 
 </footer>

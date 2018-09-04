@@ -77,9 +77,9 @@
     <h1>sendFile method</h1>
 
     <section class="multi-line-signature">
-      <span class="returntype">Future<span class="signature">&lt;<wbr><span class="type-parameter">Null</span>&gt;</span></span>
+      <span class="returntype">Future<span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
       <span class="name ">sendFile</span>
-(<wbr>{<span class="parameter" id="sendFile-param-content"><span class="type-annotation">String</span> <span class="parameter-name">content</span>, </span> <span class="parameter" id="sendFile-param-filepaths"><span class="type-annotation">List<span class="signature">&lt;<wbr><span class="type-parameter">String</span>&gt;</span></span> <span class="parameter-name">filepaths</span>, </span> <span class="parameter" id="sendFile-param-embeds"><span class="type-annotation">List<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/EmbedBuilder-class.html">EmbedBuilder</a></span>&gt;</span></span> <span class="parameter-name">embeds</span>, </span> <span class="parameter" id="sendFile-param-username"><span class="type-annotation">String</span> <span class="parameter-name">username</span>, </span> <span class="parameter" id="sendFile-param-avatarUrl"><span class="type-annotation">String</span> <span class="parameter-name">avatarUrl</span>, </span> <span class="parameter" id="sendFile-param-tts"><span class="type-annotation">bool</span> <span class="parameter-name">tts</span></span> })
+(<wbr>{<span class="parameter" id="sendFile-param-content"><span class="type-annotation">String</span> <span class="parameter-name">content</span>, </span> <span class="parameter" id="sendFile-param-files"><span class="type-annotation">List<span class="signature">&lt;<wbr><span class="type-parameter">File</span>&gt;</span></span> <span class="parameter-name">files</span>, </span> <span class="parameter" id="sendFile-param-embeds"><span class="type-annotation">List<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/EmbedBuilder-class.html">EmbedBuilder</a></span>&gt;</span></span> <span class="parameter-name">embeds</span>, </span> <span class="parameter" id="sendFile-param-username"><span class="type-annotation">String</span> <span class="parameter-name">username</span>, </span> <span class="parameter" id="sendFile-param-avatarUrl"><span class="type-annotation">String</span> <span class="parameter-name">avatarUrl</span>, </span> <span class="parameter" id="sendFile-param-tts"><span class="type-annotation">bool</span> <span class="parameter-name">tts</span></span> })
     </section>
     <section class="desc markdown">
       <p>Sends message to webhook with files</p>
@@ -87,9 +87,9 @@
     
     <section class="summary source-code" id="source">
       <h2><span>Implementation</span> </h2>
-      <pre class="language-dart"><code class="language-dart">Future&lt;Null&gt; sendFile(
+      <pre class="language-dart"><code class="language-dart">Future&lt;void&gt; sendFile(
     {String content,
-    List&lt;String&gt; filepaths,
+    List&lt;File&gt; files,
     List&lt;EmbedBuilder&gt; embeds,
     String username,
     String avatarUrl,
@@ -97,15 +97,13 @@
   await this
       .client
       .http
-      .sendMultipart(&quot;POST&quot;, &quot;&#47;webhooks&#47;$id&#47;$token&quot;, filepaths,
-          data: jsonEncode({
-            &quot;content&quot;: content,
-            &quot;username&quot;: username,
-            &quot;avatar_url&quot;: avatarUrl,
-            &quot;tts&quot;: tts,
-            &quot;embeds&quot;: embeds.map((t) =&gt; t._build())
-          }));
-  return null;
+      .sendMultipart(&quot;POST&quot;, &quot;&#47;webhooks&#47;$id&#47;$token&quot;, files, data: {
+    &quot;content&quot;: content,
+    &quot;username&quot;: username,
+    &quot;avatar_url&quot;: avatarUrl,
+    &quot;tts&quot;: tts,
+    &quot;embeds&quot;: embeds.map((t) =&gt; t._build())
+  });
 }</code></pre>
     </section>
 
@@ -118,7 +116,7 @@
 
 <footer>
   <span class="no-break">
-    nyxx 0.24.0
+    nyxx 1.0.0
   </span>
 
 </footer>

@@ -80,7 +80,7 @@
     <section class="multi-line-signature">
       <span class="returntype">Future<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/Role-class.html">Role</a></span>&gt;</span></span>
       <span class="name ">edit</span>
-(<wbr>{<span class="parameter" id="edit-param-name"><span class="type-annotation">String</span> <span class="parameter-name">name</span>: <span class="default-value">null</span>, </span> <span class="parameter" id="edit-param-permissions"><span class="type-annotation"><a href="nyxx/PermissionsBuilder-class.html">PermissionsBuilder</a></span> <span class="parameter-name">permissions</span>, </span> <span class="parameter" id="edit-param-position"><span class="type-annotation">int</span> <span class="parameter-name">position</span>: <span class="default-value">null</span>, </span> <span class="parameter" id="edit-param-color"><span class="type-annotation">int</span> <span class="parameter-name">color</span>: <span class="default-value">null</span>, </span> <span class="parameter" id="edit-param-mentionable"><span class="type-annotation">bool</span> <span class="parameter-name">mentionable</span>: <span class="default-value">null</span>, </span> <span class="parameter" id="edit-param-hoist"><span class="type-annotation">bool</span> <span class="parameter-name">hoist</span>: <span class="default-value">null</span>, </span> <span class="parameter" id="edit-param-auditReason"><span class="type-annotation">String</span> <span class="parameter-name">auditReason</span>: <span class="default-value">""</span></span> })
+(<wbr>{<span class="parameter" id="edit-param-role"><span class="type-annotation"><a href="nyxx/RoleBuilder-class.html">RoleBuilder</a></span> <span class="parameter-name">role</span>, </span> <span class="parameter" id="edit-param-auditReason"><span class="type-annotation">String</span> <span class="parameter-name">auditReason</span>: <span class="default-value">""</span></span> })
     </section>
     <section class="desc markdown">
       <p>Edits the role.</p>
@@ -88,29 +88,11 @@
     
     <section class="summary source-code" id="source">
       <h2><span>Implementation</span> </h2>
-      <pre class="language-dart"><code class="language-dart">Future&lt;Role&gt; edit(
-    {String name: null,
-    PermissionsBuilder permissions,
-    int position: null,
-    int color: null,
-    bool mentionable: null,
-    bool hoist: null,
-    String auditReason: &quot;&quot;}) async {
+      <pre class="language-dart"><code class="language-dart">Future&lt;Role&gt; edit({RoleBuilder role, String auditReason = &quot;&quot;}) async {
   HttpResponse r = await this.client.http.send(
       &#39;PATCH&#39;, &quot;&#47;guilds&#47;${this.guild.id}&#47;roles&#47;$id&quot;,
-      body: {
-        &quot;name&quot;: name != null ? name : this.name,
-        &quot;permissions&quot;: permissions != null
-            ? permissions._build()._build()
-            : this.permissions.raw,
-        &quot;position&quot;: position != null ? position : this.position,
-        &quot;color&quot;: color != null ? color : this.color,
-        &quot;hoist&quot;: hoist != null ? hoist : this.hoist,
-        &quot;mentionable&quot;: mentionable != null ? mentionable : this.mentionable
-      },
-      reason: auditReason);
-  return new Role._new(
-      this.client, r.body.asJson() as Map&lt;String, dynamic&gt;, this.guild);
+      body: role._build(), reason: auditReason);
+  return Role._new(this.client, r.body as Map&lt;String, dynamic&gt;, this.guild);
 }</code></pre>
     </section>
 
@@ -123,7 +105,7 @@
 
 <footer>
   <span class="no-break">
-    nyxx 0.24.0
+    nyxx 1.0.0
   </span>
 
 </footer>

@@ -68,6 +68,7 @@
       <li class="inherited"><a href="nyxx/User/getDMChannel.html">getDMChannel</a></li>
       <li class="inherited"><a href="nyxx/SnowflakeEntity/noSuchMethod.html">noSuchMethod</a></li>
       <li class="inherited"><a href="nyxx/User/send.html">send</a></li>
+      <li class="inherited"><a href="nyxx/User/sendFile.html">sendFile</a></li>
       <li class="inherited"><a href="nyxx/User/toString.html">toString</a></li>
     
       <li class="section-title inherited"><a href="nyxx/ClientUser-class.html#operators">Operators</a></li>
@@ -84,18 +85,17 @@
     <section class="multi-line-signature">
       <span class="returntype"><a href="nyxx/ClientUser-class.html">ClientUser</a></span>
       <span class="name ">setStatus</span>
-(<wbr>{<span class="parameter" id="setStatus-param-status"><span class="type-annotation">String</span> <span class="parameter-name">status</span>: <span class="default-value">null</span></span> })
+(<wbr><span class="parameter" id="setStatus-param-status"><span class="type-annotation">String</span> <span class="parameter-name">status</span></span>)
     </section>
     <section class="desc markdown">
-      <p>Updates the client's status.
-    ClientUser.setStatus(status: 'dnd');</p>
+      <p>Updates the client's status.</p>
+<pre class="language-dart"><code>user.setStatus('dnd');
+</code></pre>
     </section>
     
     <section class="summary source-code" id="source">
       <h2><span>Implementation</span> </h2>
-      <pre class="language-dart"><code class="language-dart">ClientUser setStatus({String status: null}) {
-  return this.setPresence(status: status);
-}</code></pre>
+      <pre class="language-dart"><code class="language-dart">ClientUser setStatus(String status) =&gt; this.setPresence(status: status);</code></pre>
     </section>
 
   </div> <!-- /.main-content -->
@@ -107,7 +107,7 @@
 
 <footer>
   <span class="no-break">
-    nyxx 0.24.0
+    nyxx 1.0.0
   </span>
 
 </footer>

@@ -88,13 +88,13 @@
 (<wbr>)
     </section>
     <section class="desc markdown">
-      <p>Returns a mention of role. Empty string if role inn't mentionable</p>
+      <p>Returns a mention of role. If role cannot be mentioned it returns name of role.</p>
     </section>
     
     <section class="summary source-code" id="source">
       <h2><span>Implementation</span> </h2>
       <pre class="language-dart"><code class="language-dart">@override
-String toString() =&gt; mentionable ? this.mention : &quot;&quot;;</code></pre>
+String toString() =&gt; mention;</code></pre>
     </section>
 
   </div> <!-- /.main-content -->
@@ -106,7 +106,7 @@ String toString() =&gt; mentionable ? this.mention : &quot;&quot;;</code></pre>
 
 <footer>
   <span class="no-break">
-    nyxx 0.24.0
+    nyxx 1.0.0
   </span>
 
 </footer>

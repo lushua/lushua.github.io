@@ -92,8 +92,7 @@
     currentTrack = track;
   else if (track is Playlist) currentTrack = track.tracks.first;
 
-  _webSocket.add(jsonEncode(new _OpPlay(_guild, currentTrack).build()));
-  &#47;&#47;isPlaying = true;
+  _webSocket.add(jsonEncode(_OpPlay(_guild, currentTrack).build()));
   return true;
 }</code></pre>
     </section>
@@ -107,7 +106,7 @@
 
 <footer>
   <span class="no-break">
-    nyxx 0.24.0
+    nyxx 1.0.0
   </span>
 
 </footer>

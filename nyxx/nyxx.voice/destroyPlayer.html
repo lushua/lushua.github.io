@@ -69,7 +69,7 @@
     <h1>destroyPlayer function</h1>
 
     <section class="multi-line-signature">
-        <span class="returntype">Future<span class="signature">&lt;<wbr><span class="type-parameter">Null</span>&gt;</span></span>
+        <span class="returntype">Future<span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
         <span class="name ">destroyPlayer</span>
 (<wbr><span class="parameter" id="destroyPlayer-param-player"><span class="type-annotation"><a href="nyxx.voice/Player-class.html">Player</a></span> <span class="parameter-name">player</span></span>)
     </section>
@@ -79,7 +79,7 @@
     
     <section class="summary source-code" id="source">
       <h2><span>Implementation</span> </h2>
-      <pre class="language-dart"><code class="language-dart">Future&lt;Null&gt; destroyPlayer(Player player) async {
+      <pre class="language-dart"><code class="language-dart">Future&lt;void&gt; destroyPlayer(Player player) async {
   _logger.fine(&quot;Node for guild -${player._guild.id}- disconnected!&quot;);
   _manager.removePlayer(player._guild.id.toString());
   player = null;
@@ -95,7 +95,7 @@
 
 <footer>
   <span class="no-break">
-    nyxx 0.24.0
+    nyxx 1.0.0
   </span>
 
 </footer>

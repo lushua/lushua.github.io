@@ -77,7 +77,7 @@
     <h1>toggleMute method</h1>
 
     <section class="multi-line-signature">
-      <span class="returntype">Future<span class="signature">&lt;<wbr><span class="type-parameter">Null</span>&gt;</span></span>
+      <span class="returntype">Future<span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
       <span class="name ">toggleMute</span>
 (<wbr>)
     </section>
@@ -87,17 +87,17 @@
     
     <section class="summary source-code" id="source">
       <h2><span>Implementation</span> </h2>
-      <pre class="language-dart"><code class="language-dart">Future&lt;Null&gt; toggleMute() async {
+      <pre class="language-dart"><code class="language-dart">Future&lt;void&gt; toggleMute() async {
   var op;
   if (_currentState.selfMute)
-    op = new _OpPause(_guild, false).build();
+    op = _OpPause(_guild, false).build();
   else
-    op = new _OpPause(_guild, true).build();
+    op = _OpPause(_guild, true).build();
 
   _webSocket.add(jsonEncode(op));
   _guild.shard.send(
       &quot;VOICE_STATE_UPDATE&quot;,
-      new _Opcode4(_guild, currentChannel, !_currentState.selfMute,
+      _Opcode4(_guild, currentChannel, !_currentState.selfMute,
               _currentState.selfDeaf)
           ._build());
 }</code></pre>
@@ -112,7 +112,7 @@
 
 <footer>
   <span class="no-break">
-    nyxx 0.24.0
+    nyxx 1.0.0
   </span>
 
 </footer>

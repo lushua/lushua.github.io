@@ -61,6 +61,7 @@
       <li><a href="nyxx/User/avatarURL.html">avatarURL</a></li>
       <li><a href="nyxx/User/getDMChannel.html">getDMChannel</a></li>
       <li><a href="nyxx/User/send.html">send</a></li>
+      <li><a href="nyxx/User/sendFile.html">sendFile</a></li>
       <li><a href="nyxx/User/toString.html">toString</a></li>
       <li class="inherited"><a href="nyxx/SnowflakeEntity/noSuchMethod.html">noSuchMethod</a></li>
     
@@ -75,21 +76,24 @@
   <div class="col-xs-12 col-sm-9 col-md-8 main-content">
     <h1>mention property</h1>
 
+
+        <section id="getter">
+        
         <section class="multi-line-signature">
           <span class="returntype">String</span>
           <span class="name ">mention</span>
-          <div class="features">read / write</div>
-        </section>
+  
+</section>
+        
         <section class="desc markdown">
-          <p>The string to mention the user.</p>
-        </section>
-                <section class="summary source-code" id="source">
-          <h2><span>Implementation</span> </h2>
-          <pre class="language-dart"><code class="language-dart">String mention
-
-</code></pre>
-        </section>
-
+  <p>The string to mention the user.</p>
+</section>
+<section class="summary source-code" id="source">
+  <h2><span>Implementation</span> </h2>
+  <pre class="language-dart"><code class="language-dart">String get mention =&gt; &quot;&lt;@${this.id}&gt;&quot;;</code></pre>
+</section>
+</section>
+        
   </div> <!-- /.main-content -->
 
   <div class="col-xs-6 col-sm-6 col-md-2 sidebar sidebar-offcanvas-right">
@@ -99,7 +103,7 @@
 
 <footer>
   <span class="no-break">
-    nyxx 0.24.0
+    nyxx 1.0.0
   </span>
 
 </footer>

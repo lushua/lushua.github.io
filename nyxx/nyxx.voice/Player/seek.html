@@ -77,7 +77,7 @@
     <h1>seek method</h1>
 
     <section class="multi-line-signature">
-      <span class="returntype">Future<span class="signature">&lt;<wbr><span class="type-parameter">Null</span>&gt;</span></span>
+      <span class="returntype">Future<span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
       <span class="name ">seek</span>
 (<wbr><span class="parameter" id="seek-param-position"><span class="type-annotation">int</span> <span class="parameter-name">position</span></span>)
     </section>
@@ -87,8 +87,8 @@
     
     <section class="summary source-code" id="source">
       <h2><span>Implementation</span> </h2>
-      <pre class="language-dart"><code class="language-dart">Future&lt;Null&gt; seek(int position) async {
-  _webSocket.add(jsonEncode(new _OpSeek(_guild, position)));
+      <pre class="language-dart"><code class="language-dart">Future&lt;void&gt; seek(int position) async {
+  _webSocket.add(jsonEncode(_OpSeek(_guild, position)));
 }</code></pre>
     </section>
 
@@ -101,7 +101,7 @@
 
 <footer>
   <span class="no-break">
-    nyxx 0.24.0
+    nyxx 1.0.0
   </span>
 
 </footer>

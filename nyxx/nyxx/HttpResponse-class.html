@@ -73,6 +73,9 @@
       <li><a href="nyxx/EmbedVideo-class.html">EmbedVideo</a></li>
       <li><a href="nyxx/Emoji-class.html">Emoji</a></li>
       <li><a href="nyxx/Game-class.html">Game</a></li>
+      <li><a href="nyxx/GameAssets-class.html">GameAssets</a></li>
+      <li><a href="nyxx/GameParty-class.html">GameParty</a></li>
+      <li><a href="nyxx/GameSecrets-class.html">GameSecrets</a></li>
       <li><a href="nyxx/GroupChannel-class.html">GroupChannel</a></li>
       <li><a href="nyxx/GroupDMChannel-class.html">GroupDMChannel</a></li>
       <li><a href="nyxx/Guild-class.html">Guild</a></li>
@@ -100,6 +103,7 @@
       <li><a href="nyxx/Invite-class.html">Invite</a></li>
       <li><a href="nyxx/InviteChannel-class.html">InviteChannel</a></li>
       <li><a href="nyxx/InviteGuild-class.html">InviteGuild</a></li>
+      <li><a href="nyxx/ISend-class.html">ISend</a></li>
       <li><a href="nyxx/Member-class.html">Member</a></li>
       <li><a href="nyxx/Message-class.html">Message</a></li>
       <li><a href="nyxx/MessageChannel-class.html">MessageChannel</a></li>
@@ -144,7 +148,7 @@
     
     
       <li class="section-title"><a href="nyxx/nyxx-library.html#functions">Functions</a></li>
-      <li><a href="nyxx/snow.html">snow</a></li>
+      <li><a href="nyxx/expandAttachment.html">expandAttachment</a></li>
     
       <li class="section-title"><a href="nyxx/nyxx-library.html#enums">Enums</a></li>
       <li><a href="nyxx/ChannelType-class.html">ChannelType</a></li>
@@ -152,7 +156,6 @@
     
       <li class="section-title"><a href="nyxx/nyxx-library.html#exceptions">Exceptions</a></li>
       <li><a href="nyxx/HttpError-class.html">HttpError</a></li>
-      <li><a href="nyxx/InvalidTokenError-class.html">InvalidTokenError</a></li>
     </ol>
   </div>
 
@@ -178,6 +181,22 @@
           Whether or not the request was aborted. If true, all other fields will be null.
           <div class="features">read / write</div>
 </dd>
+        <dt id="body" class="property">
+          <span class="name"><a href="nyxx/HttpResponse/body.html">body</a></span>
+          <span class="signature">&#8596; dynamic</span>
+        </dt>
+        <dd>
+          
+          <div class="features">read / write</div>
+</dd>
+        <dt id="headers" class="property">
+          <span class="name"><a href="nyxx/HttpResponse/headers.html">headers</a></span>
+          <span class="signature">&#8596; Map<span class="signature">&lt;<wbr><span class="type-parameter">String</span>, <span class="type-parameter">String</span>&gt;</span></span>
+        </dt>
+        <dd>
+          
+          <div class="features">read / write</div>
+</dd>
         <dt id="request" class="property">
           <span class="name"><a href="nyxx/HttpResponse/request.html">request</a></span>
           <span class="signature">&#8596; <a href="nyxx/HttpBase-class.html">HttpBase</a></span>
@@ -186,42 +205,21 @@
           The HTTP request.
           <div class="features">read / write</div>
 </dd>
-        <dt id="body" class="property inherited">
-          <span class="name"><a href="nyxx/HttpResponse/body.html">body</a></span>
-          <span class="signature">&#8594; HttpBody</span>
+        <dt id="status" class="property">
+          <span class="name"><a href="nyxx/HttpResponse/status.html">status</a></span>
+          <span class="signature">&#8596; int</span>
         </dt>
-        <dd class="inherited">
-          This response's body. Provides synchronous access to the response body as
-bytes, text, or JSON.
-          <div class="features">read-only, inherited</div>
+        <dd>
+          
+          <div class="features">read / write</div>
 </dd>
-        <dt id="contentLength" class="property inherited">
-          <span class="name"><a href="nyxx/HttpResponse/contentLength.html">contentLength</a></span>
-          <span class="signature">&#8594; int</span>
+        <dt id="statusText" class="property">
+          <span class="name"><a href="nyxx/HttpResponse/statusText.html">statusText</a></span>
+          <span class="signature">&#8596; String</span>
         </dt>
-        <dd class="inherited">
-          Gets and sets the content-length of the request, in bytes. If the size of
-the request is not known in advance, set this to null.
-          <div class="features">read-only, inherited</div>
-</dd>
-        <dt id="contentType" class="property inherited">
-          <span class="name"><a href="nyxx/HttpResponse/contentType.html">contentType</a></span>
-          <span class="signature">&#8594; MediaType</span>
-        </dt>
-        <dd class="inherited">
-          Content-type of this request. <a href="nyxx/HttpResponse/contentType.html">[...]</a>
-          <div class="features">read-only, inherited</div>
-</dd>
-        <dt id="encoding" class="property inherited">
-          <span class="name"><a href="nyxx/HttpResponse/encoding.html">encoding</a></span>
-          <span class="signature">&#8594; Encoding</span>
-        </dt>
-        <dd class="inherited">
-          Encoding that will be used to decode the response body. This encoding is
-selected based on <a href="nyxx/HttpResponse/contentType.html">contentType</a>'s <code>charset</code> parameter. If <code>charset</code> is not
-given or the encoding name is unrecognized, <code>convert.latin1</code> is used by
-default (<a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec3.html">RFC 2616</a>).
-          <div class="features">read-only, inherited</div>
+        <dd>
+          
+          <div class="features">read / write</div>
 </dd>
         <dt id="hashCode" class="property inherited">
           <span class="name"><a href="nyxx/HttpResponse/hashCode.html">hashCode</a></span>
@@ -231,14 +229,6 @@ default (<a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec3.html">RFC 261
           The hash code for this object. <a href="nyxx/HttpResponse/hashCode.html">[...]</a>
           <div class="features">read-only, inherited</div>
 </dd>
-        <dt id="headers" class="property inherited">
-          <span class="name"><a href="nyxx/HttpResponse/headers.html">headers</a></span>
-          <span class="signature">&#8594; Map<span class="signature">&lt;<wbr><span class="type-parameter">String</span>, <span class="type-parameter">String</span>&gt;</span></span>
-        </dt>
-        <dd class="inherited">
-          Headers sent with the response to the HTTP request.
-          <div class="features">read-only, inherited</div>
-</dd>
         <dt id="runtimeType" class="property inherited">
           <span class="name"><a href="nyxx/HttpResponse/runtimeType.html">runtimeType</a></span>
           <span class="signature">&#8594; Type</span>
@@ -246,24 +236,6 @@ default (<a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec3.html">RFC 261
         <dd class="inherited">
           A representation of the runtime type of the object.
           <div class="features">read-only, inherited</div>
-</dd>
-        <dt id="status" class="property inherited">
-          <span class="name"><a href="nyxx/HttpResponse/status.html">status</a></span>
-          <span class="signature">&#8594; int</span>
-        </dt>
-        <dd class="inherited">
-          Status code of the response to the HTTP request.
-200, 404, etc.
-          <div class="features">final, inherited</div>
-</dd>
-        <dt id="statusText" class="property inherited">
-          <span class="name"><a href="nyxx/HttpResponse/statusText.html">statusText</a></span>
-          <span class="signature">&#8594; String</span>
-        </dt>
-        <dd class="inherited">
-          Status text of the response to the HTTP request.
-'OK', 'Not Found', etc.
-          <div class="features">final, inherited</div>
 </dd>
       </dl>
     </section>
@@ -278,16 +250,6 @@ default (<a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec3.html">RFC 261
         </dt>
         <dd class="inherited">
           Invoked when a non-existent method or property is accessed. <a href="nyxx/HttpResponse/noSuchMethod.html">[...]</a>
-          <div class="features">inherited</div>
-</dd>
-        <dt id="replace" class="callable inherited">
-          <span class="name"><a href="nyxx/HttpResponse/replace.html">replace</a></span><span class="signature">(<wbr>{<span class="parameter" id="replace-param-bodyBytes"><span class="type-annotation">List<span class="signature">&lt;<wbr><span class="type-parameter">int</span>&gt;</span></span> <span class="parameter-name">bodyBytes</span>, </span> <span class="parameter" id="replace-param-bodyString"><span class="type-annotation">String</span> <span class="parameter-name">bodyString</span>, </span> <span class="parameter" id="replace-param-status"><span class="type-annotation">int</span> <span class="parameter-name">status</span>, </span> <span class="parameter" id="replace-param-statusText"><span class="type-annotation">String</span> <span class="parameter-name">statusText</span>, </span> <span class="parameter" id="replace-param-headers"><span class="type-annotation">Map<span class="signature">&lt;<wbr><span class="type-parameter">String</span>, <span class="type-parameter">String</span>&gt;</span></span> <span class="parameter-name">headers</span></span> })
-            <span class="returntype parameter">&#8594; Response</span>
-          </span>
-        </dt>
-        <dd class="inherited">
-          Create a new <code>Response</code> using all the values from this instance except
-for the parameters specified.
           <div class="features">inherited</div>
 </dd>
         <dt id="toString" class="callable inherited">
@@ -329,20 +291,16 @@ for the parameters specified.
         <a href="nyxx/HttpResponse-class.html#instance-properties">Properties</a>
       </li>
       <li><a href="nyxx/HttpResponse/aborted.html">aborted</a></li>
+      <li><a href="nyxx/HttpResponse/body.html">body</a></li>
+      <li><a href="nyxx/HttpResponse/headers.html">headers</a></li>
       <li><a href="nyxx/HttpResponse/request.html">request</a></li>
-      <li class="inherited"><a href="nyxx/HttpResponse/body.html">body</a></li>
-      <li class="inherited"><a href="nyxx/HttpResponse/contentLength.html">contentLength</a></li>
-      <li class="inherited"><a href="nyxx/HttpResponse/contentType.html">contentType</a></li>
-      <li class="inherited"><a href="nyxx/HttpResponse/encoding.html">encoding</a></li>
+      <li><a href="nyxx/HttpResponse/status.html">status</a></li>
+      <li><a href="nyxx/HttpResponse/statusText.html">statusText</a></li>
       <li class="inherited"><a href="nyxx/HttpResponse/hashCode.html">hashCode</a></li>
-      <li class="inherited"><a href="nyxx/HttpResponse/headers.html">headers</a></li>
       <li class="inherited"><a href="nyxx/HttpResponse/runtimeType.html">runtimeType</a></li>
-      <li class="inherited"><a href="nyxx/HttpResponse/status.html">status</a></li>
-      <li class="inherited"><a href="nyxx/HttpResponse/statusText.html">statusText</a></li>
     
       <li class="section-title inherited"><a href="nyxx/HttpResponse-class.html#instance-methods">Methods</a></li>
       <li class="inherited"><a href="nyxx/HttpResponse/noSuchMethod.html">noSuchMethod</a></li>
-      <li class="inherited"><a href="nyxx/HttpResponse/replace.html">replace</a></li>
       <li class="inherited"><a href="nyxx/HttpResponse/toString.html">toString</a></li>
     
       <li class="section-title inherited"><a href="nyxx/HttpResponse-class.html#operators">Operators</a></li>
@@ -357,7 +315,7 @@ for the parameters specified.
 
 <footer>
   <span class="no-break">
-    nyxx 0.24.0
+    nyxx 1.0.0
   </span>
 
 </footer>

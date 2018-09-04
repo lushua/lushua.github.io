@@ -76,10 +76,10 @@
     <section class="summary source-code" id="source">
       <h2><span>Implementation</span> </h2>
       <pre class="language-dart"><code class="language-dart">CooldownCache() {
-  _cache = new Map();
+  _cache = Map();
 
-  new Timer.periodic(const Duration(minutes: 30), (Timer t) {
-    int now = new DateTime.now().millisecondsSinceEpoch;
+  Timer.periodic(const Duration(minutes: 30), (Timer t) {
+    int now = DateTime.now().millisecondsSinceEpoch;
 
     _cache.forEach((k, v) {
       if (now - v &gt;= 1800000) _cache.remove(k);
@@ -97,7 +97,7 @@
 
 <footer>
   <span class="no-break">
-    nyxx 0.24.0
+    nyxx 1.0.0
   </span>
 
 </footer>

@@ -67,6 +67,7 @@
       <li><a href="nyxx/Guild/splash.html">splash</a></li>
       <li><a href="nyxx/Guild/systemChannel.html">systemChannel</a></li>
       <li><a href="nyxx/Guild/verificationLevel.html">verificationLevel</a></li>
+      <li><a href="nyxx/Guild/webhooks.html">webhooks</a></li>
       <li class="inherited"><a href="nyxx/SnowflakeEntity/createdAt.html">createdAt</a></li>
       <li class="inherited"><a href="nyxx/SnowflakeEntity/hashCode.html">hashCode</a></li>
       <li class="inherited"><a href="nyxx/SnowflakeEntity/id.html">id</a></li>
@@ -77,6 +78,7 @@
       <li><a href="nyxx/Guild/ban.html">ban</a></li>
       <li><a href="nyxx/Guild/changeOwner.html">changeOwner</a></li>
       <li><a href="nyxx/Guild/createChannel.html">createChannel</a></li>
+      <li><a href="nyxx/Guild/createEmoji.html">createEmoji</a></li>
       <li><a href="nyxx/Guild/createRole.html">createRole</a></li>
       <li><a href="nyxx/Guild/delete.html">delete</a></li>
       <li><a href="nyxx/Guild/edit.html">edit</a></li>
@@ -91,7 +93,7 @@
       <li><a href="nyxx/Guild/getWebhooks.html">getWebhooks</a></li>
       <li><a href="nyxx/Guild/iconURL.html">iconURL</a></li>
       <li><a href="nyxx/Guild/leave.html">leave</a></li>
-      <li><a href="nyxx/Guild/moveGuildChannel.html">moveGuildChannel</a></li>
+      <li><a href="nyxx/Guild/moveChannel.html">moveChannel</a></li>
       <li><a href="nyxx/Guild/prune.html">prune</a></li>
       <li><a href="nyxx/Guild/splashURL.html">splashURL</a></li>
       <li><a href="nyxx/Guild/toString.html">toString</a></li>
@@ -114,10 +116,14 @@
       <span class="name ">splashURL</span>
 (<wbr>{<span class="parameter" id="splashURL-param-format"><span class="type-annotation">String</span> <span class="parameter-name">format</span>: <span class="default-value">'webp'</span>, </span> <span class="parameter" id="splashURL-param-size"><span class="type-annotation">int</span> <span class="parameter-name">size</span>: <span class="default-value">128</span></span> })
     </section>
+    <section class="desc markdown">
+      <p>URL to guild's splash.
+If guild doesn't have splash it returns null.</p>
+    </section>
     
     <section class="summary source-code" id="source">
       <h2><span>Implementation</span> </h2>
-      <pre class="language-dart"><code class="language-dart">String splashURL({String format: &#39;webp&#39;, int size: 128}) {
+      <pre class="language-dart"><code class="language-dart">String splashURL({String format = &#39;webp&#39;, int size = 128}) {
   if (this.splash != null)
     return &#39;https:&#47;&#47;cdn.${_Constants.host}&#47;splashes&#47;${this.id}&#47;${this.splash}.$format?size=$size&#39;;
 
@@ -134,7 +140,7 @@
 
 <footer>
   <span class="no-break">
-    nyxx 0.24.0
+    nyxx 1.0.0
   </span>
 
 </footer>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="API docs for the format function from the utils library, for the Dart programming language.">
+  <title>format function - utils library - Dart API</title>
+  <!-- required because all the links are pseudo-absolute -->
+  <base href="..">
+
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500,400i,400,300|Source+Sans+Pro:400,300,700" rel="stylesheet">
+  <link rel="stylesheet" href="static-assets/github.css">
+  <link rel="stylesheet" href="static-assets/styles.css">
+  <link rel="icon" href="static-assets/favicon.png">
+
+</head>
+
+<body>
+
+<div id="overlay-under-drawer"></div>
+
+<header id="title">
+  <button id="sidenav-left-toggle" type="button">&nbsp;</button>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="index.html">nyxx</a></li>
+    <li><a href="utils/utils-library.html">utils</a></li>
+    <li class="self-crumb">format function</li>
+  </ol>
+  <div class="self-name">format</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<main>
+
+  <div class="col-xs-6 col-sm-3 col-md-2 sidebar sidebar-offcanvas-left">
+    <h5>utils library</h5>
+    <ol>
+      <li class="section-title"><a href="utils/utils-library.html#classes">Classes</a></li>
+      <li><a href="utils/EmojisUnicode-class.html">EmojisUnicode</a></li>
+    
+    
+    
+      <li class="section-title"><a href="utils/utils-library.html#functions">Functions</a></li>
+      <li><a href="utils/chunk.html">chunk</a></li>
+      <li><a href="utils/downloadFile.html">downloadFile</a></li>
+      <li><a href="utils/format.html">format</a></li>
+      <li><a href="utils/getSymbolName.html">getSymbolName</a></li>
+      <li><a href="utils/HEXtoInt.html">HEXtoInt</a></li>
+      <li><a href="utils/merge.html">merge</a></li>
+      <li><a href="utils/partition.html">partition</a></li>
+      <li><a href="utils/RGBtoInt.html">RGBtoInt</a></li>
+      <li><a href="utils/sendMultipart.html">sendMultipart</a></li>
+      <li><a href="utils/sendRequest.html">sendRequest</a></li>
+      <li><a href="utils/split.html">split</a></li>
+      <li><a href="utils/splitEqually.html">splitEqually</a></li>
+    
+    
+    
+    </ol>
+  </div><!--/.sidebar-offcanvas-left-->
+
+  <div class="col-xs-12 col-sm-9 col-md-8 main-content">
+    <h1>format function</h1>
+
+    <section class="multi-line-signature">
+        <span class="returntype">String</span>
+        <span class="name ">format</span>
+(<wbr><span class="parameter" id="format-param-format"><span class="type-annotation">String</span> <span class="parameter-name">format</span>, </span> <span class="parameter" id="format-param-formatters"><span class="type-annotation">List<span class="signature">&lt;<wbr><span class="type-parameter">Object</span>&gt;</span></span> <span class="parameter-name">formatters</span></span>)
+    </section>
+    <section class="desc markdown">
+      <p>Simple foramt function implementation
+%0% will be replaced with first list element, %1% with second...</p>
+<pre class="language-dart"><code>var str = "Hello %0%!";
+print(format(str, ["Janusz"]))
+</code></pre>
+    </section>
+    
+    <section class="summary source-code" id="source">
+      <h2><span>Implementation</span> </h2>
+      <pre class="language-dart"><code class="language-dart">String format(String format, List&lt;Object&gt; formatters) =&gt;
+    format.replaceAllMapped(r&quot;%([0-9]+)%&quot;,
+        (match) =&gt; formatters[int.parse(match.group(1))].toString());</code></pre>
+    </section>
+
+  </div> <!-- /.main-content -->
+
+  <div class="col-xs-6 col-sm-6 col-md-2 sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+
+</main>
+
+<footer>
+  <span class="no-break">
+    nyxx 1.0.0
+  </span>
+
+</footer>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="static-assets/typeahead.bundle.min.js"></script>
+<script src="static-assets/highlight.pack.js"></script>
+<script src="static-assets/URI.js"></script>
+<script src="static-assets/script.js"></script>
+
+
+</body>
+
+</html>

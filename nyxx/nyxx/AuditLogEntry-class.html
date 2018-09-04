@@ -73,6 +73,9 @@
       <li><a href="nyxx/EmbedVideo-class.html">EmbedVideo</a></li>
       <li><a href="nyxx/Emoji-class.html">Emoji</a></li>
       <li><a href="nyxx/Game-class.html">Game</a></li>
+      <li><a href="nyxx/GameAssets-class.html">GameAssets</a></li>
+      <li><a href="nyxx/GameParty-class.html">GameParty</a></li>
+      <li><a href="nyxx/GameSecrets-class.html">GameSecrets</a></li>
       <li><a href="nyxx/GroupChannel-class.html">GroupChannel</a></li>
       <li><a href="nyxx/GroupDMChannel-class.html">GroupDMChannel</a></li>
       <li><a href="nyxx/Guild-class.html">Guild</a></li>
@@ -100,6 +103,7 @@
       <li><a href="nyxx/Invite-class.html">Invite</a></li>
       <li><a href="nyxx/InviteChannel-class.html">InviteChannel</a></li>
       <li><a href="nyxx/InviteGuild-class.html">InviteGuild</a></li>
+      <li><a href="nyxx/ISend-class.html">ISend</a></li>
       <li><a href="nyxx/Member-class.html">Member</a></li>
       <li><a href="nyxx/Message-class.html">Message</a></li>
       <li><a href="nyxx/MessageChannel-class.html">MessageChannel</a></li>
@@ -144,7 +148,7 @@
     
     
       <li class="section-title"><a href="nyxx/nyxx-library.html#functions">Functions</a></li>
-      <li><a href="nyxx/snow.html">snow</a></li>
+      <li><a href="nyxx/expandAttachment.html">expandAttachment</a></li>
     
       <li class="section-title"><a href="nyxx/nyxx-library.html#enums">Enums</a></li>
       <li><a href="nyxx/ChannelType-class.html">ChannelType</a></li>
@@ -152,7 +156,6 @@
     
       <li class="section-title"><a href="nyxx/nyxx-library.html#exceptions">Exceptions</a></li>
       <li><a href="nyxx/HttpError-class.html">HttpError</a></li>
-      <li><a href="nyxx/InvalidTokenError-class.html">InvalidTokenError</a></li>
     </ol>
   </div>
 
@@ -190,14 +193,6 @@
         </dt>
         <dd>
           Changes made to the target_id
-          <div class="features">read / write</div>
-</dd>
-        <dt id="id" class="property">
-          <span class="name"><a href="nyxx/AuditLogEntry/id.html">id</a></span>
-          <span class="signature">&#8596; <a href="nyxx/Snowflake-class.html">Snowflake</a></span>
-        </dt>
-        <dd>
-          Id of the entry
           <div class="features">read / write</div>
 </dd>
         <dt id="options" class="property">
@@ -264,6 +259,14 @@
           The hash code for this object. <a href="nyxx/SnowflakeEntity/hashCode.html">[...]</a>
           <div class="features">read-only, inherited</div>
 </dd>
+        <dt id="id" class="property inherited">
+          <span class="name"><a href="nyxx/SnowflakeEntity/id.html">id</a></span>
+          <span class="signature">&#8596; <a href="nyxx/Snowflake-class.html">Snowflake</a></span>
+        </dt>
+        <dd class="inherited">
+          Snowflake id
+          <div class="features">read / write, inherited</div>
+</dd>
         <dt id="runtimeType" class="property inherited">
           <span class="name"><a href="nyxx/SnowflakeEntity/runtimeType.html">runtimeType</a></span>
           <span class="signature">&#8594; Type</span>
@@ -326,7 +329,6 @@
         <a href="nyxx/AuditLogEntry-class.html#instance-properties">Properties</a>
       </li>
       <li><a href="nyxx/AuditLogEntry/changes.html">changes</a></li>
-      <li><a href="nyxx/AuditLogEntry/id.html">id</a></li>
       <li><a href="nyxx/AuditLogEntry/options.html">options</a></li>
       <li><a href="nyxx/AuditLogEntry/raw.html">raw</a></li>
       <li><a href="nyxx/AuditLogEntry/reason.html">reason</a></li>
@@ -335,6 +337,7 @@
       <li><a href="nyxx/AuditLogEntry/user.html">user</a></li>
       <li class="inherited"><a href="nyxx/SnowflakeEntity/createdAt.html">createdAt</a></li>
       <li class="inherited"><a href="nyxx/SnowflakeEntity/hashCode.html">hashCode</a></li>
+      <li class="inherited"><a href="nyxx/SnowflakeEntity/id.html">id</a></li>
       <li class="inherited"><a href="nyxx/SnowflakeEntity/runtimeType.html">runtimeType</a></li>
     
       <li class="section-title inherited"><a href="nyxx/AuditLogEntry-class.html#instance-methods">Methods</a></li>
@@ -353,7 +356,7 @@
 
 <footer>
   <span class="no-break">
-    nyxx 0.24.0
+    nyxx 1.0.0
   </span>
 
 </footer>

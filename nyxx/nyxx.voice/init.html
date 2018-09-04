@@ -81,10 +81,9 @@ Returns instance of VoiceService</p>
     <section class="summary source-code" id="source">
       <h2><span>Implementation</span> </h2>
       <pre class="language-dart"><code class="language-dart">VoiceService init(String clientId, Client client, String yamlConfigFile) {
-  if (_manager != null)
-    throw new Exception(&quot;Tried initialize VoiceService twice.&quot;);
+  if (_manager != null) throw Exception(&quot;Tried initialize VoiceService twice.&quot;);
 
-  _manager = new VoiceService._new(clientId, client, yamlConfigFile);
+  _manager = VoiceService._new(clientId, client, yamlConfigFile);
   _logger.info(&quot;Voice service intitailized!&quot;);
   return _manager;
 }</code></pre>
@@ -99,7 +98,7 @@ Returns instance of VoiceService</p>
 
 <footer>
   <span class="no-break">
-    nyxx 0.24.0
+    nyxx 1.0.0
   </span>
 
 </footer>

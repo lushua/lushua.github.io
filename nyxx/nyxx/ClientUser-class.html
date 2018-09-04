@@ -73,6 +73,9 @@
       <li><a href="nyxx/EmbedVideo-class.html">EmbedVideo</a></li>
       <li><a href="nyxx/Emoji-class.html">Emoji</a></li>
       <li><a href="nyxx/Game-class.html">Game</a></li>
+      <li><a href="nyxx/GameAssets-class.html">GameAssets</a></li>
+      <li><a href="nyxx/GameParty-class.html">GameParty</a></li>
+      <li><a href="nyxx/GameSecrets-class.html">GameSecrets</a></li>
       <li><a href="nyxx/GroupChannel-class.html">GroupChannel</a></li>
       <li><a href="nyxx/GroupDMChannel-class.html">GroupDMChannel</a></li>
       <li><a href="nyxx/Guild-class.html">Guild</a></li>
@@ -100,6 +103,7 @@
       <li><a href="nyxx/Invite-class.html">Invite</a></li>
       <li><a href="nyxx/InviteChannel-class.html">InviteChannel</a></li>
       <li><a href="nyxx/InviteGuild-class.html">InviteGuild</a></li>
+      <li><a href="nyxx/ISend-class.html">ISend</a></li>
       <li><a href="nyxx/Member-class.html">Member</a></li>
       <li><a href="nyxx/Message-class.html">Message</a></li>
       <li><a href="nyxx/MessageChannel-class.html">MessageChannel</a></li>
@@ -144,7 +148,7 @@
     
     
       <li class="section-title"><a href="nyxx/nyxx-library.html#functions">Functions</a></li>
-      <li><a href="nyxx/snow.html">snow</a></li>
+      <li><a href="nyxx/expandAttachment.html">expandAttachment</a></li>
     
       <li class="section-title"><a href="nyxx/nyxx-library.html#enums">Enums</a></li>
       <li><a href="nyxx/ChannelType-class.html">ChannelType</a></li>
@@ -152,7 +156,6 @@
     
       <li class="section-title"><a href="nyxx/nyxx-library.html#exceptions">Exceptions</a></li>
       <li><a href="nyxx/HttpError-class.html">HttpError</a></li>
-      <li><a href="nyxx/InvalidTokenError-class.html">InvalidTokenError</a></li>
     </ol>
   </div>
 
@@ -160,7 +163,7 @@
     <h1>ClientUser class</h1>
 
     <section class="desc markdown">
-      <p>The client user.</p>
+      <p>ClientUser is bot's discord account. Allows to change bot's presence.</p>
     </section>
     
     <section>
@@ -266,19 +269,19 @@
 </dd>
         <dt id="mention" class="property inherited">
           <span class="name"><a href="nyxx/User/mention.html">mention</a></span>
-          <span class="signature">&#8596; String</span>
+          <span class="signature">&#8594; String</span>
         </dt>
         <dd class="inherited">
           The string to mention the user.
-          <div class="features">read / write, inherited</div>
+          <div class="features">read-only, inherited</div>
 </dd>
         <dt id="mentionNickname" class="property inherited">
           <span class="name"><a href="nyxx/User/mentionNickname.html">mentionNickname</a></span>
-          <span class="signature">&#8596; String</span>
+          <span class="signature">&#8594; String</span>
         </dt>
         <dd class="inherited">
           The string to mention the user by nickname
-          <div class="features">read / write, inherited</div>
+          <div class="features">read-only, inherited</div>
 </dd>
         <dt id="raw" class="property inherited">
           <span class="name"><a href="nyxx/User/raw.html">raw</a></span>
@@ -319,33 +322,30 @@
       <h2>Methods</h2>
       <dl class="callables">
         <dt id="setGame" class="callable">
-          <span class="name"><a href="nyxx/ClientUser/setGame.html">setGame</a></span><span class="signature">(<wbr>{<span class="parameter" id="setGame-param-game"><span class="type-annotation"><a href="nyxx/Game-class.html">Game</a></span> <span class="parameter-name">game</span></span> })
+          <span class="name"><a href="nyxx/ClientUser/setGame.html">setGame</a></span><span class="signature">(<wbr><span class="parameter" id="setGame-param-game"><span class="type-annotation"><a href="nyxx/Game-class.html">Game</a></span> <span class="parameter-name">game</span></span>)
             <span class="returntype parameter">&#8594; <a href="nyxx/ClientUser-class.html">ClientUser</a></span>
           </span>
         </dt>
         <dd>
-          Updates the client's game.
-    ClientUser.setGame(name: '&lt;3');
+          Updates the client's game. <a href="nyxx/ClientUser/setGame.html">[...]</a>
           
 </dd>
         <dt id="setPresence" class="callable">
-          <span class="name"><a href="nyxx/ClientUser/setPresence.html">setPresence</a></span><span class="signature">(<wbr>{<span class="parameter" id="setPresence-param-status"><span class="type-annotation">String</span> <span class="parameter-name">status</span>: <span class="default-value">null</span>, </span> <span class="parameter" id="setPresence-param-afk"><span class="type-annotation">bool</span> <span class="parameter-name">afk</span>: <span class="default-value">false</span>, </span> <span class="parameter" id="setPresence-param-game"><span class="type-annotation"><a href="nyxx/Game-class.html">Game</a></span> <span class="parameter-name">game</span>: <span class="default-value">null</span></span> })
+          <span class="name"><a href="nyxx/ClientUser/setPresence.html">setPresence</a></span><span class="signature">(<wbr>{<span class="parameter" id="setPresence-param-status"><span class="type-annotation">String</span> <span class="parameter-name">status</span>, </span> <span class="parameter" id="setPresence-param-afk"><span class="type-annotation">bool</span> <span class="parameter-name">afk</span>: <span class="default-value">false</span>, </span> <span class="parameter" id="setPresence-param-game"><span class="type-annotation"><a href="nyxx/Game-class.html">Game</a></span> <span class="parameter-name">game</span></span> })
             <span class="returntype parameter">&#8594; <a href="nyxx/ClientUser-class.html">ClientUser</a></span>
           </span>
         </dt>
         <dd>
-          Updates the client's presence.
-    ClientUser.setPresence(status: s, activity: { 'name': args.join(' ') });
+          Updates the client's presence
           
 </dd>
         <dt id="setStatus" class="callable">
-          <span class="name"><a href="nyxx/ClientUser/setStatus.html">setStatus</a></span><span class="signature">(<wbr>{<span class="parameter" id="setStatus-param-status"><span class="type-annotation">String</span> <span class="parameter-name">status</span>: <span class="default-value">null</span></span> })
+          <span class="name"><a href="nyxx/ClientUser/setStatus.html">setStatus</a></span><span class="signature">(<wbr><span class="parameter" id="setStatus-param-status"><span class="type-annotation">String</span> <span class="parameter-name">status</span></span>)
             <span class="returntype parameter">&#8594; <a href="nyxx/ClientUser-class.html">ClientUser</a></span>
           </span>
         </dt>
         <dd>
-          Updates the client's status.
-    ClientUser.setStatus(status: 'dnd');
+          Updates the client's status. <a href="nyxx/ClientUser/setStatus.html">[...]</a>
           
 </dd>
         <dt id="avatarURL" class="callable inherited">
@@ -376,12 +376,21 @@
           <div class="features">inherited</div>
 </dd>
         <dt id="send" class="callable inherited">
-          <span class="name"><a href="nyxx/User/send.html">send</a></span><span class="signature">(<wbr>{<span class="parameter" id="send-param-content"><span class="type-annotation">Object</span> <span class="parameter-name">content</span>: <span class="default-value">""</span>, </span> <span class="parameter" id="send-param-embed"><span class="type-annotation">Map</span> <span class="parameter-name">embed</span>, </span> <span class="parameter" id="send-param-tts"><span class="type-annotation">bool</span> <span class="parameter-name">tts</span>: <span class="default-value">false</span>, </span> <span class="parameter" id="send-param-nonce"><span class="type-annotation">String</span> <span class="parameter-name">nonce</span>, </span> <span class="parameter" id="send-param-disableEveryone"><span class="type-annotation">bool</span> <span class="parameter-name">disableEveryone</span></span> })
+          <span class="name"><a href="nyxx/User/send.html">send</a></span><span class="signature">(<wbr>{<span class="parameter" id="send-param-content"><span class="type-annotation">Object</span> <span class="parameter-name">content</span>: <span class="default-value">""</span>, </span> <span class="parameter" id="send-param-embed"><span class="type-annotation"><a href="nyxx/EmbedBuilder-class.html">EmbedBuilder</a></span> <span class="parameter-name">embed</span>, </span> <span class="parameter" id="send-param-tts"><span class="type-annotation">bool</span> <span class="parameter-name">tts</span>: <span class="default-value">false</span>, </span> <span class="parameter" id="send-param-disableEveryone"><span class="type-annotation">bool</span> <span class="parameter-name">disableEveryone</span></span> })
             <span class="returntype parameter">&#8594; Future<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/Message-class.html">Message</a></span>&gt;</span></span>
           </span>
         </dt>
         <dd class="inherited">
           Sends a message.
+          <div class="features">inherited</div>
+</dd>
+        <dt id="sendFile" class="callable inherited">
+          <span class="name"><a href="nyxx/User/sendFile.html">sendFile</a></span><span class="signature">(<wbr><span class="parameter" id="sendFile-param-files"><span class="type-annotation">List<span class="signature">&lt;<wbr><span class="type-parameter">File</span>&gt;</span></span> <span class="parameter-name">files</span>, {</span> <span class="parameter" id="sendFile-param-content"><span class="type-annotation">String</span> <span class="parameter-name">content</span>: <span class="default-value">""</span>, </span> <span class="parameter" id="sendFile-param-embed"><span class="type-annotation"><a href="nyxx/EmbedBuilder-class.html">EmbedBuilder</a></span> <span class="parameter-name">embed</span>, </span> <span class="parameter" id="sendFile-param-disableEveryone"><span class="type-annotation">bool</span> <span class="parameter-name">disableEveryone</span></span> })
+            <span class="returntype parameter">&#8594; Future<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/Message-class.html">Message</a></span>&gt;</span></span>
+          </span>
+        </dt>
+        <dd class="inherited">
+          Sends file to channel and optional <code>content</code> with <code>embed</code>.
           <div class="features">inherited</div>
 </dd>
         <dt id="toString" class="callable inherited">
@@ -447,6 +456,7 @@
       <li class="inherited"><a href="nyxx/User/getDMChannel.html">getDMChannel</a></li>
       <li class="inherited"><a href="nyxx/SnowflakeEntity/noSuchMethod.html">noSuchMethod</a></li>
       <li class="inherited"><a href="nyxx/User/send.html">send</a></li>
+      <li class="inherited"><a href="nyxx/User/sendFile.html">sendFile</a></li>
       <li class="inherited"><a href="nyxx/User/toString.html">toString</a></li>
     
       <li class="section-title inherited"><a href="nyxx/ClientUser-class.html#operators">Operators</a></li>
@@ -461,7 +471,7 @@
 
 <footer>
   <span class="no-break">
-    nyxx 0.24.0
+    nyxx 1.0.0
   </span>
 
 </footer>
