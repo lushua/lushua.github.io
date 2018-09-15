@@ -59,6 +59,7 @@
       <li><a href="nyxx.voice/getPlayer.html">getPlayer</a></li>
       <li><a href="nyxx.voice/getVoiceService.html">getVoiceService</a></li>
       <li><a href="nyxx.voice/init.html">init</a></li>
+      <li><a href="nyxx.voice/sendFakeOp4.html">sendFakeOp4</a></li>
     
     
     
@@ -71,7 +72,7 @@
     <section class="multi-line-signature">
         <span class="returntype"><a href="nyxx.voice/VoiceService-class.html">VoiceService</a></span>
         <span class="name ">init</span>
-(<wbr><span class="parameter" id="init-param-clientId"><span class="type-annotation">String</span> <span class="parameter-name">clientId</span>, </span> <span class="parameter" id="init-param-client"><span class="type-annotation"><a href="nyxx/Client-class.html">Client</a></span> <span class="parameter-name">client</span>, </span> <span class="parameter" id="init-param-yamlConfigFile"><span class="type-annotation">String</span> <span class="parameter-name">yamlConfigFile</span></span>)
+(<wbr><span class="parameter" id="init-param-clientId"><span class="type-annotation">String</span> <span class="parameter-name">clientId</span>, </span> <span class="parameter" id="init-param-client"><span class="type-annotation"><a href="nyxx/Nyxx-class.html">Nyxx</a></span> <span class="parameter-name">client</span>, </span> <span class="parameter" id="init-param-yamlConfigFile"><span class="type-annotation">String</span> <span class="parameter-name">yamlConfigFile</span></span>)
     </section>
     <section class="desc markdown">
       <p>Inits voice service. <code>yamlConfigFile</code> is absolute path to lavalink config file.
@@ -80,7 +81,7 @@ Returns instance of VoiceService</p>
     
     <section class="summary source-code" id="source">
       <h2><span>Implementation</span> </h2>
-      <pre class="language-dart"><code class="language-dart">VoiceService init(String clientId, Client client, String yamlConfigFile) {
+      <pre class="language-dart"><code class="language-dart">VoiceService init(String clientId, Nyxx client, String yamlConfigFile) {
   if (_manager != null) throw Exception(&quot;Tried initialize VoiceService twice.&quot;);
 
   _manager = VoiceService._new(clientId, client, yamlConfigFile);

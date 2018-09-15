@@ -49,21 +49,22 @@
     <h1>utils library</h1>
 
     
-    <section class="summary offset-anchor" id="classes">
-      <h2>Classes</h2>
 
-      <dl>
-        <dt id="EmojisUnicode">
-          <span class="name "><a href="utils/EmojisUnicode-class.html">EmojisUnicode</a></span>
+
+    <section class="summary offset-anchor" id="properties">
+      <h2>Properties</h2>
+
+      <dl class="properties">
+        <dt id="emojisUnicode" class="property">
+          <span class="name"><a href="utils/emojisUnicode.html">emojisUnicode</a></span>
+          <span class="signature">&#8596; Map<span class="signature">&lt;<wbr><span class="type-parameter">String</span>, <span class="type-parameter">String</span>&gt;</span></span>
         </dt>
         <dd>
-          List of all Unicode Emojis (not really) :D
-Class contains 1200+ emojis which has unicode hex value and shortcode.
-        </dd>
+          Map of all emojis which discord uses. Key is unicode name of emoji.
+          <div class="features">read / write</div>
+</dd>
       </dl>
     </section>
-
-
 
     <section class="summary offset-anchor" id="functions">
       <h2>Functions</h2>
@@ -97,6 +98,33 @@ Class contains 1200+ emojis which has unicode hex value and shortcode.
 %0% will be replaced with first list element, %1% with second... <a href="utils/format.html">[...]</a>
           
 </dd>
+        <dt id="getCmdAnnot" class="callable">
+          <span class="name"><a href="utils/getCmdAnnot.html">getCmdAnnot</a></span><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span><span class="signature">(<wbr><span class="parameter" id="getCmdAnnot-param-declaration"><span class="type-annotation">DeclarationMirror</span> <span class="parameter-name">declaration</span></span>)
+            <span class="returntype parameter">&#8594; T</span>
+          </span>
+        </dt>
+        <dd>
+          
+          
+</dd>
+        <dt id="getCmdAnnots" class="callable">
+          <span class="name"><a href="utils/getCmdAnnots.html">getCmdAnnots</a></span><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span><span class="signature">(<wbr><span class="parameter" id="getCmdAnnots-param-declaration"><span class="type-annotation">DeclarationMirror</span> <span class="parameter-name">declaration</span></span>)
+            <span class="returntype parameter">&#8594; Iterable<span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span>
+          </span>
+        </dt>
+        <dd>
+          
+          
+</dd>
+        <dt id="getEmoji" class="callable">
+          <span class="name"><a href="utils/getEmoji.html">getEmoji</a></span><span class="signature">(<wbr><span class="parameter" id="getEmoji-param-name"><span class="type-annotation">String</span> <span class="parameter-name">name</span></span>)
+            <span class="returntype parameter">&#8594; <a href="nyxx/UnicodeEmoji-class.html">UnicodeEmoji</a></span>
+          </span>
+        </dt>
+        <dd>
+          
+          
+</dd>
         <dt id="getSymbolName" class="callable">
           <span class="name"><a href="utils/getSymbolName.html">getSymbolName</a></span><span class="signature">(<wbr><span class="parameter" id="getSymbolName-param-symbol"><span class="type-annotation">Symbol</span> <span class="parameter-name">symbol</span></span>)
             <span class="returntype parameter">&#8594; String</span>
@@ -104,15 +132,6 @@ Class contains 1200+ emojis which has unicode hex value and shortcode.
         </dt>
         <dd>
           Gets <code>Symbol</code>s 'name'
-          
-</dd>
-        <dt id="HEXtoInt" class="callable">
-          <span class="name"><a href="utils/HEXtoInt.html">HEXtoInt</a></span><span class="signature">(<wbr><span class="parameter" id="HEXtoInt-param-hex"><span class="type-annotation">String</span> <span class="parameter-name">hex</span></span>)
-            <span class="returntype parameter">&#8594; int</span>
-          </span>
-        </dt>
-        <dd>
-          Converts RGB hex string into int value
           
 </dd>
         <dt id="merge" class="callable">
@@ -131,15 +150,6 @@ Class contains 1200+ emojis which has unicode hex value and shortcode.
         </dt>
         <dd>
           Partition list into chunks
-          
-</dd>
-        <dt id="RGBtoInt" class="callable">
-          <span class="name"><a href="utils/RGBtoInt.html">RGBtoInt</a></span><span class="signature">(<wbr><span class="parameter" id="RGBtoInt-param-red"><span class="type-annotation">int</span> <span class="parameter-name">red</span>, </span> <span class="parameter" id="RGBtoInt-param-green"><span class="type-annotation">int</span> <span class="parameter-name">green</span>, </span> <span class="parameter" id="RGBtoInt-param-blue"><span class="type-annotation">int</span> <span class="parameter-name">blue</span></span>)
-            <span class="returntype parameter">&#8594; int</span>
-          </span>
-        </dt>
-        <dd>
-          Converts RGB values to int
           
 </dd>
         <dt id="sendMultipart" class="callable">
@@ -189,20 +199,21 @@ Class contains 1200+ emojis which has unicode hex value and shortcode.
   <div class="col-xs-6 col-sm-6 col-md-2 sidebar sidebar-offcanvas-right">
     <h5>utils library</h5>
     <ol>
-      <li class="section-title"><a href="utils/utils-library.html#classes">Classes</a></li>
-      <li><a href="utils/EmojisUnicode-class.html">EmojisUnicode</a></li>
     
     
+      <li class="section-title"><a href="utils/utils-library.html#properties">Properties</a></li>
+      <li><a href="utils/emojisUnicode.html">emojisUnicode</a></li>
     
       <li class="section-title"><a href="utils/utils-library.html#functions">Functions</a></li>
       <li><a href="utils/chunk.html">chunk</a></li>
       <li><a href="utils/downloadFile.html">downloadFile</a></li>
       <li><a href="utils/format.html">format</a></li>
+      <li><a href="utils/getCmdAnnot.html">getCmdAnnot</a></li>
+      <li><a href="utils/getCmdAnnots.html">getCmdAnnots</a></li>
+      <li><a href="utils/getEmoji.html">getEmoji</a></li>
       <li><a href="utils/getSymbolName.html">getSymbolName</a></li>
-      <li><a href="utils/HEXtoInt.html">HEXtoInt</a></li>
       <li><a href="utils/merge.html">merge</a></li>
       <li><a href="utils/partition.html">partition</a></li>
-      <li><a href="utils/RGBtoInt.html">RGBtoInt</a></li>
       <li><a href="utils/sendMultipart.html">sendMultipart</a></li>
       <li><a href="utils/sendRequest.html">sendRequest</a></li>
       <li><a href="utils/split.html">split</a></li>

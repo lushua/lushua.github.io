@@ -41,7 +41,6 @@
     <ol>
       <li class="section-title"><a href="nyxx/UnicodeEmoji-class.html#constructors">Constructors</a></li>
       <li><a href="nyxx/UnicodeEmoji/UnicodeEmoji.html">UnicodeEmoji</a></li>
-      <li><a href="nyxx/UnicodeEmoji/UnicodeEmoji.from.html">from</a></li>
     
       <li class="section-title">
         <a href="nyxx/UnicodeEmoji-class.html#instance-properties">Properties</a>
@@ -85,13 +84,7 @@
     <section class="summary source-code" id="source">
       <h2><span>Implementation</span> </h2>
       <pre class="language-dart"><code class="language-dart">@override
-String encode() {
-  try {
-    return String.fromCharCode(int.parse(code, radix: 16));
-  } catch (e) {
-    return code;
-  }
-}</code></pre>
+String encode() =&gt; code;</code></pre>
     </section>
 
   </div> <!-- /.main-content -->

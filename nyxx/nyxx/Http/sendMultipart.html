@@ -82,7 +82,7 @@
     {Map&lt;String, dynamic&gt; data,
     bool beforeReady = false,
     String reason}) async {
-  if (_client is Client &amp;&amp; !this._client.ready &amp;&amp; !beforeReady)
+  if (_client is Nyxx &amp;&amp; !this._client.ready &amp;&amp; !beforeReady)
     throw Exception(&quot;Client isn&#39;t ready yet.&quot;);
 
   HttpMultipartRequest request = HttpMultipartRequest._new(this, method, path,

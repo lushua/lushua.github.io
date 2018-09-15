@@ -59,6 +59,7 @@
       <li><a href="nyxx.commands/CommandsFramework/onUnauthorizedNsfwAccess.html">onUnauthorizedNsfwAccess</a></li>
       <li><a href="nyxx.commands/CommandsFramework/onWrongContext.html">onWrongContext</a></li>
       <li><a href="nyxx.commands/CommandsFramework/prefix.html">prefix</a></li>
+      <li><a href="nyxx.commands/CommandsFramework/preprocessorFail.html">preprocessorFail</a></li>
       <li class="inherited"><a href="nyxx.commands/CommandsFramework/hashCode.html">hashCode</a></li>
       <li class="inherited"><a href="nyxx.commands/CommandsFramework/runtimeType.html">runtimeType</a></li>
     
@@ -89,7 +90,7 @@
         <section class="multi-line-signature">
           <span class="returntype">void</span>
             <span class="name ">game=</span>
-<span class="signature">(<wbr><span class="parameter" id="game=-param-game"><span class="type-annotation"><a href="nyxx/Game-class.html">Game</a></span> <span class="parameter-name">game</span></span>)</span>
+<span class="signature">(<wbr><span class="parameter" id="game=-param-game"><span class="type-annotation"><a href="nyxx/Presence-class.html">Presence</a></span> <span class="parameter-name">game</span></span>)</span>
           
 </section>
         
@@ -98,7 +99,7 @@
 </section>
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span> </h2>
-  <pre class="language-dart"><code class="language-dart">set game(Game game) =&gt; _client.user.setGame(game);</code></pre>
+  <pre class="language-dart"><code class="language-dart">set game(Presence game) =&gt; _client.self.setGame(game);</code></pre>
 </section>
 </section>
           </div> <!-- /.main-content -->

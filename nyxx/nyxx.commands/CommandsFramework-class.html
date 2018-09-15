@@ -50,6 +50,7 @@
       <li><a href="nyxx.commands/Pagination-class.html">Pagination</a></li>
       <li><a href="nyxx.commands/Postprocessor-class.html">Postprocessor</a></li>
       <li><a href="nyxx.commands/Preprocessor-class.html">Preprocessor</a></li>
+      <li><a href="nyxx.commands/PreprocessorErrorEvent-class.html">PreprocessorErrorEvent</a></li>
       <li><a href="nyxx.commands/Remainder-class.html">Remainder</a></li>
       <li><a href="nyxx.commands/Restrict-class.html">Restrict</a></li>
       <li><a href="nyxx.commands/Scheduler-class.html">Scheduler</a></li>
@@ -81,7 +82,7 @@ its action.</p>
 
       <dl class="constructor-summary-list">
         <dt id="CommandsFramework" class="callable">
-          <span class="name"><a href="nyxx.commands/CommandsFramework/CommandsFramework.html">CommandsFramework</a></span><span class="signature">(<span class="parameter" id="-param-prefix"><span class="type-annotation">String</span> <span class="parameter-name">prefix</span>, </span> <span class="parameter" id="-param-_client"><span class="type-annotation"><a href="nyxx/Client-class.html">Client</a></span> <span class="parameter-name">_client</span></span>)</span>
+          <span class="name"><a href="nyxx.commands/CommandsFramework/CommandsFramework.html">CommandsFramework</a></span><span class="signature">(<span class="parameter" id="-param-prefix"><span class="type-annotation">String</span> <span class="parameter-name">prefix</span>, </span> <span class="parameter" id="-param-_client"><span class="type-annotation"><a href="nyxx/Nyxx-class.html">Nyxx</a></span> <span class="parameter-name">_client</span>, {</span> <span class="parameter" id="-param-roundupTime"><span class="type-annotation">Duration</span> <span class="parameter-name">roundupTime</span>: <span class="default-value">const Duration(minutes: 2)</span></span> })</span>
         </dt>
         <dd>
           Creates commands framework handler. Requires prefix to handle commands.
@@ -103,7 +104,7 @@ its action.</p>
 </dd>
         <dt id="game" class="property">
           <span class="name"><a href="nyxx.commands/CommandsFramework/game.html">game</a></span>
-          <span class="signature">&#8592; <span class="parameter" id="game=-param-game"><span class="type-annotation"><a href="nyxx/Game-class.html">Game</a></span></span></span>
+          <span class="signature">&#8592; <span class="parameter" id="game=-param-game"><span class="type-annotation"><a href="nyxx/Presence-class.html">Presence</a></span></span></span>
         </dt>
         <dd>
           Sets default bots game
@@ -205,6 +206,14 @@ Logger instance
         <dd>
           Prefix needed to dispatch a commands.
 All messages without this prefix will be ignored
+          <div class="features">read / write</div>
+</dd>
+        <dt id="preprocessorFail" class="property">
+          <span class="name"><a href="nyxx.commands/CommandsFramework/preprocessorFail.html">preprocessorFail</a></span>
+          <span class="signature">&#8596; Stream<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx.commands/PreprocessorErrorEvent-class.html">PreprocessorErrorEvent</a></span>&gt;</span></span>
+        </dt>
+        <dd>
+          Emitted when dispatch function fails when checking preprocessors
           <div class="features">read / write</div>
 </dd>
         <dt id="hashCode" class="property inherited">
@@ -339,6 +348,7 @@ There cannot be more than 1 dependency with single type. Only first will be inje
       <li><a href="nyxx.commands/CommandsFramework/onUnauthorizedNsfwAccess.html">onUnauthorizedNsfwAccess</a></li>
       <li><a href="nyxx.commands/CommandsFramework/onWrongContext.html">onWrongContext</a></li>
       <li><a href="nyxx.commands/CommandsFramework/prefix.html">prefix</a></li>
+      <li><a href="nyxx.commands/CommandsFramework/preprocessorFail.html">preprocessorFail</a></li>
       <li class="inherited"><a href="nyxx.commands/CommandsFramework/hashCode.html">hashCode</a></li>
       <li class="inherited"><a href="nyxx.commands/CommandsFramework/runtimeType.html">runtimeType</a></li>
     

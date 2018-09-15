@@ -41,7 +41,6 @@
     <ol>
       <li class="section-title"><a href="nyxx/UnicodeEmoji-class.html#constructors">Constructors</a></li>
       <li><a href="nyxx/UnicodeEmoji/UnicodeEmoji.html">UnicodeEmoji</a></li>
-      <li><a href="nyxx/UnicodeEmoji/UnicodeEmoji.from.html">from</a></li>
     
       <li class="section-title">
         <a href="nyxx/UnicodeEmoji-class.html#instance-properties">Properties</a>
@@ -82,7 +81,12 @@
     <section class="summary source-code" id="source">
       <h2><span>Implementation</span> </h2>
       <pre class="language-dart"><code class="language-dart">@override
-bool operator ==(other) =&gt; other is Emoji &amp;&amp; other.name == this.name;</code></pre>
+bool operator ==(other) {
+  if (other is UnicodeEmoji) return other.code == this.code;
+  if (other is String) return other == this.code;
+
+  return false;
+}</code></pre>
     </section>
 
   </div> <!-- /.main-content -->

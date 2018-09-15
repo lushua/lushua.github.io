@@ -67,7 +67,6 @@
       <li><a href="nyxx/MessageChannel/getMessage.html">getMessage</a></li>
       <li><a href="nyxx/MessageChannel/getMessages.html">getMessages</a></li>
       <li><a href="nyxx/MessageChannel/send.html">send</a></li>
-      <li><a href="nyxx/MessageChannel/sendFile.html">sendFile</a></li>
       <li><a href="nyxx/MessageChannel/startTyping.html">startTyping</a></li>
       <li><a href="nyxx/MessageChannel/startTypingLoop.html">startTypingLoop</a></li>
       <li><a href="nyxx/MessageChannel/stopTypingLoop.html">stopTypingLoop</a></li>
@@ -117,7 +116,7 @@
       </div>
       <span class="returntype">Future<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/Message-class.html">Message</a></span>&gt;</span></span>
       <span class="name ">send</span>
-(<wbr>{<span class="parameter" id="send-param-content"><span class="type-annotation">Object</span> <span class="parameter-name">content</span>: <span class="default-value">""</span>, </span> <span class="parameter" id="send-param-embed"><span class="type-annotation"><a href="nyxx/EmbedBuilder-class.html">EmbedBuilder</a></span> <span class="parameter-name">embed</span>, </span> <span class="parameter" id="send-param-tts"><span class="type-annotation">bool</span> <span class="parameter-name">tts</span>: <span class="default-value">false</span>, </span> <span class="parameter" id="send-param-disableEveryone"><span class="type-annotation">bool</span> <span class="parameter-name">disableEveryone</span></span> })
+(<wbr>{<span class="parameter" id="send-param-content"><span class="type-annotation">Object</span> <span class="parameter-name">content</span>: <span class="default-value">""</span>, </span> <span class="parameter" id="send-param-files"><span class="type-annotation">List<span class="signature">&lt;<wbr><span class="type-parameter">File</span>&gt;</span></span> <span class="parameter-name">files</span>, </span> <span class="parameter" id="send-param-embed"><span class="type-annotation"><a href="nyxx/EmbedBuilder-class.html">EmbedBuilder</a></span> <span class="parameter-name">embed</span>, </span> <span class="parameter" id="send-param-tts"><span class="type-annotation">bool</span> <span class="parameter-name">tts</span>: <span class="default-value">false</span>, </span> <span class="parameter" id="send-param-disableEveryone"><span class="type-annotation">bool</span> <span class="parameter-name">disableEveryone</span></span> })
     </section>
     <section class="desc markdown">
       <p>Sends message to channel. Performs <code>toString()</code> on thing passed to <code>content</code>. Allows to send embeds with <code>embed</code> field.</p>
@@ -133,6 +132,17 @@ await chan.send(content: "Dart is superb! ${emoji.toString()}");
   ..addField(name: "Memory usage", value: "${ProcessInfo.currentRss / 1024 / 1024}MB");
 
 await chan.send(embed: embed);
+</code></pre>
+<p>Method also allows to send file and optional <code>content</code> with <code>embed</code>.
+Use <code>expandAttachment(String file)</code> method to expand file names in embed</p>
+<pre class="language-dart"><code>await chan.sendFile([new File("kitten.png"), new File("kitten.jpg")], content: "Kittens ^-^"]);
+</code></pre>
+<pre class="language-dart"><code>var embed = new nyxx.EmbedBuilder()
+  ..title = "Example Title"
+  ..thumbnailUrl = "${expandAttachment('kitten.jpg')}";
+
+await e.message.channel
+  .sendFile([new File("kitten.jpg")], embed: embed, content: "HEJKA!");
 </code></pre>
     </section>
     
@@ -159,19 +169,45 @@ await chan.send(embed: embed);
 &#47;&#47;&#47;
 &#47;&#47;&#47; await chan.send(embed: embed);
 &#47;&#47;&#47; ```
+&#47;&#47;&#47;
+&#47;&#47;&#47;
+&#47;&#47;&#47;
+&#47;&#47;&#47; Method also allows to send file and optional [content] with [embed].
+&#47;&#47;&#47; Use `expandAttachment(String file)` method to expand file names in embed
+&#47;&#47;&#47;
+&#47;&#47;&#47; ```
+&#47;&#47;&#47; await chan.sendFile([new File(&quot;kitten.png&quot;), new File(&quot;kitten.jpg&quot;)], content: &quot;Kittens ^-^&quot;]);
+&#47;&#47;&#47; ```
+&#47;&#47;&#47; ```
+&#47;&#47;&#47; var embed = new nyxx.EmbedBuilder()
+&#47;&#47;&#47;   ..title = &quot;Example Title&quot;
+&#47;&#47;&#47;   ..thumbnailUrl = &quot;${expandAttachment(&#39;kitten.jpg&#39;)}&quot;;
+&#47;&#47;&#47;
+&#47;&#47;&#47; await e.message.channel
+&#47;&#47;&#47;   .sendFile([new File(&quot;kitten.jpg&quot;)], embed: embed, content: &quot;HEJKA!&quot;);
+&#47;&#47;&#47; ```
 Future&lt;Message&gt; send(
     {Object content = &quot;&quot;,
+      List&lt;File&gt; files,
     EmbedBuilder embed,
     bool tts = false,
     bool disableEveryone}) async {
   var newContent = _sanitizeMessage(content, disableEveryone, client);
 
-  final HttpResponse r = await this.client.http.send(
-      &#39;POST&#39;, &#39;&#47;channels&#47;${this.id}&#47;messages&#39;, body: &lt;String, dynamic&gt;{
+  Map&lt;String, dynamic&gt; reqBody = {
     &quot;content&quot;: newContent,
-    &quot;tts&quot;: tts,
     &quot;embed&quot;: embed != null ? embed._build() : &quot;&quot;
-  });
+  };
+
+  HttpResponse r;
+  if(files != null &amp;&amp; files.isNotEmpty) {
+    r = await this.client.http.sendMultipart(
+        &#39;POST&#39;, &#39;&#47;channels&#47;${this.id}&#47;messages&#39;, files, data: reqBody);
+  } else {
+    r = await this.client.http.send(
+        &#39;POST&#39;, &#39;&#47;channels&#47;${this.id}&#47;messages&#39;, body: reqBody..addAll({&quot;tts&quot;: tts}));
+  }
+
   return Message._new(this.client, r.body as Map&lt;String, dynamic&gt;);
 }</code></pre>
     </section>

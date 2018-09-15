@@ -72,12 +72,12 @@
     <section class="multi-line-signature">
       <span class="returntype">void</span>
       <span class="name ">setPresence</span>
-(<wbr>{<span class="parameter" id="setPresence-param-status"><span class="type-annotation">String</span> <span class="parameter-name">status</span>, </span> <span class="parameter" id="setPresence-param-afk"><span class="type-annotation">bool</span> <span class="parameter-name">afk</span>, </span> <span class="parameter" id="setPresence-param-game"><span class="type-annotation"><a href="nyxx/Game-class.html">Game</a></span> <span class="parameter-name">game</span></span> })
+(<wbr>{<span class="parameter" id="setPresence-param-status"><span class="type-annotation">String</span> <span class="parameter-name">status</span>, </span> <span class="parameter" id="setPresence-param-afk"><span class="type-annotation">bool</span> <span class="parameter-name">afk</span>, </span> <span class="parameter" id="setPresence-param-game"><span class="type-annotation"><a href="nyxx/Presence-class.html">Presence</a></span> <span class="parameter-name">game</span></span> })
     </section>
     
     <section class="summary source-code" id="source">
       <h2><span>Implementation</span> </h2>
-      <pre class="language-dart"><code class="language-dart">void setPresence({String status, bool afk, Game game}) {
+      <pre class="language-dart"><code class="language-dart">void setPresence({String status, bool afk, Presence game}) {
   Map&lt;String, dynamic&gt; packet = {
     &quot;afk&quot;: afk,
     &quot;since&quot;: null,

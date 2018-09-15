@@ -80,16 +80,16 @@
     <section class="multi-line-signature">
       <span class="returntype">void</span>
       <span class="name ">addField</span>
-(<wbr>{<span class="parameter" id="addField-param-name"><span class="type-annotation">String</span> <span class="parameter-name">name</span>, </span> <span class="parameter" id="addField-param-value"><span class="type-annotation">String</span> <span class="parameter-name">value</span>, </span> <span class="parameter" id="addField-param-inline"><span class="type-annotation">bool</span> <span class="parameter-name">inline</span>: <span class="default-value">false</span></span> })
+(<wbr>{<span class="parameter" id="addField-param-name"><span class="type-annotation">String</span> <span class="parameter-name">name</span>, </span> <span class="parameter" id="addField-param-content"><span class="type-annotation">String</span> <span class="parameter-name">content</span>, </span> <span class="parameter" id="addField-param-inline"><span class="type-annotation">bool</span> <span class="parameter-name">inline</span>: <span class="default-value">false</span></span> })
     </section>
     <section class="desc markdown">
-      <p>Adds field to embed. <code>name</code> and <code>value</code> fields are required. Inline is set to false by default.</p>
+      <p>Adds field to embed. <code>name</code> and <code>content</code> fields are required. Inline is set to false by default.</p>
     </section>
     
     <section class="summary source-code" id="source">
       <h2><span>Implementation</span> </h2>
-      <pre class="language-dart"><code class="language-dart">void addField({String name, String value, bool inline = false}) {
-  _fields.add(EmbedFieldBuilder(name, value, inline)._build());
+      <pre class="language-dart"><code class="language-dart">void addField({String name, String content, bool inline = false}) {
+  _fields.add(EmbedFieldBuilder(name, content, inline)._build());
 }</code></pre>
     </section>
 

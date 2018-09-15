@@ -101,7 +101,6 @@ the <a href="nyxx/SnowflakeEntity/hashCode.html">hashCode</a> method as well to 
       <pre class="language-dart"><code class="language-dart">@override
 bool operator ==(other) {
   if (other is SnowflakeEntity) return id == other.id;
-
   if (other is String) return id.id == other;
 
   return false;

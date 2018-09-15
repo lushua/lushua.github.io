@@ -72,7 +72,7 @@
     <section class="multi-line-signature">
       <span class="returntype">Future<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/Message-class.html">Message</a></span>&gt;</span></span>
       <span class="name ">paginate</span>
-(<wbr>{<span class="parameter" id="paginate-param-timeout"><span class="type-annotation">Duration</span> <span class="parameter-name">timeout</span>: <span class="default-value">const Duration(seconds: 30)</span></span> })
+(<wbr>{<span class="parameter" id="paginate-param-timeout"><span class="type-annotation">Duration</span> <span class="parameter-name">timeout</span>: <span class="default-value">const Duration(minutes: 2)</span></span> })
     </section>
     <section class="desc markdown">
       <p>Paginates a list of Strings - each String is different page.</p>
@@ -81,11 +81,11 @@
     <section class="summary source-code" id="source">
       <h2><span>Implementation</span> </h2>
       <pre class="language-dart"><code class="language-dart">Future&lt;Message&gt; paginate(
-    {Duration timeout = const Duration(seconds: 30)}) async {
-  var nextEmoji = util.EmojisUnicode.arrow_forward;
-  var backEmoji = util.EmojisUnicode.arrow_backward;
-  var firstEmoji = util.EmojisUnicode.track_previous;
-  var lastEmoji = util.EmojisUnicode.track_next;
+    {Duration timeout = const Duration(minutes: 2)}) async {
+  var nextEmoji = util.getEmoji(&#39;arrow_forward&#39;);
+  var backEmoji = util.getEmoji(&#39;arrow_backward&#39;);
+  var firstEmoji = util.getEmoji(&#39;track_previous&#39;);
+  var lastEmoji = util.getEmoji(&#39;track_next&#39;);
 
   var msg = await channel.send(content: pages[0]);
   await msg.createReaction(firstEmoji);
@@ -96,29 +96,27 @@
   Future(() async {
     var currPage = 0;
     var group = util.merge([
-      channel.client.onMessageReactionAdded,
-      channel.client.onMessageReactionRemove
+      msg.client.onMessageReactionAdded,
+      msg.client.onMessageReactionsRemoved
     ]);
 
     await for (var event in group) {
-      if (msg.id != event.message.id) continue;
-      if (event.user.bot) continue;
+      var emoji = (event as dynamic).emoji as UnicodeEmoji;
 
-      var emoji = event.emoji as UnicodeEmoji;
-      if (emoji.code == nextEmoji.encode()) {
+      if (emoji == nextEmoji) {
         if (currPage &lt;= pages.length - 2) {
           ++currPage;
           await msg.edit(content: pages[currPage]);
         }
-      } else if (emoji.code == backEmoji.encode()) {
+      } else if (emoji == backEmoji) {
         if (currPage &gt;= 1) {
           --currPage;
           await msg.edit(content: pages[currPage]);
         }
-      } else if (emoji.code == firstEmoji.encode()) {
+      } else if (emoji == firstEmoji) {
         await msg.edit(content: pages.first);
         currPage = 0;
-      } else if (emoji.code == lastEmoji.encode()) {
+      } else if (emoji == lastEmoji) {
         await msg.edit(content: pages.last);
         currPage = pages.length;
       }

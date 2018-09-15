@@ -66,7 +66,7 @@
 
     <section class="multi-line-signature">
       
-      <span class="name ">CooldownCache</span>(<wbr>)
+      <span class="name ">CooldownCache</span>(<wbr><span class="parameter" id="-param-roundupTime"><span class="type-annotation">Duration</span> <span class="parameter-name">roundupTime</span></span>)
     </section>
 
     <section class="desc markdown">
@@ -75,10 +75,10 @@
     
     <section class="summary source-code" id="source">
       <h2><span>Implementation</span> </h2>
-      <pre class="language-dart"><code class="language-dart">CooldownCache() {
+      <pre class="language-dart"><code class="language-dart">CooldownCache(Duration roundupTime) {
   _cache = Map();
 
-  Timer.periodic(const Duration(minutes: 30), (Timer t) {
+  Timer.periodic(roundupTime, (_) {
     int now = DateTime.now().millisecondsSinceEpoch;
 
     _cache.forEach((k, v) {

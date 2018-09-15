@@ -51,10 +51,11 @@
 </p><p><a href="https://travis-ci.org/l7ssha/nyxx"><img alt="Build Status" src="https://travis-ci.org/l7ssha/nyxx.svg?branch=master"></a>
 <a href="https://pub.dartlang.org/packages/nyxx"><img alt="Pub" src="https://img.shields.io/pub/v/nyxx.svg"></a>
 <a href="https://www.dartdocs.org/documentation/nyxx/latest/"><img alt="documentation" src="https://img.shields.io/badge/Documentation-nyxx-yellow.svg"></a></p>
-<p>Simple, robust framework for creating discord bots for Dart. <br>
-Fork of <a href="https://github.com/Hackzzila">Hackzzila's</a> <a href="https://github.com/Hackzzila/nyx">nyx</a> - extended with new functionality, few bug fixes, applied pending pull requests.</p><hr></div>
+<p>Simple, robust framework for creating discord bots for Dart language. <br>
+This repo is fork of <a href="https://github.com/Hackzzila">Hackzzila's</a> <a href="https://github.com/Hackzzila/nyx">nyx</a> - 
+extended with new functionality, rewritten backend, many bug fixes and  applied pending pull requests.</p><hr></div>
 <h3>Stable release</h3>
-<p><code>nyxx 1.0.0</code> is first stable release. It uses Dart 2.0 stable and has many rewritten and improved features.</p>
+<p>Starting from version <code>1.0.0</code> of nyxx, library requires <code>Dart 2.0+</code>. You can use stable release or dev sdk.</p>
 <h3>Features</h3><ul><li><strong>Commands framework included</strong> <br>
 A fast way to create a bot with command support. Implementing the framework is simple - and everything is done automatically.</li><li><strong>Cross Platform</strong> <br>
 Nyxx works on the command line, in the browser, and on mobile devices.</li><li><strong>Fine Control</strong> <br>
@@ -62,6 +63,7 @@ Nyxx allows you to control every outgoing HTTP request or WebSocket message.</li
 Nyxx automatically spawns shards for your bot, but you can override this and spawn a custom number of shards. Internal sharding means that all of your bots shards are managed in one script, and there is no need for communication between shards.</li><li><strong>Complete</strong> <br>
 Nyxx supports nearly all Discord API endpoints.</li></ul>
 <h3>Sample</h3>
+<p>Basic usage:</p>
 <pre class="language-dart"><code class="language-dart">void main() {
   discord.Client bot =
       new discord.Client(Platform.environment['DISCORD_TOKEN']);
@@ -77,14 +79,44 @@ Nyxx supports nearly all Discord API endpoints.</li></ul>
   });
 }
 </code></pre>
-<h2>Documentation and examples</h2>
+<p>Commands:</p>
+<pre class="language-dart"><code class="language-dart">void main() {
+  nyxx.Nyxx bot = nyxx.Nyxx(Platform.environment['DISCORD_TOKEN']);
+  command.CommandsFramework('!', bot)
+    ..admins = [nyxx.Snowflake("302359032612651009")]
+    ..registerLibraryCommands();
+}
+
+@command.Command(name: "single")
+Future&lt;void&gt; single(command.CommandContext context) async {
+  await context.reply(content: "WORKING");
+}
+
+@command.Module("ping")
+class PongCommand extends command.CommandContext {
+  @command.Command()
+  @command.Help("Pong!", usage: "ping")
+  Future&lt;void&gt; run() async {
+    await reply(content: "Pong!");
+  }
+  
+  @command.Command(name: "subcommand")
+  Future&lt;void&gt; run() async {
+   await reply(content: "\\cmd");
+  }
+}
+</code></pre>
+<h2>Documentation, help and examples</h2>
+<h4><a href="https://discordapp.com/developers/docs/intro">Discord API docs</a></h4>
+<p>Discord API documentation features rich descriptions about all topics that nyxx covers.</p>
+<h4><a href="https://discord.gg/discord-api">Discord API Guild</a></h4>
+<p>Unofficial guild for Discord Bot developers. To get help with nyxx check <code>#dart_nyxx</code> channel.</p>
 <h4><a href="https://www.dartdocs.org/documentation/nyxx/latest/">Dartdocs</a></h4>
 <p>The dartdocs page will always have the documentation for the latest release.</p>
 <h4><a href="https://l7ssha.pl/nyxx">Dev docs</a></h4>
 <p>You can read about upcoming changes to the library on my website.</p>
 <h4><a href="https://github.com/l7ssha/nyxx/wiki">Wiki</a></h4>
 <p>Wiki documentation are designed to match the latest Nyxx release.</p>
-<h2>Roadmap</h2><ul><li><code> </code> Better dartdocs documentation</li><li><code>x</code> More examples at wiki/more tutorial/Video tutorial </li><li><code> </code> Bigger bot written in nyxx for example</li><li><code> </code> Fix <code>lint</code> errors from <code>dartanalyzer</code></li><li><code>x</code> Annotation driver flow for CommandsFramework?</li><li><code>x</code> Recheck all code and fix styling/small logic bugs</li><li><code> </code> Support for Voice connection</li></ul>
       </section>
       
         <section class="summary">

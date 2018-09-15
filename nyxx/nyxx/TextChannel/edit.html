@@ -45,7 +45,9 @@
       </li>
       <li><a href="nyxx/TextChannel/mention.html">mention</a></li>
       <li><a href="nyxx/TextChannel/pinsUpdated.html">pinsUpdated</a></li>
+      <li><a href="nyxx/TextChannel/slowModeThreshold.html">slowModeThreshold</a></li>
       <li><a href="nyxx/TextChannel/topic.html">topic</a></li>
+      <li><a href="nyxx/TextChannel/url.html">url</a></li>
       <li class="inherited"><a href="nyxx/Channel/client.html">client</a></li>
       <li class="inherited"><a href="nyxx/SnowflakeEntity/createdAt.html">createdAt</a></li>
       <li class="inherited"><a href="nyxx/MessageChannel/first.html">first</a></li>
@@ -102,7 +104,6 @@
       <li class="inherited"><a href="nyxx/SnowflakeEntity/noSuchMethod.html">noSuchMethod</a></li>
       <li class="inherited"><a href="nyxx/MessageChannel/reduce.html">reduce</a></li>
       <li class="inherited"><a href="nyxx/MessageChannel/send.html">send</a></li>
-      <li class="inherited"><a href="nyxx/MessageChannel/sendFile.html">sendFile</a></li>
       <li class="inherited"><a href="nyxx/MessageChannel/singleWhere.html">singleWhere</a></li>
       <li class="inherited"><a href="nyxx/MessageChannel/skip.html">skip</a></li>
       <li class="inherited"><a href="nyxx/MessageChannel/skipWhile.html">skipWhile</a></li>
@@ -130,7 +131,7 @@
     <section class="multi-line-signature">
       <span class="returntype">Future<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/TextChannel-class.html">TextChannel</a></span>&gt;</span></span>
       <span class="name ">edit</span>
-(<wbr>{<span class="parameter" id="edit-param-name"><span class="type-annotation">String</span> <span class="parameter-name">name</span>, </span> <span class="parameter" id="edit-param-topic"><span class="type-annotation">String</span> <span class="parameter-name">topic</span>, </span> <span class="parameter" id="edit-param-position"><span class="type-annotation">int</span> <span class="parameter-name">position</span></span> })
+(<wbr>{<span class="parameter" id="edit-param-name"><span class="type-annotation">String</span> <span class="parameter-name">name</span>, </span> <span class="parameter" id="edit-param-topic"><span class="type-annotation">String</span> <span class="parameter-name">topic</span>, </span> <span class="parameter" id="edit-param-position"><span class="type-annotation">int</span> <span class="parameter-name">position</span>, </span> <span class="parameter" id="edit-param-slowModeTreshold"><span class="type-annotation">int</span> <span class="parameter-name">slowModeTreshold</span></span> })
     </section>
     <section class="desc markdown">
       <p>Edits the channel.</p>
@@ -142,12 +143,14 @@
   String name,
   String topic,
   int position,
+  int slowModeTreshold
 }) async {
   HttpResponse r =
       await this.client.http.send(&#39;PATCH&#39;, &quot;&#47;channels&#47;${this.id}&quot;, body: {
-    &quot;name&quot;: name != null ? name : this.name,
-    &quot;topic&quot;: topic != null ? topic : this.topic,
-    &quot;position&quot;: position != null ? position : this.position
+    &quot;name&quot;: name ?? this.name,
+    &quot;topic&quot;: topic ?? this.topic,
+    &quot;position&quot;: position ?? this.position,
+    &quot;rate_limit_per_user&quot;: slowModeTreshold ?? slowModeTreshold
   });
   return TextChannel._new(
       this.client, r.body as Map&lt;String, dynamic&gt;, this.guild);

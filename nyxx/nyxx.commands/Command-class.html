@@ -50,6 +50,7 @@
       <li><a href="nyxx.commands/Pagination-class.html">Pagination</a></li>
       <li><a href="nyxx.commands/Postprocessor-class.html">Postprocessor</a></li>
       <li><a href="nyxx.commands/Preprocessor-class.html">Preprocessor</a></li>
+      <li><a href="nyxx.commands/PreprocessorErrorEvent-class.html">PreprocessorErrorEvent</a></li>
       <li><a href="nyxx.commands/Remainder-class.html">Remainder</a></li>
       <li><a href="nyxx.commands/Restrict-class.html">Restrict</a></li>
       <li><a href="nyxx.commands/Scheduler-class.html">Scheduler</a></li>
@@ -80,7 +81,8 @@ Future&lt;void&gt; elo(CommandContext ctx) async =&gt; await ctx.reply(content: 
 @Module("cmd")
 class ExampleCommand {
   // Invoked when message == `!cmd`
-  @Command(main: true)
+  // main command is implicit, so you can leave 'main: true'
+  @Command()
   Future main() async {
    await reply(content: "Some reply");
   }

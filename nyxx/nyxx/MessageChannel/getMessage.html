@@ -67,7 +67,6 @@
       <li><a href="nyxx/MessageChannel/getMessage.html">getMessage</a></li>
       <li><a href="nyxx/MessageChannel/getMessages.html">getMessages</a></li>
       <li><a href="nyxx/MessageChannel/send.html">send</a></li>
-      <li><a href="nyxx/MessageChannel/sendFile.html">sendFile</a></li>
       <li><a href="nyxx/MessageChannel/startTyping.html">startTyping</a></li>
       <li><a href="nyxx/MessageChannel/startTypingLoop.html">startTypingLoop</a></li>
       <li><a href="nyxx/MessageChannel/stopTypingLoop.html">stopTypingLoop</a></li>
@@ -116,7 +115,7 @@
     </section>
     <section class="desc markdown">
       <p>Returs message with given <code>id</code>. Allows to force fatch message from api
-with <code>force</code> propery. By default it checks if message is in cache and fatches if not.</p>
+with <code>force</code> propery. By default it checks if message is in cache and fetches from api if not.</p>
     </section>
     
     <section class="summary source-code" id="source">
@@ -129,8 +128,7 @@ with <code>force</code> propery. By default it checks if message is in cache and
         .send(&#39;GET&#39;, &quot;&#47;channels&#47;${this.id.toString()}&#47;messages&#47;$id&quot;);
     var msg = Message._new(this.client, r.body as Map&lt;String, dynamic&gt;);
 
-    messages[id] = msg;
-    return msg;
+   return _cacheMessage(msg);
   }
 
   return messages[id];

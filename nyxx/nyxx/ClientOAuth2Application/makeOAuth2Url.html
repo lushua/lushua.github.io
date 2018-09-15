@@ -58,6 +58,7 @@
     
       <li class="section-title"><a href="nyxx/ClientOAuth2Application-class.html#instance-methods">Methods</a></li>
       <li><a href="nyxx/ClientOAuth2Application/makeOAuth2Url.html">makeOAuth2Url</a></li>
+      <li class="inherited"><a href="nyxx/OAuth2Application/iconUrl.html">iconUrl</a></li>
       <li class="inherited"><a href="nyxx/OAuth2Application/noSuchMethod.html">noSuchMethod</a></li>
       <li class="inherited"><a href="nyxx/OAuth2Application/toString.html">toString</a></li>
     
@@ -83,9 +84,8 @@
     
     <section class="summary source-code" id="source">
       <h2><span>Implementation</span> </h2>
-      <pre class="language-dart"><code class="language-dart">String makeOAuth2Url([int permissions = 0]) {
-  return &quot;https:&#47;&#47;discordapp.com&#47;oauth2&#47;authorize?client_id=$id&amp;scope=bot&amp;permissions=$permissions&quot;;
-}</code></pre>
+      <pre class="language-dart"><code class="language-dart">String makeOAuth2Url([int permissions = 0]) =&gt;
+    &quot;https:&#47;&#47;discordapp.com&#47;oauth2&#47;authorize?client_id=$id&amp;scope=bot&amp;permissions=$permissions&quot;;</code></pre>
     </section>
 
   </div> <!-- /.main-content -->

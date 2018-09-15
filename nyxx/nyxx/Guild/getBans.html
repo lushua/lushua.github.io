@@ -48,6 +48,7 @@
       <li><a href="nyxx/Guild/available.html">available</a></li>
       <li><a href="nyxx/Guild/channels.html">channels</a></li>
       <li><a href="nyxx/Guild/client.html">client</a></li>
+      <li><a href="nyxx/Guild/currentUserPermissions.html">currentUserPermissions</a></li>
       <li><a href="nyxx/Guild/defaultChannel.html">defaultChannel</a></li>
       <li><a href="nyxx/Guild/embedChannelID.html">embedChannelID</a></li>
       <li><a href="nyxx/Guild/embedEnabled.html">embedEnabled</a></li>
@@ -59,13 +60,14 @@
       <li><a href="nyxx/Guild/mfaLevel.html">mfaLevel</a></li>
       <li><a href="nyxx/Guild/name.html">name</a></li>
       <li><a href="nyxx/Guild/notificationLevel.html">notificationLevel</a></li>
-      <li><a href="nyxx/Guild/ownerID.html">ownerID</a></li>
+      <li><a href="nyxx/Guild/owner.html">owner</a></li>
       <li><a href="nyxx/Guild/raw.html">raw</a></li>
       <li><a href="nyxx/Guild/region.html">region</a></li>
       <li><a href="nyxx/Guild/roles.html">roles</a></li>
       <li><a href="nyxx/Guild/shard.html">shard</a></li>
       <li><a href="nyxx/Guild/splash.html">splash</a></li>
       <li><a href="nyxx/Guild/systemChannel.html">systemChannel</a></li>
+      <li><a href="nyxx/Guild/url.html">url</a></li>
       <li><a href="nyxx/Guild/verificationLevel.html">verificationLevel</a></li>
       <li><a href="nyxx/Guild/webhooks.html">webhooks</a></li>
       <li class="inherited"><a href="nyxx/SnowflakeEntity/createdAt.html">createdAt</a></li>
@@ -77,6 +79,7 @@
       <li><a href="nyxx/Guild/addRoleToMember.html">addRoleToMember</a></li>
       <li><a href="nyxx/Guild/ban.html">ban</a></li>
       <li><a href="nyxx/Guild/changeOwner.html">changeOwner</a></li>
+      <li><a href="nyxx/Guild/changeSelfNick.html">changeSelfNick</a></li>
       <li><a href="nyxx/Guild/createChannel.html">createChannel</a></li>
       <li><a href="nyxx/Guild/createEmoji.html">createEmoji</a></li>
       <li><a href="nyxx/Guild/createRole.html">createRole</a></li>
@@ -84,17 +87,21 @@
       <li><a href="nyxx/Guild/edit.html">edit</a></li>
       <li><a href="nyxx/Guild/editGuildEmbed.html">editGuildEmbed</a></li>
       <li><a href="nyxx/Guild/getAuditLogs.html">getAuditLogs</a></li>
+      <li><a href="nyxx/Guild/getBan.html">getBan</a></li>
       <li><a href="nyxx/Guild/getBans.html">getBans</a></li>
       <li><a href="nyxx/Guild/getEmoji.html">getEmoji</a></li>
       <li><a href="nyxx/Guild/getGuildEmbed.html">getGuildEmbed</a></li>
       <li><a href="nyxx/Guild/getGuildInvites.html">getGuildInvites</a></li>
       <li><a href="nyxx/Guild/getMember.html">getMember</a></li>
+      <li><a href="nyxx/Guild/getMemberById.html">getMemberById</a></li>
       <li><a href="nyxx/Guild/getVoiceRegions.html">getVoiceRegions</a></li>
       <li><a href="nyxx/Guild/getWebhooks.html">getWebhooks</a></li>
       <li><a href="nyxx/Guild/iconURL.html">iconURL</a></li>
+      <li><a href="nyxx/Guild/kick.html">kick</a></li>
       <li><a href="nyxx/Guild/leave.html">leave</a></li>
       <li><a href="nyxx/Guild/moveChannel.html">moveChannel</a></li>
       <li><a href="nyxx/Guild/prune.html">prune</a></li>
+      <li><a href="nyxx/Guild/pruneCount.html">pruneCount</a></li>
       <li><a href="nyxx/Guild/splashURL.html">splashURL</a></li>
       <li><a href="nyxx/Guild/toString.html">toString</a></li>
       <li><a href="nyxx/Guild/unban.html">unban</a></li>
@@ -112,7 +119,7 @@
     <h1>getBans method</h1>
 
     <section class="multi-line-signature">
-      <span class="returntype">Future<span class="signature">&lt;<wbr><span class="type-parameter">Map<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/Snowflake-class.html">Snowflake</a></span>, <span class="type-parameter"><a href="nyxx/User-class.html">User</a></span>&gt;</span></span>&gt;</span></span>
+      <span class="returntype">Future<span class="signature">&lt;<wbr><span class="type-parameter">List<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/Ban-class.html">Ban</a></span>&gt;</span></span>&gt;</span></span>
       <span class="name ">getBans</span>
 (<wbr>)
     </section>
@@ -122,16 +129,15 @@
     
     <section class="summary source-code" id="source">
       <h2><span>Implementation</span> </h2>
-      <pre class="language-dart"><code class="language-dart">Future&lt;Map&lt;Snowflake, User&gt;&gt; getBans() async {
+      <pre class="language-dart"><code class="language-dart">Future&lt;List&lt;Ban&gt;&gt; getBans() async {
   HttpResponse r = await this.client.http.send(&#39;GET&#39;, &quot;&#47;guilds&#47;$id&#47;bans&quot;);
 
-  Map&lt;Snowflake, User&gt; map = Map();
-  r.body.forEach((k, o) {
-    final User user = User._new(client, o[&#39;user&#39;] as Map&lt;String, dynamic&gt;);
-    map[user.id] = user;
+  List&lt;Ban&gt; lst = List();
+  r.body.forEach((o) {
+    lst.add(Ban._new(client, o as Map&lt;String, dynamic&gt;));
   });
 
-  return map;
+  return lst;
 }</code></pre>
     </section>
 

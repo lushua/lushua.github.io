@@ -59,6 +59,7 @@
       <li><a href="nyxx.commands/CommandsFramework/onUnauthorizedNsfwAccess.html">onUnauthorizedNsfwAccess</a></li>
       <li><a href="nyxx.commands/CommandsFramework/onWrongContext.html">onWrongContext</a></li>
       <li><a href="nyxx.commands/CommandsFramework/prefix.html">prefix</a></li>
+      <li><a href="nyxx.commands/CommandsFramework/preprocessorFail.html">preprocessorFail</a></li>
       <li class="inherited"><a href="nyxx.commands/CommandsFramework/hashCode.html">hashCode</a></li>
       <li class="inherited"><a href="nyxx.commands/CommandsFramework/runtimeType.html">runtimeType</a></li>
     
@@ -84,7 +85,7 @@
 
     <section class="multi-line-signature">
       
-      <span class="name ">CommandsFramework</span>(<wbr><span class="parameter" id="-param-prefix"><span class="type-annotation">String</span> <span class="parameter-name">prefix</span>, </span> <span class="parameter" id="-param-_client"><span class="type-annotation"><a href="nyxx/Client-class.html">Client</a></span> <span class="parameter-name">_client</span></span>)
+      <span class="name ">CommandsFramework</span>(<wbr><span class="parameter" id="-param-prefix"><span class="type-annotation">String</span> <span class="parameter-name">prefix</span>, </span> <span class="parameter" id="-param-_client"><span class="type-annotation"><a href="nyxx/Nyxx-class.html">Nyxx</a></span> <span class="parameter-name">_client</span>, {</span> <span class="parameter" id="-param-roundupTime"><span class="type-annotation">Duration</span> <span class="parameter-name">roundupTime</span>: <span class="default-value">const Duration(minutes: 2)</span></span> })
     </section>
 
     <section class="desc markdown">
@@ -93,28 +94,31 @@
     
     <section class="summary source-code" id="source">
       <h2><span>Implementation</span> </h2>
-      <pre class="language-dart"><code class="language-dart">CommandsFramework(this.prefix, this._client) {
+      <pre class="language-dart"><code class="language-dart">CommandsFramework(this.prefix, this._client,
+    {Duration roundupTime = const Duration(minutes: 2)}) {
   this._commands = List();
-  _cooldownCache = CooldownCache();
+  _cooldownCache = CooldownCache(roundupTime);
 
-  _commandNotFoundEventController = StreamController.broadcast();
-  _requiredPermissionEventController = StreamController.broadcast();
-  _forAdminOnlyEventController = StreamController.broadcast();
-  _cooldownEventController = StreamController.broadcast();
-  _commandExecutionFailController = StreamController.broadcast();
-  _wrongContextController = StreamController.broadcast();
+  _commandNotFoundEvent = StreamController.broadcast();
+  _requiredPermissionEvent = StreamController.broadcast();
+  _forAdminOnlyEvent = StreamController.broadcast();
+  _cooldownEvent = StreamController.broadcast();
+  _commandExecutionFail = StreamController.broadcast();
+  _wrongContext = StreamController.broadcast();
   _unauthorizedNsfwAccess = StreamController.broadcast();
   _requiredTopicError = StreamController.broadcast();
+  _preprocessorFail = StreamController.broadcast();
   &#47;&#47;_commandParsingFail = new StreamController.broadcast();
 
-  onCommandNotFound = _commandNotFoundEventController.stream;
-  onAdminOnlyError = _forAdminOnlyEventController.stream;
-  onRequiredPermissionError = _forAdminOnlyEventController.stream;
-  onCooldown = _cooldownEventController.stream;
-  onCommandExecutionFail = _commandExecutionFailController.stream;
-  onWrongContext = _wrongContextController.stream;
+  onCommandNotFound = _commandNotFoundEvent.stream;
+  onAdminOnlyError = _forAdminOnlyEvent.stream;
+  onRequiredPermissionError = _forAdminOnlyEvent.stream;
+  onCooldown = _cooldownEvent.stream;
+  onCommandExecutionFail = _commandExecutionFail.stream;
+  onWrongContext = _wrongContext.stream;
   onUnauthorizedNsfwAccess = _unauthorizedNsfwAccess.stream;
   onRequiredTopicError = _requiredTopicError.stream;
+  preprocessorFail = _preprocessorFail.stream;
   &#47;&#47;onCommandParsingFail = _commandParsingFail.stream;
 
   &#47;&#47; Listen to incoming messages and ignore all from bots (if set)

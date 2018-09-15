@@ -168,13 +168,22 @@ There can be only one instance class.
           
 </dd>
         <dt id="init" class="callable">
-          <span class="name"><a href="nyxx.voice/init.html">init</a></span><span class="signature">(<wbr><span class="parameter" id="init-param-clientId"><span class="type-annotation">String</span> <span class="parameter-name">clientId</span>, </span> <span class="parameter" id="init-param-client"><span class="type-annotation"><a href="nyxx/Client-class.html">Client</a></span> <span class="parameter-name">client</span>, </span> <span class="parameter" id="init-param-yamlConfigFile"><span class="type-annotation">String</span> <span class="parameter-name">yamlConfigFile</span></span>)
+          <span class="name"><a href="nyxx.voice/init.html">init</a></span><span class="signature">(<wbr><span class="parameter" id="init-param-clientId"><span class="type-annotation">String</span> <span class="parameter-name">clientId</span>, </span> <span class="parameter" id="init-param-client"><span class="type-annotation"><a href="nyxx/Nyxx-class.html">Nyxx</a></span> <span class="parameter-name">client</span>, </span> <span class="parameter" id="init-param-yamlConfigFile"><span class="type-annotation">String</span> <span class="parameter-name">yamlConfigFile</span></span>)
             <span class="returntype parameter">&#8594; <a href="nyxx.voice/VoiceService-class.html">VoiceService</a></span>
           </span>
         </dt>
         <dd>
           Inits voice service. <code>yamlConfigFile</code> is absolute path to lavalink config file.
 Returns instance of VoiceService
+          
+</dd>
+        <dt id="sendFakeOp4" class="callable">
+          <span class="name"><a href="nyxx.voice/sendFakeOp4.html">sendFakeOp4</a></span><span class="signature">(<wbr><span class="parameter" id="sendFakeOp4-param-client"><span class="type-annotation"><a href="nyxx/Nyxx-class.html">Nyxx</a></span> <span class="parameter-name">client</span>, </span> <span class="parameter" id="sendFakeOp4-param-channel"><span class="type-annotation"><a href="nyxx/VoiceChannel-class.html">VoiceChannel</a></span> <span class="parameter-name">channel</span>, {</span> <span class="parameter" id="sendFakeOp4-param-mute"><span class="type-annotation">bool</span> <span class="parameter-name">mute</span>: <span class="default-value">false</span>, </span> <span class="parameter" id="sendFakeOp4-param-deafen"><span class="type-annotation">bool</span> <span class="parameter-name">deafen</span>: <span class="default-value">false</span></span> })
+            <span class="returntype parameter">&#8594; Future<span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
+          </span>
+        </dt>
+        <dd>
+          Sends Op4 and connects to voice channel but without starting voice service
           
 </dd>
       </dl>
@@ -209,6 +218,7 @@ Returns instance of VoiceService
       <li><a href="nyxx.voice/getPlayer.html">getPlayer</a></li>
       <li><a href="nyxx.voice/getVoiceService.html">getVoiceService</a></li>
       <li><a href="nyxx.voice/init.html">init</a></li>
+      <li><a href="nyxx.voice/sendFakeOp4.html">sendFakeOp4</a></li>
     
     
     

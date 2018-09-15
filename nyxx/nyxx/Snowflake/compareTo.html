@@ -41,7 +41,9 @@
     <ol>
       <li class="section-title"><a href="nyxx/Snowflake-class.html#constructors">Constructors</a></li>
       <li><a href="nyxx/Snowflake/Snowflake.html">Snowflake</a></li>
-      <li><a href="nyxx/Snowflake/Snowflake.static.html">static</a></li>
+      <li><a href="nyxx/Snowflake/Snowflake.bulk.html">bulk</a></li>
+      <li><a href="nyxx/Snowflake/Snowflake.fromDateTime.html">fromDateTime</a></li>
+      <li><a href="nyxx/Snowflake/Snowflake.fromNow.html">fromNow</a></li>
     
       <li class="section-title">
         <a href="nyxx/Snowflake-class.html#instance-properties">Properties</a>
@@ -53,13 +55,19 @@
     
       <li class="section-title"><a href="nyxx/Snowflake-class.html#instance-methods">Methods</a></li>
       <li><a href="nyxx/Snowflake/compareTo.html">compareTo</a></li>
+      <li><a href="nyxx/Snowflake/toNum.html">toNum</a></li>
       <li><a href="nyxx/Snowflake/toString.html">toString</a></li>
       <li class="inherited"><a href="nyxx/Snowflake/noSuchMethod.html">noSuchMethod</a></li>
     
       <li class="section-title"><a href="nyxx/Snowflake-class.html#operators">Operators</a></li>
       <li><a href="nyxx/Snowflake/operator_equals.html">operator ==</a></li>
     
+      <li class="section-title"><a href="nyxx/Snowflake-class.html#static-properties">Static properties</a></li>
+      <li><a href="nyxx/Snowflake/discordEpoch.html">discordEpoch</a></li>
+      <li><a href="nyxx/Snowflake/snowflakeDateOffset.html">snowflakeDateOffset</a></li>
     
+      <li class="section-title"><a href="nyxx/Snowflake-class.html#static-methods">Static methods</a></li>
+      <li><a href="nyxx/Snowflake/compareDates.html">compareDates</a></li>
     
     </ol>
   </div><!--/.sidebar-offcanvas-->
@@ -89,11 +97,7 @@ and zero if <code>this</code> and <code>other</code> are ordered together.</p>
     <section class="summary source-code" id="source">
       <h2><span>Implementation</span> </h2>
       <pre class="language-dart"><code class="language-dart">@override
-int compareTo(Snowflake other) {
-  if (other.id == this.id) return 1;
-
-  return 0;
-}</code></pre>
+int compareTo(Snowflake other) =&gt; other.id == this._id ? 0 : -1;</code></pre>
     </section>
 
   </div> <!-- /.main-content -->

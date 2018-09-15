@@ -59,6 +59,7 @@
       <li><a href="nyxx.commands/CommandsFramework/onUnauthorizedNsfwAccess.html">onUnauthorizedNsfwAccess</a></li>
       <li><a href="nyxx.commands/CommandsFramework/onWrongContext.html">onWrongContext</a></li>
       <li><a href="nyxx.commands/CommandsFramework/prefix.html">prefix</a></li>
+      <li><a href="nyxx.commands/CommandsFramework/preprocessorFail.html">preprocessorFail</a></li>
       <li class="inherited"><a href="nyxx.commands/CommandsFramework/hashCode.html">hashCode</a></li>
       <li class="inherited"><a href="nyxx.commands/CommandsFramework/runtimeType.html">runtimeType</a></li>
     
@@ -99,18 +100,18 @@ Performs dependency injection when instantiate commands. And throws <code>Except
 
   mirrorSystem.libraries.forEach((_, library) {
     library.declarations.values.forEach((d) {
-      var commandAnnot = _getCmdAnnot&lt;Module&gt;(d);
+      var commandAnnot = util.getCmdAnnot&lt;Module&gt;(d);
 
       if (commandAnnot != null) {
         if (d is ClassMirror) {
           d.declarations.values.forEach((f) {
             if (f is MethodMirror) {
-              var methodCommandAnnot = _getCmdAnnot&lt;Command&gt;(f);
+              var methodCommandAnnot = util.getCmdAnnot&lt;Command&gt;(f);
 
               if (methodCommandAnnot != null) {
-                var classRestrict = _getCmdAnnot&lt;Restrict&gt;(d);
-                var methodRestrict = _getCmdAnnot&lt;Restrict&gt;(f);
-                var methodHelp = _getCmdAnnot&lt;Help&gt;(f);
+                var classRestrict = util.getCmdAnnot&lt;Restrict&gt;(d);
+                var methodRestrict = util.getCmdAnnot&lt;Restrict&gt;(f);
+                var methodHelp = util.getCmdAnnot&lt;Help&gt;(f);
                 var processors = _getProcessors(d, f);
 
                 _commands.add(_CommandMetadata(
@@ -129,11 +130,11 @@ Performs dependency injection when instantiate commands. And throws <code>Except
             }
           });
         } else if (d is MethodMirror) {
-          var commandAnnot = _getCmdAnnot&lt;Command&gt;(d);
+          var commandAnnot = util.getCmdAnnot&lt;Command&gt;(d);
 
           if (commandAnnot != null) {
-            var methodRestrict = _getCmdAnnot&lt;Restrict&gt;(d);
-            var methodHelp = _getCmdAnnot&lt;Help&gt;(d);
+            var methodRestrict = util.getCmdAnnot&lt;Restrict&gt;(d);
+            var methodHelp = util.getCmdAnnot&lt;Help&gt;(d);
             var processors = _getProcessors(null, d);
 
             _commands.add(_CommandMetadata(

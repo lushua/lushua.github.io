@@ -44,6 +44,7 @@
       <li><a href="nyxx/AuditLog-class.html">AuditLog</a></li>
       <li><a href="nyxx/AuditLogChange-class.html">AuditLogChange</a></li>
       <li><a href="nyxx/AuditLogEntry-class.html">AuditLogEntry</a></li>
+      <li><a href="nyxx/Ban-class.html">Ban</a></li>
       <li><a href="nyxx/BeforeHttpRequestSendEvent-class.html">BeforeHttpRequestSendEvent</a></li>
       <li><a href="nyxx/Builder-class.html">Builder</a></li>
       <li><a href="nyxx/Channel-class.html">Channel</a></li>
@@ -53,7 +54,6 @@
       <li><a href="nyxx/ChannelPermissions-class.html">ChannelPermissions</a></li>
       <li><a href="nyxx/ChannelPinsUpdateEvent-class.html">ChannelPinsUpdateEvent</a></li>
       <li><a href="nyxx/ChannelUpdateEvent-class.html">ChannelUpdateEvent</a></li>
-      <li><a href="nyxx/Client-class.html">Client</a></li>
       <li><a href="nyxx/ClientOAuth2Application-class.html">ClientOAuth2Application</a></li>
       <li><a href="nyxx/ClientOptions-class.html">ClientOptions</a></li>
       <li><a href="nyxx/ClientUser-class.html">ClientUser</a></li>
@@ -72,7 +72,6 @@
       <li><a href="nyxx/EmbedThumbnail-class.html">EmbedThumbnail</a></li>
       <li><a href="nyxx/EmbedVideo-class.html">EmbedVideo</a></li>
       <li><a href="nyxx/Emoji-class.html">Emoji</a></li>
-      <li><a href="nyxx/Game-class.html">Game</a></li>
       <li><a href="nyxx/GameAssets-class.html">GameAssets</a></li>
       <li><a href="nyxx/GameParty-class.html">GameParty</a></li>
       <li><a href="nyxx/GameSecrets-class.html">GameSecrets</a></li>
@@ -101,8 +100,6 @@
       <li><a href="nyxx/HttpResponse-class.html">HttpResponse</a></li>
       <li><a href="nyxx/HttpResponseEvent-class.html">HttpResponseEvent</a></li>
       <li><a href="nyxx/Invite-class.html">Invite</a></li>
-      <li><a href="nyxx/InviteChannel-class.html">InviteChannel</a></li>
-      <li><a href="nyxx/InviteGuild-class.html">InviteGuild</a></li>
       <li><a href="nyxx/ISend-class.html">ISend</a></li>
       <li><a href="nyxx/Member-class.html">Member</a></li>
       <li><a href="nyxx/Message-class.html">Message</a></li>
@@ -113,12 +110,14 @@
       <li><a href="nyxx/MessageReactionEvent-class.html">MessageReactionEvent</a></li>
       <li><a href="nyxx/MessageReactionsRemovedEvent-class.html">MessageReactionsRemovedEvent</a></li>
       <li><a href="nyxx/MessageUpdateEvent-class.html">MessageUpdateEvent</a></li>
+      <li><a href="nyxx/Nyxx-class.html">Nyxx</a></li>
       <li><a href="nyxx/OAuth2Application-class.html">OAuth2Application</a></li>
       <li><a href="nyxx/OAuth2Guild-class.html">OAuth2Guild</a></li>
       <li><a href="nyxx/OAuth2Info-class.html">OAuth2Info</a></li>
       <li><a href="nyxx/Permissions-class.html">Permissions</a></li>
       <li><a href="nyxx/PermissionsBuilder-class.html">PermissionsBuilder</a></li>
       <li><a href="nyxx/PermissionsConstants-class.html">PermissionsConstants</a></li>
+      <li><a href="nyxx/Presence-class.html">Presence</a></li>
       <li><a href="nyxx/PresenceUpdateEvent-class.html">PresenceUpdateEvent</a></li>
       <li><a href="nyxx/RatelimitEvent-class.html">RatelimitEvent</a></li>
       <li><a href="nyxx/RawEvent-class.html">RawEvent</a></li>
@@ -226,10 +225,18 @@ Guilds are a collection of members, channels, and roles that represents one comm
 </dd>
         <dt id="client" class="property">
           <span class="name"><a href="nyxx/Guild/client.html">client</a></span>
-          <span class="signature">&#8596; <a href="nyxx/Client-class.html">Client</a></span>
+          <span class="signature">&#8596; <a href="nyxx/Nyxx-class.html">Nyxx</a></span>
         </dt>
         <dd>
-          The <code>Client</code> object.
+          The <code>Nyxx</code> object.
+          <div class="features">read / write</div>
+</dd>
+        <dt id="currentUserPermissions" class="property">
+          <span class="name"><a href="nyxx/Guild/currentUserPermissions.html">currentUserPermissions</a></span>
+          <span class="signature">&#8596; <a href="nyxx/Permissions-class.html">Permissions</a></span>
+        </dt>
+        <dd>
+          Permission of current(bot) user in this guild
           <div class="features">read / write</div>
 </dd>
         <dt id="defaultChannel" class="property">
@@ -320,9 +327,9 @@ Guilds are a collection of members, channels, and roles that represents one comm
           The guild's notification level.
           <div class="features">read / write</div>
 </dd>
-        <dt id="ownerID" class="property">
-          <span class="name"><a href="nyxx/Guild/ownerID.html">ownerID</a></span>
-          <span class="signature">&#8596; <a href="nyxx/Snowflake-class.html">Snowflake</a></span>
+        <dt id="owner" class="property">
+          <span class="name"><a href="nyxx/Guild/owner.html">owner</a></span>
+          <span class="signature">&#8596; <a href="nyxx/User-class.html">User</a></span>
         </dt>
         <dd>
           The guild owner's ID
@@ -375,6 +382,14 @@ Guilds are a collection of members, channels, and roles that represents one comm
         <dd>
           System channel where system messages are sent
           <div class="features">read / write</div>
+</dd>
+        <dt id="url" class="property">
+          <span class="name"><a href="nyxx/Guild/url.html">url</a></span>
+          <span class="signature">&#8594; String</span>
+        </dt>
+        <dd>
+          Returns url to this guild.
+          <div class="features">read-only</div>
 </dd>
         <dt id="verificationLevel" class="property">
           <span class="name"><a href="nyxx/Guild/verificationLevel.html">verificationLevel</a></span>
@@ -457,6 +472,15 @@ Guilds are a collection of members, channels, and roles that represents one comm
           Change guild owner.
           
 </dd>
+        <dt id="changeSelfNick" class="callable">
+          <span class="name"><a href="nyxx/Guild/changeSelfNick.html">changeSelfNick</a></span><span class="signature">(<wbr><span class="parameter" id="changeSelfNick-param-nick"><span class="type-annotation">String</span> <span class="parameter-name">nick</span></span>)
+            <span class="returntype parameter">&#8594; Future<span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
+          </span>
+        </dt>
+        <dd>
+          Change self nickname in guild
+          
+</dd>
         <dt id="createChannel" class="callable">
           <span class="name"><a href="nyxx/Guild/createChannel.html">createChannel</a></span><span class="signature">(<wbr><span class="parameter" id="createChannel-param-name"><span class="type-annotation">String</span> <span class="parameter-name">name</span>, </span> <span class="parameter" id="createChannel-param-type"><span class="type-annotation"><a href="nyxx/ChannelType-class.html">ChannelType</a></span> <span class="parameter-name">type</span>, {</span> <span class="parameter" id="createChannel-param-bitrate"><span class="type-annotation">int</span> <span class="parameter-name">bitrate</span>, </span> <span class="parameter" id="createChannel-param-topic"><span class="type-annotation">String</span> <span class="parameter-name">topic</span>, </span> <span class="parameter" id="createChannel-param-parent"><span class="type-annotation"><a href="nyxx/GroupChannel-class.html">GroupChannel</a></span> <span class="parameter-name">parent</span>, </span> <span class="parameter" id="createChannel-param-nsfw"><span class="type-annotation">bool</span> <span class="parameter-name">nsfw</span>, </span> <span class="parameter" id="createChannel-param-userLimit"><span class="type-annotation">int</span> <span class="parameter-name">userLimit</span>, </span> <span class="parameter" id="createChannel-param-permissions"><span class="type-annotation"><a href="nyxx/PermissionsBuilder-class.html">PermissionsBuilder</a></span> <span class="parameter-name">permissions</span>, </span> <span class="parameter" id="createChannel-param-auditReason"><span class="type-annotation">String</span> <span class="parameter-name">auditReason</span>: <span class="default-value">""</span></span> })
             <span class="returntype parameter">&#8594; Future<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/GuildChannel-class.html">GuildChannel</a></span>&gt;</span></span>
@@ -523,9 +547,18 @@ Also can be null if <code>type</code> is Guild Group channel and parent is speci
 <a href="https://discordapp.com/developers/docs/resources/audit-log">https://discordapp.com/developers/docs/resources/audit-log</a> <a href="nyxx/Guild/getAuditLogs.html">[...]</a>
           
 </dd>
+        <dt id="getBan" class="callable">
+          <span class="name"><a href="nyxx/Guild/getBan.html">getBan</a></span><span class="signature">(<wbr><span class="parameter" id="getBan-param-id"><span class="type-annotation"><a href="nyxx/Snowflake-class.html">Snowflake</a></span> <span class="parameter-name">id</span></span>)
+            <span class="returntype parameter">&#8594; Future<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/Ban-class.html">Ban</a></span>&gt;</span></span>
+          </span>
+        </dt>
+        <dd>
+          Gets single <a href="nyxx/Ban-class.html">Ban</a> object for given <code>id</code>
+          
+</dd>
         <dt id="getBans" class="callable">
           <span class="name"><a href="nyxx/Guild/getBans.html">getBans</a></span><span class="signature">(<wbr>)
-            <span class="returntype parameter">&#8594; Future<span class="signature">&lt;<wbr><span class="type-parameter">Map<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/Snowflake-class.html">Snowflake</a></span>, <span class="type-parameter"><a href="nyxx/User-class.html">User</a></span>&gt;</span></span>&gt;</span></span>
+            <span class="returntype parameter">&#8594; Future<span class="signature">&lt;<wbr><span class="type-parameter">List<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/Ban-class.html">Ban</a></span>&gt;</span></span>&gt;</span></span>
           </span>
         </dt>
         <dd>
@@ -568,6 +601,15 @@ Also can be null if <code>type</code> is Guild Group channel and parent is speci
           Gets a <a href="nyxx/Member-class.html">Member</a> object. Caches fetched member if not cached. <a href="nyxx/Guild/getMember.html">[...]</a>
           
 </dd>
+        <dt id="getMemberById" class="callable">
+          <span class="name"><a href="nyxx/Guild/getMemberById.html">getMemberById</a></span><span class="signature">(<wbr><span class="parameter" id="getMemberById-param-id"><span class="type-annotation"><a href="nyxx/Snowflake-class.html">Snowflake</a></span> <span class="parameter-name">id</span></span>)
+            <span class="returntype parameter">&#8594; Future<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/Member-class.html">Member</a></span>&gt;</span></span>
+          </span>
+        </dt>
+        <dd>
+          Gets a <a href="nyxx/Member-class.html">Member</a> object by id. Caches fetched member if not cached. <a href="nyxx/Guild/getMemberById.html">[...]</a>
+          
+</dd>
         <dt id="getVoiceRegions" class="callable">
           <span class="name"><a href="nyxx/Guild/getVoiceRegions.html">getVoiceRegions</a></span><span class="signature">(<wbr>)
             <span class="returntype parameter">&#8594; Future<span class="signature">&lt;<wbr><span class="type-parameter">List<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/VoiceRegion-class.html">VoiceRegion</a></span>&gt;</span></span>&gt;</span></span>
@@ -596,6 +638,15 @@ Also can be null if <code>type</code> is Guild Group channel and parent is speci
 If guild doesn't have icon it returns null.
           
 </dd>
+        <dt id="kick" class="callable">
+          <span class="name"><a href="nyxx/Guild/kick.html">kick</a></span><span class="signature">(<wbr><span class="parameter" id="kick-param-member"><span class="type-annotation"><a href="nyxx/Member-class.html">Member</a></span> <span class="parameter-name">member</span>, {</span> <span class="parameter" id="kick-param-auditReason"><span class="type-annotation">String</span> <span class="parameter-name">auditReason</span></span> })
+            <span class="returntype parameter">&#8594; Future<span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
+          </span>
+        </dt>
+        <dd>
+          Kicks user from guild. Member is removed from guild and he is able to rejoin <a href="nyxx/Guild/kick.html">[...]</a>
+          
+</dd>
         <dt id="leave" class="callable">
           <span class="name"><a href="nyxx/Guild/leave.html">leave</a></span><span class="signature">(<wbr>)
             <span class="returntype parameter">&#8594; Future<span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
@@ -621,7 +672,16 @@ If guild doesn't have icon it returns null.
         </dt>
         <dd>
           Prunes the guild, returns the amount of members pruned.
-<a href="https://discordapp.com/developers/docs/resources/guild#begin-guild-prune">https://discordapp.com/developers/docs/resources/guild#begin-guild-prune</a>
+<a href="https://discordapp.com/developers/docs/resources/guild#get-guild-prune-count">https://discordapp.com/developers/docs/resources/guild#get-guild-prune-count</a>
+          
+</dd>
+        <dt id="pruneCount" class="callable">
+          <span class="name"><a href="nyxx/Guild/pruneCount.html">pruneCount</a></span><span class="signature">(<wbr><span class="parameter" id="pruneCount-param-days"><span class="type-annotation">int</span> <span class="parameter-name">days</span></span>)
+            <span class="returntype parameter">&#8594; Future<span class="signature">&lt;<wbr><span class="type-parameter">int</span>&gt;</span></span>
+          </span>
+        </dt>
+        <dd>
+          Returns <code>int</code> indicating the number of members that would be removed in a prune operation.
           
 </dd>
         <dt id="splashURL" class="callable">
@@ -695,6 +755,7 @@ If guild doesn't have splash it returns null.
       <li><a href="nyxx/Guild/available.html">available</a></li>
       <li><a href="nyxx/Guild/channels.html">channels</a></li>
       <li><a href="nyxx/Guild/client.html">client</a></li>
+      <li><a href="nyxx/Guild/currentUserPermissions.html">currentUserPermissions</a></li>
       <li><a href="nyxx/Guild/defaultChannel.html">defaultChannel</a></li>
       <li><a href="nyxx/Guild/embedChannelID.html">embedChannelID</a></li>
       <li><a href="nyxx/Guild/embedEnabled.html">embedEnabled</a></li>
@@ -706,13 +767,14 @@ If guild doesn't have splash it returns null.
       <li><a href="nyxx/Guild/mfaLevel.html">mfaLevel</a></li>
       <li><a href="nyxx/Guild/name.html">name</a></li>
       <li><a href="nyxx/Guild/notificationLevel.html">notificationLevel</a></li>
-      <li><a href="nyxx/Guild/ownerID.html">ownerID</a></li>
+      <li><a href="nyxx/Guild/owner.html">owner</a></li>
       <li><a href="nyxx/Guild/raw.html">raw</a></li>
       <li><a href="nyxx/Guild/region.html">region</a></li>
       <li><a href="nyxx/Guild/roles.html">roles</a></li>
       <li><a href="nyxx/Guild/shard.html">shard</a></li>
       <li><a href="nyxx/Guild/splash.html">splash</a></li>
       <li><a href="nyxx/Guild/systemChannel.html">systemChannel</a></li>
+      <li><a href="nyxx/Guild/url.html">url</a></li>
       <li><a href="nyxx/Guild/verificationLevel.html">verificationLevel</a></li>
       <li><a href="nyxx/Guild/webhooks.html">webhooks</a></li>
       <li class="inherited"><a href="nyxx/SnowflakeEntity/createdAt.html">createdAt</a></li>
@@ -724,6 +786,7 @@ If guild doesn't have splash it returns null.
       <li><a href="nyxx/Guild/addRoleToMember.html">addRoleToMember</a></li>
       <li><a href="nyxx/Guild/ban.html">ban</a></li>
       <li><a href="nyxx/Guild/changeOwner.html">changeOwner</a></li>
+      <li><a href="nyxx/Guild/changeSelfNick.html">changeSelfNick</a></li>
       <li><a href="nyxx/Guild/createChannel.html">createChannel</a></li>
       <li><a href="nyxx/Guild/createEmoji.html">createEmoji</a></li>
       <li><a href="nyxx/Guild/createRole.html">createRole</a></li>
@@ -731,17 +794,21 @@ If guild doesn't have splash it returns null.
       <li><a href="nyxx/Guild/edit.html">edit</a></li>
       <li><a href="nyxx/Guild/editGuildEmbed.html">editGuildEmbed</a></li>
       <li><a href="nyxx/Guild/getAuditLogs.html">getAuditLogs</a></li>
+      <li><a href="nyxx/Guild/getBan.html">getBan</a></li>
       <li><a href="nyxx/Guild/getBans.html">getBans</a></li>
       <li><a href="nyxx/Guild/getEmoji.html">getEmoji</a></li>
       <li><a href="nyxx/Guild/getGuildEmbed.html">getGuildEmbed</a></li>
       <li><a href="nyxx/Guild/getGuildInvites.html">getGuildInvites</a></li>
       <li><a href="nyxx/Guild/getMember.html">getMember</a></li>
+      <li><a href="nyxx/Guild/getMemberById.html">getMemberById</a></li>
       <li><a href="nyxx/Guild/getVoiceRegions.html">getVoiceRegions</a></li>
       <li><a href="nyxx/Guild/getWebhooks.html">getWebhooks</a></li>
       <li><a href="nyxx/Guild/iconURL.html">iconURL</a></li>
+      <li><a href="nyxx/Guild/kick.html">kick</a></li>
       <li><a href="nyxx/Guild/leave.html">leave</a></li>
       <li><a href="nyxx/Guild/moveChannel.html">moveChannel</a></li>
       <li><a href="nyxx/Guild/prune.html">prune</a></li>
+      <li><a href="nyxx/Guild/pruneCount.html">pruneCount</a></li>
       <li><a href="nyxx/Guild/splashURL.html">splashURL</a></li>
       <li><a href="nyxx/Guild/toString.html">toString</a></li>
       <li><a href="nyxx/Guild/unban.html">unban</a></li>

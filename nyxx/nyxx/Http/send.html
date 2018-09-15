@@ -83,7 +83,7 @@
     bool beforeReady = false,
     Map&lt;String, String&gt; headers = const {},
     String reason}) async {
-  if (_client is Client &amp;&amp; !this._client.ready &amp;&amp; !beforeReady)
+  if (_client is Nyxx &amp;&amp; !this._client.ready &amp;&amp; !beforeReady)
     throw Exception(&quot;Client isn&#39;t ready yet.&quot;);
 
   HttpRequest request = HttpRequest._new(

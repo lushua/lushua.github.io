@@ -59,6 +59,7 @@
       <li><a href="nyxx.commands/CommandsFramework/onUnauthorizedNsfwAccess.html">onUnauthorizedNsfwAccess</a></li>
       <li><a href="nyxx.commands/CommandsFramework/onWrongContext.html">onWrongContext</a></li>
       <li><a href="nyxx.commands/CommandsFramework/prefix.html">prefix</a></li>
+      <li><a href="nyxx.commands/CommandsFramework/preprocessorFail.html">preprocessorFail</a></li>
       <li class="inherited"><a href="nyxx.commands/CommandsFramework/hashCode.html">hashCode</a></li>
       <li class="inherited"><a href="nyxx.commands/CommandsFramework/runtimeType.html">runtimeType</a></li>
     
@@ -100,7 +101,7 @@
 
   &#47;&#47; Check if command requires server owner
   if (executionCode == -1 &amp;&amp; annot.owner != null &amp;&amp; annot.owner)
-    executionCode = e.guild.ownerID == e.author.id ? 100 : 0;
+    executionCode = e.guild.owner.id == e.author.id ? 100 : 0;
 
   &#47;&#47;Check if user is on cooldown
   if (executionCode == -1) {
@@ -124,7 +125,7 @@
 
   &#47;&#47; Check if user has required permissions
   if (executionCode == -1 &amp;&amp; annot.userPermissions != null) {
-    var total = await member.getTotalPermissions();
+    var total = member.totalPermissions;
     for (var perm in annot.userPermissions) {
       if ((total.raw | perm) == 0) {
         executionCode = 1;
@@ -142,11 +143,11 @@
         .substring(topic.indexOf(&quot;[&quot;) + 1, topic.indexOf(&quot;]&quot;))
         .split(&quot;,&quot;)
         .map((f) =&gt; f.trim());
-
     var total = false;
     for (var topic in annot.topics) {
       if (list.contains(topic)) {
         total = true;
+        break;
       }
     }
 
@@ -155,8 +156,7 @@
 
   &#47;&#47; Check if bot has required permissions
   if (executionCode == -1 &amp;&amp; annot.userPermissions != null) {
-    var total =
-        await (await e.guild.getMember(_client.user)).getTotalPermissions();
+    var total = (await e.guild.getMember(_client.self)).totalPermissions;
     for (var perm in annot.userPermissions) {
       if ((total.raw | perm) == 0) {
         executionCode = 6;
