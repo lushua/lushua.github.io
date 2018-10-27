@@ -45,13 +45,12 @@
       </li>
       <li><a href="nyxx/User/avatar.html">avatar</a></li>
       <li><a href="nyxx/User/bot.html">bot</a></li>
-      <li><a href="nyxx/User/client.html">client</a></li>
       <li><a href="nyxx/User/discriminator.html">discriminator</a></li>
+      <li><a href="nyxx/User/dmChannel.html">dmChannel</a></li>
       <li><a href="nyxx/User/mention.html">mention</a></li>
-      <li><a href="nyxx/User/mentionNickname.html">mentionNickname</a></li>
-      <li><a href="nyxx/User/raw.html">raw</a></li>
+      <li><a href="nyxx/User/nameString.html">nameString</a></li>
+      <li><a href="nyxx/User/tag.html">tag</a></li>
       <li><a href="nyxx/User/username.html">username</a></li>
-      <li><a href="nyxx/User/voiceState.html">voiceState</a></li>
       <li class="inherited"><a href="nyxx/SnowflakeEntity/createdAt.html">createdAt</a></li>
       <li class="inherited"><a href="nyxx/SnowflakeEntity/hashCode.html">hashCode</a></li>
       <li class="inherited"><a href="nyxx/SnowflakeEntity/id.html">id</a></li>
@@ -59,7 +58,6 @@
     
       <li class="section-title"><a href="nyxx/User-class.html#instance-methods">Methods</a></li>
       <li><a href="nyxx/User/avatarURL.html">avatarURL</a></li>
-      <li><a href="nyxx/User/getDMChannel.html">getDMChannel</a></li>
       <li><a href="nyxx/User/send.html">send</a></li>
       <li><a href="nyxx/User/toString.html">toString</a></li>
       <li class="inherited"><a href="nyxx/SnowflakeEntity/noSuchMethod.html">noSuchMethod</a></li>
@@ -83,30 +81,32 @@
       </div>
       <span class="returntype">Future<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/Message-class.html">Message</a></span>&gt;</span></span>
       <span class="name ">send</span>
-(<wbr>{<span class="parameter" id="send-param-content"><span class="type-annotation">Object</span> <span class="parameter-name">content</span>: <span class="default-value">""</span>, </span> <span class="parameter" id="send-param-files"><span class="type-annotation">List<span class="signature">&lt;<wbr><span class="type-parameter">File</span>&gt;</span></span> <span class="parameter-name">files</span>, </span> <span class="parameter" id="send-param-embed"><span class="type-annotation"><a href="nyxx/EmbedBuilder-class.html">EmbedBuilder</a></span> <span class="parameter-name">embed</span>, </span> <span class="parameter" id="send-param-tts"><span class="type-annotation">bool</span> <span class="parameter-name">tts</span>: <span class="default-value">false</span>, </span> <span class="parameter" id="send-param-disableEveryone"><span class="type-annotation">bool</span> <span class="parameter-name">disableEveryone</span></span> })
+(<wbr>{<span class="parameter" id="send-param-content"><span class="type-annotation">Object</span> <span class="parameter-name">content</span>: <span class="default-value">""</span>, </span> <span class="parameter" id="send-param-files"><span class="type-annotation">List<span class="signature">&lt;<wbr><span class="type-parameter">File</span>&gt;</span></span> <span class="parameter-name">files</span>, </span> <span class="parameter" id="send-param-embed"><span class="type-annotation"><a href="nyxx/EmbedBuilder-class.html">EmbedBuilder</a></span> <span class="parameter-name">embed</span>, </span> <span class="parameter" id="send-param-tts"><span class="type-annotation">bool</span> <span class="parameter-name">tts</span>: <span class="default-value">false</span>, </span> <span class="parameter" id="send-param-disableEveryone"><span class="type-annotation">bool</span> <span class="parameter-name">disableEveryone</span>, </span> <span class="parameter" id="send-param-builder"><span class="type-annotation"><a href="nyxx/MessageBuilder-class.html">MessageBuilder</a></span> <span class="parameter-name">builder</span></span> })
+      <div class="features">override</div>
     </section>
     <section class="desc markdown">
-      <p>Sends a message.</p>
+      <p>Sends a message to user.</p>
     </section>
     
     <section class="summary source-code" id="source">
       <h2><span>Implementation</span> </h2>
       <pre class="language-dart"><code class="language-dart">@override
 
-&#47;&#47;&#47; Sends a message.
+&#47;&#47;&#47; Sends a message to user.
 Future&lt;Message&gt; send(
     {Object content = &quot;&quot;,
-      List&lt;File&gt; files,
+    List&lt;File&gt; files,
     EmbedBuilder embed,
     bool tts = false,
-    bool disableEveryone}) async {
-  DMChannel channel = await getDMChannel();
-  return await channel.send(
+    bool disableEveryone, MessageBuilder builder}) async {
+  DMChannel channel = await this.dmChannel;
+  return channel.send(
       content: content,
       files: files,
       embed: embed,
       tts: tts,
-      disableEveryone: disableEveryone);
+      disableEveryone: disableEveryone,
+      builder: builder);
 }</code></pre>
     </section>
 

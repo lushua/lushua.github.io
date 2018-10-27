@@ -50,19 +50,18 @@
       <li><a href="nyxx/EmbedBuilder/description.html">description</a></li>
       <li><a href="nyxx/EmbedBuilder/footer.html">footer</a></li>
       <li><a href="nyxx/EmbedBuilder/imageUrl.html">imageUrl</a></li>
-      <li><a href="nyxx/EmbedBuilder/provider.html">provider</a></li>
       <li><a href="nyxx/EmbedBuilder/thumbnailUrl.html">thumbnailUrl</a></li>
       <li><a href="nyxx/EmbedBuilder/timestamp.html">timestamp</a></li>
       <li><a href="nyxx/EmbedBuilder/title.html">title</a></li>
       <li><a href="nyxx/EmbedBuilder/type.html">type</a></li>
       <li><a href="nyxx/EmbedBuilder/url.html">url</a></li>
-      <li><a href="nyxx/EmbedBuilder/videoUrl.html">videoUrl</a></li>
       <li class="inherited"><a href="nyxx/Builder/hashCode.html">hashCode</a></li>
       <li class="inherited"><a href="nyxx/Builder/runtimeType.html">runtimeType</a></li>
     
       <li class="section-title"><a href="nyxx/EmbedBuilder-class.html#instance-methods">Methods</a></li>
+      <li><a href="nyxx/EmbedBuilder/addAuthor.html">addAuthor</a></li>
       <li><a href="nyxx/EmbedBuilder/addField.html">addField</a></li>
-      <li><a href="nyxx/EmbedBuilder/addFieldBuilder.html">addFieldBuilder</a></li>
+      <li><a href="nyxx/EmbedBuilder/addFooter.html">addFooter</a></li>
       <li class="inherited"><a href="nyxx/Builder/noSuchMethod.html">noSuchMethod</a></li>
       <li class="inherited"><a href="nyxx/Builder/toString.html">toString</a></li>
     
@@ -80,7 +79,8 @@
     <section class="multi-line-signature">
       <span class="returntype">void</span>
       <span class="name ">addField</span>
-(<wbr>{<span class="parameter" id="addField-param-name"><span class="type-annotation">String</span> <span class="parameter-name">name</span>, </span> <span class="parameter" id="addField-param-content"><span class="type-annotation">String</span> <span class="parameter-name">content</span>, </span> <span class="parameter" id="addField-param-inline"><span class="type-annotation">bool</span> <span class="parameter-name">inline</span>: <span class="default-value">false</span></span> })
+(<wbr>{<span class="parameter" id="addField-param-name"><span class="type-annotation">dynamic</span> <span class="parameter-name">name</span>, </span> <span class="parameter" id="addField-param-content"><span class="type-annotation">dynamic</span> <span class="parameter-name">content</span>, </span> <span class="parameter" id="addField-param-inline"><span class="type-annotation">bool</span> <span class="parameter-name">inline</span>: <span class="default-value">false</span>, </span> <span class="parameter" id="addField-param-builder"><span class="type-annotation">dynamic</span> <span class="parameter-name">builder</span>(<span class="parameter" id="builder-param-field"><span class="type-annotation"><a href="nyxx/EmbedFieldBuilder-class.html">EmbedFieldBuilder</a></span> <span class="parameter-name">field</span></span>), </span> <span class="parameter" id="addField-param-field"><span class="type-annotation"><a href="nyxx/EmbedFieldBuilder-class.html">EmbedFieldBuilder</a></span> <span class="parameter-name">field</span></span> })
+      
     </section>
     <section class="desc markdown">
       <p>Adds field to embed. <code>name</code> and <code>content</code> fields are required. Inline is set to false by default.</p>
@@ -88,7 +88,19 @@
     
     <section class="summary source-code" id="source">
       <h2><span>Implementation</span> </h2>
-      <pre class="language-dart"><code class="language-dart">void addField({String name, String content, bool inline = false}) {
+      <pre class="language-dart"><code class="language-dart">void addField({dynamic name, dynamic content, bool inline = false, Function(EmbedFieldBuilder field) builder, EmbedFieldBuilder field}) {
+  if(field != null) {
+    _fields.add(field._build());
+    return;
+  }
+
+  if(builder != null) {
+    var tmp = EmbedFieldBuilder();
+    builder(tmp);
+    _fields.add(tmp._build());
+    return;
+  }
+
   _fields.add(EmbedFieldBuilder(name, content, inline)._build());
 }</code></pre>
     </section>

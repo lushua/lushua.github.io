@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="API docs for the reply method from the Message class, for the Dart programming language.">
+  <title>reply method - Message class - nyxx library - Dart API</title>
+  <!-- required because all the links are pseudo-absolute -->
+  <base href="../..">
+
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500,400i,400,300|Source+Sans+Pro:400,300,700" rel="stylesheet">
+  <link rel="stylesheet" href="static-assets/github.css">
+  <link rel="stylesheet" href="static-assets/styles.css">
+  <link rel="icon" href="static-assets/favicon.png">
+
+</head>
+
+<body>
+
+<div id="overlay-under-drawer"></div>
+
+<header id="title">
+  <button id="sidenav-left-toggle" type="button">&nbsp;</button>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="index.html">nyxx</a></li>
+    <li><a href="nyxx/nyxx-library.html">nyxx</a></li>
+    <li><a href="nyxx/Message-class.html">Message</a></li>
+    <li class="self-crumb">reply method</li>
+  </ol>
+  <div class="self-name">reply</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<main>
+
+  <div class="col-xs-6 col-sm-3 col-md-2 sidebar sidebar-offcanvas-left">
+    <h5>Message class</h5>
+    <ol>
+    
+      <li class="section-title">
+        <a href="nyxx/Message-class.html#instance-properties">Properties</a>
+      </li>
+      <li><a href="nyxx/Message/attachments.html">attachments</a></li>
+      <li><a href="nyxx/Message/author.html">author</a></li>
+      <li><a href="nyxx/Message/channel.html">channel</a></li>
+      <li><a href="nyxx/Message/content.html">content</a></li>
+      <li><a href="nyxx/Message/editedTimestamp.html">editedTimestamp</a></li>
+      <li><a href="nyxx/Message/embeds.html">embeds</a></li>
+      <li><a href="nyxx/Message/guild.html">guild</a></li>
+      <li><a href="nyxx/Message/mentionEveryone.html">mentionEveryone</a></li>
+      <li><a href="nyxx/Message/mentions.html">mentions</a></li>
+      <li><a href="nyxx/Message/onReactionAdded.html">onReactionAdded</a></li>
+      <li><a href="nyxx/Message/onReactionRemove.html">onReactionRemove</a></li>
+      <li><a href="nyxx/Message/onReactionsRemoved.html">onReactionsRemoved</a></li>
+      <li><a href="nyxx/Message/pinned.html">pinned</a></li>
+      <li><a href="nyxx/Message/reactions.html">reactions</a></li>
+      <li><a href="nyxx/Message/roleMentions.html">roleMentions</a></li>
+      <li><a href="nyxx/Message/tts.html">tts</a></li>
+      <li><a href="nyxx/Message/url.html">url</a></li>
+      <li class="inherited"><a href="nyxx/SnowflakeEntity/createdAt.html">createdAt</a></li>
+      <li class="inherited"><a href="nyxx/SnowflakeEntity/hashCode.html">hashCode</a></li>
+      <li class="inherited"><a href="nyxx/SnowflakeEntity/id.html">id</a></li>
+      <li class="inherited"><a href="nyxx/Disposable/runtimeType.html">runtimeType</a></li>
+    
+      <li class="section-title"><a href="nyxx/Message-class.html#instance-methods">Methods</a></li>
+      <li><a href="nyxx/Message/createReaction.html">createReaction</a></li>
+      <li><a href="nyxx/Message/delete.html">delete</a></li>
+      <li><a href="nyxx/Message/deleteAllReactions.html">deleteAllReactions</a></li>
+      <li><a href="nyxx/Message/deleteReaction.html">deleteReaction</a></li>
+      <li><a href="nyxx/Message/deleteUserReaction.html">deleteUserReaction</a></li>
+      <li><a href="nyxx/Message/dispose.html">dispose</a></li>
+      <li><a href="nyxx/Message/edit.html">edit</a></li>
+      <li><a href="nyxx/Message/pinMessage.html">pinMessage</a></li>
+      <li><a href="nyxx/Message/reply.html">reply</a></li>
+      <li><a href="nyxx/Message/toString.html">toString</a></li>
+      <li><a href="nyxx/Message/unpinMessage.html">unpinMessage</a></li>
+      <li class="inherited"><a href="nyxx/Disposable/noSuchMethod.html">noSuchMethod</a></li>
+    
+      <li class="section-title inherited"><a href="nyxx/Message-class.html#operators">Operators</a></li>
+      <li class="inherited"><a href="nyxx/SnowflakeEntity/operator_equals.html">operator ==</a></li>
+    
+    
+    
+    </ol>
+  </div><!--/.sidebar-offcanvas-->
+
+  <div class="col-xs-12 col-sm-9 col-md-8 main-content">
+    <h1>reply method</h1>
+
+    <section class="multi-line-signature">
+      <span class="returntype">Future<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/Message-class.html">Message</a></span>&gt;</span></span>
+      <span class="name ">reply</span>
+(<wbr>{<span class="parameter" id="reply-param-content"><span class="type-annotation">Object</span> <span class="parameter-name">content</span>: <span class="default-value">""</span>, </span> <span class="parameter" id="reply-param-files"><span class="type-annotation">List<span class="signature">&lt;<wbr><span class="type-parameter">File</span>&gt;</span></span> <span class="parameter-name">files</span>, </span> <span class="parameter" id="reply-param-embed"><span class="type-annotation"><a href="nyxx/EmbedBuilder-class.html">EmbedBuilder</a></span> <span class="parameter-name">embed</span>, </span> <span class="parameter" id="reply-param-tts"><span class="type-annotation">bool</span> <span class="parameter-name">tts</span>: <span class="default-value">false</span>, </span> <span class="parameter" id="reply-param-disableEveryone"><span class="type-annotation">bool</span> <span class="parameter-name">disableEveryone</span>, </span> <span class="parameter" id="reply-param-mention"><span class="type-annotation">bool</span> <span class="parameter-name">mention</span>: <span class="default-value">true</span></span> })
+      
+    </section>
+    <section class="desc markdown">
+      <p>Replies to message. By default it mentions user who sends message.</p>
+    </section>
+    
+    <section class="summary source-code" id="source">
+      <h2><span>Implementation</span> </h2>
+      <pre class="language-dart"><code class="language-dart">Future&lt;Message&gt; reply({Object content = &quot;&quot;,
+    List&lt;File&gt; files,
+    EmbedBuilder embed,
+    bool tts = false,
+    bool disableEveryone,
+    bool mention = true}) async =&gt; this.channel.send(
+    content: &quot;${mention ? this.author.mention : &quot;&quot;} $content&quot;, files: files,
+embed: embed, tts: tts, disableEveryone: disableEveryone);</code></pre>
+    </section>
+
+  </div> <!-- /.main-content -->
+
+  <div class="col-xs-6 col-sm-6 col-md-2 sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+
+</main>
+
+<footer>
+  <span class="no-break">
+    nyxx 1.0.0
+  </span>
+
+</footer>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="static-assets/typeahead.bundle.min.js"></script>
+<script src="static-assets/highlight.pack.js"></script>
+<script src="static-assets/URI.js"></script>
+<script src="static-assets/script.js"></script>
+
+
+</body>
+
+</html>

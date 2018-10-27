@@ -45,16 +45,16 @@
       </li>
       <li><a href="nyxx/GuildEmoji/animated.html">animated</a></li>
       <li><a href="nyxx/GuildEmoji/cdnUrl.html">cdnUrl</a></li>
-      <li><a href="nyxx/GuildEmoji/client.html">client</a></li>
+      <li><a href="nyxx/GuildEmoji/createdAt.html">createdAt</a></li>
       <li><a href="nyxx/GuildEmoji/guild.html">guild</a></li>
       <li><a href="nyxx/GuildEmoji/hashCode.html">hashCode</a></li>
       <li><a href="nyxx/GuildEmoji/id.html">id</a></li>
       <li><a href="nyxx/GuildEmoji/managed.html">managed</a></li>
-      <li><a href="nyxx/GuildEmoji/raw.html">raw</a></li>
+      <li><a href="nyxx/GuildEmoji/nameString.html">nameString</a></li>
       <li><a href="nyxx/GuildEmoji/requireColons.html">requireColons</a></li>
       <li><a href="nyxx/GuildEmoji/roles.html">roles</a></li>
       <li class="inherited"><a href="nyxx/Emoji/name.html">name</a></li>
-      <li class="inherited"><a href="nyxx/Emoji/runtimeType.html">runtimeType</a></li>
+      <li class="inherited"><a href="nyxx/Nameable/runtimeType.html">runtimeType</a></li>
     
       <li class="section-title"><a href="nyxx/GuildEmoji-class.html#instance-methods">Methods</a></li>
       <li><a href="nyxx/GuildEmoji/delete.html">delete</a></li>
@@ -62,7 +62,7 @@
       <li><a href="nyxx/GuildEmoji/encode.html">encode</a></li>
       <li><a href="nyxx/GuildEmoji/format.html">format</a></li>
       <li><a href="nyxx/GuildEmoji/toString.html">toString</a></li>
-      <li class="inherited"><a href="nyxx/Emoji/noSuchMethod.html">noSuchMethod</a></li>
+      <li class="inherited"><a href="nyxx/Nameable/noSuchMethod.html">noSuchMethod</a></li>
     
       <li class="section-title"><a href="nyxx/GuildEmoji-class.html#operators">Operators</a></li>
       <li><a href="nyxx/GuildEmoji/operator_equals.html">operator ==</a></li>
@@ -84,6 +84,27 @@
       <span class="returntype">bool</span>
       <span class="name ">operator ==</span>
 (<wbr><span class="parameter" id="==-param-other"><span class="type-annotation">dynamic</span> <span class="parameter-name">other</span></span>)
+      <div class="features">override</div>
+    </section>
+    <section class="desc markdown">
+      <p>The equality operator.</p>
+<p>The default behavior for all <code>Object</code>s is to return true if and
+only if <code>this</code> and <code>other</code> are the same object.</p>
+<p>Override this method to specify a different equality relation on
+a class. The overriding method must still be an equivalence relation.
+That is, it must be:</p><ul><li>
+<p>Total: It must return a boolean for all arguments. It should never throw
+or return <code>null</code>.</p></li><li>
+<p>Reflexive: For all objects <code>o</code>, <code>o == o</code> must be true.</p></li><li>
+<p>Symmetric: For all objects <code>o1</code> and <code>o2</code>, <code>o1 == o2</code> and <code>o2 == o1</code> must
+either both be true, or both be false.</p></li><li>
+<p>Transitive: For all objects <code>o1</code>, <code>o2</code>, and <code>o3</code>, if <code>o1 == o2</code> and
+<code>o2 == o3</code> are true, then <code>o1 == o3</code> must be true.</p></li></ul>
+<p>The method should also be consistent over time,
+so whether two objects are equal should only change
+if at least one of the objects was modified.</p>
+<p>If a subclass overrides the equality operator it should override
+the <a href="nyxx/GuildEmoji/hashCode.html">hashCode</a> method as well to maintain consistency.</p>
     </section>
     
     <section class="summary source-code" id="source">

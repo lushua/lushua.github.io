@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="API docs for the fromUsers method from the MessageCache class, for the Dart programming language.">
+  <title>fromUsers method - MessageCache class - nyxx library - Dart API</title>
+  <!-- required because all the links are pseudo-absolute -->
+  <base href="../..">
+
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500,400i,400,300|Source+Sans+Pro:400,300,700" rel="stylesheet">
+  <link rel="stylesheet" href="static-assets/github.css">
+  <link rel="stylesheet" href="static-assets/styles.css">
+  <link rel="icon" href="static-assets/favicon.png">
+
+</head>
+
+<body>
+
+<div id="overlay-under-drawer"></div>
+
+<header id="title">
+  <button id="sidenav-left-toggle" type="button">&nbsp;</button>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="index.html">nyxx</a></li>
+    <li><a href="nyxx/nyxx-library.html">nyxx</a></li>
+    <li><a href="nyxx/MessageCache-class.html">MessageCache</a></li>
+    <li class="self-crumb">fromUsers method</li>
+  </ol>
+  <div class="self-name">fromUsers</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<main>
+
+  <div class="col-xs-6 col-sm-3 col-md-2 sidebar sidebar-offcanvas-left">
+    <h5>MessageCache class</h5>
+    <ol>
+    
+      <li class="section-title">
+        <a href="nyxx/MessageCache-class.html#instance-properties">Properties</a>
+      </li>
+      <li><a href="nyxx/MessageCache/byBot.html">byBot</a></li>
+      <li><a href="nyxx/MessageCache/first.html">first</a></li>
+      <li><a href="nyxx/MessageCache/last.html">last</a></li>
+      <li class="inherited"><a href="nyxx/Cache/asMap.html">asMap</a></li>
+      <li class="inherited"><a href="nyxx/Cache/count.html">count</a></li>
+      <li class="inherited"><a href="nyxx/Disposable/hashCode.html">hashCode</a></li>
+      <li class="inherited"><a href="nyxx/Cache/keys.html">keys</a></li>
+      <li class="inherited"><a href="nyxx/Disposable/runtimeType.html">runtimeType</a></li>
+      <li class="inherited"><a href="nyxx/Cache/values.html">values</a></li>
+    
+      <li class="section-title"><a href="nyxx/MessageCache-class.html#instance-methods">Methods</a></li>
+      <li><a href="nyxx/MessageCache/afterDate.html">afterDate</a></li>
+      <li><a href="nyxx/MessageCache/beforeDate.html">beforeDate</a></li>
+      <li><a href="nyxx/MessageCache/fromUser.html">fromUser</a></li>
+      <li><a href="nyxx/MessageCache/fromUsers.html">fromUsers</a></li>
+      <li><a href="nyxx/MessageCache/put.html">put</a></li>
+      <li><a href="nyxx/MessageCache/take.html">take</a></li>
+      <li><a href="nyxx/MessageCache/takeLast.html">takeLast</a></li>
+      <li class="inherited"><a href="nyxx/Cache/add.html">add</a></li>
+      <li class="inherited"><a href="nyxx/Cache/addIfAbsent.html">addIfAbsent</a></li>
+      <li class="inherited"><a href="nyxx/Cache/addMany.html">addMany</a></li>
+      <li class="inherited"><a href="nyxx/Cache/addMap.html">addMap</a></li>
+      <li class="inherited"><a href="nyxx/Cache/dispose.html">dispose</a></li>
+      <li class="inherited"><a href="nyxx/Cache/find.html">find</a></li>
+      <li class="inherited"><a href="nyxx/Cache/findOne.html">findOne</a></li>
+      <li class="inherited"><a href="nyxx/Cache/forEach.html">forEach</a></li>
+      <li class="inherited"><a href="nyxx/Cache/hasKey.html">hasKey</a></li>
+      <li class="inherited"><a href="nyxx/Cache/hasValue.html">hasValue</a></li>
+      <li class="inherited"><a href="nyxx/Cache/invalidate.html">invalidate</a></li>
+      <li class="inherited"><a href="nyxx/Disposable/noSuchMethod.html">noSuchMethod</a></li>
+      <li class="inherited"><a href="nyxx/Cache/remove.html">remove</a></li>
+      <li class="inherited"><a href="nyxx/Cache/removeWhere.html">removeWhere</a></li>
+      <li class="inherited"><a href="nyxx/Disposable/toString.html">toString</a></li>
+      <li class="inherited"><a href="nyxx/Cache/whereType.html">whereType</a></li>
+    
+      <li class="section-title"><a href="nyxx/MessageCache-class.html#operators">Operators</a></li>
+      <li><a href="nyxx/MessageCache/operator_put.html">operator []=</a></li>
+      <li class="inherited"><a href="nyxx/Disposable/operator_equals.html">operator ==</a></li>
+      <li class="inherited"><a href="nyxx/Cache/operator_get.html">operator []</a></li>
+    
+    
+    
+    </ol>
+  </div><!--/.sidebar-offcanvas-->
+
+  <div class="col-xs-12 col-sm-9 col-md-8 main-content">
+    <h1>fromUsers method</h1>
+
+    <section class="multi-line-signature">
+      <span class="returntype">Iterable<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/Message-class.html">Message</a></span>&gt;</span></span>
+      <span class="name ">fromUsers</span>
+(<wbr><span class="parameter" id="fromUsers-param-users"><span class="type-annotation">Iterable<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/User-class.html">User</a></span>&gt;</span></span> <span class="parameter-name">users</span></span>)
+      
+    </section>
+    <section class="desc markdown">
+      <p>Returns messages which were sent by <code>users</code></p>
+    </section>
+    
+    <section class="summary source-code" id="source">
+      <h2><span>Implementation</span> </h2>
+      <pre class="language-dart"><code class="language-dart">Iterable&lt;Message&gt; fromUsers(Iterable&lt;User&gt; users) =&gt; values.where((m) =&gt; users.contains(m.author));</code></pre>
+    </section>
+
+  </div> <!-- /.main-content -->
+
+  <div class="col-xs-6 col-sm-6 col-md-2 sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+
+</main>
+
+<footer>
+  <span class="no-break">
+    nyxx 1.0.0
+  </span>
+
+</footer>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="static-assets/typeahead.bundle.min.js"></script>
+<script src="static-assets/highlight.pack.js"></script>
+<script src="static-assets/URI.js"></script>
+<script src="static-assets/script.js"></script>
+
+
+</body>
+
+</html>

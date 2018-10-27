@@ -41,34 +41,32 @@
       <li class="section-title"><a href="nyxx.commands/nyxx.commands-library.html#classes">Classes</a></li>
       <li><a href="nyxx.commands/Command-class.html">Command</a></li>
       <li><a href="nyxx.commands/CommandContext-class.html">CommandContext</a></li>
-      <li><a href="nyxx.commands/CommandExecutionFailEvent-class.html">CommandExecutionFailEvent</a></li>
-      <li><a href="nyxx.commands/CommandParsingFail-class.html">CommandParsingFail</a></li>
+      <li><a href="nyxx.commands/CommandExecutionError-class.html">CommandExecutionError</a></li>
       <li><a href="nyxx.commands/CommandsFramework-class.html">CommandsFramework</a></li>
       <li><a href="nyxx.commands/CooldownCache-class.html">CooldownCache</a></li>
-      <li><a href="nyxx.commands/Help-class.html">Help</a></li>
       <li><a href="nyxx.commands/Module-class.html">Module</a></li>
-      <li><a href="nyxx.commands/Pagination-class.html">Pagination</a></li>
       <li><a href="nyxx.commands/Postprocessor-class.html">Postprocessor</a></li>
       <li><a href="nyxx.commands/Preprocessor-class.html">Preprocessor</a></li>
-      <li><a href="nyxx.commands/PreprocessorErrorEvent-class.html">PreprocessorErrorEvent</a></li>
+      <li><a href="nyxx.commands/PreprocessorResult-class.html">PreprocessorResult</a></li>
       <li><a href="nyxx.commands/Remainder-class.html">Remainder</a></li>
       <li><a href="nyxx.commands/Restrict-class.html">Restrict</a></li>
-      <li><a href="nyxx.commands/Scheduler-class.html">Scheduler</a></li>
       <li><a href="nyxx.commands/Service-class.html">Service</a></li>
       <li><a href="nyxx.commands/TypeConverter-class.html">TypeConverter</a></li>
     
     
     
-      <li class="section-title"><a href="nyxx.commands/nyxx.commands-library.html#functions">Functions</a></li>
-      <li><a href="nyxx.commands/createPoll.html">createPoll</a></li>
     
+    
+      <li class="section-title"><a href="nyxx.commands/nyxx.commands-library.html#enums">Enums</a></li>
+      <li><a href="nyxx.commands/ContextType-class.html">ContextType</a></li>
+      <li><a href="nyxx.commands/ExecutionErrorType-class.html">ExecutionErrorType</a></li>
     
     
     </ol>
   </div>
 
   <div class="col-xs-12 col-sm-9 col-md-8 main-content">
-    <h1>CooldownCache class</h1>
+      <h1>CooldownCache class </h1>
 
     <section class="desc markdown">
       <p>Handles caching of cooldown</p>
@@ -94,7 +92,7 @@
       <dl class="properties">
         <dt id="hashCode" class="property inherited">
           <span class="name"><a href="nyxx.commands/CooldownCache/hashCode.html">hashCode</a></span>
-          <span class="signature">&#8594; int</span>
+          <span class="signature">&#8594; int</span> 
         </dt>
         <dd class="inherited">
           The hash code for this object. <a href="nyxx.commands/CooldownCache/hashCode.html">[...]</a>
@@ -102,7 +100,7 @@
 </dd>
         <dt id="runtimeType" class="property inherited">
           <span class="name"><a href="nyxx.commands/CooldownCache/runtimeType.html">runtimeType</a></span>
-          <span class="signature">&#8594; Type</span>
+          <span class="signature">&#8594; Type</span> 
         </dt>
         <dd class="inherited">
           A representation of the runtime type of the object.
@@ -118,7 +116,7 @@
           <span class="name"><a href="nyxx.commands/CooldownCache/canExecute.html">canExecute</a></span><span class="signature">(<wbr><span class="parameter" id="canExecute-param-userId"><span class="type-annotation"><a href="nyxx/Snowflake-class.html">Snowflake</a></span> <span class="parameter-name">userId</span>, </span> <span class="parameter" id="canExecute-param-commandName"><span class="type-annotation">String</span> <span class="parameter-name">commandName</span>, </span> <span class="parameter" id="canExecute-param-desiredCooldown"><span class="type-annotation">int</span> <span class="parameter-name">desiredCooldown</span></span>)
             <span class="returntype parameter">&#8594; Future<span class="signature">&lt;<wbr><span class="type-parameter">bool</span>&gt;</span></span>
           </span>
-        </dt>
+          </dt>
         <dd>
           Checks if user can execute given command at given time
           
@@ -127,7 +125,7 @@
           <span class="name"><a href="nyxx.commands/CooldownCache/noSuchMethod.html">noSuchMethod</a></span><span class="signature">(<wbr><span class="parameter" id="noSuchMethod-param-invocation"><span class="type-annotation">Invocation</span> <span class="parameter-name">invocation</span></span>)
             <span class="returntype parameter">&#8594; dynamic</span>
           </span>
-        </dt>
+          </dt>
         <dd class="inherited">
           Invoked when a non-existent method or property is accessed. <a href="nyxx.commands/CooldownCache/noSuchMethod.html">[...]</a>
           <div class="features">inherited</div>
@@ -136,7 +134,7 @@
           <span class="name"><a href="nyxx.commands/CooldownCache/toString.html">toString</a></span><span class="signature">(<wbr>)
             <span class="returntype parameter">&#8594; String</span>
           </span>
-        </dt>
+          </dt>
         <dd class="inherited">
           Returns a string representation of this object.
           <div class="features">inherited</div>
@@ -151,7 +149,7 @@
           <span class="name"><a href="nyxx.commands/CooldownCache/operator_equals.html">operator ==</a></span><span class="signature">(<wbr><span class="parameter" id="==-param-other"><span class="type-annotation">dynamic</span> <span class="parameter-name">other</span></span>)
             <span class="returntype parameter">&#8594; bool</span>
           </span>
-        </dt>
+          </dt>
         <dd class="inherited">
           The equality operator. <a href="nyxx.commands/CooldownCache/operator_equals.html">[...]</a>
           <div class="features">inherited</div>

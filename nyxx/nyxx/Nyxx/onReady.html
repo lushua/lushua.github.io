@@ -49,14 +49,13 @@
       <li><a href="nyxx/Nyxx/beforeHttpRequestSend.html">beforeHttpRequestSend</a></li>
       <li><a href="nyxx/Nyxx/channels.html">channels</a></li>
       <li><a href="nyxx/Nyxx/guilds.html">guilds</a></li>
-      <li><a href="nyxx/Nyxx/http.html">http</a></li>
       <li><a href="nyxx/Nyxx/inviteLink.html">inviteLink</a></li>
-      <li><a href="nyxx/Nyxx/logger.html">logger</a></li>
       <li><a href="nyxx/Nyxx/onChannelCreate.html">onChannelCreate</a></li>
       <li><a href="nyxx/Nyxx/onChannelDelete.html">onChannelDelete</a></li>
       <li><a href="nyxx/Nyxx/onChannelPinsUpdate.html">onChannelPinsUpdate</a></li>
       <li><a href="nyxx/Nyxx/onChannelUpdate.html">onChannelUpdate</a></li>
       <li><a href="nyxx/Nyxx/onDisconnect.html">onDisconnect</a></li>
+      <li><a href="nyxx/Nyxx/onDmReceived.html">onDmReceived</a></li>
       <li><a href="nyxx/Nyxx/onGuildBanAdd.html">onGuildBanAdd</a></li>
       <li><a href="nyxx/Nyxx/onGuildBanRemove.html">onGuildBanRemove</a></li>
       <li><a href="nyxx/Nyxx/onGuildCreate.html">onGuildCreate</a></li>
@@ -75,6 +74,7 @@
       <li><a href="nyxx/Nyxx/onMessageReactionAdded.html">onMessageReactionAdded</a></li>
       <li><a href="nyxx/Nyxx/onMessageReactionRemove.html">onMessageReactionRemove</a></li>
       <li><a href="nyxx/Nyxx/onMessageReactionsRemoved.html">onMessageReactionsRemoved</a></li>
+      <li><a href="nyxx/Nyxx/onMessageReceived.html">onMessageReceived</a></li>
       <li><a href="nyxx/Nyxx/onMessageUpdate.html">onMessageUpdate</a></li>
       <li><a href="nyxx/Nyxx/onPresenceUpdate.html">onPresenceUpdate</a></li>
       <li><a href="nyxx/Nyxx/onRatelimited.html">onRatelimited</a></li>
@@ -83,31 +83,37 @@
       <li><a href="nyxx/Nyxx/onRoleCreate.html">onRoleCreate</a></li>
       <li><a href="nyxx/Nyxx/onRoleDelete.html">onRoleDelete</a></li>
       <li><a href="nyxx/Nyxx/onRoleUpdate.html">onRoleUpdate</a></li>
+      <li><a href="nyxx/Nyxx/onSelfMention.html">onSelfMention</a></li>
       <li><a href="nyxx/Nyxx/onTyping.html">onTyping</a></li>
+      <li><a href="nyxx/Nyxx/onUserUpdate.html">onUserUpdate</a></li>
       <li><a href="nyxx/Nyxx/onVoiceServerUpdate.html">onVoiceServerUpdate</a></li>
       <li><a href="nyxx/Nyxx/onVoiceStateUpdate.html">onVoiceStateUpdate</a></li>
       <li><a href="nyxx/Nyxx/onWebhookUpdate.html">onWebhookUpdate</a></li>
       <li><a href="nyxx/Nyxx/ready.html">ready</a></li>
       <li><a href="nyxx/Nyxx/self.html">self</a></li>
       <li><a href="nyxx/Nyxx/shards.html">shards</a></li>
+      <li><a href="nyxx/Nyxx/startTime.html">startTime</a></li>
       <li><a href="nyxx/Nyxx/uptime.html">uptime</a></li>
       <li><a href="nyxx/Nyxx/users.html">users</a></li>
       <li><a href="nyxx/Nyxx/version.html">version</a></li>
-      <li class="inherited"><a href="nyxx/Nyxx/hashCode.html">hashCode</a></li>
-      <li class="inherited"><a href="nyxx/Nyxx/runtimeType.html">runtimeType</a></li>
+      <li class="inherited"><a href="nyxx/Disposable/hashCode.html">hashCode</a></li>
+      <li class="inherited"><a href="nyxx/Disposable/runtimeType.html">runtimeType</a></li>
     
       <li class="section-title"><a href="nyxx/Nyxx-class.html#instance-methods">Methods</a></li>
-      <li><a href="nyxx/Nyxx/blockToReady.html">blockToReady</a></li>
+      <li><a class="deprecated" href="nyxx/Nyxx/blockToReady.html">blockToReady</a></li>
+      <li><a href="nyxx/Nyxx/close.html">close</a></li>
       <li><a href="nyxx/Nyxx/createGuild.html">createGuild</a></li>
+      <li><a href="nyxx/Nyxx/dispose.html">dispose</a></li>
+      <li><a href="nyxx/Nyxx/getChannel.html">getChannel</a></li>
       <li><a href="nyxx/Nyxx/getGuild.html">getGuild</a></li>
       <li><a href="nyxx/Nyxx/getInvite.html">getInvite</a></li>
       <li><a href="nyxx/Nyxx/getUser.html">getUser</a></li>
       <li><a href="nyxx/Nyxx/getWebhook.html">getWebhook</a></li>
-      <li class="inherited"><a href="nyxx/Nyxx/noSuchMethod.html">noSuchMethod</a></li>
-      <li class="inherited"><a href="nyxx/Nyxx/toString.html">toString</a></li>
+      <li class="inherited"><a href="nyxx/Disposable/noSuchMethod.html">noSuchMethod</a></li>
+      <li class="inherited"><a href="nyxx/Disposable/toString.html">toString</a></li>
     
       <li class="section-title inherited"><a href="nyxx/Nyxx-class.html#operators">Operators</a></li>
-      <li class="inherited"><a href="nyxx/Nyxx/operator_equals.html">operator ==</a></li>
+      <li class="inherited"><a href="nyxx/Disposable/operator_equals.html">operator ==</a></li>
     
     
     
@@ -123,7 +129,7 @@
           <div class="features">read / write</div>
         </section>
         <section class="desc markdown">
-          <p>Emitted when the client is ready.</p>
+          <p>Emitted when the client is ready. Should be sent only once.</p>
         </section>
                 <section class="summary source-code" id="source">
           <h2><span>Implementation</span> </h2>

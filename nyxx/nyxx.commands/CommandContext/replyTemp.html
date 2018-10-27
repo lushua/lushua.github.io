@@ -47,7 +47,6 @@
       </li>
       <li><a href="nyxx.commands/CommandContext/author.html">author</a></li>
       <li><a href="nyxx.commands/CommandContext/channel.html">channel</a></li>
-      <li><a href="nyxx.commands/CommandContext/client.html">client</a></li>
       <li><a href="nyxx.commands/CommandContext/guild.html">guild</a></li>
       <li><a href="nyxx.commands/CommandContext/message.html">message</a></li>
       <li class="inherited"><a href="nyxx.commands/CommandContext/hashCode.html">hashCode</a></li>
@@ -79,13 +78,14 @@
     <section class="multi-line-signature">
       <span class="returntype">Future<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/Message-class.html">Message</a></span>&gt;</span></span>
       <span class="name ">replyTemp</span>
-(<wbr><span class="parameter" id="replyTemp-param-duration"><span class="type-annotation">Duration</span> <span class="parameter-name">duration</span>, {</span> <span class="parameter" id="replyTemp-param-content"><span class="type-annotation">Object</span> <span class="parameter-name">content</span>, </span> <span class="parameter" id="replyTemp-param-embed"><span class="type-annotation"><a href="nyxx/EmbedBuilder-class.html">EmbedBuilder</a></span> <span class="parameter-name">embed</span>, </span> <span class="parameter" id="replyTemp-param-tts"><span class="type-annotation">bool</span> <span class="parameter-name">tts</span>: <span class="default-value">false</span>, </span> <span class="parameter" id="replyTemp-param-disableEveryone"><span class="type-annotation">bool</span> <span class="parameter-name">disableEveryone</span></span> })
+(<wbr><span class="parameter" id="replyTemp-param-duration"><span class="type-annotation">Duration</span> <span class="parameter-name">duration</span>, {</span> <span class="parameter" id="replyTemp-param-content"><span class="type-annotation">Object</span> <span class="parameter-name">content</span>, </span> <span class="parameter" id="replyTemp-param-files"><span class="type-annotation">List<span class="signature">&lt;<wbr><span class="type-parameter">File</span>&gt;</span></span> <span class="parameter-name">files</span>, </span> <span class="parameter" id="replyTemp-param-embed"><span class="type-annotation"><a href="nyxx/EmbedBuilder-class.html">EmbedBuilder</a></span> <span class="parameter-name">embed</span>, </span> <span class="parameter" id="replyTemp-param-tts"><span class="type-annotation">bool</span> <span class="parameter-name">tts</span>: <span class="default-value">false</span>, </span> <span class="parameter" id="replyTemp-param-disableEveryone"><span class="type-annotation">bool</span> <span class="parameter-name">disableEveryone</span></span> })
+      
     </section>
     <section class="desc markdown">
-      <p>Reply to messages, then delete it <code>duration</code> expieres.</p>
+      <p>Reply to messages, then delete it when <code>duration</code> expires.</p>
 <pre class="language-dart"><code>@Command()
 Future&lt;void&gt; getAv(User user) async {
-  await replyTemp(content: uset.avatarURL());
+  await replyTemp(content: user.avatarURL());
 }
 </code></pre>
     </section>
@@ -94,16 +94,18 @@ Future&lt;void&gt; getAv(User user) async {
       <h2><span>Implementation</span> </h2>
       <pre class="language-dart"><code class="language-dart">Future&lt;Message&gt; replyTemp(Duration duration,
     {Object content,
+    List&lt;File&gt; files,
     EmbedBuilder embed,
     bool tts = false,
     bool disableEveryone}) async {
   var msg = await channel.send(
       content: content,
       embed: embed,
+      files: files,
       tts: tts,
       disableEveryone: disableEveryone);
 
-  Timer(duration, () async =&gt; await msg.delete());
+  Timer(duration, () =&gt; msg.delete());
   return msg;
 }</code></pre>
     </section>

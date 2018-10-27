@@ -45,28 +45,15 @@
       <li class="section-title">
         <a href="nyxx.commands/CommandsFramework-class.html#instance-properties">Properties</a>
       </li>
-      <li><a href="nyxx.commands/CommandsFramework/admins.html">admins</a></li>
-      <li><a href="nyxx.commands/CommandsFramework/game.html">game</a></li>
-      <li><a href="nyxx.commands/CommandsFramework/helpDirect.html">helpDirect</a></li>
-      <li><a href="nyxx.commands/CommandsFramework/ignoreBots.html">ignoreBots</a></li>
-      <li><a href="nyxx.commands/CommandsFramework/logger.html">logger</a></li>
-      <li><a href="nyxx.commands/CommandsFramework/onAdminOnlyError.html">onAdminOnlyError</a></li>
-      <li><a href="nyxx.commands/CommandsFramework/onCommandExecutionFail.html">onCommandExecutionFail</a></li>
-      <li><a href="nyxx.commands/CommandsFramework/onCommandNotFound.html">onCommandNotFound</a></li>
-      <li><a href="nyxx.commands/CommandsFramework/onCooldown.html">onCooldown</a></li>
-      <li><a href="nyxx.commands/CommandsFramework/onRequiredPermissionError.html">onRequiredPermissionError</a></li>
-      <li><a href="nyxx.commands/CommandsFramework/onRequiredTopicError.html">onRequiredTopicError</a></li>
-      <li><a href="nyxx.commands/CommandsFramework/onUnauthorizedNsfwAccess.html">onUnauthorizedNsfwAccess</a></li>
-      <li><a href="nyxx.commands/CommandsFramework/onWrongContext.html">onWrongContext</a></li>
+      <li><a href="nyxx.commands/CommandsFramework/onError.html">onError</a></li>
       <li><a href="nyxx.commands/CommandsFramework/prefix.html">prefix</a></li>
-      <li><a href="nyxx.commands/CommandsFramework/preprocessorFail.html">preprocessorFail</a></li>
       <li class="inherited"><a href="nyxx.commands/CommandsFramework/hashCode.html">hashCode</a></li>
       <li class="inherited"><a href="nyxx.commands/CommandsFramework/runtimeType.html">runtimeType</a></li>
     
       <li class="section-title"><a href="nyxx.commands/CommandsFramework-class.html#instance-methods">Methods</a></li>
       <li><a href="nyxx.commands/CommandsFramework/checkPermissions.html">checkPermissions</a></li>
-      <li><a href="nyxx.commands/CommandsFramework/registerLibraryCommands.html">registerLibraryCommands</a></li>
-      <li><a href="nyxx.commands/CommandsFramework/registerLibraryServices.html">registerLibraryServices</a></li>
+      <li><a href="nyxx.commands/CommandsFramework/discoverCommands.html">discoverCommands</a></li>
+      <li><a href="nyxx.commands/CommandsFramework/discoverServices.html">discoverServices</a></li>
       <li><a href="nyxx.commands/CommandsFramework/registerServices.html">registerServices</a></li>
       <li><a href="nyxx.commands/CommandsFramework/registerTypeConverters.html">registerTypeConverters</a></li>
       <li class="inherited"><a href="nyxx.commands/CommandsFramework/noSuchMethod.html">noSuchMethod</a></li>
@@ -87,6 +74,7 @@
       <span class="returntype">dynamic</span>
       <span class="name ">noSuchMethod</span>
 (<wbr><span class="parameter" id="noSuchMethod-param-invocation"><span class="type-annotation">Invocation</span> <span class="parameter-name">invocation</span></span>)
+      <div class="features">inherited</div>
     </section>
     <section class="desc markdown">
       <p>Invoked when a non-existent method or property is accessed.</p>
@@ -97,7 +85,8 @@
     
     <section class="summary source-code" id="source">
       <h2><span>Implementation</span> </h2>
-      <pre class="language-dart"><code class="language-dart">external dynamic noSuchMethod(Invocation invocation);</code></pre>
+      <pre class="language-dart"><code class="language-dart">@pragma(&quot;vm:entry-point&quot;)
+external dynamic noSuchMethod(Invocation invocation);</code></pre>
     </section>
 
   </div> <!-- /.main-content -->

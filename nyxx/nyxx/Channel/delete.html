@@ -43,18 +43,17 @@
       <li class="section-title">
         <a href="nyxx/Channel-class.html#instance-properties">Properties</a>
       </li>
-      <li><a href="nyxx/Channel/client.html">client</a></li>
-      <li><a href="nyxx/Channel/raw.html">raw</a></li>
       <li><a href="nyxx/Channel/type.html">type</a></li>
       <li class="inherited"><a href="nyxx/SnowflakeEntity/createdAt.html">createdAt</a></li>
       <li class="inherited"><a href="nyxx/SnowflakeEntity/hashCode.html">hashCode</a></li>
       <li class="inherited"><a href="nyxx/SnowflakeEntity/id.html">id</a></li>
-      <li class="inherited"><a href="nyxx/SnowflakeEntity/runtimeType.html">runtimeType</a></li>
+      <li class="inherited"><a href="nyxx/Nameable/nameString.html">nameString</a></li>
+      <li class="inherited"><a href="nyxx/Nameable/runtimeType.html">runtimeType</a></li>
     
       <li class="section-title"><a href="nyxx/Channel-class.html#instance-methods">Methods</a></li>
       <li><a href="nyxx/Channel/delete.html">delete</a></li>
-      <li class="inherited"><a href="nyxx/SnowflakeEntity/noSuchMethod.html">noSuchMethod</a></li>
-      <li class="inherited"><a href="nyxx/SnowflakeEntity/toString.html">toString</a></li>
+      <li><a href="nyxx/Channel/toString.html">toString</a></li>
+      <li class="inherited"><a href="nyxx/Nameable/noSuchMethod.html">noSuchMethod</a></li>
     
       <li class="section-title inherited"><a href="nyxx/Channel-class.html#operators">Operators</a></li>
       <li class="inherited"><a href="nyxx/SnowflakeEntity/operator_equals.html">operator ==</a></li>
@@ -71,6 +70,7 @@
       <span class="returntype">Future<span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
       <span class="name ">delete</span>
 (<wbr>{<span class="parameter" id="delete-param-auditReason"><span class="type-annotation">String</span> <span class="parameter-name">auditReason</span>: <span class="default-value">""</span></span> })
+      
     </section>
     <section class="desc markdown">
       <p>Deletes the channel.
@@ -80,9 +80,7 @@ Throws if bot cannot perform operation</p>
     <section class="summary source-code" id="source">
       <h2><span>Implementation</span> </h2>
       <pre class="language-dart"><code class="language-dart">Future&lt;void&gt; delete({String auditReason = &quot;&quot;}) async {
-  await this
-      .client
-      .http
+  await _client._http
       .send(&#39;DELETE&#39;, &quot;&#47;channels&#47;${this.id}&quot;, reason: auditReason);
 }</code></pre>
     </section>

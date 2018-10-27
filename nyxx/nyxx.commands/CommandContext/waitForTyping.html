@@ -47,7 +47,6 @@
       </li>
       <li><a href="nyxx.commands/CommandContext/author.html">author</a></li>
       <li><a href="nyxx.commands/CommandContext/channel.html">channel</a></li>
-      <li><a href="nyxx.commands/CommandContext/client.html">client</a></li>
       <li><a href="nyxx.commands/CommandContext/guild.html">guild</a></li>
       <li><a href="nyxx.commands/CommandContext/message.html">message</a></li>
       <li class="inherited"><a href="nyxx.commands/CommandContext/hashCode.html">hashCode</a></li>
@@ -80,6 +79,7 @@
       <span class="returntype">Future<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/TypingEvent-class.html">TypingEvent</a></span>&gt;</span></span>
       <span class="name ">waitForTyping</span>
 (<wbr>{<span class="parameter" id="waitForTyping-param-user"><span class="type-annotation"><a href="nyxx/User-class.html">User</a></span> <span class="parameter-name">user</span>, </span> <span class="parameter" id="waitForTyping-param-timeout"><span class="type-annotation">Duration</span> <span class="parameter-name">timeout</span>: <span class="default-value">const Duration(seconds: 30)</span>, </span> <span class="parameter" id="waitForTyping-param-everywhere"><span class="type-annotation">bool</span> <span class="parameter-name">everywhere</span>: <span class="default-value">false</span></span> })
+      
     </section>
     <section class="desc markdown">
       <p>Waits for first <a href="nyxx/TypingEvent-class.html">TypingEvent</a> and returns it. If timed out returns null.
@@ -95,9 +95,9 @@ Can listen to specific user by specifying <code>user</code></p>
   return Future(() {
     if (everywhere) {
       if (user != null)
-        return channel.client.onTyping.firstWhere((e) =&gt; e.user == user);
+        return client.onTyping.firstWhere((e) =&gt; e.user == user);
 
-      return channel.client.onTyping.first;
+      return client.onTyping.first;
     } else {
       if (user != null)
         return channel.onTyping.firstWhere((e) =&gt; e.user == user);

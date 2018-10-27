@@ -76,18 +76,19 @@
     <h1>compareDates method</h1>
 
     <section class="multi-line-signature">
-      <span class="returntype">bool</span>
+      <span class="returntype">int</span>
       <span class="name ">compareDates</span>
 (<wbr><span class="parameter" id="compareDates-param-first"><span class="type-annotation"><a href="nyxx/Snowflake-class.html">Snowflake</a></span> <span class="parameter-name">first</span>, </span> <span class="parameter" id="compareDates-param-second"><span class="type-annotation"><a href="nyxx/Snowflake-class.html">Snowflake</a></span> <span class="parameter-name">second</span></span>)
+      
     </section>
     <section class="desc markdown">
-      <p>Returns true if <code>first</code> Snowflake was created is before <code>second</code>.</p>
+      <p>Compares two Snowflakes based on creation date</p>
     </section>
     
     <section class="summary source-code" id="source">
       <h2><span>Implementation</span> </h2>
-      <pre class="language-dart"><code class="language-dart">static bool compareDates(Snowflake first, Snowflake second) =&gt;
-    first.timestamp.compareTo(second._timestamp) == -1;</code></pre>
+      <pre class="language-dart"><code class="language-dart">static int compareDates(Snowflake first, Snowflake second) =&gt;
+    first.timestamp.compareTo(second.timestamp);</code></pre>
     </section>
 
   </div> <!-- /.main-content -->

@@ -41,39 +41,36 @@
       <li class="section-title"><a href="nyxx.commands/nyxx.commands-library.html#classes">Classes</a></li>
       <li><a href="nyxx.commands/Command-class.html">Command</a></li>
       <li><a href="nyxx.commands/CommandContext-class.html">CommandContext</a></li>
-      <li><a href="nyxx.commands/CommandExecutionFailEvent-class.html">CommandExecutionFailEvent</a></li>
-      <li><a href="nyxx.commands/CommandParsingFail-class.html">CommandParsingFail</a></li>
+      <li><a href="nyxx.commands/CommandExecutionError-class.html">CommandExecutionError</a></li>
       <li><a href="nyxx.commands/CommandsFramework-class.html">CommandsFramework</a></li>
       <li><a href="nyxx.commands/CooldownCache-class.html">CooldownCache</a></li>
-      <li><a href="nyxx.commands/Help-class.html">Help</a></li>
       <li><a href="nyxx.commands/Module-class.html">Module</a></li>
-      <li><a href="nyxx.commands/Pagination-class.html">Pagination</a></li>
       <li><a href="nyxx.commands/Postprocessor-class.html">Postprocessor</a></li>
       <li><a href="nyxx.commands/Preprocessor-class.html">Preprocessor</a></li>
-      <li><a href="nyxx.commands/PreprocessorErrorEvent-class.html">PreprocessorErrorEvent</a></li>
+      <li><a href="nyxx.commands/PreprocessorResult-class.html">PreprocessorResult</a></li>
       <li><a href="nyxx.commands/Remainder-class.html">Remainder</a></li>
       <li><a href="nyxx.commands/Restrict-class.html">Restrict</a></li>
-      <li><a href="nyxx.commands/Scheduler-class.html">Scheduler</a></li>
       <li><a href="nyxx.commands/Service-class.html">Service</a></li>
       <li><a href="nyxx.commands/TypeConverter-class.html">TypeConverter</a></li>
     
     
     
-      <li class="section-title"><a href="nyxx.commands/nyxx.commands-library.html#functions">Functions</a></li>
-      <li><a href="nyxx.commands/createPoll.html">createPoll</a></li>
     
+    
+      <li class="section-title"><a href="nyxx.commands/nyxx.commands-library.html#enums">Enums</a></li>
+      <li><a href="nyxx.commands/ContextType-class.html">ContextType</a></li>
+      <li><a href="nyxx.commands/ExecutionErrorType-class.html">ExecutionErrorType</a></li>
     
     
     </ol>
   </div>
 
   <div class="col-xs-12 col-sm-9 col-md-8 main-content">
-    <h1>CommandsFramework class</h1>
+      <h1>CommandsFramework class </h1>
 
     <section class="desc markdown">
       <p>Main point of commands in nyx.
-It gets all sent messages and matches to registered command and invokes
-its action.</p>
+It gets all sent messages and matches to registered command and invokes its action.</p>
     </section>
     
 
@@ -82,7 +79,7 @@ its action.</p>
 
       <dl class="constructor-summary-list">
         <dt id="CommandsFramework" class="callable">
-          <span class="name"><a href="nyxx.commands/CommandsFramework/CommandsFramework.html">CommandsFramework</a></span><span class="signature">(<span class="parameter" id="-param-prefix"><span class="type-annotation">String</span> <span class="parameter-name">prefix</span>, </span> <span class="parameter" id="-param-_client"><span class="type-annotation"><a href="nyxx/Nyxx-class.html">Nyxx</a></span> <span class="parameter-name">_client</span>, {</span> <span class="parameter" id="-param-roundupTime"><span class="type-annotation">Duration</span> <span class="parameter-name">roundupTime</span>: <span class="default-value">const Duration(minutes: 2)</span></span> })</span>
+          <span class="name"><a href="nyxx.commands/CommandsFramework/CommandsFramework.html">CommandsFramework</a></span><span class="signature">(<span class="parameter" id="-param-prefix"><span class="type-annotation">String</span> <span class="parameter-name">prefix</span>, {</span> <span class="parameter" id="-param-roundupTime"><span class="type-annotation">Duration</span> <span class="parameter-name">roundupTime</span>: <span class="default-value">const Duration(minutes: 2)</span>, </span> <span class="parameter" id="-param-ignoreBots"><span class="type-annotation">bool</span> <span class="parameter-name">ignoreBots</span>: <span class="default-value">true</span>, </span> <span class="parameter" id="-param-admins"><span class="type-annotation">List<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/Snowflake-class.html">Snowflake</a></span>&gt;</span></span> <span class="parameter-name">admins</span></span> })</span>
         </dt>
         <dd>
           Creates commands framework handler. Requires prefix to handle commands.
@@ -94,131 +91,26 @@ its action.</p>
       <h2>Properties</h2>
 
       <dl class="properties">
-        <dt id="admins" class="property">
-          <span class="name"><a href="nyxx.commands/CommandsFramework/admins.html">admins</a></span>
-          <span class="signature">&#8596; List<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/Snowflake-class.html">Snowflake</a></span>&gt;</span></span>
+        <dt id="onError" class="property">
+          <span class="name"><a href="nyxx.commands/CommandsFramework/onError.html">onError</a></span>
+          <span class="signature">&#8596; Stream<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx.commands/CommandExecutionError-class.html">CommandExecutionError</a></span>&gt;</span></span> 
         </dt>
         <dd>
-          Specifies list of admins which can access commands annotated as admin
-          <div class="features">read / write</div>
-</dd>
-        <dt id="game" class="property">
-          <span class="name"><a href="nyxx.commands/CommandsFramework/game.html">game</a></span>
-          <span class="signature">&#8592; <span class="parameter" id="game=-param-game"><span class="type-annotation"><a href="nyxx/Presence-class.html">Presence</a></span></span></span>
-        </dt>
-        <dd>
-          Sets default bots game
-          <div class="features">write-only</div>
-</dd>
-        <dt id="helpDirect" class="property">
-          <span class="name"><a href="nyxx.commands/CommandsFramework/helpDirect.html">helpDirect</a></span>
-          <span class="signature">&#8596; bool</span>
-        </dt>
-        <dd>
-          Indicates if bots help message is sent to user via PM. True by default.
-          <div class="features">read / write</div>
-</dd>
-        <dt id="ignoreBots" class="property">
-          <span class="name"><a href="nyxx.commands/CommandsFramework/ignoreBots.html">ignoreBots</a></span>
-          <span class="signature">&#8596; bool</span>
-        </dt>
-        <dd>
-          Indicator if you want to ignore all bot messages, even if messages is current command. True by default.
-          <div class="features">read / write</div>
-</dd>
-        <dt id="logger" class="property">
-          <span class="name"><a href="nyxx.commands/CommandsFramework/logger.html">logger</a></span>
-          <span class="signature">&#8594; Logger</span>
-        </dt>
-        <dd>
-          Emitted when command fails to parse. Eg. Wrong arguments
-Logger instance
-          <div class="features">final</div>
-</dd>
-        <dt id="onAdminOnlyError" class="property">
-          <span class="name"><a href="nyxx.commands/CommandsFramework/onAdminOnlyError.html">onAdminOnlyError</a></span>
-          <span class="signature">&#8596; Stream<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/Message-class.html">Message</a></span>&gt;</span></span>
-        </dt>
-        <dd>
-          Invoked when non-admin user uses admin-only command.
-          <div class="features">read / write</div>
-</dd>
-        <dt id="onCommandExecutionFail" class="property">
-          <span class="name"><a href="nyxx.commands/CommandsFramework/onCommandExecutionFail.html">onCommandExecutionFail</a></span>
-          <span class="signature">&#8596; Stream<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx.commands/CommandExecutionFailEvent-class.html">CommandExecutionFailEvent</a></span>&gt;</span></span>
-        </dt>
-        <dd>
-          Emitted when command execution fails
-          <div class="features">read / write</div>
-</dd>
-        <dt id="onCommandNotFound" class="property">
-          <span class="name"><a href="nyxx.commands/CommandsFramework/onCommandNotFound.html">onCommandNotFound</a></span>
-          <span class="signature">&#8596; Stream<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/Message-class.html">Message</a></span>&gt;</span></span>
-        </dt>
-        <dd>
-          Fires when invoked command dont exists in registry
-          <div class="features">read / write</div>
-</dd>
-        <dt id="onCooldown" class="property">
-          <span class="name"><a href="nyxx.commands/CommandsFramework/onCooldown.html">onCooldown</a></span>
-          <span class="signature">&#8596; Stream<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/Message-class.html">Message</a></span>&gt;</span></span>
-        </dt>
-        <dd>
-          Invoked when user hits command ratelimit.
-          <div class="features">read / write</div>
-</dd>
-        <dt id="onRequiredPermissionError" class="property">
-          <span class="name"><a href="nyxx.commands/CommandsFramework/onRequiredPermissionError.html">onRequiredPermissionError</a></span>
-          <span class="signature">&#8596; Stream<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/Message-class.html">Message</a></span>&gt;</span></span>
-        </dt>
-        <dd>
-          Invoked when user didn't have enough permissions.
-          <div class="features">read / write</div>
-</dd>
-        <dt id="onRequiredTopicError" class="property">
-          <span class="name"><a href="nyxx.commands/CommandsFramework/onRequiredTopicError.html">onRequiredTopicError</a></span>
-          <span class="signature">&#8596; Stream<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/Message-class.html">Message</a></span>&gt;</span></span>
-        </dt>
-        <dd>
-          Emitted when command is invoked in channel without required topic
-          <div class="features">read / write</div>
-</dd>
-        <dt id="onUnauthorizedNsfwAccess" class="property">
-          <span class="name"><a href="nyxx.commands/CommandsFramework/onUnauthorizedNsfwAccess.html">onUnauthorizedNsfwAccess</a></span>
-          <span class="signature">&#8596; Stream<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/Message-class.html">Message</a></span>&gt;</span></span>
-        </dt>
-        <dd>
-          Emitted  when nsfw command is invoked in non nsfw context;
-          <div class="features">read / write</div>
-</dd>
-        <dt id="onWrongContext" class="property">
-          <span class="name"><a href="nyxx.commands/CommandsFramework/onWrongContext.html">onWrongContext</a></span>
-          <span class="signature">&#8596; Stream<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/Message-class.html">Message</a></span>&gt;</span></span>
-        </dt>
-        <dd>
-          Emitted when command is only for DM and is invoked on Guild etc
+          
           <div class="features">read / write</div>
 </dd>
         <dt id="prefix" class="property">
           <span class="name"><a href="nyxx.commands/CommandsFramework/prefix.html">prefix</a></span>
-          <span class="signature">&#8596; String</span>
+          <span class="signature">&#8596; String</span> 
         </dt>
         <dd>
           Prefix needed to dispatch a commands.
 All messages without this prefix will be ignored
           <div class="features">read / write</div>
 </dd>
-        <dt id="preprocessorFail" class="property">
-          <span class="name"><a href="nyxx.commands/CommandsFramework/preprocessorFail.html">preprocessorFail</a></span>
-          <span class="signature">&#8596; Stream<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx.commands/PreprocessorErrorEvent-class.html">PreprocessorErrorEvent</a></span>&gt;</span></span>
-        </dt>
-        <dd>
-          Emitted when dispatch function fails when checking preprocessors
-          <div class="features">read / write</div>
-</dd>
         <dt id="hashCode" class="property inherited">
           <span class="name"><a href="nyxx.commands/CommandsFramework/hashCode.html">hashCode</a></span>
-          <span class="signature">&#8594; int</span>
+          <span class="signature">&#8594; int</span> 
         </dt>
         <dd class="inherited">
           The hash code for this object. <a href="nyxx.commands/CommandsFramework/hashCode.html">[...]</a>
@@ -226,7 +118,7 @@ All messages without this prefix will be ignored
 </dd>
         <dt id="runtimeType" class="property inherited">
           <span class="name"><a href="nyxx.commands/CommandsFramework/runtimeType.html">runtimeType</a></span>
-          <span class="signature">&#8594; Type</span>
+          <span class="signature">&#8594; Type</span> 
         </dt>
         <dd class="inherited">
           A representation of the runtime type of the object.
@@ -242,26 +134,26 @@ All messages without this prefix will be ignored
           <span class="name"><a href="nyxx.commands/CommandsFramework/checkPermissions.html">checkPermissions</a></span><span class="signature">(<wbr><span class="parameter" id="checkPermissions-param-meta"><span class="type-annotation">_CommandMetadata</span> <span class="parameter-name">meta</span>, </span> <span class="parameter" id="checkPermissions-param-e"><span class="type-annotation"><a href="nyxx/Message-class.html">Message</a></span> <span class="parameter-name">e</span></span>)
             <span class="returntype parameter">&#8594; Future<span class="signature">&lt;<wbr><span class="type-parameter">int</span>&gt;</span></span>
           </span>
-        </dt>
+          </dt>
         <dd>
           
           
 </dd>
-        <dt id="registerLibraryCommands" class="callable">
-          <span class="name"><a href="nyxx.commands/CommandsFramework/registerLibraryCommands.html">registerLibraryCommands</a></span><span class="signature">(<wbr>)
+        <dt id="discoverCommands" class="callable">
+          <span class="name"><a href="nyxx.commands/CommandsFramework/discoverCommands.html">discoverCommands</a></span><span class="signature">(<wbr>)
             <span class="returntype parameter">&#8594; void</span>
           </span>
-        </dt>
+          </dt>
         <dd>
-          Register commands in current Isolate's libraries. Basically loads all classes as commnads with <a href="nyxx.commands/CommandContext-class.html">CommandContext</a> superclass.
+          Register commands in current Isolate's libraries. Basically loads all classes as commands with <a href="nyxx.commands/CommandContext-class.html">CommandContext</a> superclass.
 Performs dependency injection when instantiate commands. And throws <code>Exception</code> when there are missing services
           
 </dd>
-        <dt id="registerLibraryServices" class="callable">
-          <span class="name"><a href="nyxx.commands/CommandsFramework/registerLibraryServices.html">registerLibraryServices</a></span><span class="signature">(<wbr>)
+        <dt id="discoverServices" class="callable">
+          <span class="name"><a href="nyxx.commands/CommandsFramework/discoverServices.html">discoverServices</a></span><span class="signature">(<wbr>)
             <span class="returntype parameter">&#8594; void</span>
           </span>
-        </dt>
+          </dt>
         <dd>
           Register all services in current isolate. It captures all classes which inherits from <a href="nyxx.commands/Service-class.html">Service</a> class and performs dependency injection if possible.
           
@@ -270,7 +162,7 @@ Performs dependency injection when instantiate commands. And throws <code>Except
           <span class="name"><a href="nyxx.commands/CommandsFramework/registerServices.html">registerServices</a></span><span class="signature">(<wbr><span class="parameter" id="registerServices-param-services"><span class="type-annotation">List<span class="signature">&lt;<wbr><span class="type-parameter">Object</span>&gt;</span></span> <span class="parameter-name">services</span></span>)
             <span class="returntype parameter">&#8594; void</span>
           </span>
-        </dt>
+          </dt>
         <dd>
           Register services to injected into commands modules. Has to be executed before registering commands.
 There cannot be more than 1 dependency with single type. Only first will be injected.
@@ -280,7 +172,7 @@ There cannot be more than 1 dependency with single type. Only first will be inje
           <span class="name"><a href="nyxx.commands/CommandsFramework/registerTypeConverters.html">registerTypeConverters</a></span><span class="signature">(<wbr><span class="parameter" id="registerTypeConverters-param-converters"><span class="type-annotation">List<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx.commands/TypeConverter-class.html">TypeConverter</a></span>&gt;</span></span> <span class="parameter-name">converters</span></span>)
             <span class="returntype parameter">&#8594; void</span>
           </span>
-        </dt>
+          </dt>
         <dd>
           Allows to register new converters for custom type
           
@@ -289,7 +181,7 @@ There cannot be more than 1 dependency with single type. Only first will be inje
           <span class="name"><a href="nyxx.commands/CommandsFramework/noSuchMethod.html">noSuchMethod</a></span><span class="signature">(<wbr><span class="parameter" id="noSuchMethod-param-invocation"><span class="type-annotation">Invocation</span> <span class="parameter-name">invocation</span></span>)
             <span class="returntype parameter">&#8594; dynamic</span>
           </span>
-        </dt>
+          </dt>
         <dd class="inherited">
           Invoked when a non-existent method or property is accessed. <a href="nyxx.commands/CommandsFramework/noSuchMethod.html">[...]</a>
           <div class="features">inherited</div>
@@ -298,7 +190,7 @@ There cannot be more than 1 dependency with single type. Only first will be inje
           <span class="name"><a href="nyxx.commands/CommandsFramework/toString.html">toString</a></span><span class="signature">(<wbr>)
             <span class="returntype parameter">&#8594; String</span>
           </span>
-        </dt>
+          </dt>
         <dd class="inherited">
           Returns a string representation of this object.
           <div class="features">inherited</div>
@@ -313,7 +205,7 @@ There cannot be more than 1 dependency with single type. Only first will be inje
           <span class="name"><a href="nyxx.commands/CommandsFramework/operator_equals.html">operator ==</a></span><span class="signature">(<wbr><span class="parameter" id="==-param-other"><span class="type-annotation">dynamic</span> <span class="parameter-name">other</span></span>)
             <span class="returntype parameter">&#8594; bool</span>
           </span>
-        </dt>
+          </dt>
         <dd class="inherited">
           The equality operator. <a href="nyxx.commands/CommandsFramework/operator_equals.html">[...]</a>
           <div class="features">inherited</div>
@@ -334,28 +226,15 @@ There cannot be more than 1 dependency with single type. Only first will be inje
       <li class="section-title">
         <a href="nyxx.commands/CommandsFramework-class.html#instance-properties">Properties</a>
       </li>
-      <li><a href="nyxx.commands/CommandsFramework/admins.html">admins</a></li>
-      <li><a href="nyxx.commands/CommandsFramework/game.html">game</a></li>
-      <li><a href="nyxx.commands/CommandsFramework/helpDirect.html">helpDirect</a></li>
-      <li><a href="nyxx.commands/CommandsFramework/ignoreBots.html">ignoreBots</a></li>
-      <li><a href="nyxx.commands/CommandsFramework/logger.html">logger</a></li>
-      <li><a href="nyxx.commands/CommandsFramework/onAdminOnlyError.html">onAdminOnlyError</a></li>
-      <li><a href="nyxx.commands/CommandsFramework/onCommandExecutionFail.html">onCommandExecutionFail</a></li>
-      <li><a href="nyxx.commands/CommandsFramework/onCommandNotFound.html">onCommandNotFound</a></li>
-      <li><a href="nyxx.commands/CommandsFramework/onCooldown.html">onCooldown</a></li>
-      <li><a href="nyxx.commands/CommandsFramework/onRequiredPermissionError.html">onRequiredPermissionError</a></li>
-      <li><a href="nyxx.commands/CommandsFramework/onRequiredTopicError.html">onRequiredTopicError</a></li>
-      <li><a href="nyxx.commands/CommandsFramework/onUnauthorizedNsfwAccess.html">onUnauthorizedNsfwAccess</a></li>
-      <li><a href="nyxx.commands/CommandsFramework/onWrongContext.html">onWrongContext</a></li>
+      <li><a href="nyxx.commands/CommandsFramework/onError.html">onError</a></li>
       <li><a href="nyxx.commands/CommandsFramework/prefix.html">prefix</a></li>
-      <li><a href="nyxx.commands/CommandsFramework/preprocessorFail.html">preprocessorFail</a></li>
       <li class="inherited"><a href="nyxx.commands/CommandsFramework/hashCode.html">hashCode</a></li>
       <li class="inherited"><a href="nyxx.commands/CommandsFramework/runtimeType.html">runtimeType</a></li>
     
       <li class="section-title"><a href="nyxx.commands/CommandsFramework-class.html#instance-methods">Methods</a></li>
       <li><a href="nyxx.commands/CommandsFramework/checkPermissions.html">checkPermissions</a></li>
-      <li><a href="nyxx.commands/CommandsFramework/registerLibraryCommands.html">registerLibraryCommands</a></li>
-      <li><a href="nyxx.commands/CommandsFramework/registerLibraryServices.html">registerLibraryServices</a></li>
+      <li><a href="nyxx.commands/CommandsFramework/discoverCommands.html">discoverCommands</a></li>
+      <li><a href="nyxx.commands/CommandsFramework/discoverServices.html">discoverServices</a></li>
       <li><a href="nyxx.commands/CommandsFramework/registerServices.html">registerServices</a></li>
       <li><a href="nyxx.commands/CommandsFramework/registerTypeConverters.html">registerTypeConverters</a></li>
       <li class="inherited"><a href="nyxx.commands/CommandsFramework/noSuchMethod.html">noSuchMethod</a></li>

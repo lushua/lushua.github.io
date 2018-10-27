@@ -46,12 +46,12 @@
         <a href="nyxx/ClientOptions-class.html#instance-properties">Properties</a>
       </li>
       <li><a href="nyxx/ClientOptions/autoShard.html">autoShard</a></li>
+      <li><a href="nyxx/ClientOptions/cacheMembers.html">cacheMembers</a></li>
       <li><a href="nyxx/ClientOptions/disableEveryone.html">disableEveryone</a></li>
       <li><a href="nyxx/ClientOptions/forceFetchMembers.html">forceFetchMembers</a></li>
-      <li><a href="nyxx/ClientOptions/ignoreUncachedEvents.html">ignoreUncachedEvents</a></li>
+      <li><a href="nyxx/ClientOptions/largeThreshold.html">largeThreshold</a></li>
       <li><a href="nyxx/ClientOptions/messageCacheSize.html">messageCacheSize</a></li>
       <li><a href="nyxx/ClientOptions/shardCount.html">shardCount</a></li>
-      <li><a href="nyxx/ClientOptions/shardIds.html">shardIds</a></li>
       <li class="inherited"><a href="nyxx/ClientOptions/hashCode.html">hashCode</a></li>
       <li class="inherited"><a href="nyxx/ClientOptions/runtimeType.html">runtimeType</a></li>
     
@@ -72,7 +72,7 @@
 
     <section class="multi-line-signature">
       
-      <span class="name ">ClientOptions</span>(<wbr>{<span class="parameter" id="-param-disableEveryone"><span class="type-annotation">bool</span> <span class="parameter-name">disableEveryone</span>: <span class="default-value">false</span>, </span> <span class="parameter" id="-param-autoShard"><span class="type-annotation">bool</span> <span class="parameter-name">autoShard</span>: <span class="default-value">true</span>, </span> <span class="parameter" id="-param-shardIds"><span class="type-annotation">List<span class="signature">&lt;<wbr><span class="type-parameter">int</span>&gt;</span></span> <span class="parameter-name">shardIds</span>: <span class="default-value">const [0]</span>, </span> <span class="parameter" id="-param-shardCount"><span class="type-annotation">int</span> <span class="parameter-name">shardCount</span>: <span class="default-value">1</span>, </span> <span class="parameter" id="-param-messageCacheSize"><span class="type-annotation">int</span> <span class="parameter-name">messageCacheSize</span>: <span class="default-value">200</span>, </span> <span class="parameter" id="-param-ignoreUncachedEvents"><span class="type-annotation">bool</span> <span class="parameter-name">ignoreUncachedEvents</span>: <span class="default-value">true</span>, </span> <span class="parameter" id="-param-forceFetchMembers"><span class="type-annotation">bool</span> <span class="parameter-name">forceFetchMembers</span>: <span class="default-value">false</span></span> })
+      <span class="name ">ClientOptions</span>(<wbr>{<span class="parameter" id="-param-disableEveryone"><span class="type-annotation">bool</span> <span class="parameter-name">disableEveryone</span>: <span class="default-value">false</span>, </span> <span class="parameter" id="-param-autoShard"><span class="type-annotation">bool</span> <span class="parameter-name">autoShard</span>: <span class="default-value">false</span>, </span> <span class="parameter" id="-param-shardCount"><span class="type-annotation">int</span> <span class="parameter-name">shardCount</span>: <span class="default-value">1</span>, </span> <span class="parameter" id="-param-messageCacheSize"><span class="type-annotation">int</span> <span class="parameter-name">messageCacheSize</span>: <span class="default-value">400</span>, </span> <span class="parameter" id="-param-forceFetchMembers"><span class="type-annotation">bool</span> <span class="parameter-name">forceFetchMembers</span>: <span class="default-value">false</span>, </span> <span class="parameter" id="-param-cacheMembers"><span class="type-annotation">bool</span> <span class="parameter-name">cacheMembers</span>: <span class="default-value">true</span>, </span> <span class="parameter" id="-param-largeThreshold"><span class="type-annotation">int</span> <span class="parameter-name">largeThreshold</span>: <span class="default-value">50</span></span> })
     </section>
 
     <section class="desc markdown">
@@ -83,12 +83,17 @@
       <h2><span>Implementation</span> </h2>
       <pre class="language-dart"><code class="language-dart">ClientOptions(
     {this.disableEveryone = false,
-    this.autoShard = true,
-    this.shardIds = const [0],
+    this.autoShard = false,
     this.shardCount = 1,
-    this.messageCacheSize = 200,
-    this.ignoreUncachedEvents = true,
-    this.forceFetchMembers = false});</code></pre>
+    this.messageCacheSize = 400,
+    this.forceFetchMembers = false,
+    this.cacheMembers = true,
+    this.largeThreshold = 50}) {
+  if(!autoShard &amp;&amp; shardCount &gt; 1)
+    this._shardIds = Iterable.generate(shardCount, (i) =&gt; i).toList();
+  else
+    this._shardIds = const [0];
+}</code></pre>
     </section>
 
   </div> <!-- /.main-content -->

@@ -46,9 +46,9 @@
       <li><a href="nyxx/MessageChannel/iterator.html">iterator</a></li>
       <li><a href="nyxx/MessageChannel/lastMessageID.html">lastMessageID</a></li>
       <li><a href="nyxx/MessageChannel/messages.html">messages</a></li>
+      <li><a href="nyxx/MessageChannel/nameString.html">nameString</a></li>
       <li><a href="nyxx/MessageChannel/onMessage.html">onMessage</a></li>
       <li><a href="nyxx/MessageChannel/onTyping.html">onTyping</a></li>
-      <li class="inherited"><a href="nyxx/Channel/client.html">client</a></li>
       <li class="inherited"><a href="nyxx/SnowflakeEntity/createdAt.html">createdAt</a></li>
       <li class="inherited"><a href="nyxx/MessageChannel/first.html">first</a></li>
       <li class="inherited"><a href="nyxx/SnowflakeEntity/hashCode.html">hashCode</a></li>
@@ -57,13 +57,13 @@
       <li class="inherited"><a href="nyxx/MessageChannel/isNotEmpty.html">isNotEmpty</a></li>
       <li class="inherited"><a href="nyxx/MessageChannel/last.html">last</a></li>
       <li class="inherited"><a href="nyxx/MessageChannel/length.html">length</a></li>
-      <li class="inherited"><a href="nyxx/Channel/raw.html">raw</a></li>
       <li class="inherited"><a href="nyxx/SnowflakeEntity/runtimeType.html">runtimeType</a></li>
       <li class="inherited"><a href="nyxx/MessageChannel/single.html">single</a></li>
       <li class="inherited"><a href="nyxx/Channel/type.html">type</a></li>
     
       <li class="section-title"><a href="nyxx/MessageChannel-class.html#instance-methods">Methods</a></li>
       <li><a href="nyxx/MessageChannel/bulkRemoveMessages.html">bulkRemoveMessages</a></li>
+      <li><a href="nyxx/MessageChannel/dispose.html">dispose</a></li>
       <li><a href="nyxx/MessageChannel/getMessage.html">getMessage</a></li>
       <li><a href="nyxx/MessageChannel/getMessages.html">getMessages</a></li>
       <li><a href="nyxx/MessageChannel/send.html">send</a></li>
@@ -111,7 +111,8 @@
     <section class="multi-line-signature">
       <span class="returntype">Future<span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
       <span class="name ">bulkRemoveMessages</span>
-(<wbr><span class="parameter" id="bulkRemoveMessages-param-messagesIds"><span class="type-annotation">Iterable<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/Snowflake-class.html">Snowflake</a></span>&gt;</span></span> <span class="parameter-name">messagesIds</span></span>)
+(<wbr><span class="parameter" id="bulkRemoveMessages-param-messagesIds"><span class="type-annotation">Iterable<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/Message-class.html">Message</a></span>&gt;</span></span> <span class="parameter-name">messagesIds</span></span>)
+      
     </section>
     <section class="desc markdown">
       <p>Bulk removes many messages by its ids. <code>messagesIds</code> is list of messages ids to delete.</p>
@@ -122,11 +123,11 @@ await chan.bulkRemoveMessages(toDelete);
     
     <section class="summary source-code" id="source">
       <h2><span>Implementation</span> </h2>
-      <pre class="language-dart"><code class="language-dart">Future&lt;void&gt; bulkRemoveMessages(Iterable&lt;Snowflake&gt; messagesIds) async {
+      <pre class="language-dart"><code class="language-dart">Future&lt;void&gt; bulkRemoveMessages(Iterable&lt;Message&gt; messagesIds) async {
   utils.chunk(messagesIds.toList(), 90).listen((data) async {
-    await this.client.http.send(
+    await _client._http.send(
         &#39;POST&#39;, &quot;&#47;channels&#47;${id.toString()}&#47;messages&#47;bulk-delete&quot;,
-        body: {&quot;messages&quot;: data});
+        body: {&quot;messages&quot;: data.map((f) =&gt; f.id.toString()).toList()});
   });
 }</code></pre>
     </section>

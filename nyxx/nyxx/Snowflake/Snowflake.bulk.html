@@ -87,8 +87,7 @@
     <section class="summary source-code" id="source">
       <h2><span>Implementation</span> </h2>
       <pre class="language-dart"><code class="language-dart">Snowflake.bulk() {
-  this._timestamp = DateTime.now().subtract(Duration(days: 14));
-  this._id = _parseId(_timestamp);
+  this._id = _parseId(DateTime.now().subtract(Duration(days: 14)));
 }</code></pre>
     </section>
 

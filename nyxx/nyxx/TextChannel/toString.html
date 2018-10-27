@@ -44,11 +44,11 @@
         <a href="nyxx/TextChannel-class.html#instance-properties">Properties</a>
       </li>
       <li><a href="nyxx/TextChannel/mention.html">mention</a></li>
+      <li><a href="nyxx/TextChannel/nameString.html">nameString</a></li>
       <li><a href="nyxx/TextChannel/pinsUpdated.html">pinsUpdated</a></li>
       <li><a href="nyxx/TextChannel/slowModeThreshold.html">slowModeThreshold</a></li>
       <li><a href="nyxx/TextChannel/topic.html">topic</a></li>
       <li><a href="nyxx/TextChannel/url.html">url</a></li>
-      <li class="inherited"><a href="nyxx/Channel/client.html">client</a></li>
       <li class="inherited"><a href="nyxx/SnowflakeEntity/createdAt.html">createdAt</a></li>
       <li class="inherited"><a href="nyxx/MessageChannel/first.html">first</a></li>
       <li class="inherited"><a href="nyxx/GuildChannel/guild.html">guild</a></li>
@@ -65,20 +65,16 @@
       <li class="inherited"><a href="nyxx/GuildChannel/nsfw.html">nsfw</a></li>
       <li class="inherited"><a href="nyxx/MessageChannel/onMessage.html">onMessage</a></li>
       <li class="inherited"><a href="nyxx/MessageChannel/onTyping.html">onTyping</a></li>
-      <li class="inherited"><a href="nyxx/GuildChannel/onUpdate.html">onUpdate</a></li>
-      <li class="inherited"><a href="nyxx/GuildChannel/parentId.html">parentId</a></li>
+      <li class="inherited"><a href="nyxx/GuildChannel/parentChannel.html">parentChannel</a></li>
       <li class="inherited"><a href="nyxx/GuildChannel/permissions.html">permissions</a></li>
       <li class="inherited"><a href="nyxx/GuildChannel/position.html">position</a></li>
-      <li class="inherited"><a href="nyxx/Channel/raw.html">raw</a></li>
-      <li class="inherited"><a href="nyxx/SnowflakeEntity/runtimeType.html">runtimeType</a></li>
+      <li class="inherited"><a href="nyxx/IMentionable/runtimeType.html">runtimeType</a></li>
       <li class="inherited"><a href="nyxx/MessageChannel/single.html">single</a></li>
       <li class="inherited"><a href="nyxx/Channel/type.html">type</a></li>
     
       <li class="section-title"><a href="nyxx/TextChannel-class.html#instance-methods">Methods</a></li>
-      <li><a href="nyxx/TextChannel/createInvite.html">createInvite</a></li>
       <li><a href="nyxx/TextChannel/createWebhook.html">createWebhook</a></li>
       <li><a href="nyxx/TextChannel/edit.html">edit</a></li>
-      <li><a href="nyxx/TextChannel/getChannelInvites.html">getChannelInvites</a></li>
       <li><a href="nyxx/TextChannel/getPinnedMessages.html">getPinnedMessages</a></li>
       <li><a href="nyxx/TextChannel/getWebhooks.html">getWebhooks</a></li>
       <li><a href="nyxx/TextChannel/toString.html">toString</a></li>
@@ -86,9 +82,13 @@
       <li class="inherited"><a href="nyxx/MessageChannel/bulkRemoveMessages.html">bulkRemoveMessages</a></li>
       <li class="inherited"><a href="nyxx/MessageChannel/cast.html">cast</a></li>
       <li class="inherited"><a href="nyxx/MessageChannel/contains.html">contains</a></li>
+      <li class="inherited"><a href="nyxx/GuildChannel/createInvite.html">createInvite</a></li>
       <li class="inherited"><a href="nyxx/Channel/delete.html">delete</a></li>
       <li class="inherited"><a href="nyxx/GuildChannel/deleteChannelPermission.html">deleteChannelPermission</a></li>
+      <li class="inherited"><a href="nyxx/MessageChannel/dispose.html">dispose</a></li>
       <li class="inherited"><a href="nyxx/GuildChannel/editChannelPermission.html">editChannelPermission</a></li>
+      <li class="inherited"><a href="nyxx/GuildChannel/effectivePermissionForRole.html">effectivePermissionForRole</a></li>
+      <li class="inherited"><a href="nyxx/GuildChannel/effectivePermissions.html">effectivePermissions</a></li>
       <li class="inherited"><a href="nyxx/MessageChannel/elementAt.html">elementAt</a></li>
       <li class="inherited"><a href="nyxx/MessageChannel/every.html">every</a></li>
       <li class="inherited"><a href="nyxx/MessageChannel/expand.html">expand</a></li>
@@ -96,12 +96,13 @@
       <li class="inherited"><a href="nyxx/MessageChannel/fold.html">fold</a></li>
       <li class="inherited"><a href="nyxx/MessageChannel/followedBy.html">followedBy</a></li>
       <li class="inherited"><a href="nyxx/MessageChannel/forEach.html">forEach</a></li>
+      <li class="inherited"><a href="nyxx/GuildChannel/getChannelInvites.html">getChannelInvites</a></li>
       <li class="inherited"><a href="nyxx/MessageChannel/getMessage.html">getMessage</a></li>
       <li class="inherited"><a href="nyxx/MessageChannel/getMessages.html">getMessages</a></li>
       <li class="inherited"><a href="nyxx/MessageChannel/join.html">join</a></li>
       <li class="inherited"><a href="nyxx/MessageChannel/lastWhere.html">lastWhere</a></li>
       <li class="inherited"><a href="nyxx/MessageChannel/map.html">map</a></li>
-      <li class="inherited"><a href="nyxx/SnowflakeEntity/noSuchMethod.html">noSuchMethod</a></li>
+      <li class="inherited"><a href="nyxx/IMentionable/noSuchMethod.html">noSuchMethod</a></li>
       <li class="inherited"><a href="nyxx/MessageChannel/reduce.html">reduce</a></li>
       <li class="inherited"><a href="nyxx/MessageChannel/send.html">send</a></li>
       <li class="inherited"><a href="nyxx/MessageChannel/singleWhere.html">singleWhere</a></li>
@@ -137,6 +138,7 @@
       <span class="returntype">String</span>
       <span class="name ">toString</span>
 (<wbr>)
+      <div class="features">override</div>
     </section>
     <section class="desc markdown">
       <p>Returns mention to channel</p>

@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="API docs for the DiscordColor class from the nyxx library, for the Dart programming language.">
+  <title>DiscordColor class - nyxx library - Dart API</title>
+  <!-- required because all the links are pseudo-absolute -->
+  <base href="..">
+
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500,400i,400,300|Source+Sans+Pro:400,300,700" rel="stylesheet">
+  <link rel="stylesheet" href="static-assets/github.css">
+  <link rel="stylesheet" href="static-assets/styles.css">
+  <link rel="icon" href="static-assets/favicon.png">
+
+</head>
+
+<body>
+
+<div id="overlay-under-drawer"></div>
+
+<header id="title">
+  <button id="sidenav-left-toggle" type="button">&nbsp;</button>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="index.html">nyxx</a></li>
+    <li><a href="nyxx/nyxx-library.html">nyxx</a></li>
+    <li class="self-crumb">DiscordColor class</li>
+  </ol>
+  <div class="self-name">DiscordColor</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<main>
+
+  <div class="col-xs-6 col-sm-3 col-md-2 sidebar sidebar-offcanvas-left">
+    <h5>nyxx library</h5>
+    <ol>
+      <li class="section-title"><a href="nyxx/nyxx-library.html#classes">Classes</a></li>
+      <li><a href="nyxx/AbstractPermissions-class.html">AbstractPermissions</a></li>
+      <li><a href="nyxx/Attachment-class.html">Attachment</a></li>
+      <li><a href="nyxx/AuditLog-class.html">AuditLog</a></li>
+      <li><a href="nyxx/AuditLogChange-class.html">AuditLogChange</a></li>
+      <li><a href="nyxx/AuditLogEntry-class.html">AuditLogEntry</a></li>
+      <li><a href="nyxx/Ban-class.html">Ban</a></li>
+      <li><a href="nyxx/BeforeHttpRequestSendEvent-class.html">BeforeHttpRequestSendEvent</a></li>
+      <li><a href="nyxx/Builder-class.html">Builder</a></li>
+      <li><a href="nyxx/Cache-class.html">Cache</a></li>
+      <li><a href="nyxx/CategoryChannel-class.html">CategoryChannel</a></li>
+      <li><a href="nyxx/Channel-class.html">Channel</a></li>
+      <li><a href="nyxx/ChannelBuilder-class.html">ChannelBuilder</a></li>
+      <li><a href="nyxx/ChannelCache-class.html">ChannelCache</a></li>
+      <li><a href="nyxx/ChannelCreateEvent-class.html">ChannelCreateEvent</a></li>
+      <li><a href="nyxx/ChannelDeleteEvent-class.html">ChannelDeleteEvent</a></li>
+      <li><a href="nyxx/ChannelPinsUpdateEvent-class.html">ChannelPinsUpdateEvent</a></li>
+      <li><a href="nyxx/ChannelType-class.html">ChannelType</a></li>
+      <li><a href="nyxx/ChannelUpdateEvent-class.html">ChannelUpdateEvent</a></li>
+      <li><a href="nyxx/ClientOAuth2Application-class.html">ClientOAuth2Application</a></li>
+      <li><a href="nyxx/ClientOptions-class.html">ClientOptions</a></li>
+      <li><a href="nyxx/ClientUser-class.html">ClientUser</a></li>
+      <li><a href="nyxx/DisconnectEvent-class.html">DisconnectEvent</a></li>
+      <li><a href="nyxx/DiscordColor-class.html">DiscordColor</a></li>
+      <li><a href="nyxx/Disposable-class.html">Disposable</a></li>
+      <li><a href="nyxx/DMChannel-class.html">DMChannel</a></li>
+      <li><a href="nyxx/Downloadable-class.html">Downloadable</a></li>
+      <li><a href="nyxx/Embed-class.html">Embed</a></li>
+      <li><a href="nyxx/EmbedAuthor-class.html">EmbedAuthor</a></li>
+      <li><a href="nyxx/EmbedAuthorBuilder-class.html">EmbedAuthorBuilder</a></li>
+      <li><a href="nyxx/EmbedBuilder-class.html">EmbedBuilder</a></li>
+      <li><a href="nyxx/EmbedField-class.html">EmbedField</a></li>
+      <li><a href="nyxx/EmbedFieldBuilder-class.html">EmbedFieldBuilder</a></li>
+      <li><a href="nyxx/EmbedFooter-class.html">EmbedFooter</a></li>
+      <li><a href="nyxx/EmbedFooterBuilder-class.html">EmbedFooterBuilder</a></li>
+      <li><a href="nyxx/EmbedProvider-class.html">EmbedProvider</a></li>
+      <li><a href="nyxx/EmbedThumbnail-class.html">EmbedThumbnail</a></li>
+      <li><a href="nyxx/EmbedVideo-class.html">EmbedVideo</a></li>
+      <li><a href="nyxx/Emoji-class.html">Emoji</a></li>
+      <li><a href="nyxx/GameAssets-class.html">GameAssets</a></li>
+      <li><a href="nyxx/GameParty-class.html">GameParty</a></li>
+      <li><a href="nyxx/GameSecrets-class.html">GameSecrets</a></li>
+      <li><a href="nyxx/GroupDMChannel-class.html">GroupDMChannel</a></li>
+      <li><a href="nyxx/Guild-class.html">Guild</a></li>
+      <li><a href="nyxx/GuildBanAddEvent-class.html">GuildBanAddEvent</a></li>
+      <li><a href="nyxx/GuildBanRemoveEvent-class.html">GuildBanRemoveEvent</a></li>
+      <li><a href="nyxx/GuildBuilder-class.html">GuildBuilder</a></li>
+      <li><a href="nyxx/GuildChannel-class.html">GuildChannel</a></li>
+      <li><a href="nyxx/GuildCreateEvent-class.html">GuildCreateEvent</a></li>
+      <li><a href="nyxx/GuildDeleteEvent-class.html">GuildDeleteEvent</a></li>
+      <li><a href="nyxx/GuildEmoji-class.html">GuildEmoji</a></li>
+      <li><a href="nyxx/GuildEmojisUpdateEvent-class.html">GuildEmojisUpdateEvent</a></li>
+      <li><a href="nyxx/GuildEntity-class.html">GuildEntity</a></li>
+      <li><a href="nyxx/GuildMemberAddEvent-class.html">GuildMemberAddEvent</a></li>
+      <li><a href="nyxx/GuildMemberRemoveEvent-class.html">GuildMemberRemoveEvent</a></li>
+      <li><a href="nyxx/GuildMemberUpdateEvent-class.html">GuildMemberUpdateEvent</a></li>
+      <li><a href="nyxx/GuildUnavailableEvent-class.html">GuildUnavailableEvent</a></li>
+      <li><a href="nyxx/GuildUpdateEvent-class.html">GuildUpdateEvent</a></li>
+      <li><a href="nyxx/Http-class.html">Http</a></li>
+      <li><a href="nyxx/HttpBase-class.html">HttpBase</a></li>
+      <li><a href="nyxx/HttpBucket-class.html">HttpBucket</a></li>
+      <li><a href="nyxx/HttpErrorEvent-class.html">HttpErrorEvent</a></li>
+      <li><a href="nyxx/HttpMultipartRequest-class.html">HttpMultipartRequest</a></li>
+      <li><a href="nyxx/HttpRequest-class.html">HttpRequest</a></li>
+      <li><a href="nyxx/HttpResponse-class.html">HttpResponse</a></li>
+      <li><a href="nyxx/HttpResponseEvent-class.html">HttpResponseEvent</a></li>
+      <li><a href="nyxx/IMentionable-class.html">IMentionable</a></li>
+      <li><a href="nyxx/Invite-class.html">Invite</a></li>
+      <li><a href="nyxx/ISend-class.html">ISend</a></li>
+      <li><a href="nyxx/Member-class.html">Member</a></li>
+      <li><a href="nyxx/MemberStatus-class.html">MemberStatus</a></li>
+      <li><a href="nyxx/Message-class.html">Message</a></li>
+      <li><a href="nyxx/MessageBuilder-class.html">MessageBuilder</a></li>
+      <li><a href="nyxx/MessageCache-class.html">MessageCache</a></li>
+      <li><a href="nyxx/MessageChannel-class.html">MessageChannel</a></li>
+      <li><a href="nyxx/MessageDeleteBulkEvent-class.html">MessageDeleteBulkEvent</a></li>
+      <li><a href="nyxx/MessageDeleteEvent-class.html">MessageDeleteEvent</a></li>
+      <li><a href="nyxx/MessageEvent-class.html">MessageEvent</a></li>
+      <li><a href="nyxx/MessageReactionEvent-class.html">MessageReactionEvent</a></li>
+      <li><a href="nyxx/MessageReactionsRemovedEvent-class.html">MessageReactionsRemovedEvent</a></li>
+      <li><a href="nyxx/MessageReceivedEvent-class.html">MessageReceivedEvent</a></li>
+      <li><a href="nyxx/MessageUpdateEvent-class.html">MessageUpdateEvent</a></li>
+      <li><a href="nyxx/Nameable-class.html">Nameable</a></li>
+      <li><a href="nyxx/Nyxx-class.html">Nyxx</a></li>
+      <li><a href="nyxx/OAuth2Application-class.html">OAuth2Application</a></li>
+      <li><a href="nyxx/OAuth2Guild-class.html">OAuth2Guild</a></li>
+      <li><a href="nyxx/OAuth2Info-class.html">OAuth2Info</a></li>
+      <li><a href="nyxx/Permissions-class.html">Permissions</a></li>
+      <li><a href="nyxx/PermissionsBuilder-class.html">PermissionsBuilder</a></li>
+      <li><a href="nyxx/PermissionsConstants-class.html">PermissionsConstants</a></li>
+      <li><a href="nyxx/PermissionsOverrides-class.html">PermissionsOverrides</a></li>
+      <li><a href="nyxx/Presence-class.html">Presence</a></li>
+      <li><a href="nyxx/PresenceType-class.html">PresenceType</a></li>
+      <li><a href="nyxx/PresenceUpdateEvent-class.html">PresenceUpdateEvent</a></li>
+      <li><a href="nyxx/RatelimitEvent-class.html">RatelimitEvent</a></li>
+      <li><a href="nyxx/RawEvent-class.html">RawEvent</a></li>
+      <li><a href="nyxx/Reaction-class.html">Reaction</a></li>
+      <li><a href="nyxx/ReadyEvent-class.html">ReadyEvent</a></li>
+      <li><a href="nyxx/Role-class.html">Role</a></li>
+      <li><a href="nyxx/RoleBuilder-class.html">RoleBuilder</a></li>
+      <li><a href="nyxx/RoleCreateEvent-class.html">RoleCreateEvent</a></li>
+      <li><a href="nyxx/RoleDeleteEvent-class.html">RoleDeleteEvent</a></li>
+      <li><a href="nyxx/RoleUpdateEvent-class.html">RoleUpdateEvent</a></li>
+      <li><a href="nyxx/Shard-class.html">Shard</a></li>
+      <li><a href="nyxx/Snowflake-class.html">Snowflake</a></li>
+      <li><a href="nyxx/SnowflakeEntity-class.html">SnowflakeEntity</a></li>
+      <li><a href="nyxx/TextChannel-class.html">TextChannel</a></li>
+      <li><a href="nyxx/TypingEvent-class.html">TypingEvent</a></li>
+      <li><a href="nyxx/UnicodeEmoji-class.html">UnicodeEmoji</a></li>
+      <li><a href="nyxx/User-class.html">User</a></li>
+      <li><a href="nyxx/UserUpdateEvent-class.html">UserUpdateEvent</a></li>
+      <li><a href="nyxx/VoiceChannel-class.html">VoiceChannel</a></li>
+      <li><a href="nyxx/VoiceRegion-class.html">VoiceRegion</a></li>
+      <li><a href="nyxx/VoiceServerUpdateEvent-class.html">VoiceServerUpdateEvent</a></li>
+      <li><a href="nyxx/VoiceState-class.html">VoiceState</a></li>
+      <li><a href="nyxx/VoiceStateUpdateEvent-class.html">VoiceStateUpdateEvent</a></li>
+      <li><a href="nyxx/VoltCache-class.html">VoltCache</a></li>
+      <li><a href="nyxx/Webhook-class.html">Webhook</a></li>
+      <li><a href="nyxx/WebhookUpdateEvent-class.html">WebhookUpdateEvent</a></li>
+    
+    
+    
+      <li class="section-title"><a href="nyxx/nyxx-library.html#properties">Properties</a></li>
+      <li><a href="nyxx/client.html">client</a></li>
+    
+      <li class="section-title"><a href="nyxx/nyxx-library.html#functions">Functions</a></li>
+      <li><a href="nyxx/attach.html">attach</a></li>
+    
+    
+    
+      <li class="section-title"><a href="nyxx/nyxx-library.html#exceptions">Exceptions</a></li>
+      <li><a href="nyxx/HttpError-class.html">HttpError</a></li>
+    </ol>
+  </div>
+
+  <div class="col-xs-12 col-sm-9 col-md-8 main-content">
+      <h1>DiscordColor class </h1>
+
+    <section class="desc markdown">
+      <p>Wrapper for colors.</p>
+<p>Simplifies creation and provides interface to interact with colors for nyxx.</p>
+<p>Class also defines few</p>
+    </section>
+    
+
+    <section class="summary offset-anchor" id="constructors">
+      <h2>Constructors</h2>
+
+      <dl class="constructor-summary-list">
+        <dt id="DiscordColor.fromDouble" class="callable">
+          <span class="name"><a href="nyxx/DiscordColor/DiscordColor.fromDouble.html">DiscordColor.fromDouble</a></span><span class="signature">(<span class="parameter" id="fromDouble-param-r"><span class="type-annotation">double</span> <span class="parameter-name">r</span>, </span> <span class="parameter" id="fromDouble-param-g"><span class="type-annotation">double</span> <span class="parameter-name">g</span>, </span> <span class="parameter" id="fromDouble-param-b"><span class="type-annotation">double</span> <span class="parameter-name">b</span></span>)</span>
+        </dt>
+        <dd>
+          Construct color from individual color components with doubles
+Values should be from 0.0 to 1.0
+        </dd>
+        <dt id="DiscordColor.fromHexString" class="callable">
+          <span class="name"><a href="nyxx/DiscordColor/DiscordColor.fromHexString.html">DiscordColor.fromHexString</a></span><span class="signature">(<span class="parameter" id="fromHexString-param-hexStr"><span class="type-annotation">String</span> <span class="parameter-name">hexStr</span></span>)</span>
+        </dt>
+        <dd>
+          Construct color from hex String.
+Leading # will be ignored in process.
+        </dd>
+        <dt id="DiscordColor.fromInt" class="callable">
+          <span class="name"><a href="nyxx/DiscordColor/DiscordColor.fromInt.html">DiscordColor.fromInt</a></span><span class="signature">(<span class="parameter" id="fromInt-param-_value"><span class="type-annotation">int</span> <span class="parameter-name">_value</span></span>)</span>
+        </dt>
+        <dd>
+          Construct color from int.
+It allows to create color from hex number and decimal number <a href="nyxx/DiscordColor/DiscordColor.fromInt.html">[...]</a>
+        </dd>
+        <dt id="DiscordColor.fromRgb" class="callable">
+          <span class="name"><a href="nyxx/DiscordColor/DiscordColor.fromRgb.html">DiscordColor.fromRgb</a></span><span class="signature">(<span class="parameter" id="fromRgb-param-r"><span class="type-annotation">int</span> <span class="parameter-name">r</span>, </span> <span class="parameter" id="fromRgb-param-g"><span class="type-annotation">int</span> <span class="parameter-name">g</span>, </span> <span class="parameter" id="fromRgb-param-b"><span class="type-annotation">int</span> <span class="parameter-name">b</span></span>)</span>
+        </dt>
+        <dd>
+          Construct color from individual color components
+        </dd>
+      </dl>
+    </section>
+
+    <section class="summary offset-anchor" id="instance-properties">
+      <h2>Properties</h2>
+
+      <dl class="properties">
+        <dt id="B" class="property">
+          <span class="name"><a href="nyxx/DiscordColor/B.html">B</a></span>
+          <span class="signature">&#8594; int</span> 
+        </dt>
+        <dd>
+          Gets the blue component of this color as an integer.
+          <div class="features">read-only</div>
+</dd>
+        <dt id="G" class="property">
+          <span class="name"><a href="nyxx/DiscordColor/G.html">G</a></span>
+          <span class="signature">&#8594; int</span> 
+        </dt>
+        <dd>
+          Gets the green component of this color as an integer.
+          <div class="features">read-only</div>
+</dd>
+        <dt id="hashCode" class="property">
+          <span class="name"><a href="nyxx/DiscordColor/hashCode.html">hashCode</a></span>
+          <span class="signature">&#8594; int</span> 
+        </dt>
+        <dd>
+          The hash code for this object. <a href="nyxx/DiscordColor/hashCode.html">[...]</a>
+          <div class="features">read-only, override</div>
+</dd>
+        <dt id="r" class="property">
+          <span class="name"><a href="nyxx/DiscordColor/r.html">r</a></span>
+          <span class="signature">&#8594; int</span> 
+        </dt>
+        <dd>
+          Gets the blue component of this color as an integer.
+          <div class="features">read-only</div>
+</dd>
+        <dt id="value" class="property">
+          <span class="name"><a href="nyxx/DiscordColor/value.html">value</a></span>
+          <span class="signature">&#8594; int</span> 
+        </dt>
+        <dd>
+          Int value of color
+          <div class="features">read-only</div>
+</dd>
+        <dt id="runtimeType" class="property inherited">
+          <span class="name"><a href="nyxx/DiscordColor/runtimeType.html">runtimeType</a></span>
+          <span class="signature">&#8594; Type</span> 
+        </dt>
+        <dd class="inherited">
+          A representation of the runtime type of the object.
+          <div class="features">read-only, inherited</div>
+</dd>
+      </dl>
+    </section>
+
+    <section class="summary offset-anchor" id="instance-methods">
+      <h2>Methods</h2>
+      <dl class="callables">
+        <dt id="toString" class="callable">
+          <span class="name"><a href="nyxx/DiscordColor/toString.html">toString</a></span><span class="signature">(<wbr>)
+            <span class="returntype parameter">&#8594; String</span>
+          </span>
+          </dt>
+        <dd>
+          Returns a string representation of this object.
+          <div class="features">override</div>
+</dd>
+        <dt id="noSuchMethod" class="callable inherited">
+          <span class="name"><a href="nyxx/DiscordColor/noSuchMethod.html">noSuchMethod</a></span><span class="signature">(<wbr><span class="parameter" id="noSuchMethod-param-invocation"><span class="type-annotation">Invocation</span> <span class="parameter-name">invocation</span></span>)
+            <span class="returntype parameter">&#8594; dynamic</span>
+          </span>
+          </dt>
+        <dd class="inherited">
+          Invoked when a non-existent method or property is accessed. <a href="nyxx/DiscordColor/noSuchMethod.html">[...]</a>
+          <div class="features">inherited</div>
+</dd>
+      </dl>
+    </section>
+
+    <section class="summary offset-anchor" id="operators">
+      <h2>Operators</h2>
+      <dl class="callables">
+        <dt id="operator ==" class="callable">
+          <span class="name"><a href="nyxx/DiscordColor/operator_equals.html">operator ==</a></span><span class="signature">(<wbr><span class="parameter" id="==-param-other"><span class="type-annotation">dynamic</span> <span class="parameter-name">other</span></span>)
+            <span class="returntype parameter">&#8594; bool</span>
+          </span>
+          </dt>
+        <dd>
+          The equality operator. <a href="nyxx/DiscordColor/operator_equals.html">[...]</a>
+          <div class="features">override</div>
+</dd>
+      </dl>
+    </section>
+
+    <section class="summary offset-anchor" id="static-properties">
+      <h2>Static Properties</h2>
+
+      <dl class="properties">
+        <dt id="aquamarine" class="property">
+          <span class="name"><a href="nyxx/DiscordColor/aquamarine.html">aquamarine</a></span>
+          <span class="signature">&#8594; <a href="nyxx/DiscordColor-class.html">DiscordColor</a></span> 
+        </dt>
+        <dd>
+          Aquamarine, or #00FFBF.
+          <div class="features">final</div>
+</dd>
+        <dt id="azure" class="property">
+          <span class="name"><a href="nyxx/DiscordColor/azure.html">azure</a></span>
+          <span class="signature">&#8594; <a href="nyxx/DiscordColor-class.html">DiscordColor</a></span> 
+        </dt>
+        <dd>
+          Azure, or #007FFF.
+          <div class="features">final</div>
+</dd>
+        <dt id="black" class="property">
+          <span class="name"><a href="nyxx/DiscordColor/black.html">black</a></span>
+          <span class="signature">&#8594; <a href="nyxx/DiscordColor-class.html">DiscordColor</a></span> 
+        </dt>
+        <dd>
+          A near-black color. Due to API limitations, the color is #010101, rather than #000000, as the latter is treated as no color.
+          <div class="features">final</div>
+</dd>
+        <dt id="blue" class="property">
+          <span class="name"><a href="nyxx/DiscordColor/blue.html">blue</a></span>
+          <span class="signature">&#8594; <a href="nyxx/DiscordColor-class.html">DiscordColor</a></span> 
+        </dt>
+        <dd>
+          Blue, or #0000FF.
+          <div class="features">final</div>
+</dd>
+        <dt id="blurple" class="property">
+          <span class="name"><a href="nyxx/DiscordColor/blurple.html">blurple</a></span>
+          <span class="signature">&#8594; <a href="nyxx/DiscordColor-class.html">DiscordColor</a></span> 
+        </dt>
+        <dd>
+          Discord Blurple, or #7289DA.
+          <div class="features">final</div>
+</dd>
+        <dt id="brown" class="property">
+          <span class="name"><a href="nyxx/DiscordColor/brown.html">brown</a></span>
+          <span class="signature">&#8594; <a href="nyxx/DiscordColor-class.html">DiscordColor</a></span> 
+        </dt>
+        <dd>
+          Brown, or #A52A2A.
+          <div class="features">final</div>
+</dd>
+        <dt id="chartreuse" class="property">
+          <span class="name"><a href="nyxx/DiscordColor/chartreuse.html">chartreuse</a></span>
+          <span class="signature">&#8594; <a href="nyxx/DiscordColor-class.html">DiscordColor</a></span> 
+        </dt>
+        <dd>
+          Chartreuse, or #7FFF00.
+          <div class="features">final</div>
+</dd>
+        <dt id="cornflowerBlue" class="property">
+          <span class="name"><a href="nyxx/DiscordColor/cornflowerBlue.html">cornflowerBlue</a></span>
+          <span class="signature">&#8594; <a href="nyxx/DiscordColor-class.html">DiscordColor</a></span> 
+        </dt>
+        <dd>
+          Cornflower blue, or #6495ED.
+          <div class="features">final</div>
+</dd>
+        <dt id="cyan" class="property">
+          <span class="name"><a href="nyxx/DiscordColor/cyan.html">cyan</a></span>
+          <span class="signature">&#8594; <a href="nyxx/DiscordColor-class.html">DiscordColor</a></span> 
+        </dt>
+        <dd>
+          Cyan, or #00FFFF.
+          <div class="features">final</div>
+</dd>
+        <dt id="darkBlue" class="property">
+          <span class="name"><a href="nyxx/DiscordColor/darkBlue.html">darkBlue</a></span>
+          <span class="signature">&#8594; <a href="nyxx/DiscordColor-class.html">DiscordColor</a></span> 
+        </dt>
+        <dd>
+          Dark blue, or #00007F.
+          <div class="features">final</div>
+</dd>
+        <dt id="darkButNotBlack" class="property">
+          <span class="name"><a href="nyxx/DiscordColor/darkButNotBlack.html">darkButNotBlack</a></span>
+          <span class="signature">&#8594; <a href="nyxx/DiscordColor-class.html">DiscordColor</a></span> 
+        </dt>
+        <dd>
+          Discord Dark, But Not Black, or #2C2F33.
+          <div class="features">final</div>
+</dd>
+        <dt id="darkGray" class="property">
+          <span class="name"><a href="nyxx/DiscordColor/darkGray.html">darkGray</a></span>
+          <span class="signature">&#8594; <a href="nyxx/DiscordColor-class.html">DiscordColor</a></span> 
+        </dt>
+        <dd>
+          Dark gray, or #A9A9A9.
+          <div class="features">final</div>
+</dd>
+        <dt id="darkGreen" class="property">
+          <span class="name"><a href="nyxx/DiscordColor/darkGreen.html">darkGreen</a></span>
+          <span class="signature">&#8594; <a href="nyxx/DiscordColor-class.html">DiscordColor</a></span> 
+        </dt>
+        <dd>
+          Dark green, or #007F00.
+          <div class="features">final</div>
+</dd>
+        <dt id="darkRed" class="property">
+          <span class="name"><a href="nyxx/DiscordColor/darkRed.html">darkRed</a></span>
+          <span class="signature">&#8594; <a href="nyxx/DiscordColor-class.html">DiscordColor</a></span> 
+        </dt>
+        <dd>
+          Dark red, or #7F0000.
+          <div class="features">final</div>
+</dd>
+        <dt id="dartBlue" class="property">
+          <span class="name"><a href="nyxx/DiscordColor/dartBlue.html">dartBlue</a></span>
+          <span class="signature">&#8594; <a href="nyxx/DiscordColor-class.html">DiscordColor</a></span> 
+        </dt>
+        <dd>
+          Dart's primary blue color, or #0175C2
+          <div class="features">final</div>
+</dd>
+        <dt id="dartSecondary" class="property">
+          <span class="name"><a href="nyxx/DiscordColor/dartSecondary.html">dartSecondary</a></span>
+          <span class="signature">&#8594; <a href="nyxx/DiscordColor-class.html">DiscordColor</a></span> 
+        </dt>
+        <dd>
+          Dart's secondary blue color, or #13B9FD
+          <div class="features">final</div>
+</dd>
+        <dt id="flutterBlue" class="property">
+          <span class="name"><a href="nyxx/DiscordColor/flutterBlue.html">flutterBlue</a></span>
+          <span class="signature">&#8594; <a href="nyxx/DiscordColor-class.html">DiscordColor</a></span> 
+        </dt>
+        <dd>
+          Flutter blue, or #02569B
+          <div class="features">final</div>
+</dd>
+        <dt id="gold" class="property">
+          <span class="name"><a href="nyxx/DiscordColor/gold.html">gold</a></span>
+          <span class="signature">&#8594; <a href="nyxx/DiscordColor-class.html">DiscordColor</a></span> 
+        </dt>
+        <dd>
+          Gold, or #FFD700.
+          <div class="features">final</div>
+</dd>
+        <dt id="goldenrod" class="property">
+          <span class="name"><a href="nyxx/DiscordColor/goldenrod.html">goldenrod</a></span>
+          <span class="signature">&#8594; <a href="nyxx/DiscordColor-class.html">DiscordColor</a></span> 
+        </dt>
+        <dd>
+          
+          <div class="features">final</div>
+</dd>
+        <dt id="gray" class="property">
+          <span class="name"><a href="nyxx/DiscordColor/gray.html">gray</a></span>
+          <span class="signature">&#8594; <a href="nyxx/DiscordColor-class.html">DiscordColor</a></span> 
+        </dt>
+        <dd>
+          Gray, or #808080.
+          <div class="features">final</div>
+</dd>
+        <dt id="grayple" class="property">
+          <span class="name"><a href="nyxx/DiscordColor/grayple.html">grayple</a></span>
+          <span class="signature">&#8594; <a href="nyxx/DiscordColor-class.html">DiscordColor</a></span> 
+        </dt>
+        <dd>
+          Discord Grayple, or #99AAB5.
+          <div class="features">final</div>
+</dd>
+        <dt id="green" class="property">
+          <span class="name"><a href="nyxx/DiscordColor/green.html">green</a></span>
+          <span class="signature">&#8594; <a href="nyxx/DiscordColor-class.html">DiscordColor</a></span> 
+        </dt>
+        <dd>
+          Green, or #00FF00.
+          <div class="features">final</div>
+</dd>
+        <dt id="hotPink" class="property">
+          <span class="name"><a href="nyxx/DiscordColor/hotPink.html">hotPink</a></span>
+          <span class="signature">&#8594; <a href="nyxx/DiscordColor-class.html">DiscordColor</a></span> 
+        </dt>
+        <dd>
+          Hot pink, or #FF69B4
+          <div class="features">final</div>
+</dd>
+        <dt id="indianRed" class="property">
+          <span class="name"><a href="nyxx/DiscordColor/indianRed.html">indianRed</a></span>
+          <span class="signature">&#8594; <a href="nyxx/DiscordColor-class.html">DiscordColor</a></span> 
+        </dt>
+        <dd>
+          Indian red, or #CD5C5C.
+          <div class="features">final</div>
+</dd>
+        <dt id="lightGray" class="property">
+          <span class="name"><a href="nyxx/DiscordColor/lightGray.html">lightGray</a></span>
+          <span class="signature">&#8594; <a href="nyxx/DiscordColor-class.html">DiscordColor</a></span> 
+        </dt>
+        <dd>
+          Light gray, or #808080.
+          <div class="features">final</div>
+</dd>
+        <dt id="lilac" class="property">
+          <span class="name"><a href="nyxx/DiscordColor/lilac.html">lilac</a></span>
+          <span class="signature">&#8594; <a href="nyxx/DiscordColor-class.html">DiscordColor</a></span> 
+        </dt>
+        <dd>
+          Lilac, or #C8A2C8.
+          <div class="features">final</div>
+</dd>
+        <dt id="magenta" class="property">
+          <span class="name"><a href="nyxx/DiscordColor/magenta.html">magenta</a></span>
+          <span class="signature">&#8594; <a href="nyxx/DiscordColor-class.html">DiscordColor</a></span> 
+        </dt>
+        <dd>
+          Magenta, or #FF00FF.
+          <div class="features">final</div>
+</dd>
+        <dt id="midnightBlue" class="property">
+          <span class="name"><a href="nyxx/DiscordColor/midnightBlue.html">midnightBlue</a></span>
+          <span class="signature">&#8594; <a href="nyxx/DiscordColor-class.html">DiscordColor</a></span> 
+        </dt>
+        <dd>
+          Midnight blue, or #191970.
+          <div class="features">final</div>
+</dd>
+        <dt id="none" class="property">
+          <span class="name"><a href="nyxx/DiscordColor/none.html">none</a></span>
+          <span class="signature">&#8594; <a href="nyxx/DiscordColor-class.html">DiscordColor</a></span> 
+        </dt>
+        <dd>
+          Color of null, literally null.
+          <div class="features">final</div>
+</dd>
+        <dt id="notQuiteBlack" class="property">
+          <span class="name"><a href="nyxx/DiscordColor/notQuiteBlack.html">notQuiteBlack</a></span>
+          <span class="signature">&#8594; <a href="nyxx/DiscordColor-class.html">DiscordColor</a></span> 
+        </dt>
+        <dd>
+          Discord Not QuiteBlack, or #23272A.
+          <div class="features">final</div>
+</dd>
+        <dt id="orange" class="property">
+          <span class="name"><a href="nyxx/DiscordColor/orange.html">orange</a></span>
+          <span class="signature">&#8594; <a href="nyxx/DiscordColor-class.html">DiscordColor</a></span> 
+        </dt>
+        <dd>
+          Orange, or #FFA500.
+          <div class="features">final</div>
+</dd>
+        <dt id="phthaloBlue" class="property">
+          <span class="name"><a href="nyxx/DiscordColor/phthaloBlue.html">phthaloBlue</a></span>
+          <span class="signature">&#8594; <a href="nyxx/DiscordColor-class.html">DiscordColor</a></span> 
+        </dt>
+        <dd>
+          Phthalo blue, or #000F89.
+          <div class="features">final</div>
+</dd>
+        <dt id="phthaloGreen" class="property">
+          <span class="name"><a href="nyxx/DiscordColor/phthaloGreen.html">phthaloGreen</a></span>
+          <span class="signature">&#8594; <a href="nyxx/DiscordColor-class.html">DiscordColor</a></span> 
+        </dt>
+        <dd>
+          Phthalo green, or #123524.
+          <div class="features">final</div>
+</dd>
+        <dt id="purple" class="property">
+          <span class="name"><a href="nyxx/DiscordColor/purple.html">purple</a></span>
+          <span class="signature">&#8594; <a href="nyxx/DiscordColor-class.html">DiscordColor</a></span> 
+        </dt>
+        <dd>
+          Purple, or #800080.
+          <div class="features">final</div>
+</dd>
+        <dt id="red" class="property">
+          <span class="name"><a href="nyxx/DiscordColor/red.html">red</a></span>
+          <span class="signature">&#8594; <a href="nyxx/DiscordColor-class.html">DiscordColor</a></span> 
+        </dt>
+        <dd>
+          Red, or #FF0000.
+          <div class="features">final</div>
+</dd>
+        <dt id="rose" class="property">
+          <span class="name"><a href="nyxx/DiscordColor/rose.html">rose</a></span>
+          <span class="signature">&#8594; <a href="nyxx/DiscordColor-class.html">DiscordColor</a></span> 
+        </dt>
+        <dd>
+          Rose, or #FF007F.
+          <div class="features">final</div>
+</dd>
+        <dt id="sapGreen" class="property">
+          <span class="name"><a href="nyxx/DiscordColor/sapGreen.html">sapGreen</a></span>
+          <span class="signature">&#8594; <a href="nyxx/DiscordColor-class.html">DiscordColor</a></span> 
+        </dt>
+        <dd>
+          Sap green, or #507D2A.
+          <div class="features">final</div>
+</dd>
+        <dt id="sienna" class="property">
+          <span class="name"><a href="nyxx/DiscordColor/sienna.html">sienna</a></span>
+          <span class="signature">&#8594; <a href="nyxx/DiscordColor-class.html">DiscordColor</a></span> 
+        </dt>
+        <dd>
+          Sienna, or #882D17.
+          <div class="features">final</div>
+</dd>
+        <dt id="springGreen" class="property">
+          <span class="name"><a href="nyxx/DiscordColor/springGreen.html">springGreen</a></span>
+          <span class="signature">&#8594; <a href="nyxx/DiscordColor-class.html">DiscordColor</a></span> 
+        </dt>
+        <dd>
+          Spring green, or #00FF7F.
+          <div class="features">final</div>
+</dd>
+        <dt id="teal" class="property">
+          <span class="name"><a href="nyxx/DiscordColor/teal.html">teal</a></span>
+          <span class="signature">&#8594; <a href="nyxx/DiscordColor-class.html">DiscordColor</a></span> 
+        </dt>
+        <dd>
+          Teal, or #008080.
+          <div class="features">final</div>
+</dd>
+        <dt id="turquoise" class="property">
+          <span class="name"><a href="nyxx/DiscordColor/turquoise.html">turquoise</a></span>
+          <span class="signature">&#8594; <a href="nyxx/DiscordColor-class.html">DiscordColor</a></span> 
+        </dt>
+        <dd>
+          Turquoise, or #30D5C8.
+          <div class="features">final</div>
+</dd>
+        <dt id="veryDarkGray" class="property">
+          <span class="name"><a href="nyxx/DiscordColor/veryDarkGray.html">veryDarkGray</a></span>
+          <span class="signature">&#8594; <a href="nyxx/DiscordColor-class.html">DiscordColor</a></span> 
+        </dt>
+        <dd>
+          Very dark gray, or #666666.
+          <div class="features">final</div>
+</dd>
+        <dt id="violet" class="property">
+          <span class="name"><a href="nyxx/DiscordColor/violet.html">violet</a></span>
+          <span class="signature">&#8594; <a href="nyxx/DiscordColor-class.html">DiscordColor</a></span> 
+        </dt>
+        <dd>
+          Violet, or #EE82EE.
+          <div class="features">final</div>
+</dd>
+        <dt id="wheat" class="property">
+          <span class="name"><a href="nyxx/DiscordColor/wheat.html">wheat</a></span>
+          <span class="signature">&#8594; <a href="nyxx/DiscordColor-class.html">DiscordColor</a></span> 
+        </dt>
+        <dd>
+          Wheat, or #F5DEB3.
+          <div class="features">final</div>
+</dd>
+        <dt id="white" class="property">
+          <span class="name"><a href="nyxx/DiscordColor/white.html">white</a></span>
+          <span class="signature">&#8594; <a href="nyxx/DiscordColor-class.html">DiscordColor</a></span> 
+        </dt>
+        <dd>
+          White, or #FFFFFF.
+          <div class="features">final</div>
+</dd>
+        <dt id="yellow" class="property">
+          <span class="name"><a href="nyxx/DiscordColor/yellow.html">yellow</a></span>
+          <span class="signature">&#8594; <a href="nyxx/DiscordColor-class.html">DiscordColor</a></span> 
+        </dt>
+        <dd>
+          Yellow, or #FFFF00.
+          <div class="features">final</div>
+</dd>
+      </dl>
+    </section>
+
+
+
+  </div> <!-- /.main-content -->
+
+  <div class="col-xs-6 col-sm-6 col-md-2 sidebar sidebar-offcanvas-right">
+    <ol>
+      <li class="section-title"><a href="nyxx/DiscordColor-class.html#constructors">Constructors</a></li>
+      <li><a href="nyxx/DiscordColor/DiscordColor.fromDouble.html">fromDouble</a></li>
+      <li><a href="nyxx/DiscordColor/DiscordColor.fromHexString.html">fromHexString</a></li>
+      <li><a href="nyxx/DiscordColor/DiscordColor.fromInt.html">fromInt</a></li>
+      <li><a href="nyxx/DiscordColor/DiscordColor.fromRgb.html">fromRgb</a></li>
+    
+      <li class="section-title">
+        <a href="nyxx/DiscordColor-class.html#instance-properties">Properties</a>
+      </li>
+      <li><a href="nyxx/DiscordColor/B.html">B</a></li>
+      <li><a href="nyxx/DiscordColor/G.html">G</a></li>
+      <li><a href="nyxx/DiscordColor/hashCode.html">hashCode</a></li>
+      <li><a href="nyxx/DiscordColor/r.html">r</a></li>
+      <li><a href="nyxx/DiscordColor/value.html">value</a></li>
+      <li class="inherited"><a href="nyxx/DiscordColor/runtimeType.html">runtimeType</a></li>
+    
+      <li class="section-title"><a href="nyxx/DiscordColor-class.html#instance-methods">Methods</a></li>
+      <li><a href="nyxx/DiscordColor/toString.html">toString</a></li>
+      <li class="inherited"><a href="nyxx/DiscordColor/noSuchMethod.html">noSuchMethod</a></li>
+    
+      <li class="section-title"><a href="nyxx/DiscordColor-class.html#operators">Operators</a></li>
+      <li><a href="nyxx/DiscordColor/operator_equals.html">operator ==</a></li>
+    
+      <li class="section-title"><a href="nyxx/DiscordColor-class.html#static-properties">Static properties</a></li>
+      <li><a href="nyxx/DiscordColor/aquamarine.html">aquamarine</a></li>
+      <li><a href="nyxx/DiscordColor/azure.html">azure</a></li>
+      <li><a href="nyxx/DiscordColor/black.html">black</a></li>
+      <li><a href="nyxx/DiscordColor/blue.html">blue</a></li>
+      <li><a href="nyxx/DiscordColor/blurple.html">blurple</a></li>
+      <li><a href="nyxx/DiscordColor/brown.html">brown</a></li>
+      <li><a href="nyxx/DiscordColor/chartreuse.html">chartreuse</a></li>
+      <li><a href="nyxx/DiscordColor/cornflowerBlue.html">cornflowerBlue</a></li>
+      <li><a href="nyxx/DiscordColor/cyan.html">cyan</a></li>
+      <li><a href="nyxx/DiscordColor/darkBlue.html">darkBlue</a></li>
+      <li><a href="nyxx/DiscordColor/darkButNotBlack.html">darkButNotBlack</a></li>
+      <li><a href="nyxx/DiscordColor/darkGray.html">darkGray</a></li>
+      <li><a href="nyxx/DiscordColor/darkGreen.html">darkGreen</a></li>
+      <li><a href="nyxx/DiscordColor/darkRed.html">darkRed</a></li>
+      <li><a href="nyxx/DiscordColor/dartBlue.html">dartBlue</a></li>
+      <li><a href="nyxx/DiscordColor/dartSecondary.html">dartSecondary</a></li>
+      <li><a href="nyxx/DiscordColor/flutterBlue.html">flutterBlue</a></li>
+      <li><a href="nyxx/DiscordColor/gold.html">gold</a></li>
+      <li><a href="nyxx/DiscordColor/goldenrod.html">goldenrod</a></li>
+      <li><a href="nyxx/DiscordColor/gray.html">gray</a></li>
+      <li><a href="nyxx/DiscordColor/grayple.html">grayple</a></li>
+      <li><a href="nyxx/DiscordColor/green.html">green</a></li>
+      <li><a href="nyxx/DiscordColor/hotPink.html">hotPink</a></li>
+      <li><a href="nyxx/DiscordColor/indianRed.html">indianRed</a></li>
+      <li><a href="nyxx/DiscordColor/lightGray.html">lightGray</a></li>
+      <li><a href="nyxx/DiscordColor/lilac.html">lilac</a></li>
+      <li><a href="nyxx/DiscordColor/magenta.html">magenta</a></li>
+      <li><a href="nyxx/DiscordColor/midnightBlue.html">midnightBlue</a></li>
+      <li><a href="nyxx/DiscordColor/none.html">none</a></li>
+      <li><a href="nyxx/DiscordColor/notQuiteBlack.html">notQuiteBlack</a></li>
+      <li><a href="nyxx/DiscordColor/orange.html">orange</a></li>
+      <li><a href="nyxx/DiscordColor/phthaloBlue.html">phthaloBlue</a></li>
+      <li><a href="nyxx/DiscordColor/phthaloGreen.html">phthaloGreen</a></li>
+      <li><a href="nyxx/DiscordColor/purple.html">purple</a></li>
+      <li><a href="nyxx/DiscordColor/red.html">red</a></li>
+      <li><a href="nyxx/DiscordColor/rose.html">rose</a></li>
+      <li><a href="nyxx/DiscordColor/sapGreen.html">sapGreen</a></li>
+      <li><a href="nyxx/DiscordColor/sienna.html">sienna</a></li>
+      <li><a href="nyxx/DiscordColor/springGreen.html">springGreen</a></li>
+      <li><a href="nyxx/DiscordColor/teal.html">teal</a></li>
+      <li><a href="nyxx/DiscordColor/turquoise.html">turquoise</a></li>
+      <li><a href="nyxx/DiscordColor/veryDarkGray.html">veryDarkGray</a></li>
+      <li><a href="nyxx/DiscordColor/violet.html">violet</a></li>
+      <li><a href="nyxx/DiscordColor/wheat.html">wheat</a></li>
+      <li><a href="nyxx/DiscordColor/white.html">white</a></li>
+      <li><a href="nyxx/DiscordColor/yellow.html">yellow</a></li>
+    
+    
+    </ol>
+  </div><!--/.sidebar-offcanvas-->
+
+</main>
+
+<footer>
+  <span class="no-break">
+    nyxx 1.0.0
+  </span>
+
+</footer>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="static-assets/typeahead.bundle.min.js"></script>
+<script src="static-assets/highlight.pack.js"></script>
+<script src="static-assets/URI.js"></script>
+<script src="static-assets/script.js"></script>
+
+
+</body>
+
+</html>

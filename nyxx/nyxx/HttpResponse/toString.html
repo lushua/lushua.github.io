@@ -52,9 +52,9 @@
       <li class="inherited"><a href="nyxx/HttpResponse/hashCode.html">hashCode</a></li>
       <li class="inherited"><a href="nyxx/HttpResponse/runtimeType.html">runtimeType</a></li>
     
-      <li class="section-title inherited"><a href="nyxx/HttpResponse-class.html#instance-methods">Methods</a></li>
+      <li class="section-title"><a href="nyxx/HttpResponse-class.html#instance-methods">Methods</a></li>
+      <li><a href="nyxx/HttpResponse/toString.html">toString</a></li>
       <li class="inherited"><a href="nyxx/HttpResponse/noSuchMethod.html">noSuchMethod</a></li>
-      <li class="inherited"><a href="nyxx/HttpResponse/toString.html">toString</a></li>
     
       <li class="section-title inherited"><a href="nyxx/HttpResponse-class.html#operators">Operators</a></li>
       <li class="inherited"><a href="nyxx/HttpResponse/operator_equals.html">operator ==</a></li>
@@ -68,9 +68,15 @@
     <h1>toString method</h1>
 
     <section class="multi-line-signature">
+      <div>
+        <ol class="annotation-list">
+          <li>@override</li>
+        </ol>
+      </div>
       <span class="returntype">String</span>
       <span class="name ">toString</span>
 (<wbr>)
+      <div class="features">override</div>
     </section>
     <section class="desc markdown">
       <p>Returns a string representation of this object.</p>
@@ -78,7 +84,8 @@
     
     <section class="summary source-code" id="source">
       <h2><span>Implementation</span> </h2>
-      <pre class="language-dart"><code class="language-dart">external String toString();</code></pre>
+      <pre class="language-dart"><code class="language-dart">@override
+String toString() =&gt; &quot;STATUS [$status], STATUS TEXT: [$statusText], RESPONSE: [$body]&quot;;</code></pre>
     </section>
 
   </div> <!-- /.main-content -->

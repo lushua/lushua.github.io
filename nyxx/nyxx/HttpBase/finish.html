@@ -93,10 +93,9 @@
   this._streamController = StreamController&lt;HttpResponse&gt;.broadcast();
   this.stream = _streamController.stream;
 
-  BeforeHttpRequestSendEvent._new(this.http._client, this);
+  BeforeHttpRequestSendEvent._new(this);
 
-  if (this.http._client == null ||
-      !this.http._client._events.beforeHttpRequestSend.hasListener)
+  if (_client == null || !_client._events.beforeHttpRequestSend.hasListener)
     this.send();
 }</code></pre>
     </section>

@@ -43,31 +43,29 @@
       <li class="section-title">
         <a href="nyxx/ClientUser-class.html#instance-properties">Properties</a>
       </li>
-      <li><a href="nyxx/ClientUser/email.html">email</a></li>
       <li><a href="nyxx/ClientUser/mfa.html">mfa</a></li>
       <li><a href="nyxx/ClientUser/verified.html">verified</a></li>
       <li class="inherited"><a href="nyxx/User/avatar.html">avatar</a></li>
       <li class="inherited"><a href="nyxx/User/bot.html">bot</a></li>
-      <li class="inherited"><a href="nyxx/User/client.html">client</a></li>
       <li class="inherited"><a href="nyxx/SnowflakeEntity/createdAt.html">createdAt</a></li>
       <li class="inherited"><a href="nyxx/User/discriminator.html">discriminator</a></li>
+      <li class="inherited"><a href="nyxx/User/dmChannel.html">dmChannel</a></li>
       <li class="inherited"><a href="nyxx/SnowflakeEntity/hashCode.html">hashCode</a></li>
       <li class="inherited"><a href="nyxx/SnowflakeEntity/id.html">id</a></li>
       <li class="inherited"><a href="nyxx/User/mention.html">mention</a></li>
-      <li class="inherited"><a href="nyxx/User/mentionNickname.html">mentionNickname</a></li>
-      <li class="inherited"><a href="nyxx/User/raw.html">raw</a></li>
+      <li class="inherited"><a href="nyxx/User/nameString.html">nameString</a></li>
       <li class="inherited"><a href="nyxx/SnowflakeEntity/runtimeType.html">runtimeType</a></li>
+      <li class="inherited"><a href="nyxx/User/tag.html">tag</a></li>
       <li class="inherited"><a href="nyxx/User/username.html">username</a></li>
-      <li class="inherited"><a href="nyxx/User/voiceState.html">voiceState</a></li>
     
       <li class="section-title"><a href="nyxx/ClientUser-class.html#instance-methods">Methods</a></li>
       <li><a href="nyxx/ClientUser/edit.html">edit</a></li>
       <li><a href="nyxx/ClientUser/getMembership.html">getMembership</a></li>
       <li><a href="nyxx/ClientUser/setGame.html">setGame</a></li>
       <li><a href="nyxx/ClientUser/setPresence.html">setPresence</a></li>
+      <li><a href="nyxx/ClientUser/setPresenceForShard.html">setPresenceForShard</a></li>
       <li><a href="nyxx/ClientUser/setStatus.html">setStatus</a></li>
       <li class="inherited"><a href="nyxx/User/avatarURL.html">avatarURL</a></li>
-      <li class="inherited"><a href="nyxx/User/getDMChannel.html">getDMChannel</a></li>
       <li class="inherited"><a href="nyxx/SnowflakeEntity/noSuchMethod.html">noSuchMethod</a></li>
       <li class="inherited"><a href="nyxx/User/send.html">send</a></li>
       <li class="inherited"><a href="nyxx/User/toString.html">toString</a></li>
@@ -87,6 +85,7 @@
       <span class="returntype">Future<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/User-class.html">User</a></span>&gt;</span></span>
       <span class="name ">edit</span>
 (<wbr>{<span class="parameter" id="edit-param-username"><span class="type-annotation">String</span> <span class="parameter-name">username</span>, </span> <span class="parameter" id="edit-param-avatar"><span class="type-annotation">File</span> <span class="parameter-name">avatar</span></span> })
+      
     </section>
     <section class="desc markdown">
       <p>Edits current user. This changes user's username - not per guild nickname.</p>
@@ -96,17 +95,15 @@
       <h2><span>Implementation</span> </h2>
       <pre class="language-dart"><code class="language-dart">Future&lt;User&gt; edit({String username, File avatar}) async {
   if (username == null &amp;&amp; avatar == null) return null;
-
   var req = Map&lt;String, dynamic&gt;();
 
   if (username != null) req[&#39;username&#39;] = username;
-
   if (avatar != null)
     req[&#39;avatar&#39;] =
         &quot;data:image&#47;jpeg;base64,${base64Encode(await avatar.readAsBytes())}&quot;;
 
-  var res = await this.client.http.send(&quot;PATCh&quot;, &quot;&#47;users&#47;@me&quot;, body: req);
-  return User._new(this.client, res.body as Map&lt;String, dynamic&gt;);
+  var res = await _client._http.send(&quot;PATCH&quot;, &quot;&#47;users&#47;@me&quot;, body: req);
+  return User._new(res.body as Map&lt;String, dynamic&gt;);
 }</code></pre>
     </section>
 

@@ -59,7 +59,6 @@
     
       <li class="section-title"><a href="nyxx/HttpMultipartRequest-class.html#instance-methods">Methods</a></li>
       <li class="inherited"><a href="nyxx/HttpBase/abort.html">abort</a></li>
-      <li class="inherited"><a href="nyxx/HttpBase/finish.html">finish</a></li>
       <li class="inherited"><a href="nyxx/HttpBase/noSuchMethod.html">noSuchMethod</a></li>
       <li class="inherited"><a href="nyxx/HttpBase/send.html">send</a></li>
       <li class="inherited"><a href="nyxx/HttpBase/toString.html">toString</a></li>
@@ -76,13 +75,13 @@
     <h1>files property</h1>
 
         <section class="multi-line-signature">
-          <span class="returntype">List<span class="signature">&lt;<wbr><span class="type-parameter">MultipartFile</span>&gt;</span></span>
+          <span class="returntype">Map<span class="signature">&lt;<wbr><span class="type-parameter">String</span>, <span class="type-parameter">MultipartFile</span>&gt;</span></span>
           <span class="name ">files</span>
           <div class="features">read / write</div>
         </section>
                 <section class="summary source-code" id="source">
           <h2><span>Implementation</span> </h2>
-          <pre class="language-dart"><code class="language-dart">List&lt;httpreq.MultipartFile&gt; files = List()
+          <pre class="language-dart"><code class="language-dart">Map&lt;String, transport.MultipartFile&gt; files = Map()
 
 </code></pre>
         </section>

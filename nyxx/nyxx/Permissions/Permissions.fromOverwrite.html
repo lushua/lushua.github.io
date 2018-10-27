@@ -40,6 +40,8 @@
     <h5>Permissions class</h5>
     <ol>
       <li class="section-title"><a href="nyxx/Permissions-class.html#constructors">Constructors</a></li>
+      <li><a href="nyxx/Permissions/Permissions.all.html">all</a></li>
+      <li><a href="nyxx/Permissions/Permissions.empty.html">empty</a></li>
       <li><a href="nyxx/Permissions/Permissions.fromInt.html">fromInt</a></li>
       <li><a href="nyxx/Permissions/Permissions.fromOverwrite.html">fromOverwrite</a></li>
     
@@ -105,10 +107,7 @@
     <section class="summary source-code" id="source">
       <h2><span>Implementation</span> </h2>
       <pre class="language-dart"><code class="language-dart">Permissions.fromOverwrite(int permissions, int allow, int deny) {
-  int applied = permissions | allow;
-  applied &amp;= ~deny;
-
-  _construct(applied);
+  _construct(utils.apply(permissions, allow, deny));
 }</code></pre>
     </section>
 

@@ -43,8 +43,8 @@
       <li class="section-title">
         <a href="nyxx/GroupDMChannel-class.html#instance-properties">Properties</a>
       </li>
+      <li><a href="nyxx/GroupDMChannel/nameString.html">nameString</a></li>
       <li><a href="nyxx/GroupDMChannel/recipients.html">recipients</a></li>
-      <li class="inherited"><a href="nyxx/Channel/client.html">client</a></li>
       <li class="inherited"><a href="nyxx/SnowflakeEntity/createdAt.html">createdAt</a></li>
       <li class="inherited"><a href="nyxx/MessageChannel/first.html">first</a></li>
       <li class="inherited"><a href="nyxx/SnowflakeEntity/hashCode.html">hashCode</a></li>
@@ -58,7 +58,6 @@
       <li class="inherited"><a href="nyxx/MessageChannel/messages.html">messages</a></li>
       <li class="inherited"><a href="nyxx/MessageChannel/onMessage.html">onMessage</a></li>
       <li class="inherited"><a href="nyxx/MessageChannel/onTyping.html">onTyping</a></li>
-      <li class="inherited"><a href="nyxx/Channel/raw.html">raw</a></li>
       <li class="inherited"><a href="nyxx/SnowflakeEntity/runtimeType.html">runtimeType</a></li>
       <li class="inherited"><a href="nyxx/MessageChannel/single.html">single</a></li>
       <li class="inherited"><a href="nyxx/Channel/type.html">type</a></li>
@@ -70,6 +69,7 @@
       <li class="inherited"><a href="nyxx/MessageChannel/cast.html">cast</a></li>
       <li class="inherited"><a href="nyxx/MessageChannel/contains.html">contains</a></li>
       <li class="inherited"><a href="nyxx/Channel/delete.html">delete</a></li>
+      <li class="inherited"><a href="nyxx/MessageChannel/dispose.html">dispose</a></li>
       <li class="inherited"><a href="nyxx/MessageChannel/elementAt.html">elementAt</a></li>
       <li class="inherited"><a href="nyxx/MessageChannel/every.html">every</a></li>
       <li class="inherited"><a href="nyxx/MessageChannel/expand.html">expand</a></li>
@@ -113,7 +113,8 @@
     <section class="multi-line-signature">
       <span class="returntype">Future<span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
       <span class="name ">removeRecipient</span>
-(<wbr><span class="parameter" id="removeRecipient-param-userId"><span class="type-annotation"><a href="nyxx/Snowflake-class.html">Snowflake</a></span> <span class="parameter-name">userId</span></span>)
+(<wbr><span class="parameter" id="removeRecipient-param-userId"><span class="type-annotation"><a href="nyxx/User-class.html">User</a></span> <span class="parameter-name">userId</span></span>)
+      
     </section>
     <section class="desc markdown">
       <p>Removes recipient from channel</p>
@@ -121,10 +122,8 @@
     
     <section class="summary source-code" id="source">
       <h2><span>Implementation</span> </h2>
-      <pre class="language-dart"><code class="language-dart">Future&lt;void&gt; removeRecipient(Snowflake userId) async {
-  await this
-      .client
-      .http
+      <pre class="language-dart"><code class="language-dart">Future&lt;void&gt; removeRecipient(User userId) async {
+  await _client._http
       .send(&quot;DELETE&quot;, &quot;&#47;channels&#47;${this.id}&#47;recipients&#47;${userId.toString()}&quot;);
 }</code></pre>
     </section>

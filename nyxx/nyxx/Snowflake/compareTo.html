@@ -84,6 +84,7 @@
       <span class="returntype">int</span>
       <span class="name ">compareTo</span>
 (<wbr><span class="parameter" id="compareTo-param-other"><span class="type-annotation"><a href="nyxx/Snowflake-class.html">Snowflake</a></span> <span class="parameter-name">other</span></span>)
+      <div class="features">override</div>
     </section>
     <section class="desc markdown">
       <p>Compares this object to another <code>Comparable</code></p>
@@ -97,7 +98,7 @@ and zero if <code>this</code> and <code>other</code> are ordered together.</p>
     <section class="summary source-code" id="source">
       <h2><span>Implementation</span> </h2>
       <pre class="language-dart"><code class="language-dart">@override
-int compareTo(Snowflake other) =&gt; other.id == this._id ? 0 : -1;</code></pre>
+int compareTo(Snowflake other) =&gt; compareDates(this, other);</code></pre>
     </section>
 
   </div> <!-- /.main-content -->

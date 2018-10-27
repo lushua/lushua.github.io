@@ -37,14 +37,15 @@
 <main>
 
   <div class="col-xs-6 col-sm-3 col-md-2 sidebar sidebar-offcanvas-left">
-    <h5>ChannelType enum</h5>
+    <h5>ChannelType class</h5>
     <ol>
+      <li class="section-title"><a href="nyxx/ChannelType-class.html#constructors">Constructors</a></li>
+      <li><a href="nyxx/ChannelType/ChannelType.html">ChannelType</a></li>
     
       <li class="section-title">
         <a href="nyxx/ChannelType-class.html#instance-properties">Properties</a>
       </li>
-      <li>index</li>
-      <li class="inherited"><a href="nyxx/ChannelType/hashCode.html">hashCode</a></li>
+      <li><a href="nyxx/ChannelType/hashCode.html">hashCode</a></li>
       <li class="inherited"><a href="nyxx/ChannelType/runtimeType.html">runtimeType</a></li>
     
       <li class="section-title"><a href="nyxx/ChannelType-class.html#instance-methods">Methods</a></li>
@@ -57,12 +58,11 @@
     
     
       <li class="section-title"><a href="nyxx/ChannelType-class.html#constants">Constants</a></li>
-      <li>dm</li>
-      <li>group</li>
-      <li>groupDm</li>
-      <li>text</li>
-      <li>values</li>
-      <li>voice</li>
+      <li><a href="nyxx/ChannelType/dm-constant.html">dm</a></li>
+      <li><a href="nyxx/ChannelType/group-constant.html">group</a></li>
+      <li><a href="nyxx/ChannelType/groupDm-constant.html">groupDm</a></li>
+      <li><a href="nyxx/ChannelType/text-constant.html">text</a></li>
+      <li><a href="nyxx/ChannelType/voice-constant.html">voice</a></li>
     </ol>
   </div><!--/.sidebar-offcanvas-->
 
@@ -75,7 +75,7 @@
         <section class="multi-line-signature">
           <span class="returntype">int</span>
           <span class="name ">hashCode</span>
-  <div class="features">inherited</div>
+  <div class="features">override</div>
 </section>
         
         <section class="desc markdown">
@@ -99,12 +99,13 @@ and there are no distribution guarantees.</p>
 it is even technically allowed that all instances have the same hash code,
 but if clashes happen too often, it may reduce the efficiency of hash-based
 data structures like <code>HashSet</code> or <code>HashMap</code>.</p>
-<p>If a subclass overrides <code>hashCode</code>, it should override the
+<p>If a subclass overrides <a href="nyxx/ChannelType/hashCode.html">hashCode</a>, it should override the
 <code>operator ==</code> operator as well to maintain consistency.</p>
 </section>
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span> </h2>
-  <pre class="language-dart"><code class="language-dart">external int get hashCode;</code></pre>
+  <pre class="language-dart"><code class="language-dart">@override
+int get hashCode =&gt; _value.hashCode;</code></pre>
 </section>
 </section>
         

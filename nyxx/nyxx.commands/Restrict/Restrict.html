@@ -48,10 +48,9 @@
       <li><a href="nyxx.commands/Restrict/admin.html">admin</a></li>
       <li><a href="nyxx.commands/Restrict/botPermissions.html">botPermissions</a></li>
       <li><a href="nyxx.commands/Restrict/cooldown.html">cooldown</a></li>
-      <li><a href="nyxx.commands/Restrict/guild.html">guild</a></li>
-      <li><a href="nyxx.commands/Restrict/hidden.html">hidden</a></li>
       <li><a href="nyxx.commands/Restrict/nsfw.html">nsfw</a></li>
-      <li><a href="nyxx.commands/Restrict/owner.html">owner</a></li>
+      <li><a href="nyxx.commands/Restrict/requiredContext.html">requiredContext</a></li>
+      <li><a href="nyxx.commands/Restrict/requireVoice.html">requireVoice</a></li>
       <li><a href="nyxx.commands/Restrict/roles.html">roles</a></li>
       <li><a href="nyxx.commands/Restrict/topics.html">topics</a></li>
       <li><a href="nyxx.commands/Restrict/userPermissions.html">userPermissions</a></li>
@@ -75,7 +74,7 @@
 
     <section class="multi-line-signature">
       const
-      <span class="name ">Restrict</span>(<wbr>{<span class="parameter" id="-param-admin"><span class="type-annotation">bool</span> <span class="parameter-name">admin</span>, </span> <span class="parameter" id="-param-owner"><span class="type-annotation">bool</span> <span class="parameter-name">owner</span>, </span> <span class="parameter" id="-param-roles"><span class="type-annotation">List<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/Snowflake-class.html">Snowflake</a></span>&gt;</span></span> <span class="parameter-name">roles</span>: <span class="default-value">const []</span>, </span> <span class="parameter" id="-param-cooldown"><span class="type-annotation">int</span> <span class="parameter-name">cooldown</span>, </span> <span class="parameter" id="-param-userPermissions"><span class="type-annotation">List<span class="signature">&lt;<wbr><span class="type-parameter">int</span>&gt;</span></span> <span class="parameter-name">userPermissions</span>: <span class="default-value">const []</span>, </span> <span class="parameter" id="-param-botPermissions"><span class="type-annotation">List<span class="signature">&lt;<wbr><span class="type-parameter">int</span>&gt;</span></span> <span class="parameter-name">botPermissions</span>: <span class="default-value">const []</span>, </span> <span class="parameter" id="-param-guild"><span class="type-annotation">bool</span> <span class="parameter-name">guild</span>, </span> <span class="parameter" id="-param-nsfw"><span class="type-annotation">bool</span> <span class="parameter-name">nsfw</span>, </span> <span class="parameter" id="-param-topics"><span class="type-annotation">List<span class="signature">&lt;<wbr><span class="type-parameter">String</span>&gt;</span></span> <span class="parameter-name">topics</span>: <span class="default-value">const []</span>, </span> <span class="parameter" id="-param-hidden"><span class="type-annotation">bool</span> <span class="parameter-name">hidden</span></span> })
+      <span class="name ">Restrict</span>(<wbr>{<span class="parameter" id="-param-admin"><span class="type-annotation">bool</span> <span class="parameter-name">admin</span>, </span> <span class="parameter" id="-param-roles"><span class="type-annotation">List<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/Snowflake-class.html">Snowflake</a></span>&gt;</span></span> <span class="parameter-name">roles</span>: <span class="default-value">const []</span>, </span> <span class="parameter" id="-param-cooldown"><span class="type-annotation">int</span> <span class="parameter-name">cooldown</span>, </span> <span class="parameter" id="-param-userPermissions"><span class="type-annotation">List<span class="signature">&lt;<wbr><span class="type-parameter">int</span>&gt;</span></span> <span class="parameter-name">userPermissions</span>: <span class="default-value">const []</span>, </span> <span class="parameter" id="-param-botPermissions"><span class="type-annotation">List<span class="signature">&lt;<wbr><span class="type-parameter">int</span>&gt;</span></span> <span class="parameter-name">botPermissions</span>: <span class="default-value">const []</span>, </span> <span class="parameter" id="-param-requiredContext"><span class="type-annotation"><a href="nyxx.commands/ContextType-class.html">ContextType</a></span> <span class="parameter-name">requiredContext</span>, </span> <span class="parameter" id="-param-nsfw"><span class="type-annotation">bool</span> <span class="parameter-name">nsfw</span>, </span> <span class="parameter" id="-param-requireVoice"><span class="type-annotation">bool</span> <span class="parameter-name">requireVoice</span>: <span class="default-value">false</span>, </span> <span class="parameter" id="-param-topics"><span class="type-annotation">List<span class="signature">&lt;<wbr><span class="type-parameter">String</span>&gt;</span></span> <span class="parameter-name">topics</span>: <span class="default-value">const []</span></span> })
     </section>
 
     
@@ -83,15 +82,14 @@
       <h2><span>Implementation</span> </h2>
       <pre class="language-dart"><code class="language-dart">const Restrict(
     {this.admin,
-    this.owner,
     this.roles = const [],
     this.cooldown,
     this.userPermissions = const [],
     this.botPermissions = const [],
-    this.guild,
+    this.requiredContext,
     this.nsfw,
-    this.topics = const [],
-    this.hidden});</code></pre>
+    this.requireVoice = false,
+    this.topics = const []});</code></pre>
     </section>
 
   </div> <!-- /.main-content -->

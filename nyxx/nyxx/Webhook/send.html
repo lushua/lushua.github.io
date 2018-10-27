@@ -45,25 +45,22 @@
       </li>
       <li><a href="nyxx/Webhook/channel.html">channel</a></li>
       <li><a href="nyxx/Webhook/channelId.html">channelId</a></li>
-      <li><a href="nyxx/Webhook/client.html">client</a></li>
       <li><a href="nyxx/Webhook/guild.html">guild</a></li>
       <li><a href="nyxx/Webhook/guildId.html">guildId</a></li>
       <li><a href="nyxx/Webhook/name.html">name</a></li>
-      <li><a href="nyxx/Webhook/raw.html">raw</a></li>
       <li><a href="nyxx/Webhook/token.html">token</a></li>
       <li><a href="nyxx/Webhook/user.html">user</a></li>
       <li class="inherited"><a href="nyxx/SnowflakeEntity/createdAt.html">createdAt</a></li>
       <li class="inherited"><a href="nyxx/SnowflakeEntity/hashCode.html">hashCode</a></li>
       <li class="inherited"><a href="nyxx/SnowflakeEntity/id.html">id</a></li>
-      <li class="inherited"><a href="nyxx/SnowflakeEntity/runtimeType.html">runtimeType</a></li>
+      <li class="inherited"><a href="nyxx/ISend/runtimeType.html">runtimeType</a></li>
     
       <li class="section-title"><a href="nyxx/Webhook-class.html#instance-methods">Methods</a></li>
       <li><a href="nyxx/Webhook/delete.html">delete</a></li>
       <li><a href="nyxx/Webhook/edit.html">edit</a></li>
       <li><a href="nyxx/Webhook/send.html">send</a></li>
-      <li><a href="nyxx/Webhook/sendFile.html">sendFile</a></li>
       <li><a href="nyxx/Webhook/toString.html">toString</a></li>
-      <li class="inherited"><a href="nyxx/SnowflakeEntity/noSuchMethod.html">noSuchMethod</a></li>
+      <li class="inherited"><a href="nyxx/ISend/noSuchMethod.html">noSuchMethod</a></li>
     
       <li class="section-title inherited"><a href="nyxx/Webhook-class.html#operators">Operators</a></li>
       <li class="inherited"><a href="nyxx/SnowflakeEntity/operator_equals.html">operator ==</a></li>
@@ -77,31 +74,57 @@
     <h1>send method</h1>
 
     <section class="multi-line-signature">
-      <span class="returntype">Future<span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
+      <div>
+        <ol class="annotation-list">
+          <li>@override</li>
+        </ol>
+      </div>
+      <span class="returntype">Future<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/Message-class.html">Message</a></span>&gt;</span></span>
       <span class="name ">send</span>
-(<wbr>{<span class="parameter" id="send-param-content"><span class="type-annotation">String</span> <span class="parameter-name">content</span>, </span> <span class="parameter" id="send-param-embeds"><span class="type-annotation">List<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/EmbedBuilder-class.html">EmbedBuilder</a></span>&gt;</span></span> <span class="parameter-name">embeds</span>, </span> <span class="parameter" id="send-param-username"><span class="type-annotation">String</span> <span class="parameter-name">username</span>, </span> <span class="parameter" id="send-param-avatarUrl"><span class="type-annotation">String</span> <span class="parameter-name">avatarUrl</span>, </span> <span class="parameter" id="send-param-tts"><span class="type-annotation">bool</span> <span class="parameter-name">tts</span></span> })
+(<wbr>{<span class="parameter" id="send-param-content"><span class="type-annotation">Object</span> <span class="parameter-name">content</span>: <span class="default-value">""</span>, </span> <span class="parameter" id="send-param-files"><span class="type-annotation">List<span class="signature">&lt;<wbr><span class="type-parameter">File</span>&gt;</span></span> <span class="parameter-name">files</span>, </span> <span class="parameter" id="send-param-embed"><span class="type-annotation"><a href="nyxx/EmbedBuilder-class.html">EmbedBuilder</a></span> <span class="parameter-name">embed</span>, </span> <span class="parameter" id="send-param-tts"><span class="type-annotation">bool</span> <span class="parameter-name">tts</span>: <span class="default-value">false</span>, </span> <span class="parameter" id="send-param-disableEveryone"><span class="type-annotation">bool</span> <span class="parameter-name">disableEveryone</span>, </span> <span class="parameter" id="send-param-builder"><span class="type-annotation"><a href="nyxx/MessageBuilder-class.html">MessageBuilder</a></span> <span class="parameter-name">builder</span></span> })
+      <div class="features">override</div>
     </section>
     <section class="desc markdown">
-      <p>Sends a message with the webhook.</p>
+      <p>Allows to send message via webhook</p>
     </section>
     
     <section class="summary source-code" id="source">
       <h2><span>Implementation</span> </h2>
-      <pre class="language-dart"><code class="language-dart">Future&lt;void&gt; send(
-    {String content,
-    List&lt;EmbedBuilder&gt; embeds,
-    String username,
-    String avatarUrl,
-    bool tts}) async {
-  Map&lt;String, dynamic&gt; payload = {
-    &quot;content&quot;: content,
-    &quot;username&quot;: username,
-    &quot;avatar_url&quot;: avatarUrl,
-    &quot;tts&quot;: tts,
-    &quot;embeds&quot;: embeds.map((t) =&gt; t._build())
+      <pre class="language-dart"><code class="language-dart">@override
+&#47;&#47;&#47; Allows to send message via webhook
+Future&lt;Message&gt; send(
+    {Object content = &quot;&quot;,
+      List&lt;File&gt; files,
+      EmbedBuilder embed,
+      bool tts = false,
+      bool disableEveryone,
+      MessageBuilder builder}) async {
+  if(builder != null) {
+    content = builder._content;
+    files = builder.files;
+    embed = builder.embed;
+    tts = builder.tts ?? false;
+    disableEveryone = builder.disableEveryone;
+  }
+
+  var newContent = _sanitizeMessage(content, disableEveryone);
+
+  Map&lt;String, dynamic&gt; reqBody = {
+    &quot;content&quot;: newContent,
+    &quot;embed&quot;: embed != null ? embed._build() : &quot;&quot;
   };
 
-  await this.client.http.send(&#39;POST&#39;, &quot;&#47;webhooks&#47;$id&#47;$token&quot;, body: payload);
+  HttpResponse r;
+  if (files != null &amp;&amp; files.isNotEmpty) {
+    r = await _client._http.sendMultipart(
+        &#39;POST&#39;, &#39;&#47;channels&#47;${this.id}&#47;messages&#39;, files,
+        data: reqBody..addAll({&quot;tts&quot;: tts}));
+  } else {
+    r = await _client._http.send(&#39;POST&#39;, &#39;&#47;channels&#47;${this.channel.id}&#47;messages&#39;,
+        body: reqBody..addAll({&quot;tts&quot;: tts}));
+  }
+
+  return Message._new(r.body as Map&lt;String, dynamic&gt;);
 }</code></pre>
     </section>
 

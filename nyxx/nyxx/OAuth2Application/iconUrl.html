@@ -43,13 +43,11 @@
       <li class="section-title">
         <a href="nyxx/OAuth2Application-class.html#instance-properties">Properties</a>
       </li>
-      <li><a href="nyxx/OAuth2Application/client.html">client</a></li>
       <li><a href="nyxx/OAuth2Application/createdAt.html">createdAt</a></li>
       <li><a href="nyxx/OAuth2Application/description.html">description</a></li>
       <li><a href="nyxx/OAuth2Application/icon.html">icon</a></li>
       <li><a href="nyxx/OAuth2Application/id.html">id</a></li>
       <li><a href="nyxx/OAuth2Application/name.html">name</a></li>
-      <li><a href="nyxx/OAuth2Application/raw.html">raw</a></li>
       <li><a href="nyxx/OAuth2Application/rpcOrigins.html">rpcOrigins</a></li>
       <li class="inherited"><a href="nyxx/OAuth2Application/hashCode.html">hashCode</a></li>
       <li class="inherited"><a href="nyxx/OAuth2Application/runtimeType.html">runtimeType</a></li>
@@ -73,16 +71,14 @@
     <section class="multi-line-signature">
       <span class="returntype">String</span>
       <span class="name ">iconUrl</span>
-(<wbr>{<span class="parameter" id="iconUrl-param-format"><span class="type-annotation">String</span> <span class="parameter-name">format</span>: <span class="default-value">"png"</span>, </span> <span class="parameter" id="iconUrl-param-size"><span class="type-annotation">int</span> <span class="parameter-name">size</span>: <span class="default-value">128</span></span> })
+(<wbr>{<span class="parameter" id="iconUrl-param-format"><span class="type-annotation">String</span> <span class="parameter-name">format</span>: <span class="default-value">"png"</span>, </span> <span class="parameter" id="iconUrl-param-size"><span class="type-annotation">int</span> <span class="parameter-name">size</span>: <span class="default-value">512</span></span> })
+      
     </section>
     
     <section class="summary source-code" id="source">
       <h2><span>Implementation</span> </h2>
-      <pre class="language-dart"><code class="language-dart">String iconUrl({String format = &quot;png&quot;, int size = 128}) {
-  if (icon == null) return null;
-
-  return &quot;https:&#47;&#47;cdn.discordapp.com&#47;app-icons&#47;${this.id}&#47;$icon.$format?size=$size&quot;;
-}</code></pre>
+      <pre class="language-dart"><code class="language-dart">String iconUrl({String format = &quot;png&quot;, int size = 512}) =&gt;
+    icon == null ? null : &quot;https:&#47;&#47;cdn.discordapp.com&#47;app-icons&#47;${this.id}&#47;$icon.$format?size=$size&quot;;</code></pre>
     </section>
 
   </div> <!-- /.main-content -->

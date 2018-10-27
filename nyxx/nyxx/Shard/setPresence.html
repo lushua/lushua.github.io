@@ -43,11 +43,14 @@
       <li class="section-title">
         <a href="nyxx/Shard-class.html#instance-properties">Properties</a>
       </li>
+      <li><a href="nyxx/Shard/eventsSeen.html">eventsSeen</a></li>
       <li><a href="nyxx/Shard/guilds.html">guilds</a></li>
       <li><a href="nyxx/Shard/id.html">id</a></li>
+      <li><a href="nyxx/Shard/messagesReceived.html">messagesReceived</a></li>
       <li><a href="nyxx/Shard/onDisconnect.html">onDisconnect</a></li>
       <li><a href="nyxx/Shard/onReady.html">onReady</a></li>
       <li><a href="nyxx/Shard/ready.html">ready</a></li>
+      <li><a href="nyxx/Shard/transfer.html">transfer</a></li>
       <li class="inherited"><a href="nyxx/Shard/hashCode.html">hashCode</a></li>
       <li class="inherited"><a href="nyxx/Shard/runtimeType.html">runtimeType</a></li>
     
@@ -72,22 +75,39 @@
     <section class="multi-line-signature">
       <span class="returntype">void</span>
       <span class="name ">setPresence</span>
-(<wbr>{<span class="parameter" id="setPresence-param-status"><span class="type-annotation">String</span> <span class="parameter-name">status</span>, </span> <span class="parameter" id="setPresence-param-afk"><span class="type-annotation">bool</span> <span class="parameter-name">afk</span>, </span> <span class="parameter" id="setPresence-param-game"><span class="type-annotation"><a href="nyxx/Presence-class.html">Presence</a></span> <span class="parameter-name">game</span></span> })
+(<wbr>{<span class="parameter" id="setPresence-param-status"><span class="type-annotation">String</span> <span class="parameter-name">status</span>, </span> <span class="parameter" id="setPresence-param-afk"><span class="type-annotation">bool</span> <span class="parameter-name">afk</span>: <span class="default-value">false</span>, </span> <span class="parameter" id="setPresence-param-game"><span class="type-annotation"><a href="nyxx/Presence-class.html">Presence</a></span> <span class="parameter-name">game</span>, </span> <span class="parameter" id="setPresence-param-since"><span class="type-annotation">DateTime</span> <span class="parameter-name">since</span></span> })
+      
+    </section>
+    <section class="desc markdown">
+      <p>Allows to set presence for current shard.</p>
     </section>
     
     <section class="summary source-code" id="source">
       <h2><span>Implementation</span> </h2>
-      <pre class="language-dart"><code class="language-dart">void setPresence({String status, bool afk, Presence game}) {
-  Map&lt;String, dynamic&gt; packet = {
-    &quot;afk&quot;: afk,
-    &quot;since&quot;: null,
-    &quot;status&quot;: status,
-    &quot;game&quot;: {
-      &quot;name&quot;: game != null ? game.name : null,
-      &quot;type&quot;: game != null ? game.type : null,
-      &quot;url&quot;: game != null ? game.url : null
-    }
-  };
+      <pre class="language-dart"><code class="language-dart">void setPresence({String status, bool afk = false, Presence game, DateTime since}) {
+  var packet = Map&lt;String, dynamic&gt;();
+
+  packet[&#39;status&#39;] = status;
+
+  if(afk != null)
+    packet[&#39;afk&#39;] = afk;
+
+  if(game != null) {
+    var gameMap = Map&lt;String, dynamic&gt;();
+    gameMap[&#39;name&#39;] = game.name;
+
+    if(game.type != null)
+      gameMap[&#39;type&#39;] = game.type._value;
+
+    if(game.url != null)
+      gameMap[&#39;url&#39;] = game.url;
+
+    packet[&#39;game&#39;] = gameMap;
+  }
+
+  if(since != null)
+    packet[&#39;since&#39;] = since.millisecondsSinceEpoch;
+  else packet[&#39;since&#39;] = null;
 
   this.send(&quot;STATUS_UPDATE&quot;, packet);
 }</code></pre>

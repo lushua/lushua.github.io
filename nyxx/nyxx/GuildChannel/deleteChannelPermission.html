@@ -48,29 +48,29 @@
       <li><a href="nyxx/GuildChannel/guild.html">guild</a></li>
       <li><a href="nyxx/GuildChannel/name.html">name</a></li>
       <li><a href="nyxx/GuildChannel/nsfw.html">nsfw</a></li>
-      <li><a href="nyxx/GuildChannel/onUpdate.html">onUpdate</a></li>
-      <li><a href="nyxx/GuildChannel/parentId.html">parentId</a></li>
+      <li><a href="nyxx/GuildChannel/parentChannel.html">parentChannel</a></li>
       <li><a href="nyxx/GuildChannel/permissions.html">permissions</a></li>
       <li><a href="nyxx/GuildChannel/position.html">position</a></li>
-      <li class="inherited"><a href="nyxx/Channel/client.html">client</a></li>
       <li class="inherited"><a href="nyxx/SnowflakeEntity/createdAt.html">createdAt</a></li>
-      <li class="inherited"><a href="nyxx/GuildChannel/hashCode.html">hashCode</a></li>
+      <li class="inherited"><a href="nyxx/GuildEntity/hashCode.html">hashCode</a></li>
       <li class="inherited"><a href="nyxx/SnowflakeEntity/id.html">id</a></li>
-      <li class="inherited"><a href="nyxx/Channel/raw.html">raw</a></li>
-      <li class="inherited"><a href="nyxx/SnowflakeEntity/runtimeType.html">runtimeType</a></li>
+      <li class="inherited"><a href="nyxx/Nameable/nameString.html">nameString</a></li>
+      <li class="inherited"><a href="nyxx/GuildEntity/runtimeType.html">runtimeType</a></li>
       <li class="inherited"><a href="nyxx/Channel/type.html">type</a></li>
     
       <li class="section-title"><a href="nyxx/GuildChannel-class.html#instance-methods">Methods</a></li>
       <li><a href="nyxx/GuildChannel/createInvite.html">createInvite</a></li>
       <li><a href="nyxx/GuildChannel/deleteChannelPermission.html">deleteChannelPermission</a></li>
       <li><a href="nyxx/GuildChannel/editChannelPermission.html">editChannelPermission</a></li>
+      <li><a href="nyxx/GuildChannel/effectivePermissionForRole.html">effectivePermissionForRole</a></li>
+      <li><a href="nyxx/GuildChannel/effectivePermissions.html">effectivePermissions</a></li>
       <li><a href="nyxx/GuildChannel/getChannelInvites.html">getChannelInvites</a></li>
       <li class="inherited"><a href="nyxx/Channel/delete.html">delete</a></li>
-      <li class="inherited"><a href="nyxx/SnowflakeEntity/noSuchMethod.html">noSuchMethod</a></li>
-      <li class="inherited"><a href="nyxx/SnowflakeEntity/toString.html">toString</a></li>
+      <li class="inherited"><a href="nyxx/GuildEntity/noSuchMethod.html">noSuchMethod</a></li>
+      <li class="inherited"><a href="nyxx/GuildEntity/toString.html">toString</a></li>
     
       <li class="section-title inherited"><a href="nyxx/GuildChannel-class.html#operators">Operators</a></li>
-      <li class="inherited"><a href="nyxx/GuildChannel/operator_equals.html">operator ==</a></li>
+      <li class="inherited"><a href="nyxx/GuildEntity/operator_equals.html">operator ==</a></li>
     
     
     
@@ -84,6 +84,7 @@
       <span class="returntype">Future<span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
       <span class="name ">deleteChannelPermission</span>
 (<wbr><span class="parameter" id="deleteChannelPermission-param-id"><span class="type-annotation"><a href="nyxx/SnowflakeEntity-class.html">SnowflakeEntity</a></span> <span class="parameter-name">id</span>, {</span> <span class="parameter" id="deleteChannelPermission-param-auditReason"><span class="type-annotation">String</span> <span class="parameter-name">auditReason</span>: <span class="default-value">""</span></span> })
+      
     </section>
     <section class="desc markdown">
       <p>Deletes permission overwrite for given User or Role <code>id</code>
@@ -97,7 +98,7 @@ Throws if <code>id</code> isn't <a href="nyxx/User-class.html">User</a> or <a hr
   if (!(id is Role) || !(id is User))
     throw Exception(&quot;`id` property must be either Role or User&quot;);
 
-  await this.client.http.send(&quot;POST&quot;, &quot;&#47;channels&#47;${this.id}&#47;permissions&#47;$id&quot;,
+  await _client._http.send(&quot;POST&quot;, &quot;&#47;channels&#47;${this.id}&#47;permissions&#47;$id&quot;,
       reason: auditReason);
 }</code></pre>
     </section>

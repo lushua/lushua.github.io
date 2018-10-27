@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="API docs for the createPoll function from the nyxx.utils library, for the Dart programming language.">
+  <title>createPoll function - nyxx.utils library - Dart API</title>
+  <!-- required because all the links are pseudo-absolute -->
+  <base href="..">
+
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500,400i,400,300|Source+Sans+Pro:400,300,700" rel="stylesheet">
+  <link rel="stylesheet" href="static-assets/github.css">
+  <link rel="stylesheet" href="static-assets/styles.css">
+  <link rel="icon" href="static-assets/favicon.png">
+
+</head>
+
+<body>
+
+<div id="overlay-under-drawer"></div>
+
+<header id="title">
+  <button id="sidenav-left-toggle" type="button">&nbsp;</button>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="index.html">nyxx</a></li>
+    <li><a href="nyxx.utils/nyxx.utils-library.html">nyxx.utils</a></li>
+    <li class="self-crumb">createPoll function</li>
+  </ol>
+  <div class="self-name">createPoll</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<main>
+
+  <div class="col-xs-6 col-sm-3 col-md-2 sidebar sidebar-offcanvas-left">
+    <h5>nyxx.utils library</h5>
+    <ol>
+      <li class="section-title"><a href="nyxx.utils/nyxx.utils-library.html#classes">Classes</a></li>
+      <li><a href="nyxx.utils/Bind-class.html">Bind</a></li>
+      <li><a href="nyxx.utils/Pagination-class.html">Pagination</a></li>
+      <li><a href="nyxx.utils/Scheduler-class.html">Scheduler</a></li>
+    
+    
+    
+      <li class="section-title"><a href="nyxx.utils/nyxx.utils-library.html#properties">Properties</a></li>
+      <li><a href="nyxx.utils/emojisUnicode.html">emojisUnicode</a></li>
+    
+      <li class="section-title"><a href="nyxx.utils/nyxx.utils-library.html#functions">Functions</a></li>
+      <li><a href="nyxx.utils/apply.html">apply</a></li>
+      <li><a href="nyxx.utils/bindEvents.html">bindEvents</a></li>
+      <li><a href="nyxx.utils/canInteract.html">canInteract</a></li>
+      <li><a href="nyxx.utils/chunk.html">chunk</a></li>
+      <li><a href="nyxx.utils/createPoll.html">createPoll</a></li>
+      <li><a href="nyxx.utils/downloadFile.html">downloadFile</a></li>
+      <li><a href="nyxx.utils/format.html">format</a></li>
+      <li><a href="nyxx.utils/getCmdAnnot.html">getCmdAnnot</a></li>
+      <li><a href="nyxx.utils/getCmdAnnots.html">getCmdAnnots</a></li>
+      <li><a href="nyxx.utils/getEmoji.html">getEmoji</a></li>
+      <li><a href="nyxx.utils/getOverrides.html">getOverrides</a></li>
+      <li><a href="nyxx.utils/getSymbolName.html">getSymbolName</a></li>
+      <li><a href="nyxx.utils/isApplied.html">isApplied</a></li>
+      <li><a href="nyxx.utils/merge.html">merge</a></li>
+      <li><a href="nyxx.utils/partition.html">partition</a></li>
+      <li><a href="nyxx.utils/sendMultipart.html">sendMultipart</a></li>
+      <li><a href="nyxx.utils/sendRequest.html">sendRequest</a></li>
+      <li><a href="nyxx.utils/split.html">split</a></li>
+      <li><a href="nyxx.utils/splitEqually.html">splitEqually</a></li>
+    
+    
+    
+    </ol>
+  </div><!--/.sidebar-offcanvas-left-->
+
+  <div class="col-xs-12 col-sm-9 col-md-8 main-content">
+    <h1>createPoll function </h1>
+
+    <section class="multi-line-signature">
+        <span class="returntype">Future<span class="signature">&lt;<wbr><span class="type-parameter">Map<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/Emoji-class.html">Emoji</a></span>, <span class="type-parameter">int</span>&gt;</span></span>&gt;</span></span>
+        <span class="name ">createPoll</span>
+(<wbr><span class="parameter" id="createPoll-param-channel"><span class="type-annotation"><a href="nyxx/TextChannel-class.html">TextChannel</a></span> <span class="parameter-name">channel</span>, </span> <span class="parameter" id="createPoll-param-title"><span class="type-annotation">String</span> <span class="parameter-name">title</span>, </span> <span class="parameter" id="createPoll-param-options"><span class="type-annotation">Map<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/Emoji-class.html">Emoji</a></span>, <span class="type-parameter">String</span>&gt;</span></span> <span class="parameter-name">options</span>, {</span> <span class="parameter" id="createPoll-param-timeout"><span class="type-annotation">Duration</span> <span class="parameter-name">timeout</span>: <span class="default-value">const Duration(minutes: 10)</span>, </span> <span class="parameter" id="createPoll-param-message"><span class="type-annotation">String</span> <span class="parameter-name">message</span>, </span> <span class="parameter" id="createPoll-param-delete"><span class="type-annotation">bool</span> <span class="parameter-name">delete</span>: <span class="default-value">false</span>, </span> <span class="parameter" id="createPoll-param-messageFactory"><span class="type-annotation">dynamic</span> <span class="parameter-name">messageFactory</span>(<span class="parameter" id="messageFactory-param-options"><span class="type-annotation">Map<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/Emoji-class.html">Emoji</a></span>, <span class="type-parameter">String</span>&gt;</span></span> <span class="parameter-name">options</span>, </span> <span class="parameter" id="messageFactory-param-message"><span class="type-annotation">String</span> <span class="parameter-name">message</span></span>)</span> })
+    </section>
+    <section class="desc markdown">
+      <p>Creates new poll, generates options and collects results. Returns <code>Map&lt;Emoji, int</code> as result. <code>timeout</code> is set by default to 10 minutes</p>
+<pre class="language-dart"><code>Future&lt;void&gt; examplePoll(CommandContext ctx) async {
+  var results = createPoll(ctx.channel, "This is awesome poll", {UnicodeEmoji(""): "One option", UnicodeEmoji(""): "second option"});
+}
+</code></pre>
+    </section>
+    
+    <section class="summary source-code" id="source">
+      <h2><span>Implementation</span> </h2>
+      <pre class="language-dart"><code class="language-dart">Future&lt;Map&lt;Emoji, int&gt;&gt; createPoll(
+    TextChannel channel, String title, Map&lt;Emoji, String&gt; options,
+    {Duration timeout = const Duration(minutes: 10),
+    String message,
+    bool delete = false,
+    dynamic messageFactory(Map&lt;Emoji, String&gt; options, String message)}) async {
+  var toSend;
+
+  if (messageFactory == null) {
+    StringBuffer buffer = StringBuffer();
+
+    buffer.writeln(title);
+    options.forEach((k, v) {
+      buffer.writeln(&quot;${k.format()} - $v&quot;);
+    });
+
+    if (message != null) buffer.writeln(message);
+
+    toSend = buffer.toString();
+  } else {
+    toSend = messageFactory(options, message);
+  }
+
+  Message msg;
+  if (toSend is String)
+    msg = await channel.send(content: toSend);
+  else if (toSend is EmbedBuilder)
+    msg = await channel.send(embed: toSend);
+  else
+    return Future.error(null);
+
+  for (var emoji in options.keys) await msg.createReaction(emoji);
+
+  var m = Map&lt;Emoji, int&gt;();
+  return Future&lt;Map&lt;Emoji, int&gt;&gt;(() async {
+    await for (var r in msg.onReactionAdded) {
+      if (m.containsKey(r.emoji))
+        m[r.emoji] = m[r.emoji] += 1;
+      else
+        m[r.emoji] = 1;
+    }
+  }).timeout(timeout, onTimeout: () async {
+    if (delete) await msg.delete();
+
+    return m;
+  });
+}</code></pre>
+    </section>
+
+  </div> <!-- /.main-content -->
+
+  <div class="col-xs-6 col-sm-6 col-md-2 sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+
+</main>
+
+<footer>
+  <span class="no-break">
+    nyxx 1.0.0
+  </span>
+
+</footer>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="static-assets/typeahead.bundle.min.js"></script>
+<script src="static-assets/highlight.pack.js"></script>
+<script src="static-assets/URI.js"></script>
+<script src="static-assets/script.js"></script>
+
+
+</body>
+
+</html>

@@ -47,21 +47,21 @@
       <li><a href="nyxx/Guild/afkTimeout.html">afkTimeout</a></li>
       <li><a href="nyxx/Guild/available.html">available</a></li>
       <li><a href="nyxx/Guild/channels.html">channels</a></li>
-      <li><a href="nyxx/Guild/client.html">client</a></li>
       <li><a href="nyxx/Guild/currentUserPermissions.html">currentUserPermissions</a></li>
       <li><a href="nyxx/Guild/defaultChannel.html">defaultChannel</a></li>
-      <li><a href="nyxx/Guild/embedChannelID.html">embedChannelID</a></li>
+      <li><a href="nyxx/Guild/embedChannel.html">embedChannel</a></li>
       <li><a href="nyxx/Guild/embedEnabled.html">embedEnabled</a></li>
       <li><a href="nyxx/Guild/emojis.html">emojis</a></li>
+      <li><a href="nyxx/Guild/everyoneRole.html">everyoneRole</a></li>
       <li><a href="nyxx/Guild/features.html">features</a></li>
       <li><a href="nyxx/Guild/icon.html">icon</a></li>
       <li><a href="nyxx/Guild/memberCount.html">memberCount</a></li>
       <li><a href="nyxx/Guild/members.html">members</a></li>
       <li><a href="nyxx/Guild/mfaLevel.html">mfaLevel</a></li>
       <li><a href="nyxx/Guild/name.html">name</a></li>
+      <li><a href="nyxx/Guild/nameString.html">nameString</a></li>
       <li><a href="nyxx/Guild/notificationLevel.html">notificationLevel</a></li>
       <li><a href="nyxx/Guild/owner.html">owner</a></li>
-      <li><a href="nyxx/Guild/raw.html">raw</a></li>
       <li><a href="nyxx/Guild/region.html">region</a></li>
       <li><a href="nyxx/Guild/roles.html">roles</a></li>
       <li><a href="nyxx/Guild/shard.html">shard</a></li>
@@ -69,11 +69,11 @@
       <li><a href="nyxx/Guild/systemChannel.html">systemChannel</a></li>
       <li><a href="nyxx/Guild/url.html">url</a></li>
       <li><a href="nyxx/Guild/verificationLevel.html">verificationLevel</a></li>
-      <li><a href="nyxx/Guild/webhooks.html">webhooks</a></li>
+      <li><a href="nyxx/Guild/voiceStates.html">voiceStates</a></li>
       <li class="inherited"><a href="nyxx/SnowflakeEntity/createdAt.html">createdAt</a></li>
       <li class="inherited"><a href="nyxx/SnowflakeEntity/hashCode.html">hashCode</a></li>
       <li class="inherited"><a href="nyxx/SnowflakeEntity/id.html">id</a></li>
-      <li class="inherited"><a href="nyxx/SnowflakeEntity/runtimeType.html">runtimeType</a></li>
+      <li class="inherited"><a href="nyxx/Nameable/runtimeType.html">runtimeType</a></li>
     
       <li class="section-title"><a href="nyxx/Guild-class.html#instance-methods">Methods</a></li>
       <li><a href="nyxx/Guild/addRoleToMember.html">addRoleToMember</a></li>
@@ -82,8 +82,11 @@
       <li><a href="nyxx/Guild/changeSelfNick.html">changeSelfNick</a></li>
       <li><a href="nyxx/Guild/createChannel.html">createChannel</a></li>
       <li><a href="nyxx/Guild/createEmoji.html">createEmoji</a></li>
+      <li><a href="nyxx/Guild/createInvite.html">createInvite</a></li>
       <li><a href="nyxx/Guild/createRole.html">createRole</a></li>
       <li><a href="nyxx/Guild/delete.html">delete</a></li>
+      <li><a href="nyxx/Guild/dispose.html">dispose</a></li>
+      <li><a href="nyxx/Guild/downloadGuildWidget.html">downloadGuildWidget</a></li>
       <li><a href="nyxx/Guild/edit.html">edit</a></li>
       <li><a href="nyxx/Guild/editGuildEmbed.html">editGuildEmbed</a></li>
       <li><a href="nyxx/Guild/getAuditLogs.html">getAuditLogs</a></li>
@@ -105,7 +108,7 @@
       <li><a href="nyxx/Guild/splashURL.html">splashURL</a></li>
       <li><a href="nyxx/Guild/toString.html">toString</a></li>
       <li><a href="nyxx/Guild/unban.html">unban</a></li>
-      <li class="inherited"><a href="nyxx/SnowflakeEntity/noSuchMethod.html">noSuchMethod</a></li>
+      <li class="inherited"><a href="nyxx/Nameable/noSuchMethod.html">noSuchMethod</a></li>
     
       <li class="section-title inherited"><a href="nyxx/Guild-class.html#operators">Operators</a></li>
       <li class="inherited"><a href="nyxx/SnowflakeEntity/operator_equals.html">operator ==</a></li>
@@ -122,6 +125,7 @@
       <span class="returntype">Future<span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
       <span class="name ">changeSelfNick</span>
 (<wbr><span class="parameter" id="changeSelfNick-param-nick"><span class="type-annotation">String</span> <span class="parameter-name">nick</span></span>)
+      
     </section>
     <section class="desc markdown">
       <p>Change self nickname in guild</p>
@@ -130,7 +134,7 @@
     <section class="summary source-code" id="source">
       <h2><span>Implementation</span> </h2>
       <pre class="language-dart"><code class="language-dart">Future&lt;void&gt; changeSelfNick(String nick) async {
-  await this.client.http.send(
+  await _client._http.send(
       &quot;PATCH&quot;, &quot;&#47;guilds&#47;${this.id.toString()}&#47;members&#47;@me&#47;nick&quot;,
       body: {&quot;nick&quot;: nick});
 }</code></pre>

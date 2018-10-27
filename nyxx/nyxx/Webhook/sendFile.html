@@ -45,11 +45,9 @@
       </li>
       <li><a href="nyxx/Webhook/channel.html">channel</a></li>
       <li><a href="nyxx/Webhook/channelId.html">channelId</a></li>
-      <li><a href="nyxx/Webhook/client.html">client</a></li>
       <li><a href="nyxx/Webhook/guild.html">guild</a></li>
       <li><a href="nyxx/Webhook/guildId.html">guildId</a></li>
       <li><a href="nyxx/Webhook/name.html">name</a></li>
-      <li><a href="nyxx/Webhook/raw.html">raw</a></li>
       <li><a href="nyxx/Webhook/token.html">token</a></li>
       <li><a href="nyxx/Webhook/user.html">user</a></li>
       <li class="inherited"><a href="nyxx/SnowflakeEntity/createdAt.html">createdAt</a></li>
@@ -94,9 +92,7 @@
     String username,
     String avatarUrl,
     bool tts}) async {
-  await this
-      .client
-      .http
+  await _client.http
       .sendMultipart(&quot;POST&quot;, &quot;&#47;webhooks&#47;$id&#47;$token&quot;, files, data: {
     &quot;content&quot;: content,
     &quot;username&quot;: username,

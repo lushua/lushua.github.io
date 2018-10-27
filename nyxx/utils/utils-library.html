@@ -40,7 +40,7 @@
           <li class="section-title">Libraries</li>
           <li><a href="nyxx/nyxx-library.html">nyxx</a></li>
           <li><a href="nyxx.commands/nyxx.commands-library.html">nyxx.commands</a></li>
-          <li><a href="nyxx.voice/nyxx.voice-library.html">nyxx.voice</a></li>
+          <li><a href="nyxx.lavalink/nyxx.lavalink-library.html">nyxx.lavalink</a></li>
           <li><a href="utils/utils-library.html">utils</a></li>
     </ol>
   </div>
@@ -49,6 +49,31 @@
     <h1>utils library</h1>
 
     
+    <section class="summary offset-anchor" id="classes">
+      <h2>Classes</h2>
+
+      <dl>
+        <dt id="Bind">
+          <span class="name "><a href="utils/Bind-class.html">Bind</a></span>
+        </dt>
+        <dd>
+          Class used to bind method to Stream
+        </dd>
+        <dt id="Pagination">
+          <span class="name "><a href="utils/Pagination-class.html">Pagination</a></span>
+        </dt>
+        <dd>
+          Handles pagination interactivity. Allows to create paginated messages from List<string>
+Factory constructors allows to create message from String directly.</string> <a href="utils/Pagination-class.html">[...]</a>
+        </dd>
+        <dt id="Scheduler">
+          <span class="name "><a href="utils/Scheduler-class.html">Scheduler</a></span>
+        </dt>
+        <dd>
+          Runs specific code on every target periodically. <a href="utils/Scheduler-class.html">[...]</a>
+        </dd>
+      </dl>
+    </section>
 
 
     <section class="summary offset-anchor" id="properties">
@@ -70,6 +95,33 @@
       <h2>Functions</h2>
 
       <dl class="callables">
+        <dt id="apply" class="callable">
+          <span class="name"><a href="utils/apply.html">apply</a></span><span class="signature">(<wbr><span class="parameter" id="apply-param-permissions"><span class="type-annotation">int</span> <span class="parameter-name">permissions</span>, </span> <span class="parameter" id="apply-param-allow"><span class="type-annotation">int</span> <span class="parameter-name">allow</span>, </span> <span class="parameter" id="apply-param-deny"><span class="type-annotation">int</span> <span class="parameter-name">deny</span></span>)
+            <span class="returntype parameter">&#8594; int</span>
+          </span>
+        </dt>
+        <dd>
+          
+          
+</dd>
+        <dt id="bindEvents" class="callable">
+          <span class="name"><a href="utils/bindEvents.html">bindEvents</a></span><span class="signature">(<wbr><span class="parameter" id="bindEvents-param-libname"><span class="type-annotation">String</span> <span class="parameter-name">libname</span></span>)
+            <span class="returntype parameter">&#8594; void</span>
+          </span>
+        </dt>
+        <dd>
+          Binds all methods with <a href="utils/Bind-class.html">Bind</a> annotation to Client's streams.
+          
+</dd>
+        <dt id="canInteract" class="callable">
+          <span class="name"><a href="utils/canInteract.html">canInteract</a></span><span class="signature">(<wbr>{<span class="parameter" id="canInteract-param-issueMember"><span class="type-annotation"><a href="nyxx/Member-class.html">Member</a></span> <span class="parameter-name">issueMember</span>, </span> <span class="parameter" id="canInteract-param-issueRole"><span class="type-annotation"><a href="nyxx/Role-class.html">Role</a></span> <span class="parameter-name">issueRole</span>, </span> <span class="parameter" id="canInteract-param-targetMember"><span class="type-annotation"><a href="nyxx/Member-class.html">Member</a></span> <span class="parameter-name">targetMember</span>, </span> <span class="parameter" id="canInteract-param-targetRole"><span class="type-annotation"><a href="nyxx/Role-class.html">Role</a></span> <span class="parameter-name">targetRole</span></span> })
+            <span class="returntype parameter">&#8594; bool</span>
+          </span>
+        </dt>
+        <dd>
+          Allows to check if <code>issueMember</code> or <code>issueRole</code> can interact with <code>targetMember</code> or <code>targetRole</code>.
+          
+</dd>
         <dt id="chunk" class="callable">
           <span class="name"><a href="utils/chunk.html">chunk</a></span><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span><span class="signature">(<wbr><span class="parameter" id="chunk-param-list"><span class="type-annotation">List<span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span> <span class="parameter-name">list</span>, </span> <span class="parameter" id="chunk-param-chunkSize"><span class="type-annotation">int</span> <span class="parameter-name">chunkSize</span></span>)
             <span class="returntype parameter">&#8594; Stream<span class="signature">&lt;<wbr><span class="type-parameter">List<span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span>&gt;</span></span>
@@ -77,6 +129,15 @@
         </dt>
         <dd>
           
+          
+</dd>
+        <dt id="createPoll" class="callable">
+          <span class="name"><a href="utils/createPoll.html">createPoll</a></span><span class="signature">(<wbr><span class="parameter" id="createPoll-param-channel"><span class="type-annotation"><a href="nyxx/TextChannel-class.html">TextChannel</a></span> <span class="parameter-name">channel</span>, </span> <span class="parameter" id="createPoll-param-title"><span class="type-annotation">String</span> <span class="parameter-name">title</span>, </span> <span class="parameter" id="createPoll-param-options"><span class="type-annotation">Map<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/Emoji-class.html">Emoji</a></span>, <span class="type-parameter">String</span>&gt;</span></span> <span class="parameter-name">options</span>, {</span> <span class="parameter" id="createPoll-param-timeout"><span class="type-annotation">Duration</span> <span class="parameter-name">timeout</span>: <span class="default-value">const Duration(minutes: 10)</span>, </span> <span class="parameter" id="createPoll-param-message"><span class="type-annotation">String</span> <span class="parameter-name">message</span>, </span> <span class="parameter" id="createPoll-param-delete"><span class="type-annotation">bool</span> <span class="parameter-name">delete</span>: <span class="default-value">false</span>, </span> <span class="parameter" id="createPoll-param-messageFactory"><span class="type-annotation">dynamic</span> <span class="parameter-name">messageFactory</span>(<span class="parameter" id="messageFactory-param-options"><span class="type-annotation">Map<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/Emoji-class.html">Emoji</a></span>, <span class="type-parameter">String</span>&gt;</span></span> <span class="parameter-name">options</span>, </span> <span class="parameter" id="messageFactory-param-message"><span class="type-annotation">String</span> <span class="parameter-name">message</span></span>)</span> })
+            <span class="returntype parameter">&#8594; Future<span class="signature">&lt;<wbr><span class="type-parameter">Map<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/Emoji-class.html">Emoji</a></span>, <span class="type-parameter">int</span>&gt;</span></span>&gt;</span></span>
+          </span>
+        </dt>
+        <dd>
+          Creates new poll, generates options and collects results. Returns <code>Map&lt;Emoji, int</code> as result. <code>timeout</code> is set by default to 10 minutes <a href="utils/createPoll.html">[...]</a>
           
 </dd>
         <dt id="downloadFile" class="callable">
@@ -89,7 +150,7 @@
           
 </dd>
         <dt id="format" class="callable">
-          <span class="name"><a href="utils/format.html">format</a></span><span class="signature">(<wbr><span class="parameter" id="format-param-format"><span class="type-annotation">String</span> <span class="parameter-name">format</span>, </span> <span class="parameter" id="format-param-formatters"><span class="type-annotation">List<span class="signature">&lt;<wbr><span class="type-parameter">Object</span>&gt;</span></span> <span class="parameter-name">formatters</span></span>)
+          <span class="name"><a href="utils/format.html">format</a></span><span class="signature">(<wbr><span class="parameter" id="format-param-format"><span class="type-annotation">String</span> <span class="parameter-name">format</span>, </span> <span class="parameter" id="format-param-formatters"><span class="type-annotation">List</span> <span class="parameter-name">formatters</span></span>)
             <span class="returntype parameter">&#8594; String</span>
           </span>
         </dt>
@@ -104,7 +165,7 @@
           </span>
         </dt>
         <dd>
-          
+          Gets single annotation with type <code>T</code> from <code>declaration</code>
           
 </dd>
         <dt id="getCmdAnnots" class="callable">
@@ -113,12 +174,21 @@
           </span>
         </dt>
         <dd>
-          
+          Gets all annotations with type <code>T</code> from <code>declaration</code>
           
 </dd>
         <dt id="getEmoji" class="callable">
           <span class="name"><a href="utils/getEmoji.html">getEmoji</a></span><span class="signature">(<wbr><span class="parameter" id="getEmoji-param-name"><span class="type-annotation">String</span> <span class="parameter-name">name</span></span>)
             <span class="returntype parameter">&#8594; <a href="nyxx/UnicodeEmoji-class.html">UnicodeEmoji</a></span>
+          </span>
+        </dt>
+        <dd>
+          
+          
+</dd>
+        <dt id="getOverrides" class="callable">
+          <span class="name"><a href="utils/getOverrides.html">getOverrides</a></span><span class="signature">(<wbr><span class="parameter" id="getOverrides-param-member"><span class="type-annotation"><a href="nyxx/Member-class.html">Member</a></span> <span class="parameter-name">member</span>, </span> <span class="parameter" id="getOverrides-param-channel"><span class="type-annotation"><a href="nyxx/GuildChannel-class.html">GuildChannel</a></span> <span class="parameter-name">channel</span></span>)
+            <span class="returntype parameter">&#8594; List<span class="signature">&lt;<wbr><span class="type-parameter">int</span>&gt;</span></span>
           </span>
         </dt>
         <dd>
@@ -132,6 +202,15 @@
         </dt>
         <dd>
           Gets <code>Symbol</code>s 'name'
+          
+</dd>
+        <dt id="isApplied" class="callable">
+          <span class="name"><a href="utils/isApplied.html">isApplied</a></span><span class="signature">(<wbr><span class="parameter" id="isApplied-param-permissions"><span class="type-annotation">int</span> <span class="parameter-name">permissions</span>, </span> <span class="parameter" id="isApplied-param-permission"><span class="type-annotation">int</span> <span class="parameter-name">permission</span></span>)
+            <span class="returntype parameter">&#8594; bool</span>
+          </span>
+        </dt>
+        <dd>
+          
           
 </dd>
         <dt id="merge" class="callable">
@@ -158,7 +237,7 @@
           </span>
         </dt>
         <dd>
-          Sends mulipart request. Returns decoded message body
+          Sends multipart request. Returns decoded message body
           
 </dd>
         <dt id="sendRequest" class="callable">
@@ -176,7 +255,7 @@
           </span>
         </dt>
         <dd>
-          Splits string based on desied lenght
+          Splits string based on desired length
           
 </dd>
         <dt id="splitEqually" class="callable">
@@ -199,19 +278,29 @@
   <div class="col-xs-6 col-sm-6 col-md-2 sidebar sidebar-offcanvas-right">
     <h5>utils library</h5>
     <ol>
+      <li class="section-title"><a href="utils/utils-library.html#classes">Classes</a></li>
+      <li><a href="utils/Bind-class.html">Bind</a></li>
+      <li><a href="utils/Pagination-class.html">Pagination</a></li>
+      <li><a href="utils/Scheduler-class.html">Scheduler</a></li>
     
     
       <li class="section-title"><a href="utils/utils-library.html#properties">Properties</a></li>
       <li><a href="utils/emojisUnicode.html">emojisUnicode</a></li>
     
       <li class="section-title"><a href="utils/utils-library.html#functions">Functions</a></li>
+      <li><a href="utils/apply.html">apply</a></li>
+      <li><a href="utils/bindEvents.html">bindEvents</a></li>
+      <li><a href="utils/canInteract.html">canInteract</a></li>
       <li><a href="utils/chunk.html">chunk</a></li>
+      <li><a href="utils/createPoll.html">createPoll</a></li>
       <li><a href="utils/downloadFile.html">downloadFile</a></li>
       <li><a href="utils/format.html">format</a></li>
       <li><a href="utils/getCmdAnnot.html">getCmdAnnot</a></li>
       <li><a href="utils/getCmdAnnots.html">getCmdAnnots</a></li>
       <li><a href="utils/getEmoji.html">getEmoji</a></li>
+      <li><a href="utils/getOverrides.html">getOverrides</a></li>
       <li><a href="utils/getSymbolName.html">getSymbolName</a></li>
+      <li><a href="utils/isApplied.html">isApplied</a></li>
       <li><a href="utils/merge.html">merge</a></li>
       <li><a href="utils/partition.html">partition</a></li>
       <li><a href="utils/sendMultipart.html">sendMultipart</a></li>

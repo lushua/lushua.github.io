@@ -87,8 +87,7 @@
     <section class="summary source-code" id="source">
       <h2><span>Implementation</span> </h2>
       <pre class="language-dart"><code class="language-dart">Snowflake.fromDateTime(DateTime date) {
-  this._timestamp = date;
-  this._id = _parseId(_timestamp);
+  this._id = _parseId(date);
 }</code></pre>
     </section>
 

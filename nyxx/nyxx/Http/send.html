@@ -44,12 +44,10 @@
         <a href="nyxx/Http-class.html#instance-properties">Properties</a>
       </li>
       <li><a href="nyxx/Http/buckets.html">buckets</a></li>
-      <li><a href="nyxx/Http/headers.html">headers</a></li>
       <li class="inherited"><a href="nyxx/Http/hashCode.html">hashCode</a></li>
       <li class="inherited"><a href="nyxx/Http/runtimeType.html">runtimeType</a></li>
     
       <li class="section-title"><a href="nyxx/Http-class.html#instance-methods">Methods</a></li>
-      <li><a href="nyxx/Http/addAuditReason.html">addAuditReason</a></li>
       <li><a href="nyxx/Http/send.html">send</a></li>
       <li><a href="nyxx/Http/sendMultipart.html">sendMultipart</a></li>
       <li class="inherited"><a href="nyxx/Http/noSuchMethod.html">noSuchMethod</a></li>
@@ -70,6 +68,7 @@
       <span class="returntype">Future<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/HttpResponse-class.html">HttpResponse</a></span>&gt;</span></span>
       <span class="name ">send</span>
 (<wbr><span class="parameter" id="send-param-method"><span class="type-annotation">String</span> <span class="parameter-name">method</span>, </span> <span class="parameter" id="send-param-path"><span class="type-annotation">String</span> <span class="parameter-name">path</span>, {</span> <span class="parameter" id="send-param-body"><span class="type-annotation">dynamic</span> <span class="parameter-name">body</span>, </span> <span class="parameter" id="send-param-queryParams"><span class="type-annotation">Map<span class="signature">&lt;<wbr><span class="type-parameter">String</span>, <span class="type-parameter">String</span>&gt;</span></span> <span class="parameter-name">queryParams</span>, </span> <span class="parameter" id="send-param-beforeReady"><span class="type-annotation">bool</span> <span class="parameter-name">beforeReady</span>: <span class="default-value">false</span>, </span> <span class="parameter" id="send-param-headers"><span class="type-annotation">Map<span class="signature">&lt;<wbr><span class="type-parameter">String</span>, <span class="type-parameter">String</span>&gt;</span></span> <span class="parameter-name">headers</span>: <span class="default-value">const {}</span>, </span> <span class="parameter" id="send-param-reason"><span class="type-annotation">String</span> <span class="parameter-name">reason</span></span> })
+      
     </section>
     <section class="desc markdown">
       <p>Sends a HTTP request.</p>
@@ -83,27 +82,25 @@
     bool beforeReady = false,
     Map&lt;String, String&gt; headers = const {},
     String reason}) async {
-  if (_client is Nyxx &amp;&amp; !this._client.ready &amp;&amp; !beforeReady)
-    throw Exception(&quot;Client isn&#39;t ready yet.&quot;);
-
   HttpRequest request = HttpRequest._new(
       this,
       method,
       path,
       queryParams,
-      Map.from(this.headers)..addAll(headers)..addAll(addAuditReason(reason)),
+      Map.from(this._headers)..addAll(headers)..addAll(_addAuditReason(reason)),
       body);
 
   await for (HttpResponse r in request.stream) {
     if (!r.aborted &amp;&amp; r.status &gt;= 200 &amp;&amp; r.status &lt; 300) {
-      if (_client != null) HttpResponseEvent._new(_client, r);
+      if(_client != null) HttpResponseEvent._new(r);
       return r;
     } else {
-      if (_client != null) HttpErrorEvent._new(_client, r);
-      throw HttpError._new(r);
+      if(_client != null) HttpErrorEvent._new(r);
+      return Future.error(r);
     }
   }
-  return null;
+
+  return Future.error(Exception(&quot;Didn&#39;t got any response&quot;));
 }</code></pre>
     </section>
 

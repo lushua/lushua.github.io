@@ -90,15 +90,9 @@
 </section>
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span> </h2>
-  <pre class="language-dart"><code class="language-dart">DateTime get timestamp {
-  if (_timestamp == null) {
-    _timestamp = DateTime.fromMillisecondsSinceEpoch(
-        ((int.parse(_id) &#47; snowflakeDateOffset) + discordEpoch).toInt());
-    return _timestamp;
-  }
-
-  return _timestamp;
-}</code></pre>
+  <pre class="language-dart"><code class="language-dart">DateTime get timestamp =&gt;
+    DateTime.fromMillisecondsSinceEpoch((int.parse(_id) &gt;&gt; 22) + discordEpoch)
+        .toUtc();</code></pre>
 </section>
 </section>
         

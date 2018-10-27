@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="nyxx.lavalink library API docs, for the Dart programming language.">
+  <title>nyxx.lavalink library - Dart API</title>
+  <!-- required because all the links are pseudo-absolute -->
+  <base href="..">
+
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500,400i,400,300|Source+Sans+Pro:400,300,700" rel="stylesheet">
+  <link rel="stylesheet" href="static-assets/github.css">
+  <link rel="stylesheet" href="static-assets/styles.css">
+  <link rel="icon" href="static-assets/favicon.png">
+
+</head>
+
+<body>
+
+<div id="overlay-under-drawer"></div>
+
+<header id="title">
+  <button id="sidenav-left-toggle" type="button">&nbsp;</button>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="index.html">nyxx</a></li>
+    <li class="self-crumb">nyxx.lavalink library</li>
+  </ol>
+  <div class="self-name">nyxx.lavalink</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<main>
+
+  <div class="col-xs-6 col-sm-3 col-md-2 sidebar sidebar-offcanvas-left">
+    <h5><span class="package-name">nyxx</span> <span class="package-kind">package</span></h5>
+    <ol>
+          <li class="section-title">Libraries</li>
+          <li><a href="nyxx/nyxx-library.html">nyxx</a></li>
+          <li><a href="nyxx.commands/nyxx.commands-library.html">nyxx.commands</a></li>
+          <li><a href="nyxx.lavalink/nyxx.lavalink-library.html">nyxx.lavalink</a></li>
+          <li><a href="nyxx.utils/nyxx.utils-library.html">nyxx.utils</a></li>
+    </ol>
+  </div>
+
+  <div class="col-xs-12 col-sm-9 col-md-8 main-content">
+    <h1>nyxx.lavalink library </h1>
+
+    <section class="desc markdown">
+      <p>Nyxx Discord API for Dart
+ Lavalink sublibrary</p>
+<p> Lavalink sublibrary wraps all tools and logic needed to interact with voice.
+ Allows to connect to channel and play music via <a href="https://github.com/Frederikam/Lavalink">Lavalink</a></p>
+    </section>
+    
+    <section class="summary offset-anchor" id="classes">
+      <h2>Classes</h2>
+
+      <dl>
+        <dt id="Entity">
+          <span class="name "><a href="nyxx.lavalink/Entity-class.html">Entity</a></span> 
+        </dt>
+        <dd>
+          Represents basic lavalink object: <a href="nyxx.lavalink/Track-class.html">Track</a> or <a href="nyxx.lavalink/Playlist-class.html">Playlist</a>
+        </dd>
+        <dt id="Player">
+          <span class="name "><a href="nyxx.lavalink/Player-class.html">Player</a></span> 
+        </dt>
+        <dd>
+          Manages voice connection for guild. There can be only one player for <a href="nyxx/Guild-class.html">Guild</a>
+        </dd>
+        <dt id="PlayerUpdateEvent">
+          <span class="name "><a href="nyxx.lavalink/PlayerUpdateEvent-class.html">PlayerUpdateEvent</a></span> 
+        </dt>
+        <dd>
+          Represents player update incoming from Lavalink
+        </dd>
+        <dt id="Playlist">
+          <span class="name "><a href="nyxx.lavalink/Playlist-class.html">Playlist</a></span> 
+        </dt>
+        <dd>
+          Playlist contains list of track and basic info about itself.
+        </dd>
+        <dt id="Stats">
+          <span class="name "><a href="nyxx.lavalink/Stats-class.html">Stats</a></span> 
+        </dt>
+        <dd>
+          Stats object which is emitted every one minute
+        </dd>
+        <dt id="Track">
+          <span class="name "><a href="nyxx.lavalink/Track-class.html">Track</a></span> 
+        </dt>
+        <dd>
+          Represents Lavalink playable track
+        </dd>
+        <dt id="TrackEndEvent">
+          <span class="name "><a href="nyxx.lavalink/TrackEndEvent-class.html">TrackEndEvent</a></span> 
+        </dt>
+        <dd>
+          Event emitted when track ends/stop/etc
+        </dd>
+        <dt id="TrackError">
+          <span class="name "><a href="nyxx.lavalink/TrackError-class.html">TrackError</a></span> 
+        </dt>
+        <dd>
+          Provides abstraction for TrakcErrors
+        </dd>
+        <dt id="TrackExceptionEvent">
+          <span class="name "><a href="nyxx.lavalink/TrackExceptionEvent-class.html">TrackExceptionEvent</a></span> 
+        </dt>
+        <dd>
+          Emitted when track generates exception
+        </dd>
+        <dt id="TrackResponse">
+          <span class="name "><a href="nyxx.lavalink/TrackResponse-class.html">TrackResponse</a></span> 
+        </dt>
+        <dd>
+          Response of Lavalink api
+        </dd>
+        <dt id="TrackStuckEvent">
+          <span class="name "><a href="nyxx.lavalink/TrackStuckEvent-class.html">TrackStuckEvent</a></span> 
+        </dt>
+        <dd>
+          Emitted when track is stuck
+        </dd>
+        <dt id="VoiceService">
+          <span class="name "><a href="nyxx.lavalink/VoiceService-class.html">VoiceService</a></span> 
+        </dt>
+        <dd>
+          <a href="nyxx.lavalink/VoiceService-class.html">VoiceService</a> managers all voice connections.
+There can be only one instance class.
+        </dd>
+      </dl>
+    </section>
+
+
+
+
+    <section class="summary offset-anchor" id="functions">
+      <h2>Functions</h2>
+
+      <dl class="callables">
+        <dt id="destroyPlayer" class="callable">
+          <span class="name"><a href="nyxx.lavalink/destroyPlayer.html">destroyPlayer</a></span><span class="signature">(<wbr><span class="parameter" id="destroyPlayer-param-player"><span class="type-annotation"><a href="nyxx.lavalink/Player-class.html">Player</a></span> <span class="parameter-name">player</span></span>)
+            <span class="returntype parameter">&#8594; Future<span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
+          </span>
+          </dt>
+        <dd>
+          Destroys player and removes all connections
+          
+</dd>
+        <dt id="getPlayer" class="callable">
+          <span class="name"><a href="nyxx.lavalink/getPlayer.html">getPlayer</a></span><span class="signature">(<wbr><span class="parameter" id="getPlayer-param-guild"><span class="type-annotation"><a href="nyxx/Guild-class.html">Guild</a></span> <span class="parameter-name">guild</span></span>)
+            <span class="returntype parameter">&#8594; Future<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx.lavalink/Player-class.html">Player</a></span>&gt;</span></span>
+          </span>
+          </dt>
+        <dd>
+          Gets <a href="nyxx.lavalink/Player-class.html">Player</a> instance for guild.
+          
+</dd>
+        <dt id="getVoiceService" class="callable">
+          <span class="name"><a href="nyxx.lavalink/getVoiceService.html">getVoiceService</a></span><span class="signature">(<wbr>)
+            <span class="returntype parameter">&#8594; <a href="nyxx.lavalink/VoiceService-class.html">VoiceService</a></span>
+          </span>
+          </dt>
+        <dd>
+          Returns instance of VoiceService
+          
+</dd>
+        <dt id="init" class="callable">
+          <span class="name"><a href="nyxx.lavalink/init.html">init</a></span><span class="signature">(<wbr><span class="parameter" id="init-param-ws"><span class="type-annotation">String</span> <span class="parameter-name">ws</span>, </span> <span class="parameter" id="init-param-rest"><span class="type-annotation">String</span> <span class="parameter-name">rest</span>, </span> <span class="parameter" id="init-param-password"><span class="type-annotation">String</span> <span class="parameter-name">password</span></span>)
+            <span class="returntype parameter">&#8594; <a href="nyxx.lavalink/VoiceService-class.html">VoiceService</a></span>
+          </span>
+          </dt>
+        <dd>
+          Creates voice service. <code>yamlConfigFile</code> is absolute path to lavalink config file.
+Returns instance of VoiceService
+          
+</dd>
+        <dt id="sendFakeOp4" class="callable">
+          <span class="name"><a href="nyxx.lavalink/sendFakeOp4.html">sendFakeOp4</a></span><span class="signature">(<wbr><span class="parameter" id="sendFakeOp4-param-channel"><span class="type-annotation"><a href="nyxx/VoiceChannel-class.html">VoiceChannel</a></span> <span class="parameter-name">channel</span>, {</span> <span class="parameter" id="sendFakeOp4-param-mute"><span class="type-annotation">bool</span> <span class="parameter-name">mute</span>: <span class="default-value">false</span>, </span> <span class="parameter" id="sendFakeOp4-param-deafen"><span class="type-annotation">bool</span> <span class="parameter-name">deafen</span>: <span class="default-value">false</span>, </span> <span class="parameter" id="sendFakeOp4-param-guild"><span class="type-annotation"><a href="nyxx/Guild-class.html">Guild</a></span> <span class="parameter-name">guild</span></span> })
+            <span class="returntype parameter">&#8594; Future<span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
+          </span>
+          </dt>
+        <dd>
+          Sends Op4 and connects to voice channel but without starting voice service
+          
+</dd>
+      </dl>
+    </section>
+
+
+
+
+  </div> <!-- /.main-content -->
+
+  <div class="col-xs-6 col-sm-6 col-md-2 sidebar sidebar-offcanvas-right">
+    <h5>nyxx.lavalink library</h5>
+    <ol>
+      <li class="section-title"><a href="nyxx.lavalink/nyxx.lavalink-library.html#classes">Classes</a></li>
+      <li><a href="nyxx.lavalink/Entity-class.html">Entity</a></li>
+      <li><a href="nyxx.lavalink/Player-class.html">Player</a></li>
+      <li><a href="nyxx.lavalink/PlayerUpdateEvent-class.html">PlayerUpdateEvent</a></li>
+      <li><a href="nyxx.lavalink/Playlist-class.html">Playlist</a></li>
+      <li><a href="nyxx.lavalink/Stats-class.html">Stats</a></li>
+      <li><a href="nyxx.lavalink/Track-class.html">Track</a></li>
+      <li><a href="nyxx.lavalink/TrackEndEvent-class.html">TrackEndEvent</a></li>
+      <li><a href="nyxx.lavalink/TrackError-class.html">TrackError</a></li>
+      <li><a href="nyxx.lavalink/TrackExceptionEvent-class.html">TrackExceptionEvent</a></li>
+      <li><a href="nyxx.lavalink/TrackResponse-class.html">TrackResponse</a></li>
+      <li><a href="nyxx.lavalink/TrackStuckEvent-class.html">TrackStuckEvent</a></li>
+      <li><a href="nyxx.lavalink/VoiceService-class.html">VoiceService</a></li>
+    
+    
+    
+    
+      <li class="section-title"><a href="nyxx.lavalink/nyxx.lavalink-library.html#functions">Functions</a></li>
+      <li><a href="nyxx.lavalink/destroyPlayer.html">destroyPlayer</a></li>
+      <li><a href="nyxx.lavalink/getPlayer.html">getPlayer</a></li>
+      <li><a href="nyxx.lavalink/getVoiceService.html">getVoiceService</a></li>
+      <li><a href="nyxx.lavalink/init.html">init</a></li>
+      <li><a href="nyxx.lavalink/sendFakeOp4.html">sendFakeOp4</a></li>
+    
+    
+    
+    </ol>
+  </div><!--/sidebar-offcanvas-right-->
+
+</main>
+
+<footer>
+  <span class="no-break">
+    nyxx 1.0.0
+  </span>
+
+</footer>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="static-assets/typeahead.bundle.min.js"></script>
+<script src="static-assets/highlight.pack.js"></script>
+<script src="static-assets/URI.js"></script>
+<script src="static-assets/script.js"></script>
+
+
+</body>
+
+</html>

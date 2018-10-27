@@ -41,38 +41,36 @@
       <li class="section-title"><a href="nyxx.commands/nyxx.commands-library.html#classes">Classes</a></li>
       <li><a href="nyxx.commands/Command-class.html">Command</a></li>
       <li><a href="nyxx.commands/CommandContext-class.html">CommandContext</a></li>
-      <li><a href="nyxx.commands/CommandExecutionFailEvent-class.html">CommandExecutionFailEvent</a></li>
-      <li><a href="nyxx.commands/CommandParsingFail-class.html">CommandParsingFail</a></li>
+      <li><a href="nyxx.commands/CommandExecutionError-class.html">CommandExecutionError</a></li>
       <li><a href="nyxx.commands/CommandsFramework-class.html">CommandsFramework</a></li>
       <li><a href="nyxx.commands/CooldownCache-class.html">CooldownCache</a></li>
-      <li><a href="nyxx.commands/Help-class.html">Help</a></li>
       <li><a href="nyxx.commands/Module-class.html">Module</a></li>
-      <li><a href="nyxx.commands/Pagination-class.html">Pagination</a></li>
       <li><a href="nyxx.commands/Postprocessor-class.html">Postprocessor</a></li>
       <li><a href="nyxx.commands/Preprocessor-class.html">Preprocessor</a></li>
-      <li><a href="nyxx.commands/PreprocessorErrorEvent-class.html">PreprocessorErrorEvent</a></li>
+      <li><a href="nyxx.commands/PreprocessorResult-class.html">PreprocessorResult</a></li>
       <li><a href="nyxx.commands/Remainder-class.html">Remainder</a></li>
       <li><a href="nyxx.commands/Restrict-class.html">Restrict</a></li>
-      <li><a href="nyxx.commands/Scheduler-class.html">Scheduler</a></li>
       <li><a href="nyxx.commands/Service-class.html">Service</a></li>
       <li><a href="nyxx.commands/TypeConverter-class.html">TypeConverter</a></li>
     
     
     
-      <li class="section-title"><a href="nyxx.commands/nyxx.commands-library.html#functions">Functions</a></li>
-      <li><a href="nyxx.commands/createPoll.html">createPoll</a></li>
     
+    
+      <li class="section-title"><a href="nyxx.commands/nyxx.commands-library.html#enums">Enums</a></li>
+      <li><a href="nyxx.commands/ContextType-class.html">ContextType</a></li>
+      <li><a href="nyxx.commands/ExecutionErrorType-class.html">ExecutionErrorType</a></li>
     
     
     </ol>
   </div>
 
   <div class="col-xs-12 col-sm-9 col-md-8 main-content">
-    <h1>TypeConverter&lt;<wbr><span class="type-parameter">T</span>&gt; class</h1>
+      <h1>TypeConverter&lt;<wbr><span class="type-parameter">T</span>&gt; class </h1>
 
     <section class="desc markdown">
       <p>Interface for creating TypeConverter.
-Overriding this class alows to later register it into <a href="nyxx.commands/CommandsFramework-class.html">CommandsFramework</a></p>
+Overriding this class allows to later register it into <a href="nyxx.commands/CommandsFramework-class.html">CommandsFramework</a></p>
     </section>
     
 
@@ -95,7 +93,7 @@ Overriding this class alows to later register it into <a href="nyxx.commands/Com
       <dl class="properties">
         <dt id="hashCode" class="property inherited">
           <span class="name"><a href="nyxx.commands/TypeConverter/hashCode.html">hashCode</a></span>
-          <span class="signature">&#8594; int</span>
+          <span class="signature">&#8594; int</span> 
         </dt>
         <dd class="inherited">
           The hash code for this object. <a href="nyxx.commands/TypeConverter/hashCode.html">[...]</a>
@@ -103,7 +101,7 @@ Overriding this class alows to later register it into <a href="nyxx.commands/Com
 </dd>
         <dt id="runtimeType" class="property inherited">
           <span class="name"><a href="nyxx.commands/TypeConverter/runtimeType.html">runtimeType</a></span>
-          <span class="signature">&#8594; Type</span>
+          <span class="signature">&#8594; Type</span> 
         </dt>
         <dd class="inherited">
           A representation of the runtime type of the object.
@@ -115,20 +113,11 @@ Overriding this class alows to later register it into <a href="nyxx.commands/Com
     <section class="summary offset-anchor" id="instance-methods">
       <h2>Methods</h2>
       <dl class="callables">
-        <dt id="getType" class="callable">
-          <span class="name"><a href="nyxx.commands/TypeConverter/getType.html">getType</a></span><span class="signature">(<wbr>)
-            <span class="returntype parameter">&#8594; Type</span>
-          </span>
-        </dt>
-        <dd>
-          
-          
-</dd>
         <dt id="parse" class="callable">
           <span class="name"><a href="nyxx.commands/TypeConverter/parse.html">parse</a></span><span class="signature">(<wbr><span class="parameter" id="parse-param-from"><span class="type-annotation">String</span> <span class="parameter-name">from</span>, </span> <span class="parameter" id="parse-param-msg"><span class="type-annotation"><a href="nyxx/Message-class.html">Message</a></span> <span class="parameter-name">msg</span></span>)
             <span class="returntype parameter">&#8594; T</span>
           </span>
-        </dt>
+          </dt>
         <dd>
           
           
@@ -137,7 +126,7 @@ Overriding this class alows to later register it into <a href="nyxx.commands/Com
           <span class="name"><a href="nyxx.commands/TypeConverter/noSuchMethod.html">noSuchMethod</a></span><span class="signature">(<wbr><span class="parameter" id="noSuchMethod-param-invocation"><span class="type-annotation">Invocation</span> <span class="parameter-name">invocation</span></span>)
             <span class="returntype parameter">&#8594; dynamic</span>
           </span>
-        </dt>
+          </dt>
         <dd class="inherited">
           Invoked when a non-existent method or property is accessed. <a href="nyxx.commands/TypeConverter/noSuchMethod.html">[...]</a>
           <div class="features">inherited</div>
@@ -146,7 +135,7 @@ Overriding this class alows to later register it into <a href="nyxx.commands/Com
           <span class="name"><a href="nyxx.commands/TypeConverter/toString.html">toString</a></span><span class="signature">(<wbr>)
             <span class="returntype parameter">&#8594; String</span>
           </span>
-        </dt>
+          </dt>
         <dd class="inherited">
           Returns a string representation of this object.
           <div class="features">inherited</div>
@@ -161,7 +150,7 @@ Overriding this class alows to later register it into <a href="nyxx.commands/Com
           <span class="name"><a href="nyxx.commands/TypeConverter/operator_equals.html">operator ==</a></span><span class="signature">(<wbr><span class="parameter" id="==-param-other"><span class="type-annotation">dynamic</span> <span class="parameter-name">other</span></span>)
             <span class="returntype parameter">&#8594; bool</span>
           </span>
-        </dt>
+          </dt>
         <dd class="inherited">
           The equality operator. <a href="nyxx.commands/TypeConverter/operator_equals.html">[...]</a>
           <div class="features">inherited</div>
@@ -186,7 +175,6 @@ Overriding this class alows to later register it into <a href="nyxx.commands/Com
       <li class="inherited"><a href="nyxx.commands/TypeConverter/runtimeType.html">runtimeType</a></li>
     
       <li class="section-title"><a href="nyxx.commands/TypeConverter-class.html#instance-methods">Methods</a></li>
-      <li><a href="nyxx.commands/TypeConverter/getType.html">getType</a></li>
       <li><a href="nyxx.commands/TypeConverter/parse.html">parse</a></li>
       <li class="inherited"><a href="nyxx.commands/TypeConverter/noSuchMethod.html">noSuchMethod</a></li>
       <li class="inherited"><a href="nyxx.commands/TypeConverter/toString.html">toString</a></li>

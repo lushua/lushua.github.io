@@ -87,8 +87,7 @@
     <section class="summary source-code" id="source">
       <h2><span>Implementation</span> </h2>
       <pre class="language-dart"><code class="language-dart">Snowflake.fromNow() {
-  this._timestamp = DateTime.now();
-  this._id = _parseId(_timestamp);
+  this._id = _parseId(DateTime.now());
 }</code></pre>
     </section>
 

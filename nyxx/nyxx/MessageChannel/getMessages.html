@@ -46,9 +46,9 @@
       <li><a href="nyxx/MessageChannel/iterator.html">iterator</a></li>
       <li><a href="nyxx/MessageChannel/lastMessageID.html">lastMessageID</a></li>
       <li><a href="nyxx/MessageChannel/messages.html">messages</a></li>
+      <li><a href="nyxx/MessageChannel/nameString.html">nameString</a></li>
       <li><a href="nyxx/MessageChannel/onMessage.html">onMessage</a></li>
       <li><a href="nyxx/MessageChannel/onTyping.html">onTyping</a></li>
-      <li class="inherited"><a href="nyxx/Channel/client.html">client</a></li>
       <li class="inherited"><a href="nyxx/SnowflakeEntity/createdAt.html">createdAt</a></li>
       <li class="inherited"><a href="nyxx/MessageChannel/first.html">first</a></li>
       <li class="inherited"><a href="nyxx/SnowflakeEntity/hashCode.html">hashCode</a></li>
@@ -57,13 +57,13 @@
       <li class="inherited"><a href="nyxx/MessageChannel/isNotEmpty.html">isNotEmpty</a></li>
       <li class="inherited"><a href="nyxx/MessageChannel/last.html">last</a></li>
       <li class="inherited"><a href="nyxx/MessageChannel/length.html">length</a></li>
-      <li class="inherited"><a href="nyxx/Channel/raw.html">raw</a></li>
       <li class="inherited"><a href="nyxx/SnowflakeEntity/runtimeType.html">runtimeType</a></li>
       <li class="inherited"><a href="nyxx/MessageChannel/single.html">single</a></li>
       <li class="inherited"><a href="nyxx/Channel/type.html">type</a></li>
     
       <li class="section-title"><a href="nyxx/MessageChannel-class.html#instance-methods">Methods</a></li>
       <li><a href="nyxx/MessageChannel/bulkRemoveMessages.html">bulkRemoveMessages</a></li>
+      <li><a href="nyxx/MessageChannel/dispose.html">dispose</a></li>
       <li><a href="nyxx/MessageChannel/getMessage.html">getMessage</a></li>
       <li><a href="nyxx/MessageChannel/getMessages.html">getMessages</a></li>
       <li><a href="nyxx/MessageChannel/send.html">send</a></li>
@@ -111,7 +111,8 @@
     <section class="multi-line-signature">
       <span class="returntype">Future<span class="signature">&lt;<wbr><span class="type-parameter">LinkedHashMap<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/Snowflake-class.html">Snowflake</a></span>, <span class="type-parameter"><a href="nyxx/Message-class.html">Message</a></span>&gt;</span></span>&gt;</span></span>
       <span class="name ">getMessages</span>
-(<wbr>{<span class="parameter" id="getMessages-param-limit"><span class="type-annotation">int</span> <span class="parameter-name">limit</span>: <span class="default-value">50</span>, </span> <span class="parameter" id="getMessages-param-after"><span class="type-annotation"><a href="nyxx/Snowflake-class.html">Snowflake</a></span> <span class="parameter-name">after</span>, </span> <span class="parameter" id="getMessages-param-before"><span class="type-annotation"><a href="nyxx/Snowflake-class.html">Snowflake</a></span> <span class="parameter-name">before</span>, </span> <span class="parameter" id="getMessages-param-around"><span class="type-annotation"><a href="nyxx/Snowflake-class.html">Snowflake</a></span> <span class="parameter-name">around</span>, </span> <span class="parameter" id="getMessages-param-cache"><span class="type-annotation">bool</span> <span class="parameter-name">cache</span></span> })
+(<wbr>{<span class="parameter" id="getMessages-param-limit"><span class="type-annotation">int</span> <span class="parameter-name">limit</span>: <span class="default-value">50</span>, </span> <span class="parameter" id="getMessages-param-after"><span class="type-annotation"><a href="nyxx/Snowflake-class.html">Snowflake</a></span> <span class="parameter-name">after</span>, </span> <span class="parameter" id="getMessages-param-before"><span class="type-annotation"><a href="nyxx/Snowflake-class.html">Snowflake</a></span> <span class="parameter-name">before</span>, </span> <span class="parameter" id="getMessages-param-around"><span class="type-annotation"><a href="nyxx/Snowflake-class.html">Snowflake</a></span> <span class="parameter-name">around</span>, </span> <span class="parameter" id="getMessages-param-cache"><span class="type-annotation">bool</span> <span class="parameter-name">cache</span>: <span class="default-value">false</span></span> })
+      
     </section>
     <section class="desc markdown">
       <p>Gets several <a href="nyxx/Message-class.html">Message</a> objects from API. Only one of <code>after</code>, <code>before</code>, <code>around</code> can be specified
@@ -128,26 +129,28 @@ otherwise it'll throw.</p>
     Snowflake after,
     Snowflake before,
     Snowflake around,
-    bool cache}) async {
+    bool cache = false}) async {
   Map&lt;String, String&gt; query = {&quot;limit&quot;: limit.toString()};
 
   if (after != null) query[&#39;after&#39;] = after.toString();
   if (before != null) query[&#39;before&#39;] = before.toString();
   if (around != null) query[&#39;around&#39;] = around.toString();
 
-  final HttpResponse r = await this
-      .client
-      .http
+  final HttpResponse r = await _client._http
       .send(&#39;GET&#39;, &#39;&#47;channels&#47;${this.id}&#47;messages&#39;, queryParams: query);
 
   var response = LinkedHashMap&lt;Snowflake, Message&gt;();
 
-  for (Map&lt;String, dynamic&gt; val in r.body.values.first) {
-    var msg = Message._new(this.client, val);
+  for (Map&lt;String, dynamic&gt; val in r.body as List&lt;dynamic&gt;) {
+    var msg = Message._new(val);
     response[msg.id] = msg;
   }
 
-  if (cache) messages.addAll(response);
+  if (cache) {
+    for (var m in response.values) {
+     messages._cacheMessage(m);
+    }
+  }
 
   return response;
 }</code></pre>

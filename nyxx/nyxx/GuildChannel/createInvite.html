@@ -48,29 +48,29 @@
       <li><a href="nyxx/GuildChannel/guild.html">guild</a></li>
       <li><a href="nyxx/GuildChannel/name.html">name</a></li>
       <li><a href="nyxx/GuildChannel/nsfw.html">nsfw</a></li>
-      <li><a href="nyxx/GuildChannel/onUpdate.html">onUpdate</a></li>
-      <li><a href="nyxx/GuildChannel/parentId.html">parentId</a></li>
+      <li><a href="nyxx/GuildChannel/parentChannel.html">parentChannel</a></li>
       <li><a href="nyxx/GuildChannel/permissions.html">permissions</a></li>
       <li><a href="nyxx/GuildChannel/position.html">position</a></li>
-      <li class="inherited"><a href="nyxx/Channel/client.html">client</a></li>
       <li class="inherited"><a href="nyxx/SnowflakeEntity/createdAt.html">createdAt</a></li>
-      <li class="inherited"><a href="nyxx/GuildChannel/hashCode.html">hashCode</a></li>
+      <li class="inherited"><a href="nyxx/GuildEntity/hashCode.html">hashCode</a></li>
       <li class="inherited"><a href="nyxx/SnowflakeEntity/id.html">id</a></li>
-      <li class="inherited"><a href="nyxx/Channel/raw.html">raw</a></li>
-      <li class="inherited"><a href="nyxx/SnowflakeEntity/runtimeType.html">runtimeType</a></li>
+      <li class="inherited"><a href="nyxx/Nameable/nameString.html">nameString</a></li>
+      <li class="inherited"><a href="nyxx/GuildEntity/runtimeType.html">runtimeType</a></li>
       <li class="inherited"><a href="nyxx/Channel/type.html">type</a></li>
     
       <li class="section-title"><a href="nyxx/GuildChannel-class.html#instance-methods">Methods</a></li>
       <li><a href="nyxx/GuildChannel/createInvite.html">createInvite</a></li>
       <li><a href="nyxx/GuildChannel/deleteChannelPermission.html">deleteChannelPermission</a></li>
       <li><a href="nyxx/GuildChannel/editChannelPermission.html">editChannelPermission</a></li>
+      <li><a href="nyxx/GuildChannel/effectivePermissionForRole.html">effectivePermissionForRole</a></li>
+      <li><a href="nyxx/GuildChannel/effectivePermissions.html">effectivePermissions</a></li>
       <li><a href="nyxx/GuildChannel/getChannelInvites.html">getChannelInvites</a></li>
       <li class="inherited"><a href="nyxx/Channel/delete.html">delete</a></li>
-      <li class="inherited"><a href="nyxx/SnowflakeEntity/noSuchMethod.html">noSuchMethod</a></li>
-      <li class="inherited"><a href="nyxx/SnowflakeEntity/toString.html">toString</a></li>
+      <li class="inherited"><a href="nyxx/GuildEntity/noSuchMethod.html">noSuchMethod</a></li>
+      <li class="inherited"><a href="nyxx/GuildEntity/toString.html">toString</a></li>
     
       <li class="section-title inherited"><a href="nyxx/GuildChannel-class.html#operators">Operators</a></li>
-      <li class="inherited"><a href="nyxx/GuildChannel/operator_equals.html">operator ==</a></li>
+      <li class="inherited"><a href="nyxx/GuildEntity/operator_equals.html">operator ==</a></li>
     
     
     
@@ -84,6 +84,7 @@
       <span class="returntype">Future<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/Invite-class.html">Invite</a></span>&gt;</span></span>
       <span class="name ">createInvite</span>
 (<wbr>{<span class="parameter" id="createInvite-param-maxAge"><span class="type-annotation">int</span> <span class="parameter-name">maxAge</span>: <span class="default-value">0</span>, </span> <span class="parameter" id="createInvite-param-maxUses"><span class="type-annotation">int</span> <span class="parameter-name">maxUses</span>: <span class="default-value">0</span>, </span> <span class="parameter" id="createInvite-param-temporary"><span class="type-annotation">bool</span> <span class="parameter-name">temporary</span>: <span class="default-value">false</span>, </span> <span class="parameter" id="createInvite-param-unique"><span class="type-annotation">bool</span> <span class="parameter-name">unique</span>: <span class="default-value">false</span>, </span> <span class="parameter" id="createInvite-param-auditReason"><span class="type-annotation">String</span> <span class="parameter-name">auditReason</span>: <span class="default-value">""</span></span> })
+      
     </section>
     <section class="desc markdown">
       <p>Creates new <a href="nyxx/Invite-class.html">Invite</a> for <a href="nyxx/Channel-class.html">Channel</a> and returns it's instance</p>
@@ -106,11 +107,11 @@
   params[&#39;temporary&#39;] = temporary;
   params[&#39;unique&#39;] = unique;
 
-  final HttpResponse r = await this.client.http.send(
+  final HttpResponse r = await _client._http.send(
       &#39;POST&#39;, &quot;&#47;channels&#47;$id&#47;invites&quot;,
       body: params, reason: auditReason);
 
-  return Invite._new(this.client, r.body as Map&lt;String, dynamic&gt;);
+  return Invite._new(r.body as Map&lt;String, dynamic&gt;);
 }</code></pre>
     </section>
 

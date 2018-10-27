@@ -44,12 +44,10 @@
         <a href="nyxx/Http-class.html#instance-properties">Properties</a>
       </li>
       <li><a href="nyxx/Http/buckets.html">buckets</a></li>
-      <li><a href="nyxx/Http/headers.html">headers</a></li>
       <li class="inherited"><a href="nyxx/Http/hashCode.html">hashCode</a></li>
       <li class="inherited"><a href="nyxx/Http/runtimeType.html">runtimeType</a></li>
     
       <li class="section-title"><a href="nyxx/Http-class.html#instance-methods">Methods</a></li>
-      <li><a href="nyxx/Http/addAuditReason.html">addAuditReason</a></li>
       <li><a href="nyxx/Http/send.html">send</a></li>
       <li><a href="nyxx/Http/sendMultipart.html">sendMultipart</a></li>
       <li class="inherited"><a href="nyxx/Http/noSuchMethod.html">noSuchMethod</a></li>
@@ -70,9 +68,10 @@
       <span class="returntype">Future<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/HttpResponse-class.html">HttpResponse</a></span>&gt;</span></span>
       <span class="name ">sendMultipart</span>
 (<wbr><span class="parameter" id="sendMultipart-param-method"><span class="type-annotation">String</span> <span class="parameter-name">method</span>, </span> <span class="parameter" id="sendMultipart-param-path"><span class="type-annotation">String</span> <span class="parameter-name">path</span>, </span> <span class="parameter" id="sendMultipart-param-files"><span class="type-annotation">List<span class="signature">&lt;<wbr><span class="type-parameter">File</span>&gt;</span></span> <span class="parameter-name">files</span>, {</span> <span class="parameter" id="sendMultipart-param-data"><span class="type-annotation">Map<span class="signature">&lt;<wbr><span class="type-parameter">String</span>, <span class="type-parameter">dynamic</span>&gt;</span></span> <span class="parameter-name">data</span>, </span> <span class="parameter" id="sendMultipart-param-beforeReady"><span class="type-annotation">bool</span> <span class="parameter-name">beforeReady</span>: <span class="default-value">false</span>, </span> <span class="parameter" id="sendMultipart-param-reason"><span class="type-annotation">String</span> <span class="parameter-name">reason</span></span> })
+      
     </section>
     <section class="desc markdown">
-      <p>Sends mutlipart response</p>
+      <p>Sends multipart request</p>
     </section>
     
     <section class="summary source-code" id="source">
@@ -82,26 +81,26 @@
     {Map&lt;String, dynamic&gt; data,
     bool beforeReady = false,
     String reason}) async {
-  if (_client is Nyxx &amp;&amp; !this._client.ready &amp;&amp; !beforeReady)
-    throw Exception(&quot;Client isn&#39;t ready yet.&quot;);
+  if (_client is Nyxx &amp;&amp; !_client.ready &amp;&amp; !beforeReady)
+    return Future.error(Exception(&quot;Client isn&#39;t ready yet.&quot;));
 
   HttpMultipartRequest request = HttpMultipartRequest._new(this, method, path,
-      files, data, Map.from(this.headers)..addAll(headers));
+      files, data, Map.from(this._headers)..addAll(_headers));
 
   if (reason != &quot;&quot; || reason != null)
-    request.headers.addAll(addAuditReason(reason));
+    request.headers.addAll(_addAuditReason(reason));
 
   await for (HttpResponse r in request.stream) {
     if (!r.aborted &amp;&amp; r.status &gt;= 200 &amp;&amp; r.status &lt; 300) {
-      if (_client != null) HttpResponseEvent._new(_client, r);
+      if(_client != null) HttpResponseEvent._new(r);
       return r;
     } else {
-      print(r.body);
-      if (_client != null) HttpErrorEvent._new(_client, r);
-      throw HttpError._new(r);
+      if(_client != null) HttpErrorEvent._new(r);
+      return Future.error(r);
     }
   }
-  return null;
+
+  return Future.error(Exception(&quot;Didn&#39;t got any response&quot;));
 }</code></pre>
     </section>
 

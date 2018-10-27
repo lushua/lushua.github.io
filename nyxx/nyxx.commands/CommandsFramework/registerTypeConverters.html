@@ -45,28 +45,15 @@
       <li class="section-title">
         <a href="nyxx.commands/CommandsFramework-class.html#instance-properties">Properties</a>
       </li>
-      <li><a href="nyxx.commands/CommandsFramework/admins.html">admins</a></li>
-      <li><a href="nyxx.commands/CommandsFramework/game.html">game</a></li>
-      <li><a href="nyxx.commands/CommandsFramework/helpDirect.html">helpDirect</a></li>
-      <li><a href="nyxx.commands/CommandsFramework/ignoreBots.html">ignoreBots</a></li>
-      <li><a href="nyxx.commands/CommandsFramework/logger.html">logger</a></li>
-      <li><a href="nyxx.commands/CommandsFramework/onAdminOnlyError.html">onAdminOnlyError</a></li>
-      <li><a href="nyxx.commands/CommandsFramework/onCommandExecutionFail.html">onCommandExecutionFail</a></li>
-      <li><a href="nyxx.commands/CommandsFramework/onCommandNotFound.html">onCommandNotFound</a></li>
-      <li><a href="nyxx.commands/CommandsFramework/onCooldown.html">onCooldown</a></li>
-      <li><a href="nyxx.commands/CommandsFramework/onRequiredPermissionError.html">onRequiredPermissionError</a></li>
-      <li><a href="nyxx.commands/CommandsFramework/onRequiredTopicError.html">onRequiredTopicError</a></li>
-      <li><a href="nyxx.commands/CommandsFramework/onUnauthorizedNsfwAccess.html">onUnauthorizedNsfwAccess</a></li>
-      <li><a href="nyxx.commands/CommandsFramework/onWrongContext.html">onWrongContext</a></li>
+      <li><a href="nyxx.commands/CommandsFramework/onError.html">onError</a></li>
       <li><a href="nyxx.commands/CommandsFramework/prefix.html">prefix</a></li>
-      <li><a href="nyxx.commands/CommandsFramework/preprocessorFail.html">preprocessorFail</a></li>
       <li class="inherited"><a href="nyxx.commands/CommandsFramework/hashCode.html">hashCode</a></li>
       <li class="inherited"><a href="nyxx.commands/CommandsFramework/runtimeType.html">runtimeType</a></li>
     
       <li class="section-title"><a href="nyxx.commands/CommandsFramework-class.html#instance-methods">Methods</a></li>
       <li><a href="nyxx.commands/CommandsFramework/checkPermissions.html">checkPermissions</a></li>
-      <li><a href="nyxx.commands/CommandsFramework/registerLibraryCommands.html">registerLibraryCommands</a></li>
-      <li><a href="nyxx.commands/CommandsFramework/registerLibraryServices.html">registerLibraryServices</a></li>
+      <li><a href="nyxx.commands/CommandsFramework/discoverCommands.html">discoverCommands</a></li>
+      <li><a href="nyxx.commands/CommandsFramework/discoverServices.html">discoverServices</a></li>
       <li><a href="nyxx.commands/CommandsFramework/registerServices.html">registerServices</a></li>
       <li><a href="nyxx.commands/CommandsFramework/registerTypeConverters.html">registerTypeConverters</a></li>
       <li class="inherited"><a href="nyxx.commands/CommandsFramework/noSuchMethod.html">noSuchMethod</a></li>
@@ -87,6 +74,7 @@
       <span class="returntype">void</span>
       <span class="name ">registerTypeConverters</span>
 (<wbr><span class="parameter" id="registerTypeConverters-param-converters"><span class="type-annotation">List<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx.commands/TypeConverter-class.html">TypeConverter</a></span>&gt;</span></span> <span class="parameter-name">converters</span></span>)
+      
     </section>
     <section class="desc markdown">
       <p>Allows to register new converters for custom type</p>
@@ -95,7 +83,7 @@
     <section class="summary source-code" id="source">
       <h2><span>Implementation</span> </h2>
       <pre class="language-dart"><code class="language-dart">void registerTypeConverters(List&lt;TypeConverter&gt; converters) =&gt;
-    _typeConverters = converters;</code></pre>
+    _typeConverters.addAll(converters);</code></pre>
     </section>
 
   </div> <!-- /.main-content -->

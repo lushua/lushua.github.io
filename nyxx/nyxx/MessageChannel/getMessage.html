@@ -46,9 +46,9 @@
       <li><a href="nyxx/MessageChannel/iterator.html">iterator</a></li>
       <li><a href="nyxx/MessageChannel/lastMessageID.html">lastMessageID</a></li>
       <li><a href="nyxx/MessageChannel/messages.html">messages</a></li>
+      <li><a href="nyxx/MessageChannel/nameString.html">nameString</a></li>
       <li><a href="nyxx/MessageChannel/onMessage.html">onMessage</a></li>
       <li><a href="nyxx/MessageChannel/onTyping.html">onTyping</a></li>
-      <li class="inherited"><a href="nyxx/Channel/client.html">client</a></li>
       <li class="inherited"><a href="nyxx/SnowflakeEntity/createdAt.html">createdAt</a></li>
       <li class="inherited"><a href="nyxx/MessageChannel/first.html">first</a></li>
       <li class="inherited"><a href="nyxx/SnowflakeEntity/hashCode.html">hashCode</a></li>
@@ -57,13 +57,13 @@
       <li class="inherited"><a href="nyxx/MessageChannel/isNotEmpty.html">isNotEmpty</a></li>
       <li class="inherited"><a href="nyxx/MessageChannel/last.html">last</a></li>
       <li class="inherited"><a href="nyxx/MessageChannel/length.html">length</a></li>
-      <li class="inherited"><a href="nyxx/Channel/raw.html">raw</a></li>
       <li class="inherited"><a href="nyxx/SnowflakeEntity/runtimeType.html">runtimeType</a></li>
       <li class="inherited"><a href="nyxx/MessageChannel/single.html">single</a></li>
       <li class="inherited"><a href="nyxx/Channel/type.html">type</a></li>
     
       <li class="section-title"><a href="nyxx/MessageChannel-class.html#instance-methods">Methods</a></li>
       <li><a href="nyxx/MessageChannel/bulkRemoveMessages.html">bulkRemoveMessages</a></li>
+      <li><a href="nyxx/MessageChannel/dispose.html">dispose</a></li>
       <li><a href="nyxx/MessageChannel/getMessage.html">getMessage</a></li>
       <li><a href="nyxx/MessageChannel/getMessages.html">getMessages</a></li>
       <li><a href="nyxx/MessageChannel/send.html">send</a></li>
@@ -112,23 +112,22 @@
       <span class="returntype">Future<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/Message-class.html">Message</a></span>&gt;</span></span>
       <span class="name ">getMessage</span>
 (<wbr><span class="parameter" id="getMessage-param-id"><span class="type-annotation"><a href="nyxx/Snowflake-class.html">Snowflake</a></span> <span class="parameter-name">id</span>, {</span> <span class="parameter" id="getMessage-param-force"><span class="type-annotation">bool</span> <span class="parameter-name">force</span>: <span class="default-value">false</span></span> })
+      
     </section>
     <section class="desc markdown">
-      <p>Returs message with given <code>id</code>. Allows to force fatch message from api
-with <code>force</code> propery. By default it checks if message is in cache and fetches from api if not.</p>
+      <p>Returns message with given <code>id</code>. Allows to force fetch message from api
+with <code>force</code> property. By default it checks if message is in cache and fetches from api if not.</p>
     </section>
     
     <section class="summary source-code" id="source">
       <h2><span>Implementation</span> </h2>
       <pre class="language-dart"><code class="language-dart">Future&lt;Message&gt; getMessage(Snowflake id, {bool force = false}) async {
-  if (force || !messages.containsKey(id)) {
-    var r = await this
-        .client
-        .http
+  if (force || !messages.hasKey(id)) {
+    var r = await _client._http
         .send(&#39;GET&#39;, &quot;&#47;channels&#47;${this.id.toString()}&#47;messages&#47;$id&quot;);
-    var msg = Message._new(this.client, r.body as Map&lt;String, dynamic&gt;);
+    var msg = Message._new(r.body as Map&lt;String, dynamic&gt;);
 
-   return _cacheMessage(msg);
+    return messages._cacheMessage(msg);
   }
 
   return messages[id];

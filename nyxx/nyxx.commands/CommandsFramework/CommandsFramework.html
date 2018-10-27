@@ -45,28 +45,15 @@
       <li class="section-title">
         <a href="nyxx.commands/CommandsFramework-class.html#instance-properties">Properties</a>
       </li>
-      <li><a href="nyxx.commands/CommandsFramework/admins.html">admins</a></li>
-      <li><a href="nyxx.commands/CommandsFramework/game.html">game</a></li>
-      <li><a href="nyxx.commands/CommandsFramework/helpDirect.html">helpDirect</a></li>
-      <li><a href="nyxx.commands/CommandsFramework/ignoreBots.html">ignoreBots</a></li>
-      <li><a href="nyxx.commands/CommandsFramework/logger.html">logger</a></li>
-      <li><a href="nyxx.commands/CommandsFramework/onAdminOnlyError.html">onAdminOnlyError</a></li>
-      <li><a href="nyxx.commands/CommandsFramework/onCommandExecutionFail.html">onCommandExecutionFail</a></li>
-      <li><a href="nyxx.commands/CommandsFramework/onCommandNotFound.html">onCommandNotFound</a></li>
-      <li><a href="nyxx.commands/CommandsFramework/onCooldown.html">onCooldown</a></li>
-      <li><a href="nyxx.commands/CommandsFramework/onRequiredPermissionError.html">onRequiredPermissionError</a></li>
-      <li><a href="nyxx.commands/CommandsFramework/onRequiredTopicError.html">onRequiredTopicError</a></li>
-      <li><a href="nyxx.commands/CommandsFramework/onUnauthorizedNsfwAccess.html">onUnauthorizedNsfwAccess</a></li>
-      <li><a href="nyxx.commands/CommandsFramework/onWrongContext.html">onWrongContext</a></li>
+      <li><a href="nyxx.commands/CommandsFramework/onError.html">onError</a></li>
       <li><a href="nyxx.commands/CommandsFramework/prefix.html">prefix</a></li>
-      <li><a href="nyxx.commands/CommandsFramework/preprocessorFail.html">preprocessorFail</a></li>
       <li class="inherited"><a href="nyxx.commands/CommandsFramework/hashCode.html">hashCode</a></li>
       <li class="inherited"><a href="nyxx.commands/CommandsFramework/runtimeType.html">runtimeType</a></li>
     
       <li class="section-title"><a href="nyxx.commands/CommandsFramework-class.html#instance-methods">Methods</a></li>
       <li><a href="nyxx.commands/CommandsFramework/checkPermissions.html">checkPermissions</a></li>
-      <li><a href="nyxx.commands/CommandsFramework/registerLibraryCommands.html">registerLibraryCommands</a></li>
-      <li><a href="nyxx.commands/CommandsFramework/registerLibraryServices.html">registerLibraryServices</a></li>
+      <li><a href="nyxx.commands/CommandsFramework/discoverCommands.html">discoverCommands</a></li>
+      <li><a href="nyxx.commands/CommandsFramework/discoverServices.html">discoverServices</a></li>
       <li><a href="nyxx.commands/CommandsFramework/registerServices.html">registerServices</a></li>
       <li><a href="nyxx.commands/CommandsFramework/registerTypeConverters.html">registerTypeConverters</a></li>
       <li class="inherited"><a href="nyxx.commands/CommandsFramework/noSuchMethod.html">noSuchMethod</a></li>
@@ -85,7 +72,7 @@
 
     <section class="multi-line-signature">
       
-      <span class="name ">CommandsFramework</span>(<wbr><span class="parameter" id="-param-prefix"><span class="type-annotation">String</span> <span class="parameter-name">prefix</span>, </span> <span class="parameter" id="-param-_client"><span class="type-annotation"><a href="nyxx/Nyxx-class.html">Nyxx</a></span> <span class="parameter-name">_client</span>, {</span> <span class="parameter" id="-param-roundupTime"><span class="type-annotation">Duration</span> <span class="parameter-name">roundupTime</span>: <span class="default-value">const Duration(minutes: 2)</span></span> })
+      <span class="name ">CommandsFramework</span>(<wbr><span class="parameter" id="-param-prefix"><span class="type-annotation">String</span> <span class="parameter-name">prefix</span>, {</span> <span class="parameter" id="-param-roundupTime"><span class="type-annotation">Duration</span> <span class="parameter-name">roundupTime</span>: <span class="default-value">const Duration(minutes: 2)</span>, </span> <span class="parameter" id="-param-ignoreBots"><span class="type-annotation">bool</span> <span class="parameter-name">ignoreBots</span>: <span class="default-value">true</span>, </span> <span class="parameter" id="-param-admins"><span class="type-annotation">List<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/Snowflake-class.html">Snowflake</a></span>&gt;</span></span> <span class="parameter-name">admins</span></span> })
     </section>
 
     <section class="desc markdown">
@@ -94,41 +81,20 @@
     
     <section class="summary source-code" id="source">
       <h2><span>Implementation</span> </h2>
-      <pre class="language-dart"><code class="language-dart">CommandsFramework(this.prefix, this._client,
-    {Duration roundupTime = const Duration(minutes: 2)}) {
+      <pre class="language-dart"><code class="language-dart">CommandsFramework(this.prefix,
+    {Duration roundupTime = const Duration(minutes: 2), bool ignoreBots = true, List&lt;Snowflake&gt; admins}) {
   this._commands = List();
   _cooldownCache = CooldownCache(roundupTime);
+  _admins = admins;
 
-  _commandNotFoundEvent = StreamController.broadcast();
-  _requiredPermissionEvent = StreamController.broadcast();
-  _forAdminOnlyEvent = StreamController.broadcast();
-  _cooldownEvent = StreamController.broadcast();
-  _commandExecutionFail = StreamController.broadcast();
-  _wrongContext = StreamController.broadcast();
-  _unauthorizedNsfwAccess = StreamController.broadcast();
-  _requiredTopicError = StreamController.broadcast();
-  _preprocessorFail = StreamController.broadcast();
-  &#47;&#47;_commandParsingFail = new StreamController.broadcast();
+  _onError = StreamController.broadcast();
+  onError = _onError.stream;
 
-  onCommandNotFound = _commandNotFoundEvent.stream;
-  onAdminOnlyError = _forAdminOnlyEvent.stream;
-  onRequiredPermissionError = _forAdminOnlyEvent.stream;
-  onCooldown = _cooldownEvent.stream;
-  onCommandExecutionFail = _commandExecutionFail.stream;
-  onWrongContext = _wrongContext.stream;
-  onUnauthorizedNsfwAccess = _unauthorizedNsfwAccess.stream;
-  onRequiredTopicError = _requiredTopicError.stream;
-  preprocessorFail = _preprocessorFail.stream;
-  &#47;&#47;onCommandParsingFail = _commandParsingFail.stream;
+  client.onMessageReceived.listen((MessageReceivedEvent e) {
+    if (ignoreBots &amp;&amp; e.message.author.bot) return;
+    if (!e.message.content.startsWith(prefix)) return;
 
-  &#47;&#47; Listen to incoming messages and ignore all from bots (if set)
-  _client.onReady.listen((_) {
-    _client.onMessage.listen((MessageEvent e) {
-      if (ignoreBots &amp;&amp; e.message.author.bot) return;
-      if (!e.message.content.startsWith(prefix)) return;
-
-      Future.microtask(() =&gt; _dispatch(e));
-    });
+    Future(() =&gt; _dispatch(e));
   });
 }</code></pre>
     </section>

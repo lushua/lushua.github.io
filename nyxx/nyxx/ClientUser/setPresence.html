@@ -43,31 +43,29 @@
       <li class="section-title">
         <a href="nyxx/ClientUser-class.html#instance-properties">Properties</a>
       </li>
-      <li><a href="nyxx/ClientUser/email.html">email</a></li>
       <li><a href="nyxx/ClientUser/mfa.html">mfa</a></li>
       <li><a href="nyxx/ClientUser/verified.html">verified</a></li>
       <li class="inherited"><a href="nyxx/User/avatar.html">avatar</a></li>
       <li class="inherited"><a href="nyxx/User/bot.html">bot</a></li>
-      <li class="inherited"><a href="nyxx/User/client.html">client</a></li>
       <li class="inherited"><a href="nyxx/SnowflakeEntity/createdAt.html">createdAt</a></li>
       <li class="inherited"><a href="nyxx/User/discriminator.html">discriminator</a></li>
+      <li class="inherited"><a href="nyxx/User/dmChannel.html">dmChannel</a></li>
       <li class="inherited"><a href="nyxx/SnowflakeEntity/hashCode.html">hashCode</a></li>
       <li class="inherited"><a href="nyxx/SnowflakeEntity/id.html">id</a></li>
       <li class="inherited"><a href="nyxx/User/mention.html">mention</a></li>
-      <li class="inherited"><a href="nyxx/User/mentionNickname.html">mentionNickname</a></li>
-      <li class="inherited"><a href="nyxx/User/raw.html">raw</a></li>
+      <li class="inherited"><a href="nyxx/User/nameString.html">nameString</a></li>
       <li class="inherited"><a href="nyxx/SnowflakeEntity/runtimeType.html">runtimeType</a></li>
+      <li class="inherited"><a href="nyxx/User/tag.html">tag</a></li>
       <li class="inherited"><a href="nyxx/User/username.html">username</a></li>
-      <li class="inherited"><a href="nyxx/User/voiceState.html">voiceState</a></li>
     
       <li class="section-title"><a href="nyxx/ClientUser-class.html#instance-methods">Methods</a></li>
       <li><a href="nyxx/ClientUser/edit.html">edit</a></li>
       <li><a href="nyxx/ClientUser/getMembership.html">getMembership</a></li>
       <li><a href="nyxx/ClientUser/setGame.html">setGame</a></li>
       <li><a href="nyxx/ClientUser/setPresence.html">setPresence</a></li>
+      <li><a href="nyxx/ClientUser/setPresenceForShard.html">setPresenceForShard</a></li>
       <li><a href="nyxx/ClientUser/setStatus.html">setStatus</a></li>
       <li class="inherited"><a href="nyxx/User/avatarURL.html">avatarURL</a></li>
-      <li class="inherited"><a href="nyxx/User/getDMChannel.html">getDMChannel</a></li>
       <li class="inherited"><a href="nyxx/SnowflakeEntity/noSuchMethod.html">noSuchMethod</a></li>
       <li class="inherited"><a href="nyxx/User/send.html">send</a></li>
       <li class="inherited"><a href="nyxx/User/toString.html">toString</a></li>
@@ -86,7 +84,8 @@
     <section class="multi-line-signature">
       <span class="returntype"><a href="nyxx/ClientUser-class.html">ClientUser</a></span>
       <span class="name ">setPresence</span>
-(<wbr>{<span class="parameter" id="setPresence-param-status"><span class="type-annotation">String</span> <span class="parameter-name">status</span>, </span> <span class="parameter" id="setPresence-param-afk"><span class="type-annotation">bool</span> <span class="parameter-name">afk</span>: <span class="default-value">false</span>, </span> <span class="parameter" id="setPresence-param-game"><span class="type-annotation"><a href="nyxx/Presence-class.html">Presence</a></span> <span class="parameter-name">game</span></span> })
+(<wbr>{<span class="parameter" id="setPresence-param-status"><span class="type-annotation">String</span> <span class="parameter-name">status</span>, </span> <span class="parameter" id="setPresence-param-afk"><span class="type-annotation">bool</span> <span class="parameter-name">afk</span>: <span class="default-value">false</span>, </span> <span class="parameter" id="setPresence-param-game"><span class="type-annotation"><a href="nyxx/Presence-class.html">Presence</a></span> <span class="parameter-name">game</span>, </span> <span class="parameter" id="setPresence-param-since"><span class="type-annotation">DateTime</span> <span class="parameter-name">since</span></span> })
+      
     </section>
     <section class="desc markdown">
       <p>Updates the client's presence</p>
@@ -94,9 +93,9 @@
     
     <section class="summary source-code" id="source">
       <h2><span>Implementation</span> </h2>
-      <pre class="language-dart"><code class="language-dart">ClientUser setPresence({String status, bool afk = false, Presence game}) {
-  this.client.shards.forEach((int id, Shard shard) {
-    shard.setPresence(status: status, afk: afk, game: game);
+      <pre class="language-dart"><code class="language-dart">ClientUser setPresence({String status, bool afk = false, Presence game, DateTime since}) {
+  _client.shards.forEach((int id, Shard shard) {
+    shard.setPresence(status: status, afk: afk, game: game, since: since);
   });
 
   return this;

@@ -41,34 +41,32 @@
       <li class="section-title"><a href="nyxx.commands/nyxx.commands-library.html#classes">Classes</a></li>
       <li><a href="nyxx.commands/Command-class.html">Command</a></li>
       <li><a href="nyxx.commands/CommandContext-class.html">CommandContext</a></li>
-      <li><a href="nyxx.commands/CommandExecutionFailEvent-class.html">CommandExecutionFailEvent</a></li>
-      <li><a href="nyxx.commands/CommandParsingFail-class.html">CommandParsingFail</a></li>
+      <li><a href="nyxx.commands/CommandExecutionError-class.html">CommandExecutionError</a></li>
       <li><a href="nyxx.commands/CommandsFramework-class.html">CommandsFramework</a></li>
       <li><a href="nyxx.commands/CooldownCache-class.html">CooldownCache</a></li>
-      <li><a href="nyxx.commands/Help-class.html">Help</a></li>
       <li><a href="nyxx.commands/Module-class.html">Module</a></li>
-      <li><a href="nyxx.commands/Pagination-class.html">Pagination</a></li>
       <li><a href="nyxx.commands/Postprocessor-class.html">Postprocessor</a></li>
       <li><a href="nyxx.commands/Preprocessor-class.html">Preprocessor</a></li>
-      <li><a href="nyxx.commands/PreprocessorErrorEvent-class.html">PreprocessorErrorEvent</a></li>
+      <li><a href="nyxx.commands/PreprocessorResult-class.html">PreprocessorResult</a></li>
       <li><a href="nyxx.commands/Remainder-class.html">Remainder</a></li>
       <li><a href="nyxx.commands/Restrict-class.html">Restrict</a></li>
-      <li><a href="nyxx.commands/Scheduler-class.html">Scheduler</a></li>
       <li><a href="nyxx.commands/Service-class.html">Service</a></li>
       <li><a href="nyxx.commands/TypeConverter-class.html">TypeConverter</a></li>
     
     
     
-      <li class="section-title"><a href="nyxx.commands/nyxx.commands-library.html#functions">Functions</a></li>
-      <li><a href="nyxx.commands/createPoll.html">createPoll</a></li>
     
+    
+      <li class="section-title"><a href="nyxx.commands/nyxx.commands-library.html#enums">Enums</a></li>
+      <li><a href="nyxx.commands/ContextType-class.html">ContextType</a></li>
+      <li><a href="nyxx.commands/ExecutionErrorType-class.html">ExecutionErrorType</a></li>
     
     
     </ol>
   </div>
 
   <div class="col-xs-12 col-sm-9 col-md-8 main-content">
-    <h1>Restrict class</h1>
+      <h1>Restrict class </h1>
 
     <section class="desc markdown">
       <p>Defines additional properties which will restrict user access to command
@@ -81,7 +79,7 @@ All fields are optional and wont affect command execution of not set.</p>
 
       <dl class="constructor-summary-list">
         <dt id="Restrict" class="callable">
-          <span class="name"><a href="nyxx.commands/Restrict/Restrict.html">Restrict</a></span><span class="signature">({<span class="parameter" id="-param-admin"><span class="type-annotation">bool</span> <span class="parameter-name">admin</span>, </span> <span class="parameter" id="-param-owner"><span class="type-annotation">bool</span> <span class="parameter-name">owner</span>, </span> <span class="parameter" id="-param-roles"><span class="type-annotation">List<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/Snowflake-class.html">Snowflake</a></span>&gt;</span></span> <span class="parameter-name">roles</span>: <span class="default-value">const []</span>, </span> <span class="parameter" id="-param-cooldown"><span class="type-annotation">int</span> <span class="parameter-name">cooldown</span>, </span> <span class="parameter" id="-param-userPermissions"><span class="type-annotation">List<span class="signature">&lt;<wbr><span class="type-parameter">int</span>&gt;</span></span> <span class="parameter-name">userPermissions</span>: <span class="default-value">const []</span>, </span> <span class="parameter" id="-param-botPermissions"><span class="type-annotation">List<span class="signature">&lt;<wbr><span class="type-parameter">int</span>&gt;</span></span> <span class="parameter-name">botPermissions</span>: <span class="default-value">const []</span>, </span> <span class="parameter" id="-param-guild"><span class="type-annotation">bool</span> <span class="parameter-name">guild</span>, </span> <span class="parameter" id="-param-nsfw"><span class="type-annotation">bool</span> <span class="parameter-name">nsfw</span>, </span> <span class="parameter" id="-param-topics"><span class="type-annotation">List<span class="signature">&lt;<wbr><span class="type-parameter">String</span>&gt;</span></span> <span class="parameter-name">topics</span>: <span class="default-value">const []</span>, </span> <span class="parameter" id="-param-hidden"><span class="type-annotation">bool</span> <span class="parameter-name">hidden</span></span> })</span>
+          <span class="name"><a href="nyxx.commands/Restrict/Restrict.html">Restrict</a></span><span class="signature">({<span class="parameter" id="-param-admin"><span class="type-annotation">bool</span> <span class="parameter-name">admin</span>, </span> <span class="parameter" id="-param-roles"><span class="type-annotation">List<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/Snowflake-class.html">Snowflake</a></span>&gt;</span></span> <span class="parameter-name">roles</span>: <span class="default-value">const []</span>, </span> <span class="parameter" id="-param-cooldown"><span class="type-annotation">int</span> <span class="parameter-name">cooldown</span>, </span> <span class="parameter" id="-param-userPermissions"><span class="type-annotation">List<span class="signature">&lt;<wbr><span class="type-parameter">int</span>&gt;</span></span> <span class="parameter-name">userPermissions</span>: <span class="default-value">const []</span>, </span> <span class="parameter" id="-param-botPermissions"><span class="type-annotation">List<span class="signature">&lt;<wbr><span class="type-parameter">int</span>&gt;</span></span> <span class="parameter-name">botPermissions</span>: <span class="default-value">const []</span>, </span> <span class="parameter" id="-param-requiredContext"><span class="type-annotation"><a href="nyxx.commands/ContextType-class.html">ContextType</a></span> <span class="parameter-name">requiredContext</span>, </span> <span class="parameter" id="-param-nsfw"><span class="type-annotation">bool</span> <span class="parameter-name">nsfw</span>, </span> <span class="parameter" id="-param-requireVoice"><span class="type-annotation">bool</span> <span class="parameter-name">requireVoice</span>: <span class="default-value">false</span>, </span> <span class="parameter" id="-param-topics"><span class="type-annotation">List<span class="signature">&lt;<wbr><span class="type-parameter">String</span>&gt;</span></span> <span class="parameter-name">topics</span>: <span class="default-value">const []</span></span> })</span>
         </dt>
         <dd>
           
@@ -96,7 +94,7 @@ All fields are optional and wont affect command execution of not set.</p>
       <dl class="properties">
         <dt id="admin" class="property">
           <span class="name"><a href="nyxx.commands/Restrict/admin.html">admin</a></span>
-          <span class="signature">&#8594; bool</span>
+          <span class="signature">&#8594; bool</span> 
         </dt>
         <dd>
           Checks if user is in admins list provided at creating CommandsFramework
@@ -104,7 +102,7 @@ All fields are optional and wont affect command execution of not set.</p>
 </dd>
         <dt id="botPermissions" class="property">
           <span class="name"><a href="nyxx.commands/Restrict/botPermissions.html">botPermissions</a></span>
-          <span class="signature">&#8594; List<span class="signature">&lt;<wbr><span class="type-parameter">int</span>&gt;</span></span>
+          <span class="signature">&#8594; List<span class="signature">&lt;<wbr><span class="type-parameter">int</span>&gt;</span></span> 
         </dt>
         <dd>
           List of required to bot to succeed.
@@ -112,47 +110,39 @@ All fields are optional and wont affect command execution of not set.</p>
 </dd>
         <dt id="cooldown" class="property">
           <span class="name"><a href="nyxx.commands/Restrict/cooldown.html">cooldown</a></span>
-          <span class="signature">&#8594; int</span>
+          <span class="signature">&#8594; int</span> 
         </dt>
         <dd>
           Cooldown for command in seconds
           <div class="features">final</div>
 </dd>
-        <dt id="guild" class="property">
-          <span class="name"><a href="nyxx.commands/Restrict/guild.html">guild</a></span>
-          <span class="signature">&#8594; bool</span>
-        </dt>
-        <dd>
-          Allows to restrict command to be used only on guild or only in DM or both
-          <div class="features">final</div>
-</dd>
-        <dt id="hidden" class="property">
-          <span class="name"><a href="nyxx.commands/Restrict/hidden.html">hidden</a></span>
-          <span class="signature">&#8594; bool</span>
-        </dt>
-        <dd>
-          If command is hidden it won't be included in help strings
-          <div class="features">final</div>
-</dd>
         <dt id="nsfw" class="property">
           <span class="name"><a href="nyxx.commands/Restrict/nsfw.html">nsfw</a></span>
-          <span class="signature">&#8594; bool</span>
+          <span class="signature">&#8594; bool</span> 
         </dt>
         <dd>
           If command is nfsw it wont be invoked in no nsfw channels
           <div class="features">final</div>
 </dd>
-        <dt id="owner" class="property">
-          <span class="name"><a href="nyxx.commands/Restrict/owner.html">owner</a></span>
-          <span class="signature">&#8594; bool</span>
+        <dt id="requiredContext" class="property">
+          <span class="name"><a href="nyxx.commands/Restrict/requiredContext.html">requiredContext</a></span>
+          <span class="signature">&#8594; <a href="nyxx.commands/ContextType-class.html">ContextType</a></span> 
         </dt>
         <dd>
-          Checks if user is server owner
+          Allows to restrict command to be used only on guild or only in DM or both
+          <div class="features">final</div>
+</dd>
+        <dt id="requireVoice" class="property">
+          <span class="name"><a href="nyxx.commands/Restrict/requireVoice.html">requireVoice</a></span>
+          <span class="signature">&#8594; bool</span> 
+        </dt>
+        <dd>
+          Command requires user invoking that command to be in voice channel
           <div class="features">final</div>
 </dd>
         <dt id="roles" class="property">
           <span class="name"><a href="nyxx.commands/Restrict/roles.html">roles</a></span>
-          <span class="signature">&#8594; List<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/Snowflake-class.html">Snowflake</a></span>&gt;</span></span>
+          <span class="signature">&#8594; List<span class="signature">&lt;<wbr><span class="type-parameter"><a href="nyxx/Snowflake-class.html">Snowflake</a></span>&gt;</span></span> 
         </dt>
         <dd>
           List of roles required to execute command
@@ -160,7 +150,7 @@ All fields are optional and wont affect command execution of not set.</p>
 </dd>
         <dt id="topics" class="property">
           <span class="name"><a href="nyxx.commands/Restrict/topics.html">topics</a></span>
-          <span class="signature">&#8594; List<span class="signature">&lt;<wbr><span class="type-parameter">String</span>&gt;</span></span>
+          <span class="signature">&#8594; List<span class="signature">&lt;<wbr><span class="type-parameter">String</span>&gt;</span></span> 
         </dt>
         <dd>
           Topic of command. Can only execute this command if channel has specific topics indicated
@@ -169,7 +159,7 @@ Adding to channel topic <code>[games, PC]</code> will allow to only execute comm
 </dd>
         <dt id="userPermissions" class="property">
           <span class="name"><a href="nyxx.commands/Restrict/userPermissions.html">userPermissions</a></span>
-          <span class="signature">&#8594; List<span class="signature">&lt;<wbr><span class="type-parameter">int</span>&gt;</span></span>
+          <span class="signature">&#8594; List<span class="signature">&lt;<wbr><span class="type-parameter">int</span>&gt;</span></span> 
         </dt>
         <dd>
           List of required permissions to invoke command
@@ -177,7 +167,7 @@ Adding to channel topic <code>[games, PC]</code> will allow to only execute comm
 </dd>
         <dt id="hashCode" class="property inherited">
           <span class="name"><a href="nyxx.commands/Restrict/hashCode.html">hashCode</a></span>
-          <span class="signature">&#8594; int</span>
+          <span class="signature">&#8594; int</span> 
         </dt>
         <dd class="inherited">
           The hash code for this object. <a href="nyxx.commands/Restrict/hashCode.html">[...]</a>
@@ -185,7 +175,7 @@ Adding to channel topic <code>[games, PC]</code> will allow to only execute comm
 </dd>
         <dt id="runtimeType" class="property inherited">
           <span class="name"><a href="nyxx.commands/Restrict/runtimeType.html">runtimeType</a></span>
-          <span class="signature">&#8594; Type</span>
+          <span class="signature">&#8594; Type</span> 
         </dt>
         <dd class="inherited">
           A representation of the runtime type of the object.
@@ -201,7 +191,7 @@ Adding to channel topic <code>[games, PC]</code> will allow to only execute comm
           <span class="name"><a href="nyxx.commands/Restrict/noSuchMethod.html">noSuchMethod</a></span><span class="signature">(<wbr><span class="parameter" id="noSuchMethod-param-invocation"><span class="type-annotation">Invocation</span> <span class="parameter-name">invocation</span></span>)
             <span class="returntype parameter">&#8594; dynamic</span>
           </span>
-        </dt>
+          </dt>
         <dd class="inherited">
           Invoked when a non-existent method or property is accessed. <a href="nyxx.commands/Restrict/noSuchMethod.html">[...]</a>
           <div class="features">inherited</div>
@@ -210,7 +200,7 @@ Adding to channel topic <code>[games, PC]</code> will allow to only execute comm
           <span class="name"><a href="nyxx.commands/Restrict/toString.html">toString</a></span><span class="signature">(<wbr>)
             <span class="returntype parameter">&#8594; String</span>
           </span>
-        </dt>
+          </dt>
         <dd class="inherited">
           Returns a string representation of this object.
           <div class="features">inherited</div>
@@ -225,7 +215,7 @@ Adding to channel topic <code>[games, PC]</code> will allow to only execute comm
           <span class="name"><a href="nyxx.commands/Restrict/operator_equals.html">operator ==</a></span><span class="signature">(<wbr><span class="parameter" id="==-param-other"><span class="type-annotation">dynamic</span> <span class="parameter-name">other</span></span>)
             <span class="returntype parameter">&#8594; bool</span>
           </span>
-        </dt>
+          </dt>
         <dd class="inherited">
           The equality operator. <a href="nyxx.commands/Restrict/operator_equals.html">[...]</a>
           <div class="features">inherited</div>
@@ -249,10 +239,9 @@ Adding to channel topic <code>[games, PC]</code> will allow to only execute comm
       <li><a href="nyxx.commands/Restrict/admin.html">admin</a></li>
       <li><a href="nyxx.commands/Restrict/botPermissions.html">botPermissions</a></li>
       <li><a href="nyxx.commands/Restrict/cooldown.html">cooldown</a></li>
-      <li><a href="nyxx.commands/Restrict/guild.html">guild</a></li>
-      <li><a href="nyxx.commands/Restrict/hidden.html">hidden</a></li>
       <li><a href="nyxx.commands/Restrict/nsfw.html">nsfw</a></li>
-      <li><a href="nyxx.commands/Restrict/owner.html">owner</a></li>
+      <li><a href="nyxx.commands/Restrict/requiredContext.html">requiredContext</a></li>
+      <li><a href="nyxx.commands/Restrict/requireVoice.html">requireVoice</a></li>
       <li><a href="nyxx.commands/Restrict/roles.html">roles</a></li>
       <li><a href="nyxx.commands/Restrict/topics.html">topics</a></li>
       <li><a href="nyxx.commands/Restrict/userPermissions.html">userPermissions</a></li>

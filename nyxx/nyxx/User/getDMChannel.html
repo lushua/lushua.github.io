@@ -45,13 +45,9 @@
       </li>
       <li><a href="nyxx/User/avatar.html">avatar</a></li>
       <li><a href="nyxx/User/bot.html">bot</a></li>
-      <li><a href="nyxx/User/client.html">client</a></li>
       <li><a href="nyxx/User/discriminator.html">discriminator</a></li>
       <li><a href="nyxx/User/mention.html">mention</a></li>
-      <li><a href="nyxx/User/mentionNickname.html">mentionNickname</a></li>
-      <li><a href="nyxx/User/raw.html">raw</a></li>
       <li><a href="nyxx/User/username.html">username</a></li>
-      <li><a href="nyxx/User/voiceState.html">voiceState</a></li>
       <li class="inherited"><a href="nyxx/SnowflakeEntity/createdAt.html">createdAt</a></li>
       <li class="inherited"><a href="nyxx/SnowflakeEntity/hashCode.html">hashCode</a></li>
       <li class="inherited"><a href="nyxx/SnowflakeEntity/id.html">id</a></li>
@@ -94,7 +90,7 @@
   } catch (err) {
     HttpResponse r = await client.http.send(&#39;POST&#39;, &quot;&#47;users&#47;@me&#47;channels&quot;,
         body: {&quot;recipient_id&quot;: this.id.toString()});
-    return DMChannel._new(client, r.body as Map&lt;String, dynamic&gt;);
+    return DMChannel._new(r.body as Map&lt;String, dynamic&gt;);
   }
 }</code></pre>
     </section>
