@@ -1,5 +1,0 @@
-Linux:
-
--konfiguracja klawisza caps lock tak aby po jego wciśnięciu odtworzony został dźwięk systemowy
--zmienić nazwę komputera na egzamin_linux
--archiwizacja katalogu Obrazy tak aby miał on końcówkę .gz
