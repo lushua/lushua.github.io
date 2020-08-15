@@ -1,7 +1,2 @@
 *.min.css
 .vscode/
-
-materialy.aux
-materialy.f*
-materialy.syn*
-materialy.log
